@@ -3188,4 +3188,128 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         extra_off: 0,
     },
 
+    // ==================================================================
+    // NUVORA MAY-05-2026 EXPANSION (build 14158, port-13338 IDA pass)
+    // ------------------------------------------------------------------
+    // Two more cheat-relevant unique anchors mined live:
+    //   * CCSPlayer_MovementServices::CheckJumpButton   (bhop / autostrafe)
+    //   * CSGOInput::CreateMove                         (per-tick aim/move hook)
+    // Both verified single-match on client.dll 14158 via IDA-MCP
+    // find_bytes against the live IDB.
+    // ==================================================================
+
+    // CCSPlayer_MovementServices::CheckJumpButton â€” sub_180ACF410.
+    // Stamina + jump-impulse logic; refs the
+    // "stamina: %.1f, jump impulse mul: %.3f" log string. This is THE
+    // function to hook for perfect bunnyhop (force-jump on landing
+    // tick) and autostrafe (overwrite m_vecVelocity right after the
+    // stamina-penalty multiplier is applied). Replaces the older
+    // create-move-side jump emulation with the exact same write the
+    // engine does internally â€” no more "first jump miss" desync.
+    Signature {
+        name: "CCSPlayer_MovementServices_CheckJumpButton",
+        module: "client.dll",
+        needle: "4C 89 44 24 18 55 56 41 56 48 8D AC 24 70 EC FF FF B8 90 14 00 00",
+        resolve: NONE,
+        extra_off: 0,
+    },
+
+    // CSGOInput::CreateMove â€” sub_180C5E7F0. The actual createmove the
+    // existing `create_move_v2` short-form sig was missing. Refs
+    // "cl: CreateMove - Frame %d, cmd %d, cmd client tick %d, ..."
+    // log string. Wraps the per-subtick CUserCmd assembly (mouse
+    // delta â†’ view angles â†’ shoot angles â†’ buttons). Hook this
+    // instead of patching individual subtick writers when you want
+    // a single chokepoint for aim/anti-aim/triggerbot.
+    Signature {
+        name: "CSGOInput_CreateMove",
+        module: "client.dll",
+        needle: "48 8B C4 4C 89 40 18 48 89 48 08 55 53 41 54 41 55 48 8D A8 F8 FE FF FF",
+        resolve: NONE,
+        extra_off: 0,
+    },
+
+    // ==================================================================
+    // NUVORA MAY-05-2026 EXPANSION v2 (build 14158, ports 13338+13339)
+    // ------------------------------------------------------------------
+    // 4 client.dll + 2 engine2.dll anchors, all single-match verified.
+    // Mined from VProf scope strings, assert-fatal logs, and FCVAR_CHEAT
+    // gating logic. Every entry below is a primary chokepoint for a
+    // distinct cheat capability and is NOT in any public dumper.
+    // ==================================================================
+
+    // C_CSWeaponBase::GetEconWpnData â€” sub_180795180. Returns the
+    // CCSWeaponBaseVData* for a weapon by walking
+    // weapon->m_AttributeManager->m_Item->ItemDefinition. Refs the
+    // unique "C_CSWeaponBase::GetEconWpnData" assert-fatal string from
+    // weapon_csbase.cpp:3135. Hook to override damage / range /
+    // accuracy parameters per-shot without touching the live VData
+    // pointer (return a thread-local override struct instead).
+    Signature {
+        name: "C_CSWeaponBase_GetEconWpnData",
+        module: "client.dll",
+        needle: "40 53 48 83 EC 40 48 8B D9 E8 ? ? ? ? 48 8B C8 E8 ? ? ? ? 48 85 C0 75 ? 48 8B 43 10",
+        resolve: NONE,
+        extra_off: 0,
+    },
+
+    // C_BaseEntity::ProcessInterpolatedList â€” sub_180A6BDD0. Refs
+    // unique VProf scope name "OnLatchInterpolatedVariablesHelper".
+    // Walks every interpolated-var on the entity each tick and calls
+    // its NoteChanged vfunc; the chokepoint where ALL interpolation
+    // (origin, angles, view-offset, etc) is committed per-frame.
+    // Hook for visual-only desync / fake interpolation / extrapolated
+    // ESP without writing m_flSimulationTime directly.
+    Signature {
+        name: "C_BaseEntity_ProcessInterpolatedList",
+        module: "client.dll",
+        needle: "4C 8B DC 49 89 5B 10 49 89 6B 18 49 89 73 20 57 41 54 41 57 48 83 EC 60 49 C7 43 B0 E1 07 00 00",
+        resolve: NONE,
+        extra_off: 0,
+    },
+
+    // C_BaseEntity::CheckPredictionForceReLatch â€” sub_180B47910. Refs
+    // unique log "prediction forced re-latch of %s due to prediction
+    // error for field marked FTYPEDESC_INTERPOLATEDVAR". Runs after
+    // a prediction-error rollback to force-relatch interpolated state.
+    // Hook to suppress engine-side prediction corrections (no rollback
+    // jitter on local pawn for visual smoothness during high-ping play).
+    Signature {
+        name: "C_BaseEntity_CheckPredictionForceReLatch",
+        module: "client.dll",
+        needle: "48 8B C4 48 89 50 10 53 55 56 48 81 EC 00 01 00 00 0F 29 78 98 48 8B F2 8B 91 04 01 00 00",
+        resolve: NONE,
+        extra_off: 0,
+    },
+
+    // CServerSideClient::ExecuteStringCommand â€” engine2!sub_1800BE120.
+    // Server-side path that filters incoming client console commands
+    // against FCVAR_CHEAT / FCVAR_CLIENT_CAN_EXECUTE. Refs unique log
+    // "SV: Cheat command '%s' ignored. Set sv_cheats to 1 enable
+    // cheats." On a listen server (or a self-hosted SDK environment)
+    // hooking this and clearing the cheat-flag check before it returns
+    // false unlocks every server-only ConCommand without sv_cheats.
+    Signature {
+        name: "CServerSideClient_ExecuteStringCommand",
+        module: "engine2.dll",
+        needle: "40 55 53 56 48 8D AC 24 50 FA FF FF 48 81 EC B0 06 00 00 48 8B D9 48 8B F2 48 8B 4A 48",
+        resolve: NONE,
+        extra_off: 0,
+    },
+
+    // sv_cheats change-callback â€” engine2!sub_18009C1F0. Refs unique
+    // log "FCVAR_CHEAT cvars reverted to defaults (sv_cheats disabled)."
+    // Fires every time sv_cheats flips state and walks the cvar
+    // registry, snapping every FCVAR_CHEAT cvar back to its default.
+    // Hook + early-return preserves any cheat-flag cvar values
+    // (host_thread_mode, mat_fullbright, cl_drawhud, etc) that the
+    // user previously customized through console.
+    Signature {
+        name: "Cvar_RevertFlaggedCvars_OnSvCheatsChange",
+        module: "engine2.dll",
+        needle: "40 53 48 83 EC 20 48 8B 41 08 48 8B D9 8B 50 30 48 C1 EA 0C F6 C2 01 0F 85",
+        resolve: NONE,
+        extra_off: 0,
+    },
+
 ];

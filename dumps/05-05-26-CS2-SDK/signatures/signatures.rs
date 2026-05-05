@@ -29,6 +29,7 @@ pub mod client {
     pub const CCSGOInput__CreateMove: &str = "48 8B C4 4C 89 40 18 48 89 48 08 55 53 41 54 41";
     pub const CCSGameRules: &str = "4C 8D 05 ? ? ? ? 48 8D 15 ? ? ? ? 48 8D 0D 6B B2 21";
     pub const CCSGameRulesProxy: &str = "48 83 EC 28 48 8D 15 ? ? ? ? 48 8D 4C 24 38 E8 5B E5 0F";
+    pub const CCSInventoryManager__EquipItemInLoadout: &str = "48 89 5C 24 08 48 89 6C 24 18 48 89 74 24 20 89 54 24 10 57 41 54 41 55 41 56 41 57 48 83 EC 70";
     pub const CCSPlayerController: &str = "40 55 41 56 41 57 48 8B EC 48 83 EC 40 4C 8B F2 83 F9 06 0F 87 1E 03 00";
     pub const CCSPlayerController: &str = "40 55 41 56 41 57 48 8B EC 48 83 EC 40 4C 8B F2 83 F9 06 0F 87 1E 03 00";
     pub const CCSPlayerController_ActionTrackingServices: &str = "40 55 41 56 41 57 48 8B EC 48 83 EC 40 4C 8B F2 83 F9 06 0F 87 1E 03 00";
@@ -44,6 +45,7 @@ pub mod client {
     pub const CCSPlayer_ItemServices: &str = "40 53 48 83 EC 50 8B 15 ? ? ? ? 48 8B D9 65 48 8B 04 25 58 00 00 00 B9 98 00 00 00 48 8B 04 D0 8B 04 01 39 05 AE 0D";
     pub const CCSPlayer_MovementServices: &str = "48 83 EC 28 8B 0D ? ? ? ? 65 48 8B 04 25 58 00 00 00 BA 98 00 00 00 48 8B 04 C8 8B 04 02 39 05 63 44 AC 01 0F 8F 36";
     pub const CCSPlayer_MovementServices: &str = "48 83 EC 28 8B 0D ? ? ? ? 65 48 8B 04 25 58 00 00 00 BA 98 00 00 00 48 8B 04 C8 8B 04 02 39 05 63 44 AC 01 0F 8F 36";
+    pub const CCSPlayer_MovementServices_CheckJumpButton: &str = "4C 89 44 24 18 55 56 41 56 48 8D AC 24 70 EC FF";
     pub const CCSPlayer_PingServices: &str = "48 89 5C 24 18 55 48 8B EC 48 83 EC 60 8B 15 AD";
     pub const CCSPlayer_RunCommand_Context: &str = "48 8B C4 48 81 EC C8 00 00 00 48 89 58 10 48 89";
     pub const CCSPlayer_UseServices: &str = "48 89 5C 24 08 57 48 83 EC 30 E8 ? ? ? ? 8B 15 AB 23 CC";
@@ -60,6 +62,8 @@ pub mod client {
     pub const CEconItemView__GetCustomPaintKitIndex: &str = "48 89 5C 24 08 57 48 83 EC 40 8B 15 ? ? ? ? 48 8B F9 65 48 8B 04 25 58 00 00 00 B9 98 00 00 00 48 8B 04 D0 8B 04 01 39 05 22 1B 31 01 0F 8F";
     pub const CFlashbangProjectile: &str = "48 83 EC 28 48 8D 15 ? ? ? ? 48 8D 4C 24 38 E8 6B 76 80";
     pub const CFogController: &str = "48 83 EC 28 48 8D 15 ? ? ? ? 48 8D 4C 24 38 E8 8B 8A 56";
+    pub const CGameEntitySystem__OnAddEntity: &str = "48 89 74 24 10 57 48 83 EC 20 41 B9 FF 7F 00 00 41 8B C0 41 23 C1 48 8B F2 41 83 F8 FF 48 8B F9 44 0F 45 C8 41 81 F9 00 40 00 00 73 0D FF 81 90";
+    pub const CGameEntitySystem__OnRemoveEntity: &str = "48 89 74 24 10 57 48 83 EC 20 41 B9 FF 7F 00 00 41 8B C0 41 23 C1 48 8B F2 41 83 F8 FF 48 8B F9 44 0F 45 C8 41 81 F9 00 40 00 00 73 08 FF 89 90";
     pub const CGameSceneNode: &str = "41 56 48 83 EC 30 4C 8B F2 85 C9 74 25 83 F9 06 74 09 33 C0 48 83 C4 30 41 5E C3 48 8B 02 49 8B CE 48 8D 54 24 58 FF 10 48 8B 00 48 83 C4 30 41";
     pub const CGameSceneNode_BuildBoneMergeWork: &str = "40 55 56 57 41 54 41 55 41 56 41 57 48 83 EC 50 48 8D 6C 24 50 80 A1 06";
     pub const CGameSceneNode_PerformBatchedInvalidatePhysicsRecursive: &str = "40 57 48 81 EC 90 00 00 00 84 C9 74 4D BF 01 00";
@@ -75,12 +79,14 @@ pub mod client {
     pub const CPostProcessingVolume: &str = "48 83 EC 28 48 8D 15 ? ? ? ? 48 8D 4C 24 38 E8 FB 3C 54";
     pub const CS2ItemEditor_BuildTemplateMaterialFromFile: &str = "48 89 54 24 10 55 53 41 55 41 57 48 8D AC 24 18";
     pub const CSBaseGunFireData_fn: &str = "48 8B C4 55 53 56 57 41 54 41 55 41 56 41 57 48 8D 68 A8 48";
+    pub const CSGOInput_CreateMove: &str = "48 8B C4 4C 89 40 18 48 89 48 08 55 53 41 54 41";
     pub const CSGOInput_ptr: &str = "48 8B 0D ? ? ? ? 4C 8B C6 8B 10 E8";
     pub const CSGOInput_resolved: &str = "48 8B 0D ? ? ? ? 8B 10 E8 ? ? ? ? 45 32 FF";
     pub const CSkeletonInstance: &str = "40 57 48 83 EC 20 48 8B FA 85 C9 74 23 83 F9 06 74 08 33 C0 48 83 C4 20 5F C3 48 8B 02 48 8B CF 48 8D 54 24 48 FF 10 48 8B 00 48 83 C4 20 5F C3";
     pub const CSkeletonInstance__SetMeshGroupMask: &str = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 48 8D 99 50 01";
     pub const CSkeletonInstance_GetTransformsForHitboxList: &str = "48 89 5C 24 18 55 56 57 41 55 41 57 48 81 EC A0";
     pub const CSkeletonInstance_OnBodyGroupChoiceChanged: &str = "48 89 5C 24 08 57 48 83 EC 20 49 63 D8 49 8B F9";
+    pub const CSkeletonInstance_OnSkeletonModelChanged: &str = "49 8B 00 48 89 81 B8 00 00 00 C6 81 B0 00 00 00";
     pub const CSkeletonInstance_PostDataUpdate: &str = "48 8B C4 4C 89 40 18 89 50 10 55 57 48 8D A8 68";
     pub const CSkeletonInstance_SetMaterialGroup: &str = "3B 91 C4 03 00 00 74 24 89 91 C4 03 00 00 48 8B";
     pub const CSkeletonInstance_SetMeshGroupMask: &str = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 49 8B 00 49 8B";
@@ -89,12 +95,16 @@ pub mod client {
     pub const CUtlVector_CompositeMaterialInput_AddToTail: &str = "41 B9 88 02 00 00 8B 57 14 81 E2 FF FF FF 3F 8D 71 01 44 8B";
     pub const C_AttributeContainer: &str = "41 56 48 83 EC 40 4C 8B F2 83 F9 06 0F 87 C7 02";
     pub const C_BaseEntity: &str = "48 89 5C 24 10 48 89 74 24 18 57 48 83 EC 20 65 48 8B 04 25 58 00 00 00 48 8D 35 ? ? ? ? 8B 0D ? ? ? ? 33 FF BA 98 00 00 00 48 8B 1C C8";
+    pub const C_BaseEntity_CheckPredictionForceReLatch: &str = "48 8B C4 48 89 50 10 53 55 56 48 81 EC 00 01 00";
+    pub const C_BaseEntity_ProcessInterpolatedList: &str = "4C 8B DC 49 89 5B 10 49 89 6B 18 49 89 73 20 57 41 54 41 57";
+    pub const C_BaseEntity_TakeDamageOld: &str = "40 55 53 56 57 41 54 48 8D 6C 24 E0 48 81 EC 20";
     pub const C_BaseModelEntity: &str = "40 55 41 56 48 83 EC 78 4C 8B F2 83 F9 06 0F 87 ? ? ? ? 48 63 C1 48 8D 15 D2 7F";
     pub const C_BasePlayerPawn: &str = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 65 48 8B 04 25 58 00 00 00 48 8D 35 ? ? ? ? 8B 0D ? ? ? ? 33 FF BA 98 00 00 00 48 8B 1C C8";
     pub const C_C4: &str = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 65 48 8B 04 25 58 00 00 00 48 8D 35 ? ? ? ? 8B 0D ? ? ? ? 33 FF BA 98 00 00 00 48 8B 1C C8";
     pub const C_CSPlayerPawn: &str = "40 56 48 83 EC 40 48 8B F2 83 F9 06 0F 87 85 01";
     pub const C_CSPlayerPawnBase: &str = "40 53 48 83 EC 20 65 48 8B 04 25 58 00 00 00 8B 0D 3B D4 96";
     pub const C_CSWeaponBase: &str = "40 56 48 83 EC 40 48 8B F2 85 C9 74 27 83 F9 06 74 08 33 C0 48 83 C4 40 5E C3 48 8B 02 48 8B CE 48 8D 54 24 68 FF 90 70 01 00 00 48 8B 00 48 83";
+    pub const C_CSWeaponBase_GetEconWpnData: &str = "40 53 48 83 EC 40 48 8B D9 E8 ? ? ? ? 48 8B C8 E8 FA 52";
     pub const C_EconEntity_BuildLegacyGloveSkinMaterial: &str = "40 55 56 57 48 8D AC 24 30 FD FF FF 48 81 EC D0";
     pub const C_EconEntity_BuildLegacyWeaponSkinMaterial: &str = "40 55 53 41 57 48 8D AC 24 00 FE FF FF 48 81 EC";
     pub const C_EconEntity_BuildModernWeaponSkinMaterial: &str = "48 85 C9 0F 84 ? ? ? ? 48 8B C4 48 89 50 10";
@@ -107,9 +117,11 @@ pub mod client {
     pub const C_SmokeGrenadeProjectile: &str = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 65 48 8B 04 25 58 00 00 00 48 8D 35 ? ? ? ? 8B 0D ? ? ? ? 33 FF BA 98 00 00 00 48 8B 1C C8";
     pub const CacheParticleEffect: &str = "4C 8B DC 53 48 81 EC 90 00 00 00 F2 0F 10 05 65";
     pub const CalcSpread: &str = "48 8B C4 48 89 58 08 48 89 68 18 48 89 70 20 57 41 54 41 55 41 56 41 57 48 81 EC E0";
+    pub const CalcViewmodel: &str = "40 55 53 56 41 56 41 57 48 8B EC 48 83 EC 20 4D";
     pub const CalcViewmodelTransform_v2: &str = "48 89 5C 24 20 55 56 57 41 54 41 55 41 56 41 57 48 8D 6C 24 80 48 81 EC 80 01 00 00 48 8B FA 48";
     pub const CalcViewmodelView: &str = "40 53 48 83 EC 60 48 8B 41 08 49 8B D8 8B 48 30";
     pub const CalculateInterpolation: &str = "48 83 EC 08 4C 8B 0D ? ? ? ? 4C 8B DA 48 8B";
+    pub const CalculateWorldSpaceBones: &str = "48 89 4C 24 08 55 53 56 57 41 54 41 55 41 56 41 57 B8 58 42";
     pub const ClearHUDWeaponIcon: &str = "4C 8B DC 55 57 48 83 EC 48 48 63 41 68 48 8B F9";
     pub const ClientModeCSNormal_OnEvent: &str = "40 53 57 48 81 EC 78 02 00 00 48 8B CA 48 8B FA";
     pub const ClientMode_ptr: &str = "48 8D 0D ? ? ? ? 48 69 C0 ? ? ? ? 48 03 C1 C3 CC CC";
@@ -129,8 +141,10 @@ pub mod client {
     pub const DestroyParticle: &str = "83 FA FF 0F 84 ? ? ? ? 41 54 41 56 41 57 48";
     pub const DispatchEffect: &str = "48 89 5C 24 08 57 48 83 EC 70 48 8B F9 48 8B DA";
     pub const DispatchSpawn_caller: &str = "4C 8B DC 55 56 48 83 EC 78 49 8B 68 08 48 8B F1";
+    pub const DrawCrosshair: &str = "48 89 5C 24 08 57 48 83 EC 20 48 8B D9 E8 AE AC";
     pub const DrawLegs: &str = "40 55 53 56 41 56 41 57 48 8D AC 24 A0 FB FF FF";
     pub const DrawOverHead: &str = "40 53 48 83 EC 20 48 8B D9 83 FA FF 75 17 48 8B";
+    pub const DrawScopeOverlay: &str = "48 8B C4 53 57 48 83 EC 68 48 8B FA 44 0F 29 40";
     pub const DrawSmokeVertex: &str = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 57 41 56 41 57 48 83 EC 40 48 8B 9C 24 88 00 00 00 4D 8B F8 48 8B FA 48 8B";
     pub const EmitSoundByHandle: &str = "40 53 48 83 EC 30 4C 89 4C 24 20 48 8B D9 45 8B";
     pub const FX_FireBullets: &str = "48 8B C4 4C 89 48 20 48 89 50 10 55 53 57 41 54";
@@ -205,7 +219,7 @@ pub mod client {
     pub const PlayVSound_client: &str = "48 89 5C 24 08 48 89 74 24 18 48 89 7C 24 20 55 48 8D 6C 24 A9 48 81 EC 90 00 00 00";
     pub const Prediction_ptr: &str = "48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 40 53 56 41 54";
     pub const ProcessImpacts: &str = "48 8B C4 53 56 41 55 48 81 EC E0 00 00 00 44 0F";
-    pub const ProcessMovement: &str = "E9 ? ? ? ? 56 57 41 54 41 55 41 56 41 57 48";
+    pub const ProcessMovement: &str = "48 8B C4 53 55 56 57 41 54 41 55 41 56 41 57 48 83 EC 78 44";
     pub const RegenerateWeaponSkin: &str = "40 55 53 41 57 48 8D AC 24 00 FE FF FF 48 81 EC";
     pub const RegenerateWeaponSkin_v2: &str = "40 55 53 41 57 48 8D AC 24 00 FE FF FF 48 81 EC";
     pub const RegenerateWeaponSkins: &str = "48 83 EC 48 E8 ? ? ? ? 48 85 C0 0F 84 7F 00";
@@ -213,7 +227,7 @@ pub mod client {
     pub const ReportHit: &str = "40 53 48 83 EC 20 48 8D 05 ? ? ? ? 48 8D 59 08 48 89 01 F6 03 01 74 08 48 8B CB E8 AF FB EA";
     pub const RunCommand: &str = "48 8B C4 48 81 EC C8 00 00 00 48 89 58 10 48 89";
     pub const RunCommand_processor: &str = "48 8B C4 48 81 EC C8 00 00 00 48 89 58 10 48 89";
-    pub const Scope_callsite: &str = "E9 ? ? ? ? 48 83 EC 68 48 8B FA 44 0F 29 40";
+    pub const Scope_callsite: &str = "48 8B C4 53 57 48 83 EC 68 48 8B FA 44 0F 29 40";
     pub const SendChatMessage: &str = "4C 89 44 24 18 4C 89 4C 24 20 53 B8 40 10 00 00";
     pub const Sensitivity_ptr: &str = "48 8D 0D ? ? ? ? 66 0F 6E CD";
     pub const SetAbsOrigin_Pawn: &str = "48 89 5C 24 08 57 48 83 EC 60 48 8B 01 48 8B FA 48 8B D9 FF";
@@ -260,6 +274,7 @@ pub mod client {
     pub const ViewRender_ptr: &str = "48 89 05 ? ? ? ? 48 8B C8 48 85 C0";
     pub const WeaponC4_ptr: &str = "48 8B 15 ? ? ? ? 48 8B 5C 24 ? FF C0 89 05 ? ? ? ? 48 8B C6 48 89 34 EA 80 BE";
     pub const WriteSubtickFromEntry: &str = "48 89 5C 24 18 55 57 41 56 48 8D 6C 24 C9 48 81";
+    pub const create_move_v2: &str = "85 D2 0F 85 ? ? ? ? 48 8B C4 44 88 40 18 89";
     pub const draw_smoke_array: &str = "40 55 41 54 41 55 48 8D AC 24 20 F9 FF FF 48 81";
     pub const draw_view_punch_v2: &str = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 48 89 7C 24 20 41 56 48 83 EC 40 49 8B E9 49 8B F8";
     pub const entity_list_ptr: &str = "48 8B 1D ? ? ? ? 48 8D 46";
@@ -267,6 +282,7 @@ pub mod client {
     pub const get_fov: &str = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 48 89 7C 24 20 41 56 48 83 EC 40 49 8B E9 49 8B F8";
     pub const get_map_name: &str = "48 83 EC 28 48 8B 0D ? ? ? ? 48 8B 01 FF 90 00 02 00 00";
     pub const get_view_angles_v2: &str = "4D 85 C0 74 72 85 D2 74 18 48 8D 05 ? ? ? ?";
+    pub const get_view_model: &str = "40 55 53 56 41 56 41 57 48 8B EC 48 83 EC 20 4D";
     pub const global_vars_v2: &str = "48 89 1D ? ? ? ? FF 15 ? ? ? ? 84 C0 74 ? 8B 0D ? ? ? ? 4C 8D 0D ? ? ? ? 4C 8D 05 ? ? ? ? BA ? ? ? ? FF 15 ? ? ? ? 48 8B 74 24 ? 48 8B C3";
     pub const is_demo_or_hltv: &str = "48 83 EC 28 48 8B 0D ? ? ? ? 48 8B 01 FF 90 50 01 00 00 84 C0 75 0D";
     pub const level_init_v2: &str = "40 55 56 41 56 48 8D 6C 24 B9 48 81 EC E0 00 00 00 48 8B 0D";
@@ -282,6 +298,7 @@ pub mod client {
     pub const remove_legs: &str = "40 55 53 56 41 56 41 57 48 8D AC 24 A0 FB FF FF";
     pub const statTrak_killEater: &str = "48 89 4C 24 08 53 56 57 41 54 41 55 41 56 41 57 48 83 EC 50 65 48 8B 04";
     pub const statTrak_scoreType: &str = "48 83 EC 28 E8 ? ? ? ? 48 8B 15 ? ? ? ? 48 8B 48 08";
+    pub const unlock_inventory: &str = "48 89 5C 24 08 48 89 6C 24 18 48 89 74 24 20 57 48 83 EC 20 48 8B E9 48";
     pub const update_global_vars: &str = "48 8B 0D ? ? ? ? 4C 8D 05 ? ? ? ? 48 85 D2 48 8D 05";
     pub const update_post_processing_v2: &str = "48 89 AC 24 B8 00 00 00 45 33 ED 0F 29 74 24 70";
     pub const view_matrix_ptr: &str = "48 8D 0D ? ? ? ? 48 89 44 24 ? 48 89 4C 24 ? 4C 8D 0D";
@@ -292,9 +309,11 @@ pub mod engine2 {
     pub const CCommand_Tokenize: &str = "48 89 6C 24 20 4C 89 44 24 18 56 57 41 54 41 56";
     pub const CGameClient_ClientCommand: &str = "48 8B C4 4C 89 40 18 4C 89 48 20 55 53 57 48 8D";
     pub const CHLTVClient_ExecuteStringCommand: &str = "40 53 56 48 81 EC 48 07 00 00 48 8B F1 48 8B DA";
+    pub const CServerSideClient_ExecuteStringCommand: &str = "40 55 53 56 48 8D AC 24 50 FA FF FF 48 81 EC B0";
     pub const CSplitScreenSlot: &str = "48 83 EC 58 4C 8B D2 45 85 C0 0F 85 ? ? ? ?";
     pub const Cvar_RegisterConCommand: &str = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 57 48 83 EC 60 44 8B 15 89";
     pub const Cvar_RegisterConVar: &str = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 48 89 7C 24 20 41 54 41 56 41 57 48 81 EC D0 00 00";
+    pub const Cvar_RevertFlaggedCvars_OnSvCheatsChange: &str = "40 53 48 83 EC 20 48 8B 41 08 48 8B D9 8B 50 30";
     pub const DisablePvsAccessor: &str = "48 8D 0D ? ? ? ? 33 D2 FF 50 30 48 8B CF C7";
     pub const Engine__GetScreenAspectRatio: &str = "48 89 5C 24 08 57 48 83 EC 20 8B FA 48 8D 0D 0D";
     pub const Engine__PVSManager_ptr: &str = "48 8D 0D ? ? ? ? 33 D2 FF 50";
@@ -357,9 +376,11 @@ pub mod materialsystem2 {
 
 pub mod networksystem {
     pub const CNetChan_ProcessMessages: &str = "48 8B C4 53 57 41 54 41 56 48 81 EC A8 00 00 00";
+    pub const CNetChan_SendNetMessage: &str = "48 89 5C 24 10 48 89 6C 24 18 56 57 41 56 48 83 EC 40 41 0F";
     pub const CNetworkSystem_Init: &str = "40 55 53 57 41 54 41 55 41 57 48 8D AC 24 98 FC";
     pub const CNetworkSystem_RegisterNetMessageHandlerAbstract: &str = "48 89 5C 24 10 48 89 6C 24 18 57 41 56 41 57 48 83 EC 50 4C";
     pub const NetSystem_CNetChan_ProcessMessages: &str = "48 8B C4 53 57 41 54 41 56 48 81 EC A8 00 00 00";
+    pub const NetSystem_CNetChan_SendNetMessage: &str = "48 89 5C 24 10 48 89 6C 24 18 56 57 41 56 48 83 EC 40 41 0F";
     pub const NetworkSystem_ptr: &str = "48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 48 83 EC 28 BA FF FF FF";
 }
 
@@ -376,7 +397,10 @@ pub mod rendersystemdx11 {
     pub const CRenderDeviceBase_CreateConstantBuffer: &str = "48 89 5C 24 08 48 89 74 24 10 48 89 7C 24 18 55 41 56 41 57 48 8D 6C 24";
     pub const CRenderDeviceDx11_BeginSubmittingDisplayLists: &str = "48 89 5C 24 08 57 48 83 EC 50 48 8B F9 48 8B DA";
     pub const CRenderDeviceDx11_CompileShaderSourceMain: &str = "4C 8B DC 49 89 5B 08 57 48 83 EC 70 4D 8B D0 48";
+    pub const CSwapChainDx11_QueuePresentAndWait: &str = "40 55 53 57 41 54 41 55 48 8D 6C 24 C9 48 81 EC";
+    pub const CSwapChainDx11_ResizeBuffers: &str = "48 8B C4 55 53 56 57 41 54 48 8B EC 48 83 EC 70";
     pub const RenderDeviceMgr_ptr: &str = "8B 5C 24 38 48 83 C4 20 5E C3 CC CC CC CC CC CC 48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 48 8D 05 ? ? ? ? C3";
+    pub const RenderSystemDx11_QueuePresentAndWait: &str = "40 55 53 57 41 54 41 55 48 8D 6C 24 C9 48 81 EC";
     pub const RenderSystemDx11_SetHardwareGammaRamp: &str = "48 89 5C 24 18 57 B8 B0 40 00 00 E8 ? ? ? ?";
     pub const RenderSystemDx11_SetMode: &str = "44 89 4C 24 20 44 89 44 24 18 89 54 24 10 55 53";
 }

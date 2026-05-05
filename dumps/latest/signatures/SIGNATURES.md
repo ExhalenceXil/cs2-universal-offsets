@@ -2,7 +2,7 @@
 
 _This file is regenerated on every successful run of `cs2-sdk`._
 
-**378/441 signatures resolved across 16 module(s).**
+**402/449 signatures resolved across 16 module(s).**
 
 ## `animationsystem.dll`
 
@@ -35,6 +35,7 @@ _This file is regenerated on every successful run of `cs2-sdk`._
 | `CCSGOInput::CreateMove` | `raw` | `0x7FFABF9CE7F0` | `0xC5E7F0` | `48 8B C4 4C 89 40 18 48 89 48 08 55 53 41 54 41 55` |
 | `CCSGameRules` | `stringref` | `0x7FFABEDEE160` | `0x7E160` | `"CCSGameRules"` |
 | `CCSGameRulesProxy` | `stringref` | `0x7FFABF459500` | `0x6E9500` | `"CCSGameRulesProxy"` |
+| `CCSInventoryManager::EquipItemInLoadout` | `raw` | `0x7FFABF532150` | `0x7C2150` | `48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 89 54 24 ? 57 41 54 41 55 41 56 41 57 48 83 EC ? 0F B7 FA` |
 | `CCSPlayerController` | `stringref` | `0x7FFABF555220` | `0x7E5220` | `"CCSPlayerController"` |
 | `CCSPlayerController` | `stringref` | `0x7FFABF555220` | `0x7E5220` | `"CCSPlayerController"` |
 | `CCSPlayerController_ActionTrackingServices` | `stringref` | `0x7FFABF555220` | `0x7E5220` | `"CCSPlayerController_ActionTrackingServices"` |
@@ -50,6 +51,7 @@ _This file is regenerated on every successful run of `cs2-sdk`._
 | `CCSPlayer_ItemServices` | `stringref` | `0x7FFABF5C0B00` | `0x850B00` | `"CCSPlayer_ItemServices"` |
 | `CCSPlayer_MovementServices` | `stringref` | `0x7FFABF5ADE80` | `0x83DE80` | `"CCSPlayer_MovementServices"` |
 | `CCSPlayer_MovementServices` | `stringref` | `0x7FFABF5ADE80` | `0x83DE80` | `"CCSPlayer_MovementServices"` |
+| `CCSPlayer_MovementServices_CheckJumpButton` | `raw` | `0x7FFABF83F410` | `0xACF410` | `4C 89 44 24 18 55 56 41 56 48 8D AC 24 70 EC FF FF B8 90 14 00 00` |
 | `CCSPlayer_PingServices` | `stringref` | `0x7FFABF5C0ED0` | `0x850ED0` | `"CCSPlayer_PingServices"` |
 | `CCSPlayer_RunCommand_Context` | `raw` | `0x7FFABF74BAF0` | `0x9DBAF0` | `48 8B C4 48 81 EC C8 00 00 00 48 89 58 10 48 89 68 18 48 8B EA 48 89 70 20 48 8B F1 48 89 78 F8` |
 | `CCSPlayer_UseServices` | `stringref` | `0x7FFABF5F21D0` | `0x8821D0` | `"CCSPlayer_UseServices"` |
@@ -66,6 +68,8 @@ _This file is regenerated on every successful run of `cs2-sdk`._
 | `CEconItemView::GetCustomPaintKitIndex` | `raw` | `0x7FFABFE18A60` | `0x10A8A60` | `48 89 5C 24 ? 57 48 83 EC ? 8B 15 ? ? ? ? 48 8B F9 65 48 8B 04 25 ? ? ? ? B9 ? ? ? ? 48 8B 04 D0 8B 04 01 39 05 ? ? ? ? 0F 8F ? ? ? ? E8 ? ? ? ? 8B 58 ? 39 1D ? ? ? ? 74 ? E8 ? ? ? ? 48 8B 15 ? ? ? ? 48 8B C8 E8 ? ? ? ? 48 89 05 ? ? ? ? 89 1D ? ? ? ? EB ? 48 8B 05 ? ? ? ? 48 85 C0 74` |
 | `CFlashbangProjectile` | `stringref` | `0x7FFABFD503F0` | `0xFE03F0` | `"CFlashbangProjectile"` |
 | `CFogController` | `stringref` | `0x7FFABEFEEFD0` | `0x27EFD0` | `"CFogController"` |
+| `CGameEntitySystem::OnAddEntity` | `raw` | `0x7FFABF6D8640` | `0x968640` | `48 89 74 24 ? 57 48 83 EC ? 41 B9 ? ? ? ? 41 8B C0 41 23 C1 48 8B F2 41 83 F8 ? 48 8B F9 44 0F 45 C8 41 81 F9 ? ? ? ? 73 ? FF 81` |
+| `CGameEntitySystem::OnRemoveEntity` | `raw` | `0x7FFABF6D8EA0` | `0x968EA0` | `48 89 74 24 ? 57 48 83 EC ? 41 B9 ? ? ? ? 41 8B C0 41 23 C1 48 8B F2 41 83 F8 ? 48 8B F9 44 0F 45 C8 41 81 F9 ? ? ? ? 73 ? FF 89` |
 | `CGameSceneNode` | `stringref` | `0x7FFABEF138F0` | `0x1A38F0` | `"CGameSceneNode"` |
 | `CGameSceneNode_BuildBoneMergeWork` | `raw` | `0x7FFABF6AFA40` | `0x93FA40` | `40 55 56 57 41 54 41 55 41 56 41 57 48 83 EC 50 48 8D 6C 24 50 80 A1 06 01 00 00 FB 4C 8B F9 80` |
 | `CGameSceneNode_PerformBatchedInvalidatePhysicsRecursive` | `raw` | `0x7FFABF6AE660` | `0x93E660` | `40 57 48 81 EC 90 00 00 00 84 C9 74 4D BF 01 00 00 00 F0 0F C1 3D ? ? ? ? FF C7 83 FF 01 0F 85 63 05 00 00 48 8D 0D ? ? ? ? 48 8D 15` |
@@ -81,12 +85,14 @@ _This file is regenerated on every successful run of `cs2-sdk`._
 | `CPostProcessingVolume` | `stringref` | `0x7FFABF013D60` | `0x2A3D60` | `"CPostProcessingVolume"` |
 | `CS2ItemEditor_BuildTemplateMaterialFromFile` | `raw` | `0x7FFAC012CA50` | `0x13BCA50` | `48 89 54 24 10 55 53 41 55 41 57 48 8D AC 24 18 F9 FF FF 48 81 EC E8 07 00 00 4C 8B FA 48 85 D2` |
 | `CSBaseGunFireData_fn` | `raw` | `0x7FFAC0258140` | `0x14E8140` | `48 8B C4 55 53 56 57 41 54 41 55 41 56 41 57 48 8D 68 A8 48 81 EC ? ? ? ? 4C 8B 69` |
+| `CSGOInput_CreateMove` | `raw` | `0x7FFABF9CE7F0` | `0xC5E7F0` | `48 8B C4 4C 89 40 18 48 89 48 08 55 53 41 54 41 55 48 8D A8 F8 FE FF FF` |
 | `CSGOInput_ptr` | `riprel` | `0x7FFAC0DD4330` | `0x2064330` | `48 8B 0D ? ? ? ? 4C 8B C6 8B 10 E8` |
 | `CSGOInput_resolved` | `riprel` | `0x7FFAC0DD4337` | `0x2064337` | `48 8B 0D ? ? ? ? 8B 10 E8 ? ? ? ? 45 32 FF` |
 | `CSkeletonInstance` | `stringref` | `0x7FFABEF13A20` | `0x1A3A20` | `"CSkeletonInstance"` |
 | `CSkeletonInstance::SetMeshGroupMask` | `raw` | `0x7FFABF79DB50` | `0xA2DB50` | `48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC ? 48 8D 99` |
 | `CSkeletonInstance_GetTransformsForHitboxList` | `raw` | `0x7FFABF78A6C0` | `0xA1A6C0` | `48 89 5C 24 18 55 56 57 41 55 41 57 48 81 EC A0 00 00 00 49 63 28 4D 8B F8 48 8B FA 48 8B D9 85` |
 | `CSkeletonInstance_OnBodyGroupChoiceChanged` | `raw` | `0x7FFABF795310` | `0xA25310` | `48 89 5C 24 08 57 48 83 EC 20 49 63 D8 49 8B F9 45 85 C0 78 20 3B 99 18 02 00 00 7D 18` |
+| `CSkeletonInstance_OnSkeletonModelChanged` | `raw` | `0x7FFABF795520` | `0xA25520` | `49 8B 00 48 89 81 B8 00 00 00 C6 81 B0 00 00 00 01 C3` |
 | `CSkeletonInstance_PostDataUpdate` | `raw` | `0x7FFABF7964B0` | `0xA264B0` | `48 8B C4 4C 89 40 18 89 50 10 55 57 48 8D A8 68 FE FF FF 48 81 EC 88 02 00 00 48 89 70 E0 48 8B` |
 | `CSkeletonInstance_SetMaterialGroup` | `raw` | `0x7FFABF79C830` | `0xA2C830` | `3B 91 C4 03 00 00 74 24 89 91 C4 03 00 00 48 8B 81 28 02 00 00 48 85 C0 74 12` |
 | `CSkeletonInstance_SetMeshGroupMask` | `raw` | `0x7FFABF795480` | `0xA25480` | `48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 49 8B 00 49 8B F8 48 8B F2 48 8B D9 48 39 81 C8 01` |
@@ -95,12 +101,16 @@ _This file is regenerated on every successful run of `cs2-sdk`._
 | `CUtlVector_CompositeMaterialInput_AddToTail` | `raw` | `0x7FFABF4F9C50` | `0x789CA2` | `41 B9 88 02 00 00 8B 57 14 81 E2 FF FF FF 3F 8D 71 01 44 8B C6 FF 15` |
 | `C_AttributeContainer` | `stringref` | `0x7FFABF988BB0` | `0xC18BB0` | `"C_AttributeContainer"` |
 | `C_BaseEntity` | `stringref` | `0x7FFABEDBE260` | `0x4E260` | `"C_BaseEntity"` |
+| `C_BaseEntity_CheckPredictionForceReLatch` | `raw` | `0x7FFABF8B7910` | `0xB47910` | `48 8B C4 48 89 50 10 53 55 56 48 81 EC 00 01 00 00 0F 29 78 98 48 8B F2 8B 91 04 01 00 00` |
+| `C_BaseEntity_ProcessInterpolatedList` | `raw` | `0x7FFABF7DBDD0` | `0xA6BDD0` | `4C 8B DC 49 89 5B 10 49 89 6B 18 49 89 73 20 57 41 54 41 57 48 83 EC 60 49 C7 43 B0 E1 07 00 00` |
+| `C_BaseEntity_TakeDamageOld` | `raw` | `0x7FFABEF93D20` | `0x223D20` | `40 55 53 56 57 41 54 48 8D 6C 24 E0 48 81 EC 20 01 00 00 4D 8B E0 48 8B FA 48 8B F1` |
 | `C_BaseModelEntity` | `stringref` | `0x7FFABEEC8010` | `0x158010` | `"C_BaseModelEntity"` |
 | `C_BasePlayerPawn` | `stringref` | `0x7FFABEDDDA20` | `0x6DA20` | `"C_BasePlayerPawn"` |
 | `C_C4` | `stringref` | `0x7FFABEE0A420` | `0x9A420` | `"C_C4"` |
 | `C_CSPlayerPawn` | `stringref` | `0x7FFABF432430` | `0x6C2430` | `"C_CSPlayerPawn"` |
 | `C_CSPlayerPawnBase` | `stringref` | `0x7FFABF947140` | `0xBD7140` | `"C_CSPlayerPawnBase"` |
 | `C_CSWeaponBase` | `stringref` | `0x7FFABF4B2170` | `0x742170` | `"C_CSWeaponBase"` |
+| `C_CSWeaponBase_GetEconWpnData` | `raw` | `0x7FFABF505180` | `0x795180` | `40 53 48 83 EC 40 48 8B D9 E8 ? ? ? ? 48 8B C8 E8 ? ? ? ? 48 85 C0 75 ? 48 8B 43 10` |
 | `C_EconEntity_BuildLegacyGloveSkinMaterial` | `stringref` | `0x7FFABF931460` | `0xBC1460` | `"MapPlayerPreview gloves"` |
 | `C_EconEntity_BuildLegacyWeaponSkinMaterial` | `stringref` | `0x7FFABF4FC2A0` | `0x78C2A0` | `"workshop preview weapon"` |
 | `C_EconEntity_BuildModernWeaponSkinMaterial` | `raw` | `0x7FFABFAF4F90` | `0xD84F90` | `48 85 C9 0F 84 ? ? 00 00 48 8B C4 48 89 50 10 48 89 48 08 55 41 54 41 56 41 57 48 8D A8 B8 FA` |
@@ -113,9 +123,11 @@ _This file is regenerated on every successful run of `cs2-sdk`._
 | `C_SmokeGrenadeProjectile` | `stringref` | `0x7FFABEE05A10` | `0x95A10` | `"C_SmokeGrenadeProjectile"` |
 | `CacheParticleEffect` | `raw` | `0x7FFABEF77BC0` | `0x207BC0` | `4C 8B DC 53 48 81 EC ? ? ? ? F2 0F 10 05` |
 | `CalcSpread` | `raw` | `0x7FFABF9EEBF0` | `0xC7EBF0` | `48 8B C4 48 89 58 ? 48 89 68 ? 48 89 70 ? 57 41 54 41 55 41 56 41 57 48 81 EC ? ? ? ? 4C 63 EA` |
+| `CalcViewmodel` | `raw` | `0x7FFABF5BF430` | `0x84F430` | `40 55 53 56 41 56 41 57 48 8B EC` |
 | `CalcViewmodelTransform_v2` | `raw` | `0x7FFABF5124F0` | `0x7A24F0` | `48 89 5C 24 20 55 56 57 41 54 41 55 41 56 41 57 48 8D 6C 24 80 48 81 EC 80 01 00 00 48 8B FA` |
 | `CalcViewmodelView` | `raw` | `0x7FFABF9DBF20` | `0xC6BF20` | `40 53 48 83 EC 60 48 8B 41 08 49 8B D8 8B 48 30 48 C1 E9 0C F6 C1 01 0F 85 48 01 00 00 41 B8 07` |
 | `CalculateInterpolation` | `rel32` | `0x7FFAC0237E70` | `0x14C7E70` | `E8 ? ? ? ? 8B 45 ? 3B 45 60 75 04 32 D2 EB 09 BA 01 00 00 00 41 0F 4C D5 C0 EA 07 84 D2 0F 85 87` |
+| `CalculateWorldSpaceBones` | `raw` | `0x7FFABF77B070` | `0xA0B070` | `48 89 4C 24 ? 55 53 56 57 41 54 41 55 41 56 41 57 B8 ? ? ? ? E8 ? ? ? ? 48 2B E0 48 8D 6C 24 ? 48 8B 81` |
 | `ClearHUDWeaponIcon` | `rel32` | `0x7FFABFB5DDD0` | `0xDEDDD0` | `E8 ? ? ? ? 8B F8 C6 84 24 ? ? ? ? ?` |
 | `ClientModeCSNormal_OnEvent` | `raw` | `0x7FFABF9CC660` | `0xC5C660` | `40 53 57 48 81 EC 78 02 00 00 48 8B CA 48 8B FA` |
 | `ClientMode_ptr` | `riprel` | `0x7FFAC10AEAE0` | `0x233EAE0` | `48 8D 0D ? ? ? ? 48 69 C0 ? ? ? ? 48 03 C1 C3 CC CC` |
@@ -135,8 +147,10 @@ _This file is regenerated on every successful run of `cs2-sdk`._
 | `DestroyParticle` | `raw` | `0x7FFABF6B63E0` | `0x9463E0` | `83 FA ? 0F 84 ? ? ? ? 41 54` |
 | `DispatchEffect` | `raw` | `0x7FFABF0CA570` | `0x35A570` | `48 89 5C 24 ? 57 48 83 EC ? 48 8B F9 48 8B DA 48 8D 4C 24` |
 | `DispatchSpawn_caller` | `raw` | `0x7FFAC0245B10` | `0x14D5B10` | `4C 8B DC 55 56 48 83 EC 78 49 8B 68 08 48 8B F1 48 85 ED 0F 84 72 01 00 00` |
+| `DrawCrosshair` | `raw` | `0x7FFABF520BF0` | `0x7B0BF0` | `48 89 5C 24 08 57 48 83 EC 20 48 8B D9 E8 ? ? ? ? 48 85` |
 | `DrawLegs` | `raw` | `0x7FFABFE60410` | `0x10F0410` | `40 55 53 56 41 56 41 57 48 8D AC 24 ? ? ? ? 48 81 EC ? ? ? ? F2 0F 10 42` |
 | `DrawOverHead` | `raw` | `0x7FFABF7D6CF0` | `0xA66CF0` | `40 53 48 83 EC ? 48 8B D9 83 FA ? 75 ? 48 8B 0D ? ? ? ? 48 8D 54 24 ? 48 8B 01 FF 90 ? ? ? ? 8B 10` |
+| `DrawScopeOverlay` | `raw` | `0x7FFABF5CD530` | `0x85D530` | `48 8B C4 53 57 48 83 EC ? 48 8B FA` |
 | `DrawSmokeVertex` | `raw` | `0x7FFABF9EB290` | `0xC7B290` | `48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 57 41 56 41 57 48 83 EC ? 48 8B 9C 24 ? ? ? ? 4D 8B F8` |
 | `EmitSoundByHandle` | `raw` | `0x7FFABF8D3B10` | `0xB63B10` | `40 53 48 83 EC 30 4C 89 4C 24 20 48 8B D9 45 8B C8 4C 8B C2 48 8B D1 48 8D 0D ?? ?? ?? ?? E8` |
 | `FX_FireBullets` | `raw` | `0x7FFABF9EE380` | `0xC7E380` | `48 8B C4 4C 89 48 20 48 89 50 10 55 53 57 41 54 41 55 48 8D A8 58 FB FF FF 48 81 EC A0 05` |
@@ -266,6 +280,7 @@ _This file is regenerated on every successful run of `cs2-sdk`._
 | `ViewRender_ptr` | `riprel` | `0x7FFAC10A0D38` | `0x2330D38` | `48 89 05 ? ? ? ? 48 8B C8 48 85 C0` |
 | `WeaponC4_ptr` | `riprel` | `0x7FFAC1019D58` | `0x22A9D58` | `48 8B 15 ? ? ? ? 48 8B 5C 24 ? FF C0 89 05 ? ? ? ? 48 8B C6 48 89 34 EA 80 BE` |
 | `WriteSubtickFromEntry` | `raw` | `0x7FFABF9C6330` | `0xC56330` | `48 89 5C 24 ? 55 57 41 56 48 8D 6C 24 ? 48 81 EC B0 00 00 00 8B 01 48 8B F9 81 4A 10 00 02` |
+| `create_move_v2` | `raw` | `0x7FFABF83C120` | `0xACC120` | `85 D2 0F 85 ? ? ? ? 48 8B C4 44 88 40` |
 | `draw_smoke_array` | `raw` | `0x7FFABF9EB380` | `0xC7B380` | `40 55 41 54 41 55 48 8D AC 24 ? ? ? ? 48 81 EC ? ? ? ? 4C 8B E2` |
 | `draw_view_punch_v2` | `raw` | `0x7FFABF5741C0` | `0x8041C0` | `48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 48 89 7C 24 ? 41 56 48 83 EC ? 49 8B E9 49 8B F8` |
 | `entity_list_ptr` | `riprel` | `0x7FFAC1241EF8` | `0x24D1EF8` | `48 8B 1D ? ? ? ? 48 8D 46` |
@@ -273,6 +288,7 @@ _This file is regenerated on every successful run of `cs2-sdk`._
 | `get_fov` | `raw` | `0x7FFABF5741C0` | `0x8041C0` | `48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 48 89 7C 24 ? 41 56 48 83 EC ? 49 8B E9 49 8B F8` |
 | `get_map_name` | `raw` | `0x7FFABFC4D4F0` | `0xEDD4F0` | `48 83 EC ? 48 8B 0D ? ? ? ? ? ? ? FF 90 ? ? ? ? 48 8B C8 48 83 C4` |
 | `get_view_angles_v2` | `raw` | `0x7FFABF844600` | `0xAD4600` | `4D 85 C0 74 ? 85 D2 74` |
+| `get_view_model` | `raw` | `0x7FFABF5BF430` | `0x84F430` | `40 55 53 56 41 56 41 57 48 8B EC` |
 | `global_vars_v2` | `riprel` | `0x7FFAC109BFB8` | `0x232BFB8` | `48 89 1D ? ? ? ? FF 15 ? ? ? ? 84 C0 74 ? 8B 0D ? ? ? ? 4C 8D 0D ? ? ? ? 4C 8D 05 ? ? ? ? BA ? ? ? ? FF 15 ? ? ? ? 48 8B 74 24 ? 48 8B C3` |
 | `is_demo_or_hltv` | `raw` | `0x7FFABFC6E9B0` | `0xEFE9B0` | `48 83 EC ? 48 8B 0D ? ? ? ? ? ? ? FF 90 ? ? ? ? 84 C0 75 ? 38 05` |
 | `level_init_v2` | `raw` | `0x7FFABF86A990` | `0xAFA990` | `40 55 56 41 56 48 8D 6C 24 ? 48 81 EC ? ? ? ? 48 8B 0D` |
@@ -288,6 +304,7 @@ _This file is regenerated on every successful run of `cs2-sdk`._
 | `remove_legs` | `raw` | `0x7FFABFE60410` | `0x10F0410` | `40 55 53 56 41 56 41 57 48 8D AC 24 ? ? ? ? 48 81 EC ? ? ? ? F2 0F 10 42` |
 | `statTrak_killEater` | `stringref` | `0x7FFABFC61330` | `0xEF1330` | `"kill eater"` |
 | `statTrak_scoreType` | `stringref` | `0x7FFABEE8B7F0` | `0x11B7F0` | `"kill eater score type"` |
+| `unlock_inventory` | `raw` | `0x7FFABF4711C0` | `0x7011C0` | `48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 57 48 83 EC ? 48 8B E9 48 8B 0D ? ? ? ? ? ? ? FF 50` |
 | `update_global_vars` | `raw` | `0x7FFABF854730` | `0xAE4730` | `48 8B 0D ? ? ? ? 4C 8D 05 ? ? ? ? 48 85 D2` |
 | `update_post_processing_v2` | `raw` | `0x7FFABFC964D6` | `0xF264D6` | `48 89 AC 24 ? ? ? ? 45 33 ED` |
 | `view_matrix_ptr` | `riprel` | `0x7FFAC10A1B30` | `0x2331B30` | `48 8D 0D ? ? ? ? 48 89 44 24 ? 48 89 4C 24 ? 4C 8D 0D` |
@@ -300,9 +317,11 @@ _This file is regenerated on every successful run of `cs2-sdk`._
 | `CCommand_Tokenize` | `raw` | `0x7FFB13ACD710` | `0x3FD710` | `48 89 6C 24 20 4C 89 44 24 18 56 57 41 54 41 56 41 57 48 83 EC 70 48 8B F2 49 8B E8 8B 51 08 4C` |
 | `CGameClient_ClientCommand` | `raw` | `0x7FFB13771240` | `0xA1240` | `48 8B C4 4C 89 40 18 4C 89 48 20 55 53 57 48 8D 68 A1 48 81 EC C0 00 00 00 33 FF 48 63 DA 48 39` |
 | `CHLTVClient_ExecuteStringCommand` | `raw` | `0x7FFB137F0D70` | `0x120D70` | `40 53 56 48 81 EC 48 07 00 00 48 8B F1 48 8B DA 48 8B 4A 48 48 83 E1 FC 48 83 79 18 0F 76 03 48` |
+| `CServerSideClient_ExecuteStringCommand` | `raw` | `0x7FFB1378E120` | `0xBE120` | `40 55 53 56 48 8D AC 24 50 FA FF FF 48 81 EC B0 06 00 00 48 8B D9 48 8B F2 48 8B 4A 48` |
 | `CSplitScreenSlot` | `stringref` | `0x7FFB1391A250` | `0x24A250` | `"CSplitScreenSlot"` |
 | `Cvar_RegisterConCommand` | `raw` | `0x7FFB13ACD270` | `0x3FD270` | `48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 57 48 83 EC 60 44 8B 15 ? ? ? ? 48 8B D9 65 48` |
 | `Cvar_RegisterConVar` | `raw` | `0x7FFB13ACC080` | `0x3FC080` | `48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 48 89 7C 24 20 41 54 41 56 41 57 48 81 EC D0 00 00` |
+| `Cvar_RevertFlaggedCvars_OnSvCheatsChange` | `raw` | `0x7FFB1376C1F0` | `0x9C1F0` | `40 53 48 83 EC 20 48 8B 41 08 48 8B D9 8B 50 30 48 C1 EA 0C F6 C2 01 0F 85` |
 | `DisablePvsAccessor` | `raw` | `0x7FFB1390D3D2` | `0x23D3D2` | `48 8D 0D ? ? ? ? 33 D2 FF 50` |
 | `Engine::GetScreenAspectRatio` | `raw` | `0x7FFB137469D0` | `0x769D0` | `48 89 5C 24 08 57 48 83 EC 20 8B FA 48 8D 0D` |
 | `Engine::PVSManager_ptr` | `riprel` | `0x7FFB13CE33F0` | `0x6133F0` | `48 8D 0D ? ? ? ? 33 D2 FF 50` |
@@ -346,38 +365,40 @@ _This file is regenerated on every successful run of `cs2-sdk`._
 
 | Name | Resolve | VA | RVA | Pattern |
 | --- | --- | --- | --- | --- |
-| `CMaterial2_CompileComboAndGetVariables_DynamicShaderCompile` | `stringref` | `0x7FFB11253FA0` | `0x13FA0` | `"CompileComboAndGetVariables_DynamicShaderCompile(), C:\buildworker\csgo_rel_win64\build\src\materialsystem2\material2.cpp:2786"` |
-| `CMaterial2_GetMode` | `raw` | `0x7FFB1124BD40` | `0xBD40` | `48 89 5C 24 18 57 48 83 EC 30 8B 02 48 8B D9 39 05 ? ? ? ? 48 8B 0D ? ? ? ? 48 89 74 24` |
-| `CMaterial2_GetVertexShaderInputSignature` | `raw` | `0x7FFB1124C8C0` | `0xC8C0` | `48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 48 89 7C 24 20 41 56 48 83 EC 30 F6 41 0B 01 4C 8B` |
-| `CMaterial2_GetVertexShaderInputSignature` | `stringref` | `0x7FFB1124C8C0` | `0xC8C0` | `"CMaterial2::GetVertexShaderInputSignature(767): Error! Material "%s" doesn't have any valid layers to get the CVsInputSignatureVector from!\n"` |
-| `CMaterial2_LoadShadersAndSetupModes` | `raw` | `0x7FFB11250040` | `0x10040` | `44 89 44 24 18 48 89 54 24 10 53 56 41 54 41 55 48 81 EC 88 00 00 00 4C 8B E9 48 C7 44 24 60` |
-| `CMaterialLayer_ApplyMaterialVarsForBatch` | `raw` | `0x7FFB11258B80` | `0x18B80` | `4C 89 4C 24 20 4C 89 44 24 18 48 89 54 24 10 53 55 56 57 41 54 41 55 41 56 41 57 48 83 EC 78` |
-| `CMaterialLayer_BuildPassCommandData` | `raw` | `0x7FFB11258F80` | `0x18F80` | `89 54 24 10 55 53 56 57 41 54 41 55 41 56 41 57 48 8D AC 24 58 FE FF FF 48 81 EC A8 02 00 00` |
-| `CMaterialLayer_ComputeWorkItemsToSetupStaticCombosForMode` | `stringref` | `0x7FFB11255F3C` | `0x15F3C` | `"CMaterialLayer::ComputeWorkItemsToSetupStaticCombosForMode(3154): Failed call to FindOrLoadStaticComboData()!\n"` |
-| `CMaterialLayer_CreateCommandBuffer` | `stringref` | `0x7FFB11259820` | `0x19820` | `"\nCMaterialLayer::CreateCommandBuffer(4446): Find a graphics programmer! Trying to bind a "%s" shader that doesn't exist! for %s\n"` |
-| `CMaterialSystem2_BindIdentityInstanceIDBufferAndSetRenderState` | `stringref` | `0x7FFB112B0000` | `0x70000` | `"BindIdentityInstanceIDBufferAndSetRenderState: GetMode == NULL? Can't Render\n"` |
-| `CMaterialSystem2_DynamicShaderCompile_ProcessQueue` | `stringref` | `0x7FFB1127A5E0` | `0x3A5E0` | `"Compiling %i shaders:"` |
-| `CMaterialSystem2_DynamicShaderCompile_ReloadAndSync` | `raw` | `0x7FFB112755C1` | `0x355C2` | `48 83 EC 20 48 8B 35 ? ? ? ? 48 8B CE E8 ? ? ? ? 48 8B CE E8 ? ? ? ? 80 BE A0 03 00 00 00 74 ?` |
-| `CMaterialSystem2_DynamicShaderCompile_UnloadAllMaterials` | `stringref` | `0x7FFB11279AA0` | `0x39AA0` | `"CMaterialSystem2::DynamicShaderCompile_UnloadAllMaterials(1084): ERROR!!! Shaders not freed before shader reload! (See spew above)\n\n"` |
-| `CMaterialSystem2_FrameUpdate` | `raw` | `0x7FFB1127BAC0` | `0x3BAC0` | `48 89 4C 24 08 55 53 56 57 41 54 41 56 48 8B EC 48 83 EC 68 48 8D 05 ? ? ? ? 48 C7 45 C0` |
-| `CMaterialSystem2_GetErrorMaterial` | `stringref` | `0x7FFB112574D7` | `0x174D7` | `"CMaterialSystem2::GetErrorMaterial(529): GetErrorMaterial() called when m_pMaterialTypeManager == NULL!\n"` |
-| `CMaterialSystem2_Init` | `stringref` | `0x7FFB11276E40` | `0x36E40` | `"MaterialSystem2"` |
-| `CMaterial_SetVariableAndRenderState` | `stringref` | `0x7FFB1126F9B0` | `0x2F9B0` | `"SetRenderStateValueFromVariable(1172): Unsupported render state type in material "%s"!\n"` |
-| `CVfxProgramData_FindOrCreateStaticComboDataInCache` | `stringref` | `0x7FFB112EE0E0` | `0xAE0E0` | `"CVfxProgramData::FindOrCreateStaticComboDataInCache(4448): Error! Ref count !=0 for static combo data cache entry!\n"` |
-| `CVfxProgramData_FindOrCreateStaticComboData_CacheGate` | `raw` | `0x7FFB112EE950` | `0xAE950` | `48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 48 89 7C 24 ? 41 57 48 83 EC 60 80 39 00 45 8B D9` |
-| `CVfxProgramData_FindOrLoadStaticComboData` | `stringref` | `0x7FFB112FDAE0` | `0xBDAE0` | `"Shader %s attribute "%s" has inconsistent value or type across multiple shaders of a feature combo! ["` |
-| `FindParameter` | `raw` | `0x7FFB11251E30` | `0x11E30` | `48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC 20 48 8B 59 20 48` |
-| `MatSys::PrepareSceneMaterial` | `raw` | `0x7FFB11251BE0` | `0x11BE0` | `48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 30 48 8B 59 ? 48 8B F2 48 63 79 ? 48 C1 E7 06` |
-| `UpdateParameter` | `raw` | `0x7FFB11252370` | `0x12370` | `48 89 7C 24 ? 41 56 48 83 EC ? 8B 81` |
+| `CMaterial2_CompileComboAndGetVariables_DynamicShaderCompile` | `stringref` | `0x7FFB11263FA0` | `0x13FA0` | `"CompileComboAndGetVariables_DynamicShaderCompile(), C:\buildworker\csgo_rel_win64\build\src\materialsystem2\material2.cpp:2786"` |
+| `CMaterial2_GetMode` | `raw` | `0x7FFB1125BD40` | `0xBD40` | `48 89 5C 24 18 57 48 83 EC 30 8B 02 48 8B D9 39 05 ? ? ? ? 48 8B 0D ? ? ? ? 48 89 74 24` |
+| `CMaterial2_GetVertexShaderInputSignature` | `raw` | `0x7FFB1125C8C0` | `0xC8C0` | `48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 48 89 7C 24 20 41 56 48 83 EC 30 F6 41 0B 01 4C 8B` |
+| `CMaterial2_GetVertexShaderInputSignature` | `stringref` | `0x7FFB1125C8C0` | `0xC8C0` | `"CMaterial2::GetVertexShaderInputSignature(767): Error! Material "%s" doesn't have any valid layers to get the CVsInputSignatureVector from!\n"` |
+| `CMaterial2_LoadShadersAndSetupModes` | `raw` | `0x7FFB11260040` | `0x10040` | `44 89 44 24 18 48 89 54 24 10 53 56 41 54 41 55 48 81 EC 88 00 00 00 4C 8B E9 48 C7 44 24 60` |
+| `CMaterialLayer_ApplyMaterialVarsForBatch` | `raw` | `0x7FFB11268B80` | `0x18B80` | `4C 89 4C 24 20 4C 89 44 24 18 48 89 54 24 10 53 55 56 57 41 54 41 55 41 56 41 57 48 83 EC 78` |
+| `CMaterialLayer_BuildPassCommandData` | `raw` | `0x7FFB11268F80` | `0x18F80` | `89 54 24 10 55 53 56 57 41 54 41 55 41 56 41 57 48 8D AC 24 58 FE FF FF 48 81 EC A8 02 00 00` |
+| `CMaterialLayer_ComputeWorkItemsToSetupStaticCombosForMode` | `stringref` | `0x7FFB11265F3C` | `0x15F3C` | `"CMaterialLayer::ComputeWorkItemsToSetupStaticCombosForMode(3154): Failed call to FindOrLoadStaticComboData()!\n"` |
+| `CMaterialLayer_CreateCommandBuffer` | `stringref` | `0x7FFB11269820` | `0x19820` | `"\nCMaterialLayer::CreateCommandBuffer(4446): Find a graphics programmer! Trying to bind a "%s" shader that doesn't exist! for %s\n"` |
+| `CMaterialSystem2_BindIdentityInstanceIDBufferAndSetRenderState` | `stringref` | `0x7FFB112C0000` | `0x70000` | `"BindIdentityInstanceIDBufferAndSetRenderState: GetMode == NULL? Can't Render\n"` |
+| `CMaterialSystem2_DynamicShaderCompile_ProcessQueue` | `stringref` | `0x7FFB1128A5E0` | `0x3A5E0` | `"Compiling %i shaders:"` |
+| `CMaterialSystem2_DynamicShaderCompile_ReloadAndSync` | `raw` | `0x7FFB112855C1` | `0x355C2` | `48 83 EC 20 48 8B 35 ? ? ? ? 48 8B CE E8 ? ? ? ? 48 8B CE E8 ? ? ? ? 80 BE A0 03 00 00 00 74 ?` |
+| `CMaterialSystem2_DynamicShaderCompile_UnloadAllMaterials` | `stringref` | `0x7FFB11289AA0` | `0x39AA0` | `"CMaterialSystem2::DynamicShaderCompile_UnloadAllMaterials(1084): ERROR!!! Shaders not freed before shader reload! (See spew above)\n\n"` |
+| `CMaterialSystem2_FrameUpdate` | `raw` | `0x7FFB1128BAC0` | `0x3BAC0` | `48 89 4C 24 08 55 53 56 57 41 54 41 56 48 8B EC 48 83 EC 68 48 8D 05 ? ? ? ? 48 C7 45 C0` |
+| `CMaterialSystem2_GetErrorMaterial` | `stringref` | `0x7FFB112674D7` | `0x174D7` | `"CMaterialSystem2::GetErrorMaterial(529): GetErrorMaterial() called when m_pMaterialTypeManager == NULL!\n"` |
+| `CMaterialSystem2_Init` | `stringref` | `0x7FFB11286E40` | `0x36E40` | `"MaterialSystem2"` |
+| `CMaterial_SetVariableAndRenderState` | `stringref` | `0x7FFB1127F9B0` | `0x2F9B0` | `"SetRenderStateValueFromVariable(1172): Unsupported render state type in material "%s"!\n"` |
+| `CVfxProgramData_FindOrCreateStaticComboDataInCache` | `stringref` | `0x7FFB112FE0E0` | `0xAE0E0` | `"CVfxProgramData::FindOrCreateStaticComboDataInCache(4448): Error! Ref count !=0 for static combo data cache entry!\n"` |
+| `CVfxProgramData_FindOrCreateStaticComboData_CacheGate` | `raw` | `0x7FFB112FE950` | `0xAE950` | `48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 48 89 7C 24 ? 41 57 48 83 EC 60 80 39 00 45 8B D9` |
+| `CVfxProgramData_FindOrLoadStaticComboData` | `stringref` | `0x7FFB1130DAE0` | `0xBDAE0` | `"Shader %s attribute "%s" has inconsistent value or type across multiple shaders of a feature combo! ["` |
+| `FindParameter` | `raw` | `0x7FFB11261E30` | `0x11E30` | `48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC 20 48 8B 59 20 48` |
+| `MatSys::PrepareSceneMaterial` | `raw` | `0x7FFB11261BE0` | `0x11BE0` | `48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 30 48 8B 59 ? 48 8B F2 48 63 79 ? 48 C1 E7 06` |
+| `UpdateParameter` | `raw` | `0x7FFB11262370` | `0x12370` | `48 89 7C 24 ? 41 56 48 83 EC ? 8B 81` |
 
 ## `networksystem.dll`
 
 | Name | Resolve | VA | RVA | Pattern |
 | --- | --- | --- | --- | --- |
 | `CNetChan_ProcessMessages` | `raw` | `0x7FFB0E5AB280` | `0xBB280` | `48 8B C4 53 57 41 54 41 56 48 81 EC A8 00 00 00 48 89 70 D0 45 33 E4 4C 89 68 C8 48 8B D9 48 89` |
+| `CNetChan_SendNetMessage` | `raw` | `0x7FFB0E5AD670` | `0xBD670` | `48 89 5C 24 10 48 89 6C 24 18 56 57 41 56 48 83 EC 40 41 0F B6 F0 48 8D 99 F8 73 00 00 4C 8B F2` |
 | `CNetworkSystem_Init` | `raw` | `0x7FFB0E5DC0C0` | `0xEC0C0` | `40 55 53 57 41 54 41 55 41 57 48 8D AC 24 98 FC FF FF 48 81 EC 68 04 00 00 4C 8B E9` |
 | `CNetworkSystem_RegisterNetMessageHandlerAbstract` | `raw` | `0x7FFB0E5ABC00` | `0xBBC00` | `48 89 5C 24 10 48 89 6C 24 18 57 41 56 41 57 48 83 EC 50 4C 8B B4 24 90 00 00 00 41 8B D9` |
 | `NetSystem_CNetChan_ProcessMessages` | `raw` | `0x7FFB0E5AB280` | `0xBB280` | `48 8B C4 53 57 41 54 41 56 48 81 EC A8 00 00 00 48 89 70 D0 45 33 E4 4C 89 68 C8 48 8B D9 48 89` |
+| `NetSystem_CNetChan_SendNetMessage` | `raw` | `0x7FFB0E5AD670` | `0xBD670` | `48 89 5C 24 10 48 89 6C 24 18 56 57 41 56 48 83 EC 40 41 0F B6 F0 48 8D 99 F8 73 00 00 4C 8B F2` |
 | `NetworkSystem_ptr` | `riprel` | `0x7FFB0E776E50` | `0x286E50` | `48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 48 83 EC 28 BA FF FF FF` |
 
 ## `particles.dll`
@@ -398,7 +419,10 @@ _This file is regenerated on every successful run of `cs2-sdk`._
 | `CRenderDeviceBase_CreateConstantBuffer` | `stringref` | `0x7FFB11E2F500` | `0x2F500` | `"CRenderDeviceBase::CreateConstantBuffer(1571): "` |
 | `CRenderDeviceDx11_BeginSubmittingDisplayLists` | `stringref` | `0x7FFB11E3C4E0` | `0x3C4E0` | `"CRenderDeviceDx11::BeginSubmittingDisplayLists(1162): "` |
 | `CRenderDeviceDx11_CompileShaderSourceMain` | `stringref` | `0x7FFB11E3FAF0` | `0x3FAF0` | `"Shader compilation failed! Reported no errors.\n"` |
+| `CSwapChainDx11_QueuePresentAndWait` | `raw` | `0x7FFB11E34650` | `0x34650` | `40 55 53 57 41 54 41 55 48 8D 6C 24 C9 48 81 EC C0 00 00 00 48 8D 05 ? ? ? ? 4C 89 B4 24` |
+| `CSwapChainDx11_ResizeBuffers` | `raw` | `0x7FFB11E3DD20` | `0x3DD20` | `48 8B C4 55 53 56 57 41 54 48 8B EC 48 83 EC 70 4C 89 68 10 4D 8B E0 4C 89 70 18 4C 8B EA 4C 89` |
 | `RenderDeviceMgr_ptr` | `riprel` | `0x7FFB1222B530` | `0x42B530` | `8B 5C 24 38 48 83 C4 20 5E C3 CC CC CC CC CC CC 48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 48 8D 05 ? ? ? ? C3` |
+| `RenderSystemDx11_QueuePresentAndWait` | `raw` | `0x7FFB11E34650` | `0x34650` | `40 55 53 57 41 54 41 55 48 8D 6C 24 C9 48 81 EC C0 00 00 00 48 8D 05 ? ? ? ? 4C 89 B4 24` |
 | `RenderSystemDx11_SetHardwareGammaRamp` | `raw` | `0x7FFB11E3F790` | `0x3F790` | `48 89 5C 24 18 57 B8 B0 40 00 00 E8 ? ? ? ? 48 2B E0 0F 29 BC 24 90 40 00 00 0F 57 C9 0F 28` |
 | `RenderSystemDx11_SetMode` | `raw` | `0x7FFB11E399E0` | `0x399E0` | `44 89 4C 24 20 44 89 44 24 18 89 54 24 10 55 53 56 57 41 54 41 55 41 56 41 57 48 81 EC D8 02 00` |
 
