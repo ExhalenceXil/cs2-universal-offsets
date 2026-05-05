@@ -2,7 +2,7 @@
   "total_scanned":  438,
   "found":          375,
   "missing":        63,
-  "elapsed_ms":     11964,
+  "elapsed_ms":     12500,
   "modules":        ["animationsystem.dll", "client.dll", "engine2.dll", "filesystem_stdio.dll", "inputsystem.dll", "matchmaking.dll", "materialsystem2.dll", "networksystem.dll", "particles.dll", "rendersystemdx11.dll", "resourcesystem.dll", "scenesystem.dll", "schemasystem.dll", "soundsystem.dll", "tier0.dll", "vphysics2.dll"],
   "signatures": [
     { "name": "CCSGOInput::CreateMove"                                        , "module": "client.dll"          , "resolve": "raw"      , "va": 0x7FFABF9CE7F0, "rva":   0xC5E7F0, "pattern": "48 8B C4 4C 89 40 18 48 89 48 08 55 53 41 54 41 55"                                                                                                                                                                                                                                          , "bytes": "48 8B C4 4C 89 40 18 48 89 48 08 55 53 41 54 41 55 48 8D A8 F8 FE FF FF", "pattern_synth": "48 8B C4 4C 89 40 18 48 89 48 08 55 53 41 54 41"                                                                                                 },

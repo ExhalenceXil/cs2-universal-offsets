@@ -1,6 +1,6 @@
 {
   "build_number": 14158,
-  "generated_at": "2026-05-05T12:40:22.754022400+01:00",
+  "generated_at": "2026-05-05T12:55:58.592195900+01:00",
   "modules": {
     "animationsystem.dll": {
       "base": "0x7FFAED5A0000",
@@ -121,9 +121,9 @@
   "session": "05-05-26-CS2-SDK",
   "stages": {
     "offsets": {
-      "elapsed_ms": 1310,
+      "elapsed_ms": 1387,
       "enabled": true,
-      "output_dir": "dumps\\05-05-26-CS2-SDK\\offsets",
+      "output_dir": "dumps\\05-05-26-CS2-SDK\\sdk",
       "success": true
     },
     "signatures": {
@@ -131,7 +131,7 @@
         "found": 375,
         "total": 438
       },
-      "elapsed_ms": 11964,
+      "elapsed_ms": 12500,
       "enabled": true,
       "output_dir": "dumps\\05-05-26-CS2-SDK\\signatures",
       "success": true
