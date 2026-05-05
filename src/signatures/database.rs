@@ -26,6 +26,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 8B C4 4C 89 40 18 48 89 48 08 55 53 41 54 41 55",
         resolve: NONE,
         extra_off: 0,
+        prototype: "double __fastcall sub_180C5E7F0(__int64 a1, unsigned int a2, __int64 a3)",
     },
     Signature {
         name: "CCSPlayer::ThirdPersonReset",
@@ -33,6 +34,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 8B 40 08 44 38 20 75 10 44 88 67 01",
         resolve: NONE,
         extra_off: 0,
+        prototype: "",
     },
     Signature {
         name: "RegenerateWeaponSkins",
@@ -40,6 +42,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 83 EC ? E8 ? ? ? ? 48 85 C0 0F 84 ? ? ? ? 48 8B 10",
         resolve: NONE,
         extra_off: 0,
+        prototype: "__int64 sub_1807B0D40()",
     },
     Signature {
         name: "CSkeletonInstance::SetMeshGroupMask",
@@ -47,6 +50,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC ? 48 8D 99",
         resolve: NONE,
         extra_off: 0,
+        prototype: "__int64 __fastcall sub_180A2DB50(__int64 a1, __int64 a2)",
     },
     Signature {
         name: "CCSGOViewAdvice::OverrideView",
@@ -54,6 +58,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 57 41 56 41 57 48 83 EC ? 48 8B FA E8",
         resolve: NONE,
         extra_off: 0,
+        prototype: "",
     },
     Signature {
         // NOTE: DEAD on build 14154 (0 hits, IDA-verified 2026-04-25).
@@ -66,6 +71,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "E8 ? ? ? ? F3 0F 11 45 ? 48 8B 5C 24",
         resolve: ResolveKind::Rel32 { rel_off: 1 },
         extra_off: 0,
+        prototype: "",
     },
     Signature {
         name: "CalcViewmodel",
@@ -73,6 +79,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "40 55 53 56 41 56 41 57 48 8B EC",
         resolve: NONE,
         extra_off: 0,
+        prototype: "void __fastcall sub_18084F430(__int64 a1, float *a2, float *a3)",
     },
     Signature {
         name: "NoSpread1",
@@ -80,6 +87,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 89 5C 24 08 57 48 81 EC F0 00",
         resolve: NONE,
         extra_off: 0,
+        prototype: "__int64 __fastcall sub_180C7E2D0(__int64 a1, __int64 a2, int a3)",
     },
     Signature {
         name: "CalcSpread",
@@ -87,6 +95,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 8B C4 48 89 58 ? 48 89 68 ? 48 89 70 ? 57 41 54 41 55 41 56 41 57 48 81 EC ? ? ? ? 4C 63 EA",
         resolve: NONE,
         extra_off: 0,
+        prototype: "",
     },
 
     // ---------- skin / knife / glove changer --------------------------
@@ -96,6 +105,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "85 D2 0F 88 ? ? ? ? 53 55 56 48 83 EC 70 41 8B F0 8B DA 48 8B E9",
         resolve: NONE,
         extra_off: 0,
+        prototype: "",
     },
     Signature {
         name: "CCSPlayerInventory::GetItemInLoadout",
@@ -103,6 +113,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "40 55 48 83 EC ? 49 63 E8",
         resolve: NONE,
         extra_off: 0,
+        prototype: "__int64 *__fastcall sub_1807C3D70(__int64 a1, unsigned int a2, unsigned int a3)",
     },
     Signature {
         name: "CCSInventoryManager::EquipItemInLoadout",
@@ -110,6 +121,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 89 54 24 ? 57 41 54 41 55 41 56 41 57 48 83 EC ? 0F B7 FA",
         resolve: NONE,
         extra_off: 0,
+        prototype: "char __fastcall sub_1807C2150(_QWORD *a1, unsigned int a2, int a3, unsigned __int64 a4)",
     },
     Signature {
         name: "CEconItemView::GetCustomPaintKitIndex",
@@ -117,6 +129,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 89 5C 24 ? 57 48 83 EC ? 8B 15 ? ? ? ? 48 8B F9 65 48 8B 04 25 ? ? ? ? B9 ? ? ? ? 48 8B 04 D0 8B 04 01 39 05 ? ? ? ? 0F 8F ? ? ? ? E8 ? ? ? ? 8B 58 ? 39 1D ? ? ? ? 74 ? E8 ? ? ? ? 48 8B 15 ? ? ? ? 48 8B C8 E8 ? ? ? ? 48 89 05 ? ? ? ? 89 1D ? ? ? ? EB ? 48 8B 05 ? ? ? ? 48 85 C0 74",
         resolve: NONE,
         extra_off: 0,
+        prototype: "__int64 __fastcall sub_1810A8A60(__int64 *a1)",
     },
 
     // ---------- econ schema -------------------------------------------
@@ -126,6 +139,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 83 EC 28 48 8B 05 ? ? ? ? 48 85 C0 0F 85 ? ? ? ? 48 89 5C 24",
         resolve: NONE,
         extra_off: 0,
+        prototype: "__int64 sub_180379830()",
     },
     Signature {
         name: "CEconItemSchema::GetAttributeDefinitionByName",
@@ -133,6 +147,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 89 5C 24 10 48 89 6C 24 18 57 41 56 41 57 48 83 EC 60 48 8D 05",
         resolve: NONE,
         extra_off: 0,
+        prototype: "__int64 __fastcall sub_18104CEA0(__int64 a1, unsigned __int8 *a2)",
     },
     Signature {
         name: "SetDynamicAttributeValue",
@@ -140,6 +155,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 89 6C 24 ? 57 41 56 41 57 48 81 EC ? ? ? ? 48 8B FA C7 44 24 ? ? ? ? ? 4D 8B F8",
         resolve: NONE,
         extra_off: 0,
+        prototype: "__int64 __fastcall sub_181004F60(__int64 a1, __int64 a2, _DWORD *a3)",
     },
 
     // ---------- scenesystem.dll ---------------------------------------
@@ -149,6 +165,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "45 85 C9 0F 8E ? ? ? ? 4C 8B DC 55",
         resolve: NONE,
         extra_off: 0,
+        prototype: "",
     },
     Signature {
         name: "DrawObject_legacy",
@@ -156,6 +173,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 8B C4 53 57 41 54 48 81 EC D0 00 00 00 49 63 F9 49",
         resolve: NONE,
         extra_off: 0,
+        prototype: "",
     },
     Signature {
         name: "CSceneAnimatableObject::GeneratePrimitives",
@@ -163,6 +181,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 8B C4 48 89 58 08 48 89 50 10 55 56 57 41 54 41 55 41 56 41 57 48 81 EC ? ? ? ?",
         resolve: NONE,
         extra_off: 0,
+        prototype: "",
     },
     Signature {
         name: "DrawSmokeVertex",
@@ -170,6 +189,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 57 41 56 41 57 48 83 EC ? 48 8B 9C 24 ? ? ? ? 4D 8B F8",
         resolve: NONE,
         extra_off: 0,
+        prototype: "__int64 __fastcall sub_180C7B290(__int64 a1, __int64 a2, int a3, int a4, __int64 a5, __int64 a6)",
     },
 
     // ---------- materialsystem2.dll -----------------------------------
@@ -179,6 +199,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 89 5C 24 ? 48 89 6C 24 ? 56 57 41 56 48 81 EC ? ? ? ? 48 8B 05",
         resolve: NONE,
         extra_off: 0,
+        prototype: "",
     },
     Signature {
         name: "FindParameter",
@@ -186,6 +207,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC 20 48 8B 59 20 48",
         resolve: NONE,
         extra_off: 0,
+        prototype: "__int64 __fastcall sub_180011E30(__int64 a1, __int64 a2)",
     },
     Signature {
         name: "UpdateParameter",
@@ -193,6 +215,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 89 7C 24 ? 41 56 48 83 EC ? 8B 81",
         resolve: NONE,
         extra_off: 0,
+        prototype: "_QWORD *__fastcall sub_180012370(__int64 a1)",
     },
 
     // ---------- tier0.dll ---------------------------------------------
@@ -202,6 +225,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 8D 0D ? ? ? ? FF 15 ? ? ? ? 49 8B 06",
         resolve: NONE,
         extra_off: 0,
+        prototype: "",
     },
 
     // ---------- engine2.dll -------------------------------------------
@@ -211,49 +235,50 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "83 3D ? ? ? ? 06 0F 94 C0",
         resolve: NONE,
         extra_off: 0,
+        prototype: "",
     },
 
     // ---------- string-anchored (robust across patches) ---------------
-    Signature { name: "Engine_GetTime",                module: "engine2.dll", needle: "Engine_GetTime",                resolve: STRREF, extra_off: 0 },
-    Signature { name: "CL_FullyConnected",             module: "engine2.dll", needle: "CL_FullyConnected",             resolve: STRREF, extra_off: 0 },
-    Signature { name: "Host_AccumulateTime",           module: "engine2.dll", needle: "Host_AccumulateTime",           resolve: STRREF, extra_off: 0 },
-    Signature { name: "CNetChan_ProcessMessages",      module: "engine2.dll", needle: "CNetChan::ProcessMessages",     resolve: STRREF, extra_off: 0 },
+    Signature { name: "Engine_GetTime",                module: "engine2.dll", needle: "Engine_GetTime",                resolve: STRREF, extra_off: 0, prototype: "" },
+    Signature { name: "CL_FullyConnected",             module: "engine2.dll", needle: "CL_FullyConnected",             resolve: STRREF, extra_off: 0, prototype: "" },
+    Signature { name: "Host_AccumulateTime",           module: "engine2.dll", needle: "Host_AccumulateTime",           resolve: STRREF, extra_off: 0, prototype: "" },
+    Signature { name: "CNetChan_ProcessMessages",      module: "engine2.dll", needle: "CNetChan::ProcessMessages",     resolve: STRREF, extra_off: 0, prototype: "" },
 
-    Signature { name: "CCSPlayer_WeaponServices",      module: "client.dll",  needle: "CCSPlayer_WeaponServices",      resolve: STRREF, extra_off: 0 },
-    Signature { name: "CCSPlayer_MovementServices",    module: "client.dll",  needle: "CCSPlayer_MovementServices",    resolve: STRREF, extra_off: 0 },
-    Signature { name: "CCSPlayer_BulletServices",      module: "client.dll",  needle: "CCSPlayer_BulletServices",      resolve: STRREF, extra_off: 0 },
-    Signature { name: "CSGameRules",                   module: "client.dll",  needle: "CSGameRules",                   resolve: STRREF, extra_off: 0 },
-    Signature { name: "CCSPlayerController",           module: "client.dll",  needle: "CCSPlayerController",           resolve: STRREF, extra_off: 0 },
-    Signature { name: "CCSPlayerPawn",                 module: "client.dll",  needle: "CCSPlayerPawn",                 resolve: STRREF, extra_off: 0 },
-    Signature { name: "CHudWeaponSelection",           module: "client.dll",  needle: "CHudWeaponSelection",           resolve: STRREF, extra_off: 0 },
-    Signature { name: "CHudDeathNotice",               module: "client.dll",  needle: "CHudDeathNotice",               resolve: STRREF, extra_off: 0 },
-    Signature { name: "paintkit_seed",                 module: "client.dll",  needle: "set item texture seed",         resolve: STRREF, extra_off: 0 },
-    Signature { name: "paintkit_prefab",               module: "client.dll",  needle: "set item texture prefab",       resolve: STRREF, extra_off: 0 },
-    Signature { name: "paintkit_wear",                 module: "client.dll",  needle: "set item texture wear",         resolve: STRREF, extra_off: 0 },
-    Signature { name: "statTrak_killEater",            module: "client.dll",  needle: "kill eater",                    resolve: STRREF, extra_off: 0 },
-    Signature { name: "statTrak_scoreType",            module: "client.dll",  needle: "kill eater score type",         resolve: STRREF, extra_off: 0 },
+    Signature { name: "CCSPlayer_WeaponServices",      module: "client.dll",  needle: "CCSPlayer_WeaponServices",      resolve: STRREF, extra_off: 0, prototype: "__int64 *sub_180877810()" },
+    Signature { name: "CCSPlayer_MovementServices",    module: "client.dll",  needle: "CCSPlayer_MovementServices",    resolve: STRREF, extra_off: 0, prototype: "__int64 *sub_18083DE80()" },
+    Signature { name: "CCSPlayer_BulletServices",      module: "client.dll",  needle: "CCSPlayer_BulletServices",      resolve: STRREF, extra_off: 0, prototype: "void *__fastcall sub_180813BA0(__int64 a1)" },
+    Signature { name: "CSGameRules",                   module: "client.dll",  needle: "CSGameRules",                   resolve: STRREF, extra_off: 0, prototype: "" },
+    Signature { name: "CCSPlayerController",           module: "client.dll",  needle: "CCSPlayerController",           resolve: STRREF, extra_off: 0, prototype: "__int64 __fastcall sub_1807E5220(int a1, _QWORD *a2)" },
+    Signature { name: "CCSPlayerPawn",                 module: "client.dll",  needle: "CCSPlayerPawn",                 resolve: STRREF, extra_off: 0, prototype: "__int64 sub_180BB0E40()" },
+    Signature { name: "CHudWeaponSelection",           module: "client.dll",  needle: "CHudWeaponSelection",           resolve: STRREF, extra_off: 0, prototype: "" },
+    Signature { name: "CHudDeathNotice",               module: "client.dll",  needle: "CHudDeathNotice",               resolve: STRREF, extra_off: 0, prototype: "" },
+    Signature { name: "paintkit_seed",                 module: "client.dll",  needle: "set item texture seed",         resolve: STRREF, extra_off: 0, prototype: "__int64 __fastcall sub_180EF1330(__int64 a1)" },
+    Signature { name: "paintkit_prefab",               module: "client.dll",  needle: "set item texture prefab",       resolve: STRREF, extra_off: 0, prototype: "__int64 __fastcall sub_18105D3B0(__int64 *a1)" },
+    Signature { name: "paintkit_wear",                 module: "client.dll",  needle: "set item texture wear",         resolve: STRREF, extra_off: 0, prototype: "__int64 __fastcall sub_180EF1330(__int64 a1)" },
+    Signature { name: "statTrak_killEater",            module: "client.dll",  needle: "kill eater",                    resolve: STRREF, extra_off: 0, prototype: "__int64 __fastcall sub_180EF1330(__int64 a1)" },
+    Signature { name: "statTrak_scoreType",            module: "client.dll",  needle: "kill eater score type",         resolve: STRREF, extra_off: 0, prototype: "__int64 sub_18011B7F0()" },
 
-    Signature { name: "VacNet_OnEvent",                module: "client.dll",  needle: "VAC-Net Detection",             resolve: STRREF, extra_off: 0 },
-    Signature { name: "Matchmaking_AcceptMatch",       module: "client.dll",  needle: "AcceptInviteToParty",           resolve: STRREF, extra_off: 0 },
+    Signature { name: "VacNet_OnEvent",                module: "client.dll",  needle: "VAC-Net Detection",             resolve: STRREF, extra_off: 0, prototype: "" },
+    Signature { name: "Matchmaking_AcceptMatch",       module: "client.dll",  needle: "AcceptInviteToParty",           resolve: STRREF, extra_off: 0, prototype: "" },
 
     // ==================================================================
     // NUVORA APR-2026 EXPANSION (client.dll) ---------------------------
     // ==================================================================
     // Hooks / view / rendering -----------------------------------------
-    Signature { name: "CGameEntitySystem::OnAddEntity",       module: "client.dll", needle: "48 89 74 24 ? 57 48 83 EC ? 41 B9 ? ? ? ? 41 8B C0 41 23 C1 48 8B F2 41 83 F8 ? 48 8B F9 44 0F 45 C8 41 81 F9 ? ? ? ? 73 ? FF 81", resolve: NONE, extra_off: 0 },
-    Signature { name: "CGameEntitySystem::OnRemoveEntity",    module: "client.dll", needle: "48 89 74 24 ? 57 48 83 EC ? 41 B9 ? ? ? ? 41 8B C0 41 23 C1 48 8B F2 41 83 F8 ? 48 8B F9 44 0F 45 C8 41 81 F9 ? ? ? ? 73 ? FF 89", resolve: NONE, extra_off: 0 },
-    Signature { name: "GetMatrixForView",                     module: "client.dll", needle: "40 53 48 83 EC 60 0F 29 74 24 50 0F 57 DB F3 0F 10 ? ? ? ? ? 49 8B D8", resolve: NONE, extra_off: 0 },
-    Signature { name: "IsGlowing",                            module: "client.dll", needle: "E8 ? ? ? ? 33 DB 84 C0 0F 84 ? ? ? ? 48 8B 4F", resolve: REL32_1, extra_off: 0 },
-    Signature { name: "GetGlowColor",                         module: "client.dll", needle: "48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 57 48 83 EC ? 48 8B F2 48 8B F9 48 8B 54 24", resolve: NONE, extra_off: 0 },
-    Signature { name: "FlashOverlay",                         module: "client.dll", needle: "85 D2 0F 88 ? ? ? ? 48 89 4C 24", resolve: NONE, extra_off: 0 },
-    Signature { name: "DrawOverHead",                         module: "client.dll", needle: "40 53 48 83 EC ? 48 8B D9 83 FA ? 75 ? 48 8B 0D ? ? ? ? 48 8D 54 24 ? 48 8B 01 FF 90 ? ? ? ? 8B 10", resolve: NONE, extra_off: 0 },
-    Signature { name: "DrawCrosshair",                        module: "client.dll", needle: "48 89 5C 24 08 57 48 83 EC 20 48 8B D9 E8 ? ? ? ? 48 85", resolve: NONE, extra_off: 0 },
-    Signature { name: "FirstPersonLegs",                      module: "client.dll", needle: "40 55 53 56 41 56 41 57 48 8D AC 24 ? ? ? ? 48 81 EC ? ? ? ? F2 0F 10 42", resolve: NONE, extra_off: 0 },
-    Signature { name: "HandleTeamIntro",                      module: "client.dll", needle: "48 83 EC ? ? ? ? ? 44 38 89", resolve: NONE, extra_off: 0 },
-    Signature { name: "DrawViewPunch",                        module: "client.dll", needle: "48 89 5C 24 ? 55 56 57 48 83 EC ? 48 83 79", resolve: NONE, extra_off: 0 },
-    Signature { name: "DrawScopeOverlay",                     module: "client.dll", needle: "48 8B C4 53 57 48 83 EC ? 48 8B FA", resolve: NONE, extra_off: 0 },
-    Signature { name: "UpdatePostProcessing",                 module: "client.dll", needle: "48 85 D2 0F 84 ? ? ? ? 48 89 5C 24 08 57 48 83 EC 60 80", resolve: NONE, extra_off: 0 },
-    Signature { name: "SetupMove",                            module: "client.dll", needle: "48 89 5C 24 ? 48 89 6C 24 ? 56 57 41 56 48 83 EC ? 48 8B EA 4C 8B F1 E8 ? ? ? ? 48 8D 15", resolve: NONE, extra_off: 0 },
+    Signature { name: "CGameEntitySystem::OnAddEntity",       module: "client.dll", needle: "48 89 74 24 ? 57 48 83 EC ? 41 B9 ? ? ? ? 41 8B C0 41 23 C1 48 8B F2 41 83 F8 ? 48 8B F9 44 0F 45 C8 41 81 F9 ? ? ? ? 73 ? FF 81", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_180968640(__int64 a1, __int64 a2, int a3)" },
+    Signature { name: "CGameEntitySystem::OnRemoveEntity",    module: "client.dll", needle: "48 89 74 24 ? 57 48 83 EC ? 41 B9 ? ? ? ? 41 8B C0 41 23 C1 48 8B F2 41 83 F8 ? 48 8B F9 44 0F 45 C8 41 81 F9 ? ? ? ? 73 ? FF 89", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_180968EA0(__int64 a1, _QWORD *a2, int a3)" },
+    Signature { name: "GetMatrixForView",                     module: "client.dll", needle: "40 53 48 83 EC 60 0F 29 74 24 50 0F 57 DB F3 0F 10 ? ? ? ? ? 49 8B D8", resolve: NONE, extra_off: 0, prototype: "double __fastcall sub_180169C50(__int64 a1, __int64 a2, __int64 a3)" },
+    Signature { name: "IsGlowing",                            module: "client.dll", needle: "E8 ? ? ? ? 33 DB 84 C0 0F 84 ? ? ? ? 48 8B 4F", resolve: REL32_1, extra_off: 0, prototype: "__int64 __fastcall sub_180B0C300(__int64 a1)" },
+    Signature { name: "GetGlowColor",                         module: "client.dll", needle: "48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 57 48 83 EC ? 48 8B F2 48 8B F9 48 8B 54 24", resolve: NONE, extra_off: 0, prototype: "void __fastcall sub_180B0ABC0(__int64 a1, float *a2)" },
+    Signature { name: "FlashOverlay",                         module: "client.dll", needle: "85 D2 0F 88 ? ? ? ? 48 89 4C 24", resolve: NONE, extra_off: 0, prototype: "void __fastcall sub_180DAB2C0(__int64 a1, int a2)" },
+    Signature { name: "DrawOverHead",                         module: "client.dll", needle: "40 53 48 83 EC ? 48 8B D9 83 FA ? 75 ? 48 8B 0D ? ? ? ? 48 8D 54 24 ? 48 8B 01 FF 90 ? ? ? ? 8B 10", resolve: NONE, extra_off: 0, prototype: "unsigned __int8 __fastcall sub_180A66CF0(__int64 a1, unsigned int a2)" },
+    Signature { name: "DrawCrosshair",                        module: "client.dll", needle: "48 89 5C 24 08 57 48 83 EC 20 48 8B D9 E8 ? ? ? ? 48 85", resolve: NONE, extra_off: 0, prototype: "bool __fastcall sub_1807B0BF0(_QWORD *a1)" },
+    Signature { name: "FirstPersonLegs",                      module: "client.dll", needle: "40 55 53 56 41 56 41 57 48 8D AC 24 ? ? ? ? 48 81 EC ? ? ? ? F2 0F 10 42", resolve: NONE, extra_off: 0, prototype: "void __fastcall sub_1810F0410(__int64 *a1, __int64 *a2, __int64 a3, __int64 a4, __int64 a5)" },
+    Signature { name: "HandleTeamIntro",                      module: "client.dll", needle: "48 83 EC ? ? ? ? ? 44 38 89", resolve: NONE, extra_off: 0, prototype: "void __fastcall sub_180703EB0(__int64 a1, __int64 a2, char *a3)" },
+    Signature { name: "DrawViewPunch",                        module: "client.dll", needle: "48 89 5C 24 ? 55 56 57 48 83 EC ? 48 83 79", resolve: NONE, extra_off: 0, prototype: "" },
+    Signature { name: "DrawScopeOverlay",                     module: "client.dll", needle: "48 8B C4 53 57 48 83 EC ? 48 8B FA", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_18085D530(__int64 a1, __int64 a2)" },
+    Signature { name: "UpdatePostProcessing",                 module: "client.dll", needle: "48 85 D2 0F 84 ? ? ? ? 48 89 5C 24 08 57 48 83 EC 60 80", resolve: NONE, extra_off: 0, prototype: "void __fastcall sub_180F21F20(__int64 a1, _BYTE *a2)" },
+    Signature { name: "SetupMove",                            module: "client.dll", needle: "48 89 5C 24 ? 48 89 6C 24 ? 56 57 41 56 48 83 EC ? 48 8B EA 4C 8B F1 E8 ? ? ? ? 48 8D 15", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_180D1D0E0(__int64 a1, int *a2)" },
     // RenderDecals â€” top-level dispatcher for bullet impact decals,
     // blood splatter, scorch marks, etc. Hook + early-return to disable
     // all decals (visual clarity / no-blood). Prologue:
@@ -261,40 +286,40 @@ pub static CS2_SIGNATURES: &[Signature] = &[
     //   55              push rbp
     //   53              push rbx
     // 4-arg fastcall: (rcx=render_ctx, rdx=render_view**, r8b=flagA, r9b=flagB)
-    Signature { name: "RenderDecals",                         module: "client.dll", needle: "44 88 4C 24 ? 55 53", resolve: NONE, extra_off: 0 },
+    Signature { name: "RenderDecals",                         module: "client.dll", needle: "44 88 4C 24 ? 55 53", resolve: NONE, extra_off: 0, prototype: "_BYTE *__fastcall sub_1810ECA50(__int64 a1, __int64 **a2, char a3, char a4)" },
 
     // Interface / global pointers --------------------------------------
-    Signature { name: "GlobalVariables_ptr",                  module: "client.dll", needle: "48 89 15 ? ? ? ? 48 89 42", resolve: RIPREL_3, extra_off: 0 },
-    Signature { name: "GameRules_ptr",                        module: "client.dll", needle: "48 8B 1D ? ? ? ? 48 8D 54 24 ? 0F 28 D0 48 8D 4C 24 ?", resolve: RIPREL_3, extra_off: 0 },
-    Signature { name: "GameEntitySystemPtr",                  module: "client.dll", needle: "48 8B 1D ? ? ? ? 48 89 1D ? ? ? ?", resolve: RIPREL_3, extra_off: 0 },
-    Signature { name: "ParticleManager_ptr",                  module: "client.dll", needle: "48 8B 0D ? ? ? ? 41 B8 ? ? ? ? F3 0F 11 74 24 ? 48 C7 44 24 ? ? ? ? ?", resolve: RIPREL_3, extra_off: 0 },
-    Signature { name: "SwapChain_ptr",                        module: "client.dll", needle: "48 89 2D ? ? ? ? 48 C7 05 ? ? ? ? ? ? ? ? C7 05 ? ? ? ? ? ? ? ? 89 2D", resolve: RIPREL_3, extra_off: 0 },
-    Signature { name: "CSGOInput_ptr",                        module: "client.dll", needle: "48 8B 0D ? ? ? ? 4C 8B C6 8B 10 E8", resolve: RIPREL_3, extra_off: 0 },
-    Signature { name: "ClientMode_ptr",                       module: "client.dll", needle: "48 8D 0D ? ? ? ? 48 69 C0 ? ? ? ? 48 03 C1 C3 CC CC", resolve: RIPREL_3, extra_off: 0 },
-    Signature { name: "ViewRender_ptr",                       module: "client.dll", needle: "48 89 05 ? ? ? ? 48 8B C8 48 85 C0", resolve: RIPREL_3, extra_off: 0 },
-    Signature { name: "VPhys2World_ptr",                      module: "client.dll", needle: "4C 8B 25 ? ? ? ? 24", resolve: RIPREL_3, extra_off: 0 },
-    Signature { name: "PVSManager_ptr",                       module: "client.dll", needle: "48 8D 0D ? ? ? ? 33 D2 FF 50", resolve: RIPREL_3, extra_off: 0 },
-    Signature { name: "GetBBox_ptr",                          module: "client.dll", needle: "48 8B 0D ? ? ? ? 48 85 C9 74 ? ? ? ? 48 FF A0 ? ? ? ? 48 8D 05", resolve: RIPREL_3, extra_off: 0 },
-    Signature { name: "GetInstanceS",                         module: "client.dll", needle: "48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 8B 91 ? ? ? ? B8", resolve: RIPREL_3, extra_off: 0 },
-    Signature { name: "ChamsRenderGameSystem",                module: "client.dll", needle: "48 8B 0D ? ? ? ? ? ? E8 ? ? ? ? 49 8B 8E ? ? ? ? 4C 8D 0D", resolve: RIPREL_3, extra_off: 0 },
-    Signature { name: "CAM_ThinkReturn",                      module: "client.dll", needle: "BA 04 00 00 00 FF 15 ? ? ? ? 84 C0 0F 84", resolve: NONE, extra_off: 0 },
+    Signature { name: "GlobalVariables_ptr",                  module: "client.dll", needle: "48 89 15 ? ? ? ? 48 89 42", resolve: RIPREL_3, extra_off: 0, prototype: "" },
+    Signature { name: "GameRules_ptr",                        module: "client.dll", needle: "48 8B 1D ? ? ? ? 48 8D 54 24 ? 0F 28 D0 48 8D 4C 24 ?", resolve: RIPREL_3, extra_off: 0, prototype: "" },
+    Signature { name: "GameEntitySystemPtr",                  module: "client.dll", needle: "48 8B 1D ? ? ? ? 48 89 1D ? ? ? ?", resolve: RIPREL_3, extra_off: 0, prototype: "" },
+    Signature { name: "ParticleManager_ptr",                  module: "client.dll", needle: "48 8B 0D ? ? ? ? 41 B8 ? ? ? ? F3 0F 11 74 24 ? 48 C7 44 24 ? ? ? ? ?", resolve: RIPREL_3, extra_off: 0, prototype: "" },
+    Signature { name: "SwapChain_ptr",                        module: "client.dll", needle: "48 89 2D ? ? ? ? 48 C7 05 ? ? ? ? ? ? ? ? C7 05 ? ? ? ? ? ? ? ? 89 2D", resolve: RIPREL_3, extra_off: 0, prototype: "" },
+    Signature { name: "CSGOInput_ptr",                        module: "client.dll", needle: "48 8B 0D ? ? ? ? 4C 8B C6 8B 10 E8", resolve: RIPREL_3, extra_off: 0, prototype: "" },
+    Signature { name: "ClientMode_ptr",                       module: "client.dll", needle: "48 8D 0D ? ? ? ? 48 69 C0 ? ? ? ? 48 03 C1 C3 CC CC", resolve: RIPREL_3, extra_off: 0, prototype: "" },
+    Signature { name: "ViewRender_ptr",                       module: "client.dll", needle: "48 89 05 ? ? ? ? 48 8B C8 48 85 C0", resolve: RIPREL_3, extra_off: 0, prototype: "" },
+    Signature { name: "VPhys2World_ptr",                      module: "client.dll", needle: "4C 8B 25 ? ? ? ? 24", resolve: RIPREL_3, extra_off: 0, prototype: "" },
+    Signature { name: "PVSManager_ptr",                       module: "client.dll", needle: "48 8D 0D ? ? ? ? 33 D2 FF 50", resolve: RIPREL_3, extra_off: 0, prototype: "" },
+    Signature { name: "GetBBox_ptr",                          module: "client.dll", needle: "48 8B 0D ? ? ? ? 48 85 C9 74 ? ? ? ? 48 FF A0 ? ? ? ? 48 8D 05", resolve: RIPREL_3, extra_off: 0, prototype: "" },
+    Signature { name: "GetInstanceS",                         module: "client.dll", needle: "48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 8B 91 ? ? ? ? B8", resolve: RIPREL_3, extra_off: 0, prototype: "" },
+    Signature { name: "ChamsRenderGameSystem",                module: "client.dll", needle: "48 8B 0D ? ? ? ? ? ? E8 ? ? ? ? 49 8B 8E ? ? ? ? 4C 8D 0D", resolve: RIPREL_3, extra_off: 0, prototype: "" },
+    Signature { name: "CAM_ThinkReturn",                      module: "client.dll", needle: "BA 04 00 00 00 FF 15 ? ? ? ? 84 C0 0F 84", resolve: NONE, extra_off: 0, prototype: "char __fastcall sub_18031A460(__int64 a1, _DWORD *a2)" },
 
     // a2x-derived globals (cs2-dumper, MIT). Battle-tested patterns.
     // GlowManager_ptr â€” client.dll g_pGlowManager. Read as qword pointer.
-    Signature { name: "GlowManager_ptr",                      module: "client.dll", needle: "48 8B 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 8B 41", resolve: RIPREL_3, extra_off: 0 },
+    Signature { name: "GlowManager_ptr",                      module: "client.dll", needle: "48 8B 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 8B 41", resolve: RIPREL_3, extra_off: 0, prototype: "" },
     // Sensitivity_ptr â€” client.dll g_pSensitivity (mouse sens object).
-    Signature { name: "Sensitivity_ptr",                      module: "client.dll", needle: "48 8D 0D ? ? ? ? 66 0F 6E CD", resolve: RIPREL_3, extra_off: 0 },
+    Signature { name: "Sensitivity_ptr",                      module: "client.dll", needle: "48 8D 0D ? ? ? ? 66 0F 6E CD", resolve: RIPREL_3, extra_off: 0, prototype: "" },
     // BuildNumber_addr â€” engine2.dll dword build number global.
     // mov [rip+disp32], eax  ;  89 05 disp32
-    Signature { name: "BuildNumber_addr",                     module: "engine2.dll", needle: "89 05 ? ? ? ? 48 8D 0D ? ? ? ? FF 15 ? ? ? ? 48 8B 0D", resolve: RIPREL_2, extra_off: 0 },
+    Signature { name: "BuildNumber_addr",                     module: "engine2.dll", needle: "89 05 ? ? ? ? 48 8D 0D ? ? ? ? FF 15 ? ? ? ? 48 8B 0D", resolve: RIPREL_2, extra_off: 0, prototype: "" },
     // NetworkGameClient_ptr â€” engine2.dll g_pNetworkGameClient.
-    Signature { name: "NetworkGameClient_ptr",                module: "engine2.dll", needle: "48 89 3D ? ? ? ? FF 87", resolve: RIPREL_3, extra_off: 0 },
+    Signature { name: "NetworkGameClient_ptr",                module: "engine2.dll", needle: "48 89 3D ? ? ? ? FF 87", resolve: RIPREL_3, extra_off: 0, prototype: "" },
     // InputSystem_ptr â€” inputsystem.dll g_pInputSystem.
-    Signature { name: "InputSystem_ptr",                      module: "inputsystem.dll", needle: "48 89 05 ? ? ? ? 33 C0", resolve: RIPREL_3, extra_off: 0 },
+    Signature { name: "InputSystem_ptr",                      module: "inputsystem.dll", needle: "48 89 05 ? ? ? ? 33 C0", resolve: RIPREL_3, extra_off: 0, prototype: "" },
     // GameTypes_ptr â€” matchmaking.dll IGameTypes singleton.
-    Signature { name: "GameTypes_ptr",                        module: "matchmaking.dll", needle: "48 8D 0D ? ? ? ? FF 90", resolve: RIPREL_3, extra_off: 0 },
+    Signature { name: "GameTypes_ptr",                        module: "matchmaking.dll", needle: "48 8D 0D ? ? ? ? FF 90", resolve: RIPREL_3, extra_off: 0, prototype: "" },
     // SoundSystem_ptr â€” soundsystem.dll g_pSoundSystem (CSoundSystem instance).
-    Signature { name: "SoundSystem_ptr",                      module: "soundsystem.dll", needle: "48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 48 89 15", resolve: RIPREL_3, extra_off: 0 },
+    Signature { name: "SoundSystem_ptr",                      module: "soundsystem.dll", needle: "48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 48 89 15", resolve: RIPREL_3, extra_off: 0, prototype: "" },
 
     // CreateInterface â€” client.dll exported factory dispatcher
     // (DLL ordinal #2). Internals load any client interface
@@ -308,7 +333,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
     //   4D 85 C9             test r9, r9
     //   74 ?                 jz <ret_null>
     //   49 8B 41 08          mov rax, [r9+8]   ; reg->m_pName
-    Signature { name: "CreateInterface",                      module: "client.dll", needle: "4C 8B 0D ? ? ? ? 4C 8B D2 4C 8B D9 4D 85 C9 74 ? 49 8B 41 08", resolve: NONE, extra_off: 0 },
+    Signature { name: "CreateInterface",                      module: "client.dll", needle: "4C 8B 0D ? ? ? ? 4C 8B D2 4C 8B D9 4D 85 C9 74 ? 49 8B 41 08", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall CreateInterface(__int64 a1, _DWORD *a2)" },
 
     // Prediction_ptr â€” client.dll g_pPrediction (CPrediction instance).
     // Used by SetupMove/RunCommand chain. a2x dwPrediction pattern.
@@ -316,7 +341,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
     //   C3                   ret
     //   CC CC CC CC CC CC CC CC                pad
     //   40 53 56 41 54       push rbx/rsi/r12  (next fn prologue)
-    Signature { name: "Prediction_ptr",                       module: "client.dll", needle: "48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 40 53 56 41 54", resolve: RIPREL_3, extra_off: 0 },
+    Signature { name: "Prediction_ptr",                       module: "client.dll", needle: "48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 40 53 56 41 54", resolve: RIPREL_3, extra_off: 0, prototype: "" },
 
     // WeaponC4_ptr â€” client.dll g_pWeaponC4 (currently held / planted
     // bomb instance). a2x dwWeaponC4 pattern. Useful for bomb timer
@@ -328,7 +353,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
     //   48 8B C6         mov rax, rsi
     //   48 89 34 EA      mov [rdx+rbp*8], rsi  ; insert into list
     //   80 BE ...        cmp byte [rsi+disp32], ?
-    Signature { name: "WeaponC4_ptr",                         module: "client.dll", needle: "48 8B 15 ? ? ? ? 48 8B 5C 24 ? FF C0 89 05 ? ? ? ? 48 8B C6 48 89 34 EA 80 BE", resolve: RIPREL_3, extra_off: 0 },
+    Signature { name: "WeaponC4_ptr",                         module: "client.dll", needle: "48 8B 15 ? ? ? ? 48 8B 5C 24 ? FF C0 89 05 ? ? ? ? 48 8B C6 48 89 34 EA 80 BE", resolve: RIPREL_3, extra_off: 0, prototype: "" },
 
     // LocalPlayerController_ptr Ã”Ã‡Ã¶ client.dll g_pLocalPlayerController[1].
     // Cached pointer to the local CCSPlayerController, used by ESP team
@@ -336,7 +361,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
     // a2x dwLocalPlayerController pattern:
     //   48 8B 05 disp32   mov rax, [rip+g_pLocalPlayerController]
     //   41 89 BE ...      mov [r14+disp32], edi
-    Signature { name: "LocalPlayerController_ptr",            module: "client.dll", needle: "48 8B 05 ? ? ? ? 41 89 BE", resolve: RIPREL_3, extra_off: 0 },
+    Signature { name: "LocalPlayerController_ptr",            module: "client.dll", needle: "48 8B 05 ? ? ? ? 41 89 BE", resolve: RIPREL_3, extra_off: 0, prototype: "" },
 
     // WindowWidth_addr Ã”Ã‡Ã¶ engine2.dll g_nWindowWidth. Updated every
     // frame to the current swap-chain width; perfect screen-space
@@ -344,13 +369,13 @@ pub static CS2_SIGNATURES: &[Signature] = &[
     // survives windowed/borderless/resolution swaps without re-hooking.
     // a2x dwWindowWidth pattern: 8B 05 disp32  mov eax, [rip+w]
     //                            89 07         mov [rdi], eax
-    Signature { name: "WindowWidth_addr",                     module: "engine2.dll", needle: "8B 05 ? ? ? ? 89 07", resolve: RIPREL_2, extra_off: 0 },
+    Signature { name: "WindowWidth_addr",                     module: "engine2.dll", needle: "8B 05 ? ? ? ? 89 07", resolve: RIPREL_2, extra_off: 0, prototype: "" },
 
     // WindowHeight_addr Ã”Ã‡Ã¶ engine2.dll g_nWindowHeight. Companion to
     // WindowWidth_addr; same instruction pair, different sink reg.
     //   8B 05 disp32  mov eax, [rip+h]
     //   89 03         mov [rbx], eax
-    Signature { name: "WindowHeight_addr",                    module: "engine2.dll", needle: "8B 05 ? ? ? ? 89 03", resolve: RIPREL_2, extra_off: 0 },
+    Signature { name: "WindowHeight_addr",                    module: "engine2.dll", needle: "8B 05 ? ? ? ? 89 03", resolve: RIPREL_2, extra_off: 0, prototype: "" },
 
     // Cross-module interface singletons ---------------------------------
     // Each module's CreateInterface() registers an InterfaceReg for every
@@ -368,7 +393,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
     // cvar read/write feature: third-person, FOV, sky_name, sv_cheats
     // probes, etc. Followed in tier0 by an `E9` thunk that distinguishes
     // it from the other 30+ tier0 factories.
-    Signature { name: "CVar_ptr",                             module: "tier0.dll", needle: "48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC E9", resolve: RIPREL_3, extra_off: 0 },
+    Signature { name: "CVar_ptr",                             module: "tier0.dll", needle: "48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC E9", resolve: RIPREL_3, extra_off: 0, prototype: "" },
 
     // NetworkSystem_ptr Ã”Ã‡Ã¶ networksystem.dll g_pNetworkSystem (singleton
     // INetworkSystem). Owns CNetChan registry, NetMessages send queue,
@@ -377,14 +402,14 @@ pub static CS2_SIGNATURES: &[Signature] = &[
     // sv_fakelag clamp), bandwidth metering. Trailing
     // `48 83 EC 28 BA FF FF FF` is the next function (mov edx, -1) and
     // is unique among the 3 lea-factory thunks in this module.
-    Signature { name: "NetworkSystem_ptr",                    module: "networksystem.dll", needle: "48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 48 83 EC 28 BA FF FF FF", resolve: RIPREL_3, extra_off: 0 },
+    Signature { name: "NetworkSystem_ptr",                    module: "networksystem.dll", needle: "48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 48 83 EC 28 BA FF FF FF", resolve: RIPREL_3, extra_off: 0, prototype: "" },
 
     // SceneSystem_ptr Ã”Ã‡Ã¶ scenesystem.dll g_pSceneSystem (ISceneSystem).
     // Owns the per-view render scene, scene-object lists, frustum data,
     // and is the entry point for custom draw-call injection (chams,
     // outlines, post-fx). Trailing `48 8D 0D ? ? ? ? E9` is the next
     // function's lea+jmp tail-call Ã”Ã‡Ã¶ unique anchor in scenesystem.dll.
-    Signature { name: "SceneSystem_ptr",                      module: "scenesystem.dll", needle: "48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 48 8D 0D ? ? ? ? E9", resolve: RIPREL_3, extra_off: 0 },
+    Signature { name: "SceneSystem_ptr",                      module: "scenesystem.dll", needle: "48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 48 8D 0D ? ? ? ? E9", resolve: RIPREL_3, extra_off: 0, prototype: "" },
 
     // RenderDeviceMgr_ptr Ã”Ã‡Ã¶ rendersystemdx11.dll g_pRenderDeviceMgr
     // (IRenderDeviceMgr). Direct gateway to the live ID3D11Device,
@@ -394,7 +419,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
     // movsd-style epilogue of the previous func Ã”Ã‡Ã¶ unique anchor that
     // disambiguates from the 10 other identical lea-factory thunks
     // chained right after this one (one per render sub-interface).
-    Signature { name: "RenderDeviceMgr_ptr",                  module: "rendersystemdx11.dll", needle: "8B 5C 24 38 48 83 C4 20 5E C3 CC CC CC CC CC CC 48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 48 8D 05 ? ? ? ? C3", resolve: RIPREL_19, extra_off: 0 },
+    Signature { name: "RenderDeviceMgr_ptr",                  module: "rendersystemdx11.dll", needle: "8B 5C 24 38 48 83 C4 20 5E C3 CC CC CC CC CC CC 48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 48 8D 05 ? ? ? ? C3", resolve: RIPREL_19, extra_off: 0, prototype: "" },
 
     // FullFileSystem_ptr Ã”Ã‡Ã¶ filesystem_stdio.dll g_pFullFileSystem
     // (IFileSystem). Mounts VPKs, opens game files, reads pak1_dir
@@ -403,7 +428,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
     // Preceded by `8B 41 28 C3` (`mov eax, [rcx+28]; ret`) which is
     // a unique 4-byte epilogue at exactly 16 bytes before this factory
     // among the 30 lea-factory thunks in filesystem_stdio.dll.
-    Signature { name: "FullFileSystem_ptr",                   module: "filesystem_stdio.dll", needle: "8B 41 28 C3 CC CC CC CC CC CC CC CC CC CC CC CC 48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 48 8D 05 ? ? ? ? C3", resolve: RIPREL_19, extra_off: 0 },
+    Signature { name: "FullFileSystem_ptr",                   module: "filesystem_stdio.dll", needle: "8B 41 28 C3 CC CC CC CC CC CC CC CC CC CC CC CC 48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 48 8D 05 ? ? ? ? C3", resolve: RIPREL_19, extra_off: 0, prototype: "" },
 
     // InputSystemSvc_ptr Ã”Ã‡Ã¶ inputsystem.dll g_pInputSystem
     // (IInputSystem). Different singleton from client.dll's
@@ -413,7 +438,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
     // for pre-CCSGOInput mouse hooks (perfect-aim, true raw delta).
     // Trailing `40 53 48 83 EC 20 33 DB` is the next func's prologue Ã”Ã‡Ã¶
     // unique anchor in inputsystem.dll.
-    Signature { name: "InputSystemSvc_ptr",                   module: "inputsystem.dll", needle: "48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 40 53 48 83 EC 20 33 DB", resolve: RIPREL_3, extra_off: 0 },
+    Signature { name: "InputSystemSvc_ptr",                   module: "inputsystem.dll", needle: "48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 40 53 48 83 EC 20 33 DB", resolve: RIPREL_3, extra_off: 0, prototype: "" },
 
     // SchemaSystem_ptr Ã”Ã‡Ã¶ schemasystem.dll g_pSchemaSystem
     // (CSchemaSystem). Runtime-resolves any schema field offset, class
@@ -422,7 +447,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
     // become self-healing across CS2 patches. Trailing
     // `48 89 5C 24 08 48 89 74` is the next func's stack-spill
     // prologue Ã”Ã‡Ã¶ unique anchor in schemasystem.dll.
-    Signature { name: "SchemaSystem_ptr",                     module: "schemasystem.dll", needle: "48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 48 89 5C 24 08 48 89 74", resolve: RIPREL_3, extra_off: 0 },
+    Signature { name: "SchemaSystem_ptr",                     module: "schemasystem.dll", needle: "48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 48 89 5C 24 08 48 89 74", resolve: RIPREL_3, extra_off: 0, prototype: "" },
 
     // ================================================================
     // Wave-5 cross-module hookpoints (12 sigs across 7 modules)
@@ -444,7 +469,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
     // `CreateInterface(name)` stub that compares interface name and
     // dispatches via vtable+stored-singleton. Resolves to the pointer
     // backing g_pAnimationSystemUtils inside animationsystem.dll.
-    Signature { name: "AnimationSystemUtils_ptr",             module: "animationsystem.dll", needle: "48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 48 83 EC 28 48 8B CA 48 8D 15", resolve: RIPREL_3, extra_off: 0 },
+    Signature { name: "AnimationSystemUtils_ptr",             module: "animationsystem.dll", needle: "48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 48 83 EC 28 48 8B CA 48 8D 15", resolve: RIPREL_3, extra_off: 0, prototype: "" },
 
     // ---------- vphysics2.dll -----------------------------------------
     // VPhysics2_Startup Ã”Ã‡Ã¶ vphysics2!sub_18006AF20 (~size 0x2a8). The
@@ -455,7 +480,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
     // First module-level vphysics2 sig in the universal-dumper Ã”Ã‡Ã¶ the
     // module's entire string table is heavily stripped, so RAW prologue
     // anchored on the unique `48 83 3D` global-init guard works best.
-    Signature { name: "VPhysics2_Startup",                    module: "vphysics2.dll", needle: "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 48 89 7C 24 20 41 54 41 56 41 57 48 83 EC 70 48 83 3D", resolve: NONE, extra_off: 0 },
+    Signature { name: "VPhysics2_Startup",                    module: "vphysics2.dll", needle: "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 48 89 7C 24 20 41 54 41 56 41 57 48 83 EC 70 48 83 3D", resolve: NONE, extra_off: 0, prototype: "" },
 
     // ---------- schemasystem.dll --------------------------------------
     // CSchemaSystem_VerifySchemaBindingConsistency Ã”Ã‡Ã¶ schemasystem!
@@ -465,7 +490,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
     // "CSchemaSystem::VerifySchemaBindingConsistency" string. Hook to
     // observe which class bindings the engine considers valid this
     // build (any disagreement is logged here before runtime asserts).
-    Signature { name: "CSchemaSystem_VerifySchemaBindingConsistency", module: "schemasystem.dll", needle: "88 54 24 10 55 53 57 41 54 41 55 48 8B EC 48 81 EC 80 00 00 00 65 48 8B 04 25 58 00 00 00", resolve: NONE, extra_off: 0 },
+    Signature { name: "CSchemaSystem_VerifySchemaBindingConsistency", module: "schemasystem.dll", needle: "88 54 24 10 55 53 57 41 54 41 55 48 8B EC 48 81 EC 80 00 00 00 65 48 8B 04 25 58 00 00 00", resolve: NONE, extra_off: 0, prototype: "" },
 
     // CSchemaSystem_RegisterModuleAndBuiltins Ã”Ã‡Ã¶ schemasystem!sub_1800106F0
     // (~0x3ca). Combined ref to "SchemaSystem_001" + "InsertNewClassBinding"
@@ -473,14 +498,14 @@ pub static CS2_SIGNATURES: &[Signature] = &[
     // class bindings (Vector/QAngle/CUtlSymbolLarge/etc) in one shot.
     // Critical bootstrap point Ã”Ã‡Ã¶ hook here to intercept every class
     // schema before any module's typescope opens.
-    Signature { name: "CSchemaSystem_RegisterModuleAndBuiltins", module: "schemasystem.dll", needle: "48 89 54 24 10 53 56 57 41 55 41 56 41 57 48 83 EC 48 45 33 ED 49 63 C0 33 FF 44 89 AC 24 90 00", resolve: NONE, extra_off: 0 },
+    Signature { name: "CSchemaSystem_RegisterModuleAndBuiltins", module: "schemasystem.dll", needle: "48 89 54 24 10 53 56 57 41 55 41 56 41 57 48 83 EC 48 45 33 ED 49 63 C0 33 FF 44 89 AC 24 90 00", resolve: NONE, extra_off: 0, prototype: "" },
 
     // CSchemaSystem_InstallSchemaBindings Ã”Ã‡Ã¶ schemasystem!sub_1800375D0
     // (~0x4b). Per-module installer called from each .dll's startup with
     // its serialized schema-binding blob. Hook to enumerate every
     // module-local schema scope as it loads (lets the cheat snapshot
     // offsets without ever calling FindDeclaredClass).
-    Signature { name: "CSchemaSystem_InstallSchemaBindings",  module: "schemasystem.dll", needle: "40 53 48 83 EC 20 48 8B DA 48 8B D1 48 8D 0D ? ? ? ? E8 ? ? ? ? 85 C0 74 08 32 C0", resolve: NONE, extra_off: 0 },
+    Signature { name: "CSchemaSystem_InstallSchemaBindings",  module: "schemasystem.dll", needle: "40 53 48 83 EC 20 48 8B DA 48 8B D1 48 8D 0D ? ? ? ? E8 ? ? ? ? 85 C0 74 08 32 C0", resolve: NONE, extra_off: 0, prototype: "" },
 
     // ---------- networksystem.dll -------------------------------------
     // CNetworkSystem_Init Ã”Ã‡Ã¶ networksystem!sub_1800EC0C0 (~0x89d). Module
@@ -489,7 +514,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
     // unique "CNetworkSystem::Init() failed - no SteamNetworking()" log.
     // Hook for: blocking the cheat from registering against Steam-relays,
     // or short-circuiting the SteamNetworkingSockets init for offline use.
-    Signature { name: "CNetworkSystem_Init",                  module: "networksystem.dll", needle: "40 55 53 57 41 54 41 55 41 57 48 8D AC 24 98 FC FF FF 48 81 EC 68 04 00 00 4C 8B E9", resolve: NONE, extra_off: 0 },
+    Signature { name: "CNetworkSystem_Init",                  module: "networksystem.dll", needle: "40 55 53 57 41 54 41 55 41 57 48 8D AC 24 98 FC FF FF 48 81 EC 68 04 00 00 4C 8B E9", resolve: NONE, extra_off: 0, prototype: "" },
 
     // CNetworkSystem_RegisterNetMessageHandlerAbstract Ã”Ã‡Ã¶ networksystem!
     // sub_1800BBC00 (~0x270). Every protobuf netmessage type registers its
@@ -497,7 +522,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
     // and FinishRegisteringMessageHandlers. Hook to (a) enumerate every
     // netmessage the build supports, (b) hot-swap a custom handler that
     // intercepts/mutates a specific message before normal dispatch.
-    Signature { name: "CNetworkSystem_RegisterNetMessageHandlerAbstract", module: "networksystem.dll", needle: "48 89 5C 24 10 48 89 6C 24 18 57 41 56 41 57 48 83 EC 50 4C 8B B4 24 90 00 00 00 41 8B D9", resolve: NONE, extra_off: 0 },
+    Signature { name: "CNetworkSystem_RegisterNetMessageHandlerAbstract", module: "networksystem.dll", needle: "48 89 5C 24 10 48 89 6C 24 18 57 41 56 41 57 48 83 EC 50 4C 8B B4 24 90 00 00 00 41 8B D9", resolve: NONE, extra_off: 0, prototype: "" },
 
     // ---------- scenesystem.dll ---------------------------------------
     // CSceneSystem_CreateStaticShape Ã”Ã‡Ã¶ scenesystem!sub_1800B1AF0 (~0x648).
@@ -505,7 +530,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
     // Refs "CSceneSystem::CreateStaticShape(322): " unique log. Pairs
     // with CSceneSystem::DrawStaticPrimitive to inject custom debug
     // overlays / 3D wireframe ESP that survives the engine cull.
-    Signature { name: "CSceneSystem_CreateStaticShape",       module: "scenesystem.dll", needle: "48 8B C4 48 89 48 08 55 41 54 41 56 48 8D 68 D8 48 81 EC 10 01 00 00 4C 8B 65 50 48 8D 4D 80", resolve: NONE, extra_off: 0 },
+    Signature { name: "CSceneSystem_CreateStaticShape",       module: "scenesystem.dll", needle: "48 8B C4 48 89 48 08 55 41 54 41 56 48 8D 68 D8 48 81 EC 10 01 00 00 4C 8B 65 50 48 8D 4D 80", resolve: NONE, extra_off: 0, prototype: "" },
 
     // CSceneSystem_InitGfxObjects Ã”Ã‡Ã¶ scenesystem!sub_1800B3E30 (~0x1b1d).
     // Master GPU-side init: creates persistent vertex/index buffers, the
@@ -513,7 +538,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
     // hookup. Refs "CSceneSystem::InitGfxObjects(976): " unique log. Hook
     // to swap-in custom vertex layouts / shader includes BEFORE any scene
     // primitive is drawn.
-    Signature { name: "CSceneSystem_InitGfxObjects",          module: "scenesystem.dll", needle: "40 55 53 56 57 41 54 41 55 41 56 41 57 48 8D AC 24 08 FE FF FF 48 81 EC F8 02 00 00", resolve: NONE, extra_off: 0 },
+    Signature { name: "CSceneSystem_InitGfxObjects",          module: "scenesystem.dll", needle: "40 55 53 56 57 41 54 41 55 41 56 41 57 48 8D AC 24 08 FE FF FF 48 81 EC F8 02 00 00", resolve: NONE, extra_off: 0, prototype: "" },
 
     // ---------- inputsystem.dll ---------------------------------------
     // CInputSystem_PollInputState Ã”Ã‡Ã¶ inputsystem!sub_180005500 (~0x459).
@@ -523,7 +548,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
     // synthetic mouse-deltas or filter specific keys before they hit the
     // engine's button table Ã”Ã‡Ã¶ perfect anchor for raw aim-step / no-recoil
     // mouse-comp without touching CCSGOInput.
-    Signature { name: "CInputSystem_PollInputState",          module: "inputsystem.dll", needle: "40 53 41 56 48 81 EC 28 01 00 00 48 8D 05 ? ? ? ? 48 C7 44 24 38 46 04 00 00 4C 8B F1", resolve: NONE, extra_off: 0 },
+    Signature { name: "CInputSystem_PollInputState",          module: "inputsystem.dll", needle: "40 53 41 56 48 81 EC 28 01 00 00 48 8D 05 ? ? ? ? 48 C7 44 24 38 46 04 00 00 4C 8B F1", resolve: NONE, extra_off: 0, prototype: "" },
 
     // ---------- materialsystem2.dll -----------------------------------
     // CMaterial2_GetMode Ã”Ã‡Ã¶ materialsystem2!sub_18000BD40 (~0x16e). Per-
@@ -532,7 +557,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
     // \"%s\" is requesting a bad mode \"%s\"!\n". Hook to force-override
     // per-material mode (e.g. promote everything to wireframe = clean
     // chams without shader patching).
-    Signature { name: "CMaterial2_GetMode",                   module: "materialsystem2.dll", needle: "48 89 5C 24 18 57 48 83 EC 30 8B 02 48 8B D9 39 05 ? ? ? ? 48 8B 0D ? ? ? ? 48 89 74 24", resolve: NONE, extra_off: 0 },
+    Signature { name: "CMaterial2_GetMode",                   module: "materialsystem2.dll", needle: "48 89 5C 24 18 57 48 83 EC 30 8B 02 48 8B D9 39 05 ? ? ? ? 48 8B 0D ? ? ? ? 48 89 74 24", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_18000BD40(__int64 a1, unsigned int *a2)" },
 
     // CMaterial2_GetVertexShaderInputSignature Ã”Ã‡Ã¶ materialsystem2!
     // sub_18000C8C0 (~0x2af). Returns the CVsInputSignatureVector for the
@@ -542,213 +567,213 @@ pub static CS2_SIGNATURES: &[Signature] = &[
     // spoof signature compatibility Ã”Ã‡Ã¶ required when forcing one material
     // onto a model with an incompatible vertex layout (e.g. character
     // vfx onto props for cross-class chams).
-    Signature { name: "CMaterial2_GetVertexShaderInputSignature", module: "materialsystem2.dll", needle: "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 48 89 7C 24 20 41 56 48 83 EC 30 F6 41 0B 01 4C 8B", resolve: NONE, extra_off: 0 },
+    Signature { name: "CMaterial2_GetVertexShaderInputSignature", module: "materialsystem2.dll", needle: "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 48 89 7C 24 20 41 56 48 83 EC 30 F6 41 0B 01 4C 8B", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_18000C8C0(__int64 a1)" },
 
     // Features / aimbot / autowall / movement ---------------------------
-    Signature { name: "CalculateShootPosition",               module: "client.dll", needle: "48 89 5C 24 ? 48 89 6C 24 ? 56 57 41 56 48 81 EC ? ? ? ? 44 8B 92 ? ? ? ?", resolve: NONE, extra_off: 0 },
-    Signature { name: "AutowallInit",                         module: "client.dll", needle: "40 53 48 83 EC ? 48 8B D9 48 81 C1 ? ? ? ? E8 ? ? ? ?", resolve: NONE, extra_off: 0 },
-    Signature { name: "AutowallResolveTracePos",              module: "client.dll", needle: "E8 ? ? ? ? 48 63 83 ? ? ? ? 48 8D 14 40", resolve: REL32_1, extra_off: 0 },
-    Signature { name: "AutowallTracePos",                     module: "client.dll", needle: "40 55 56 41 54 41 55 41 57 48 8B EC", resolve: NONE, extra_off: 0 },
-    Signature { name: "AutowallTraceData",                    module: "client.dll", needle: "48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 57 48 83 EC ? 48 8B 09", resolve: NONE, extra_off: 0 },
-    Signature { name: "TestSurfaces",                         module: "client.dll", needle: "40 53 57 41 56 48 83 EC 50 8B", resolve: NONE, extra_off: 0 },
-    Signature { name: "ReportHit",                            module: "client.dll", needle: "E8 ? ? ? ? 48 8B AC 24 D8 00 00 00 48 81 C4", resolve: REL32_1, extra_off: 0 },
-    Signature { name: "SetTraceData",                         module: "client.dll", needle: "E8 ? ? ? ? 8B 85 ? ? ? ? 48 8D 54 24 ? F2 0F 10 45", resolve: REL32_1, extra_off: 0 },
-    Signature { name: "SetTraceInit",                         module: "client.dll", needle: "E8 ? ? ? ? F2 0F 10 0B 4C 8D 0D", resolve: REL32_1, extra_off: 0 },
-    Signature { name: "HandleEntityList",                     module: "client.dll", needle: "E8 ? ? ? ? 84 C0 74 ? 48 63 03", resolve: REL32_1, extra_off: 0 },
-    Signature { name: "GetBasePlayerController",              module: "client.dll", needle: "48 8B F8 48 85 C0 74 ? 48 8B C8 E8 ? ? ? ? 44 39 A8", resolve: NONE, extra_off: 0 },
-    Signature { name: "GetTickBase",                          module: "client.dll", needle: "E8 ? ? ? ? EB ? 48 8B 05 ? ? ? ? 8B 40", resolve: REL32_1, extra_off: 0 },
-    Signature { name: "FindHudElement",                       module: "client.dll", needle: "48 8D 15 ? ? ? ? 45 33 C0 B9 ? ? ? ? FF 15 ? ? ? ? EB ? 48 8B 15", resolve: NONE, extra_off: 0 },
-    Signature { name: "FindHudElement_panorama",              module: "client.dll", needle: "4C 8B DC 53 48 83 EC 50 48 8B 05", resolve: NONE, extra_off: 0 },
-    Signature { name: "HudChatPrintf",                        module: "client.dll", needle: "E8 ? ? ? ? 49 8B 4E 20 BA ? ? ? ?", resolve: REL32_1, extra_off: 0 },
-    Signature { name: "Scope_callsite",                       module: "client.dll", needle: "E8 ? ? ? ? 80 7C 24 34 ? 74 ?", resolve: REL32_1, extra_off: 0 },
-    Signature { name: "GetRemovedAimpunch",                   module: "client.dll", needle: "F2 0F 10 44 24 ? F2 0F 11 84 24 ? ? ? ? FF 15", resolve: NONE, extra_off: 0 },
-    Signature { name: "GetRemovedAimPunch_E8",                module: "client.dll", needle: "E8 ? ? ? ? 4C 8B C0 48 8D 55 ? 48 8B CB E8 ? ? ? ? 48 8D 0D", resolve: REL32_1, extra_off: 0 },
-    Signature { name: "ChamsGetWorldGroupID",                 module: "client.dll", needle: "E8 ? ? ? ? 48 8B 0D ? ? ? ? ? ? E8 ? ? ? ? 49 8B 8E ? ? ? ? 4C 8D 0D", resolve: REL32_1, extra_off: 0 },
-    Signature { name: "ModulationUpdate",                     module: "client.dll", needle: "48 89 5C 24 08 57 48 83 EC 20 8B FA 48 8B D9 E8 ? ? ? ? 84 C0 0F 84", resolve: NONE, extra_off: 0 },
-    Signature { name: "ClearHUDWeaponIcon",                   module: "client.dll", needle: "E8 ? ? ? ? 8B F8 C6 84 24 ? ? ? ? ?", resolve: REL32_1, extra_off: 0 },
-    Signature { name: "PlayVSound_client",                    module: "client.dll", needle: "48 89 5C 24 ? 48 89 74 24 ? 48 89 7C 24 ? 55 48 8D 6C 24 ? 48 81 EC ? ? ? ? 33 FF", resolve: NONE, extra_off: 0 },
-    Signature { name: "ConvarGet",                            module: "client.dll", needle: "8B D0 48 8D 0D ? ? ? ? E8 ? ? ? ? 0F 10 45 ? 83 F0 74", resolve: NONE, extra_off: 0 },
+    Signature { name: "CalculateShootPosition",               module: "client.dll", needle: "48 89 5C 24 ? 48 89 6C 24 ? 56 57 41 56 48 81 EC ? ? ? ? 44 8B 92 ? ? ? ?", resolve: NONE, extra_off: 0, prototype: "" },
+    Signature { name: "AutowallInit",                         module: "client.dll", needle: "40 53 48 83 EC ? 48 8B D9 48 81 C1 ? ? ? ? E8 ? ? ? ?", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_1808E1EE0(__int64 a1)" },
+    Signature { name: "AutowallResolveTracePos",              module: "client.dll", needle: "E8 ? ? ? ? 48 63 83 ? ? ? ? 48 8D 14 40", resolve: REL32_1, extra_off: 0, prototype: "" },
+    Signature { name: "AutowallTracePos",                     module: "client.dll", needle: "40 55 56 41 54 41 55 41 57 48 8B EC", resolve: NONE, extra_off: 0, prototype: "char __fastcall sub_180807780(__int64 a1, __int64 a2)" },
+    Signature { name: "AutowallTraceData",                    module: "client.dll", needle: "48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 57 48 83 EC ? 48 8B 09", resolve: NONE, extra_off: 0, prototype: "char __fastcall sub_18098E9C0(_QWORD *a1, int *a2, int a3, int a4, _BYTE *a5, int a6)" },
+    Signature { name: "TestSurfaces",                         module: "client.dll", needle: "40 53 57 41 56 48 83 EC 50 8B", resolve: NONE, extra_off: 0, prototype: "void __fastcall sub_180806E30(__int64 a1, float a2, float a3, float a4, int a5, int a6, __int64 a7)" },
+    Signature { name: "ReportHit",                            module: "client.dll", needle: "E8 ? ? ? ? 48 8B AC 24 D8 00 00 00 48 81 C4", resolve: REL32_1, extra_off: 0, prototype: "char __fastcall sub_180602290(_QWORD *a1)" },
+    Signature { name: "SetTraceData",                         module: "client.dll", needle: "E8 ? ? ? ? 8B 85 ? ? ? ? 48 8D 54 24 ? F2 0F 10 45", resolve: REL32_1, extra_off: 0, prototype: "__int64 __fastcall sub_1807D4810(int *a1, _OWORD *a2)" },
+    Signature { name: "SetTraceInit",                         module: "client.dll", needle: "E8 ? ? ? ? F2 0F 10 0B 4C 8D 0D", resolve: REL32_1, extra_off: 0, prototype: "" },
+    Signature { name: "HandleEntityList",                     module: "client.dll", needle: "E8 ? ? ? ? 84 C0 74 ? 48 63 03", resolve: REL32_1, extra_off: 0, prototype: "__int64 __fastcall sub_1801C3700(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, int a6, int a7)" },
+    Signature { name: "GetBasePlayerController",              module: "client.dll", needle: "48 8B F8 48 85 C0 74 ? 48 8B C8 E8 ? ? ? ? 44 39 A8", resolve: NONE, extra_off: 0, prototype: "" },
+    Signature { name: "GetTickBase",                          module: "client.dll", needle: "E8 ? ? ? ? EB ? 48 8B 05 ? ? ? ? 8B 40", resolve: REL32_1, extra_off: 0, prototype: "__int64 __fastcall sub_1808BDA00(__int64 a1)" },
+    Signature { name: "FindHudElement",                       module: "client.dll", needle: "48 8D 15 ? ? ? ? 45 33 C0 B9 ? ? ? ? FF 15 ? ? ? ? EB ? 48 8B 15", resolve: NONE, extra_off: 0, prototype: "_QWORD **__fastcall sub_180DC1D50(__int64 a1, unsigned __int8 a2)" },
+    Signature { name: "FindHudElement_panorama",              module: "client.dll", needle: "4C 8B DC 53 48 83 EC 50 48 8B 05", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_180DC3E70(const char *a1)" },
+    Signature { name: "HudChatPrintf",                        module: "client.dll", needle: "E8 ? ? ? ? 49 8B 4E 20 BA ? ? ? ?", resolve: REL32_1, extra_off: 0, prototype: "__int64 sub_1810C10F0(__int64 a1, unsigned int a2, __int64 a3, ...)" },
+    Signature { name: "Scope_callsite",                       module: "client.dll", needle: "E8 ? ? ? ? 80 7C 24 34 ? 74 ?", resolve: REL32_1, extra_off: 0, prototype: "__int64 __fastcall sub_18085D530(__int64 a1, __int64 a2)" },
+    Signature { name: "GetRemovedAimpunch",                   module: "client.dll", needle: "F2 0F 10 44 24 ? F2 0F 11 84 24 ? ? ? ? FF 15", resolve: NONE, extra_off: 0, prototype: "__int64 sub_1801128E0()" },
+    Signature { name: "GetRemovedAimPunch_E8",                module: "client.dll", needle: "E8 ? ? ? ? 4C 8B C0 48 8D 55 ? 48 8B CB E8 ? ? ? ? 48 8D 0D", resolve: REL32_1, extra_off: 0, prototype: "__int64 __fastcall sub_18084D6E0(__int64 a1, __int64 a2)" },
+    Signature { name: "ChamsGetWorldGroupID",                 module: "client.dll", needle: "E8 ? ? ? ? 48 8B 0D ? ? ? ? ? ? E8 ? ? ? ? 49 8B 8E ? ? ? ? 4C 8D 0D", resolve: REL32_1, extra_off: 0, prototype: "" },
+    Signature { name: "ModulationUpdate",                     module: "client.dll", needle: "48 89 5C 24 08 57 48 83 EC 20 8B FA 48 8B D9 E8 ? ? ? ? 84 C0 0F 84", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_1809DA450(__int64 a1, char a2)" },
+    Signature { name: "ClearHUDWeaponIcon",                   module: "client.dll", needle: "E8 ? ? ? ? 8B F8 C6 84 24 ? ? ? ? ?", resolve: REL32_1, extra_off: 0, prototype: "__int64 __fastcall sub_180DEDDD0(__int64 a1, int a2, __int64 a3)" },
+    Signature { name: "PlayVSound_client",                    module: "client.dll", needle: "48 89 5C 24 ? 48 89 74 24 ? 48 89 7C 24 ? 55 48 8D 6C 24 ? 48 81 EC ? ? ? ? 33 FF", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_18150ED00(__int64 a1)" },
+    Signature { name: "ConvarGet",                            module: "client.dll", needle: "8B D0 48 8D 0D ? ? ? ? E8 ? ? ? ? 0F 10 45 ? 83 F0 74", resolve: NONE, extra_off: 0, prototype: "void __fastcall sub_1808BE720(__int64 a1, unsigned int *a2)" },
 
     // Player / pawn / entity functions ---------------------------------
-    Signature { name: "SetViewAngle",                         module: "client.dll", needle: "85 D2 75 3D 48 63 81 ? ? ? ?", resolve: NONE, extra_off: 0 },
-    Signature { name: "GetViewAngles",                        module: "client.dll", needle: "4C 8B C1 85 D2 74 08 48 8D 05 ? ? ? ? C3", resolve: NONE, extra_off: 0 },
-    Signature { name: "GetBaseEntity",                        module: "client.dll", needle: "4C 8D 49 ? 81 FA", resolve: NONE, extra_off: 0 },
-    Signature { name: "CalculateWorldSpaceBones",             module: "client.dll", needle: "48 89 4C 24 ? 55 53 56 57 41 54 41 55 41 56 41 57 B8 ? ? ? ? E8 ? ? ? ? 48 2B E0 48 8D 6C 24 ? 48 8B 81", resolve: NONE, extra_off: 0 },
-    Signature { name: "TraceShape",                           module: "client.dll", needle: "48 89 5C 24 ? 48 89 4C 24 ? 55 57", resolve: NONE, extra_off: 0 },
-    Signature { name: "ClipRayToEntity",                      module: "client.dll", needle: "48 8B C4 48 89 58 ? 55 56 57 41 54 41 56 48 8D 68 ? 48 81 EC ? ? ? ? 48 8B 5D", resolve: NONE, extra_off: 0 },
-    Signature { name: "GetSurfaceData",                       module: "client.dll", needle: "E8 ? ? ? ? 80 78 18 00", resolve: REL32_1, extra_off: 0 },
-    Signature { name: "SetTypeKV3",                           module: "client.dll", needle: "40 53 48 83 EC 30 4C 8B 11 41 B9 ? ? ? ? 49 83 CA 01 0F B6 C2 80 FA 06 48 8B D9 44 0F 45 C8", resolve: NONE, extra_off: 0 },
-    Signature { name: "CreateParticleEffect",                 module: "client.dll", needle: "48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC ? F3 0F 10 1D ? ? ? ? 41 8B F8 8B DA 4C 8D 05", resolve: NONE, extra_off: 0 },
-    Signature { name: "SetPlayerReady",                       module: "client.dll", needle: "40 53 48 83 EC 20 48 8B DA 48 8D 15 ? ? ? ? 48 8B CB FF 15 ? ? ? ? 85 C0 75 14 BA", resolve: NONE, extra_off: 0 },
-    Signature { name: "CacheParticleEffect",                  module: "client.dll", needle: "4C 8B DC 53 48 81 EC ? ? ? ? F2 0F 10 05", resolve: NONE, extra_off: 0 },
-    Signature { name: "GetEntityHandle",                      module: "client.dll", needle: "48 85 C9 74 32 48 8B 49 10 48 85 C9 74 29 44 8B 41 10 BA", resolve: NONE, extra_off: 0 },
-    Signature { name: "LookupBone",                           module: "client.dll", needle: "E8 ? ? ? ? 48 8B 8D ? ? ? ? B3", resolve: REL32_1, extra_off: 0 },
-    Signature { name: "TraceSmokeDensity",                    module: "client.dll", needle: "E8 ? ? ? ? 0F 28 F8 44 0F 28 54 24 ?", resolve: REL32_1, extra_off: 0 },
-    Signature { name: "GetInventoryManager",                  module: "client.dll", needle: "E8 ? ? ? ? 48 8B D3 48 8B C8 4C 8B 00 41 FF 90 00 02", resolve: REL32_1, extra_off: 0 },
-    Signature { name: "UpdateCompositeMaterial",              module: "client.dll", needle: "48 89 5C 24 10 48 89 6C 24 18 48 89 74 24 20 57 41 56 41 57 48 83 EC 20 44 0F B6 F2 48 8B F1 E8", resolve: NONE, extra_off: 0 },
-    Signature { name: "RegenerateWeaponSkin",                 module: "client.dll", needle: "40 55 53 41 57 48 8D AC 24 ? ? ? ? 48 81 EC ? ? ? ? 44 0F B6 FA 48 8B D9 BA ? ? ? ? 48 8D 0D ? ? ? ? E8 ? ? ? ?", resolve: NONE, extra_off: 0 },
-    Signature { name: "SetModel",                             module: "client.dll", needle: "40 53 48 83 EC ? 48 8B D9 4C 8B C2 48 8B 0D ? ? ? ? 48 8D 54 24", resolve: NONE, extra_off: 0 },
-    Signature { name: "SetMeshGroupMask",                     module: "client.dll", needle: "48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC ? 48 8D 99 ? ? ? ? 48 8B 71", resolve: NONE, extra_off: 0 },
-    Signature { name: "AddNametagEntity",                     module: "client.dll", needle: "40 55 53 56 48 8D AC 24 ? ? ? ? 48 81 EC ? ? ? ? 48 8B DA", resolve: NONE, extra_off: 0 },
-    Signature { name: "AddStattrakEntity",                    module: "client.dll", needle: "48 8B C4 48 89 58 08 48 89 70 10 57 48 83 EC 50 33 F6 8B FA 48 8B D1", resolve: NONE, extra_off: 0 },
-    Signature { name: "CreateSOSubclassEconItem",             module: "client.dll", needle: "48 83 EC 28 B9 48 00 00 00 E8 ? ? ? ? 48 85", resolve: NONE, extra_off: 0 },
-    Signature { name: "CreateBaseTypeCache",                  module: "client.dll", needle: "40 53 48 83 EC ? 4C 8B 49 ? 44 8B D2", resolve: NONE, extra_off: 0 },
-    Signature { name: "GetClientSystem",                      module: "client.dll", needle: "E8 ? ? ? ? 48 8B C8 E8 ? ? ? ? 8B D8 85 C0 74 33", resolve: REL32_1, extra_off: 0 },
-    Signature { name: "GetClientSystem_inv",                  module: "client.dll", needle: "E8 ? ? ? ? 48 8B 47 10 8B 48 30 D1 E9 F6 C1 01 0F 84 8E", resolve: REL32_1, extra_off: 0 },
-    Signature { name: "CAttributeStringInit",                 module: "client.dll", needle: "E8 ? ? ? ? 48 8D 05 ? ? ? ? 48 89 7D ? 48 89 45 ? 49 8D 4F", resolve: REL32_1, extra_off: 0 },
-    Signature { name: "CAttributeStringFill",                 module: "client.dll", needle: "E8 ? ? ? ? 41 83 CF 08", resolve: REL32_1, extra_off: 0 },
-    Signature { name: "CBufferStringInit",                    module: "client.dll", needle: "48 89 5C 24 ? 57 48 83 EC ? 8B 41 ? 48 8D 79", resolve: NONE, extra_off: 0 },
-    Signature { name: "DispatchEffect",                       module: "client.dll", needle: "48 89 5C 24 ? 57 48 83 EC ? 48 8B F9 48 8B DA 48 8D 4C 24", resolve: NONE, extra_off: 0 },
-    Signature { name: "LoadFileForMe",                        module: "client.dll", needle: "40 55 57 41 56 48 83 EC 20 4C", resolve: NONE, extra_off: 0 },
-    Signature { name: "UpdateSubClass",                       module: "client.dll", needle: "48 8B 41 10 48 8B D9 8B 50 30", resolve: NONE, extra_off: 0 },
-    Signature { name: "CreateNewSubtickMoveStep",             module: "client.dll", needle: "E8 ? ? ? ? 48 8B D0 48 8B CE E8 ? ? ? ? 48 8B C8", resolve: REL32_1, extra_off: 0 },
-    Signature { name: "SetCollisionBounds",                   module: "client.dll", needle: "48 83 EC ? F2 0F 10 02 8B 42 08", resolve: NONE, extra_off: 0 },
-    Signature { name: "CalculateInterpolation",               module: "client.dll", needle: "E8 ? ? ? ? 8B 45 ? 3B 45 60 75 04 32 D2 EB 09 BA 01 00 00 00 41 0F 4C D5 C0 EA 07 84 D2 0F 85 87", resolve: REL32_1, extra_off: 0 },
-    Signature { name: "CalculateAnimState",                   module: "client.dll", needle: "40 55 56 57 41 54 41 55 41 56 41 57 B8 10 11 00 00 E8 ? ? ? ? 48 2B E0 48 8D 6C 24 40 48 8D 05 ? ? ? ? 48 C7 45 08 4B 0C 00 00 48 8B F1", resolve: NONE, extra_off: 0 },
-    Signature { name: "SetAbsOrigin_BaseModel",               module: "client.dll", needle: "48 89 5C 24 08 57 48 83 EC 40 48 8B 01 48 8B FA", resolve: NONE, extra_off: 0 },
-    Signature { name: "SetAbsOrigin_Pawn",                    module: "client.dll", needle: "48 89 5C 24 ? 57 48 83 EC ? ? ? ? 48 8B FA 48 8B D9 FF 90 ? ? ? ? 84 C0 0F 85", resolve: NONE, extra_off: 0 },
-    Signature { name: "PhysicsRunThink_Pawn",                 module: "client.dll", needle: "48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC ? 8B 81 ? ? ? ? 48 8B F9", resolve: NONE, extra_off: 0 },
-    Signature { name: "SomeTimingFromPawn",                   module: "client.dll", needle: "48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC ? 49 63 D8 48 8B F1", resolve: NONE, extra_off: 0 },
-    Signature { name: "GetUserCmdManager",                    module: "client.dll", needle: "41 56 41 57 48 83 EC ? 48 8D 54 24", resolve: NONE, extra_off: 0 },
-    Signature { name: "GetPlayerInterp",                      module: "client.dll", needle: "40 53 48 83 EC ? 48 8B D9 48 8B 0D ? ? ? ? 48 83 C1", resolve: NONE, extra_off: 0 },
-    Signature { name: "PhysicsRunThink_Ctrl",                 module: "client.dll", needle: "48 89 5C 24 ? 57 48 81 EC ? ? ? ? ? ? ? 48 8B F9 FF 90", resolve: NONE, extra_off: 0 },
-    Signature { name: "RunCommand",                           module: "client.dll", needle: "48 8B C4 48 81 EC ? ? ? ? 48 89 58 10", resolve: NONE, extra_off: 0 },
-    Signature { name: "ProcessMovement",                      module: "client.dll", needle: "E8 ? ? ? ? 48 8B 06 48 8B CE FF 90 ? ? ? ? 48 85 DB", resolve: REL32_1, extra_off: 0 },
-    Signature { name: "ForceButtonsDown",                     module: "client.dll", needle: "40 53 57 41 56 48 81 EC ? ? ? ? 48 83 79", resolve: NONE, extra_off: 0 },
-    Signature { name: "SetupMovementMoves",                   module: "client.dll", needle: "48 8B ? E8 ? ? ? ? 48 8B 5C 24 ? 48 8B 6C 24 ? 48 83 C4 30", resolve: NONE, extra_off: 0 },
-    Signature { name: "ProcessImpacts",                       module: "client.dll", needle: "48 8B C4 53 56 41 55", resolve: NONE, extra_off: 0 },
-    Signature { name: "CSBaseGunFireData_fn",                 module: "client.dll", needle: "48 8B C4 55 53 56 57 41 54 41 55 41 56 41 57 48 8D 68 A8 48 81 EC ? ? ? ? 4C 8B 69", resolve: NONE, extra_off: 0 },
-    Signature { name: "GetWeaponInAccuracyRecoveryTime",      module: "client.dll", needle: "E8 ? ? ? ? F3 0F 10 B7 ? ? ? ? F3 0F 5E F8", resolve: REL32_1, extra_off: 0 },
-    Signature { name: "UpdateTurningInAccuracy",              module: "client.dll", needle: "E8 ? ? ? ? F3 0F 10 87 ? ? ? ? 44 0F 2F C8", resolve: REL32_1, extra_off: 0 },
+    Signature { name: "SetViewAngle",                         module: "client.dll", needle: "85 D2 75 3D 48 63 81 ? ? ? ?", resolve: NONE, extra_off: 0, prototype: "void __fastcall sub_180AE4CE0(__int64 a1, int a2, __int64 *a3)" },
+    Signature { name: "GetViewAngles",                        module: "client.dll", needle: "4C 8B C1 85 D2 74 08 48 8D 05 ? ? ? ? C3", resolve: NONE, extra_off: 0, prototype: "__int64 *__fastcall sub_180AD5CA0(__int64 a1, int a2)" },
+    Signature { name: "GetBaseEntity",                        module: "client.dll", needle: "4C 8D 49 ? 81 FA", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_180967600(__int64 a1, int a2)" },
+    Signature { name: "CalculateWorldSpaceBones",             module: "client.dll", needle: "48 89 4C 24 ? 55 53 56 57 41 54 41 55 41 56 41 57 B8 ? ? ? ? E8 ? ? ? ? 48 2B E0 48 8D 6C 24 ? 48 8B 81", resolve: NONE, extra_off: 0, prototype: "void __fastcall sub_180A0B070(__int64 a1, unsigned int a2)" },
+    Signature { name: "TraceShape",                           module: "client.dll", needle: "48 89 5C 24 ? 48 89 4C 24 ? 55 57", resolve: NONE, extra_off: 0, prototype: "bool __fastcall sub_18098EAA0(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4, _BYTE *a5, __int64 a6)" },
+    Signature { name: "ClipRayToEntity",                      module: "client.dll", needle: "48 8B C4 48 89 58 ? 55 56 57 41 54 41 56 48 8D 68 ? 48 81 EC ? ? ? ? 48 8B 5D", resolve: NONE, extra_off: 0, prototype: "" },
+    Signature { name: "GetSurfaceData",                       module: "client.dll", needle: "E8 ? ? ? ? 80 78 18 00", resolve: REL32_1, extra_off: 0, prototype: "__int64 __fastcall sub_180953540(__int64 a1)" },
+    Signature { name: "SetTypeKV3",                           module: "client.dll", needle: "40 53 48 83 EC 30 4C 8B 11 41 B9 ? ? ? ? 49 83 CA 01 0F B6 C2 80 FA 06 48 8B D9 44 0F 45 C8", resolve: NONE, extra_off: 0, prototype: "unsigned __int64 *__fastcall sub_18181AEB0(unsigned __int64 *a1, unsigned __int8 a2, unsigned __int8 a3)" },
+    Signature { name: "CreateParticleEffect",                 module: "client.dll", needle: "48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC ? F3 0F 10 1D ? ? ? ? 41 8B F8 8B DA 4C 8D 05", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_180987020(int a1, int a2, int a3, __int64 a4, int a5)" },
+    Signature { name: "SetPlayerReady",                       module: "client.dll", needle: "40 53 48 83 EC 20 48 8B DA 48 8D 15 ? ? ? ? 48 8B CB FF 15 ? ? ? ? 85 C0 75 14 BA", resolve: NONE, extra_off: 0, prototype: "char __fastcall sub_180F1DD90(__int64 a1, __int64 a2)" },
+    Signature { name: "CacheParticleEffect",                  module: "client.dll", needle: "4C 8B DC 53 48 81 EC ? ? ? ? F2 0F 10 05", resolve: NONE, extra_off: 0, prototype: "" },
+    Signature { name: "GetEntityHandle",                      module: "client.dll", needle: "48 85 C9 74 32 48 8B 49 10 48 85 C9 74 29 44 8B 41 10 BA", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_18094E8D0(__int64 a1)" },
+    Signature { name: "LookupBone",                           module: "client.dll", needle: "E8 ? ? ? ? 48 8B 8D ? ? ? ? B3", resolve: REL32_1, extra_off: 0, prototype: "__int64 __fastcall sub_1808C81E0(__int64 a1, __int64 a2)" },
+    Signature { name: "TraceSmokeDensity",                    module: "client.dll", needle: "E8 ? ? ? ? 0F 28 F8 44 0F 28 54 24 ?", resolve: REL32_1, extra_off: 0, prototype: "" },
+    Signature { name: "GetInventoryManager",                  module: "client.dll", needle: "E8 ? ? ? ? 48 8B D3 48 8B C8 4C 8B 00 41 FF 90 00 02", resolve: REL32_1, extra_off: 0, prototype: "__int64 *sub_1807C6430()" },
+    Signature { name: "UpdateCompositeMaterial",              module: "client.dll", needle: "48 89 5C 24 10 48 89 6C 24 18 48 89 74 24 20 57 41 56 41 57 48 83 EC 20 44 0F B6 F2 48 8B F1 E8", resolve: NONE, extra_off: 0, prototype: "" },
+    Signature { name: "RegenerateWeaponSkin",                 module: "client.dll", needle: "40 55 53 41 57 48 8D AC 24 ? ? ? ? 48 81 EC ? ? ? ? 44 0F B6 FA 48 8B D9 BA ? ? ? ? 48 8D 0D ? ? ? ? E8 ? ? ? ?", resolve: NONE, extra_off: 0, prototype: "void __fastcall sub_18078C2A0(__int64 a1, char a2)" },
+    Signature { name: "SetModel",                             module: "client.dll", needle: "40 53 48 83 EC ? 48 8B D9 4C 8B C2 48 8B 0D ? ? ? ? 48 8D 54 24", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_1808DB1C0(__int64 a1, __int64 a2)" },
+    Signature { name: "SetMeshGroupMask",                     module: "client.dll", needle: "48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC ? 48 8D 99 ? ? ? ? 48 8B 71", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_180A2DB50(__int64 a1, __int64 a2)" },
+    Signature { name: "AddNametagEntity",                     module: "client.dll", needle: "40 55 53 56 48 8D AC 24 ? ? ? ? 48 81 EC ? ? ? ? 48 8B DA", resolve: NONE, extra_off: 0, prototype: "char __fastcall sub_18078B070(__int64 a1, __int64 a2)" },
+    Signature { name: "AddStattrakEntity",                    module: "client.dll", needle: "48 8B C4 48 89 58 08 48 89 70 10 57 48 83 EC 50 33 F6 8B FA 48 8B D1", resolve: NONE, extra_off: 0, prototype: "void __fastcall sub_180A4C790(__int64 a1, unsigned int a2)" },
+    Signature { name: "CreateSOSubclassEconItem",             module: "client.dll", needle: "48 83 EC 28 B9 48 00 00 00 E8 ? ? ? ? 48 85", resolve: NONE, extra_off: 0, prototype: "__int64 sub_180FF7770()" },
+    Signature { name: "CreateBaseTypeCache",                  module: "client.dll", needle: "40 53 48 83 EC ? 4C 8B 49 ? 44 8B D2", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_181510EA0(__int64 a1, unsigned int a2)" },
+    Signature { name: "GetClientSystem",                      module: "client.dll", needle: "E8 ? ? ? ? 48 8B C8 E8 ? ? ? ? 8B D8 85 C0 74 33", resolve: REL32_1, extra_off: 0, prototype: "__int64 *sub_181036570()" },
+    Signature { name: "GetClientSystem_inv",                  module: "client.dll", needle: "E8 ? ? ? ? 48 8B 47 10 8B 48 30 D1 E9 F6 C1 01 0F 84 8E", resolve: REL32_1, extra_off: 0, prototype: "" },
+    Signature { name: "CAttributeStringInit",                 module: "client.dll", needle: "E8 ? ? ? ? 48 8D 05 ? ? ? ? 48 89 7D ? 48 89 45 ? 49 8D 4F", resolve: REL32_1, extra_off: 0, prototype: "_QWORD *__fastcall sub_1805F86B0(_QWORD *a1, __int64 a2, char a3)" },
+    Signature { name: "CAttributeStringFill",                 module: "client.dll", needle: "E8 ? ? ? ? 41 83 CF 08", resolve: REL32_1, extra_off: 0, prototype: "__int64 __fastcall sub_180EAEC20(__int64 a1, __int64 a2)" },
+    Signature { name: "CBufferStringInit",                    module: "client.dll", needle: "48 89 5C 24 ? 57 48 83 EC ? 8B 41 ? 48 8D 79", resolve: NONE, extra_off: 0, prototype: "char __fastcall sub_1817E29D0(__int64 a1, const char *a2)" },
+    Signature { name: "DispatchEffect",                       module: "client.dll", needle: "48 89 5C 24 ? 57 48 83 EC ? 48 8B F9 48 8B DA 48 8D 4C 24", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_18035A570(__int64 a1, __int64 a2)" },
+    Signature { name: "LoadFileForMe",                        module: "client.dll", needle: "40 55 57 41 56 48 83 EC 20 4C", resolve: NONE, extra_off: 0, prototype: "void __fastcall sub_18091BF40(__int64 a1)" },
+    Signature { name: "UpdateSubClass",                       module: "client.dll", needle: "48 8B 41 10 48 8B D9 8B 50 30", resolve: NONE, extra_off: 0, prototype: "void __fastcall sub_1801FA930(_QWORD *a1)" },
+    Signature { name: "CreateNewSubtickMoveStep",             module: "client.dll", needle: "E8 ? ? ? ? 48 8B D0 48 8B CE E8 ? ? ? ? 48 8B C8", resolve: REL32_1, extra_off: 0, prototype: "__int64 __fastcall sub_1804B1D80(__int64 a1)" },
+    Signature { name: "SetCollisionBounds",                   module: "client.dll", needle: "48 83 EC ? F2 0F 10 02 8B 42 08", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_180803980(__int64 a1, __int64 *a2)" },
+    Signature { name: "CalculateInterpolation",               module: "client.dll", needle: "E8 ? ? ? ? 8B 45 ? 3B 45 60 75 04 32 D2 EB 09 BA 01 00 00 00 41 0F 4C D5 C0 EA 07 84 D2 0F 85 87", resolve: REL32_1, extra_off: 0, prototype: "int *__fastcall sub_1814C7E70(__int64 a1, int *a2)" },
+    Signature { name: "CalculateAnimState",                   module: "client.dll", needle: "40 55 56 57 41 54 41 55 41 56 41 57 B8 10 11 00 00 E8 ? ? ? ? 48 2B E0 48 8D 6C 24 40 48 8D 05 ? ? ? ? 48 C7 45 08 4B 0C 00 00 48 8B F1", resolve: NONE, extra_off: 0, prototype: "" },
+    Signature { name: "SetAbsOrigin_BaseModel",               module: "client.dll", needle: "48 89 5C 24 08 57 48 83 EC 40 48 8B 01 48 8B FA", resolve: NONE, extra_off: 0, prototype: "" },
+    Signature { name: "SetAbsOrigin_Pawn",                    module: "client.dll", needle: "48 89 5C 24 ? 57 48 83 EC ? ? ? ? 48 8B FA 48 8B D9 FF 90 ? ? ? ? 84 C0 0F 85", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_18021EF50(__int64 a1, __int64 a2)" },
+    Signature { name: "PhysicsRunThink_Pawn",                 module: "client.dll", needle: "48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC ? 8B 81 ? ? ? ? 48 8B F9", resolve: NONE, extra_off: 0, prototype: "char __fastcall sub_180B0ED50(__int64 a1)" },
+    Signature { name: "SomeTimingFromPawn",                   module: "client.dll", needle: "48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC ? 49 63 D8 48 8B F1", resolve: NONE, extra_off: 0, prototype: "float __fastcall sub_180A572B0(__int64 a1, int a2, unsigned int a3)" },
+    Signature { name: "GetUserCmdManager",                    module: "client.dll", needle: "41 56 41 57 48 83 EC ? 48 8D 54 24", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_1808BDC90(__int64 a1)" },
+    Signature { name: "GetPlayerInterp",                      module: "client.dll", needle: "40 53 48 83 EC ? 48 8B D9 48 8B 0D ? ? ? ? 48 83 C1", resolve: NONE, extra_off: 0, prototype: "float __fastcall sub_1808B9460(__int64 a1)" },
+    Signature { name: "PhysicsRunThink_Ctrl",                 module: "client.dll", needle: "48 89 5C 24 ? 57 48 81 EC ? ? ? ? ? ? ? 48 8B F9 FF 90", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_1808D7310(__int64 a1)" },
+    Signature { name: "RunCommand",                           module: "client.dll", needle: "48 8B C4 48 81 EC ? ? ? ? 48 89 58 10", resolve: NONE, extra_off: 0, prototype: "void __fastcall sub_1809DBAF0(__int64 a1, __int64 a2)" },
+    Signature { name: "ProcessMovement",                      module: "client.dll", needle: "E8 ? ? ? ? 48 8B 06 48 8B CE FF 90 ? ? ? ? 48 85 DB", resolve: REL32_1, extra_off: 0, prototype: "__int64 __fastcall sub_1809D9A30(__int64 a1, __int64 a2)" },
+    Signature { name: "ForceButtonsDown",                     module: "client.dll", needle: "40 53 57 41 56 48 81 EC ? ? ? ? 48 83 79", resolve: NONE, extra_off: 0, prototype: "void __fastcall sub_1809D0130(_QWORD *a1, __int64 a2)" },
+    Signature { name: "SetupMovementMoves",                   module: "client.dll", needle: "48 8B ? E8 ? ? ? ? 48 8B 5C 24 ? 48 8B 6C 24 ? 48 83 C4 30", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_181186C10(__int64 a1, __int64 a2, __int64 a3, __int64 a4)" },
+    Signature { name: "ProcessImpacts",                       module: "client.dll", needle: "48 8B C4 53 56 41 55", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_1809CEA50(_QWORD *a1, __int64 a2, __int64 a3)" },
+    Signature { name: "CSBaseGunFireData_fn",                 module: "client.dll", needle: "48 8B C4 55 53 56 57 41 54 41 55 41 56 41 57 48 8D 68 A8 48 81 EC ? ? ? ? 4C 8B 69", resolve: NONE, extra_off: 0, prototype: "void __fastcall sub_1814E8140(__int64 a1)" },
+    Signature { name: "GetWeaponInAccuracyRecoveryTime",      module: "client.dll", needle: "E8 ? ? ? ? F3 0F 10 B7 ? ? ? ? F3 0F 5E F8", resolve: REL32_1, extra_off: 0, prototype: "__m128 __fastcall sub_180796600(__int64 a1)" },
+    Signature { name: "UpdateTurningInAccuracy",              module: "client.dll", needle: "E8 ? ? ? ? F3 0F 10 87 ? ? ? ? 44 0F 2F C8", resolve: REL32_1, extra_off: 0, prototype: "float *__fastcall sub_1807AFDA0(float *a1)" },
 
     // Trace manager / filters ------------------------------------------
-    Signature { name: "TraceToExit",                          module: "client.dll", needle: "48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 57 41 56 41 57 48 83 EC ? F2 0F 10 02", resolve: NONE, extra_off: 0 },
-    Signature { name: "GetTraceInfo",                         module: "client.dll", needle: "48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 57 48 83 EC ? 48 8B E9 0F 29 74 24 ? 48 8B CA", resolve: NONE, extra_off: 0 },
-    Signature { name: "InitFilter",                           module: "client.dll", needle: "48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC ? 0F B6 41 ? 33 FF 24 C9 C7 41 ?", resolve: NONE, extra_off: 0 },
-    Signature { name: "HandleBulletPenetration",              module: "client.dll", needle: "48 8B C4 44 89 48 ? 48 89 50 ? 48 89 48 ? 55", resolve: NONE, extra_off: 0 },
-    Signature { name: "InitTraceInfo",                        module: "client.dll", needle: "40 55 41 55 41 57 48 83 EC", resolve: NONE, extra_off: 0 },
-    Signature { name: "InitPlayerMovementTraceFilter",        module: "client.dll", needle: "48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC ? 0F B6 41 ? 33 FF C7 41 ?", resolve: NONE, extra_off: 0 },
-    Signature { name: "TracePlayerBBox",                      module: "client.dll", needle: "48 89 5C 24 ? 55 57 41 54 41 55 41 56", resolve: NONE, extra_off: 0 },
-    Signature { name: "CreateEntityByClassName",              module: "client.dll", needle: "4C 8D 05 ? ? ? ? 4C 8B CF BA 03 00 00 00 FF 15 ? ? ? ? EB ? 0F B7 C8 48", resolve: NONE, extra_off: 0 },
-    Signature { name: "DestroyParticle",                      module: "client.dll", needle: "83 FA ? 0F 84 ? ? ? ? 41 54", resolve: NONE, extra_off: 0 },
-    Signature { name: "LoadPath",                             module: "client.dll", needle: "E8 ? ? ? ? 8B 44 24 2C", resolve: REL32_1, extra_off: 0 },
-    Signature { name: "GetChatObject",                        module: "client.dll", needle: "E8 ? ? ? ? 48 8B E8 48 85 C0 0F 84 ? ? ? ? 4C 8D 05", resolve: REL32_1, extra_off: 0 },
-    Signature { name: "SendChatMessage",                      module: "client.dll", needle: "E8 ? ? ? ? 49 8B 4E 20 BA ? ? ? ?", resolve: REL32_1, extra_off: 0 },
-    Signature { name: "GetInt2_Event",                        module: "client.dll", needle: "48 89 74 24 ? 48 89 7C 24 ? 41 56 48 83 EC 20 48 63 FA 41", resolve: NONE, extra_off: 0 },
-    Signature { name: "FindSOCache",                          module: "client.dll", needle: "48 89 5C 24 08 57 48 83 EC 30 4C 8B 52 08 48 8B D9 8B 0A", resolve: NONE, extra_off: 0 },
-    Signature { name: "SetDynamicAttributeValue_raw",         module: "client.dll", needle: "48 89 6C 24 ? 57 41 56 41 57 48 81 EC ? ? ? ? 48 8B FA C7 44 24", resolve: NONE, extra_off: 0 },
-    Signature { name: "SetBodyGroup_inv",                     module: "client.dll", needle: "85 D2 0F 88 ? ? ? ? 53 55", resolve: NONE, extra_off: 0 },
-    Signature { name: "LevelInit",                            module: "client.dll", needle: "40 55 56 41 56 48 8D 6C 24 ? 48 81 EC ? ? ? ? 48", resolve: NONE, extra_off: 0 },
-    Signature { name: "ParticleCollection",                   module: "client.dll", needle: "48 89 5C 24 ? 57 48 83 EC ? 0F 28 05", resolve: NONE, extra_off: 0 },
-    Signature { name: "GetLocalControllerById",               module: "client.dll", needle: "48 83 EC 28 83 F9 FF 75 ? 48 8B 0D ? ? ? ? 48 8D 54 24 ? 48 8B 01 FF 90 ? ? ? ? 8B 08 48 63 C1 4C 8D 05", resolve: NONE, extra_off: 0 },
-    Signature { name: "SetupCmd",                             module: "client.dll", needle: "48 83 EC 28 E8 ? ? ? ? 8B 80", resolve: NONE, extra_off: 0 },
-    Signature { name: "GetControllerCmd",                     module: "client.dll", needle: "40 53 48 83 EC 20 8B DA E8 ? ? ? ? 4C", resolve: NONE, extra_off: 0 },
-    Signature { name: "PhysicsRunThink",                      module: "client.dll", needle: "E8 ? ? ? ? 49 8B D6 48 8B CE E8 ? ? ? ? 48 8B 06", resolve: REL32_1, extra_off: 0 },
-    Signature { name: "GetBasePlayerCtrl_Entity",             module: "client.dll", needle: "E8 ? ? ? ? 48 8B F8 48 85 C0 74 ? 48 8B C8 E8 ? ? ? ? EB", resolve: REL32_1, extra_off: 0 },
+    Signature { name: "TraceToExit",                          module: "client.dll", needle: "48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 57 41 56 41 57 48 83 EC ? F2 0F 10 02", resolve: NONE, extra_off: 0, prototype: "char __fastcall sub_180804900(__int64 a1, __int64 a2, int a3, __int64 a4, int a5, char a6)" },
+    Signature { name: "GetTraceInfo",                         module: "client.dll", needle: "48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 57 48 83 EC ? 48 8B E9 0F 29 74 24 ? 48 8B CA", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_180806F50(__int64 a1, __int64 a2, float a3, unsigned __int64 *a4)" },
+    Signature { name: "InitFilter",                           module: "client.dll", needle: "48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC ? 0F B6 41 ? 33 FF 24 C9 C7 41 ?", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_18032BBF0(__int64 a1, _DWORD *a2, __int64 a3, char a4, char a5)" },
+    Signature { name: "HandleBulletPenetration",              module: "client.dll", needle: "48 8B C4 44 89 48 ? 48 89 50 ? 48 89 48 ? 55", resolve: NONE, extra_off: 0, prototype: "char __fastcall sub_1808211F0(__int64 a1, float *a2, __int64 a3, int a4, __int64 a5)" },
+    Signature { name: "InitTraceInfo",                        module: "client.dll", needle: "40 55 41 55 41 57 48 83 EC", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_1815FC2A0(__int64 a1)" },
+    Signature { name: "InitPlayerMovementTraceFilter",        module: "client.dll", needle: "48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC ? 0F B6 41 ? 33 FF C7 41 ?", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_180840660(__int64 a1, _DWORD *a2, __int64 a3, char a4)" },
+    Signature { name: "TracePlayerBBox",                      module: "client.dll", needle: "48 89 5C 24 ? 55 57 41 54 41 55 41 56", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_180B70E30(__int64 a1, __int64 *a2, __int64 *a3)" },
+    Signature { name: "CreateEntityByClassName",              module: "client.dll", needle: "4C 8D 05 ? ? ? ? 4C 8B CF BA 03 00 00 00 FF 15 ? ? ? ? EB ? 0F B7 C8 48", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_181604AB0(__int64 a1, int a2, __int64 a3, __int64 a4)" },
+    Signature { name: "DestroyParticle",                      module: "client.dll", needle: "83 FA ? 0F 84 ? ? ? ? 41 54", resolve: NONE, extra_off: 0, prototype: "void __fastcall sub_1809463E0(__int64 a1, __int64 a2, unsigned __int8 a3, char a4)" },
+    Signature { name: "LoadPath",                             module: "client.dll", needle: "E8 ? ? ? ? 8B 44 24 2C", resolve: REL32_1, extra_off: 0, prototype: "void __fastcall sub_1806BB200(signed int *a1, signed int a2, unsigned int a3)" },
+    Signature { name: "GetChatObject",                        module: "client.dll", needle: "E8 ? ? ? ? 48 8B E8 48 85 C0 0F 84 ? ? ? ? 4C 8D 05", resolve: REL32_1, extra_off: 0, prototype: "__int64 sub_1810C3670()" },
+    Signature { name: "SendChatMessage",                      module: "client.dll", needle: "E8 ? ? ? ? 49 8B 4E 20 BA ? ? ? ?", resolve: REL32_1, extra_off: 0, prototype: "__int64 sub_1810C10F0(__int64 a1, unsigned int a2, __int64 a3, ...)" },
+    Signature { name: "GetInt2_Event",                        module: "client.dll", needle: "48 89 74 24 ? 48 89 7C 24 ? 41 56 48 83 EC 20 48 63 FA 41", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_1804AAB40(__int64 a1, unsigned int a2, int a3)" },
+    Signature { name: "FindSOCache",                          module: "client.dll", needle: "48 89 5C 24 08 57 48 83 EC 30 4C 8B 52 08 48 8B D9 8B 0A", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_18181F080(__int64 a1, int *a2, __int64 a3, __int64 a4)" },
+    Signature { name: "SetDynamicAttributeValue_raw",         module: "client.dll", needle: "48 89 6C 24 ? 57 41 56 41 57 48 81 EC ? ? ? ? 48 8B FA C7 44 24", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_181004F60(__int64 a1, __int64 a2, _DWORD *a3)" },
+    Signature { name: "SetBodyGroup_inv",                     module: "client.dll", needle: "85 D2 0F 88 ? ? ? ? 53 55", resolve: NONE, extra_off: 0, prototype: "void __fastcall sub_180D972A0(__int64 a1, int a2, const char *a3)" },
+    Signature { name: "LevelInit",                            module: "client.dll", needle: "40 55 56 41 56 48 8D 6C 24 ? 48 81 EC ? ? ? ? 48", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_1808D0100(__int64 a1)" },
+    Signature { name: "ParticleCollection",                   module: "client.dll", needle: "48 89 5C 24 ? 57 48 83 EC ? 0F 28 05", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_1801F4D90(__int64 a1)" },
+    Signature { name: "GetLocalControllerById",               module: "client.dll", needle: "48 83 EC 28 83 F9 FF 75 ? 48 8B 0D ? ? ? ? 48 8D 54 24 ? 48 8B 01 FF 90 ? ? ? ? 8B 08 48 63 C1 4C 8D 05", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_1808E1070(int a1)" },
+    Signature { name: "SetupCmd",                             module: "client.dll", needle: "48 83 EC 28 E8 ? ? ? ? 8B 80", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_1808BAF20(__int64 a1)" },
+    Signature { name: "GetControllerCmd",                     module: "client.dll", needle: "40 53 48 83 EC 20 8B DA E8 ? ? ? ? 4C", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_1808BDC00(__int64 a1, int a2)" },
+    Signature { name: "PhysicsRunThink",                      module: "client.dll", needle: "E8 ? ? ? ? 49 8B D6 48 8B CE E8 ? ? ? ? 48 8B 06", resolve: REL32_1, extra_off: 0, prototype: "" },
+    Signature { name: "GetBasePlayerCtrl_Entity",             module: "client.dll", needle: "E8 ? ? ? ? 48 8B F8 48 85 C0 74 ? 48 8B C8 E8 ? ? ? ? EB", resolve: REL32_1, extra_off: 0, prototype: "" },
 
     // ==================================================================
     // scenesystem.dll --------------------------------------------------
     // ==================================================================
-    Signature { name: "SceneSystem::DrawAggeregateObject",    module: "scenesystem.dll", needle: "48 8B C4 4C 89 48 20 4C 89 40 ? 48 89 50 ? 55 53 41 57 48 8D A8", resolve: NONE, extra_off: 0 },
-    Signature { name: "SceneSystem::DrawArrayLight",          module: "scenesystem.dll", needle: "48 89 5C 24 ? 48 89 6C 24 ? 48 89 54 24", resolve: NONE, extra_off: 0 },
-    Signature { name: "SceneSystem::DrawAggregateSceneObject", module: "scenesystem.dll", needle: "48 8B C4 4C 89 48 20 48 89 50 ? 48 89 48 ? 55 48 8D A8 ? ? ? ? 48 81 EC 70 07 00 00", resolve: NONE, extra_off: 0 },
+    Signature { name: "SceneSystem::DrawAggeregateObject",    module: "scenesystem.dll", needle: "48 8B C4 4C 89 48 20 4C 89 40 ? 48 89 50 ? 55 53 41 57 48 8D A8", resolve: NONE, extra_off: 0, prototype: "" },
+    Signature { name: "SceneSystem::DrawArrayLight",          module: "scenesystem.dll", needle: "48 89 5C 24 ? 48 89 6C 24 ? 48 89 54 24", resolve: NONE, extra_off: 0, prototype: "" },
+    Signature { name: "SceneSystem::DrawAggregateSceneObject", module: "scenesystem.dll", needle: "48 8B C4 4C 89 48 20 48 89 50 ? 48 89 48 ? 55 48 8D A8 ? ? ? ? 48 81 EC 70 07 00 00", resolve: NONE, extra_off: 0, prototype: "" },
 
     // ==================================================================
     // particles.dll ----------------------------------------------------
     // ==================================================================
-    Signature { name: "Particles::DrawArray",                 module: "particles.dll", needle: "40 55 53 56 57 48 8D 6C 24", resolve: NONE, extra_off: 0 },
-    Signature { name: "Particles::FindKeyVar",                module: "particles.dll", needle: "48 89 5C 24 ? 57 48 81 EC ? ? ? ? 33 C0 8B DA", resolve: NONE, extra_off: 0 },
-    Signature { name: "Particles::SetMaterialShaderType",     module: "particles.dll", needle: "48 89 5C 24 ? 48 89 6C 24 ? 56 57 41 54 41 56 41 57 48 81 EC ? ? ? ? 4C 63 32", resolve: NONE, extra_off: 0 },
-    Signature { name: "Particles::SetMaterialFunction",       module: "particles.dll", needle: "48 89 54 24 10 55 53 56 57 41 54 41 55 41 56 41 57 48 8D AC 24 ? ? ? ? 48 81 EC E8 05 00 00", resolve: NONE, extra_off: 0 },
+    Signature { name: "Particles::DrawArray",                 module: "particles.dll", needle: "40 55 53 56 57 48 8D 6C 24", resolve: NONE, extra_off: 0, prototype: "_BYTE *__fastcall sub_1800220B0(__int64 a1, __int64 a2, __int64 a3, int a4, __int64 a5, __int64 a6, __int64 a7)" },
+    Signature { name: "Particles::FindKeyVar",                module: "particles.dll", needle: "48 89 5C 24 ? 57 48 81 EC ? ? ? ? 33 C0 8B DA", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_18003A650(const char *a1, unsigned int a2, int a3)" },
+    Signature { name: "Particles::SetMaterialShaderType",     module: "particles.dll", needle: "48 89 5C 24 ? 48 89 6C 24 ? 56 57 41 54 41 56 41 57 48 81 EC ? ? ? ? 4C 63 32", resolve: NONE, extra_off: 0, prototype: "void __fastcall sub_18009D8D0(__int64 a1, int *a2)" },
+    Signature { name: "Particles::SetMaterialFunction",       module: "particles.dll", needle: "48 89 54 24 10 55 53 56 57 41 54 41 55 41 56 41 57 48 8D AC 24 ? ? ? ? 48 81 EC E8 05 00 00", resolve: NONE, extra_off: 0, prototype: "" },
     // CParticleSystemMgr::FindParticleSystem(name, out_handle, blocking_load) — looks up
     // a precached particle system definition by string name. The "FindParticleSystem"
     // log/profile string is referenced exactly once from this function. Useful as a hook
     // point for swapping/recoloring particle effects (smokes, molotovs, tracers).
     Signature { name: "Particles::CParticleSystemMgr_FindParticleSystem", module: "particles.dll",
         needle: "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 57 41 56 41 57 48 81 EC 40 01 00 00 48 8D 05 ? ? ? ? 48 C7 44 24 28 ? ? 00 00 48 89 44 24 20",
-        resolve: NONE, extra_off: 0 },
+        resolve: NONE, extra_off: 0, prototype: "__int64 *__fastcall sub_1800A0BC0(__int64 a1, __int64 *a2, const char *a3, char a4)" },
     // CParticleSystemMgr::CreateParticleCollection — instantiates a particle collection
     // from a previously-found definition. The "CParticleSystemMgr::CreateParticleCollection( Name String )"
     // VProf string sits at the function head.
     Signature { name: "Particles::CParticleSystemMgr_CreateParticleCollection", module: "particles.dll",
         needle: "4C 8B DC 49 89 5B 10 49 89 6B 18 49 89 73 20 57 41 56 41 57 48 81 EC 80 00 00 00 49 C7 43 B0 ? ? 00 00 48 8D 05 ? ? ? ? 49 89 43 A8",
-        resolve: NONE, extra_off: 0 },
+        resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_1800A0DD0(__int64 a1, const char *a2, __int64 a3, __int64 a4, char a5, int a6, int a7)" },
 
     // ==================================================================
     // soundsystem.dll --------------------------------------------------
     // ==================================================================
-    Signature { name: "SoundSystem::SomeUtlSymbolFunc",       module: "soundsystem.dll", needle: "48 89 74 24 18 57 48 83 EC 20 48 63 F2 48 8B F9 3B 71 30", resolve: NONE, extra_off: 0 },
-    Signature { name: "SoundSystem::PlayVSound",              module: "soundsystem.dll", needle: "48 8B C4 48 89 58 08 57 48 81 EC ? ? ? ? 33 FF 48 8B D9", resolve: NONE, extra_off: 0 },
+    Signature { name: "SoundSystem::SomeUtlSymbolFunc",       module: "soundsystem.dll", needle: "48 89 74 24 18 57 48 83 EC 20 48 63 F2 48 8B F9 3B 71 30", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_1800B0740(__int64 a1, unsigned int a2)" },
+    Signature { name: "SoundSystem::PlayVSound",              module: "soundsystem.dll", needle: "48 8B C4 48 89 58 08 57 48 81 EC ? ? ? ? 33 FF 48 8B D9", resolve: NONE, extra_off: 0, prototype: "_UNKNOWN **__fastcall sub_180349840(__int64 a1, __int64 a2, int a3, int a4)" },
 
     // ==================================================================
     // animationsystem.dll ----------------------------------------------
     // ==================================================================
-    Signature { name: "Animation::ShouldUpdateSequences",     module: "animationsystem.dll", needle: "48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC 20 49 8B 40 48", resolve: NONE, extra_off: 0 },
+    Signature { name: "Animation::ShouldUpdateSequences",     module: "animationsystem.dll", needle: "48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC 20 49 8B 40 48", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_18014F0A0(__int64 a1, __int64 a2, __int64 a3)" },
 
     // ==================================================================
     // materialsystem2.dll ----------------------------------------------
     // ==================================================================
-    Signature { name: "MatSys::PrepareSceneMaterial",         module: "materialsystem2.dll", needle: "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 30 48 8B 59 ? 48 8B F2 48 63 79 ? 48 C1 E7 06", resolve: NONE, extra_off: 0 },
+    Signature { name: "MatSys::PrepareSceneMaterial",         module: "materialsystem2.dll", needle: "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 30 48 8B 59 ? 48 8B F2 48 63 79 ? 48 C1 E7 06", resolve: NONE, extra_off: 0, prototype: "float __fastcall sub_180011BE0(__int64 a1, __int64 a2, float a3)" },
 
     // ==================================================================
     // tier0.dll --------------------------------------------------------
     // ==================================================================
-    Signature { name: "Tier0::UtlBuffer",                     module: "tier0.dll", needle: "48 89 5C 24 ? 57 48 83 EC ? 8B 41 ? 8D 7A", resolve: NONE, extra_off: 0 },
-    Signature { name: "Tier0::LoadKeyValues",                 module: "tier0.dll", needle: "E8 ? ? ? ? 8B 4C 24 34 0F B6 D8", resolve: REL32_1, extra_off: 0 },
+    Signature { name: "Tier0::UtlBuffer",                     module: "tier0.dll", needle: "48 89 5C 24 ? 57 48 83 EC ? 8B 41 ? 8D 7A", resolve: NONE, extra_off: 0, prototype: "" },
+    Signature { name: "Tier0::LoadKeyValues",                 module: "tier0.dll", needle: "E8 ? ? ? ? 8B 4C 24 34 0F B6 D8", resolve: REL32_1, extra_off: 0, prototype: "" },
 
     // ==================================================================
     // engine2.dll ------------------------------------------------------
     // ==================================================================
-    Signature { name: "Engine::PVSManager_ptr",               module: "engine2.dll", needle: "48 8D 0D ? ? ? ? 33 D2 FF 50", resolve: RIPREL_3, extra_off: 0 },
-    Signature { name: "Engine::RunPrediction",                module: "engine2.dll", needle: "40 55 41 56 48 83 EC ? 80 B9", resolve: NONE, extra_off: 0 },
-    Signature { name: "Engine::GetScreenAspectRatio",         module: "engine2.dll", needle: "48 89 5C 24 08 57 48 83 EC 20 8B FA 48 8D 0D", resolve: NONE, extra_off: 0 },
+    Signature { name: "Engine::PVSManager_ptr",               module: "engine2.dll", needle: "48 8D 0D ? ? ? ? 33 D2 FF 50", resolve: RIPREL_3, extra_off: 0, prototype: "" },
+    Signature { name: "Engine::RunPrediction",                module: "engine2.dll", needle: "40 55 41 56 48 83 EC ? 80 B9", resolve: NONE, extra_off: 0, prototype: "void __fastcall sub_180066490(__int64 a1, unsigned int a2)" },
+    Signature { name: "Engine::GetScreenAspectRatio",         module: "engine2.dll", needle: "48 89 5C 24 08 57 48 83 EC 20 8B FA 48 8D 0D", resolve: NONE, extra_off: 0, prototype: "float __fastcall sub_1800769D0(__int64 a1, int a2, int a3)" },
 
     // ==================================================================
     // Additional string-ref anchors (enhanced_signatures.h) ------------
     // ==================================================================
-    Signature { name: "CTonemapController2",                  module: "client.dll", needle: "CTonemapController2",                  resolve: STRREF, extra_off: 0 },
-    Signature { name: "CFogController",                       module: "client.dll", needle: "CFogController",                       resolve: STRREF, extra_off: 0 },
-    Signature { name: "CPostProcessingVolume",                module: "client.dll", needle: "CPostProcessingVolume",                 resolve: STRREF, extra_off: 0 },
-    Signature { name: "CCSPlayer_ItemServices",               module: "client.dll", needle: "CCSPlayer_ItemServices",                resolve: STRREF, extra_off: 0 },
-    Signature { name: "CCSPlayer_ViewModelServices",          module: "client.dll", needle: "CCSPlayer_ViewModelServices",           resolve: STRREF, extra_off: 0 },
-    Signature { name: "CCSPlayer_CameraServices",             module: "client.dll", needle: "CCSPlayer_CameraServices",              resolve: STRREF, extra_off: 0 },
-    Signature { name: "C_CSWeaponBase",                       module: "client.dll", needle: "C_CSWeaponBase",                       resolve: STRREF, extra_off: 0 },
-    Signature { name: "C_BaseViewModel",                      module: "client.dll", needle: "C_BaseViewModel",                      resolve: STRREF, extra_off: 0 },
-    Signature { name: "C_BaseFlex",                           module: "client.dll", needle: "C_BaseFlex",                            resolve: STRREF, extra_off: 0 },
-    Signature { name: "C_EconItemView",                       module: "client.dll", needle: "C_EconItemView",                       resolve: STRREF, extra_off: 0 },
-    Signature { name: "C_AttributeContainer",                 module: "client.dll", needle: "C_AttributeContainer",                  resolve: STRREF, extra_off: 0 },
+    Signature { name: "CTonemapController2",                  module: "client.dll", needle: "CTonemapController2",                  resolve: STRREF, extra_off: 0, prototype: "__int64 sub_180257C90()" },
+    Signature { name: "CFogController",                       module: "client.dll", needle: "CFogController",                       resolve: STRREF, extra_off: 0, prototype: "__int64 sub_18027EFD0()" },
+    Signature { name: "CPostProcessingVolume",                module: "client.dll", needle: "CPostProcessingVolume",                 resolve: STRREF, extra_off: 0, prototype: "__int64 sub_1802A3D60()" },
+    Signature { name: "CCSPlayer_ItemServices",               module: "client.dll", needle: "CCSPlayer_ItemServices",                resolve: STRREF, extra_off: 0, prototype: "void *__fastcall sub_180850B00(__int64 a1)" },
+    Signature { name: "CCSPlayer_ViewModelServices",          module: "client.dll", needle: "CCSPlayer_ViewModelServices",           resolve: STRREF, extra_off: 0, prototype: "" },
+    Signature { name: "CCSPlayer_CameraServices",             module: "client.dll", needle: "CCSPlayer_CameraServices",              resolve: STRREF, extra_off: 0, prototype: "__int64 sub_18080FCB0()" },
+    Signature { name: "C_CSWeaponBase",                       module: "client.dll", needle: "C_CSWeaponBase",                       resolve: STRREF, extra_off: 0, prototype: "_QWORD *__fastcall sub_180742170(int a1, _QWORD *a2)" },
+    Signature { name: "C_BaseViewModel",                      module: "client.dll", needle: "C_BaseViewModel",                      resolve: STRREF, extra_off: 0, prototype: "" },
+    Signature { name: "C_BaseFlex",                           module: "client.dll", needle: "C_BaseFlex",                            resolve: STRREF, extra_off: 0, prototype: "" },
+    Signature { name: "C_EconItemView",                       module: "client.dll", needle: "C_EconItemView",                       resolve: STRREF, extra_off: 0, prototype: "_QWORD *__fastcall sub_18070B570(int a1, _QWORD *a2)" },
+    Signature { name: "C_AttributeContainer",                 module: "client.dll", needle: "C_AttributeContainer",                  resolve: STRREF, extra_off: 0, prototype: "__int64 __fastcall sub_180C18BB0(int a1, _QWORD *a2)" },
 
     // ==================================================================
     // Community drops (UC forum, Apr 2026) -----------------------------
     // ==================================================================
-    Signature { name: "draw_view_punch_v2",                   module: "client.dll", needle: "48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 48 89 7C 24 ? 41 56 48 83 EC ? 49 8B E9 49 8B F8", resolve: NONE, extra_off: 0 },
-    Signature { name: "global_vars_v2",                       module: "client.dll", needle: "48 89 1D ? ? ? ? FF 15 ? ? ? ? 84 C0 74 ? 8B 0D ? ? ? ? 4C 8D 0D ? ? ? ? 4C 8D 05 ? ? ? ? BA ? ? ? ? FF 15 ? ? ? ? 48 8B 74 24 ? 48 8B C3", resolve: RIPREL_3, extra_off: 0 },
-    Signature { name: "local_controller",                     module: "client.dll", needle: "48 8B 05 ? ? ? ? 41 89 BE", resolve: RIPREL_3, extra_off: 0 },
-    Signature { name: "entity_list_ptr",                      module: "client.dll", needle: "48 8B 1D ? ? ? ? 48 8D 46", resolve: RIPREL_3, extra_off: 0 },
-    Signature { name: "view_matrix_ptr",                      module: "client.dll", needle: "48 8D 0D ? ? ? ? 48 89 44 24 ? 48 89 4C 24 ? 4C 8D 0D", resolve: RIPREL_3, extra_off: 0 },
-    Signature { name: "planted_c4_ptr",                       module: "client.dll", needle: "48 8B 15 ? ? ? ? 48 8B 5C 24 ? FF C0 89 05 ? ? ? ? 48 8B C6 ? ? ? ? 80 BE ? ? ? ? 00", resolve: RIPREL_3, extra_off: 0 },
-    Signature { name: "frame_stage_notify",                   module: "client.dll", needle: "4C 8B 0D ? ? ? ? 48 8D 15 ? ? ? ? 48 8B 8F ? ? ? ? F3 41 0F 10 51 ? 45 8B 49 ? 0F 5A D2 66 49 0F 7E D0 FF 15 ? ? ? ? 48 8B 97 ? ? ? ? 48 8B 0D ? ? ? ? E8 ? ? ? ? E9", resolve: NONE, extra_off: 0 },
-    Signature { name: "override_view_short",                  module: "client.dll", needle: "40 57 48 83 EC ? 48 8B FA E8 ? ? ? ? BA", resolve: NONE, extra_off: 0 },
-    Signature { name: "level_shutdown",                       module: "client.dll", needle: "48 83 EC ? 48 8B 0D ? ? ? ? 48 8D 15 ? ? ? ? 45 33 C9 45 33 C0 ? ? ? FF 50 ? 48 85 C0 74 ? 48 8B 0D ? ? ? ? 48 8B D0 ? ? ? 41 FF 50 ? 48 83 C4", resolve: NONE, extra_off: 0 },
-    Signature { name: "level_init_v2",                        module: "client.dll", needle: "40 55 56 41 56 48 8D 6C 24 ? 48 81 EC ? ? ? ? 48 8B 0D", resolve: NONE, extra_off: 0 },
-    Signature { name: "update_post_processing_v2",            module: "client.dll", needle: "48 89 AC 24 ? ? ? ? 45 33 ED", resolve: NONE, extra_off: 0 },
-    Signature { name: "remove_legs",                          module: "client.dll", needle: "40 55 53 56 41 56 41 57 48 8D AC 24 ? ? ? ? 48 81 EC ? ? ? ? F2 0F 10 42", resolve: NONE, extra_off: 0 },
-    Signature { name: "mark_interp_latch_flags_dirty",        module: "client.dll", needle: "40 53 56 57 48 83 EC ? 80 3D ? ? ? ? 00", resolve: NONE, extra_off: 0 },
-    Signature { name: "get_fov",                              module: "client.dll", needle: "48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 48 89 7C 24 ? 41 56 48 83 EC ? 49 8B E9 49 8B F8", resolve: NONE, extra_off: 0 },
-    Signature { name: "create_move_v2",                       module: "client.dll", needle: "85 D2 0F 85 ? ? ? ? 48 8B C4 44 88 40", resolve: NONE, extra_off: 0 },
-    Signature { name: "update_global_vars",                   module: "client.dll", needle: "48 8B 0D ? ? ? ? 4C 8D 05 ? ? ? ? 48 85 D2", resolve: NONE, extra_off: 0 },
-    Signature { name: "on_add_entity_v2",                     module: "client.dll", needle: "48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 57 48 83 EC ? 8B 81 ? ? ? ? 49 8B F0", resolve: NONE, extra_off: 0 },
-    Signature { name: "draw_smoke_array",                     module: "client.dll", needle: "40 55 41 54 41 55 48 8D AC 24 ? ? ? ? 48 81 EC ? ? ? ? 4C 8B E2", resolve: NONE, extra_off: 0 },
-    Signature { name: "get_view_angles_v2",                   module: "client.dll", needle: "4D 85 C0 74 ? 85 D2 74", resolve: NONE, extra_off: 0 },
-    Signature { name: "unlock_inventory",                     module: "client.dll", needle: "48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 57 48 83 EC ? 48 8B E9 48 8B 0D ? ? ? ? ? ? ? FF 50", resolve: NONE, extra_off: 0 },
-    Signature { name: "is_demo_or_hltv",                      module: "client.dll", needle: "48 83 EC ? 48 8B 0D ? ? ? ? ? ? ? FF 90 ? ? ? ? 84 C0 75 ? 38 05", resolve: NONE, extra_off: 0 },
-    Signature { name: "get_map_name",                         module: "client.dll", needle: "48 83 EC ? 48 8B 0D ? ? ? ? ? ? ? FF 90 ? ? ? ? 48 8B C8 48 83 C4", resolve: NONE, extra_off: 0 },
-    Signature { name: "get_view_model",                       module: "client.dll", needle: "40 55 53 56 41 56 41 57 48 8B EC", resolve: NONE, extra_off: 0 },
+    Signature { name: "draw_view_punch_v2",                   module: "client.dll", needle: "48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 48 89 7C 24 ? 41 56 48 83 EC ? 49 8B E9 49 8B F8", resolve: NONE, extra_off: 0, prototype: "float *__fastcall sub_1808041C0(int a1, __int64 a2, __int64 a3, float *a4, float *a5, float *a6)" },
+    Signature { name: "global_vars_v2",                       module: "client.dll", needle: "48 89 1D ? ? ? ? FF 15 ? ? ? ? 84 C0 74 ? 8B 0D ? ? ? ? 4C 8D 0D ? ? ? ? 4C 8D 05 ? ? ? ? BA ? ? ? ? FF 15 ? ? ? ? 48 8B 74 24 ? 48 8B C3", resolve: RIPREL_3, extra_off: 0, prototype: "" },
+    Signature { name: "local_controller",                     module: "client.dll", needle: "48 8B 05 ? ? ? ? 41 89 BE", resolve: RIPREL_3, extra_off: 0, prototype: "" },
+    Signature { name: "entity_list_ptr",                      module: "client.dll", needle: "48 8B 1D ? ? ? ? 48 8D 46", resolve: RIPREL_3, extra_off: 0, prototype: "" },
+    Signature { name: "view_matrix_ptr",                      module: "client.dll", needle: "48 8D 0D ? ? ? ? 48 89 44 24 ? 48 89 4C 24 ? 4C 8D 0D", resolve: RIPREL_3, extra_off: 0, prototype: "" },
+    Signature { name: "planted_c4_ptr",                       module: "client.dll", needle: "48 8B 15 ? ? ? ? 48 8B 5C 24 ? FF C0 89 05 ? ? ? ? 48 8B C6 ? ? ? ? 80 BE ? ? ? ? 00", resolve: RIPREL_3, extra_off: 0, prototype: "" },
+    Signature { name: "frame_stage_notify",                   module: "client.dll", needle: "4C 8B 0D ? ? ? ? 48 8D 15 ? ? ? ? 48 8B 8F ? ? ? ? F3 41 0F 10 51 ? 45 8B 49 ? 0F 5A D2 66 49 0F 7E D0 FF 15 ? ? ? ? 48 8B 97 ? ? ? ? 48 8B 0D ? ? ? ? E8 ? ? ? ? E9", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_180AD28A0(__int64 a1, int a2)" },
+    Signature { name: "override_view_short",                  module: "client.dll", needle: "40 57 48 83 EC ? 48 8B FA E8 ? ? ? ? BA", resolve: NONE, extra_off: 0, prototype: "void __fastcall sub_180C5F840(__int64 a1, __int64 a2)" },
+    Signature { name: "level_shutdown",                       module: "client.dll", needle: "48 83 EC ? 48 8B 0D ? ? ? ? 48 8D 15 ? ? ? ? 45 33 C9 45 33 C0 ? ? ? FF 50 ? 48 85 C0 74 ? 48 8B 0D ? ? ? ? 48 8B D0 ? ? ? 41 FF 50 ? 48 83 C4", resolve: NONE, extra_off: 0, prototype: "__int64 sub_180AFAC10()" },
+    Signature { name: "level_init_v2",                        module: "client.dll", needle: "40 55 56 41 56 48 8D 6C 24 ? 48 81 EC ? ? ? ? 48 8B 0D", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_180AFA990(__int64 a1, __int64 a2)" },
+    Signature { name: "update_post_processing_v2",            module: "client.dll", needle: "48 89 AC 24 ? ? ? ? 45 33 ED", resolve: NONE, extra_off: 0, prototype: "void __fastcall sub_180F264C0(__int64 a1)" },
+    Signature { name: "remove_legs",                          module: "client.dll", needle: "40 55 53 56 41 56 41 57 48 8D AC 24 ? ? ? ? 48 81 EC ? ? ? ? F2 0F 10 42", resolve: NONE, extra_off: 0, prototype: "void __fastcall sub_1810F0410(__int64 *a1, __int64 *a2, __int64 a3, __int64 a4, __int64 a5)" },
+    Signature { name: "mark_interp_latch_flags_dirty",        module: "client.dll", needle: "40 53 56 57 48 83 EC ? 80 3D ? ? ? ? 00", resolve: NONE, extra_off: 0, prototype: "void __fastcall sub_180218070(__int64 a1, unsigned int a2)" },
+    Signature { name: "get_fov",                              module: "client.dll", needle: "48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 48 89 7C 24 ? 41 56 48 83 EC ? 49 8B E9 49 8B F8", resolve: NONE, extra_off: 0, prototype: "float *__fastcall sub_1808041C0(int a1, __int64 a2, __int64 a3, float *a4, float *a5, float *a6)" },
+    Signature { name: "create_move_v2",                       module: "client.dll", needle: "85 D2 0F 85 ? ? ? ? 48 8B C4 44 88 40", resolve: NONE, extra_off: 0, prototype: "void __fastcall sub_180ACC120(__int64 *a1, int a2, char a3)" },
+    Signature { name: "update_global_vars",                   module: "client.dll", needle: "48 8B 0D ? ? ? ? 4C 8D 05 ? ? ? ? 48 85 D2", resolve: NONE, extra_off: 0, prototype: "void *__fastcall sub_180AE4730(__int64 a1, void *a2)" },
+    Signature { name: "on_add_entity_v2",                     module: "client.dll", needle: "48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 57 48 83 EC ? 8B 81 ? ? ? ? 49 8B F0", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_180968BB0(__int64 a1, __int64 a2, __int64 a3)" },
+    Signature { name: "draw_smoke_array",                     module: "client.dll", needle: "40 55 41 54 41 55 48 8D AC 24 ? ? ? ? 48 81 EC ? ? ? ? 4C 8B E2", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_180C7B380(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, unsigned int *a6)" },
+    Signature { name: "get_view_angles_v2",                   module: "client.dll", needle: "4D 85 C0 74 ? 85 D2 74", resolve: NONE, extra_off: 0, prototype: "void __fastcall sub_180AD4600(__int64 a1, int a2, __int64 a3)" },
+    Signature { name: "unlock_inventory",                     module: "client.dll", needle: "48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 57 48 83 EC ? 48 8B E9 48 8B 0D ? ? ? ? ? ? ? FF 50", resolve: NONE, extra_off: 0, prototype: "char __fastcall sub_1807011C0(__int64 a1)" },
+    Signature { name: "is_demo_or_hltv",                      module: "client.dll", needle: "48 83 EC ? 48 8B 0D ? ? ? ? ? ? ? FF 90 ? ? ? ? 84 C0 75 ? 38 05", resolve: NONE, extra_off: 0, prototype: "char sub_180EFE9B0()" },
+    Signature { name: "get_map_name",                         module: "client.dll", needle: "48 83 EC ? 48 8B 0D ? ? ? ? ? ? ? FF 90 ? ? ? ? 48 8B C8 48 83 C4", resolve: NONE, extra_off: 0, prototype: "__int64 sub_180EDD4F0()" },
+    Signature { name: "get_view_model",                       module: "client.dll", needle: "40 55 53 56 41 56 41 57 48 8B EC", resolve: NONE, extra_off: 0, prototype: "void __fastcall sub_18084F430(__int64 a1, float *a2, float *a3)" },
     // CSGOInput global: 48 8B 0D xx xx xx xx ; disp32 at +3, then post-resolve add 0x7
-    Signature { name: "CSGOInput_resolved",                   module: "client.dll", needle: "48 8B 0D ? ? ? ? 8B 10 E8 ? ? ? ? 45 32 FF", resolve: RIPREL_3, extra_off: 7 },
+    Signature { name: "CSGOInput_resolved",                   module: "client.dll", needle: "48 8B 0D ? ? ? ? 8B 10 E8 ? ? ? ? 45 32 FF", resolve: RIPREL_3, extra_off: 7, prototype: "" },
     // CreateMaterial(material, name, kv3, ...) callsite prologue
-    Signature { name: "CreateMaterial_caller",                module: "client.dll", needle: "48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 48 89 7C 24 ? 41 56 48 81 EC ? ? ? ? 48 8B 05 ? ? ? ? 48 8B F2", resolve: NONE, extra_off: 0 },
-    Signature { name: "GetBonePositionByName",                module: "client.dll", needle: "40 53 48 83 EC ? 48 8B 89 ? ? ? ? 48 8B DA 48 8B 01 FF 50 ? 48 8B C8", resolve: NONE, extra_off: 0 },
+    Signature { name: "CreateMaterial_caller",                module: "client.dll", needle: "48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 48 89 7C 24 ? 41 56 48 81 EC ? ? ? ? 48 8B 05 ? ? ? ? 48 8B F2", resolve: NONE, extra_off: 0, prototype: "" },
+    Signature { name: "GetBonePositionByName",                module: "client.dll", needle: "40 53 48 83 EC ? 48 8B 89 ? ? ? ? 48 8B DA 48 8B 01 FF 50 ? 48 8B C8", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_1808C81E0(__int64 a1, __int64 a2)" },
 
     // ==================================================================
     // String-ref class anchors (resilient across patches: the schema
@@ -756,54 +781,54 @@ pub static CS2_SIGNATURES: &[Signature] = &[
     // Internals use these to resolve weapon/player/HUD class vftables
     // without hand-maintaining byte patterns.
     // ==================================================================
-    Signature { name: "C_BaseEntity",                          module: "client.dll", needle: "C_BaseEntity",                          resolve: STRREF, extra_off: 0 },
-    Signature { name: "C_BaseModelEntity",                     module: "client.dll", needle: "C_BaseModelEntity",                     resolve: STRREF, extra_off: 0 },
-    Signature { name: "C_BasePlayerPawn",                      module: "client.dll", needle: "C_BasePlayerPawn",                      resolve: STRREF, extra_off: 0 },
-    Signature { name: "C_CSPlayerPawn",                        module: "client.dll", needle: "C_CSPlayerPawn",                        resolve: STRREF, extra_off: 0 },
-    Signature { name: "C_CSPlayerPawnBase",                    module: "client.dll", needle: "C_CSPlayerPawnBase",                    resolve: STRREF, extra_off: 0 },
-    Signature { name: "CCSPlayerController",                   module: "client.dll", needle: "CCSPlayerController",                   resolve: STRREF, extra_off: 0 },
-    Signature { name: "CCSPlayerController_ActionTrackingServices", module: "client.dll", needle: "CCSPlayerController_ActionTrackingServices", resolve: STRREF, extra_off: 0 },
-    Signature { name: "CCSPlayerController_DamageServices",    module: "client.dll", needle: "CCSPlayerController_DamageServices",    resolve: STRREF, extra_off: 0 },
-    Signature { name: "CCSPlayerController_InGameMoneyServices", module: "client.dll", needle: "CCSPlayerController_InGameMoneyServices", resolve: STRREF, extra_off: 0 },
-    Signature { name: "CCSPlayerController_InventoryServices", module: "client.dll", needle: "CCSPlayerController_InventoryServices", resolve: STRREF, extra_off: 0 },
-    Signature { name: "CCSPlayer_BulletServices",              module: "client.dll", needle: "CCSPlayer_BulletServices",              resolve: STRREF, extra_off: 0 },
-    Signature { name: "CCSPlayer_HostageServices",             module: "client.dll", needle: "CCSPlayer_HostageServices",             resolve: STRREF, extra_off: 0 },
-    Signature { name: "CCSPlayer_PingServices",                module: "client.dll", needle: "CCSPlayer_PingServices",                resolve: STRREF, extra_off: 0 },
-    Signature { name: "CCSPlayer_UseServices",                 module: "client.dll", needle: "CCSPlayer_UseServices",                 resolve: STRREF, extra_off: 0 },
-    Signature { name: "CCSPlayer_WaterServices",               module: "client.dll", needle: "CCSPlayer_WaterServices",                resolve: STRREF, extra_off: 0 },
-    Signature { name: "CCSPlayer_WeaponServices",              module: "client.dll", needle: "CCSPlayer_WeaponServices",               resolve: STRREF, extra_off: 0 },
-    Signature { name: "CCSPlayer_MovementServices",            module: "client.dll", needle: "CCSPlayer_MovementServices",             resolve: STRREF, extra_off: 0 },
-    Signature { name: "CCSPlayer_MovementServices_Humanoid",   module: "client.dll", needle: "CCSPlayer_MovementServices_Humanoid",    resolve: STRREF, extra_off: 0 },
-    Signature { name: "CCSWeaponBase",                         module: "client.dll", needle: "CCSWeaponBase",                          resolve: STRREF, extra_off: 0 },
-    Signature { name: "CCSWeaponBaseGun",                      module: "client.dll", needle: "CCSWeaponBaseGun",                       resolve: STRREF, extra_off: 0 },
-    Signature { name: "CCSWeaponBaseVData",                    module: "client.dll", needle: "CCSWeaponBaseVData",                     resolve: STRREF, extra_off: 0 },
-    Signature { name: "CSmokeGrenadeProjectile",               module: "client.dll", needle: "CSmokeGrenadeProjectile",                resolve: STRREF, extra_off: 0 },
-    Signature { name: "CMolotovProjectile",                    module: "client.dll", needle: "CMolotovProjectile",                     resolve: STRREF, extra_off: 0 },
-    Signature { name: "CFlashbangProjectile",                  module: "client.dll", needle: "CFlashbangProjectile",                   resolve: STRREF, extra_off: 0 },
-    Signature { name: "CHEGrenadeProjectile",                  module: "client.dll", needle: "CHEGrenadeProjectile",                   resolve: STRREF, extra_off: 0 },
-    Signature { name: "CDecoyProjectile",                      module: "client.dll", needle: "CDecoyProjectile",                       resolve: STRREF, extra_off: 0 },
-    Signature { name: "C_PlantedC4",                           module: "client.dll", needle: "C_PlantedC4",                            resolve: STRREF, extra_off: 0 },
-    Signature { name: "C_C4",                                  module: "client.dll", needle: "C_C4",                                   resolve: STRREF, extra_off: 0 },
-    Signature { name: "C_Hostage",                             module: "client.dll", needle: "C_Hostage",                              resolve: STRREF, extra_off: 0 },
-    Signature { name: "C_Inferno",                             module: "client.dll", needle: "C_Inferno",                              resolve: STRREF, extra_off: 0 },
-    Signature { name: "C_SmokeGrenadeProjectile",              module: "client.dll", needle: "C_SmokeGrenadeProjectile",               resolve: STRREF, extra_off: 0 },
-    Signature { name: "C_RecipientFilter",                     module: "client.dll", needle: "C_RecipientFilter",                      resolve: STRREF, extra_off: 0 },
-    Signature { name: "CGameSceneNode",                        module: "client.dll", needle: "CGameSceneNode",                         resolve: STRREF, extra_off: 0 },
-    Signature { name: "CSkeletonInstance",                     module: "client.dll", needle: "CSkeletonInstance",                      resolve: STRREF, extra_off: 0 },
-    Signature { name: "CBodyComponent",                        module: "client.dll", needle: "CBodyComponent",                         resolve: STRREF, extra_off: 0 },
-    Signature { name: "CBodyComponentSkeletonInstance",        module: "client.dll", needle: "CBodyComponentSkeletonInstance",         resolve: STRREF, extra_off: 0 },
-    Signature { name: "CGlowProperty",                         module: "client.dll", needle: "CGlowProperty",                          resolve: STRREF, extra_off: 0 },
-    Signature { name: "CCollisionProperty",                    module: "client.dll", needle: "CCollisionProperty",                     resolve: STRREF, extra_off: 0 },
-    Signature { name: "CWeaponCSBase",                         module: "client.dll", needle: "CWeaponCSBase",                          resolve: STRREF, extra_off: 0 },
-    Signature { name: "CCSGameRules",                          module: "client.dll", needle: "CCSGameRules",                           resolve: STRREF, extra_off: 0 },
-    Signature { name: "CCSGameRulesProxy",                     module: "client.dll", needle: "CCSGameRulesProxy",                      resolve: STRREF, extra_off: 0 },
-    Signature { name: "CSGameRulesObjectives",                 module: "client.dll", needle: "CSGameRulesObjectives",                  resolve: STRREF, extra_off: 0 },
+    Signature { name: "C_BaseEntity",                          module: "client.dll", needle: "C_BaseEntity",                          resolve: STRREF, extra_off: 0, prototype: "__int64 (__fastcall *sub_18004E260())()" },
+    Signature { name: "C_BaseModelEntity",                     module: "client.dll", needle: "C_BaseModelEntity",                     resolve: STRREF, extra_off: 0, prototype: "__int64 __fastcall sub_180158010(int a1, _QWORD *a2)" },
+    Signature { name: "C_BasePlayerPawn",                      module: "client.dll", needle: "C_BasePlayerPawn",                      resolve: STRREF, extra_off: 0, prototype: "__int64 (__fastcall *sub_18006DA20())()" },
+    Signature { name: "C_CSPlayerPawn",                        module: "client.dll", needle: "C_CSPlayerPawn",                        resolve: STRREF, extra_off: 0, prototype: "__int64 __fastcall sub_1806C2430(int a1, _QWORD *a2)" },
+    Signature { name: "C_CSPlayerPawnBase",                    module: "client.dll", needle: "C_CSPlayerPawnBase",                    resolve: STRREF, extra_off: 0, prototype: "__int64 *sub_180BD7140()" },
+    Signature { name: "CCSPlayerController",                   module: "client.dll", needle: "CCSPlayerController",                   resolve: STRREF, extra_off: 0, prototype: "__int64 __fastcall sub_1807E5220(int a1, _QWORD *a2)" },
+    Signature { name: "CCSPlayerController_ActionTrackingServices", module: "client.dll", needle: "CCSPlayerController_ActionTrackingServices", resolve: STRREF, extra_off: 0, prototype: "__int64 __fastcall sub_1807E5220(int a1, _QWORD *a2)" },
+    Signature { name: "CCSPlayerController_DamageServices",    module: "client.dll", needle: "CCSPlayerController_DamageServices",    resolve: STRREF, extra_off: 0, prototype: "__int64 __fastcall sub_1807E5220(int a1, _QWORD *a2)" },
+    Signature { name: "CCSPlayerController_InGameMoneyServices", module: "client.dll", needle: "CCSPlayerController_InGameMoneyServices", resolve: STRREF, extra_off: 0, prototype: "__int64 __fastcall sub_1807E5220(int a1, _QWORD *a2)" },
+    Signature { name: "CCSPlayerController_InventoryServices", module: "client.dll", needle: "CCSPlayerController_InventoryServices", resolve: STRREF, extra_off: 0, prototype: "__int64 __fastcall sub_1807E5220(int a1, _QWORD *a2)" },
+    Signature { name: "CCSPlayer_BulletServices",              module: "client.dll", needle: "CCSPlayer_BulletServices",              resolve: STRREF, extra_off: 0, prototype: "void *__fastcall sub_180813BA0(__int64 a1)" },
+    Signature { name: "CCSPlayer_HostageServices",             module: "client.dll", needle: "CCSPlayer_HostageServices",             resolve: STRREF, extra_off: 0, prototype: "void *__fastcall sub_180813BA0(__int64 a1)" },
+    Signature { name: "CCSPlayer_PingServices",                module: "client.dll", needle: "CCSPlayer_PingServices",                resolve: STRREF, extra_off: 0, prototype: "void *__fastcall sub_180850ED0(__int64 a1)" },
+    Signature { name: "CCSPlayer_UseServices",                 module: "client.dll", needle: "CCSPlayer_UseServices",                 resolve: STRREF, extra_off: 0, prototype: "__int64 sub_1808821D0()" },
+    Signature { name: "CCSPlayer_WaterServices",               module: "client.dll", needle: "CCSPlayer_WaterServices",                resolve: STRREF, extra_off: 0, prototype: "__int64 *sub_180877460()" },
+    Signature { name: "CCSPlayer_WeaponServices",              module: "client.dll", needle: "CCSPlayer_WeaponServices",               resolve: STRREF, extra_off: 0, prototype: "__int64 *sub_180877810()" },
+    Signature { name: "CCSPlayer_MovementServices",            module: "client.dll", needle: "CCSPlayer_MovementServices",             resolve: STRREF, extra_off: 0, prototype: "__int64 *sub_18083DE80()" },
+    Signature { name: "CCSPlayer_MovementServices_Humanoid",   module: "client.dll", needle: "CCSPlayer_MovementServices_Humanoid",    resolve: STRREF, extra_off: 0, prototype: "" },
+    Signature { name: "CCSWeaponBase",                         module: "client.dll", needle: "CCSWeaponBase",                          resolve: STRREF, extra_off: 0, prototype: "__int64 sub_18077F3D0()" },
+    Signature { name: "CCSWeaponBaseGun",                      module: "client.dll", needle: "CCSWeaponBaseGun",                       resolve: STRREF, extra_off: 0, prototype: "__int64 sub_18077F470()" },
+    Signature { name: "CCSWeaponBaseVData",                    module: "client.dll", needle: "CCSWeaponBaseVData",                     resolve: STRREF, extra_off: 0, prototype: "const char *sub_18075A2B0()" },
+    Signature { name: "CSmokeGrenadeProjectile",               module: "client.dll", needle: "CSmokeGrenadeProjectile",                resolve: STRREF, extra_off: 0, prototype: "__int64 sub_18074E460()" },
+    Signature { name: "CMolotovProjectile",                    module: "client.dll", needle: "CMolotovProjectile",                     resolve: STRREF, extra_off: 0, prototype: "__int64 sub_18074E3C0()" },
+    Signature { name: "CFlashbangProjectile",                  module: "client.dll", needle: "CFlashbangProjectile",                   resolve: STRREF, extra_off: 0, prototype: "__int64 sub_180FE03F0()" },
+    Signature { name: "CHEGrenadeProjectile",                  module: "client.dll", needle: "CHEGrenadeProjectile",                   resolve: STRREF, extra_off: 0, prototype: "__int64 sub_180FE0490()" },
+    Signature { name: "CDecoyProjectile",                      module: "client.dll", needle: "CDecoyProjectile",                       resolve: STRREF, extra_off: 0, prototype: "__int64 sub_18074E1E0()" },
+    Signature { name: "C_PlantedC4",                           module: "client.dll", needle: "C_PlantedC4",                            resolve: STRREF, extra_off: 0, prototype: "__int64 (__fastcall *sub_1800F07A0())()" },
+    Signature { name: "C_C4",                                  module: "client.dll", needle: "C_C4",                                   resolve: STRREF, extra_off: 0, prototype: "__int64 (__fastcall *sub_18009A420())()" },
+    Signature { name: "C_Hostage",                             module: "client.dll", needle: "C_Hostage",                              resolve: STRREF, extra_off: 0, prototype: "__int64 (__fastcall *sub_1800E7480())()" },
+    Signature { name: "C_Inferno",                             module: "client.dll", needle: "C_Inferno",                              resolve: STRREF, extra_off: 0, prototype: "__int64 (__fastcall *sub_1800F7440())()" },
+    Signature { name: "C_SmokeGrenadeProjectile",              module: "client.dll", needle: "C_SmokeGrenadeProjectile",               resolve: STRREF, extra_off: 0, prototype: "__int64 (__fastcall *sub_180095A10())()" },
+    Signature { name: "C_RecipientFilter",                     module: "client.dll", needle: "C_RecipientFilter",                      resolve: STRREF, extra_off: 0, prototype: "" },
+    Signature { name: "CGameSceneNode",                        module: "client.dll", needle: "CGameSceneNode",                         resolve: STRREF, extra_off: 0, prototype: "__int64 __fastcall sub_1801A38F0(int a1, __int64 a2)" },
+    Signature { name: "CSkeletonInstance",                     module: "client.dll", needle: "CSkeletonInstance",                      resolve: STRREF, extra_off: 0, prototype: "__int64 __fastcall sub_1801A3A20(int a1, __int64 a2)" },
+    Signature { name: "CBodyComponent",                        module: "client.dll", needle: "CBodyComponent",                         resolve: STRREF, extra_off: 0, prototype: "__int64 sub_1801BC160()" },
+    Signature { name: "CBodyComponentSkeletonInstance",        module: "client.dll", needle: "CBodyComponentSkeletonInstance",         resolve: STRREF, extra_off: 0, prototype: "__int64 (__fastcall ***sub_1801C3040())()" },
+    Signature { name: "CGlowProperty",                         module: "client.dll", needle: "CGlowProperty",                          resolve: STRREF, extra_off: 0, prototype: "__int64 __fastcall sub_1802E11A0(int a1, __int64 a2, __int64 a3, __int64 a4)" },
+    Signature { name: "CCollisionProperty",                    module: "client.dll", needle: "CCollisionProperty",                     resolve: STRREF, extra_off: 0, prototype: "__int64 __fastcall sub_1802E0F90(int a1, __int64 a2, __int64 a3, __int64 a4)" },
+    Signature { name: "CWeaponCSBase",                         module: "client.dll", needle: "CWeaponCSBase",                          resolve: STRREF, extra_off: 0, prototype: "" },
+    Signature { name: "CCSGameRules",                          module: "client.dll", needle: "CCSGameRules",                           resolve: STRREF, extra_off: 0, prototype: "_QWORD *sub_18007E160()" },
+    Signature { name: "CCSGameRulesProxy",                     module: "client.dll", needle: "CCSGameRulesProxy",                      resolve: STRREF, extra_off: 0, prototype: "__int64 sub_1806E9500()" },
+    Signature { name: "CSGameRulesObjectives",                 module: "client.dll", needle: "CSGameRulesObjectives",                  resolve: STRREF, extra_off: 0, prototype: "" },
 
     // engine2.dll string-ref anchors
-    Signature { name: "CNetworkGameClient",                    module: "engine2.dll", needle: "CNetworkGameClient",                    resolve: STRREF, extra_off: 0 },
-    Signature { name: "CNetworkGameServer",                    module: "engine2.dll", needle: "CNetworkGameServer",                    resolve: STRREF, extra_off: 0 },
-    Signature { name: "CGameEventManager",                     module: "engine2.dll", needle: "CGameEventManager",                     resolve: STRREF, extra_off: 0 },
-    Signature { name: "CSplitScreenSlot",                      module: "engine2.dll", needle: "CSplitScreenSlot",                      resolve: STRREF, extra_off: 0 },
+    Signature { name: "CNetworkGameClient",                    module: "engine2.dll", needle: "CNetworkGameClient",                    resolve: STRREF, extra_off: 0, prototype: "" },
+    Signature { name: "CNetworkGameServer",                    module: "engine2.dll", needle: "CNetworkGameServer",                    resolve: STRREF, extra_off: 0, prototype: "" },
+    Signature { name: "CGameEventManager",                     module: "engine2.dll", needle: "CGameEventManager",                     resolve: STRREF, extra_off: 0, prototype: "" },
+    Signature { name: "CSplitScreenSlot",                      module: "engine2.dll", needle: "CSplitScreenSlot",                      resolve: STRREF, extra_off: 0, prototype: "char __fastcall sub_18024A250(__int64 a1, __int64 a2, int a3, __int64 a4)" },
 
     // ==================================================================
     // NUVORA APR-26-2026 EXPANSION  v0.6.0
@@ -828,6 +853,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "40 55 53 41 57 48 8D AC 24 ? ? ? ? 48 81 EC ? ? ? ? 44 0F B6 FA 48 8B D9 BA ? ? ? ? 48 8D 0D ? ? ? ? E8",
         resolve: NONE,
         extra_off: 0,
+        prototype: "void __fastcall sub_18078C2A0(__int64 a1, char a2)",
     },
     // GloveApply orchestrator â€” sub_180BBFAA0 â€” runs every spawner tick
     // inside sub_180BC2620.  Reads m_EconGloves (embedded view at
@@ -840,6 +866,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "40 55 56 57 48 8D AC 24 ? ? ? ? 48 81 EC ? ? ? ? 48 8B B9 A0 00 00 00",
         resolve: NONE,
         extra_off: 0,
+        prototype: "void __fastcall sub_180BC1460(int *a1)",
     },
     // Spawner orchestrator â€” sub_180BC2620 â€” checks pawn+0x13B1 each
     // tick to drive GloveApply_PerTick.  Useful for entities/loadout
@@ -850,6 +877,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 8B C4 55 53 48 8D A8 ? ? ? ? 48 81 EC ? ? ? ? 80 B9 B1 13 00 00 00",
         resolve: NONE,
         extra_off: 0,
+        prototype: "char __fastcall sub_180BC3FE0(_QWORD *a1)",
     },
     // Bulk regen iterator â€” sub_18078E320 â€” iterates all C_CSWeaponBase,
     // gates per-weapon on weapon[0xAA8] || weapon[0xAC0], calls
@@ -861,6 +889,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "57 48 83 EC 40 0F B6 F9 E8 ? ? ? ? 48 85 C0 0F 84",
         resolve: NONE,
         extra_off: 0,
+        prototype: "__int64 __fastcall sub_18078E570(char a1)",
     },
 
     // -- Third-person: native ConCommand handlers ----------------------
@@ -875,6 +904,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 83 EC 38 48 8B 0D ? ? ? ? 48 8D 54 24 ? 48 8B 01 FF 90 08 03 00 00 83 7C 24 ? 00 0F 85 ? ? ? ? 4C 8B 05 ? ? ? ? 41 8B 80 50 0B 00 00",
         resolve: NONE,
         extra_off: 0,
+        prototype: "__int64 sub_180ACA390()",
     },
     // sub_180AC8AF0 â€” `firstperson` ConCommand handler.  Sister of the
     // above: clears CInput+0x229, calls localPawn->vtable[+0x9C8](false)
@@ -885,6 +915,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 83 EC 28 48 8B 0D ? ? ? ? 48 8D 54 24 ? 48 8B 01 FF 90 08 03 00 00 83 7C 24 ? 00 75 ? 48 8B 05 ? ? ? ? C6 80 29 02 00 00 00 C7 80 A8 06 00 00 00",
         resolve: NONE,
         extra_off: 0,
+        prototype: "__int64 sub_180ACA2B0()",
     },
     // CInput global pointer slot â€” `off_1820613C0` in IDA.  This is the
     // ACTUAL CInput pointer (deref the qword at this RVA).  The
@@ -897,6 +928,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "4C 8B 05 ? ? ? ? 41 8B 80 50 0B 00 00 85 C0",
         resolve: RIPREL_3,
         extra_off: 0,
+        prototype: "",
     },
 
     // ==================================================================
@@ -924,6 +956,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "40 53 48 83 EC 50 48 8B D9 E8 ? ? ? ? 48 85 C0 74 ? 48 8B C8 48 83 C4 50 5B E9",
         resolve: NONE,
         extra_off: 0,
+        prototype: "float __fastcall sub_18080CEF0(__int64 a1)",
     },
 
     // CCSGOInput::WriteSubtickFromEntry â€” sub_180C53DB0 (drifted to
@@ -940,6 +973,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 89 5C 24 ? 55 57 41 56 48 8D 6C 24 ? 48 81 EC B0 00 00 00 8B 01 48 8B F9 81 4A 10 00 02",
         resolve: NONE,
         extra_off: 0,
+        prototype: "",
     },
 
     // ClientModeCSNormal::OnEvent â€” sub_180C5A0B0 (drifted +0x60 to
@@ -959,6 +993,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "40 53 57 48 81 EC 78 02 00 00 48 8B CA 48 8B FA",
         resolve: NONE,
         extra_off: 0,
+        prototype: "void __fastcall sub_180C5C660(__int64 a1, KeyValues *a2)",
     },
 
     // ==================================================================
@@ -984,6 +1019,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 8B C4 4C 89 48 20 48 89 50 10 55 53 57 41 54 41 55 48 8D A8 58 FB FF FF 48 81 EC A0 05",
         resolve: NONE,
         extra_off: 0,
+        prototype: "void sub_180C7E380(unsigned int a1, __int64 a2, __int64 a3, __int64 *a4, __int64 a5, int a6, int a7, ...)",
     },
 
     // DispatchSpawn caller â€” sub_1814D32A0. Iterates the pending-spawn
@@ -997,6 +1033,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "4C 8B DC 55 56 48 83 EC 78 49 8B 68 08 48 8B F1 48 85 ED 0F 84 72 01 00 00",
         resolve: NONE,
         extra_off: 0,
+        prototype: "__int64 __fastcall sub_1814D5B10(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4)",
     },
 
     // m_bNoClipEnabled OnChange â€” sub_1808ADB40. Schema OnChange
@@ -1009,6 +1046,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 89 5C 24 10 48 89 74 24 18 48 89 7C 24 20 55 48 8B EC 48 83 EC 30 48 8D 05",
         resolve: NONE,
         extra_off: 0,
+        prototype: "__int64 __fastcall sub_180166C00(__int64 a1)",
     },
 
     // SpectatorInput â€” sub_1807D9130. Refs "spec_next" / "spec_prev"
@@ -1020,6 +1058,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 89 5C 24 10 55 56 57 41 56 41 57 48 8B EC 48 83 EC 60 48 8B 01 41 8B F8 48 8B DA 48 8B F1 FF",
         resolve: NONE,
         extra_off: 0,
+        prototype: "__int64 __fastcall sub_1807D92E0(_DWORD *a1, __int64 a2, unsigned int a3)",
     },
 
     // ViewModel HideZoomed handler â€” sub_1807A03D0. Refs
@@ -1032,6 +1071,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 89 5C 24 20 55 56 57 41 54 41 56 48 8B EC 48 83 EC 50 48 8D 05",
         resolve: NONE,
         extra_off: 0,
+        prototype: "__int64 __fastcall sub_1807A0460(__int64 a1, __int64 a2, __int64 **a3)",
     },
 
     // CalcViewmodelTransform v2 â€” sub_1807A2460. The much larger
@@ -1043,6 +1083,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 89 5C 24 20 55 56 57 41 54 41 55 41 56 41 57 48 8D 6C 24 80 48 81 EC 80 01 00 00 48 8B FA",
         resolve: NONE,
         extra_off: 0,
+        prototype: "__int64 __fastcall sub_1807A24F0(__int64 a1, __int64 a2)",
     },
 
     // -- engine2.dll ---------------------------------------------------
@@ -1057,6 +1098,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 57 48 83 EC 60 44 8B 15",
         resolve: NONE,
         extra_off: 0,
+        prototype: "_QWORD *__fastcall sub_1803FD270(_QWORD *a1, __int64 a2, __int128 *a3, __int64 a4, __int64 a5, __int128 *a6)",
     },
 
     // Client-side Disconnect_main â€” engine2!sub_1801D1510. Primary
@@ -1070,6 +1112,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 89 5C 24 20 55 57 41 54 48 8B EC 48 83 EC 70 45 33 E4 48 C7 05",
         resolve: NONE,
         extra_off: 0,
+        prototype: "__int64 *sub_1801D1510()",
     },
 
     // Netchan timeout disconnect â€” engine2!sub_180069780. Refs
@@ -1083,6 +1126,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "40 53 55 56 57 41 56 48 81 EC 80 00 00 00 0F 29 74 24 70 49 8B F8",
         resolve: NONE,
         extra_off: 0,
+        prototype: "__int64 __fastcall sub_180069780(__int64 a1, unsigned int a2, __int64 a3)",
     },
 
     // -- networksystem.dll ---------------------------------------------
@@ -1099,6 +1143,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 8B C4 53 57 41 54 41 56 48 81 EC A8 00 00 00 48 89 70 D0 45 33 E4 4C 89 68 C8 48 8B D9 48 89",
         resolve: NONE,
         extra_off: 0,
+        prototype: "",
     },
 
     // CNetChan::SendNetMessage impl â€” networksystem!sub_1800BD670.
@@ -1111,6 +1156,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 89 5C 24 10 48 89 6C 24 18 56 57 41 56 48 83 EC 40 41 0F B6 F0 48 8D 99 F8 73 00 00 4C 8B F2",
         resolve: NONE,
         extra_off: 0,
+        prototype: "",
     },
 
     // ==================================================================
@@ -1138,6 +1184,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 8B C4 48 81 EC C8 00 00 00 48 89 58 10 48 89 68 18 48 8B EA 48 89 70 20 48 8B F1 48 89 78 F8",
         resolve: NONE,
         extra_off: 0,
+        prototype: "void __fastcall sub_1809DBAF0(__int64 a1, __int64 a2)",
     },
 
     // TraceShape (Client) â€” sub_18098D340. Refs the
@@ -1151,6 +1198,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 89 5C 24 20 48 89 4C 24 08 55 57 41 54 41 55 41 56 48 8D AC 24 10 E0 FF FF B8 F0 20 00 00",
         resolve: NONE,
         extra_off: 0,
+        prototype: "bool __fastcall sub_18098EAA0(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4, _BYTE *a5, __int64 a6)",
     },
 
     // GetLocalPlayer accessor â€” sub_180379150. Refs *both*
@@ -1165,6 +1213,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 83 EC 38 48 8B 05 ? ? ? ? 48 85 C0 0F 85 14 06 00 00 48 89 5C 24 40 B9 50 00 00 00 48 89",
         resolve: NONE,
         extra_off: 0,
+        prototype: "__int64 sub_180379200()",
     },
 
     // GetPlayerByIndex export â€” sub_180F02D60. Refs the
@@ -1178,6 +1227,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 83 EC 28 4C 8D 05 ? ? ? ? 48 8D 15 ? ? ? ? 48 8D 0D ? ? ? ? E8 ? ? ? ? 4C 8D",
         resolve: NONE,
         extra_off: 0,
+        prototype: "__int64 sub_180F00910()",
     },
 
     // CalcViewmodelView â€” sub_180C699D0. Reads m_flFOVSensitivityAdjust
@@ -1191,6 +1241,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "40 53 48 83 EC 60 48 8B 41 08 49 8B D8 8B 48 30 48 C1 E9 0C F6 C1 01 0F 85 48 01 00 00 41 B8 07",
         resolve: NONE,
         extra_off: 0,
+        prototype: "__int64 __fastcall sub_180C6BF20(__int64 a1, __int64 a2, _DWORD *a3)",
     },
 
     // -- engine2.dll: cvar / command / host-state ----------------------
@@ -1207,6 +1258,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 48 89 7C 24 20 41 54 41 56 41 57 48 81 EC D0 00 00",
         resolve: NONE,
         extra_off: 0,
+        prototype: "__int128 *__fastcall sub_1803FC080(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4, __int128 *a5)",
     },
 
     // CHLTVClient::ExecuteStringCommand â€” engine2!sub_180120D70. Refs
@@ -1220,6 +1272,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "40 53 56 48 81 EC 48 07 00 00 48 8B F1 48 8B DA 48 8B 4A 48 48 83 E1 FC 48 83 79 18 0F 76 03 48",
         resolve: NONE,
         extra_off: 0,
+        prototype: "char __fastcall sub_180120D70(__int64 a1, __int64 a2)",
     },
 
     // CHostStateMgr::QueueNewRequest â€” engine2!sub_18021AFC0. Refs
@@ -1234,6 +1287,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 89 6C 24 18 48 89 7C 24 20 41 56 48 83 EC 30 48 8B EA 48 8B F9 8B 0D ? ? ? ? BA 02 00 00",
         resolve: NONE,
         extra_off: 0,
+        prototype: "__int64 __fastcall sub_18021AFC0(__int64 a1, __int64 a2)",
     },
 
     // -- materialsystem2.dll -------------------------------------------
@@ -1251,6 +1305,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "44 89 44 24 18 48 89 54 24 10 53 56 41 54 41 55 48 81 EC 88 00 00 00 4C 8B E9 48 C7 44 24 60",
         resolve: NONE,
         extra_off: 0,
+        prototype: "__int64 __fastcall sub_180010040(__int64 a1, __int64 a2, unsigned int a3)",
     },
 
     // -- rendersystemdx11.dll ------------------------------------------
@@ -1268,6 +1323,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "44 89 4C 24 20 44 89 44 24 18 89 54 24 10 55 53 56 57 41 54 41 55 41 56 41 57 48 81 EC D8 02 00",
         resolve: NONE,
         extra_off: 0,
+        prototype: "",
     },
 
     // CSwapChainBase::QueuePresentAndWait â€” rendersystemdx11!
@@ -1283,6 +1339,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "40 55 53 57 41 54 41 55 48 8D 6C 24 C9 48 81 EC C0 00 00 00 48 8D 05 ? ? ? ? 4C 89 B4 24",
         resolve: NONE,
         extra_off: 0,
+        prototype: "",
     },
 
     // CRenderDeviceDx11::SetHardwareGammaRamp â€” rendersystemdx11!
@@ -1297,6 +1354,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 89 5C 24 18 57 B8 B0 40 00 00 E8 ? ? ? ? 48 2B E0 0F 29 BC 24 90 40 00 00 0F 57 C9 0F 28",
         resolve: NONE,
         extra_off: 0,
+        prototype: "",
     },
 
     // ==================================================================
@@ -1323,6 +1381,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 89 5C 24 10 48 89 6C 24 18 56 57 41 56 48 83 EC 50 41 0F B6 E9 48 8D 99 E0 00 00 00 49 8B F0",
         resolve: NONE,
         extra_off: 0,
+        prototype: "__int64 __fastcall sub_180939FF0(__int64 a1, __int64 a2, const char *a3, unsigned __int8 a4)",
     },
 
     // CGameEventManager::UnserializeEvent â€” sub_1809911A0. Refs the
@@ -1337,6 +1396,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 8B C4 48 89 50 10 55 41 54 41 55 41 56 48 8D 68 D8 48 81 EC 08 01 00 00 48 89 58 D8 4C 8D B1",
         resolve: NONE,
         extra_off: 0,
+        prototype: "__int64 __fastcall sub_180992900(__int64 a1, __int64 a2)",
     },
 
     // CGameSceneNode::BuildBoneMergeWork â€” sub_18093E3C0. Refs the
@@ -1351,6 +1411,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "40 55 56 57 41 54 41 55 41 56 41 57 48 83 EC 50 48 8D 6C 24 50 80 A1 06 01 00 00 FB 4C 8B F9 80",
         resolve: NONE,
         extra_off: 0,
+        prototype: "char __fastcall sub_18093FA40(__int64 a1, _QWORD *a2, char a3)",
     },
 
     // CGameSceneNode::StartHierarchicalAttachment â€” sub_18098AE80.
@@ -1365,6 +1426,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 89 5C 24 10 48 89 6C 24 18 48 89 74 24 20 57 41 54 41 55 41 56 41 57 48 83 EC 30 48 8B F9 8B",
         resolve: NONE,
         extra_off: 0,
+        prototype: "char __fastcall sub_18098C5E0(__int64 a1)",
     },
 
     // CGameSceneNode::PerformBatchedInvalidatePhysicsRecursive â€”
@@ -1383,6 +1445,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "40 57 48 81 EC 90 00 00 00 84 C9 74 4D BF 01 00 00 00 F0 0F C1 3D ? ? ? ? FF C7 83 FF 01 0F 85 63 05 00 00 48 8D 0D ? ? ? ? 48 8D 15",
         resolve: NONE,
         extra_off: 0,
+        prototype: "void __fastcall sub_18093E660(char a1)",
     },
 
     // -- engine2.dll ---------------------------------------------------
@@ -1399,6 +1462,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "40 55 56 41 56 48 8D 6C 24 F0 48 81 EC 10 01 00 00 4C 8B F1 C7 44 24 40 00 00 00 00 48 8B CA 48",
         resolve: NONE,
         extra_off: 0,
+        prototype: "char __fastcall sub_18018D760(__int64 a1, const char *a2)",
     },
 
     // CNetworkGameClient::SetSignonState â€” engine2!sub_180060F80.
@@ -1414,6 +1478,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "44 89 44 24 18 89 54 24 10 55 53 56 57 41 55 41 56 41 57 48 8D 6C 24 D9 48 81 EC D0 00 00 00 8B",
         resolve: NONE,
         extra_off: 0,
+        prototype: "char __fastcall sub_180060F80(__int64 a1, unsigned int a2, unsigned int a3, __int64 a4)",
     },
 
     // CNetworkGameClientBase::Connect â€” engine2!sub_18007F400. Refs
@@ -1428,6 +1493,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 57 48 83 EC 40 44 89 81 3C 02 00 00 49 8B E9 44 8B",
         resolve: NONE,
         extra_off: 0,
+        prototype: "void __fastcall sub_18007F400(__int64 a1, int a2, unsigned int a3, __int64 a4, unsigned int a5, char a6)",
     },
 
     // MountAddon â€” engine2!sub_180193440. Refs "MountAddon: Failed
@@ -1441,6 +1507,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 85 D2 0F 84 DA 0A 00 00 48 8B C4 44 88 40 18 55 57 41 54 41 57 48 8D A8 C8 FC FF FF 48 81 EC",
         resolve: NONE,
         extra_off: 0,
+        prototype: "void __fastcall sub_180193440(__int64 a1, const char *a2, char a3)",
     },
 
     // ====================================================================
@@ -1458,6 +1525,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 48 89 7C 24 20 41 54 41 56 41 57 48 81 EC D0 00 00",
         resolve: NONE,
         extra_off: 0,
+        prototype: "__int128 *__fastcall sub_1803FC080(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4, __int128 *a5)",
     },
 
     // ConCommand registration â€” engine2!sub_1803FD270. The internal
@@ -1470,6 +1538,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 57 48 83 EC 60 44 8B 15 ? ? ? ? 48 8B D9 65 48",
         resolve: NONE,
         extra_off: 0,
+        prototype: "_QWORD *__fastcall sub_1803FD270(_QWORD *a1, __int64 a2, __int128 *a3, __int64 a4, __int64 a5, __int128 *a6)",
     },
 
     // CCommand::Tokenize â€” engine2!sub_1803FD710. Refs "CCommand::
@@ -1483,6 +1552,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 89 6C 24 20 4C 89 44 24 18 56 57 41 54 41 56 41 57 48 83 EC 70 48 8B F2 49 8B E8 8B 51 08 4C",
         resolve: NONE,
         extra_off: 0,
+        prototype: "",
     },
 
     // CGameClient::ClientCommand â€” engine2!sub_1800A1240. Refs
@@ -1496,6 +1566,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 8B C4 4C 89 40 18 4C 89 48 20 55 53 57 48 8D 68 A1 48 81 EC C0 00 00 00 33 FF 48 63 DA 48 39",
         resolve: NONE,
         extra_off: 0,
+        prototype: "char sub_1800A1240(__int64 a1, int a2, __int64 a3, ...)",
     },
 
     // CHLTVClient::ExecuteStringCommand â€” engine2!sub_180120D70.
@@ -1508,6 +1579,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "40 53 56 48 81 EC 48 07 00 00 48 8B F1 48 8B DA 48 8B 4A 48 48 83 E1 FC 48 83 79 18 0F 76 03 48",
         resolve: NONE,
         extra_off: 0,
+        prototype: "char __fastcall sub_180120D70(__int64 a1, __int64 a2)",
     },
 
     // ====================================================================
@@ -1527,6 +1599,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 8B C4 4C 89 48 20 48 89 50 10 55 53 57 41 54 41 55 48 8D A8 58 FB FF FF 48 81 EC A0 05 00 00",
         resolve: NONE,
         extra_off: 0,
+        prototype: "void sub_180C7E380(unsigned int a1, __int64 a2, __int64 a3, __int64 *a4, __int64 a5, int a6, int a7, ...)",
     },
 
     // RunCommand context â€” client!sub_1809DA390. Refs "runcommand:
@@ -1541,6 +1614,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 8B C4 48 81 EC C8 00 00 00 48 89 58 10 48 89 68 18 48 8B EA 48 89 70 20 48 8B F1 48 89 78 F8",
         resolve: NONE,
         extra_off: 0,
+        prototype: "void __fastcall sub_1809DBAF0(__int64 a1, __int64 a2)",
     },
 
     // ====================================================================
@@ -1559,6 +1633,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "40 55 53 57 41 54 41 55 48 8D 6C 24 C9 48 81 EC C0 00 00 00 48 8D 05 ? ? ? ? 4C 89 B4 24",
         resolve: NONE,
         extra_off: 0,
+        prototype: "",
     },
 
     // Swapchain ResizeBuffers â€” rendersystemdx11!sub_18003DD20. Refs
@@ -1573,6 +1648,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 8B C4 55 53 56 57 41 54 48 8B EC 48 83 EC 70 4C 89 68 10 4D 8B E0 4C 89 70 18 4C 8B EA 4C 89",
         resolve: NONE,
         extra_off: 0,
+        prototype: "",
     },
 
     // Thread_RenderSceneDrawList â€” scenesystem!sub_1800EDA30. Refs
@@ -1585,6 +1661,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "40 55 53 56 57 41 54 41 55 41 56 41 57 48 8D 6C 24 E1 48 81 EC D8 00 00 00 4C 8B 71 28 48 8B D9",
         resolve: NONE,
         extra_off: 0,
+        prototype: "",
     },
 
     // CSceneSystem RenderViewLayer â€” scenesystem!sub_1800EDD80
@@ -1598,6 +1675,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 8B C4 48 89 48 08 55 53 56 57 41 54 41 55 41 56 41 57 48 8D A8 B8 FE FF FF 48 81 EC 08 02 00",
         resolve: NONE,
         extra_off: 0,
+        prototype: "",
     },
 
     // ====================================================================
@@ -1615,6 +1693,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 89 4C 24 08 55 53 56 57 41 54 41 56 48 8B EC 48 83 EC 68 48 8D 05 ? ? ? ? 48 C7 45 C0",
         resolve: NONE,
         extra_off: 0,
+        prototype: "__int64 __fastcall sub_18003BAC0(__int64 *a1)",
     },
 
     // CNetChan::ProcessMessages â€” networksystem!sub_1800BB280. Refs
@@ -1628,6 +1707,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 8B C4 53 57 41 54 41 56 48 81 EC A8 00 00 00 48 89 70 D0 45 33 E4 4C 89 68 C8 48 8B D9 48 89",
         resolve: NONE,
         extra_off: 0,
+        prototype: "",
     },
 
     // CNetChan::SendNetMessage â€” networksystem!sub_1800BD670. Refs
@@ -1642,6 +1722,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 89 5C 24 10 48 89 6C 24 18 56 57 41 56 48 83 EC 40 41 0F B6 F0 48 8D 99 F8 73 00 00 4C 8B F2",
         resolve: NONE,
         extra_off: 0,
+        prototype: "",
     },
 
     // ====================================================================
@@ -1660,6 +1741,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "40 55 53 56 57 41 54 48 8D 6C 24 E0 48 81 EC 20 01 00 00 4D 8B E0 48 8B FA 48 8B F1 E8",
         resolve: NONE,
         extra_off: 0,
+        prototype: "unsigned __int64 __fastcall sub_180223D20(__int64 a1, __int64 a2, __int64 **a3)",
     },
 
     // CGameTrace dispatcher â€” client!sub_18098D340. Refs the unique
@@ -1673,6 +1755,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 89 5C 24 20 48 89 4C 24 08 55 57 41 54 41 55 41 56 48 8D AC 24 10 E0 FF FF B8 F0 20 00 00",
         resolve: NONE,
         extra_off: 0,
+        prototype: "bool __fastcall sub_18098EAA0(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4, _BYTE *a5, __int64 a6)",
     },
 
     // ====================================================================
@@ -1690,6 +1773,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "4C 8B DC 55 56 48 83 EC 78 49 8B 68 08 48 8B F1 48 85 ED 0F 84 72 01 00 00 49 89 5B 08 49 8D 4B",
         resolve: NONE,
         extra_off: 0,
+        prototype: "__int64 __fastcall sub_1814D5B10(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4)",
     },
 
     // ====================================================================
@@ -1708,6 +1792,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 89 5C 24 18 48 89 74 24 20 57 48 81 EC A0 00 00 00 F7 02 FF FF FF 3F 41 0F B6 F8 48 8B DA 48",
         resolve: NONE,
         extra_off: 0,
+        prototype: "",
     },
 
     // CResourceSystem::BlockingLoadResourceByNameIntoJustInTimeManifest â€”
@@ -1720,6 +1805,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "40 53 55 57 48 81 EC 80 00 00 00 48 8B 01 49 8B E8 48 8B FA 48 8B D9 FF 90 98 01 00 00 83 F8 03",
         resolve: NONE,
         extra_off: 0,
+        prototype: "",
     },
 
     // CResourceSystem::FrameUpdate â€” resourcesystem!sub_18001C010.
@@ -1734,6 +1820,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "44 88 4C 24 20 44 89 44 24 18 89 54 24 10 55 56 41 54 41 55 41 56 48 8D 6C 24 A0 48 81 EC 60 01",
         resolve: NONE,
         extra_off: 0,
+        prototype: "",
     },
 
     // CHostStateMgr::QueueNewRequest â€” engine2!sub_18021AFC0. Refs
@@ -1748,6 +1835,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 89 6C 24 18 48 89 7C 24 20 41 56 48 83 EC 30 48 8B EA 48 8B F9 8B 0D ? ? ? ? BA 02 00 00",
         resolve: NONE,
         extra_off: 0,
+        prototype: "__int64 __fastcall sub_18021AFC0(__int64 a1, __int64 a2)",
     },
 
     // ====================================================================
@@ -1814,6 +1902,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "3B 91 C4 03 00 00 74 24 89 91 C4 03 00 00 48 8B 81 28 02 00 00 48 85 C0 74 12",
         resolve: NONE,
         extra_off: 0,
+        prototype: "void __fastcall sub_180A2C830(__int64 a1, unsigned int a2)",
     },
 
     // CSkeletonInstance::SetMeshGroupMask (skeletonMeshGroupMaskChanged
@@ -1829,6 +1918,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 49 8B 00 49 8B F8 48 8B F2 48 8B D9 48 39 81 C8 01",
         resolve: NONE,
         extra_off: 0,
+        prototype: "void __fastcall sub_180A25480(__int64 a1, __int64 a2, _QWORD *a3)",
     },
 
     // CSkeletonInstance::OnBodyGroupChoiceChanged â€” client!sub_180A23BB0.
@@ -1841,6 +1931,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 89 5C 24 08 57 48 83 EC 20 49 63 D8 49 8B F9 45 85 C0 78 20 3B 99 18 02 00 00 7D 18",
         resolve: NONE,
         extra_off: 0,
+        prototype: "__int64 __fastcall sub_180A25310(__int64 a1, __int64 a2, int a3, _DWORD *a4)",
     },
 
     // CSkeletonInstance::OnSkeletonModelChanged â€” client!sub_180A23DC0
@@ -1855,6 +1946,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "49 8B 00 48 89 81 B8 00 00 00 C6 81 B0 00 00 00 01 C3",
         resolve: NONE,
         extra_off: 0,
+        prototype: "__int64 __fastcall sub_180A25520(__int64 a1, __int64 a2, __int64 *a3)",
     },
 
     // CSkeletonInstance::PostDataUpdate â€” client!sub_180A24D50
@@ -1870,6 +1962,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 8B C4 4C 89 40 18 89 50 10 55 57 48 8D A8 68 FE FF FF 48 81 EC 88 02 00 00 48 89 70 E0 48 8B",
         resolve: NONE,
         extra_off: 0,
+        prototype: "char __fastcall sub_180A264B0(__int64 a1, __int64 a2, __int64 a3)",
     },
 
     // CSkeletonInstance::GetTransformsForHitboxList â€” client!
@@ -1885,6 +1978,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 89 5C 24 18 55 56 57 41 55 41 57 48 81 EC A0 00 00 00 49 63 28 4D 8B F8 48 8B FA 48 8B D9 85",
         resolve: NONE,
         extra_off: 0,
+        prototype: "char __fastcall sub_180A1A6C0(__int64 a1, __int64 a2, int *a3)",
     },
 
     // CGlowProperty::OnGlowTypeChanged â€” client!sub_180B0B630 (~0xE7).
@@ -1908,6 +2002,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 48 8B 05 ? ? ? ? 48 8B D9 F3 0F 10 41 4C",
         resolve: NONE,
         extra_off: 0,
+        prototype: "__int64 __fastcall sub_180B0CD90(__int64 a1)",
     },
 
     // GlowObjectManager_GetInstance â€” client!sub_180B09570 (8 bytes,
@@ -1923,6 +2018,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 8B 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 8B 41 38 C3",
         resolve: NONE,
         extra_off: 0,
+        prototype: "__int64 sub_180B0ACD0()",
     },
 
     // CBaseModelEntity::SetBodygroup â€” client!sub_1808D87F0 (~0x1D4).
@@ -1937,6 +2033,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "85 D2 0F 88 CB 01 00 00 55 53 56 41 56 48 8B EC 48 83 EC 78 45 8B F0 8B DA 48 8B F1 E8 ? ? ?",
         resolve: NONE,
         extra_off: 0,
+        prototype: "void __fastcall sub_1808D9E70(__int64 a1, int a2, int a3)",
     },
 
     // ====================================================================
@@ -2002,6 +2099,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "MaterialSystem2",
         resolve: STRREF,
         extra_off: 0,
+        prototype: "__int64 __fastcall sub_180036E40(__int64 a1)",
     },
 
     // CMaterialSystem2::GetErrorMaterial â€” materialsystem2!sub_180016D10
@@ -2018,6 +2116,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "CMaterialSystem2::GetErrorMaterial(529): GetErrorMaterial() called when m_pMaterialTypeManager == NULL!\n",
         resolve: STRREF,
         extra_off: 0,
+        prototype: "__int64 __fastcall sub_180016D10(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4, char a5)",
     },
 
     // (NOTE: CMaterial2::LoadShadersAndSetupModes is already shipped
@@ -2046,6 +2145,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "CompileComboAndGetVariables_DynamicShaderCompile(), C:\\buildworker\\csgo_rel_win64\\build\\src\\materialsystem2\\material2.cpp:2786",
         resolve: STRREF,
         extra_off: 0,
+        prototype: "char __fastcall sub_180013FA0(__int64 a1, __int64 a2)",
     },
 
     // Dynamic shader compile batch driver â€” materialsystem2!sub_18003A200
@@ -2060,6 +2160,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "Compiling %i shaders:",
         resolve: STRREF,
         extra_off: 0,
+        prototype: "void __fastcall sub_18003A200(__int64 a1)",
     },
 
     // CMaterial2::GetVertexShaderInputSignature â€” materialsystem2!
@@ -2073,6 +2174,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "CMaterial2::GetVertexShaderInputSignature(767): Error! Material \"%s\" doesn't have any valid layers to get the CVsInputSignatureVector from!\n",
         resolve: STRREF,
         extra_off: 0,
+        prototype: "__int64 __fastcall sub_18000C8C0(__int64 a1)",
     },
 
     // Dynamic shader compile reload orchestrator â€” materialsystem2!
@@ -2087,6 +2189,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 83 EC 20 48 8B 35 ? ? ? ? 48 8B CE E8 ? ? ? ? 48 8B CE E8 ? ? ? ? 80 BE A0 03 00 00 00 74 ?",
         resolve: NONE,
         extra_off: -1,
+        prototype: "void sub_1800355C0()",
     },
 
     // CVfxProgramData::FindOrCreateStaticComboDataInCache â€”
@@ -2104,6 +2207,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "CVfxProgramData::FindOrCreateStaticComboDataInCache(4448): Error! Ref count !=0 for static combo data cache entry!\n",
         resolve: STRREF,
         extra_off: 0,
+        prototype: "__int64 __fastcall sub_1800AE0E0(__int64 a1, __int64 a2)",
     },
 
     // CMaterialSystem2::DynamicShaderCompile_UnloadAllMaterials â€”
@@ -2122,6 +2226,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "CMaterialSystem2::DynamicShaderCompile_UnloadAllMaterials(1084): ERROR!!! Shaders not freed before shader reload! (See spew above)\n\n",
         resolve: STRREF,
         extra_off: 0,
+        prototype: "__int64 __fastcall sub_180039AA0(__int64 a1)",
     },
 
     // ====================================================================
@@ -2180,6 +2285,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "\nCMaterialLayer::CreateCommandBuffer(4446): Find a graphics programmer! Trying to bind a \"%s\" shader that doesn't exist! for %s\n",
         resolve: STRREF,
         extra_off: 0,
+        prototype: "__int64 __fastcall sub_180019820(__int64 a1, __int64 a2, int a3, int a4, _DWORD *a5)",
     },
 
     // CMaterialLayer::ComputeWorkItemsToSetupStaticCombosForMode â€”
@@ -2197,6 +2303,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "CMaterialLayer::ComputeWorkItemsToSetupStaticCombosForMode(3154): Failed call to FindOrLoadStaticComboData()!\n",
         resolve: STRREF,
         extra_off: 0,
+        prototype: "char __fastcall sub_180015BC0(unsigned __int16 *a1, unsigned int a2, int *a3)",
     },
 
     // Static combo merge/validation worker â€” materialsystem2!sub_1800BDAE0
@@ -2211,6 +2318,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "Shader %s attribute \"%s\" has inconsistent value or type across multiple shaders of a feature combo! [",
         resolve: STRREF,
         extra_off: 0,
+        prototype: "__int64 __fastcall sub_1800BDAE0(__int64 a1, __int64 a2, __int64 a3, __int64 a4, char a5)",
     },
 
     // Static combo cache gate wrapper â€” materialsystem2!sub_1800AE950
@@ -2225,6 +2333,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 48 89 7C 24 ? 41 57 48 83 EC 60 80 39 00 45 8B D9",
         resolve: NONE,
         extra_off: 0,
+        prototype: "__int64 __fastcall sub_1800AE950(__int64 a1, unsigned __int64 a2, __int64 a3, int a4, __int64 a5, int a6, char a7)",
     },
 
     // CMaterial::SetVariableAndRenderState â€” materialsystem2!sub_18002F9B0
@@ -2249,6 +2358,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "SetRenderStateValueFromVariable(1172): Unsupported render state type in material \"%s\"!\n",
         resolve: STRREF,
         extra_off: 0,
+        prototype: "",
     },
 
     // CMaterialSystem2::BindIdentityInstanceIDBufferAndSetRenderState â€”
@@ -2267,6 +2377,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "BindIdentityInstanceIDBufferAndSetRenderState: GetMode == NULL? Can't Render\n",
         resolve: STRREF,
         extra_off: 0,
+        prototype: "char __fastcall sub_180070000(__int64 *a1, __int64 a2, __int64 a3, __int64 a4)",
     },
 
     // CSceneSystem::Thread_CullView â€” scenesystem!sub_1800E92F0
@@ -2287,6 +2398,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "CSceneSystem::Thread_CullView(), C:\\buildworker\\csgo_rel_win64\\build\\src\\scenesystem\\scenesystem.cpp:3312",
         resolve: STRREF,
         extra_off: 0,
+        prototype: "",
     },
 
     // CRenderDeviceBase::CreateConstantBuffer â€” rendersystemdx11!sub_18002F500
@@ -2305,6 +2417,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "CRenderDeviceBase::CreateConstantBuffer(1571): ",
         resolve: STRREF,
         extra_off: 0,
+        prototype: "",
     },
 
     // CRenderDeviceDx11::BeginSubmittingDisplayLists â€” rendersystemdx11!
@@ -2322,6 +2435,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "CRenderDeviceDx11::BeginSubmittingDisplayLists(1162): ",
         resolve: STRREF,
         extra_off: 0,
+        prototype: "",
     },
 
     // ====================================================================
@@ -2417,6 +2531,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "Invalid EconItemView -- Can't create custom materials for wearable, debug this.\n",
         resolve: STRREF,
         extra_off: 0,
+        prototype: "__int64 __fastcall sub_1810B9090(__int64 a1, char a2)",
     },
 
     // CPaintKitDefinitions::FindOrCreateByName â€” client.dll!sub_181057DD0
@@ -2433,6 +2548,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "Kit \"[%s]\" specified, but doesn't exist!! You're probably missing an entry in items_paintkits.txt or items_stickerkits.txt or need to run with -use_local_item_data\n",
         resolve: STRREF,
         extra_off: 0,
+        prototype: "char __fastcall sub_18105A690(__int64 a1, __int64 a2, char *a3, __int64 a4)",
     },
 
     // CPaintKitDefinitions::LoadDefaultKit â€” client.dll!sub_181029EA0
@@ -2446,6 +2562,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "Unable to find \"default\" paint kit in \"paint_kits_rarity\"",
         resolve: STRREF,
         extra_off: 0,
+        prototype: "char __fastcall sub_18102C760(__int64 a1, KeyValues *a2, _DWORD *a3)",
     },
 
     // C_EconEntity::BuildLegacyWeaponSkinMaterial â€” client.dll!sub_18078C050
@@ -2470,6 +2587,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "workshop preview weapon",
         resolve: STRREF,
         extra_off: 0,
+        prototype: "void __fastcall sub_18078C2A0(__int64 a1, char a2)",
     },
 
     // C_EconEntity::BuildModernWeaponSkinMaterial â€” client.dll!sub_180D828E0
@@ -2493,6 +2611,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 85 C9 0F 84 ? ? 00 00 48 8B C4 48 89 50 10 48 89 48 08 55 41 54 41 56 41 57 48 8D A8 B8 FA",
         resolve: NONE,
         extra_off: 0,
+        prototype: "void __fastcall sub_180D84F90(__int64 a1, _QWORD *a2, __int64 a3, int a4, char a5, char a6, __int64 a7)",
     },
 
     // CompositeMaterialPanoramaPanel_t::Init â€” client.dll!sub_180B8FB00
@@ -2508,6 +2627,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "CompositeMaterialPanoramaPanel_t::Init",
         resolve: STRREF,
         extra_off: 0,
+        prototype: "__int64 __fastcall sub_180B91260(__int64 a1, __int64 a2, __int64 a3)",
     },
 
     // CCompositeMaterialManager::AddNewPanoramaPanelRenderRequest_Caller â€”
@@ -2523,6 +2643,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "CCompositeMaterialManager::AddNewPanoramaPanelRenderRequest",
         resolve: STRREF,
         extra_off: 0,
+        prototype: "__int64 __fastcall sub_1813BB640(__int64 a1, const char *a2, __int64 a3, __int64 a4)",
     },
 
     // ====================================================================
@@ -2617,6 +2738,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "41 B9 88 02 00 00 8B 57 14 81 E2 FF FF FF 3F 8D 71 01 44 8B C6 FF 15",
         resolve: NONE,
         extra_off: -0x52,
+        prototype: "__int64 __fastcall sub_180789C50(int *a1, __int64 a2)",
     },
 
     // C_EconEntity::BuildLegacyGloveSkinMaterial â€” client.dll!sub_180BBFB00
@@ -2638,6 +2760,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "MapPlayerPreview gloves",
         resolve: STRREF,
         extra_off: 0,
+        prototype: "void __fastcall sub_180BC1460(int *a1)",
     },
 
     // C_EconEntity::BuildNametagOverlayMaterial â€” client.dll!sub_18078AE20
@@ -2656,6 +2779,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "low-res nametag",
         resolve: STRREF,
         extra_off: 0,
+        prototype: "char __fastcall sub_18078B070(__int64 a1, __int64 a2)",
     },
 
     // InfoForResourceTypeCCompositeMaterialKit::TypeManagerCallback â€”
@@ -2680,6 +2804,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "InfoForResourceTypeCCompositeMaterialKit",
         resolve: STRREF,
         extra_off: 0,
+        prototype: "__int64 __fastcall sub_1813D90B0(int a1, __int64 a2)",
     },
 
     // InfoForResourceTypeCCompositeMaterial::TypeManagerCallback â€”
@@ -2704,6 +2829,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "40 55 41 56 48 83 EC 68 48 8B EA 83 F9 06 0F 87 B4 02 00 00",
         resolve: NONE,
         extra_off: 0,
+        prototype: "__int64 __fastcall sub_1813D9600(int a1, __int64 a2)",
     },
 
     // CS2ItemEditor::BuildTemplateMaterialFromFile â€” client.dll!sub_1813BA1E0
@@ -2735,6 +2861,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 89 54 24 10 55 53 41 55 41 57 48 8D AC 24 18 F9 FF FF 48 81 EC E8 07 00 00 4C 8B FA 48 85 D2",
         resolve: NONE,
         extra_off: 0,
+        prototype: "CKeyValues_Data *__fastcall sub_1813BCA50(__int64 a1, const char *a2)",
     },
 
     // ====================================================================
@@ -2767,6 +2894,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "4C 89 4C 24 20 4C 89 44 24 18 48 89 54 24 10 53 55 56 57 41 54 41 55 41 56 41 57 48 83 EC 78",
         resolve: NONE,
         extra_off: 0,
+        prototype: "",
     },
 
     // CMaterialLayer::BuildPassCommandData â€” materialsystem2!sub_180018F80
@@ -2781,6 +2909,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "89 54 24 10 55 53 56 57 41 54 41 55 41 56 41 57 48 8D AC 24 58 FE FF FF 48 81 EC A8 02 00 00",
         resolve: NONE,
         extra_off: 0,
+        prototype: "int __fastcall sub_180018F80(__int64 a1, int a2, __int64 a3)",
     },
 
     // CSceneSkyBoxObject::DrawSkyboxArray â€” scenesystem!sub_18014FB90
@@ -2793,6 +2922,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "45 85 C9 0F 8E ? ? ? ? 4C 8B DC 55 41 56 49 8D AB 58 FC FF FF 48 81 EC 98 04 00 00",
         resolve: NONE,
         extra_off: 0,
+        prototype: "",
     },
 
     // CRenderDeviceDx11::CompileShaderSourceMain â€” rendersystemdx11!
@@ -2811,6 +2941,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "Shader compilation failed! Reported no errors.\n",
         resolve: STRREF,
         extra_off: 0,
+        prototype: "",
     },
 
     // ---------- INTERNAL FINDINGS (build 14158) -----------------------
@@ -2823,6 +2954,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 83 EC 38 48 8B 0D ? ? ? ? 48 8D 54 24 ? 48 8B 01 FF 90 08 03 00 00 83 7C 24 ? 00 0F 85 ? ? ? ? 4C 8B 05 ? ? ? ? 41 8B 80 50 0B 00 00",
         resolve: NONE,
         extra_off: 0,
+        prototype: "__int64 sub_180ACA390()",
     },
     Signature {
         name: "ThirdPersonOffHandler",
@@ -2830,6 +2962,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 83 EC 28 48 8B 0D ? ? ? ? 48 8D 54 24 ? 48 8B 01 FF 90 08 03 00 00 83 7C 24 ? 00 75 ? 48 8B 05 ? ? ? ? C6 80 29 02 00 00 00 C7 80 A8 06 00 00 00",
         resolve: NONE,
         extra_off: 0,
+        prototype: "__int64 sub_180ACA2B0()",
     },
 
     // ---------- world / scene visuals ---------------------------------
@@ -2841,6 +2974,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "40 57 48 81 EC C0 00 00 00 48 8B F9 BA FF FF FF FF 48 8D 0D ? ? ? ? E8",
         resolve: NONE,
         extra_off: 0,
+        prototype: "_BYTE *__fastcall sub_180A8B5A0(__int64 a1)",
     },
     // CSceneSystem::DrawAggregateSceneObjectArray â€” distinct from the
     // existing `DrawAggregateSceneObject` (singular) sig in this file;
@@ -2852,6 +2986,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 8B C4 48 89 50 ? 48 89 48 ? 55 53 56 57 41 54 41 55 41 56 41 57 48 8D A8 ? ? ? ? 48 81 EC ? ? ? ? 0F 29 70",
         resolve: NONE,
         extra_off: 0,
+        prototype: "",
     },
     // BuildSceneInfoGpu â€” sub_180084FF0, fires ONCE per map load. Writes
     // sky_color / sky_bounce / sun_light_min_brightness into the GPU
@@ -2862,6 +2997,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "4C 89 4C 24 20 4C 89 44 24 18 48 89 4C 24 08 55 48 8D AC 24 00 E3 FF FF B8 00 1E 00 00",
         resolve: NONE,
         extra_off: 0,
+        prototype: "",
     },
     // PVS / visibility-singleton accessor â€” lea rcx,[g_visMgr]; xor edx,
     // edx; call [rax+30h]. Calling vtable[6] with edx=1 (instead of 0)
@@ -2872,6 +3008,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 8D 0D ? ? ? ? 33 D2 FF 50",
         resolve: NONE,
         extra_off: 0,
+        prototype: "__int64 __fastcall sub_18023D2A0(_DWORD *a1, __int64 a2, int a3, char a4)",
     },
     // CSceneAnimatableObject::GeneratePrimitives â€” primary chams hook.
     // Per-renderable mesh-submit virtual; gives access to the actual
@@ -2884,6 +3021,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 8B C4 48 89 58 08 48 89 50 10 55 56 57 41 54 41 55 41 56 41 57 48 81 EC ? ? ? ?",
         resolve: NONE,
         extra_off: 0,
+        prototype: "",
     },
 
     // ---------- EngineTrace bullet-trace pipeline (client.dll) --------
@@ -2899,6 +3037,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC 20 48 8D 79 ? 33 F6 C7 47",
         resolve: NONE,
         extra_off: 0,
+        prototype: "__int64 __fastcall sub_180800580(__int64 a1)",
     },
     Signature {
         name: "TraceInitInfo",
@@ -2906,6 +3045,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "40 55 41 55 41 57 48 83 EC 30",
         resolve: NONE,
         extra_off: 0,
+        prototype: "__int64 __fastcall sub_1815FC2A0(__int64 a1)",
     },
     Signature {
         name: "TraceInitFilter",
@@ -2913,6 +3053,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC ? 0F B6 41 ? 33 FF 24",
         resolve: NONE,
         extra_off: 0,
+        prototype: "__int64 __fastcall sub_18032BBF0(__int64 a1, _DWORD *a2, __int64 a3, char a4, char a5)",
     },
     Signature {
         name: "TraceCreate",
@@ -2920,6 +3061,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 57 41 56 41 57 48 83 EC 50 F2 0F 10 02",
         resolve: NONE,
         extra_off: 0,
+        prototype: "char __fastcall sub_180804900(__int64 a1, __int64 a2, int a3, __int64 a4, int a5, char a6)",
     },
     Signature {
         name: "TraceGetInfo",
@@ -2927,6 +3069,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 57 48 83 EC 60 48 8B E9 0F 29 74 24",
         resolve: NONE,
         extra_off: 0,
+        prototype: "__int64 __fastcall sub_180806F50(__int64 a1, __int64 a2, float a3, unsigned __int64 *a4)",
     },
     // 14158 prologue â€” the older 9-byte UC stub matched zero sites; the
     // full prologue includes the arg-spill (mov [rsp+20],r9d ; mov
@@ -2937,6 +3080,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 8B C4 44 89 48 20 48 89 50 10 48 89 48 08 55 57 41 57",
         resolve: NONE,
         extra_off: 0,
+        prototype: "char __fastcall sub_1808211F0(__int64 a1, float *a2, __int64 a3, int a4, __int64 a5)",
     },
 
     // ---------- kill / damage feedback + sound dispatch ---------------
@@ -2952,6 +3096,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 89 5C 24 08 48 89 74 24 18 48 89 7C 24 20 55 41 56 41 57 48 8B EC 48 81 EC 80 00 00 00 44 8B",
         resolve: NONE,
         extra_off: 0,
+        prototype: "__int64 __fastcall sub_18084B0F0(__int64 a1, __int64 a2)",
     },
     // DamageFeedbackEmitter â€” sub_18081ED00, per-HIT damage feedback.
     // Fires on every successful damaging hit â€” produces the high-pitch
@@ -2963,6 +3108,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 89 4C 24 08 55 53 41 54 41 55 41 57 48 8D AC 24 E0 FE FF FF 48 81 EC 20 02 00 00 48 83 79 38",
         resolve: NONE,
         extra_off: 0,
+        prototype: "void __fastcall sub_18081FB40(__int64 a1, _QWORD *a2, __int64 a3)",
     },
     // GetHitGroup â€” sub_180A163A0 helper called from
     // DamageFeedbackEmitter. Returns 1 for HEAD; lets the cheat
@@ -2974,6 +3120,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "40 53 48 83 EC 20 48 83 79 10 00 48 8B D9 74 16 E8 ?? ?? ?? ?? 84 C0 75 0D 48 8B 43 10 8B 40 38",
         resolve: NONE,
         extra_off: 0,
+        prototype: "__int64 __fastcall sub_180A17C40(__int64 a1)",
     },
     // EmitSoundByHandle â€” sub_180B62270, universal sound emit dispatcher
     // used by EVERY in-game sound path (damage, death, killfeed, weapon
@@ -2986,6 +3133,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "40 53 48 83 EC 30 4C 89 4C 24 20 48 8B D9 45 8B C8 4C 8B C2 48 8B D1 48 8D 0D ?? ?? ?? ?? E8",
         resolve: NONE,
         extra_off: 0,
+        prototype: "__int64 __fastcall sub_180B63B10(__int64 a1, int a2, int a3, __int64 a4)",
     },
     // CSosOperatorSystem::StartSoundEvent â€” soundsystem!sub_1801B7AD0.
     // The single convergence point for every named, by-handle, AND
@@ -2998,6 +3146,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "40 53 55 56 48 83 EC 20 83 B9 ?? ?? ?? ?? 00 49 8B D8 48 8B F2 48 8B E9 74 ?? C7 02 00 00 00 00",
         resolve: NONE,
         extra_off: 0,
+        prototype: "",
     },
 
     // ---------- skin / paint application ------------------------------
@@ -3012,6 +3161,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 89 5C 24 ? 57 48 83 EC ? 8B FA 48 8B D9 E8 ? ? ? ? 48 8B CB E8 ? ? ? ? 48 85 C0 74",
         resolve: NONE,
         extra_off: 0,
+        prototype: "__int64 __fastcall sub_1807A8A90(__int64 a1, char a2)",
     },
     // CAnimGraphController force-rebuild â€” sub_1808AD5F0 (build 14155;
     // 14158: 0x8AEC70). Called with mode=2 to tear down and re-create
@@ -3024,6 +3174,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "40 55 56 48 83 EC 28 4C 89 74 24 58 48 8B F1 80 FA FF 75 04 0F B6 51 18",
         resolve: NONE,
         extra_off: 0,
+        prototype: "__int64 __fastcall sub_1808AEC70(__int64 a1, char a2)",
     },
 
     // ---------- triggerbot internals ----------------------------------
@@ -3038,6 +3189,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 89 5C 24 08 57 48 81 EC F0 00 00 00 F3 0F 10 0A 48 8D 8C 24 10 01 00 00 41 8B D8 48 8B FA E8",
         resolve: NONE,
         extra_off: 0,
+        prototype: "__int64 __fastcall sub_180C7E2D0(__int64 a1, __int64 a2, int a3)",
     },
 
     // ---------- particle manager (particles.dll) ----------------------
@@ -3055,6 +3207,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 8B 05 ? ? ? ? C3 ? ? ? ? ? ? ? ? 48 83 EC 28 8B 0D",
         resolve: RIPREL_3,
         extra_off: 0,
+        prototype: "",
     },
 
     // ---------- cspatterns.dev cross-reference (build 14158) ----------
@@ -3073,6 +3226,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "40 53 48 83 EC ? 48 8B D9 4C 8B C2 48 8B 0D ? ? ? ? 48 8D 54 24",
         resolve: NONE,
         extra_off: 0,
+        prototype: "__int64 __fastcall sub_1808DB1C0(__int64 a1, __int64 a2)",
     },
     // gpGlobals copy-out: mov rcx,[g_pCVar?] / lea r8,[g_global_vars].
     // Useful for resolving the global timing struct without walking
@@ -3083,6 +3237,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 8B 0D ? ? ? ? 4C 8D 05 ? ? ? ? 48 85 D2",
         resolve: NONE,
         extra_off: 0,
+        prototype: "void *__fastcall sub_180AE4730(__int64 a1, void *a2)",
     },
     // CCSPlayer_WeaponServices::ComputeRandomSeed â€” direct cousin of
     // SpreadSeedGen; consumed by the seeded-triggerbot path for
@@ -3093,6 +3248,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 89 5C 24 ? 57 48 81 EC ? ? ? ? ? ? ? ? 48 8D 8C 24",
         resolve: NONE,
         extra_off: 0,
+        prototype: "__int64 __fastcall sub_180C7E2D0(__int64 a1, __int64 a2, int a3)",
     },
     // UI::ShowMessageBox â€” popup dispatcher; stubbing it out silences
     // VAC nag dialogs and other modal interruptions during testing.
@@ -3102,6 +3258,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "44 88 4C 24 ? 53 41 56",
         resolve: NONE,
         extra_off: 0,
+        prototype: "",
     },
     // CCSPlayerController::SetPlayerReady â€” match-ready toggle. Cheap
     // hook target for queue-state automation.
@@ -3111,6 +3268,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "40 53 48 83 EC ? 48 8B DA 48 8D 15 ? ? ? ? 48 8B CB FF 15",
         resolve: NONE,
         extra_off: 0,
+        prototype: "char __fastcall sub_180F1DD90(__int64 a1, __int64 a2)",
     },
     // Popup-event dispatcher (achievements, MM popups, etc.). Useful
     // for menu-driven UI suppression. (Currently dormant on this build
@@ -3130,6 +3288,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 8B 05 ? ? ? ? 48 85 C0 74 ? 80 B8 ? ? ? ? 00 75 ? 83 B8 ? ? ? ? ? 7C",
         resolve: NONE,
         extra_off: 0,
+        prototype: "bool sub_180076450()",
     },
     // CCSGOPlayerAnimGraphController::DrawLegs â€” first-person leg
     // renderer; togglable to remove the FP leg geometry.
@@ -3139,6 +3298,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "40 55 53 56 41 56 41 57 48 8D AC 24 ? ? ? ? 48 81 EC ? ? ? ? F2 0F 10 42",
         resolve: NONE,
         extra_off: 0,
+        prototype: "void __fastcall sub_1810F0410(__int64 *a1, __int64 *a2, __int64 a3, __int64 a4, __int64 a5)",
     },
     // CUserCmd::ValidateInput â€” server-side-style sanity check on the
     // local user-cmd. Currently dormant on this build (IDA db lags live
@@ -3160,6 +3320,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 85 D2 0F 84 ? ? ? ? 48 89 5C 24 ? 57 48 83 EC ? ? ? 00 48 8B DA 48 8B F9 0F 84 ? ? ? ? 48 8D 15",
         resolve: NONE,
         extra_off: 0,
+        prototype: "void __fastcall sub_180F21F20(__int64 a1, _BYTE *a2)",
     },
     // Skybox per-frame update (counterpart to scenesystem's draw).
     Signature {
@@ -3168,6 +3329,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 89 5C 24 ? 57 48 83 EC ? 48 8B F9 E8 ? ? ? ? 48 8B 47",
         resolve: NONE,
         extra_off: 0,
+        prototype: "__int64 __fastcall sub_18025A850(__int64 a1)",
     },
     // CGameEntitySystem::GetEntityByIndex â€” short, distinctive
     // 6-byte head; the canonical entity-list lookup helper.
@@ -3177,6 +3339,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "4C 8D 49 ? 81 FA",
         resolve: NONE,
         extra_off: 0,
+        prototype: "__int64 __fastcall sub_180967600(__int64 a1, int a2)",
     },
     // Local-pawn accessor; mirrors the existing GetLocalControllerById
     // entry but returns the player-pawn pointer instead.
@@ -3186,6 +3349,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 83 EC ? 83 F9 ? 75 ? 48 8B 0D ? ? ? ? 48 8D 54 24 ? ? ? ? FF 90 ? ? ? ? ? ? 48 63 C1 4C 8D 05",
         resolve: NONE,
         extra_off: 0,
+        prototype: "__int64 __fastcall sub_1808E1070(int a1)",
     },
 
     // ==================================================================
@@ -3212,6 +3376,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "4C 89 44 24 18 55 56 41 56 48 8D AC 24 70 EC FF FF B8 90 14 00 00",
         resolve: NONE,
         extra_off: 0,
+        prototype: "void __fastcall sub_180ACF410(__int64 a1, __int64 a2, __int64 a3)",
     },
 
     // CSGOInput::CreateMove â€” sub_180C5E7F0. The actual createmove the
@@ -3227,6 +3392,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 8B C4 4C 89 40 18 48 89 48 08 55 53 41 54 41 55 48 8D A8 F8 FE FF FF",
         resolve: NONE,
         extra_off: 0,
+        prototype: "double __fastcall sub_180C5E7F0(__int64 a1, unsigned int a2, __int64 a3)",
     },
 
     // ==================================================================
@@ -3251,6 +3417,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "40 53 48 83 EC 40 48 8B D9 E8 ? ? ? ? 48 8B C8 E8 ? ? ? ? 48 85 C0 75 ? 48 8B 43 10",
         resolve: NONE,
         extra_off: 0,
+        prototype: "__int64 __fastcall sub_180795180(__int64 a1)",
     },
 
     // C_BaseEntity::ProcessInterpolatedList â€” sub_180A6BDD0. Refs
@@ -3266,6 +3433,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "4C 8B DC 49 89 5B 10 49 89 6B 18 49 89 73 20 57 41 54 41 57 48 83 EC 60 49 C7 43 B0 E1 07 00 00",
         resolve: NONE,
         extra_off: 0,
+        prototype: "__int64 __fastcall sub_180A6BDD0(__int64 a1, unsigned int a2, int a3, unsigned int a4)",
     },
 
     // C_BaseEntity::CheckPredictionForceReLatch â€” sub_180B47910. Refs
@@ -3280,6 +3448,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 8B C4 48 89 50 10 53 55 56 48 81 EC 00 01 00 00 0F 29 78 98 48 8B F2 8B 91 04 01 00 00",
         resolve: NONE,
         extra_off: 0,
+        prototype: "__int64 __fastcall sub_180B47910(__int64 a1, __int64 a2)",
     },
 
     // CServerSideClient::ExecuteStringCommand â€” engine2!sub_1800BE120.
@@ -3295,6 +3464,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "40 55 53 56 48 8D AC 24 50 FA FF FF 48 81 EC B0 06 00 00 48 8B D9 48 8B F2 48 8B 4A 48",
         resolve: NONE,
         extra_off: 0,
+        prototype: "__int64 __fastcall sub_1800BE120(__int64 a1, __int64 a2)",
     },
 
     // sv_cheats change-callback â€” engine2!sub_18009C1F0. Refs unique
@@ -3310,6 +3480,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "40 53 48 83 EC 20 48 8B 41 08 48 8B D9 8B 50 30 48 C1 EA 0C F6 C2 01 0F 85",
         resolve: NONE,
         extra_off: 0,
+        prototype: "void __fastcall sub_18009C1F0(__int64 a1, __int64 a2, _BYTE *a3, char *a4)",
     },
 
     // CNetworkGameClient::ProcessTick â€” engine2!sub_18006AAF0. Refs the
@@ -3324,6 +3495,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 89 5C 24 20 55 57 41 57 48 81 EC F0 00 00 00 8B 7A 50 45 33 FF 44 38 3D ? ? ? ? 48 8B EA",
         resolve: NONE,
         extra_off: 0,
+        prototype: "char __fastcall sub_18006AAF0(__int64 a1, __int64 a2)",
     },
 
     // CNetworkGameClientBase::ForceDemoRecordingFullUpdateAfterNextDeltaPacket
@@ -3340,6 +3512,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 48 8B 1D ? ? ? ? 48 8B FA 48 8B F1 48 85 DB",
         resolve: NONE,
         extra_off: 0,
+        prototype: "char __fastcall sub_1800292B0(__int64 a1, const char *a2)",
     },
 
     // C_BaseEntity::SaveData â€” client!sub_180A71820. Refs the unique
@@ -3355,6 +3528,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 8B C4 55 56 57 41 56 41 57 48 8D A8 E8 FD FF FF 48 81 EC F0 02 00 00 48 83 B9 A0 05 00 00 00",
         resolve: NONE,
         extra_off: 0,
+        prototype: "void __fastcall sub_180A71820(_QWORD *a1, const char *a2, __int64 a3, int a4, int a5, unsigned int a6, __int64 a7)",
     },
 
     // C_BaseEntity::RestoreData â€” client!sub_180A71610. Refs the unique
@@ -3369,6 +3543,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "40 55 53 56 41 54 41 57 48 8D AC 24 20 FF FF FF 48 81 EC E0 01 00 00 48 8B D9 45 8B E1 48 8B 89",
         resolve: NONE,
         extra_off: 0,
+        prototype: "void __fastcall sub_180A71610(__int64 a1, const char *a2, unsigned int a3, int a4)",
     },
 
     // CSource2Client::Shutdown â€” client!sub_180AE5B90. The function
@@ -3383,6 +3558,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 89 5C 24 08 55 56 57 41 54 41 55 41 56 41 57 48 81 EC 40 02 00 00 8B 0D ? ? ? ? BA 02 00 00",
         resolve: NONE,
         extra_off: 0,
+        prototype: "__int64 sub_180AE5B90()",
     },
 
     // ---------- v1.21.7 additions (build 14158) -----------------------
@@ -3395,6 +3571,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 89 5C 24 20 55 48 83 EC 20 48 63 41 30 48 8B EA 33 D2 48 8B D9 85 C0 7E 20 4C 8B C0 8B CA",
         resolve: NONE,
         extra_off: 0,
+        prototype: "int __fastcall sub_1800039F0(__int64 a1, HWND a2)",
     },
 
     // CMatchSessionOfflineCustom_InitializeGameSettings - matchmaking!sub_?
@@ -3406,6 +3583,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "40 53 48 81 EC 40 01 00 00 48 89 BC 24 58 01 00 00 48 8D 15 ? ? ? ? 48 8B F9 41 B0 01 48 8B 49 10 FF 15 ? ? ? ? 48 8B D8 48 85 C0 74 59",
         resolve: NONE,
         extra_off: 0,
+        prototype: "char __fastcall sub_1800EE6A0(__int64 a1)",
     },
 
     // CMatchSessionOnlineHost_InitializeGameSettings - matchmaking!sub_?
@@ -3417,6 +3595,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 8B C4 53 48 81 EC 80 01 00 00 48 89 70 10 48 8D 15 ? ? ? ? 48 89 78 18 4C 89 60 F0",
         resolve: NONE,
         extra_off: 0,
+        prototype: "char __fastcall sub_1800F0460(__int64 a1)",
     },
 
     // CAnimationSystem_FrameUpdate - animationsystem!sub_? - per-tick driver
@@ -3428,6 +3607,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 89 4C 24 08 55 53 56 57 41 54 41 55 41 56 41 57 48 8D AC 24 C8 EB FF FF B8 38 15 00 00",
         resolve: NONE,
         extra_off: 0,
+        prototype: "void __fastcall sub_18008B530(__int64 a1)",
     },
 
     // CWorldRendererMgr_ServiceWorldRequests - worldrenderer!sub_18002B4A0
@@ -3439,6 +3619,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 89 5C 24 10 48 89 6C 24 18 48 89 74 24 20 57 41 54 41 55 41 56 41 57 48 83 EC 40 48 8B D9 0F 29 74 24 30 48 8D 0D ? ? ? ? 0F 29 7C 24 20 BA FF FF FF FF",
         resolve: NONE,
         extra_off: 0,
+        prototype: "__int64 __fastcall sub_18002B4A0(__int64 a1)",
     },
 
     // CUIEngine_RunFrame - panorama!sub_1800A95F0 - per-frame Panorama UI
@@ -3450,6 +3631,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 89 5C 24 10 48 89 6C 24 18 56 57 41 54 41 56 41 57 48 81 EC 80 00 00 00 45 33 F6 48 8B F1",
         resolve: NONE,
         extra_off: 0,
+        prototype: "__int64 __fastcall sub_1800A95F0(_QWORD *a1)",
     },
 
     // CUIEngine_DispatchEvent - panorama!sub_180098320 - synchronous event
@@ -3461,6 +3643,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 8B C4 48 89 58 18 88 50 10 55 56 57 41 54 41 55 41 56 41 57 48 8D A8 78 F7 FF FF 48 81 EC 50",
         resolve: NONE,
         extra_off: 0,
+        prototype: "void __fastcall sub_180098320(int *a1, unsigned __int8 a2, __int64 a3)",
     },
 
     // CCSGameRules_FrameUpdatePreEntityThink - server!sub_1808A9B50 - early
@@ -3472,6 +3655,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 89 5C 24 08 57 48 83 EC 60 48 8D 05 ? ? ? ? 48 C7 44 24 28 01 13 00 00 48 89 44 24 20",
         resolve: NONE,
         extra_off: 0,
+        prototype: "__int64 __fastcall sub_1808A9B50(__int64 a1, __int64 a2)",
     },
 
     // CCSGameRules_Think - server!sub_1808D80F0 - main per-tick game-rules
@@ -3483,6 +3667,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "40 55 53 41 55 41 57 48 8D 6C 24 C1 48 81 EC A8 00 00 00 80 79 48 00 4C 8B F9 4C 8B 2D",
         resolve: NONE,
         extra_off: 0,
+        prototype: "double __fastcall sub_1808D80F0(__int64 a1)",
     },
 
     // CCSGameRules_TerminateRound - server!sub_1808EFA50 - round terminator
@@ -3494,6 +3679,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 8B C4 4C 89 48 20 48 89 48 08 55 56 41 56 41 57 48 8D 68 A1 48 81 EC E8 00 00 00 4C 8D B1",
         resolve: NONE,
         extra_off: 0,
+        prototype: "_BYTE *__fastcall sub_1808EFA50(__int64 a1, __int64 a2, unsigned int a3, __int64 a4)",
     },
 
     // CCSPlayerPawn_GiveNamedItem - server!sub_180A2AC60 - resolves classname
@@ -3505,6 +3691,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "48 89 5C 24 08 48 89 74 24 10 48 89 7C 24 20 44 89 44 24 18 55 41 54 41 55 41 56 41 57 48 8D AC 24 40 FF FF FF 48 81 EC C0 01 00 00 4D 8B E1 45 8B E8",
         resolve: NONE,
         extra_off: 0,
+        prototype: "__int64 __fastcall sub_180A2AC60(__int64 a1, const char *a2, int a3, __int64 a4, char a5, unsigned __int64 *a6)",
     },
 
     // CCSPlayerPawnBase_SwitchTeam - server!sub_180A0D380 - team-change entry
@@ -3516,6 +3703,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         needle: "40 53 57 48 81 EC 88 00 00 00 48 8B D9 8B FA 8B CA E8 ? ? ? ? 48 85 C0 0F 84 3A 02 00 00",
         resolve: NONE,
         extra_off: 0,
+        prototype: "__int64 __fastcall sub_180A0D380(__int64 a1, unsigned int a2)",
     },
 
 ];

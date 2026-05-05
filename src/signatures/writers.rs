@@ -48,6 +48,22 @@ fn module_ident(module: &str) -> String {
     ident(module.trim_end_matches(".dll"))
 }
 
+/// Convert an IDA / Hex-Rays prototype like
+/// `__int64 __fastcall(__int64 a1, float *a2)` into a C function-pointer
+/// alias body: `__int64 (__fastcall*)(__int64 a1, float *a2)`.  We
+/// locate the first `(` (start of arg list) and splice `(*)` in front of
+/// it, after the convention keyword if present.  When the input doesn't
+/// look like a prototype we fall back to the generic variadic shape.
+fn proto_to_fnptr(proto: &str) -> String {
+    if let Some(paren) = proto.find('(') {
+        let head = proto[..paren].trim_end();
+        let tail = &proto[paren..];
+        format!("{}(*){}", head, tail)
+    } else {
+        "void(__fastcall*)(void*, ...)".to_string()
+    }
+}
+
 fn markdown_cell(value: &str) -> String {
     value
         .replace('\r', "")
@@ -117,13 +133,23 @@ pub fn render_hpp(hits: &[SignatureHit]) -> String {
         s.push_str(&format!("    namespace {} {{\n", module_ident(&module)));
         for h in &items {
             if emit_pattern(h).is_none() { continue; }
-            // Generic __fastcall(void* this_or_arg0, ...) shape.
-            // Variadic gives consumers the freedom to call with any
-            // arg list before reinterpret_cast'ing to the real proto.
-            s.push_str(&format!(
-                "        using {}_t = void(__fastcall*)(void*, ...);\n",
-                ident(&h.name),
-            ));
+            // If we have a Hex-Rays prototype, emit it as a fully-typed
+            // function-pointer alias.  Otherwise fall back to the
+            // generic variadic shape so consumers can still hook by
+            // reinterpret_cast.
+            if let Some(proto) = h.prototype.as_deref() {
+                s.push_str(&format!(
+                    "        // {}\n        using {}_t = {};\n",
+                    proto,
+                    ident(&h.name),
+                    proto_to_fnptr(proto),
+                ));
+            } else {
+                s.push_str(&format!(
+                    "        using {}_t = void(__fastcall*)(void*, ...);\n",
+                    ident(&h.name),
+                ));
+            }
         }
         s.push_str("    }\n");
     }
@@ -142,6 +168,12 @@ pub fn render_rs(hits: &[SignatureHit]) -> String {
         s.push_str(&format!("pub mod {} {{\n", module_ident(module)));
         for h in items {
             let Some(pattern) = emit_pattern(h) else { continue };
+            if let Some(proto) = h.prototype.as_deref() {
+                s.push_str(&format!(
+                    "    /// `{}`\n",
+                    proto.replace('\n', " "),
+                ));
+            }
             s.push_str(&format!(
                 "    pub const {}: &str = \"{}\";\n",
                 ident(&h.name),
@@ -169,12 +201,13 @@ pub fn render_markdown(hits: &[SignatureHit]) -> String {
     ));
     for (module, items) in groups {
         s.push_str(&format!("## `{}`\n\n", module));
-        s.push_str("| Name | Resolve | VA | RVA | Pattern |\n");
-        s.push_str("| --- | --- | --- | --- | --- |\n");
+        s.push_str("| Name | Prototype | Resolve | VA | RVA | Pattern |\n");
+        s.push_str("| --- | --- | --- | --- | --- | --- |\n");
         for h in items {
             s.push_str(&format!(
-                "| `{}` | `{}` | `0x{:X}` | `0x{:X}` | `{}` |\n",
+                "| `{}` | `{}` | `{}` | `0x{:X}` | `0x{:X}` | `{}` |\n",
                 markdown_cell(&h.name),
+                markdown_cell(h.prototype.as_deref().unwrap_or("")),
                 markdown_cell(&h.resolve),
                 h.va.unwrap_or(0),
                 h.rva.unwrap_or(0),

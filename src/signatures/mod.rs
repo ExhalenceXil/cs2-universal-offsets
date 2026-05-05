@@ -49,6 +49,13 @@ pub struct Signature {
     pub needle: &'static str,
     pub resolve: ResolveKind,
     pub extra_off: i64,
+    /// IDA / Hex-Rays C-style function prototype, e.g.
+    /// `__int64 __fastcall(__int64 a1, float *a2)`.  When present this is
+    /// emitted into all generated artefacts (hpp typedef body, rs doc
+    /// comment, md column) so consumers can hook with the real argument
+    /// list instead of the generic `void __fastcall(void*, ...)` shape.
+    /// Empty string means "not yet recovered".
+    pub prototype: &'static str,
 }
 
 #[derive(Clone, Debug, serde::Serialize)]
@@ -57,6 +64,13 @@ pub struct SignatureHit {
     pub module: String,
     pub resolve: &'static str,
     pub pattern: String,
+    /// IDA / Hex-Rays C-style function prototype recovered for this
+    /// signature, e.g. `__int64 __fastcall(__int64 a1, float *a2)`.
+    /// Copied verbatim from `Signature::prototype` so the JSON / hpp / rs
+    /// / md emitters can render real argument lists for hookers.  `None`
+    /// when no prototype has been recorded yet.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub prototype: Option<String>,
     /// 24 bytes of the resolved function's prologue, formatted as an
     /// IDA-style space-separated hex pattern (no wildcards).  Useful as a
     /// drop-in signature on builds where the database pattern is missing
@@ -234,6 +248,7 @@ fn try_satisfy_from_cache(
         module: mc.name.clone(),
         resolve: kind_name(sig.resolve),
         pattern: sig.needle.to_string(),
+        prototype: opt_proto(sig.prototype),
         bytes: capture_prologue(mc, res_rva),
         pattern_synth: synthesize_pattern(mc, res_rva),
         found: true,
@@ -452,6 +467,7 @@ fn scan_pattern(mc: &ModuleCache, sig: &Signature) -> SignatureHit {
         module: mc.name.clone(),
         resolve: kind_name(sig.resolve),
         pattern: sig.needle.to_string(),
+        prototype: opt_proto(sig.prototype),
         bytes: capture_prologue(mc, res_rva),
         pattern_synth: synthesize_pattern(mc, res_rva),
         found: true,
@@ -560,6 +576,7 @@ fn scan_string_ref(mc: &ModuleCache, sig: &Signature) -> SignatureHit {
                 module: mc.name.clone(),
                 resolve: kind_name(sig.resolve),
                 pattern: format!("\"{}\"", sig.needle),
+                prototype: opt_proto(sig.prototype),
                 bytes: capture_prologue(mc, fn_rva as u64),
                 pattern_synth: synthesize_pattern(mc, fn_rva as u64),
                 found: true,
@@ -663,6 +680,7 @@ impl SignatureHit {
             module: sig.module.to_string(),
             resolve: kind_name(sig.resolve),
             pattern: sig.needle.to_string(),
+            prototype: opt_proto(sig.prototype),
             bytes: None,
             pattern_synth: None,
             found: false,
@@ -675,6 +693,11 @@ impl SignatureHit {
             error: Some(err.to_string()),
         }
     }
+}
+
+#[inline]
+fn opt_proto(p: &'static str) -> Option<String> {
+    if p.is_empty() { None } else { Some(p.to_string()) }
 }
 
 // ---------------------------------------------------------------------------

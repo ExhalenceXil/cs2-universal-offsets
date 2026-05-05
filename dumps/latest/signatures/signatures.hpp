@@ -470,335 +470,630 @@ namespace cs2::signatures {
 
 namespace cs2::fn {
     namespace animationsystem {
-        using Animation__ShouldUpdateSequences_t = void(__fastcall*)(void*, ...);
+        // __int64 __fastcall sub_18014F0A0(__int64 a1, __int64 a2, __int64 a3)
+        using Animation__ShouldUpdateSequences_t = __int64 __fastcall sub_18014F0A0(*)(__int64 a1, __int64 a2, __int64 a3);
         using AnimationSystemUtils_ptr_t = void(__fastcall*)(void*, ...);
-        using CAnimationSystem_FrameUpdate_t = void(__fastcall*)(void*, ...);
+        // void __fastcall sub_18008B530(__int64 a1)
+        using CAnimationSystem_FrameUpdate_t = void __fastcall sub_18008B530(*)(__int64 a1);
     }
     namespace client {
-        using AddNametagEntity_t = void(__fastcall*)(void*, ...);
-        using AddStattrakEntity_t = void(__fastcall*)(void*, ...);
-        using AnimGraphRebuild_t = void(__fastcall*)(void*, ...);
-        using ApplyEconCustomization_t = void(__fastcall*)(void*, ...);
-        using AutowallInit_t = void(__fastcall*)(void*, ...);
-        using AutowallTraceData_t = void(__fastcall*)(void*, ...);
-        using AutowallTracePos_t = void(__fastcall*)(void*, ...);
-        using BulkRegenIterator_t = void(__fastcall*)(void*, ...);
-        using CAM_ThinkReturn_t = void(__fastcall*)(void*, ...);
-        using CAttributeStringFill_t = void(__fastcall*)(void*, ...);
-        using CAttributeStringInit_t = void(__fastcall*)(void*, ...);
-        using CBaseEntity_ChangeModel_t = void(__fastcall*)(void*, ...);
-        using CBaseEntity_TakeDamageOld_t = void(__fastcall*)(void*, ...);
-        using CBaseModelEntity_SetBodygroup_t = void(__fastcall*)(void*, ...);
-        using CBodyComponent_t = void(__fastcall*)(void*, ...);
-        using CBodyComponentSkeletonInstance_t = void(__fastcall*)(void*, ...);
-        using CBufferStringInit_t = void(__fastcall*)(void*, ...);
-        using CCSGOInput__CreateMove_t = void(__fastcall*)(void*, ...);
-        using CCSGameRules_t = void(__fastcall*)(void*, ...);
-        using CCSGameRulesProxy_t = void(__fastcall*)(void*, ...);
-        using CCSInventoryManager__EquipItemInLoadout_t = void(__fastcall*)(void*, ...);
-        using CCSPlayerController_t = void(__fastcall*)(void*, ...);
-        using CCSPlayerController_t = void(__fastcall*)(void*, ...);
-        using CCSPlayerController_ActionTrackingServices_t = void(__fastcall*)(void*, ...);
-        using CCSPlayerController_DamageServices_t = void(__fastcall*)(void*, ...);
-        using CCSPlayerController_InGameMoneyServices_t = void(__fastcall*)(void*, ...);
-        using CCSPlayerController_InventoryServices_t = void(__fastcall*)(void*, ...);
-        using CCSPlayerInventory__GetItemInLoadout_t = void(__fastcall*)(void*, ...);
-        using CCSPlayerPawn_t = void(__fastcall*)(void*, ...);
-        using CCSPlayer_BulletServices_t = void(__fastcall*)(void*, ...);
-        using CCSPlayer_BulletServices_t = void(__fastcall*)(void*, ...);
-        using CCSPlayer_CameraServices_t = void(__fastcall*)(void*, ...);
-        using CCSPlayer_HostageServices_t = void(__fastcall*)(void*, ...);
-        using CCSPlayer_ItemServices_t = void(__fastcall*)(void*, ...);
-        using CCSPlayer_MovementServices_t = void(__fastcall*)(void*, ...);
-        using CCSPlayer_MovementServices_t = void(__fastcall*)(void*, ...);
-        using CCSPlayer_MovementServices_CheckJumpButton_t = void(__fastcall*)(void*, ...);
-        using CCSPlayer_PingServices_t = void(__fastcall*)(void*, ...);
-        using CCSPlayer_RunCommand_Context_t = void(__fastcall*)(void*, ...);
-        using CCSPlayer_UseServices_t = void(__fastcall*)(void*, ...);
-        using CCSPlayer_WaterServices_t = void(__fastcall*)(void*, ...);
-        using CCSPlayer_WeaponServices_t = void(__fastcall*)(void*, ...);
-        using CCSPlayer_WeaponServices_t = void(__fastcall*)(void*, ...);
-        using CCSWeaponBase_t = void(__fastcall*)(void*, ...);
-        using CCSWeaponBaseGun_t = void(__fastcall*)(void*, ...);
-        using CCSWeaponBaseVData_t = void(__fastcall*)(void*, ...);
-        using CCollisionProperty_t = void(__fastcall*)(void*, ...);
-        using CCompositeMaterialManager_AddPanoramaPanelRenderRequest_Caller_t = void(__fastcall*)(void*, ...);
-        using CDecoyProjectile_t = void(__fastcall*)(void*, ...);
-        using CEconItemSchema__GetAttributeDefinitionByName_t = void(__fastcall*)(void*, ...);
-        using CEconItemView__GetCustomPaintKitIndex_t = void(__fastcall*)(void*, ...);
-        using CFlashbangProjectile_t = void(__fastcall*)(void*, ...);
-        using CFogController_t = void(__fastcall*)(void*, ...);
-        using CGameEntitySystem__OnAddEntity_t = void(__fastcall*)(void*, ...);
-        using CGameEntitySystem__OnRemoveEntity_t = void(__fastcall*)(void*, ...);
-        using CGameSceneNode_t = void(__fastcall*)(void*, ...);
-        using CGameSceneNode_BuildBoneMergeWork_t = void(__fastcall*)(void*, ...);
-        using CGameSceneNode_PerformBatchedInvalidatePhysicsRecursive_t = void(__fastcall*)(void*, ...);
-        using CGameSceneNode_StartHierarchicalAttachment_t = void(__fastcall*)(void*, ...);
-        using CGameTrace_TraceShape_Client_t = void(__fastcall*)(void*, ...);
-        using CGlowProperty_t = void(__fastcall*)(void*, ...);
-        using CGlowProperty_OnGlowTypeChanged_t = void(__fastcall*)(void*, ...);
-        using CHEGrenadeProjectile_t = void(__fastcall*)(void*, ...);
+        // char __fastcall sub_18078B070(__int64 a1, __int64 a2)
+        using AddNametagEntity_t = char __fastcall sub_18078B070(*)(__int64 a1, __int64 a2);
+        // void __fastcall sub_180A4C790(__int64 a1, unsigned int a2)
+        using AddStattrakEntity_t = void __fastcall sub_180A4C790(*)(__int64 a1, unsigned int a2);
+        // __int64 __fastcall sub_1808AEC70(__int64 a1, char a2)
+        using AnimGraphRebuild_t = __int64 __fastcall sub_1808AEC70(*)(__int64 a1, char a2);
+        // __int64 __fastcall sub_1807A8A90(__int64 a1, char a2)
+        using ApplyEconCustomization_t = __int64 __fastcall sub_1807A8A90(*)(__int64 a1, char a2);
+        // __int64 __fastcall sub_1808E1EE0(__int64 a1)
+        using AutowallInit_t = __int64 __fastcall sub_1808E1EE0(*)(__int64 a1);
+        // char __fastcall sub_18098E9C0(_QWORD *a1, int *a2, int a3, int a4, _BYTE *a5, int a6)
+        using AutowallTraceData_t = char __fastcall sub_18098E9C0(*)(_QWORD *a1, int *a2, int a3, int a4, _BYTE *a5, int a6);
+        // char __fastcall sub_180807780(__int64 a1, __int64 a2)
+        using AutowallTracePos_t = char __fastcall sub_180807780(*)(__int64 a1, __int64 a2);
+        // __int64 __fastcall sub_18078E570(char a1)
+        using BulkRegenIterator_t = __int64 __fastcall sub_18078E570(*)(char a1);
+        // char __fastcall sub_18031A460(__int64 a1, _DWORD *a2)
+        using CAM_ThinkReturn_t = char __fastcall sub_18031A460(*)(__int64 a1, _DWORD *a2);
+        // __int64 __fastcall sub_180EAEC20(__int64 a1, __int64 a2)
+        using CAttributeStringFill_t = __int64 __fastcall sub_180EAEC20(*)(__int64 a1, __int64 a2);
+        // _QWORD *__fastcall sub_1805F86B0(_QWORD *a1, __int64 a2, char a3)
+        using CAttributeStringInit_t = _QWORD *__fastcall sub_1805F86B0(*)(_QWORD *a1, __int64 a2, char a3);
+        // __int64 __fastcall sub_1808DB1C0(__int64 a1, __int64 a2)
+        using CBaseEntity_ChangeModel_t = __int64 __fastcall sub_1808DB1C0(*)(__int64 a1, __int64 a2);
+        // unsigned __int64 __fastcall sub_180223D20(__int64 a1, __int64 a2, __int64 **a3)
+        using CBaseEntity_TakeDamageOld_t = unsigned __int64 __fastcall sub_180223D20(*)(__int64 a1, __int64 a2, __int64 **a3);
+        // void __fastcall sub_1808D9E70(__int64 a1, int a2, int a3)
+        using CBaseModelEntity_SetBodygroup_t = void __fastcall sub_1808D9E70(*)(__int64 a1, int a2, int a3);
+        // __int64 sub_1801BC160()
+        using CBodyComponent_t = __int64 sub_1801BC160(*)();
+        // __int64 (__fastcall ***sub_1801C3040())()
+        using CBodyComponentSkeletonInstance_t = __int64(*)(__fastcall ***sub_1801C3040())();
+        // char __fastcall sub_1817E29D0(__int64 a1, const char *a2)
+        using CBufferStringInit_t = char __fastcall sub_1817E29D0(*)(__int64 a1, const char *a2);
+        // double __fastcall sub_180C5E7F0(__int64 a1, unsigned int a2, __int64 a3)
+        using CCSGOInput__CreateMove_t = double __fastcall sub_180C5E7F0(*)(__int64 a1, unsigned int a2, __int64 a3);
+        // _QWORD *sub_18007E160()
+        using CCSGameRules_t = _QWORD *sub_18007E160(*)();
+        // __int64 sub_1806E9500()
+        using CCSGameRulesProxy_t = __int64 sub_1806E9500(*)();
+        // char __fastcall sub_1807C2150(_QWORD *a1, unsigned int a2, int a3, unsigned __int64 a4)
+        using CCSInventoryManager__EquipItemInLoadout_t = char __fastcall sub_1807C2150(*)(_QWORD *a1, unsigned int a2, int a3, unsigned __int64 a4);
+        // __int64 __fastcall sub_1807E5220(int a1, _QWORD *a2)
+        using CCSPlayerController_t = __int64 __fastcall sub_1807E5220(*)(int a1, _QWORD *a2);
+        // __int64 __fastcall sub_1807E5220(int a1, _QWORD *a2)
+        using CCSPlayerController_t = __int64 __fastcall sub_1807E5220(*)(int a1, _QWORD *a2);
+        // __int64 __fastcall sub_1807E5220(int a1, _QWORD *a2)
+        using CCSPlayerController_ActionTrackingServices_t = __int64 __fastcall sub_1807E5220(*)(int a1, _QWORD *a2);
+        // __int64 __fastcall sub_1807E5220(int a1, _QWORD *a2)
+        using CCSPlayerController_DamageServices_t = __int64 __fastcall sub_1807E5220(*)(int a1, _QWORD *a2);
+        // __int64 __fastcall sub_1807E5220(int a1, _QWORD *a2)
+        using CCSPlayerController_InGameMoneyServices_t = __int64 __fastcall sub_1807E5220(*)(int a1, _QWORD *a2);
+        // __int64 __fastcall sub_1807E5220(int a1, _QWORD *a2)
+        using CCSPlayerController_InventoryServices_t = __int64 __fastcall sub_1807E5220(*)(int a1, _QWORD *a2);
+        // __int64 *__fastcall sub_1807C3D70(__int64 a1, unsigned int a2, unsigned int a3)
+        using CCSPlayerInventory__GetItemInLoadout_t = __int64 *__fastcall sub_1807C3D70(*)(__int64 a1, unsigned int a2, unsigned int a3);
+        // __int64 sub_180BB0E40()
+        using CCSPlayerPawn_t = __int64 sub_180BB0E40(*)();
+        // void *__fastcall sub_180813BA0(__int64 a1)
+        using CCSPlayer_BulletServices_t = void *__fastcall sub_180813BA0(*)(__int64 a1);
+        // void *__fastcall sub_180813BA0(__int64 a1)
+        using CCSPlayer_BulletServices_t = void *__fastcall sub_180813BA0(*)(__int64 a1);
+        // __int64 sub_18080FCB0()
+        using CCSPlayer_CameraServices_t = __int64 sub_18080FCB0(*)();
+        // void *__fastcall sub_180813BA0(__int64 a1)
+        using CCSPlayer_HostageServices_t = void *__fastcall sub_180813BA0(*)(__int64 a1);
+        // void *__fastcall sub_180850B00(__int64 a1)
+        using CCSPlayer_ItemServices_t = void *__fastcall sub_180850B00(*)(__int64 a1);
+        // __int64 *sub_18083DE80()
+        using CCSPlayer_MovementServices_t = __int64 *sub_18083DE80(*)();
+        // __int64 *sub_18083DE80()
+        using CCSPlayer_MovementServices_t = __int64 *sub_18083DE80(*)();
+        // void __fastcall sub_180ACF410(__int64 a1, __int64 a2, __int64 a3)
+        using CCSPlayer_MovementServices_CheckJumpButton_t = void __fastcall sub_180ACF410(*)(__int64 a1, __int64 a2, __int64 a3);
+        // void *__fastcall sub_180850ED0(__int64 a1)
+        using CCSPlayer_PingServices_t = void *__fastcall sub_180850ED0(*)(__int64 a1);
+        // void __fastcall sub_1809DBAF0(__int64 a1, __int64 a2)
+        using CCSPlayer_RunCommand_Context_t = void __fastcall sub_1809DBAF0(*)(__int64 a1, __int64 a2);
+        // __int64 sub_1808821D0()
+        using CCSPlayer_UseServices_t = __int64 sub_1808821D0(*)();
+        // __int64 *sub_180877460()
+        using CCSPlayer_WaterServices_t = __int64 *sub_180877460(*)();
+        // __int64 *sub_180877810()
+        using CCSPlayer_WeaponServices_t = __int64 *sub_180877810(*)();
+        // __int64 *sub_180877810()
+        using CCSPlayer_WeaponServices_t = __int64 *sub_180877810(*)();
+        // __int64 sub_18077F3D0()
+        using CCSWeaponBase_t = __int64 sub_18077F3D0(*)();
+        // __int64 sub_18077F470()
+        using CCSWeaponBaseGun_t = __int64 sub_18077F470(*)();
+        // const char *sub_18075A2B0()
+        using CCSWeaponBaseVData_t = const char *sub_18075A2B0(*)();
+        // __int64 __fastcall sub_1802E0F90(int a1, __int64 a2, __int64 a3, __int64 a4)
+        using CCollisionProperty_t = __int64 __fastcall sub_1802E0F90(*)(int a1, __int64 a2, __int64 a3, __int64 a4);
+        // __int64 __fastcall sub_1813BB640(__int64 a1, const char *a2, __int64 a3, __int64 a4)
+        using CCompositeMaterialManager_AddPanoramaPanelRenderRequest_Caller_t = __int64 __fastcall sub_1813BB640(*)(__int64 a1, const char *a2, __int64 a3, __int64 a4);
+        // __int64 sub_18074E1E0()
+        using CDecoyProjectile_t = __int64 sub_18074E1E0(*)();
+        // __int64 __fastcall sub_18104CEA0(__int64 a1, unsigned __int8 *a2)
+        using CEconItemSchema__GetAttributeDefinitionByName_t = __int64 __fastcall sub_18104CEA0(*)(__int64 a1, unsigned __int8 *a2);
+        // __int64 __fastcall sub_1810A8A60(__int64 *a1)
+        using CEconItemView__GetCustomPaintKitIndex_t = __int64 __fastcall sub_1810A8A60(*)(__int64 *a1);
+        // __int64 sub_180FE03F0()
+        using CFlashbangProjectile_t = __int64 sub_180FE03F0(*)();
+        // __int64 sub_18027EFD0()
+        using CFogController_t = __int64 sub_18027EFD0(*)();
+        // __int64 __fastcall sub_180968640(__int64 a1, __int64 a2, int a3)
+        using CGameEntitySystem__OnAddEntity_t = __int64 __fastcall sub_180968640(*)(__int64 a1, __int64 a2, int a3);
+        // __int64 __fastcall sub_180968EA0(__int64 a1, _QWORD *a2, int a3)
+        using CGameEntitySystem__OnRemoveEntity_t = __int64 __fastcall sub_180968EA0(*)(__int64 a1, _QWORD *a2, int a3);
+        // __int64 __fastcall sub_1801A38F0(int a1, __int64 a2)
+        using CGameSceneNode_t = __int64 __fastcall sub_1801A38F0(*)(int a1, __int64 a2);
+        // char __fastcall sub_18093FA40(__int64 a1, _QWORD *a2, char a3)
+        using CGameSceneNode_BuildBoneMergeWork_t = char __fastcall sub_18093FA40(*)(__int64 a1, _QWORD *a2, char a3);
+        // void __fastcall sub_18093E660(char a1)
+        using CGameSceneNode_PerformBatchedInvalidatePhysicsRecursive_t = void __fastcall sub_18093E660(*)(char a1);
+        // char __fastcall sub_18098C5E0(__int64 a1)
+        using CGameSceneNode_StartHierarchicalAttachment_t = char __fastcall sub_18098C5E0(*)(__int64 a1);
+        // bool __fastcall sub_18098EAA0(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4, _BYTE *a5, __int64 a6)
+        using CGameTrace_TraceShape_Client_t = bool __fastcall sub_18098EAA0(*)(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4, _BYTE *a5, __int64 a6);
+        // __int64 __fastcall sub_1802E11A0(int a1, __int64 a2, __int64 a3, __int64 a4)
+        using CGlowProperty_t = __int64 __fastcall sub_1802E11A0(*)(int a1, __int64 a2, __int64 a3, __int64 a4);
+        // __int64 __fastcall sub_180B0CD90(__int64 a1)
+        using CGlowProperty_OnGlowTypeChanged_t = __int64 __fastcall sub_180B0CD90(*)(__int64 a1);
+        // __int64 sub_180FE0490()
+        using CHEGrenadeProjectile_t = __int64 sub_180FE0490(*)();
         using CInputPtrGlobal_t = void(__fastcall*)(void*, ...);
-        using CMolotovProjectile_t = void(__fastcall*)(void*, ...);
-        using CPaintKitDefinitions_FindOrCreateByName_t = void(__fastcall*)(void*, ...);
-        using CPaintKitDefinitions_LoadDefaultKit_t = void(__fastcall*)(void*, ...);
-        using CPostProcessingVolume_t = void(__fastcall*)(void*, ...);
-        using CS2ItemEditor_BuildTemplateMaterialFromFile_t = void(__fastcall*)(void*, ...);
-        using CSBaseGunFireData_fn_t = void(__fastcall*)(void*, ...);
-        using CSGOInput_CreateMove_t = void(__fastcall*)(void*, ...);
+        // __int64 sub_18074E3C0()
+        using CMolotovProjectile_t = __int64 sub_18074E3C0(*)();
+        // char __fastcall sub_18105A690(__int64 a1, __int64 a2, char *a3, __int64 a4)
+        using CPaintKitDefinitions_FindOrCreateByName_t = char __fastcall sub_18105A690(*)(__int64 a1, __int64 a2, char *a3, __int64 a4);
+        // char __fastcall sub_18102C760(__int64 a1, KeyValues *a2, _DWORD *a3)
+        using CPaintKitDefinitions_LoadDefaultKit_t = char __fastcall sub_18102C760(*)(__int64 a1, KeyValues *a2, _DWORD *a3);
+        // __int64 sub_1802A3D60()
+        using CPostProcessingVolume_t = __int64 sub_1802A3D60(*)();
+        // CKeyValues_Data *__fastcall sub_1813BCA50(__int64 a1, const char *a2)
+        using CS2ItemEditor_BuildTemplateMaterialFromFile_t = CKeyValues_Data *__fastcall sub_1813BCA50(*)(__int64 a1, const char *a2);
+        // void __fastcall sub_1814E8140(__int64 a1)
+        using CSBaseGunFireData_fn_t = void __fastcall sub_1814E8140(*)(__int64 a1);
+        // double __fastcall sub_180C5E7F0(__int64 a1, unsigned int a2, __int64 a3)
+        using CSGOInput_CreateMove_t = double __fastcall sub_180C5E7F0(*)(__int64 a1, unsigned int a2, __int64 a3);
         using CSGOInput_ptr_t = void(__fastcall*)(void*, ...);
         using CSGOInput_resolved_t = void(__fastcall*)(void*, ...);
-        using CSkeletonInstance_t = void(__fastcall*)(void*, ...);
-        using CSkeletonInstance__SetMeshGroupMask_t = void(__fastcall*)(void*, ...);
-        using CSkeletonInstance_GetTransformsForHitboxList_t = void(__fastcall*)(void*, ...);
-        using CSkeletonInstance_OnBodyGroupChoiceChanged_t = void(__fastcall*)(void*, ...);
-        using CSkeletonInstance_OnSkeletonModelChanged_t = void(__fastcall*)(void*, ...);
-        using CSkeletonInstance_PostDataUpdate_t = void(__fastcall*)(void*, ...);
-        using CSkeletonInstance_SetMaterialGroup_t = void(__fastcall*)(void*, ...);
-        using CSkeletonInstance_SetMeshGroupMask_t = void(__fastcall*)(void*, ...);
-        using CSmokeGrenadeProjectile_t = void(__fastcall*)(void*, ...);
-        using CSource2Client_Shutdown_t = void(__fastcall*)(void*, ...);
-        using CTonemapController2_t = void(__fastcall*)(void*, ...);
-        using CUtlVector_CompositeMaterialInput_AddToTail_t = void(__fastcall*)(void*, ...);
-        using C_AttributeContainer_t = void(__fastcall*)(void*, ...);
-        using C_BaseEntity_t = void(__fastcall*)(void*, ...);
-        using C_BaseEntity_CheckPredictionForceReLatch_t = void(__fastcall*)(void*, ...);
-        using C_BaseEntity_ProcessInterpolatedList_t = void(__fastcall*)(void*, ...);
-        using C_BaseEntity_RestoreData_t = void(__fastcall*)(void*, ...);
-        using C_BaseEntity_SaveData_t = void(__fastcall*)(void*, ...);
-        using C_BaseModelEntity_t = void(__fastcall*)(void*, ...);
-        using C_BasePlayerPawn_t = void(__fastcall*)(void*, ...);
-        using C_C4_t = void(__fastcall*)(void*, ...);
-        using C_CSPlayerPawn_t = void(__fastcall*)(void*, ...);
-        using C_CSPlayerPawnBase_t = void(__fastcall*)(void*, ...);
-        using C_CSWeaponBase_t = void(__fastcall*)(void*, ...);
-        using C_CSWeaponBase_GetEconWpnData_t = void(__fastcall*)(void*, ...);
-        using C_EconEntity_BuildLegacyGloveSkinMaterial_t = void(__fastcall*)(void*, ...);
-        using C_EconEntity_BuildLegacyWeaponSkinMaterial_t = void(__fastcall*)(void*, ...);
-        using C_EconEntity_BuildModernWeaponSkinMaterial_t = void(__fastcall*)(void*, ...);
-        using C_EconEntity_BuildNametagOverlayMaterial_t = void(__fastcall*)(void*, ...);
-        using C_EconItemView_t = void(__fastcall*)(void*, ...);
-        using C_EconWearable_OnNewCustomMaterials_t = void(__fastcall*)(void*, ...);
-        using C_Hostage_t = void(__fastcall*)(void*, ...);
-        using C_Inferno_t = void(__fastcall*)(void*, ...);
-        using C_PlantedC4_t = void(__fastcall*)(void*, ...);
-        using C_SmokeGrenadeProjectile_t = void(__fastcall*)(void*, ...);
+        // __int64 __fastcall sub_1801A3A20(int a1, __int64 a2)
+        using CSkeletonInstance_t = __int64 __fastcall sub_1801A3A20(*)(int a1, __int64 a2);
+        // __int64 __fastcall sub_180A2DB50(__int64 a1, __int64 a2)
+        using CSkeletonInstance__SetMeshGroupMask_t = __int64 __fastcall sub_180A2DB50(*)(__int64 a1, __int64 a2);
+        // char __fastcall sub_180A1A6C0(__int64 a1, __int64 a2, int *a3)
+        using CSkeletonInstance_GetTransformsForHitboxList_t = char __fastcall sub_180A1A6C0(*)(__int64 a1, __int64 a2, int *a3);
+        // __int64 __fastcall sub_180A25310(__int64 a1, __int64 a2, int a3, _DWORD *a4)
+        using CSkeletonInstance_OnBodyGroupChoiceChanged_t = __int64 __fastcall sub_180A25310(*)(__int64 a1, __int64 a2, int a3, _DWORD *a4);
+        // __int64 __fastcall sub_180A25520(__int64 a1, __int64 a2, __int64 *a3)
+        using CSkeletonInstance_OnSkeletonModelChanged_t = __int64 __fastcall sub_180A25520(*)(__int64 a1, __int64 a2, __int64 *a3);
+        // char __fastcall sub_180A264B0(__int64 a1, __int64 a2, __int64 a3)
+        using CSkeletonInstance_PostDataUpdate_t = char __fastcall sub_180A264B0(*)(__int64 a1, __int64 a2, __int64 a3);
+        // void __fastcall sub_180A2C830(__int64 a1, unsigned int a2)
+        using CSkeletonInstance_SetMaterialGroup_t = void __fastcall sub_180A2C830(*)(__int64 a1, unsigned int a2);
+        // void __fastcall sub_180A25480(__int64 a1, __int64 a2, _QWORD *a3)
+        using CSkeletonInstance_SetMeshGroupMask_t = void __fastcall sub_180A25480(*)(__int64 a1, __int64 a2, _QWORD *a3);
+        // __int64 sub_18074E460()
+        using CSmokeGrenadeProjectile_t = __int64 sub_18074E460(*)();
+        // __int64 sub_180AE5B90()
+        using CSource2Client_Shutdown_t = __int64 sub_180AE5B90(*)();
+        // __int64 sub_180257C90()
+        using CTonemapController2_t = __int64 sub_180257C90(*)();
+        // __int64 __fastcall sub_180789C50(int *a1, __int64 a2)
+        using CUtlVector_CompositeMaterialInput_AddToTail_t = __int64 __fastcall sub_180789C50(*)(int *a1, __int64 a2);
+        // __int64 __fastcall sub_180C18BB0(int a1, _QWORD *a2)
+        using C_AttributeContainer_t = __int64 __fastcall sub_180C18BB0(*)(int a1, _QWORD *a2);
+        // __int64 (__fastcall *sub_18004E260())()
+        using C_BaseEntity_t = __int64(*)(__fastcall *sub_18004E260())();
+        // __int64 __fastcall sub_180B47910(__int64 a1, __int64 a2)
+        using C_BaseEntity_CheckPredictionForceReLatch_t = __int64 __fastcall sub_180B47910(*)(__int64 a1, __int64 a2);
+        // __int64 __fastcall sub_180A6BDD0(__int64 a1, unsigned int a2, int a3, unsigned int a4)
+        using C_BaseEntity_ProcessInterpolatedList_t = __int64 __fastcall sub_180A6BDD0(*)(__int64 a1, unsigned int a2, int a3, unsigned int a4);
+        // void __fastcall sub_180A71610(__int64 a1, const char *a2, unsigned int a3, int a4)
+        using C_BaseEntity_RestoreData_t = void __fastcall sub_180A71610(*)(__int64 a1, const char *a2, unsigned int a3, int a4);
+        // void __fastcall sub_180A71820(_QWORD *a1, const char *a2, __int64 a3, int a4, int a5, unsigned int a6, __int64 a7)
+        using C_BaseEntity_SaveData_t = void __fastcall sub_180A71820(*)(_QWORD *a1, const char *a2, __int64 a3, int a4, int a5, unsigned int a6, __int64 a7);
+        // __int64 __fastcall sub_180158010(int a1, _QWORD *a2)
+        using C_BaseModelEntity_t = __int64 __fastcall sub_180158010(*)(int a1, _QWORD *a2);
+        // __int64 (__fastcall *sub_18006DA20())()
+        using C_BasePlayerPawn_t = __int64(*)(__fastcall *sub_18006DA20())();
+        // __int64 (__fastcall *sub_18009A420())()
+        using C_C4_t = __int64(*)(__fastcall *sub_18009A420())();
+        // __int64 __fastcall sub_1806C2430(int a1, _QWORD *a2)
+        using C_CSPlayerPawn_t = __int64 __fastcall sub_1806C2430(*)(int a1, _QWORD *a2);
+        // __int64 *sub_180BD7140()
+        using C_CSPlayerPawnBase_t = __int64 *sub_180BD7140(*)();
+        // _QWORD *__fastcall sub_180742170(int a1, _QWORD *a2)
+        using C_CSWeaponBase_t = _QWORD *__fastcall sub_180742170(*)(int a1, _QWORD *a2);
+        // __int64 __fastcall sub_180795180(__int64 a1)
+        using C_CSWeaponBase_GetEconWpnData_t = __int64 __fastcall sub_180795180(*)(__int64 a1);
+        // void __fastcall sub_180BC1460(int *a1)
+        using C_EconEntity_BuildLegacyGloveSkinMaterial_t = void __fastcall sub_180BC1460(*)(int *a1);
+        // void __fastcall sub_18078C2A0(__int64 a1, char a2)
+        using C_EconEntity_BuildLegacyWeaponSkinMaterial_t = void __fastcall sub_18078C2A0(*)(__int64 a1, char a2);
+        // void __fastcall sub_180D84F90(__int64 a1, _QWORD *a2, __int64 a3, int a4, char a5, char a6, __int64 a7)
+        using C_EconEntity_BuildModernWeaponSkinMaterial_t = void __fastcall sub_180D84F90(*)(__int64 a1, _QWORD *a2, __int64 a3, int a4, char a5, char a6, __int64 a7);
+        // char __fastcall sub_18078B070(__int64 a1, __int64 a2)
+        using C_EconEntity_BuildNametagOverlayMaterial_t = char __fastcall sub_18078B070(*)(__int64 a1, __int64 a2);
+        // _QWORD *__fastcall sub_18070B570(int a1, _QWORD *a2)
+        using C_EconItemView_t = _QWORD *__fastcall sub_18070B570(*)(int a1, _QWORD *a2);
+        // __int64 __fastcall sub_1810B9090(__int64 a1, char a2)
+        using C_EconWearable_OnNewCustomMaterials_t = __int64 __fastcall sub_1810B9090(*)(__int64 a1, char a2);
+        // __int64 (__fastcall *sub_1800E7480())()
+        using C_Hostage_t = __int64(*)(__fastcall *sub_1800E7480())();
+        // __int64 (__fastcall *sub_1800F7440())()
+        using C_Inferno_t = __int64(*)(__fastcall *sub_1800F7440())();
+        // __int64 (__fastcall *sub_1800F07A0())()
+        using C_PlantedC4_t = __int64(*)(__fastcall *sub_1800F07A0())();
+        // __int64 (__fastcall *sub_180095A10())()
+        using C_SmokeGrenadeProjectile_t = __int64(*)(__fastcall *sub_180095A10())();
         using CacheParticleEffect_t = void(__fastcall*)(void*, ...);
         using CalcSpread_t = void(__fastcall*)(void*, ...);
-        using CalcViewmodel_t = void(__fastcall*)(void*, ...);
-        using CalcViewmodelTransform_v2_t = void(__fastcall*)(void*, ...);
-        using CalcViewmodelView_t = void(__fastcall*)(void*, ...);
-        using CalculateInterpolation_t = void(__fastcall*)(void*, ...);
-        using CalculateWorldSpaceBones_t = void(__fastcall*)(void*, ...);
-        using ClearHUDWeaponIcon_t = void(__fastcall*)(void*, ...);
-        using ClientModeCSNormal_OnEvent_t = void(__fastcall*)(void*, ...);
+        // void __fastcall sub_18084F430(__int64 a1, float *a2, float *a3)
+        using CalcViewmodel_t = void __fastcall sub_18084F430(*)(__int64 a1, float *a2, float *a3);
+        // __int64 __fastcall sub_1807A24F0(__int64 a1, __int64 a2)
+        using CalcViewmodelTransform_v2_t = __int64 __fastcall sub_1807A24F0(*)(__int64 a1, __int64 a2);
+        // __int64 __fastcall sub_180C6BF20(__int64 a1, __int64 a2, _DWORD *a3)
+        using CalcViewmodelView_t = __int64 __fastcall sub_180C6BF20(*)(__int64 a1, __int64 a2, _DWORD *a3);
+        // int *__fastcall sub_1814C7E70(__int64 a1, int *a2)
+        using CalculateInterpolation_t = int *__fastcall sub_1814C7E70(*)(__int64 a1, int *a2);
+        // void __fastcall sub_180A0B070(__int64 a1, unsigned int a2)
+        using CalculateWorldSpaceBones_t = void __fastcall sub_180A0B070(*)(__int64 a1, unsigned int a2);
+        // __int64 __fastcall sub_180DEDDD0(__int64 a1, int a2, __int64 a3)
+        using ClearHUDWeaponIcon_t = __int64 __fastcall sub_180DEDDD0(*)(__int64 a1, int a2, __int64 a3);
+        // void __fastcall sub_180C5C660(__int64 a1, KeyValues *a2)
+        using ClientModeCSNormal_OnEvent_t = void __fastcall sub_180C5C660(*)(__int64 a1, KeyValues *a2);
         using ClientMode_ptr_t = void(__fastcall*)(void*, ...);
-        using Client_DispatchSpawn_t = void(__fastcall*)(void*, ...);
-        using CompositeMaterialPanoramaPanel_Init_t = void(__fastcall*)(void*, ...);
-        using ComputeRandomSeed_t = void(__fastcall*)(void*, ...);
-        using ConCommand_firstperson_t = void(__fastcall*)(void*, ...);
-        using ConCommand_thirdperson_t = void(__fastcall*)(void*, ...);
-        using ConvarGet_t = void(__fastcall*)(void*, ...);
-        using CreateBaseTypeCache_t = void(__fastcall*)(void*, ...);
-        using CreateEntityByClassName_t = void(__fastcall*)(void*, ...);
-        using CreateInterface_t = void(__fastcall*)(void*, ...);
-        using CreateNewSubtickMoveStep_t = void(__fastcall*)(void*, ...);
-        using CreateParticleEffect_t = void(__fastcall*)(void*, ...);
-        using CreateSOSubclassEconItem_t = void(__fastcall*)(void*, ...);
-        using DamageFeedbackEmitter_t = void(__fastcall*)(void*, ...);
-        using DestroyParticle_t = void(__fastcall*)(void*, ...);
-        using DispatchEffect_t = void(__fastcall*)(void*, ...);
-        using DispatchSpawn_caller_t = void(__fastcall*)(void*, ...);
-        using DrawCrosshair_t = void(__fastcall*)(void*, ...);
-        using DrawLegs_t = void(__fastcall*)(void*, ...);
-        using DrawOverHead_t = void(__fastcall*)(void*, ...);
-        using DrawScopeOverlay_t = void(__fastcall*)(void*, ...);
-        using DrawSmokeVertex_t = void(__fastcall*)(void*, ...);
-        using EmitSoundByHandle_t = void(__fastcall*)(void*, ...);
-        using FX_FireBullets_t = void(__fastcall*)(void*, ...);
-        using FX_FireBullets_t = void(__fastcall*)(void*, ...);
-        using FindHudElement_t = void(__fastcall*)(void*, ...);
-        using FindHudElement_panorama_t = void(__fastcall*)(void*, ...);
-        using FindSOCache_t = void(__fastcall*)(void*, ...);
-        using FirstPersonLegs_t = void(__fastcall*)(void*, ...);
-        using FlashOverlay_t = void(__fastcall*)(void*, ...);
-        using ForceButtonsDown_t = void(__fastcall*)(void*, ...);
+        // __int64 __fastcall sub_1814D5B10(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4)
+        using Client_DispatchSpawn_t = __int64 __fastcall sub_1814D5B10(*)(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4);
+        // __int64 __fastcall sub_180B91260(__int64 a1, __int64 a2, __int64 a3)
+        using CompositeMaterialPanoramaPanel_Init_t = __int64 __fastcall sub_180B91260(*)(__int64 a1, __int64 a2, __int64 a3);
+        // __int64 __fastcall sub_180C7E2D0(__int64 a1, __int64 a2, int a3)
+        using ComputeRandomSeed_t = __int64 __fastcall sub_180C7E2D0(*)(__int64 a1, __int64 a2, int a3);
+        // __int64 sub_180ACA2B0()
+        using ConCommand_firstperson_t = __int64 sub_180ACA2B0(*)();
+        // __int64 sub_180ACA390()
+        using ConCommand_thirdperson_t = __int64 sub_180ACA390(*)();
+        // void __fastcall sub_1808BE720(__int64 a1, unsigned int *a2)
+        using ConvarGet_t = void __fastcall sub_1808BE720(*)(__int64 a1, unsigned int *a2);
+        // __int64 __fastcall sub_181510EA0(__int64 a1, unsigned int a2)
+        using CreateBaseTypeCache_t = __int64 __fastcall sub_181510EA0(*)(__int64 a1, unsigned int a2);
+        // __int64 __fastcall sub_181604AB0(__int64 a1, int a2, __int64 a3, __int64 a4)
+        using CreateEntityByClassName_t = __int64 __fastcall sub_181604AB0(*)(__int64 a1, int a2, __int64 a3, __int64 a4);
+        // __int64 __fastcall CreateInterface(__int64 a1, _DWORD *a2)
+        using CreateInterface_t = __int64 __fastcall CreateInterface(*)(__int64 a1, _DWORD *a2);
+        // __int64 __fastcall sub_1804B1D80(__int64 a1)
+        using CreateNewSubtickMoveStep_t = __int64 __fastcall sub_1804B1D80(*)(__int64 a1);
+        // __int64 __fastcall sub_180987020(int a1, int a2, int a3, __int64 a4, int a5)
+        using CreateParticleEffect_t = __int64 __fastcall sub_180987020(*)(int a1, int a2, int a3, __int64 a4, int a5);
+        // __int64 sub_180FF7770()
+        using CreateSOSubclassEconItem_t = __int64 sub_180FF7770(*)();
+        // void __fastcall sub_18081FB40(__int64 a1, _QWORD *a2, __int64 a3)
+        using DamageFeedbackEmitter_t = void __fastcall sub_18081FB40(*)(__int64 a1, _QWORD *a2, __int64 a3);
+        // void __fastcall sub_1809463E0(__int64 a1, __int64 a2, unsigned __int8 a3, char a4)
+        using DestroyParticle_t = void __fastcall sub_1809463E0(*)(__int64 a1, __int64 a2, unsigned __int8 a3, char a4);
+        // __int64 __fastcall sub_18035A570(__int64 a1, __int64 a2)
+        using DispatchEffect_t = __int64 __fastcall sub_18035A570(*)(__int64 a1, __int64 a2);
+        // __int64 __fastcall sub_1814D5B10(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4)
+        using DispatchSpawn_caller_t = __int64 __fastcall sub_1814D5B10(*)(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4);
+        // bool __fastcall sub_1807B0BF0(_QWORD *a1)
+        using DrawCrosshair_t = bool __fastcall sub_1807B0BF0(*)(_QWORD *a1);
+        // void __fastcall sub_1810F0410(__int64 *a1, __int64 *a2, __int64 a3, __int64 a4, __int64 a5)
+        using DrawLegs_t = void __fastcall sub_1810F0410(*)(__int64 *a1, __int64 *a2, __int64 a3, __int64 a4, __int64 a5);
+        // unsigned __int8 __fastcall sub_180A66CF0(__int64 a1, unsigned int a2)
+        using DrawOverHead_t = unsigned __int8 __fastcall sub_180A66CF0(*)(__int64 a1, unsigned int a2);
+        // __int64 __fastcall sub_18085D530(__int64 a1, __int64 a2)
+        using DrawScopeOverlay_t = __int64 __fastcall sub_18085D530(*)(__int64 a1, __int64 a2);
+        // __int64 __fastcall sub_180C7B290(__int64 a1, __int64 a2, int a3, int a4, __int64 a5, __int64 a6)
+        using DrawSmokeVertex_t = __int64 __fastcall sub_180C7B290(*)(__int64 a1, __int64 a2, int a3, int a4, __int64 a5, __int64 a6);
+        // __int64 __fastcall sub_180B63B10(__int64 a1, int a2, int a3, __int64 a4)
+        using EmitSoundByHandle_t = __int64 __fastcall sub_180B63B10(*)(__int64 a1, int a2, int a3, __int64 a4);
+        // void sub_180C7E380(unsigned int a1, __int64 a2, __int64 a3, __int64 *a4, __int64 a5, int a6, int a7, ...)
+        using FX_FireBullets_t = void sub_180C7E380(*)(unsigned int a1, __int64 a2, __int64 a3, __int64 *a4, __int64 a5, int a6, int a7, ...);
+        // void sub_180C7E380(unsigned int a1, __int64 a2, __int64 a3, __int64 *a4, __int64 a5, int a6, int a7, ...)
+        using FX_FireBullets_t = void sub_180C7E380(*)(unsigned int a1, __int64 a2, __int64 a3, __int64 *a4, __int64 a5, int a6, int a7, ...);
+        // _QWORD **__fastcall sub_180DC1D50(__int64 a1, unsigned __int8 a2)
+        using FindHudElement_t = _QWORD **__fastcall sub_180DC1D50(*)(__int64 a1, unsigned __int8 a2);
+        // __int64 __fastcall sub_180DC3E70(const char *a1)
+        using FindHudElement_panorama_t = __int64 __fastcall sub_180DC3E70(*)(const char *a1);
+        // __int64 __fastcall sub_18181F080(__int64 a1, int *a2, __int64 a3, __int64 a4)
+        using FindSOCache_t = __int64 __fastcall sub_18181F080(*)(__int64 a1, int *a2, __int64 a3, __int64 a4);
+        // void __fastcall sub_1810F0410(__int64 *a1, __int64 *a2, __int64 a3, __int64 a4, __int64 a5)
+        using FirstPersonLegs_t = void __fastcall sub_1810F0410(*)(__int64 *a1, __int64 *a2, __int64 a3, __int64 a4, __int64 a5);
+        // void __fastcall sub_180DAB2C0(__int64 a1, int a2)
+        using FlashOverlay_t = void __fastcall sub_180DAB2C0(*)(__int64 a1, int a2);
+        // void __fastcall sub_1809D0130(_QWORD *a1, __int64 a2)
+        using ForceButtonsDown_t = void __fastcall sub_1809D0130(*)(_QWORD *a1, __int64 a2);
         using GameEntitySystemPtr_t = void(__fastcall*)(void*, ...);
-        using GameEventManager_AddListener_t = void(__fastcall*)(void*, ...);
-        using GameEventManager_UnserializeEvent_t = void(__fastcall*)(void*, ...);
+        // __int64 __fastcall sub_180939FF0(__int64 a1, __int64 a2, const char *a3, unsigned __int8 a4)
+        using GameEventManager_AddListener_t = __int64 __fastcall sub_180939FF0(*)(__int64 a1, __int64 a2, const char *a3, unsigned __int8 a4);
+        // __int64 __fastcall sub_180992900(__int64 a1, __int64 a2)
+        using GameEventManager_UnserializeEvent_t = __int64 __fastcall sub_180992900(*)(__int64 a1, __int64 a2);
         using GameRules_ptr_t = void(__fastcall*)(void*, ...);
         using GetBBox_ptr_t = void(__fastcall*)(void*, ...);
-        using GetBaseEntity_t = void(__fastcall*)(void*, ...);
-        using GetBonePositionByName_t = void(__fastcall*)(void*, ...);
-        using GetChatObject_t = void(__fastcall*)(void*, ...);
-        using GetClientSystem_t = void(__fastcall*)(void*, ...);
-        using GetControllerCmd_t = void(__fastcall*)(void*, ...);
-        using GetEconItemSystem_t = void(__fastcall*)(void*, ...);
-        using GetEntityByIndex_t = void(__fastcall*)(void*, ...);
-        using GetEntityHandle_t = void(__fastcall*)(void*, ...);
-        using GetGlowColor_t = void(__fastcall*)(void*, ...);
-        using GetHitGroup_t = void(__fastcall*)(void*, ...);
+        // __int64 __fastcall sub_180967600(__int64 a1, int a2)
+        using GetBaseEntity_t = __int64 __fastcall sub_180967600(*)(__int64 a1, int a2);
+        // __int64 __fastcall sub_1808C81E0(__int64 a1, __int64 a2)
+        using GetBonePositionByName_t = __int64 __fastcall sub_1808C81E0(*)(__int64 a1, __int64 a2);
+        // __int64 sub_1810C3670()
+        using GetChatObject_t = __int64 sub_1810C3670(*)();
+        // __int64 *sub_181036570()
+        using GetClientSystem_t = __int64 *sub_181036570(*)();
+        // __int64 __fastcall sub_1808BDC00(__int64 a1, int a2)
+        using GetControllerCmd_t = __int64 __fastcall sub_1808BDC00(*)(__int64 a1, int a2);
+        // __int64 sub_180379830()
+        using GetEconItemSystem_t = __int64 sub_180379830(*)();
+        // __int64 __fastcall sub_180967600(__int64 a1, int a2)
+        using GetEntityByIndex_t = __int64 __fastcall sub_180967600(*)(__int64 a1, int a2);
+        // __int64 __fastcall sub_18094E8D0(__int64 a1)
+        using GetEntityHandle_t = __int64 __fastcall sub_18094E8D0(*)(__int64 a1);
+        // void __fastcall sub_180B0ABC0(__int64 a1, float *a2)
+        using GetGlowColor_t = void __fastcall sub_180B0ABC0(*)(__int64 a1, float *a2);
+        // __int64 __fastcall sub_180A17C40(__int64 a1)
+        using GetHitGroup_t = __int64 __fastcall sub_180A17C40(*)(__int64 a1);
         using GetInstanceS_t = void(__fastcall*)(void*, ...);
-        using GetInt2_Event_t = void(__fastcall*)(void*, ...);
-        using GetInventoryManager_t = void(__fastcall*)(void*, ...);
-        using GetLocalControllerById_t = void(__fastcall*)(void*, ...);
-        using GetLocalPawn_t = void(__fastcall*)(void*, ...);
-        using GetLocalPlayer_dispatcher_t = void(__fastcall*)(void*, ...);
-        using GetMatrixForView_t = void(__fastcall*)(void*, ...);
-        using GetPlayerByIndex_export_t = void(__fastcall*)(void*, ...);
-        using GetPlayerInterp_t = void(__fastcall*)(void*, ...);
-        using GetRemovedAimPunch_E8_t = void(__fastcall*)(void*, ...);
-        using GetRemovedAimpunch_t = void(__fastcall*)(void*, ...);
-        using GetSurfaceData_t = void(__fastcall*)(void*, ...);
-        using GetTickBase_t = void(__fastcall*)(void*, ...);
-        using GetTraceInfo_t = void(__fastcall*)(void*, ...);
-        using GetUserCmdManager_t = void(__fastcall*)(void*, ...);
-        using GetViewAngles_t = void(__fastcall*)(void*, ...);
-        using GetWeaponInAccuracyRecoveryTime_t = void(__fastcall*)(void*, ...);
-        using GetWorldFovResolver_t = void(__fastcall*)(void*, ...);
-        using GlobalLightUpdateState_t = void(__fastcall*)(void*, ...);
+        // __int64 __fastcall sub_1804AAB40(__int64 a1, unsigned int a2, int a3)
+        using GetInt2_Event_t = __int64 __fastcall sub_1804AAB40(*)(__int64 a1, unsigned int a2, int a3);
+        // __int64 *sub_1807C6430()
+        using GetInventoryManager_t = __int64 *sub_1807C6430(*)();
+        // __int64 __fastcall sub_1808E1070(int a1)
+        using GetLocalControllerById_t = __int64 __fastcall sub_1808E1070(*)(int a1);
+        // __int64 __fastcall sub_1808E1070(int a1)
+        using GetLocalPawn_t = __int64 __fastcall sub_1808E1070(*)(int a1);
+        // __int64 sub_180379200()
+        using GetLocalPlayer_dispatcher_t = __int64 sub_180379200(*)();
+        // double __fastcall sub_180169C50(__int64 a1, __int64 a2, __int64 a3)
+        using GetMatrixForView_t = double __fastcall sub_180169C50(*)(__int64 a1, __int64 a2, __int64 a3);
+        // __int64 sub_180F00910()
+        using GetPlayerByIndex_export_t = __int64 sub_180F00910(*)();
+        // float __fastcall sub_1808B9460(__int64 a1)
+        using GetPlayerInterp_t = float __fastcall sub_1808B9460(*)(__int64 a1);
+        // __int64 __fastcall sub_18084D6E0(__int64 a1, __int64 a2)
+        using GetRemovedAimPunch_E8_t = __int64 __fastcall sub_18084D6E0(*)(__int64 a1, __int64 a2);
+        // __int64 sub_1801128E0()
+        using GetRemovedAimpunch_t = __int64 sub_1801128E0(*)();
+        // __int64 __fastcall sub_180953540(__int64 a1)
+        using GetSurfaceData_t = __int64 __fastcall sub_180953540(*)(__int64 a1);
+        // __int64 __fastcall sub_1808BDA00(__int64 a1)
+        using GetTickBase_t = __int64 __fastcall sub_1808BDA00(*)(__int64 a1);
+        // __int64 __fastcall sub_180806F50(__int64 a1, __int64 a2, float a3, unsigned __int64 *a4)
+        using GetTraceInfo_t = __int64 __fastcall sub_180806F50(*)(__int64 a1, __int64 a2, float a3, unsigned __int64 *a4);
+        // __int64 __fastcall sub_1808BDC90(__int64 a1)
+        using GetUserCmdManager_t = __int64 __fastcall sub_1808BDC90(*)(__int64 a1);
+        // __int64 *__fastcall sub_180AD5CA0(__int64 a1, int a2)
+        using GetViewAngles_t = __int64 *__fastcall sub_180AD5CA0(*)(__int64 a1, int a2);
+        // __m128 __fastcall sub_180796600(__int64 a1)
+        using GetWeaponInAccuracyRecoveryTime_t = __m128 __fastcall sub_180796600(*)(__int64 a1);
+        // float __fastcall sub_18080CEF0(__int64 a1)
+        using GetWorldFovResolver_t = float __fastcall sub_18080CEF0(*)(__int64 a1);
+        // _BYTE *__fastcall sub_180A8B5A0(__int64 a1)
+        using GlobalLightUpdateState_t = _BYTE *__fastcall sub_180A8B5A0(*)(__int64 a1);
         using GlobalVariables_ptr_t = void(__fastcall*)(void*, ...);
-        using GloveApply_PerTick_t = void(__fastcall*)(void*, ...);
+        // void __fastcall sub_180BC1460(int *a1)
+        using GloveApply_PerTick_t = void __fastcall sub_180BC1460(*)(int *a1);
         using GlowManager_ptr_t = void(__fastcall*)(void*, ...);
-        using GlowObjectManager_GetInstance_t = void(__fastcall*)(void*, ...);
-        using HandleBulletPenetration_t = void(__fastcall*)(void*, ...);
-        using HandleEntityList_t = void(__fastcall*)(void*, ...);
-        using HandleTeamIntro_t = void(__fastcall*)(void*, ...);
-        using HudChatPrintf_t = void(__fastcall*)(void*, ...);
-        using InfoForResourceTypeCCompositeMaterialKit_TypeManager_t = void(__fastcall*)(void*, ...);
-        using InfoForResourceTypeCCompositeMaterial_TypeManager_t = void(__fastcall*)(void*, ...);
-        using InitFilter_t = void(__fastcall*)(void*, ...);
-        using InitPlayerMovementTraceFilter_t = void(__fastcall*)(void*, ...);
-        using InitTraceInfo_t = void(__fastcall*)(void*, ...);
-        using IsGlowing_t = void(__fastcall*)(void*, ...);
-        using KillFeedbackEmitter_t = void(__fastcall*)(void*, ...);
-        using LevelInit_t = void(__fastcall*)(void*, ...);
-        using LoadFileForMe_t = void(__fastcall*)(void*, ...);
-        using LoadPath_t = void(__fastcall*)(void*, ...);
+        // __int64 sub_180B0ACD0()
+        using GlowObjectManager_GetInstance_t = __int64 sub_180B0ACD0(*)();
+        // char __fastcall sub_1808211F0(__int64 a1, float *a2, __int64 a3, int a4, __int64 a5)
+        using HandleBulletPenetration_t = char __fastcall sub_1808211F0(*)(__int64 a1, float *a2, __int64 a3, int a4, __int64 a5);
+        // __int64 __fastcall sub_1801C3700(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, int a6, int a7)
+        using HandleEntityList_t = __int64 __fastcall sub_1801C3700(*)(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, int a6, int a7);
+        // void __fastcall sub_180703EB0(__int64 a1, __int64 a2, char *a3)
+        using HandleTeamIntro_t = void __fastcall sub_180703EB0(*)(__int64 a1, __int64 a2, char *a3);
+        // __int64 sub_1810C10F0(__int64 a1, unsigned int a2, __int64 a3, ...)
+        using HudChatPrintf_t = __int64 sub_1810C10F0(*)(__int64 a1, unsigned int a2, __int64 a3, ...);
+        // __int64 __fastcall sub_1813D90B0(int a1, __int64 a2)
+        using InfoForResourceTypeCCompositeMaterialKit_TypeManager_t = __int64 __fastcall sub_1813D90B0(*)(int a1, __int64 a2);
+        // __int64 __fastcall sub_1813D9600(int a1, __int64 a2)
+        using InfoForResourceTypeCCompositeMaterial_TypeManager_t = __int64 __fastcall sub_1813D9600(*)(int a1, __int64 a2);
+        // __int64 __fastcall sub_18032BBF0(__int64 a1, _DWORD *a2, __int64 a3, char a4, char a5)
+        using InitFilter_t = __int64 __fastcall sub_18032BBF0(*)(__int64 a1, _DWORD *a2, __int64 a3, char a4, char a5);
+        // __int64 __fastcall sub_180840660(__int64 a1, _DWORD *a2, __int64 a3, char a4)
+        using InitPlayerMovementTraceFilter_t = __int64 __fastcall sub_180840660(*)(__int64 a1, _DWORD *a2, __int64 a3, char a4);
+        // __int64 __fastcall sub_1815FC2A0(__int64 a1)
+        using InitTraceInfo_t = __int64 __fastcall sub_1815FC2A0(*)(__int64 a1);
+        // __int64 __fastcall sub_180B0C300(__int64 a1)
+        using IsGlowing_t = __int64 __fastcall sub_180B0C300(*)(__int64 a1);
+        // __int64 __fastcall sub_18084B0F0(__int64 a1, __int64 a2)
+        using KillFeedbackEmitter_t = __int64 __fastcall sub_18084B0F0(*)(__int64 a1, __int64 a2);
+        // __int64 __fastcall sub_1808D0100(__int64 a1)
+        using LevelInit_t = __int64 __fastcall sub_1808D0100(*)(__int64 a1);
+        // void __fastcall sub_18091BF40(__int64 a1)
+        using LoadFileForMe_t = void __fastcall sub_18091BF40(*)(__int64 a1);
+        // void __fastcall sub_1806BB200(signed int *a1, signed int a2, unsigned int a3)
+        using LoadPath_t = void __fastcall sub_1806BB200(*)(signed int *a1, signed int a2, unsigned int a3);
         using LocalPlayerController_ptr_t = void(__fastcall*)(void*, ...);
-        using LookupBone_t = void(__fastcall*)(void*, ...);
-        using ModulationUpdate_t = void(__fastcall*)(void*, ...);
-        using NoClipOnChange_t = void(__fastcall*)(void*, ...);
-        using NoSpread1_t = void(__fastcall*)(void*, ...);
-        using ParticleCollection_t = void(__fastcall*)(void*, ...);
+        // __int64 __fastcall sub_1808C81E0(__int64 a1, __int64 a2)
+        using LookupBone_t = __int64 __fastcall sub_1808C81E0(*)(__int64 a1, __int64 a2);
+        // __int64 __fastcall sub_1809DA450(__int64 a1, char a2)
+        using ModulationUpdate_t = __int64 __fastcall sub_1809DA450(*)(__int64 a1, char a2);
+        // __int64 __fastcall sub_180166C00(__int64 a1)
+        using NoClipOnChange_t = __int64 __fastcall sub_180166C00(*)(__int64 a1);
+        // __int64 __fastcall sub_180C7E2D0(__int64 a1, __int64 a2, int a3)
+        using NoSpread1_t = __int64 __fastcall sub_180C7E2D0(*)(__int64 a1, __int64 a2, int a3);
+        // __int64 __fastcall sub_1801F4D90(__int64 a1)
+        using ParticleCollection_t = __int64 __fastcall sub_1801F4D90(*)(__int64 a1);
         using ParticleManager_ptr_t = void(__fastcall*)(void*, ...);
-        using PhysicsRunThink_Ctrl_t = void(__fastcall*)(void*, ...);
-        using PhysicsRunThink_Pawn_t = void(__fastcall*)(void*, ...);
-        using PlayVSound_client_t = void(__fastcall*)(void*, ...);
+        // __int64 __fastcall sub_1808D7310(__int64 a1)
+        using PhysicsRunThink_Ctrl_t = __int64 __fastcall sub_1808D7310(*)(__int64 a1);
+        // char __fastcall sub_180B0ED50(__int64 a1)
+        using PhysicsRunThink_Pawn_t = char __fastcall sub_180B0ED50(*)(__int64 a1);
+        // __int64 __fastcall sub_18150ED00(__int64 a1)
+        using PlayVSound_client_t = __int64 __fastcall sub_18150ED00(*)(__int64 a1);
         using Prediction_ptr_t = void(__fastcall*)(void*, ...);
-        using ProcessImpacts_t = void(__fastcall*)(void*, ...);
-        using ProcessMovement_t = void(__fastcall*)(void*, ...);
-        using RegenerateWeaponSkin_t = void(__fastcall*)(void*, ...);
-        using RegenerateWeaponSkin_v2_t = void(__fastcall*)(void*, ...);
-        using RegenerateWeaponSkins_t = void(__fastcall*)(void*, ...);
-        using RenderDecals_t = void(__fastcall*)(void*, ...);
-        using ReportHit_t = void(__fastcall*)(void*, ...);
-        using RunCommand_t = void(__fastcall*)(void*, ...);
-        using RunCommand_processor_t = void(__fastcall*)(void*, ...);
-        using Scope_callsite_t = void(__fastcall*)(void*, ...);
-        using SendChatMessage_t = void(__fastcall*)(void*, ...);
+        // __int64 __fastcall sub_1809CEA50(_QWORD *a1, __int64 a2, __int64 a3)
+        using ProcessImpacts_t = __int64 __fastcall sub_1809CEA50(*)(_QWORD *a1, __int64 a2, __int64 a3);
+        // __int64 __fastcall sub_1809D9A30(__int64 a1, __int64 a2)
+        using ProcessMovement_t = __int64 __fastcall sub_1809D9A30(*)(__int64 a1, __int64 a2);
+        // void __fastcall sub_18078C2A0(__int64 a1, char a2)
+        using RegenerateWeaponSkin_t = void __fastcall sub_18078C2A0(*)(__int64 a1, char a2);
+        // void __fastcall sub_18078C2A0(__int64 a1, char a2)
+        using RegenerateWeaponSkin_v2_t = void __fastcall sub_18078C2A0(*)(__int64 a1, char a2);
+        // __int64 sub_1807B0D40()
+        using RegenerateWeaponSkins_t = __int64 sub_1807B0D40(*)();
+        // _BYTE *__fastcall sub_1810ECA50(__int64 a1, __int64 **a2, char a3, char a4)
+        using RenderDecals_t = _BYTE *__fastcall sub_1810ECA50(*)(__int64 a1, __int64 **a2, char a3, char a4);
+        // char __fastcall sub_180602290(_QWORD *a1)
+        using ReportHit_t = char __fastcall sub_180602290(*)(_QWORD *a1);
+        // void __fastcall sub_1809DBAF0(__int64 a1, __int64 a2)
+        using RunCommand_t = void __fastcall sub_1809DBAF0(*)(__int64 a1, __int64 a2);
+        // void __fastcall sub_1809DBAF0(__int64 a1, __int64 a2)
+        using RunCommand_processor_t = void __fastcall sub_1809DBAF0(*)(__int64 a1, __int64 a2);
+        // __int64 __fastcall sub_18085D530(__int64 a1, __int64 a2)
+        using Scope_callsite_t = __int64 __fastcall sub_18085D530(*)(__int64 a1, __int64 a2);
+        // __int64 sub_1810C10F0(__int64 a1, unsigned int a2, __int64 a3, ...)
+        using SendChatMessage_t = __int64 sub_1810C10F0(*)(__int64 a1, unsigned int a2, __int64 a3, ...);
         using Sensitivity_ptr_t = void(__fastcall*)(void*, ...);
-        using SetAbsOrigin_Pawn_t = void(__fastcall*)(void*, ...);
-        using SetBodyGroup_inv_t = void(__fastcall*)(void*, ...);
-        using SetCollisionBounds_t = void(__fastcall*)(void*, ...);
-        using SetDynamicAttributeValue_t = void(__fastcall*)(void*, ...);
-        using SetDynamicAttributeValue_raw_t = void(__fastcall*)(void*, ...);
-        using SetMeshGroupMask_t = void(__fastcall*)(void*, ...);
-        using SetModel_t = void(__fastcall*)(void*, ...);
-        using SetPlayerReady_t = void(__fastcall*)(void*, ...);
-        using SetPlayerReady_t = void(__fastcall*)(void*, ...);
-        using SetTraceData_t = void(__fastcall*)(void*, ...);
-        using SetTypeKV3_t = void(__fastcall*)(void*, ...);
-        using SetViewAngle_t = void(__fastcall*)(void*, ...);
-        using SetupCmd_t = void(__fastcall*)(void*, ...);
-        using SetupMove_t = void(__fastcall*)(void*, ...);
-        using SetupMovementMoves_t = void(__fastcall*)(void*, ...);
+        // __int64 __fastcall sub_18021EF50(__int64 a1, __int64 a2)
+        using SetAbsOrigin_Pawn_t = __int64 __fastcall sub_18021EF50(*)(__int64 a1, __int64 a2);
+        // void __fastcall sub_180D972A0(__int64 a1, int a2, const char *a3)
+        using SetBodyGroup_inv_t = void __fastcall sub_180D972A0(*)(__int64 a1, int a2, const char *a3);
+        // __int64 __fastcall sub_180803980(__int64 a1, __int64 *a2)
+        using SetCollisionBounds_t = __int64 __fastcall sub_180803980(*)(__int64 a1, __int64 *a2);
+        // __int64 __fastcall sub_181004F60(__int64 a1, __int64 a2, _DWORD *a3)
+        using SetDynamicAttributeValue_t = __int64 __fastcall sub_181004F60(*)(__int64 a1, __int64 a2, _DWORD *a3);
+        // __int64 __fastcall sub_181004F60(__int64 a1, __int64 a2, _DWORD *a3)
+        using SetDynamicAttributeValue_raw_t = __int64 __fastcall sub_181004F60(*)(__int64 a1, __int64 a2, _DWORD *a3);
+        // __int64 __fastcall sub_180A2DB50(__int64 a1, __int64 a2)
+        using SetMeshGroupMask_t = __int64 __fastcall sub_180A2DB50(*)(__int64 a1, __int64 a2);
+        // __int64 __fastcall sub_1808DB1C0(__int64 a1, __int64 a2)
+        using SetModel_t = __int64 __fastcall sub_1808DB1C0(*)(__int64 a1, __int64 a2);
+        // char __fastcall sub_180F1DD90(__int64 a1, __int64 a2)
+        using SetPlayerReady_t = char __fastcall sub_180F1DD90(*)(__int64 a1, __int64 a2);
+        // char __fastcall sub_180F1DD90(__int64 a1, __int64 a2)
+        using SetPlayerReady_t = char __fastcall sub_180F1DD90(*)(__int64 a1, __int64 a2);
+        // __int64 __fastcall sub_1807D4810(int *a1, _OWORD *a2)
+        using SetTraceData_t = __int64 __fastcall sub_1807D4810(*)(int *a1, _OWORD *a2);
+        // unsigned __int64 *__fastcall sub_18181AEB0(unsigned __int64 *a1, unsigned __int8 a2, unsigned __int8 a3)
+        using SetTypeKV3_t = unsigned __int64 *__fastcall sub_18181AEB0(*)(unsigned __int64 *a1, unsigned __int8 a2, unsigned __int8 a3);
+        // void __fastcall sub_180AE4CE0(__int64 a1, int a2, __int64 *a3)
+        using SetViewAngle_t = void __fastcall sub_180AE4CE0(*)(__int64 a1, int a2, __int64 *a3);
+        // __int64 __fastcall sub_1808BAF20(__int64 a1)
+        using SetupCmd_t = __int64 __fastcall sub_1808BAF20(*)(__int64 a1);
+        // __int64 __fastcall sub_180D1D0E0(__int64 a1, int *a2)
+        using SetupMove_t = __int64 __fastcall sub_180D1D0E0(*)(__int64 a1, int *a2);
+        // __int64 __fastcall sub_181186C10(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
+        using SetupMovementMoves_t = __int64 __fastcall sub_181186C10(*)(__int64 a1, __int64 a2, __int64 a3, __int64 a4);
         using ShowMessageBox_t = void(__fastcall*)(void*, ...);
-        using SomeTimingFromPawn_t = void(__fastcall*)(void*, ...);
-        using Spawner_PerTickOrchestrator_t = void(__fastcall*)(void*, ...);
-        using SpectatorInput_t = void(__fastcall*)(void*, ...);
-        using SpreadSeedGen_t = void(__fastcall*)(void*, ...);
-        using TestSurfaces_t = void(__fastcall*)(void*, ...);
-        using ThirdPersonOffHandler_t = void(__fastcall*)(void*, ...);
-        using ThirdPersonOnHandler_t = void(__fastcall*)(void*, ...);
-        using TraceCreate_t = void(__fastcall*)(void*, ...);
-        using TraceGetInfo_t = void(__fastcall*)(void*, ...);
-        using TraceHandleBulletPen_t = void(__fastcall*)(void*, ...);
-        using TraceInitData_t = void(__fastcall*)(void*, ...);
-        using TraceInitFilter_t = void(__fastcall*)(void*, ...);
-        using TraceInitInfo_t = void(__fastcall*)(void*, ...);
-        using TracePlayerBBox_t = void(__fastcall*)(void*, ...);
-        using TraceShape_t = void(__fastcall*)(void*, ...);
-        using TraceShape_Client_t = void(__fastcall*)(void*, ...);
-        using TraceToExit_t = void(__fastcall*)(void*, ...);
-        using UpdateGlobalVars_t = void(__fastcall*)(void*, ...);
-        using UpdatePostProcessing_t = void(__fastcall*)(void*, ...);
-        using UpdatePostProcessing_t = void(__fastcall*)(void*, ...);
-        using UpdateSkybox_t = void(__fastcall*)(void*, ...);
-        using UpdateSubClass_t = void(__fastcall*)(void*, ...);
-        using UpdateTurningInAccuracy_t = void(__fastcall*)(void*, ...);
+        // float __fastcall sub_180A572B0(__int64 a1, int a2, unsigned int a3)
+        using SomeTimingFromPawn_t = float __fastcall sub_180A572B0(*)(__int64 a1, int a2, unsigned int a3);
+        // char __fastcall sub_180BC3FE0(_QWORD *a1)
+        using Spawner_PerTickOrchestrator_t = char __fastcall sub_180BC3FE0(*)(_QWORD *a1);
+        // __int64 __fastcall sub_1807D92E0(_DWORD *a1, __int64 a2, unsigned int a3)
+        using SpectatorInput_t = __int64 __fastcall sub_1807D92E0(*)(_DWORD *a1, __int64 a2, unsigned int a3);
+        // __int64 __fastcall sub_180C7E2D0(__int64 a1, __int64 a2, int a3)
+        using SpreadSeedGen_t = __int64 __fastcall sub_180C7E2D0(*)(__int64 a1, __int64 a2, int a3);
+        // void __fastcall sub_180806E30(__int64 a1, float a2, float a3, float a4, int a5, int a6, __int64 a7)
+        using TestSurfaces_t = void __fastcall sub_180806E30(*)(__int64 a1, float a2, float a3, float a4, int a5, int a6, __int64 a7);
+        // __int64 sub_180ACA2B0()
+        using ThirdPersonOffHandler_t = __int64 sub_180ACA2B0(*)();
+        // __int64 sub_180ACA390()
+        using ThirdPersonOnHandler_t = __int64 sub_180ACA390(*)();
+        // char __fastcall sub_180804900(__int64 a1, __int64 a2, int a3, __int64 a4, int a5, char a6)
+        using TraceCreate_t = char __fastcall sub_180804900(*)(__int64 a1, __int64 a2, int a3, __int64 a4, int a5, char a6);
+        // __int64 __fastcall sub_180806F50(__int64 a1, __int64 a2, float a3, unsigned __int64 *a4)
+        using TraceGetInfo_t = __int64 __fastcall sub_180806F50(*)(__int64 a1, __int64 a2, float a3, unsigned __int64 *a4);
+        // char __fastcall sub_1808211F0(__int64 a1, float *a2, __int64 a3, int a4, __int64 a5)
+        using TraceHandleBulletPen_t = char __fastcall sub_1808211F0(*)(__int64 a1, float *a2, __int64 a3, int a4, __int64 a5);
+        // __int64 __fastcall sub_180800580(__int64 a1)
+        using TraceInitData_t = __int64 __fastcall sub_180800580(*)(__int64 a1);
+        // __int64 __fastcall sub_18032BBF0(__int64 a1, _DWORD *a2, __int64 a3, char a4, char a5)
+        using TraceInitFilter_t = __int64 __fastcall sub_18032BBF0(*)(__int64 a1, _DWORD *a2, __int64 a3, char a4, char a5);
+        // __int64 __fastcall sub_1815FC2A0(__int64 a1)
+        using TraceInitInfo_t = __int64 __fastcall sub_1815FC2A0(*)(__int64 a1);
+        // __int64 __fastcall sub_180B70E30(__int64 a1, __int64 *a2, __int64 *a3)
+        using TracePlayerBBox_t = __int64 __fastcall sub_180B70E30(*)(__int64 a1, __int64 *a2, __int64 *a3);
+        // bool __fastcall sub_18098EAA0(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4, _BYTE *a5, __int64 a6)
+        using TraceShape_t = bool __fastcall sub_18098EAA0(*)(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4, _BYTE *a5, __int64 a6);
+        // bool __fastcall sub_18098EAA0(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4, _BYTE *a5, __int64 a6)
+        using TraceShape_Client_t = bool __fastcall sub_18098EAA0(*)(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4, _BYTE *a5, __int64 a6);
+        // char __fastcall sub_180804900(__int64 a1, __int64 a2, int a3, __int64 a4, int a5, char a6)
+        using TraceToExit_t = char __fastcall sub_180804900(*)(__int64 a1, __int64 a2, int a3, __int64 a4, int a5, char a6);
+        // void *__fastcall sub_180AE4730(__int64 a1, void *a2)
+        using UpdateGlobalVars_t = void *__fastcall sub_180AE4730(*)(__int64 a1, void *a2);
+        // void __fastcall sub_180F21F20(__int64 a1, _BYTE *a2)
+        using UpdatePostProcessing_t = void __fastcall sub_180F21F20(*)(__int64 a1, _BYTE *a2);
+        // void __fastcall sub_180F21F20(__int64 a1, _BYTE *a2)
+        using UpdatePostProcessing_t = void __fastcall sub_180F21F20(*)(__int64 a1, _BYTE *a2);
+        // __int64 __fastcall sub_18025A850(__int64 a1)
+        using UpdateSkybox_t = __int64 __fastcall sub_18025A850(*)(__int64 a1);
+        // void __fastcall sub_1801FA930(_QWORD *a1)
+        using UpdateSubClass_t = void __fastcall sub_1801FA930(*)(_QWORD *a1);
+        // float *__fastcall sub_1807AFDA0(float *a1)
+        using UpdateTurningInAccuracy_t = float *__fastcall sub_1807AFDA0(*)(float *a1);
         using VPhys2World_ptr_t = void(__fastcall*)(void*, ...);
-        using ViewModelHideZoomed_t = void(__fastcall*)(void*, ...);
+        // __int64 __fastcall sub_1807A0460(__int64 a1, __int64 a2, __int64 **a3)
+        using ViewModelHideZoomed_t = __int64 __fastcall sub_1807A0460(*)(__int64 a1, __int64 a2, __int64 **a3);
         using ViewRender_ptr_t = void(__fastcall*)(void*, ...);
         using WeaponC4_ptr_t = void(__fastcall*)(void*, ...);
         using WriteSubtickFromEntry_t = void(__fastcall*)(void*, ...);
-        using create_move_v2_t = void(__fastcall*)(void*, ...);
-        using draw_smoke_array_t = void(__fastcall*)(void*, ...);
-        using draw_view_punch_v2_t = void(__fastcall*)(void*, ...);
+        // void __fastcall sub_180ACC120(__int64 *a1, int a2, char a3)
+        using create_move_v2_t = void __fastcall sub_180ACC120(*)(__int64 *a1, int a2, char a3);
+        // __int64 __fastcall sub_180C7B380(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, unsigned int *a6)
+        using draw_smoke_array_t = __int64 __fastcall sub_180C7B380(*)(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, unsigned int *a6);
+        // float *__fastcall sub_1808041C0(int a1, __int64 a2, __int64 a3, float *a4, float *a5, float *a6)
+        using draw_view_punch_v2_t = float *__fastcall sub_1808041C0(*)(int a1, __int64 a2, __int64 a3, float *a4, float *a5, float *a6);
         using entity_list_ptr_t = void(__fastcall*)(void*, ...);
-        using frame_stage_notify_t = void(__fastcall*)(void*, ...);
-        using get_fov_t = void(__fastcall*)(void*, ...);
-        using get_map_name_t = void(__fastcall*)(void*, ...);
-        using get_view_angles_v2_t = void(__fastcall*)(void*, ...);
-        using get_view_model_t = void(__fastcall*)(void*, ...);
+        // __int64 __fastcall sub_180AD28A0(__int64 a1, int a2)
+        using frame_stage_notify_t = __int64 __fastcall sub_180AD28A0(*)(__int64 a1, int a2);
+        // float *__fastcall sub_1808041C0(int a1, __int64 a2, __int64 a3, float *a4, float *a5, float *a6)
+        using get_fov_t = float *__fastcall sub_1808041C0(*)(int a1, __int64 a2, __int64 a3, float *a4, float *a5, float *a6);
+        // __int64 sub_180EDD4F0()
+        using get_map_name_t = __int64 sub_180EDD4F0(*)();
+        // void __fastcall sub_180AD4600(__int64 a1, int a2, __int64 a3)
+        using get_view_angles_v2_t = void __fastcall sub_180AD4600(*)(__int64 a1, int a2, __int64 a3);
+        // void __fastcall sub_18084F430(__int64 a1, float *a2, float *a3)
+        using get_view_model_t = void __fastcall sub_18084F430(*)(__int64 a1, float *a2, float *a3);
         using global_vars_v2_t = void(__fastcall*)(void*, ...);
-        using is_demo_or_hltv_t = void(__fastcall*)(void*, ...);
-        using level_init_v2_t = void(__fastcall*)(void*, ...);
-        using level_shutdown_t = void(__fastcall*)(void*, ...);
+        // char sub_180EFE9B0()
+        using is_demo_or_hltv_t = char sub_180EFE9B0(*)();
+        // __int64 __fastcall sub_180AFA990(__int64 a1, __int64 a2)
+        using level_init_v2_t = __int64 __fastcall sub_180AFA990(*)(__int64 a1, __int64 a2);
+        // __int64 sub_180AFAC10()
+        using level_shutdown_t = __int64 sub_180AFAC10(*)();
         using local_controller_t = void(__fastcall*)(void*, ...);
-        using mark_interp_latch_flags_dirty_t = void(__fastcall*)(void*, ...);
-        using on_add_entity_v2_t = void(__fastcall*)(void*, ...);
-        using override_view_short_t = void(__fastcall*)(void*, ...);
-        using paintkit_prefab_t = void(__fastcall*)(void*, ...);
-        using paintkit_seed_t = void(__fastcall*)(void*, ...);
-        using paintkit_wear_t = void(__fastcall*)(void*, ...);
+        // void __fastcall sub_180218070(__int64 a1, unsigned int a2)
+        using mark_interp_latch_flags_dirty_t = void __fastcall sub_180218070(*)(__int64 a1, unsigned int a2);
+        // __int64 __fastcall sub_180968BB0(__int64 a1, __int64 a2, __int64 a3)
+        using on_add_entity_v2_t = __int64 __fastcall sub_180968BB0(*)(__int64 a1, __int64 a2, __int64 a3);
+        // void __fastcall sub_180C5F840(__int64 a1, __int64 a2)
+        using override_view_short_t = void __fastcall sub_180C5F840(*)(__int64 a1, __int64 a2);
+        // __int64 __fastcall sub_18105D3B0(__int64 *a1)
+        using paintkit_prefab_t = __int64 __fastcall sub_18105D3B0(*)(__int64 *a1);
+        // __int64 __fastcall sub_180EF1330(__int64 a1)
+        using paintkit_seed_t = __int64 __fastcall sub_180EF1330(*)(__int64 a1);
+        // __int64 __fastcall sub_180EF1330(__int64 a1)
+        using paintkit_wear_t = __int64 __fastcall sub_180EF1330(*)(__int64 a1);
         using planted_c4_ptr_t = void(__fastcall*)(void*, ...);
-        using remove_legs_t = void(__fastcall*)(void*, ...);
-        using statTrak_killEater_t = void(__fastcall*)(void*, ...);
-        using statTrak_scoreType_t = void(__fastcall*)(void*, ...);
-        using unlock_inventory_t = void(__fastcall*)(void*, ...);
-        using update_global_vars_t = void(__fastcall*)(void*, ...);
-        using update_post_processing_v2_t = void(__fastcall*)(void*, ...);
+        // void __fastcall sub_1810F0410(__int64 *a1, __int64 *a2, __int64 a3, __int64 a4, __int64 a5)
+        using remove_legs_t = void __fastcall sub_1810F0410(*)(__int64 *a1, __int64 *a2, __int64 a3, __int64 a4, __int64 a5);
+        // __int64 __fastcall sub_180EF1330(__int64 a1)
+        using statTrak_killEater_t = __int64 __fastcall sub_180EF1330(*)(__int64 a1);
+        // __int64 sub_18011B7F0()
+        using statTrak_scoreType_t = __int64 sub_18011B7F0(*)();
+        // char __fastcall sub_1807011C0(__int64 a1)
+        using unlock_inventory_t = char __fastcall sub_1807011C0(*)(__int64 a1);
+        // void *__fastcall sub_180AE4730(__int64 a1, void *a2)
+        using update_global_vars_t = void *__fastcall sub_180AE4730(*)(__int64 a1, void *a2);
+        // void __fastcall sub_180F264C0(__int64 a1)
+        using update_post_processing_v2_t = void __fastcall sub_180F264C0(*)(__int64 a1);
         using view_matrix_ptr_t = void(__fastcall*)(void*, ...);
     }
     namespace engine2 {
         using BuildNumber_addr_t = void(__fastcall*)(void*, ...);
         using CCommand_Tokenize_t = void(__fastcall*)(void*, ...);
-        using CGameClient_ClientCommand_t = void(__fastcall*)(void*, ...);
-        using CHLTVClient_ExecuteStringCommand_t = void(__fastcall*)(void*, ...);
-        using CNetworkGameClientBase_ForceDemoRecordingFullUpdateAfterNextDeltaPacket_t = void(__fastcall*)(void*, ...);
-        using CNetworkGameClient_ProcessTick_t = void(__fastcall*)(void*, ...);
-        using CServerSideClient_ExecuteStringCommand_t = void(__fastcall*)(void*, ...);
-        using CSplitScreenSlot_t = void(__fastcall*)(void*, ...);
-        using Cvar_RegisterConCommand_t = void(__fastcall*)(void*, ...);
-        using Cvar_RegisterConVar_t = void(__fastcall*)(void*, ...);
-        using Cvar_RevertFlaggedCvars_OnSvCheatsChange_t = void(__fastcall*)(void*, ...);
-        using DisablePvsAccessor_t = void(__fastcall*)(void*, ...);
-        using Engine__GetScreenAspectRatio_t = void(__fastcall*)(void*, ...);
+        // char sub_1800A1240(__int64 a1, int a2, __int64 a3, ...)
+        using CGameClient_ClientCommand_t = char sub_1800A1240(*)(__int64 a1, int a2, __int64 a3, ...);
+        // char __fastcall sub_180120D70(__int64 a1, __int64 a2)
+        using CHLTVClient_ExecuteStringCommand_t = char __fastcall sub_180120D70(*)(__int64 a1, __int64 a2);
+        // char __fastcall sub_1800292B0(__int64 a1, const char *a2)
+        using CNetworkGameClientBase_ForceDemoRecordingFullUpdateAfterNextDeltaPacket_t = char __fastcall sub_1800292B0(*)(__int64 a1, const char *a2);
+        // char __fastcall sub_18006AAF0(__int64 a1, __int64 a2)
+        using CNetworkGameClient_ProcessTick_t = char __fastcall sub_18006AAF0(*)(__int64 a1, __int64 a2);
+        // __int64 __fastcall sub_1800BE120(__int64 a1, __int64 a2)
+        using CServerSideClient_ExecuteStringCommand_t = __int64 __fastcall sub_1800BE120(*)(__int64 a1, __int64 a2);
+        // char __fastcall sub_18024A250(__int64 a1, __int64 a2, int a3, __int64 a4)
+        using CSplitScreenSlot_t = char __fastcall sub_18024A250(*)(__int64 a1, __int64 a2, int a3, __int64 a4);
+        // _QWORD *__fastcall sub_1803FD270(_QWORD *a1, __int64 a2, __int128 *a3, __int64 a4, __int64 a5, __int128 *a6)
+        using Cvar_RegisterConCommand_t = _QWORD *__fastcall sub_1803FD270(*)(_QWORD *a1, __int64 a2, __int128 *a3, __int64 a4, __int64 a5, __int128 *a6);
+        // __int128 *__fastcall sub_1803FC080(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4, __int128 *a5)
+        using Cvar_RegisterConVar_t = __int128 *__fastcall sub_1803FC080(*)(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4, __int128 *a5);
+        // void __fastcall sub_18009C1F0(__int64 a1, __int64 a2, _BYTE *a3, char *a4)
+        using Cvar_RevertFlaggedCvars_OnSvCheatsChange_t = void __fastcall sub_18009C1F0(*)(__int64 a1, __int64 a2, _BYTE *a3, char *a4);
+        // __int64 __fastcall sub_18023D2A0(_DWORD *a1, __int64 a2, int a3, char a4)
+        using DisablePvsAccessor_t = __int64 __fastcall sub_18023D2A0(*)(_DWORD *a1, __int64 a2, int a3, char a4);
+        // float __fastcall sub_1800769D0(__int64 a1, int a2, int a3)
+        using Engine__GetScreenAspectRatio_t = float __fastcall sub_1800769D0(*)(__int64 a1, int a2, int a3);
         using Engine__PVSManager_ptr_t = void(__fastcall*)(void*, ...);
-        using Engine__RunPrediction_t = void(__fastcall*)(void*, ...);
-        using Engine_Disconnect_main_t = void(__fastcall*)(void*, ...);
-        using Engine_HLTVClient_ExecuteStringCommand_t = void(__fastcall*)(void*, ...);
-        using Engine_HostStateMgr_QueueNewRequest_t = void(__fastcall*)(void*, ...);
-        using Engine_HostStateMgr_QueueNewRequest_t = void(__fastcall*)(void*, ...);
-        using Engine_LoadGameInfo_t = void(__fastcall*)(void*, ...);
-        using Engine_MountAddon_t = void(__fastcall*)(void*, ...);
-        using Engine_NetTimeoutDisconnect_t = void(__fastcall*)(void*, ...);
-        using Engine_NetworkGameClient_Connect_t = void(__fastcall*)(void*, ...);
-        using Engine_NetworkGameClient_SetSignonState_t = void(__fastcall*)(void*, ...);
-        using Engine_RegisterConCommand_t = void(__fastcall*)(void*, ...);
-        using Engine_RegisterConVar_t = void(__fastcall*)(void*, ...);
-        using IsInGame_t = void(__fastcall*)(void*, ...);
+        // void __fastcall sub_180066490(__int64 a1, unsigned int a2)
+        using Engine__RunPrediction_t = void __fastcall sub_180066490(*)(__int64 a1, unsigned int a2);
+        // __int64 *sub_1801D1510()
+        using Engine_Disconnect_main_t = __int64 *sub_1801D1510(*)();
+        // char __fastcall sub_180120D70(__int64 a1, __int64 a2)
+        using Engine_HLTVClient_ExecuteStringCommand_t = char __fastcall sub_180120D70(*)(__int64 a1, __int64 a2);
+        // __int64 __fastcall sub_18021AFC0(__int64 a1, __int64 a2)
+        using Engine_HostStateMgr_QueueNewRequest_t = __int64 __fastcall sub_18021AFC0(*)(__int64 a1, __int64 a2);
+        // __int64 __fastcall sub_18021AFC0(__int64 a1, __int64 a2)
+        using Engine_HostStateMgr_QueueNewRequest_t = __int64 __fastcall sub_18021AFC0(*)(__int64 a1, __int64 a2);
+        // char __fastcall sub_18018D760(__int64 a1, const char *a2)
+        using Engine_LoadGameInfo_t = char __fastcall sub_18018D760(*)(__int64 a1, const char *a2);
+        // void __fastcall sub_180193440(__int64 a1, const char *a2, char a3)
+        using Engine_MountAddon_t = void __fastcall sub_180193440(*)(__int64 a1, const char *a2, char a3);
+        // __int64 __fastcall sub_180069780(__int64 a1, unsigned int a2, __int64 a3)
+        using Engine_NetTimeoutDisconnect_t = __int64 __fastcall sub_180069780(*)(__int64 a1, unsigned int a2, __int64 a3);
+        // void __fastcall sub_18007F400(__int64 a1, int a2, unsigned int a3, __int64 a4, unsigned int a5, char a6)
+        using Engine_NetworkGameClient_Connect_t = void __fastcall sub_18007F400(*)(__int64 a1, int a2, unsigned int a3, __int64 a4, unsigned int a5, char a6);
+        // char __fastcall sub_180060F80(__int64 a1, unsigned int a2, unsigned int a3, __int64 a4)
+        using Engine_NetworkGameClient_SetSignonState_t = char __fastcall sub_180060F80(*)(__int64 a1, unsigned int a2, unsigned int a3, __int64 a4);
+        // _QWORD *__fastcall sub_1803FD270(_QWORD *a1, __int64 a2, __int128 *a3, __int64 a4, __int64 a5, __int128 *a6)
+        using Engine_RegisterConCommand_t = _QWORD *__fastcall sub_1803FD270(*)(_QWORD *a1, __int64 a2, __int128 *a3, __int64 a4, __int64 a5, __int128 *a6);
+        // __int128 *__fastcall sub_1803FC080(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4, __int128 *a5)
+        using Engine_RegisterConVar_t = __int128 *__fastcall sub_1803FC080(*)(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4, __int128 *a5);
+        // bool sub_180076450()
+        using IsInGame_t = bool sub_180076450(*)();
         using NetworkGameClient_ptr_t = void(__fastcall*)(void*, ...);
         using WindowHeight_addr_t = void(__fastcall*)(void*, ...);
         using WindowWidth_addr_t = void(__fastcall*)(void*, ...);
@@ -807,39 +1102,63 @@ namespace cs2::fn {
         using FullFileSystem_ptr_t = void(__fastcall*)(void*, ...);
     }
     namespace inputsystem {
-        using CInputSystem_AttachToWindow_t = void(__fastcall*)(void*, ...);
+        // int __fastcall sub_1800039F0(__int64 a1, HWND a2)
+        using CInputSystem_AttachToWindow_t = int __fastcall sub_1800039F0(*)(__int64 a1, HWND a2);
         using InputSystemSvc_ptr_t = void(__fastcall*)(void*, ...);
         using InputSystem_ptr_t = void(__fastcall*)(void*, ...);
     }
     namespace matchmaking {
-        using CMatchSessionOfflineCustom_InitializeGameSettings_t = void(__fastcall*)(void*, ...);
-        using CMatchSessionOnlineHost_InitializeGameSettings_t = void(__fastcall*)(void*, ...);
+        // char __fastcall sub_1800EE6A0(__int64 a1)
+        using CMatchSessionOfflineCustom_InitializeGameSettings_t = char __fastcall sub_1800EE6A0(*)(__int64 a1);
+        // char __fastcall sub_1800F0460(__int64 a1)
+        using CMatchSessionOnlineHost_InitializeGameSettings_t = char __fastcall sub_1800F0460(*)(__int64 a1);
         using GameTypes_ptr_t = void(__fastcall*)(void*, ...);
     }
     namespace materialsystem2 {
-        using CMaterial2_CompileComboAndGetVariables_DynamicShaderCompile_t = void(__fastcall*)(void*, ...);
-        using CMaterial2_GetMode_t = void(__fastcall*)(void*, ...);
-        using CMaterial2_GetVertexShaderInputSignature_t = void(__fastcall*)(void*, ...);
-        using CMaterial2_GetVertexShaderInputSignature_t = void(__fastcall*)(void*, ...);
-        using CMaterial2_LoadShadersAndSetupModes_t = void(__fastcall*)(void*, ...);
+        // char __fastcall sub_180013FA0(__int64 a1, __int64 a2)
+        using CMaterial2_CompileComboAndGetVariables_DynamicShaderCompile_t = char __fastcall sub_180013FA0(*)(__int64 a1, __int64 a2);
+        // __int64 __fastcall sub_18000BD40(__int64 a1, unsigned int *a2)
+        using CMaterial2_GetMode_t = __int64 __fastcall sub_18000BD40(*)(__int64 a1, unsigned int *a2);
+        // __int64 __fastcall sub_18000C8C0(__int64 a1)
+        using CMaterial2_GetVertexShaderInputSignature_t = __int64 __fastcall sub_18000C8C0(*)(__int64 a1);
+        // __int64 __fastcall sub_18000C8C0(__int64 a1)
+        using CMaterial2_GetVertexShaderInputSignature_t = __int64 __fastcall sub_18000C8C0(*)(__int64 a1);
+        // __int64 __fastcall sub_180010040(__int64 a1, __int64 a2, unsigned int a3)
+        using CMaterial2_LoadShadersAndSetupModes_t = __int64 __fastcall sub_180010040(*)(__int64 a1, __int64 a2, unsigned int a3);
         using CMaterialLayer_ApplyMaterialVarsForBatch_t = void(__fastcall*)(void*, ...);
-        using CMaterialLayer_BuildPassCommandData_t = void(__fastcall*)(void*, ...);
-        using CMaterialLayer_ComputeWorkItemsToSetupStaticCombosForMode_t = void(__fastcall*)(void*, ...);
-        using CMaterialLayer_CreateCommandBuffer_t = void(__fastcall*)(void*, ...);
-        using CMaterialSystem2_BindIdentityInstanceIDBufferAndSetRenderState_t = void(__fastcall*)(void*, ...);
-        using CMaterialSystem2_DynamicShaderCompile_ProcessQueue_t = void(__fastcall*)(void*, ...);
-        using CMaterialSystem2_DynamicShaderCompile_ReloadAndSync_t = void(__fastcall*)(void*, ...);
-        using CMaterialSystem2_DynamicShaderCompile_UnloadAllMaterials_t = void(__fastcall*)(void*, ...);
-        using CMaterialSystem2_FrameUpdate_t = void(__fastcall*)(void*, ...);
-        using CMaterialSystem2_GetErrorMaterial_t = void(__fastcall*)(void*, ...);
-        using CMaterialSystem2_Init_t = void(__fastcall*)(void*, ...);
+        // int __fastcall sub_180018F80(__int64 a1, int a2, __int64 a3)
+        using CMaterialLayer_BuildPassCommandData_t = int __fastcall sub_180018F80(*)(__int64 a1, int a2, __int64 a3);
+        // char __fastcall sub_180015BC0(unsigned __int16 *a1, unsigned int a2, int *a3)
+        using CMaterialLayer_ComputeWorkItemsToSetupStaticCombosForMode_t = char __fastcall sub_180015BC0(*)(unsigned __int16 *a1, unsigned int a2, int *a3);
+        // __int64 __fastcall sub_180019820(__int64 a1, __int64 a2, int a3, int a4, _DWORD *a5)
+        using CMaterialLayer_CreateCommandBuffer_t = __int64 __fastcall sub_180019820(*)(__int64 a1, __int64 a2, int a3, int a4, _DWORD *a5);
+        // char __fastcall sub_180070000(__int64 *a1, __int64 a2, __int64 a3, __int64 a4)
+        using CMaterialSystem2_BindIdentityInstanceIDBufferAndSetRenderState_t = char __fastcall sub_180070000(*)(__int64 *a1, __int64 a2, __int64 a3, __int64 a4);
+        // void __fastcall sub_18003A200(__int64 a1)
+        using CMaterialSystem2_DynamicShaderCompile_ProcessQueue_t = void __fastcall sub_18003A200(*)(__int64 a1);
+        // void sub_1800355C0()
+        using CMaterialSystem2_DynamicShaderCompile_ReloadAndSync_t = void sub_1800355C0(*)();
+        // __int64 __fastcall sub_180039AA0(__int64 a1)
+        using CMaterialSystem2_DynamicShaderCompile_UnloadAllMaterials_t = __int64 __fastcall sub_180039AA0(*)(__int64 a1);
+        // __int64 __fastcall sub_18003BAC0(__int64 *a1)
+        using CMaterialSystem2_FrameUpdate_t = __int64 __fastcall sub_18003BAC0(*)(__int64 *a1);
+        // __int64 __fastcall sub_180016D10(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4, char a5)
+        using CMaterialSystem2_GetErrorMaterial_t = __int64 __fastcall sub_180016D10(*)(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4, char a5);
+        // __int64 __fastcall sub_180036E40(__int64 a1)
+        using CMaterialSystem2_Init_t = __int64 __fastcall sub_180036E40(*)(__int64 a1);
         using CMaterial_SetVariableAndRenderState_t = void(__fastcall*)(void*, ...);
-        using CVfxProgramData_FindOrCreateStaticComboDataInCache_t = void(__fastcall*)(void*, ...);
-        using CVfxProgramData_FindOrCreateStaticComboData_CacheGate_t = void(__fastcall*)(void*, ...);
-        using CVfxProgramData_FindOrLoadStaticComboData_t = void(__fastcall*)(void*, ...);
-        using FindParameter_t = void(__fastcall*)(void*, ...);
-        using MatSys__PrepareSceneMaterial_t = void(__fastcall*)(void*, ...);
-        using UpdateParameter_t = void(__fastcall*)(void*, ...);
+        // __int64 __fastcall sub_1800AE0E0(__int64 a1, __int64 a2)
+        using CVfxProgramData_FindOrCreateStaticComboDataInCache_t = __int64 __fastcall sub_1800AE0E0(*)(__int64 a1, __int64 a2);
+        // __int64 __fastcall sub_1800AE950(__int64 a1, unsigned __int64 a2, __int64 a3, int a4, __int64 a5, int a6, char a7)
+        using CVfxProgramData_FindOrCreateStaticComboData_CacheGate_t = __int64 __fastcall sub_1800AE950(*)(__int64 a1, unsigned __int64 a2, __int64 a3, int a4, __int64 a5, int a6, char a7);
+        // __int64 __fastcall sub_1800BDAE0(__int64 a1, __int64 a2, __int64 a3, __int64 a4, char a5)
+        using CVfxProgramData_FindOrLoadStaticComboData_t = __int64 __fastcall sub_1800BDAE0(*)(__int64 a1, __int64 a2, __int64 a3, __int64 a4, char a5);
+        // __int64 __fastcall sub_180011E30(__int64 a1, __int64 a2)
+        using FindParameter_t = __int64 __fastcall sub_180011E30(*)(__int64 a1, __int64 a2);
+        // float __fastcall sub_180011BE0(__int64 a1, __int64 a2, float a3)
+        using MatSys__PrepareSceneMaterial_t = float __fastcall sub_180011BE0(*)(__int64 a1, __int64 a2, float a3);
+        // _QWORD *__fastcall sub_180012370(__int64 a1)
+        using UpdateParameter_t = _QWORD *__fastcall sub_180012370(*)(__int64 a1);
     }
     namespace networksystem {
         using CNetChan_ProcessMessages_t = void(__fastcall*)(void*, ...);
@@ -851,16 +1170,23 @@ namespace cs2::fn {
         using NetworkSystem_ptr_t = void(__fastcall*)(void*, ...);
     }
     namespace panorama {
-        using CUIEngine_DispatchEvent_t = void(__fastcall*)(void*, ...);
-        using CUIEngine_RunFrame_t = void(__fastcall*)(void*, ...);
+        // void __fastcall sub_180098320(int *a1, unsigned __int8 a2, __int64 a3)
+        using CUIEngine_DispatchEvent_t = void __fastcall sub_180098320(*)(int *a1, unsigned __int8 a2, __int64 a3);
+        // __int64 __fastcall sub_1800A95F0(_QWORD *a1)
+        using CUIEngine_RunFrame_t = __int64 __fastcall sub_1800A95F0(*)(_QWORD *a1);
     }
     namespace particles {
         using GetParticleManager_t = void(__fastcall*)(void*, ...);
-        using Particles__CParticleSystemMgr_CreateParticleCollection_t = void(__fastcall*)(void*, ...);
-        using Particles__CParticleSystemMgr_FindParticleSystem_t = void(__fastcall*)(void*, ...);
-        using Particles__DrawArray_t = void(__fastcall*)(void*, ...);
-        using Particles__FindKeyVar_t = void(__fastcall*)(void*, ...);
-        using Particles__SetMaterialShaderType_t = void(__fastcall*)(void*, ...);
+        // __int64 __fastcall sub_1800A0DD0(__int64 a1, const char *a2, __int64 a3, __int64 a4, char a5, int a6, int a7)
+        using Particles__CParticleSystemMgr_CreateParticleCollection_t = __int64 __fastcall sub_1800A0DD0(*)(__int64 a1, const char *a2, __int64 a3, __int64 a4, char a5, int a6, int a7);
+        // __int64 *__fastcall sub_1800A0BC0(__int64 a1, __int64 *a2, const char *a3, char a4)
+        using Particles__CParticleSystemMgr_FindParticleSystem_t = __int64 *__fastcall sub_1800A0BC0(*)(__int64 a1, __int64 *a2, const char *a3, char a4);
+        // _BYTE *__fastcall sub_1800220B0(__int64 a1, __int64 a2, __int64 a3, int a4, __int64 a5, __int64 a6, __int64 a7)
+        using Particles__DrawArray_t = _BYTE *__fastcall sub_1800220B0(*)(__int64 a1, __int64 a2, __int64 a3, int a4, __int64 a5, __int64 a6, __int64 a7);
+        // __int64 __fastcall sub_18003A650(const char *a1, unsigned int a2, int a3)
+        using Particles__FindKeyVar_t = __int64 __fastcall sub_18003A650(*)(const char *a1, unsigned int a2, int a3);
+        // void __fastcall sub_18009D8D0(__int64 a1, int *a2)
+        using Particles__SetMaterialShaderType_t = void __fastcall sub_18009D8D0(*)(__int64 a1, int *a2);
     }
     namespace rendersystemdx11 {
         using CRenderDeviceBase_CreateConstantBuffer_t = void(__fastcall*)(void*, ...);
@@ -902,16 +1228,23 @@ namespace cs2::fn {
         using SchemaSystem_ptr_t = void(__fastcall*)(void*, ...);
     }
     namespace server {
-        using CCSGameRules_FrameUpdatePreEntityThink_t = void(__fastcall*)(void*, ...);
-        using CCSGameRules_TerminateRound_t = void(__fastcall*)(void*, ...);
-        using CCSGameRules_Think_t = void(__fastcall*)(void*, ...);
-        using CCSPlayerPawnBase_SwitchTeam_t = void(__fastcall*)(void*, ...);
-        using CCSPlayerPawn_GiveNamedItem_t = void(__fastcall*)(void*, ...);
+        // __int64 __fastcall sub_1808A9B50(__int64 a1, __int64 a2)
+        using CCSGameRules_FrameUpdatePreEntityThink_t = __int64 __fastcall sub_1808A9B50(*)(__int64 a1, __int64 a2);
+        // _BYTE *__fastcall sub_1808EFA50(__int64 a1, __int64 a2, unsigned int a3, __int64 a4)
+        using CCSGameRules_TerminateRound_t = _BYTE *__fastcall sub_1808EFA50(*)(__int64 a1, __int64 a2, unsigned int a3, __int64 a4);
+        // double __fastcall sub_1808D80F0(__int64 a1)
+        using CCSGameRules_Think_t = double __fastcall sub_1808D80F0(*)(__int64 a1);
+        // __int64 __fastcall sub_180A0D380(__int64 a1, unsigned int a2)
+        using CCSPlayerPawnBase_SwitchTeam_t = __int64 __fastcall sub_180A0D380(*)(__int64 a1, unsigned int a2);
+        // __int64 __fastcall sub_180A2AC60(__int64 a1, const char *a2, int a3, __int64 a4, char a5, unsigned __int64 *a6)
+        using CCSPlayerPawn_GiveNamedItem_t = __int64 __fastcall sub_180A2AC60(*)(__int64 a1, const char *a2, int a3, __int64 a4, char a5, unsigned __int64 *a6);
     }
     namespace soundsystem {
         using CSosOperatorSystem_StartSoundEvent_t = void(__fastcall*)(void*, ...);
-        using SoundSystem__PlayVSound_t = void(__fastcall*)(void*, ...);
-        using SoundSystem__SomeUtlSymbolFunc_t = void(__fastcall*)(void*, ...);
+        // _UNKNOWN **__fastcall sub_180349840(__int64 a1, __int64 a2, int a3, int a4)
+        using SoundSystem__PlayVSound_t = _UNKNOWN **__fastcall sub_180349840(*)(__int64 a1, __int64 a2, int a3, int a4);
+        // __int64 __fastcall sub_1800B0740(__int64 a1, unsigned int a2)
+        using SoundSystem__SomeUtlSymbolFunc_t = __int64 __fastcall sub_1800B0740(*)(__int64 a1, unsigned int a2);
         using SoundSystem_ptr_t = void(__fastcall*)(void*, ...);
     }
     namespace tier0 {
@@ -923,6 +1256,7 @@ namespace cs2::fn {
         using VPhysics2_Startup_t = void(__fastcall*)(void*, ...);
     }
     namespace worldrenderer {
-        using CWorldRendererMgr_ServiceWorldRequests_t = void(__fastcall*)(void*, ...);
+        // __int64 __fastcall sub_18002B4A0(__int64 a1)
+        using CWorldRendererMgr_ServiceWorldRequests_t = __int64 __fastcall sub_18002B4A0(*)(__int64 a1);
     }
 }
