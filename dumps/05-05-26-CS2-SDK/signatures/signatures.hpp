@@ -13,6 +13,7 @@ namespace cs2::signatures {
     namespace animationsystem {
         inline constexpr std::string_view Animation__ShouldUpdateSequences = "48 89 5C 24 08 48 89 74 24 18 57 48 83 EC 20 49";
         inline constexpr std::string_view AnimationSystemUtils_ptr = "48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 48 83 EC 28 48 8B CA 48 8D 15";
+        inline constexpr std::string_view CAnimationSystem_FrameUpdate = "48 89 4C 24 08 55 53 56 57 41 54 41 55 41 56 41 57 48 8D AC 24 C8 EB FF";
     }
     namespace client {
         inline constexpr std::string_view AddNametagEntity = "40 55 53 56 48 8D AC 24 B0 FC FF FF 48 81 EC 50";
@@ -347,10 +348,13 @@ namespace cs2::signatures {
         inline constexpr std::string_view FullFileSystem_ptr = "8B 41 28 C3 CC CC CC CC CC CC CC CC CC CC CC CC 48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 48 8D 05 ? ? ? ? C3";
     }
     namespace inputsystem {
+        inline constexpr std::string_view CInputSystem_AttachToWindow = "48 89 5C 24 20 55 48 83 EC 20 48 63 41 30 48 8B";
         inline constexpr std::string_view InputSystemSvc_ptr = "48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 40 53 48 83 EC 20 33 DB";
         inline constexpr std::string_view InputSystem_ptr = "48 89 05 ? ? ? ? 33 C0";
     }
     namespace matchmaking {
+        inline constexpr std::string_view CMatchSessionOfflineCustom_InitializeGameSettings = "40 53 48 81 EC 40 01 00 00 48 89 BC 24 58 01 00 00 48 8D 15 ? ? ? ? 48 8B F9 41 B0 01 48 8B 49 10 FF 15 60 41 06 00";
+        inline constexpr std::string_view CMatchSessionOnlineHost_InitializeGameSettings = "48 8B C4 53 48 81 EC 80 01 00 00 48 89 70 10 48";
         inline constexpr std::string_view GameTypes_ptr = "48 8D 0D ? ? ? ? FF 90";
     }
     namespace materialsystem2 {
@@ -386,6 +390,10 @@ namespace cs2::signatures {
         inline constexpr std::string_view NetSystem_CNetChan_ProcessMessages = "48 8B C4 53 57 41 54 41 56 48 81 EC A8 00 00 00";
         inline constexpr std::string_view NetSystem_CNetChan_SendNetMessage = "48 89 5C 24 10 48 89 6C 24 18 56 57 41 56 48 83 EC 40 41 0F";
         inline constexpr std::string_view NetworkSystem_ptr = "48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 48 83 EC 28 BA FF FF FF";
+    }
+    namespace panorama {
+        inline constexpr std::string_view CUIEngine_DispatchEvent = "48 8B C4 48 89 58 18 88 50 10 55 56 57 41 54 41";
+        inline constexpr std::string_view CUIEngine_RunFrame = "48 89 5C 24 10 48 89 6C 24 18 56 57 41 54 41 56 41 57 48 81 EC 80 00 00 00 45 33 F6";
     }
     namespace particles {
         inline constexpr std::string_view GetParticleManager = "48 8B 05 ? ? ? ? C3 ? ? ? ? ? ? ? ? 48 83 EC 28 8B 0D";
@@ -434,6 +442,13 @@ namespace cs2::signatures {
         inline constexpr std::string_view CSchemaSystem_VerifySchemaBindingConsistency = "88 54 24 10 55 53 57 41 54 41 55 48 8B EC 48 81";
         inline constexpr std::string_view SchemaSystem_ptr = "48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 48 89 5C 24 08 48 89 74";
     }
+    namespace server {
+        inline constexpr std::string_view CCSGameRules_FrameUpdatePreEntityThink = "48 89 5C 24 08 57 48 83 EC 60 48 8D 05 4F 38 E2";
+        inline constexpr std::string_view CCSGameRules_TerminateRound = "48 8B C4 4C 89 48 20 48 89 48 08 55 56 41 56 41";
+        inline constexpr std::string_view CCSGameRules_Think = "40 55 53 41 55 41 57 48 8D 6C 24 C1 48 81 EC A8";
+        inline constexpr std::string_view CCSPlayerPawnBase_SwitchTeam = "40 53 57 48 81 EC 88 00 00 00 48 8B D9 8B FA 8B";
+        inline constexpr std::string_view CCSPlayerPawn_GiveNamedItem = "48 89 5C 24 08 48 89 74 24 10 48 89 7C 24 20 44 89 44 24 18";
+    }
     namespace soundsystem {
         inline constexpr std::string_view CSosOperatorSystem_StartSoundEvent = "40 53 55 56 48 83 EC 20 83 B9 EC 24 00 00 00 49";
         inline constexpr std::string_view SoundSystem__PlayVSound = "48 8B C4 48 89 58 08 57 48 81 EC A0 00 00 00 33";
@@ -448,12 +463,16 @@ namespace cs2::signatures {
     namespace vphysics2 {
         inline constexpr std::string_view VPhysics2_Startup = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 48 89 7C 24 20 41 54 41 56 41 57 48 83 EC 70 48 83";
     }
+    namespace worldrenderer {
+        inline constexpr std::string_view CWorldRendererMgr_ServiceWorldRequests = "48 89 5C 24 10 48 89 6C 24 18 48 89 74 24 20 57 41 54 41 55 41 56 41 57 48 83 EC 40 48 8B D9 0F";
+    }
 }
 
 namespace cs2::fn {
     namespace animationsystem {
         using Animation__ShouldUpdateSequences_t = void(__fastcall*)(void*, ...);
         using AnimationSystemUtils_ptr_t = void(__fastcall*)(void*, ...);
+        using CAnimationSystem_FrameUpdate_t = void(__fastcall*)(void*, ...);
     }
     namespace client {
         using AddNametagEntity_t = void(__fastcall*)(void*, ...);
@@ -788,10 +807,13 @@ namespace cs2::fn {
         using FullFileSystem_ptr_t = void(__fastcall*)(void*, ...);
     }
     namespace inputsystem {
+        using CInputSystem_AttachToWindow_t = void(__fastcall*)(void*, ...);
         using InputSystemSvc_ptr_t = void(__fastcall*)(void*, ...);
         using InputSystem_ptr_t = void(__fastcall*)(void*, ...);
     }
     namespace matchmaking {
+        using CMatchSessionOfflineCustom_InitializeGameSettings_t = void(__fastcall*)(void*, ...);
+        using CMatchSessionOnlineHost_InitializeGameSettings_t = void(__fastcall*)(void*, ...);
         using GameTypes_ptr_t = void(__fastcall*)(void*, ...);
     }
     namespace materialsystem2 {
@@ -827,6 +849,10 @@ namespace cs2::fn {
         using NetSystem_CNetChan_ProcessMessages_t = void(__fastcall*)(void*, ...);
         using NetSystem_CNetChan_SendNetMessage_t = void(__fastcall*)(void*, ...);
         using NetworkSystem_ptr_t = void(__fastcall*)(void*, ...);
+    }
+    namespace panorama {
+        using CUIEngine_DispatchEvent_t = void(__fastcall*)(void*, ...);
+        using CUIEngine_RunFrame_t = void(__fastcall*)(void*, ...);
     }
     namespace particles {
         using GetParticleManager_t = void(__fastcall*)(void*, ...);
@@ -875,6 +901,13 @@ namespace cs2::fn {
         using CSchemaSystem_VerifySchemaBindingConsistency_t = void(__fastcall*)(void*, ...);
         using SchemaSystem_ptr_t = void(__fastcall*)(void*, ...);
     }
+    namespace server {
+        using CCSGameRules_FrameUpdatePreEntityThink_t = void(__fastcall*)(void*, ...);
+        using CCSGameRules_TerminateRound_t = void(__fastcall*)(void*, ...);
+        using CCSGameRules_Think_t = void(__fastcall*)(void*, ...);
+        using CCSPlayerPawnBase_SwitchTeam_t = void(__fastcall*)(void*, ...);
+        using CCSPlayerPawn_GiveNamedItem_t = void(__fastcall*)(void*, ...);
+    }
     namespace soundsystem {
         using CSosOperatorSystem_StartSoundEvent_t = void(__fastcall*)(void*, ...);
         using SoundSystem__PlayVSound_t = void(__fastcall*)(void*, ...);
@@ -888,5 +921,8 @@ namespace cs2::fn {
     }
     namespace vphysics2 {
         using VPhysics2_Startup_t = void(__fastcall*)(void*, ...);
+    }
+    namespace worldrenderer {
+        using CWorldRendererMgr_ServiceWorldRequests_t = void(__fastcall*)(void*, ...);
     }
 }

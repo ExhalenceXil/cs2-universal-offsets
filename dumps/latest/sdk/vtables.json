@@ -248,7 +248,7 @@
         {
           "index": 36,
           "module": "animationsystem.dll",
-          "name": "method_36",
+          "name": "CAnimationSystem_FrameUpdate",
           "rva": "0x8B530"
         },
         {
@@ -19250,7 +19250,7 @@
         {
           "index": 11,
           "module": "inputsystem.dll",
-          "name": "method_11",
+          "name": "CInputSystem_AttachToWindow",
           "rva": "0x39F0"
         },
         {
@@ -44114,7 +44114,7 @@
         {
           "index": 32,
           "module": "worldrenderer.dll",
-          "name": "method_32",
+          "name": "CWorldRendererMgr_ServiceWorldRequests",
           "rva": "0x2B4A0"
         },
         {

@@ -3385,4 +3385,137 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         extra_off: 0,
     },
 
+    // ---------- v1.21.7 additions (build 14158) -----------------------
+    // CInputSystem_AttachToWindow - inputsystem!sub_? - SDL window attach
+    // hook. Sets HWND, attaches SDL2 input subsystem, registers message
+    // pump. Hook to inject custom WndProc / sniff raw input messages.
+    Signature {
+        name: "CInputSystem_AttachToWindow",
+        module: "inputsystem.dll",
+        needle: "48 89 5C 24 20 55 48 83 EC 20 48 63 41 30 48 8B EA 33 D2 48 8B D9 85 C0 7E 20 4C 8B C0 8B CA",
+        resolve: NONE,
+        extra_off: 0,
+    },
+
+    // CMatchSessionOfflineCustom_InitializeGameSettings - matchmaking!sub_?
+    // Builds the game-settings KV for offline custom match (lobby/practice).
+    // Hook to spoof map / mode / convars at session creation.
+    Signature {
+        name: "CMatchSessionOfflineCustom_InitializeGameSettings",
+        module: "matchmaking.dll",
+        needle: "40 53 48 81 EC 40 01 00 00 48 89 BC 24 58 01 00 00 48 8D 15 ? ? ? ? 48 8B F9 41 B0 01 48 8B 49 10 FF 15 ? ? ? ? 48 8B D8 48 85 C0 74 59",
+        resolve: NONE,
+        extra_off: 0,
+    },
+
+    // CMatchSessionOnlineHost_InitializeGameSettings - matchmaking!sub_?
+    // Online-host equivalent: writes settings KV when locally hosting an
+    // online match. Anchor for community-server / lobby manipulation.
+    Signature {
+        name: "CMatchSessionOnlineHost_InitializeGameSettings",
+        module: "matchmaking.dll",
+        needle: "48 8B C4 53 48 81 EC 80 01 00 00 48 89 70 10 48 8D 15 ? ? ? ? 48 89 78 18 4C 89 60 F0",
+        resolve: NONE,
+        extra_off: 0,
+    },
+
+    // CAnimationSystem_FrameUpdate - animationsystem!sub_? - per-tick driver
+    // for the new Source2 animgraph: ticks all active animation contexts,
+    // schedules sample jobs. Hook to inject pose-blends / time-warp.
+    Signature {
+        name: "CAnimationSystem_FrameUpdate",
+        module: "animationsystem.dll",
+        needle: "48 89 4C 24 08 55 53 56 57 41 54 41 55 41 56 41 57 48 8D AC 24 C8 EB FF FF B8 38 15 00 00",
+        resolve: NONE,
+        extra_off: 0,
+    },
+
+    // CWorldRendererMgr_ServiceWorldRequests - worldrenderer!sub_18002B4A0
+    // Per-frame world-streaming dispatcher (rdtsc-timed; logs "long frame"
+    // to console when budget exceeded). Hook for skybox / world overrides.
+    Signature {
+        name: "CWorldRendererMgr_ServiceWorldRequests",
+        module: "worldrenderer.dll",
+        needle: "48 89 5C 24 10 48 89 6C 24 18 48 89 74 24 20 57 41 54 41 55 41 56 41 57 48 83 EC 40 48 8B D9 0F 29 74 24 30 48 8D 0D ? ? ? ? 0F 29 7C 24 20 BA FF FF FF FF",
+        resolve: NONE,
+        extra_off: 0,
+    },
+
+    // CUIEngine_RunFrame - panorama!sub_1800A95F0 - per-frame Panorama UI
+    // tick: runs scheduled delegates, repaints, processes script tasks.
+    // Anchor to inject menu render hooks or sniff Panorama events.
+    Signature {
+        name: "CUIEngine_RunFrame",
+        module: "panorama.dll",
+        needle: "48 89 5C 24 10 48 89 6C 24 18 56 57 41 54 41 56 41 57 48 81 EC 80 00 00 00 45 33 F6 48 8B F1",
+        resolve: NONE,
+        extra_off: 0,
+    },
+
+    // CUIEngine_DispatchEvent - panorama!sub_180098320 - synchronous event
+    // dispatch into the Panorama panel tree (validates event name, walks
+    // listeners). Hook to capture every UI event for scripting/automation.
+    Signature {
+        name: "CUIEngine_DispatchEvent",
+        module: "panorama.dll",
+        needle: "48 8B C4 48 89 58 18 88 50 10 55 56 57 41 54 41 55 41 56 41 57 48 8D A8 78 F7 FF FF 48 81 EC 50",
+        resolve: NONE,
+        extra_off: 0,
+    },
+
+    // CCSGameRules_FrameUpdatePreEntityThink - server!sub_1808A9B50 - early
+    // per-frame gamerules tick before entity Think pass. Wraps real worker
+    // sub_1802729B0 in a VProf scope. Anchor for game-state pre-step.
+    Signature {
+        name: "CCSGameRules_FrameUpdatePreEntityThink",
+        module: "server.dll",
+        needle: "48 89 5C 24 08 57 48 83 EC 60 48 8D 05 ? ? ? ? 48 C7 44 24 28 01 13 00 00 48 89 44 24 20",
+        resolve: NONE,
+        extra_off: 0,
+    },
+
+    // CCSGameRules_Think - server!sub_1808D80F0 - main per-tick game-rules
+    // think (round timers, halftime swap, GMR_EndRound dispatch). Top-level
+    // anchor for round-state manipulation / freezetime / score hacks.
+    Signature {
+        name: "CCSGameRules_Think",
+        module: "server.dll",
+        needle: "40 55 53 41 55 41 57 48 8D 6C 24 C1 48 81 EC A8 00 00 00 80 79 48 00 4C 8B F9 4C 8B 2D",
+        resolve: NONE,
+        extra_off: 0,
+    },
+
+    // CCSGameRules_TerminateRound - server!sub_1808EFA50 - round terminator
+    // (sets winner team, plays end-round sound, kicks state machine to
+    // post-round). Anchor for forcing arbitrary round-end conditions.
+    Signature {
+        name: "CCSGameRules_TerminateRound",
+        module: "server.dll",
+        needle: "48 8B C4 4C 89 48 20 48 89 48 08 55 56 41 56 41 57 48 8D 68 A1 48 81 EC E8 00 00 00 4C 8D B1",
+        resolve: NONE,
+        extra_off: 0,
+    },
+
+    // CCSPlayerPawn_GiveNamedItem - server!sub_180A2AC60 - resolves classname
+    // alias, finds entity factory, spawns the weapon/item entity, equips it
+    // on the pawn. Anchor for server-side give-weapon implementations.
+    Signature {
+        name: "CCSPlayerPawn_GiveNamedItem",
+        module: "server.dll",
+        needle: "48 89 5C 24 08 48 89 74 24 10 48 89 7C 24 20 44 89 44 24 18 55 41 54 41 55 41 56 41 57 48 8D AC 24 40 FF FF FF 48 81 EC C0 01 00 00 4D 8B E1 45 8B E8",
+        resolve: NONE,
+        extra_off: 0,
+    },
+
+    // CCSPlayerPawnBase_SwitchTeam - server!sub_180A0D380 - team-change entry
+    // (validates team idx, fires team-change event, updates pending-team,
+    // schedules respawn). Anchor for forced team-swap utilities.
+    Signature {
+        name: "CCSPlayerPawnBase_SwitchTeam",
+        module: "server.dll",
+        needle: "40 53 57 48 81 EC 88 00 00 00 48 8B D9 8B FA 8B CA E8 ? ? ? ? 48 85 C0 0F 84 3A 02 00 00",
+        resolve: NONE,
+        extra_off: 0,
+    },
+
 ];

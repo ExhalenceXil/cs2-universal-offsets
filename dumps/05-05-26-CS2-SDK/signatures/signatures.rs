@@ -6,6 +6,7 @@
 pub mod animationsystem {
     pub const Animation__ShouldUpdateSequences: &str = "48 89 5C 24 08 48 89 74 24 18 57 48 83 EC 20 49";
     pub const AnimationSystemUtils_ptr: &str = "48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 48 83 EC 28 48 8B CA 48 8D 15";
+    pub const CAnimationSystem_FrameUpdate: &str = "48 89 4C 24 08 55 53 56 57 41 54 41 55 41 56 41 57 48 8D AC 24 C8 EB FF";
 }
 
 pub mod client {
@@ -344,11 +345,14 @@ pub mod filesystem_stdio {
 }
 
 pub mod inputsystem {
+    pub const CInputSystem_AttachToWindow: &str = "48 89 5C 24 20 55 48 83 EC 20 48 63 41 30 48 8B";
     pub const InputSystemSvc_ptr: &str = "48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 40 53 48 83 EC 20 33 DB";
     pub const InputSystem_ptr: &str = "48 89 05 ? ? ? ? 33 C0";
 }
 
 pub mod matchmaking {
+    pub const CMatchSessionOfflineCustom_InitializeGameSettings: &str = "40 53 48 81 EC 40 01 00 00 48 89 BC 24 58 01 00 00 48 8D 15 ? ? ? ? 48 8B F9 41 B0 01 48 8B 49 10 FF 15 60 41 06 00";
+    pub const CMatchSessionOnlineHost_InitializeGameSettings: &str = "48 8B C4 53 48 81 EC 80 01 00 00 48 89 70 10 48";
     pub const GameTypes_ptr: &str = "48 8D 0D ? ? ? ? FF 90";
 }
 
@@ -386,6 +390,11 @@ pub mod networksystem {
     pub const NetSystem_CNetChan_ProcessMessages: &str = "48 8B C4 53 57 41 54 41 56 48 81 EC A8 00 00 00";
     pub const NetSystem_CNetChan_SendNetMessage: &str = "48 89 5C 24 10 48 89 6C 24 18 56 57 41 56 48 83 EC 40 41 0F";
     pub const NetworkSystem_ptr: &str = "48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 48 83 EC 28 BA FF FF FF";
+}
+
+pub mod panorama {
+    pub const CUIEngine_DispatchEvent: &str = "48 8B C4 48 89 58 18 88 50 10 55 56 57 41 54 41";
+    pub const CUIEngine_RunFrame: &str = "48 89 5C 24 10 48 89 6C 24 18 56 57 41 54 41 56 41 57 48 81 EC 80 00 00 00 45 33 F6";
 }
 
 pub mod particles {
@@ -440,6 +449,14 @@ pub mod schemasystem {
     pub const SchemaSystem_ptr: &str = "48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 48 89 5C 24 08 48 89 74";
 }
 
+pub mod server {
+    pub const CCSGameRules_FrameUpdatePreEntityThink: &str = "48 89 5C 24 08 57 48 83 EC 60 48 8D 05 4F 38 E2";
+    pub const CCSGameRules_TerminateRound: &str = "48 8B C4 4C 89 48 20 48 89 48 08 55 56 41 56 41";
+    pub const CCSGameRules_Think: &str = "40 55 53 41 55 41 57 48 8D 6C 24 C1 48 81 EC A8";
+    pub const CCSPlayerPawnBase_SwitchTeam: &str = "40 53 57 48 81 EC 88 00 00 00 48 8B D9 8B FA 8B";
+    pub const CCSPlayerPawn_GiveNamedItem: &str = "48 89 5C 24 08 48 89 74 24 10 48 89 7C 24 20 44 89 44 24 18";
+}
+
 pub mod soundsystem {
     pub const CSosOperatorSystem_StartSoundEvent: &str = "40 53 55 56 48 83 EC 20 83 B9 EC 24 00 00 00 49";
     pub const SoundSystem__PlayVSound: &str = "48 8B C4 48 89 58 08 57 48 81 EC A0 00 00 00 33";
@@ -455,5 +472,9 @@ pub mod tier0 {
 
 pub mod vphysics2 {
     pub const VPhysics2_Startup: &str = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 48 89 7C 24 20 41 54 41 56 41 57 48 83 EC 70 48 83";
+}
+
+pub mod worldrenderer {
+    pub const CWorldRendererMgr_ServiceWorldRequests: &str = "48 89 5C 24 10 48 89 6C 24 18 48 89 74 24 20 57 41 54 41 55 41 56 41 57 48 83 EC 40 48 8B D9 0F";
 }
 

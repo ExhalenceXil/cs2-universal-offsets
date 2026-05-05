@@ -64,7 +64,7 @@ namespace cs2::vtables {
             inline constexpr std::ptrdiff_t method_33                                        =   33; // animationsystem.dll + 0x8B250
             inline constexpr std::ptrdiff_t method_34                                        =   34; // animationsystem.dll + 0x8B400
             inline constexpr std::ptrdiff_t method_35                                        =   35; // animationsystem.dll + 0x8A8F0
-            inline constexpr std::ptrdiff_t method_36                                        =   36; // animationsystem.dll + 0x8B530
+            inline constexpr std::ptrdiff_t CAnimationSystem_FrameUpdate                     =   36; // animationsystem.dll + 0x8B530
             inline constexpr std::ptrdiff_t method_37                                        =   37; // animationsystem.dll + 0x8BA50
             inline constexpr std::ptrdiff_t method_38                                        =   38; // animationsystem.dll + 0x8BE30
             inline constexpr std::ptrdiff_t method_39                                        =   39; // animationsystem.dll + 0x8BE40
@@ -3391,7 +3391,7 @@ namespace cs2::vtables {
             inline constexpr std::ptrdiff_t method_8                                         =    8; // inputsystem.dll + 0x2790
             inline constexpr std::ptrdiff_t method_9                                         =    9; // inputsystem.dll + 0x2810
             inline constexpr std::ptrdiff_t method_10                                        =   10; // inputsystem.dll + 0x2760
-            inline constexpr std::ptrdiff_t method_11                                        =   11; // inputsystem.dll + 0x39F0
+            inline constexpr std::ptrdiff_t CInputSystem_AttachToWindow                      =   11; // inputsystem.dll + 0x39F0
             inline constexpr std::ptrdiff_t method_12                                        =   12; // inputsystem.dll + 0x3BC0
             inline constexpr std::ptrdiff_t method_13                                        =   13; // inputsystem.dll + 0x3FE0
             inline constexpr std::ptrdiff_t method_14                                        =   14; // inputsystem.dll + 0x3FF0
@@ -7799,7 +7799,7 @@ namespace cs2::vtables {
             inline constexpr std::ptrdiff_t method_29                                        =   29; // worldrenderer.dll + 0x28190
             inline constexpr std::ptrdiff_t method_30                                        =   30; // worldrenderer.dll + 0x28260
             inline constexpr std::ptrdiff_t method_31                                        =   31; // worldrenderer.dll + 0x28340
-            inline constexpr std::ptrdiff_t method_32                                        =   32; // worldrenderer.dll + 0x2B4A0
+            inline constexpr std::ptrdiff_t CWorldRendererMgr_ServiceWorldRequests           =   32; // worldrenderer.dll + 0x2B4A0
             inline constexpr std::ptrdiff_t method_33                                        =   33; // worldrenderer.dll + 0x271C0
             inline constexpr std::ptrdiff_t method_34                                        =   34; // worldrenderer.dll + 0x2B900
             inline constexpr std::ptrdiff_t method_35                                        =   35; // worldrenderer.dll + 0x2BA60

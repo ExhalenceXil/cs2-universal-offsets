@@ -2,7 +2,7 @@
 
 _This file is regenerated on every successful run of `cs2-sdk`._
 
-**406/453 signatures resolved across 16 module(s).**
+**418/465 signatures resolved across 19 module(s).**
 
 ## `animationsystem.dll`
 
@@ -10,6 +10,7 @@ _This file is regenerated on every successful run of `cs2-sdk`._
 | --- | --- | --- | --- | --- |
 | `Animation::ShouldUpdateSequences` | `raw` | `0x7FFAED6EF0A0` | `0x14F0A0` | `48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC 20 49 8B 40 48` |
 | `AnimationSystemUtils_ptr` | `riprel` | `0x7FFAEDDB2170` | `0x812170` | `48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 48 83 EC 28 48 8B CA 48 8D 15` |
+| `CAnimationSystem_FrameUpdate` | `raw` | `0x7FFAED62B530` | `0x8B530` | `48 89 4C 24 08 55 53 56 57 41 54 41 55 41 56 41 57 48 8D AC 24 C8 EB FF FF B8 38 15 00 00` |
 
 ## `client.dll`
 
@@ -356,6 +357,7 @@ _This file is regenerated on every successful run of `cs2-sdk`._
 
 | Name | Resolve | VA | RVA | Pattern |
 | --- | --- | --- | --- | --- |
+| `CInputSystem_AttachToWindow` | `raw` | `0x7FFB2B7B39F0` | `0x39F0` | `48 89 5C 24 20 55 48 83 EC 20 48 63 41 30 48 8B EA 33 D2 48 8B D9 85 C0 7E 20 4C 8B C0 8B CA` |
 | `InputSystemSvc_ptr` | `riprel` | `0x7FFB2B7F2B50` | `0x42B50` | `48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 40 53 48 83 EC 20 33 DB` |
 | `InputSystem_ptr` | `riprel` | `0x7FFB2B7F2B50` | `0x42B50` | `48 89 05 ? ? ? ? 33 C0` |
 
@@ -363,6 +365,8 @@ _This file is regenerated on every successful run of `cs2-sdk`._
 
 | Name | Resolve | VA | RVA | Pattern |
 | --- | --- | --- | --- | --- |
+| `CMatchSessionOfflineCustom_InitializeGameSettings` | `raw` | `0x7FFABD49E6A0` | `0xEE6A0` | `40 53 48 81 EC 40 01 00 00 48 89 BC 24 58 01 00 00 48 8D 15 ? ? ? ? 48 8B F9 41 B0 01 48 8B 49 10 FF 15 ? ? ? ? 48 8B D8 48 85 C0 74 59` |
+| `CMatchSessionOnlineHost_InitializeGameSettings` | `raw` | `0x7FFABD4A0460` | `0xF0460` | `48 8B C4 53 48 81 EC 80 01 00 00 48 89 70 10 48 8D 15 ? ? ? ? 48 89 78 18 4C 89 60 F0` |
 | `GameTypes_ptr` | `riprel` | `0x7FFABD560F80` | `0x1B0F80` | `48 8D 0D ? ? ? ? FF 90` |
 
 ## `materialsystem2.dll`
@@ -404,6 +408,13 @@ _This file is regenerated on every successful run of `cs2-sdk`._
 | `NetSystem_CNetChan_ProcessMessages` | `raw` | `0x7FFB0E5AB280` | `0xBB280` | `48 8B C4 53 57 41 54 41 56 48 81 EC A8 00 00 00 48 89 70 D0 45 33 E4 4C 89 68 C8 48 8B D9 48 89` |
 | `NetSystem_CNetChan_SendNetMessage` | `raw` | `0x7FFB0E5AD670` | `0xBD670` | `48 89 5C 24 10 48 89 6C 24 18 56 57 41 56 48 83 EC 40 41 0F B6 F0 48 8D 99 F8 73 00 00 4C 8B F2` |
 | `NetworkSystem_ptr` | `riprel` | `0x7FFB0E776E50` | `0x286E50` | `48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 48 83 EC 28 BA FF FF FF` |
+
+## `panorama.dll`
+
+| Name | Resolve | VA | RVA | Pattern |
+| --- | --- | --- | --- | --- |
+| `CUIEngine_DispatchEvent` | `raw` | `0x7FFAC3C58320` | `0x98320` | `48 8B C4 48 89 58 18 88 50 10 55 56 57 41 54 41 55 41 56 41 57 48 8D A8 78 F7 FF FF 48 81 EC 50` |
+| `CUIEngine_RunFrame` | `raw` | `0x7FFAC3C695F0` | `0xA95F0` | `48 89 5C 24 10 48 89 6C 24 18 56 57 41 54 41 56 41 57 48 81 EC 80 00 00 00 45 33 F6 48 8B F1` |
 
 ## `particles.dll`
 
@@ -467,6 +478,16 @@ _This file is regenerated on every successful run of `cs2-sdk`._
 | `CSchemaSystem_VerifySchemaBindingConsistency` | `raw` | `0x7FFB1E7858F0` | `0x58F0` | `88 54 24 10 55 53 57 41 54 41 55 48 8B EC 48 81 EC 80 00 00 00 65 48 8B 04 25 58 00 00 00` |
 | `SchemaSystem_ptr` | `riprel` | `0x7FFB1E7F6800` | `0x76800` | `48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 48 89 5C 24 08 48 89 74` |
 
+## `server.dll`
+
+| Name | Resolve | VA | RVA | Pattern |
+| --- | --- | --- | --- | --- |
+| `CCSGameRules_FrameUpdatePreEntityThink` | `raw` | `0x7FFAC1D49B50` | `0x8A9B50` | `48 89 5C 24 08 57 48 83 EC 60 48 8D 05 ? ? ? ? 48 C7 44 24 28 01 13 00 00 48 89 44 24 20` |
+| `CCSGameRules_TerminateRound` | `raw` | `0x7FFAC1D8FA50` | `0x8EFA50` | `48 8B C4 4C 89 48 20 48 89 48 08 55 56 41 56 41 57 48 8D 68 A1 48 81 EC E8 00 00 00 4C 8D B1` |
+| `CCSGameRules_Think` | `raw` | `0x7FFAC1D780F0` | `0x8D80F0` | `40 55 53 41 55 41 57 48 8D 6C 24 C1 48 81 EC A8 00 00 00 80 79 48 00 4C 8B F9 4C 8B 2D` |
+| `CCSPlayerPawnBase_SwitchTeam` | `raw` | `0x7FFAC1EAD380` | `0xA0D380` | `40 53 57 48 81 EC 88 00 00 00 48 8B D9 8B FA 8B CA E8 ? ? ? ? 48 85 C0 0F 84 3A 02 00 00` |
+| `CCSPlayerPawn_GiveNamedItem` | `raw` | `0x7FFAC1ECAC60` | `0xA2AC60` | `48 89 5C 24 08 48 89 74 24 10 48 89 7C 24 20 44 89 44 24 18 55 41 54 41 55 41 56 41 57 48 8D AC 24 40 FF FF FF 48 81 EC C0 01 00 00 4D 8B E1 45 8B E8` |
+
 ## `soundsystem.dll`
 
 | Name | Resolve | VA | RVA | Pattern |
@@ -489,4 +510,10 @@ _This file is regenerated on every successful run of `cs2-sdk`._
 | Name | Resolve | VA | RVA | Pattern |
 | --- | --- | --- | --- | --- |
 | `VPhysics2_Startup` | `raw` | `0x7FFB0E01AF20` | `0x6AF20` | `48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 48 89 7C 24 20 41 54 41 56 41 57 48 83 EC 70 48 83 3D` |
+
+## `worldrenderer.dll`
+
+| Name | Resolve | VA | RVA | Pattern |
+| --- | --- | --- | --- | --- |
+| `CWorldRendererMgr_ServiceWorldRequests` | `raw` | `0x7FFB0EB5B4A0` | `0x2B4A0` | `48 89 5C 24 10 48 89 6C 24 18 48 89 74 24 20 57 41 54 41 55 41 56 41 57 48 83 EC 40 48 8B D9 0F 29 74 24 30 48 8D 0D ? ? ? ? 0F 29 7C 24 20 BA FF FF FF FF` |
 
