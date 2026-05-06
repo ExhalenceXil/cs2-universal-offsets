@@ -17,10 +17,10 @@ use std::collections::BTreeMap;
 use super::SignatureHit;
 
 /// Group resolved signatures by module so each emitter can render them as
-/// nested namespaces / modules / classes.
+/// nested namespaces / modules / classes. Excludes RIPREL signatures.
 fn grouped<'a>(hits: &'a [SignatureHit]) -> BTreeMap<&'a str, Vec<&'a SignatureHit>> {
     let mut out: BTreeMap<&'a str, Vec<&'a SignatureHit>> = BTreeMap::new();
-    for h in hits.iter().filter(|h| h.found) {
+    for h in hits.iter().filter(|h| h.found && h.resolve != "riprel") {
         out.entry(h.module.as_str()).or_default().push(h);
     }
     for v in out.values_mut() {

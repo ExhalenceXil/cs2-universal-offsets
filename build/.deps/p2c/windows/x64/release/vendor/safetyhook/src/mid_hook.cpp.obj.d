@@ -1,4 +1,7 @@
 {
+    files = {
+        [[vendor\safetyhook\src\mid_hook.cpp]]
+    },
     depfiles = "{\
     \"Version\": \"1.2\",\
     \"Data\": {\
@@ -139,9 +142,6 @@
         \"ImportedHeaderUnits\": []\
     }\
 }",
-    files = {
-        [[vendor\safetyhook\src\mid_hook.cpp]]
-    },
     values = {
         [[C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.50.35717\bin\HostX64\x64\cl.exe]],
         {
@@ -153,7 +153,7 @@
             [[-Ivendor\imgui]],
             [[-Ivendor\imgui\backends]],
             [[-Ivendor\json\include]],
-            [[-Ivendor\cs2-universal-offsets\output]],
+            [[-Ivendor\cs2-sdk\output]],
             [[-Ivendor\safetyhook\include]],
             [[-Ivendor\safetyhook\src]],
             [[-Ivendor\zydis\src]],

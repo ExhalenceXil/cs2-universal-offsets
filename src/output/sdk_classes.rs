@@ -65,13 +65,14 @@ use super::ident::{slugify, type_ident};
 /// header text including the build banner.
 pub fn render_module_headers(
     schemas: &SchemaMap,
+    buttons: &BTreeMap<String, u64>,
     build_number: Option<u32>,
     timestamp: &str,
 ) -> Vec<(String, String)> {
     let mut out = Vec::with_capacity(schemas.len());
     for (module, (classes, enums)) in schemas {
         let file_name = format!("{}.hpp", slugify(module));
-        let body = render_one_module(module, classes, enums, build_number, timestamp);
+        let body = render_one_module(module, classes, enums, buttons, build_number, timestamp);
         out.push((file_name, body));
     }
     out
@@ -1506,6 +1507,7 @@ fn render_one_module(
     module: &str,
     classes: &[Class],
     enums: &[Enum],
+    buttons: &BTreeMap<String, u64>,
     build_number: Option<u32>,
     timestamp: &str,
 ) -> String {
@@ -1521,6 +1523,15 @@ fn render_one_module(
 
     if let Some(bn) = build_number {
         writeln!(s, "    inline constexpr std::uint32_t CS2_BUILD = {bn};\n").ok();
+    }
+
+    // Add buttons enum for client.dll
+    if module == "client.dll" && !buttons.is_empty() {
+        writeln!(s, "    enum class InputButton : std::uint64_t {{").ok();
+        for (name, value) in buttons {
+            writeln!(s, "        {} = 0x{:X},", name, value).ok();
+        }
+        writeln!(s, "    }};\n").ok();
     }
 
     // Build a set of class names to detect collisions with enum names

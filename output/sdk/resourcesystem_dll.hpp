@@ -4,7 +4,7 @@
 // classes:       58
 // enums:         2
 // build_number:  14158
-// generated_at:  2026-05-06T16:20:32.319168800+00:00
+// generated_at:  2026-05-06T17:46:00.597898500+00:00
 //
 // Use:
 //   auto* pawn = reinterpret_cast<C_CSPlayerPawn*>(addr);
@@ -93,41 +93,6 @@ namespace cs2::sdk::resourcesystem {
         READ_ONLY = 0x1,
     };
 
-    // ConstantInfo_t
-    //   fields: 3
-    class ConstantInfo_t {
-    public:
-        SCHEMA_FIELD(::CUtlString                    , m_name                                          , 0x0) // CUtlString
-        SCHEMA_FIELD(CUtlStringToken                 , m_nameToken                                     , 0x8) // CUtlStringToken
-        SCHEMA_FIELD(float                           , m_flValue                                       , 0xC) // float32
-    };
-
-    // InfoForResourceTypeCPostProcessingResource
-    //   fields: 0
-    class InfoForResourceTypeCPostProcessingResource {
-    public:
-    };
-
-    // InfoForResourceTypeCGcExportableExternalData
-    //   fields: 0
-    class InfoForResourceTypeCGcExportableExternalData {
-    public:
-    };
-
-    // AABB_t
-    //   fields: 2
-    class AABB_t {
-    public:
-        SCHEMA_FIELD(::Vector                        , m_vMinBounds                                    , 0x0) // Vector
-        SCHEMA_FIELD(::Vector                        , m_vMaxBounds                                    , 0xC) // Vector
-    };
-
-    // InfoForResourceTypeCChoreoSceneResource
-    //   fields: 0
-    class InfoForResourceTypeCChoreoSceneResource {
-    public:
-    };
-
     // FuseFunctionIndex_t
     //   fields: 1
     class FuseFunctionIndex_t {
@@ -135,21 +100,33 @@ namespace cs2::sdk::resourcesystem {
         SCHEMA_FIELD(std::uint16_t                   , m_Value                                         , 0x0) // uint16
     };
 
-    // InfoForResourceTypeCVSoundStackScriptList
+    // InfoForResourceTypeCVDataResource
     //   fields: 0
-    class InfoForResourceTypeCVSoundStackScriptList {
+    class InfoForResourceTypeCVDataResource {
     public:
     };
 
-    // InfoForResourceTypeCDOTAPatchNotesList
+    // InfoForResourceTypeCDOTANovelsList
     //   fields: 0
-    class InfoForResourceTypeCDOTAPatchNotesList {
+    class InfoForResourceTypeCDOTANovelsList {
     public:
     };
 
-    // InfoForResourceTypeCDotaItemDefinitionResource
+    // InfoForResourceTypeCVPhysXSurfacePropertiesList
     //   fields: 0
-    class InfoForResourceTypeCDotaItemDefinitionResource {
+    class InfoForResourceTypeCVPhysXSurfacePropertiesList {
+    public:
+    };
+
+    // InfoForResourceTypeCJavaScriptResource
+    //   fields: 0
+    class InfoForResourceTypeCJavaScriptResource {
+    public:
+    };
+
+    // InfoForResourceTypeCVSoundEventScriptList
+    //   fields: 0
+    class InfoForResourceTypeCVSoundEventScriptList {
     public:
     };
 
@@ -165,15 +142,9 @@ namespace cs2::sdk::resourcesystem {
         SCHEMA_FIELD(FuseVariableAccess_t            , m_eAccess                                       , 0x10) // FuseVariableAccess_t
     };
 
-    // InfoForResourceTypeIParticleSnapshot
+    // InfoForResourceTypeCPanoramaStyle
     //   fields: 0
-    class InfoForResourceTypeIParticleSnapshot {
-    public:
-    };
-
-    // InfoForResourceTypeCVoiceContainerBase
-    //   fields: 0
-    class InfoForResourceTypeCVoiceContainerBase {
+    class InfoForResourceTypeCPanoramaStyle {
     public:
     };
 
@@ -188,51 +159,76 @@ namespace cs2::sdk::resourcesystem {
         SCHEMA_FIELD(bool                            , m_bIsPure                                       , 0x1A) // bool
     };
 
-    // InfoForResourceTypeCDOTANovelsList
+    // AABB_t
+    //   fields: 2
+    class AABB_t {
+    public:
+        SCHEMA_FIELD(::Vector                        , m_vMinBounds                                    , 0x0) // Vector
+        SCHEMA_FIELD(::Vector                        , m_vMaxBounds                                    , 0xC) // Vector
+    };
+
+    // InfoForResourceTypeCPostProcessingResource
     //   fields: 0
-    class InfoForResourceTypeCDOTANovelsList {
+    class InfoForResourceTypeCPostProcessingResource {
     public:
     };
 
-    // InfoForResourceTypeCVoxelVisibility
+    // InfoForResourceTypeCTypeScriptResource
     //   fields: 0
-    class InfoForResourceTypeCVoxelVisibility {
+    class InfoForResourceTypeCTypeScriptResource {
     public:
     };
 
-    // InfoForResourceTypeIVectorGraphic
+    // ConstantInfo_t
+    //   fields: 3
+    class ConstantInfo_t {
+    public:
+        SCHEMA_FIELD(::CUtlString                    , m_name                                          , 0x0) // CUtlString
+        SCHEMA_FIELD(CUtlStringToken                 , m_nameToken                                     , 0x8) // CUtlStringToken
+        SCHEMA_FIELD(float                           , m_flValue                                       , 0xC) // float32
+    };
+
+    // InfoForResourceTypeCNmSkeleton
     //   fields: 0
-    class InfoForResourceTypeIVectorGraphic {
+    class InfoForResourceTypeCNmSkeleton {
     public:
     };
 
-    // InfoForResourceTypeCVDataItemDefs
+    // InfoForResourceTypeCModel
     //   fields: 0
-    class InfoForResourceTypeCVDataItemDefs {
+    class InfoForResourceTypeCModel {
     public:
     };
 
-    // InfoForResourceTypeCVPhysXSurfacePropertiesList
+    // InfoForResourceTypeCVSoundStackScriptList
     //   fields: 0
-    class InfoForResourceTypeCVPhysXSurfacePropertiesList {
+    class InfoForResourceTypeCVSoundStackScriptList {
     public:
     };
 
-    // InfoForResourceTypeIMaterial2
+    // InfoForResourceTypeManifestTestResource_t
     //   fields: 0
-    class InfoForResourceTypeIMaterial2 {
+    class InfoForResourceTypeManifestTestResource_t {
     public:
     };
 
-    // InfoForResourceTypeCJavaScriptResource
+    // InfoForResourceTypeIParticleSnapshot
     //   fields: 0
-    class InfoForResourceTypeCJavaScriptResource {
+    class InfoForResourceTypeIParticleSnapshot {
     public:
     };
 
-    // InfoForResourceTypeCPhysAggregateData
+    // PackedAABB_t
+    //   fields: 2
+    class PackedAABB_t {
+    public:
+        SCHEMA_FIELD(std::uint32_t                   , m_nPackedMin                                    , 0x0) // uint32
+        SCHEMA_FIELD(std::uint32_t                   , m_nPackedMax                                    , 0x4) // uint32
+    };
+
+    // InfoForResourceTypeIAnimGraphModelBinding
     //   fields: 0
-    class InfoForResourceTypeCPhysAggregateData {
+    class InfoForResourceTypeIAnimGraphModelBinding {
     public:
     };
 
@@ -242,59 +238,18 @@ namespace cs2::sdk::resourcesystem {
     public:
     };
 
-    // FuseVariableIndex_t
-    //   fields: 1
-    class FuseVariableIndex_t {
-    public:
-        SCHEMA_FIELD(std::uint16_t                   , m_Value                                         , 0x0) // uint16
-    };
-
     // InfoForResourceTypeCTextureBase
     //   fields: 0
     class InfoForResourceTypeCTextureBase {
     public:
     };
 
-    // InfoForResourceTypeIPulseGraphDef
-    //   fields: 0
-    class InfoForResourceTypeIPulseGraphDef {
+    // ManifestTestResource_t
+    //   fields: 2
+    class ManifestTestResource_t {
     public:
-    };
-
-    // InfoForResourceTypeIAnimGraphModelBinding
-    //   fields: 0
-    class InfoForResourceTypeIAnimGraphModelBinding {
-    public:
-    };
-
-    // InfoForResourceTypeCNmSkeleton
-    //   fields: 0
-    class InfoForResourceTypeCNmSkeleton {
-    public:
-    };
-
-    // InfoForResourceTypeCVMixListResource
-    //   fields: 0
-    class InfoForResourceTypeCVMixListResource {
-    public:
-    };
-
-    // InfoForResourceTypeCNmGraphDefinition
-    //   fields: 0
-    class InfoForResourceTypeCNmGraphDefinition {
-    public:
-    };
-
-    // InfoForResourceTypeIParticleSystemDefinition
-    //   fields: 0
-    class InfoForResourceTypeIParticleSystemDefinition {
-    public:
-    };
-
-    // InfoForResourceTypeCEntityLump
-    //   fields: 0
-    class InfoForResourceTypeCEntityLump {
-    public:
+        SCHEMA_FIELD(::CUtlString                    , m_name                                          , 0x0) // CUtlString
+        SCHEMA_FIELD(CStrongHandle<InfoForResourceTypeManifestTestResource_t>, m_child                                         , 0x8) // CStrongHandle<InfoForResourceTypeManifestTestResource_t>
     };
 
     // CFuseSymbolTable
@@ -312,27 +267,40 @@ namespace cs2::sdk::resourcesystem {
         SCHEMA_FIELD(_Type2                          , m_functionMap                                   , 0x88) // CUtlHashtable<CUtlStringToken,int32>
     };
 
-    // InfoForResourceTypeCPanoramaStyle
+    // InfoForResourceTypeIPulseGraphDef
     //   fields: 0
-    class InfoForResourceTypeCPanoramaStyle {
+    class InfoForResourceTypeIPulseGraphDef {
     public:
     };
 
-    // InfoForResourceTypeCCSGOEconItem
+    // InfoForResourceTypeCVoiceContainerBase
     //   fields: 0
-    class InfoForResourceTypeCCSGOEconItem {
+    class InfoForResourceTypeCVoiceContainerBase {
     public:
     };
 
-    // InfoForResourceTypeCPanoramaLayout
+    // InfoForResourceTypeCChoreoSceneResource
     //   fields: 0
-    class InfoForResourceTypeCPanoramaLayout {
+    class InfoForResourceTypeCChoreoSceneResource {
     public:
     };
 
-    // InfoForResourceTypeCWorldNode
+    // InfoForResourceTypeCNmGraphDefinition
     //   fields: 0
-    class InfoForResourceTypeCWorldNode {
+    class InfoForResourceTypeCNmGraphDefinition {
+    public:
+    };
+
+    // FuseVariableIndex_t
+    //   fields: 1
+    class FuseVariableIndex_t {
+    public:
+        SCHEMA_FIELD(std::uint16_t                   , m_Value                                         , 0x0) // uint16
+    };
+
+    // InfoForResourceTypeCSurfaceGraph
+    //   fields: 0
+    class InfoForResourceTypeCSurfaceGraph {
     public:
     };
 
@@ -342,87 +310,9 @@ namespace cs2::sdk::resourcesystem {
     public:
     };
 
-    // InfoForResourceTypeCAnimationGroup
-    //   fields: 0
-    class InfoForResourceTypeCAnimationGroup {
-    public:
-    };
-
-    // InfoForResourceTypeCSmartProp
-    //   fields: 0
-    class InfoForResourceTypeCSmartProp {
-    public:
-    };
-
-    // InfoForResourceTypeCPanoramaDynamicImages
-    //   fields: 0
-    class InfoForResourceTypeCPanoramaDynamicImages {
-    public:
-    };
-
-    // InfoForResourceTypeCVSoundEventScriptList
-    //   fields: 0
-    class InfoForResourceTypeCVSoundEventScriptList {
-    public:
-    };
-
-    // InfoForResourceTypeCResponseRulesList
-    //   fields: 0
-    class InfoForResourceTypeCResponseRulesList {
-    public:
-    };
-
-    // InfoForResourceTypeManifestTestResource_t
-    //   fields: 0
-    class InfoForResourceTypeManifestTestResource_t {
-    public:
-    };
-
-    // InfoForResourceTypeCMorphSetData
-    //   fields: 0
-    class InfoForResourceTypeCMorphSetData {
-    public:
-    };
-
-    // InfoForResourceTypeCCompositeMaterialKit
-    //   fields: 0
-    class InfoForResourceTypeCCompositeMaterialKit {
-    public:
-    };
-
     // InfoForResourceTypeCRenderMesh
     //   fields: 0
     class InfoForResourceTypeCRenderMesh {
-    public:
-    };
-
-    // InfoForResourceTypeCTestResourceData
-    //   fields: 0
-    class InfoForResourceTypeCTestResourceData {
-    public:
-    };
-
-    // InfoForResourceTypeCVDataResource
-    //   fields: 0
-    class InfoForResourceTypeCVDataResource {
-    public:
-    };
-
-    // InfoForResourceTypeCSequenceGroupData
-    //   fields: 0
-    class InfoForResourceTypeCSequenceGroupData {
-    public:
-    };
-
-    // InfoForResourceTypeCModel
-    //   fields: 0
-    class InfoForResourceTypeCModel {
-    public:
-    };
-
-    // InfoForResourceTypeCSurfaceGraph
-    //   fields: 0
-    class InfoForResourceTypeCSurfaceGraph {
     public:
     };
 
@@ -436,17 +326,111 @@ namespace cs2::sdk::resourcesystem {
         SCHEMA_FIELD(std::int32_t                    , m_nMaxTempVarsUsed                              , 0x48) // int32
     };
 
-    // ManifestTestResource_t
-    //   fields: 2
-    class ManifestTestResource_t {
+    // InfoForResourceTypeIParticleSystemDefinition
+    //   fields: 0
+    class InfoForResourceTypeIParticleSystemDefinition {
     public:
-        SCHEMA_FIELD(::CUtlString                    , m_name                                          , 0x0) // CUtlString
-        SCHEMA_FIELD(CStrongHandle<InfoForResourceTypeManifestTestResource_t>, m_child                                         , 0x8) // CStrongHandle<InfoForResourceTypeManifestTestResource_t>
+    };
+
+    // InfoForResourceTypeCCSGOEconItem
+    //   fields: 0
+    class InfoForResourceTypeCCSGOEconItem {
+    public:
+    };
+
+    // InfoForResourceTypeCGcExportableExternalData
+    //   fields: 0
+    class InfoForResourceTypeCGcExportableExternalData {
+    public:
+    };
+
+    // InfoForResourceTypeCPhysAggregateData
+    //   fields: 0
+    class InfoForResourceTypeCPhysAggregateData {
+    public:
+    };
+
+    // InfoForResourceTypeCAnimationGroup
+    //   fields: 0
+    class InfoForResourceTypeCAnimationGroup {
+    public:
+    };
+
+    // InfoForResourceTypeCVMixListResource
+    //   fields: 0
+    class InfoForResourceTypeCVMixListResource {
+    public:
+    };
+
+    // InfoForResourceTypeCDOTAPatchNotesList
+    //   fields: 0
+    class InfoForResourceTypeCDOTAPatchNotesList {
+    public:
     };
 
     // InfoForResourceTypeCAnimData
     //   fields: 0
     class InfoForResourceTypeCAnimData {
+    public:
+    };
+
+    // InfoForResourceTypeCPanoramaDynamicImages
+    //   fields: 0
+    class InfoForResourceTypeCPanoramaDynamicImages {
+    public:
+    };
+
+    // InfoForResourceTypeCMorphSetData
+    //   fields: 0
+    class InfoForResourceTypeCMorphSetData {
+    public:
+    };
+
+    // InfoForResourceTypeCResponseRulesList
+    //   fields: 0
+    class InfoForResourceTypeCResponseRulesList {
+    public:
+    };
+
+    // InfoForResourceTypeIMaterial2
+    //   fields: 0
+    class InfoForResourceTypeIMaterial2 {
+    public:
+    };
+
+    // InfoForResourceTypeCPanoramaLayout
+    //   fields: 0
+    class InfoForResourceTypeCPanoramaLayout {
+    public:
+    };
+
+    // InfoForResourceTypeCVoxelVisibility
+    //   fields: 0
+    class InfoForResourceTypeCVoxelVisibility {
+    public:
+    };
+
+    // InfoForResourceTypeWorld_t
+    //   fields: 0
+    class InfoForResourceTypeWorld_t {
+    public:
+    };
+
+    // InfoForResourceTypeCTestResourceData
+    //   fields: 0
+    class InfoForResourceTypeCTestResourceData {
+    public:
+    };
+
+    // InfoForResourceTypeCSequenceGroupData
+    //   fields: 0
+    class InfoForResourceTypeCSequenceGroupData {
+    public:
+    };
+
+    // InfoForResourceTypeCCompositeMaterialKit
+    //   fields: 0
+    class InfoForResourceTypeCCompositeMaterialKit {
     public:
     };
 
@@ -460,23 +444,39 @@ namespace cs2::sdk::resourcesystem {
         SCHEMA_FIELD(fltx4                           , w                                               , 0x30) // fltx4
     };
 
-    // InfoForResourceTypeCTypeScriptResource
+    // InfoForResourceTypeCSmartProp
     //   fields: 0
-    class InfoForResourceTypeCTypeScriptResource {
+    class InfoForResourceTypeCSmartProp {
     public:
     };
 
-    // PackedAABB_t
-    //   fields: 2
-    class PackedAABB_t {
+    // InfoForResourceTypeCEntityLump
+    //   fields: 0
+    class InfoForResourceTypeCEntityLump {
     public:
-        SCHEMA_FIELD(std::uint32_t                   , m_nPackedMin                                    , 0x0) // uint32
-        SCHEMA_FIELD(std::uint32_t                   , m_nPackedMax                                    , 0x4) // uint32
     };
 
-    // InfoForResourceTypeWorld_t
+    // InfoForResourceTypeCWorldNode
     //   fields: 0
-    class InfoForResourceTypeWorld_t {
+    class InfoForResourceTypeCWorldNode {
+    public:
+    };
+
+    // InfoForResourceTypeIVectorGraphic
+    //   fields: 0
+    class InfoForResourceTypeIVectorGraphic {
+    public:
+    };
+
+    // InfoForResourceTypeCDotaItemDefinitionResource
+    //   fields: 0
+    class InfoForResourceTypeCDotaItemDefinitionResource {
+    public:
+    };
+
+    // InfoForResourceTypeCVDataItemDefs
+    //   fields: 0
+    class InfoForResourceTypeCVDataItemDefs {
     public:
     };
 

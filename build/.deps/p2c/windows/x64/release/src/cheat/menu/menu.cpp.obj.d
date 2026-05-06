@@ -485,7 +485,7 @@
             [[-Ivendor\imgui]],
             [[-Ivendor\imgui\backends]],
             [[-Ivendor\json\include]],
-            [[-Ivendor\cs2-universal-offsets\output]],
+            [[-Ivendor\cs2-sdk\output]],
             [[-Ivendor\safetyhook\include]],
             [[-Ivendor\safetyhook\src]],
             [[-Ivendor\zydis\src]],

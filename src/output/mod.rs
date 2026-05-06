@@ -129,7 +129,7 @@ impl<'a> Output<'a> {
 
         // 2. per-module SDK class headers
         let mut module_stems = Vec::new();
-        for (file_name, body) in sdk_classes::render_module_headers(&self.result.schemas, build_number, &ts) {
+        for (file_name, body) in sdk_classes::render_module_headers(&self.result.schemas, &self.result.buttons, build_number, &ts) {
             fs::write(self.out_dir.join(&file_name), body)?;
             if let Some(stem) = file_name.strip_suffix(".hpp") {
                 module_stems.push(stem.to_string());
@@ -189,9 +189,7 @@ impl<'a> Output<'a> {
         // amalgamation), and the per-file pattern dump is superseded by
         // the dedicated `signatures/` directory.
         //
-        // We still emit the symbolic button table since there's no
-        // equivalent in the typed SDK yet.
-        self.dump_item("buttons", &Item::Buttons(&self.result.buttons))?;
+        // Buttons are now emitted as an enum in client_dll.hpp.
 
         Ok(())
     }

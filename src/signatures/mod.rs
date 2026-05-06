@@ -26,6 +26,7 @@ pub mod cache;
 pub mod database;
 pub mod diff;
 pub mod writers;
+pub mod offsets_writer;
 
 pub use cache::SignatureCache;
 

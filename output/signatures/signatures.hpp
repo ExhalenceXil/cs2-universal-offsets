@@ -12,7 +12,6 @@
 namespace cs2::signatures {
     namespace animationsystem {
         inline constexpr std::string_view Animation__ShouldUpdateSequences = "48 89 5C 24 08 48 89 74 24 18 57 48 83 EC 20 49";
-        inline constexpr std::string_view AnimationSystemUtils_ptr = "48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 48 83 EC 28 48 8B CA 48 8D 15";
         inline constexpr std::string_view CAnimationSystem_FrameUpdate = "48 89 4C 24 08 55 53 56 57 41 54 41 55 41 56 41 57 48 8D AC 24 C8 EB FF";
     }
     namespace client {
@@ -77,7 +76,6 @@ namespace cs2::signatures {
         inline constexpr std::string_view CGlowProperty = "48 83 EC 58 83 F9 01 0F 85 ? ? ? ? 48 8D 05 ? ? ? ? C7 44 24 30 00 00 00 80 89 4C 24 28 4C 8D 05 ? ? ? ? 48 89 44 24 48 48 8D 4C 24";
         inline constexpr std::string_view CGlowProperty_OnGlowTypeChanged = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 48 8B 05 32 F8";
         inline constexpr std::string_view CHEGrenadeProjectile = "48 83 EC 28 48 8D 15 ? ? ? ? 48 8D 4C 24 38 E8 CB 75 80";
-        inline constexpr std::string_view CInputPtrGlobal = "4C 8B 05 ? ? ? ? 41 8B 80 50 0B 00 00 85 C0";
         inline constexpr std::string_view CMolotovProjectile = "48 83 EC 28 48 8D 15 ? ? ? ? 48 8D 4C 24 38 E8 9B 96 09";
         inline constexpr std::string_view CPaintKitDefinitions_FindOrCreateByName = "48 89 5C 24 08 48 89 6C 24 18 56 57 41 56 48 81 EC 50 01 00";
         inline constexpr std::string_view CPaintKitDefinitions_LoadDefaultKit = "48 89 6C 24 20 56 57 41 54 41 55 41 57 48 81 EC";
@@ -85,8 +83,6 @@ namespace cs2::signatures {
         inline constexpr std::string_view CS2ItemEditor_BuildTemplateMaterialFromFile = "48 89 54 24 10 55 53 41 55 41 57 48 8D AC 24 18";
         inline constexpr std::string_view CSBaseGunFireData_fn = "48 8B C4 55 53 56 57 41 54 41 55 41 56 41 57 48 8D 68 A8 48";
         inline constexpr std::string_view CSGOInput_CreateMove = "48 8B C4 4C 89 40 18 48 89 48 08 55 53 41 54 41";
-        inline constexpr std::string_view CSGOInput_ptr = "48 8B 0D ? ? ? ? 4C 8B C6 8B 10 E8";
-        inline constexpr std::string_view CSGOInput_resolved = "48 8B 0D ? ? ? ? 8B 10 E8 ? ? ? ? 45 32 FF";
         inline constexpr std::string_view CSkeletonInstance = "40 57 48 83 EC 20 48 8B FA 85 C9 74 23 83 F9 06 74 08 33 C0 48 83 C4 20 5F C3 48 8B 02 48 8B CF 48 8D 54 24 48 FF 10 48 8B 00 48 83 C4 20 5F C3";
         inline constexpr std::string_view CSkeletonInstance__SetMeshGroupMask = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 48 8D 99 50 01";
         inline constexpr std::string_view CSkeletonInstance_GetTransformsForHitboxList = "48 89 5C 24 18 55 56 57 41 55 41 57 48 81 EC A0";
@@ -131,7 +127,6 @@ namespace cs2::signatures {
         inline constexpr std::string_view CalculateWorldSpaceBones = "48 89 4C 24 08 55 53 56 57 41 54 41 55 41 56 41 57 B8 58 42";
         inline constexpr std::string_view ClearHUDWeaponIcon = "4C 8B DC 55 57 48 83 EC 48 48 63 41 68 48 8B F9";
         inline constexpr std::string_view ClientModeCSNormal_OnEvent = "40 53 57 48 81 EC 78 02 00 00 48 8B CA 48 8B FA";
-        inline constexpr std::string_view ClientMode_ptr = "48 8D 0D ? ? ? ? 48 69 C0 ? ? ? ? 48 03 C1 C3 CC CC";
         inline constexpr std::string_view Client_DispatchSpawn = "4C 8B DC 55 56 48 83 EC 78 49 8B 68 08 48 8B F1";
         inline constexpr std::string_view CompositeMaterialPanoramaPanel_Init = "48 8B C4 4C 89 40 18 55 56 41 56 48 8D 68 A1 48";
         inline constexpr std::string_view ComputeRandomSeed = "48 89 5C 24 08 57 48 81 EC F0 00 00 00 F3 0F 10";
@@ -144,7 +139,6 @@ namespace cs2::signatures {
         inline constexpr std::string_view CreateNewSubtickMoveStep = "48 89 5C 24 10 57 48 83 EC 20 33 DB 48 8B F9 48 85 C9 75 2D B9 38 00 00 00 E8 E2 DA";
         inline constexpr std::string_view CreateParticleEffect = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 50 F3 0F 10 1D 21";
         inline constexpr std::string_view CreateSOSubclassEconItem = "48 83 EC 28 B9 48 00 00 00 E8 ? ? ? ? 48 85";
-        inline constexpr std::string_view CvarPointer = "48 83 EC ? ? 8B ? ? ? ? ? 48 8D 54 ? ? 4C";
         inline constexpr std::string_view DamageFeedbackEmitter = "48 89 4C 24 08 55 53 41 54 41 55 41 57 48 8D AC";
         inline constexpr std::string_view DestroyParticle = "83 FA FF 0F 84 ? ? ? ? 41 54 41 56 41 57 48";
         inline constexpr std::string_view DispatchEffect = "48 89 5C 24 08 57 48 83 EC 70 48 8B F9 48 8B DA";
@@ -155,7 +149,6 @@ namespace cs2::signatures {
         inline constexpr std::string_view DrawScopeOverlay = "48 8B C4 53 57 48 83 EC 68 48 8B FA 44 0F 29 40";
         inline constexpr std::string_view DrawSmokeVertex = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 57 41 56 41 57 48 83 EC 40 48 8B 9C 24 88 00 00 00 4D 8B F8 48 8B FA 48 8B";
         inline constexpr std::string_view EmitSoundByHandle = "40 53 48 83 EC 30 4C 89 4C 24 20 48 8B D9 45 8B";
-        inline constexpr std::string_view EntitySystemPointer = "48 89 ? ? ? ? ? 4C 63 ? ? ? ? ? 44 3B ? ? ? ? ? 0F";
         inline constexpr std::string_view FX_FireBullets = "48 8B C4 4C 89 48 20 48 89 50 10 55 53 57 41 54";
         inline constexpr std::string_view FindHudElement = "48 8D 15 ? ? ? ? 45 33 C0 B9 01 00 00 00 FF 15 23 2C B4";
         inline constexpr std::string_view FindHudElement_panorama = "4C 8B DC 53 48 83 EC 50 48 8B 05 ? ? ? ? 48";
@@ -163,16 +156,9 @@ namespace cs2::signatures {
         inline constexpr std::string_view FirstPersonLegs = "40 55 53 56 41 56 41 57 48 8D AC 24 A0 FB FF FF";
         inline constexpr std::string_view FlashOverlay = "85 D2 0F 88 ? ? ? ? 48 89 4C 24 08 55 53 41";
         inline constexpr std::string_view ForceButtonsDown = "40 53 57 41 56 48 81 EC 30 02 00 00 48 83 79 38";
-        inline constexpr std::string_view GameEntitySystemPtr = "48 8B 1D ? ? ? ? 48 89 1D ? ? ? ?";
         inline constexpr std::string_view GameEventManager_AddListener = "48 89 5C 24 10 48 89 6C 24 18 56 57 41 56 48 83 EC 50 41 0F";
         inline constexpr std::string_view GameEventManager_UnserializeEvent = "48 8B C4 48 89 50 10 55 41 54 41 55 41 56 48 8D";
-        inline constexpr std::string_view GameRulesPointer = "F6 ? ? 0F 85 ? ? ? ? ? 8B ? ? ? ? ? ? 85 ? 0F";
-        inline constexpr std::string_view GameRules_ptr = "48 8B 1D ? ? ? ? 48 8D 54 24 ? 0F 28 D0 48 8D 4C 24 ?";
-        inline constexpr std::string_view GetAbsOriginFunction = "40 53 48 83 EC 20 48 8B 99 30 03 00 00 90 80 BB 10 01 00 00 00 75 0C 48 8B CB E8 51";
-        inline constexpr std::string_view GetBBox_ptr = "48 8B 0D ? ? ? ? 48 85 C9 74 ? ? ? ? 48 FF A0 ? ? ? ? 48 8D 05";
         inline constexpr std::string_view GetBaseEntity = "4C 8D 49 10 81 FA FE 7F 00 00 77 47 8B CA C1 F9";
-        inline constexpr std::string_view GetBombsiteACenter = "48 89 5C 24 08 57 48 83 EC 20 48 8B F9 48 8B DA 48 8B 0D C1";
-        inline constexpr std::string_view GetBombsiteBCenter = "48 89 5C 24 08 57 48 83 EC 20 48 8B F9 48 8B DA 48 8B 0D ? ? ? ? 48 85 C9 74 19 E8 2F 35 EB";
         inline constexpr std::string_view GetBonePositionByName = "40 53 48 83 EC 20 48 8B 89 30 03 00 00 48 8B DA 48 8B 01 FF 50 50 48 8B";
         inline constexpr std::string_view GetChatObject = "48 8B 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 48 8B 05 ? ? ? ? 48";
         inline constexpr std::string_view GetClientSystem = "48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 30 48";
@@ -182,7 +168,6 @@ namespace cs2::signatures {
         inline constexpr std::string_view GetEntityHandle = "48 85 C9 74 32 48 8B 49 10 48 85 C9 74 29 44 8B";
         inline constexpr std::string_view GetGlowColor = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 57 48 83 EC 20 48 8B F2 48 8B F9 48 8B";
         inline constexpr std::string_view GetHitGroup = "40 53 48 83 EC 20 48 83 79 10 00 48 8B D9 74 16";
-        inline constexpr std::string_view GetInstanceS = "48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 8B 91 ? ? ? ? B8";
         inline constexpr std::string_view GetInt2_Event = "48 89 74 24 18 48 89 7C 24 20 41 56 48 83 EC 20 48 63 FA 41 8B F0 4C 8B F1 45 85 C0 74 79 8B 41 10 48 89 5C 24 30 8B 19 41 03 D8 4C 89 7C 24 38";
         inline constexpr std::string_view GetInventoryManager = "48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 0F B6 81 6B";
         inline constexpr std::string_view GetItemViewByID = "48 89 54 24 10 53 48 83 EC 50 48 8B D9 48 85 D2";
@@ -202,17 +187,12 @@ namespace cs2::signatures {
         inline constexpr std::string_view GetWeaponInAccuracyRecoveryTime = "48 89 5C 24 08 57 48 83 EC 30 48 8B D9 E8 9E 52";
         inline constexpr std::string_view GetWorldFovResolver = "40 53 48 83 EC 50 48 8B D9 E8 ? ? ? ? 48 85";
         inline constexpr std::string_view GlobalLightUpdateState = "40 57 48 81 EC C0 00 00 00 48 8B F9 BA FF FF FF";
-        inline constexpr std::string_view GlobalVariables_ptr = "48 89 15 ? ? ? ? 48 89 42";
-        inline constexpr std::string_view GlobalVarsPointer = "48 8B 05 ? ? ? ? 0F 57 C0 8B 48";
         inline constexpr std::string_view GloveApply_PerTick = "40 55 56 57 48 8D AC 24 30 FD FF FF 48 81 EC D0";
-        inline constexpr std::string_view GlowManager_ptr = "48 8B 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 8B 41";
         inline constexpr std::string_view GlowObjectManager_GetInstance = "48 8B 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 8B 41 38 C3";
         inline constexpr std::string_view HandleBulletPenetration = "48 8B C4 44 89 48 20 48 89 50 10 48 89 48 08 55 57 41 57 48";
         inline constexpr std::string_view HandleEntityList = "48 8B C4 4C 89 48 20 4C 89 40 18 48 89 50 10 55 56 41 57 48";
         inline constexpr std::string_view HandleTeamIntro = "48 83 EC 28 45 0F B6 08 44 38 89 04 0F 00 00 74";
         inline constexpr std::string_view HudChatPrintf = "4C 89 44 24 18 4C 89 4C 24 20 53 B8 40 10 00 00";
-        inline constexpr std::string_view HudPanelPointer = "48 89 35 ? ? ? ? E8 ? ? ? ? 48 85";
-        inline constexpr std::string_view ImagePanelConstructorPointer = "40 53 48 83 EC 30 41 B9 02 00 00 00 48 8B D9 E8";
         inline constexpr std::string_view InfoForResourceTypeCCompositeMaterialKit_TypeManager = "40 55 41 56 48 83 EC 78 4C 8B F2 83 F9 06 0F 87 ? ? ? ? 48 63 C1 48 8D 15 32 6F";
         inline constexpr std::string_view InfoForResourceTypeCCompositeMaterial_TypeManager = "40 55 41 56 48 83 EC 68 48 8B EA 83 F9 06 0F 87 ? ? ? ? 48 63 C1 48 8D 15 E2 69";
         inline constexpr std::string_view InitFilter = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 0F B6 41 39 33 FF 24 C9 C7";
@@ -220,28 +200,20 @@ namespace cs2::signatures {
         inline constexpr std::string_view InitTraceInfo = "40 55 41 55 41 57 48 83 EC 30 4C 8B 3D 6F CC EE";
         inline constexpr std::string_view IsGlowing = "0F B6 41 51 C3 CC CC CC CC CC CC CC CC CC CC CC";
         inline constexpr std::string_view KillFeedbackEmitter = "48 89 5C 24 08 48 89 74 24 18 48 89 7C 24 20 55 41 56 41 57 48 8B EC 48 81 EC 80 00";
-        inline constexpr std::string_view LabelPanelConstructorPointer = "40 56 48 83 EC 40 48 8B F1 E8 ? ? ? ? 48 8D";
         inline constexpr std::string_view LevelInit = "40 55 56 41 56 48 8D 6C 24 90 48 81 EC 70 01 00";
         inline constexpr std::string_view LoadFileForMe = "40 55 57 41 56 48 83 EC 20 4C 63 71 18 33 FF 48";
         inline constexpr std::string_view LoadPath = "48 89 74 24 20 57 48 83 EC 20 44 8B 49 04 BF FF FF FF 7F 44 23 CF 48 8B F1 41 8B C8 45 85 C0 74 30 83 E9 ? ? ? ? F9 01 0F 85 ? ? ? ? 41";
-        inline constexpr std::string_view LocalPlayerController_ptr = "48 8B 05 ? ? ? ? 41 89 BE";
         inline constexpr std::string_view LookupBone = "40 53 48 83 EC 20 48 8B 89 30 03 00 00 48 8B DA 48 8B 01 FF 50 50 48 8B";
-        inline constexpr std::string_view MainMenuPanelPointer = "EC ? 48 8B 05 ? ? ? ? 48 8D 15 ? ? ? ? 48";
-        inline constexpr std::string_view ManageGlowSceneObjectPointer = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 48 89 7C 24 20 41 56 48 83 EC 60 48 8B F2 45 33 F6";
         inline constexpr std::string_view ModulationUpdate = "48 89 5C 24 08 57 48 83 EC 20 8B FA 48 8B D9 E8 ? ? ? ? 84 C0 0F 84";
         inline constexpr std::string_view NoClipOnChange = "48 89 5C 24 10 48 89 74 24 18 48 89 7C 24 20 55 48 8B EC 48 83 EC 30 48 8D 05 AA 1A";
         inline constexpr std::string_view NoSpread1 = "48 89 5C 24 08 57 48 81 EC F0 00 00 00 F3 0F 10";
         inline constexpr std::string_view PanelConstructorPointer = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 30 48 8B F1 48 8B FA B9 20 00";
         inline constexpr std::string_view ParticleCollection = "48 89 5C 24 08 57 48 83 EC 20 0F 28 05 AF 37 2E";
-        inline constexpr std::string_view ParticleManager_ptr = "48 8B 0D ? ? ? ? 41 B8 ? ? ? ? F3 0F 11 74 24 ? 48 C7 44 24 ? ? ? ? ?";
         inline constexpr std::string_view PhysicsRunThink_Ctrl = "48 89 5C 24 20 57 48 81 EC D0 06 00 00 48 8B 01";
         inline constexpr std::string_view PhysicsRunThink_Pawn = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 8B 81 74 03 00";
-        inline constexpr std::string_view PlantedC4sPointer = "0F ? ? ? ? ? 39 ? ? ? ? ? 7E ? 48 8B 0D";
         inline constexpr std::string_view PlayVSound_client = "48 89 5C 24 08 48 89 74 24 18 48 89 7C 24 20 55 48 8D 6C 24 A9 48 81 EC 90 00 00 00";
-        inline constexpr std::string_view PointerToClientMode = "57 48 83 EC ? 33 DB 48 8D 3D ? ? ? ? 48 8D";
         inline constexpr std::string_view PointerToGetInaccuracyFunction = "48 89 5C 24 10 55 56 57 48 81 EC B0 00 00 00 44";
         inline constexpr std::string_view PointerToGetSpreadFunction = "48 83 EC 38 48 63 91 B8 17 00 00 48 8B 81 88 03";
-        inline constexpr std::string_view Prediction_ptr = "48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 40 53 56 41 54";
         inline constexpr std::string_view ProcessImpacts = "48 8B C4 53 56 41 55 48 81 EC E0 00 00 00 44 0F";
         inline constexpr std::string_view ProcessMovement = "48 8B C4 53 55 56 57 41 54 41 55 41 56 41 57 48 83 EC 78 44";
         inline constexpr std::string_view RegenerateWeaponSkin = "40 55 53 41 57 48 8D AC 24 00 FE FF FF 48 81 EC";
@@ -254,19 +226,14 @@ namespace cs2::signatures {
         inline constexpr std::string_view SOCreated = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 30 48 8B FA 48 8B F1 41 83 F9 01 75 7F 48 8B 5C 24 60 48 85 DB 74 75 48 85 D2 74 70 49 8B C8 E8 AE 48";
         inline constexpr std::string_view Scope_callsite = "48 8B C4 53 57 48 83 EC 68 48 8B FA 44 0F 29 40";
         inline constexpr std::string_view SendChatMessage = "4C 89 44 24 18 4C 89 4C 24 20 53 B8 40 10 00 00";
-        inline constexpr std::string_view Sensitivity_ptr = "48 8D 0D ? ? ? ? 66 0F 6E CD";
         inline constexpr std::string_view SetAbsOrigin_Pawn = "48 89 5C 24 08 57 48 83 EC 60 48 8B 01 48 8B FA 48 8B D9 FF";
         inline constexpr std::string_view SetBodyGroup_inv = "85 D2 0F 88 ? ? ? ? 53 55 48 83 EC 38 48 63";
         inline constexpr std::string_view SetCollisionBounds = "48 83 EC 38 F2 0F 10 02 8B 42 08 48 8D 54 24 20";
         inline constexpr std::string_view SetDynamicAttributeValue = "48 89 6C 24 20 57 41 56 41 57 48 81 EC A0 00 00 00 48 8B FA C7 44 24 20 00 00 00 00 4D 8B F8 4C 8D 0D ? ? ? ? 48 8B E9 ? ? ? ? CD 12 01";
         inline constexpr std::string_view SetDynamicAttributeValue_raw = "48 89 6C 24 20 57 41 56 41 57 48 81 EC A0 00 00 00 48 8B FA C7 44 24 20 00 00 00 00 4D 8B F8 4C 8D 0D ? ? ? ? 48 8B E9 ? ? ? ? CD 12 01";
-        inline constexpr std::string_view SetImageFunctionPointer = "48 89 5C 24 10 48 89 6C 24 18 56 57 41 54 41 56 41 57 48 83 EC 30 48 8B F1 4D 8B F1";
-        inline constexpr std::string_view SetItemItemIdFunction = "48 89 5C 24 08 48 89 74 24 10 48 89 7C 24 18 55 41 56 41 57 48 8D AC 24 50 FF FF FF";
-        inline constexpr std::string_view SetLabelTextFunctionPointer = "40 53 56 41 56 41 57 48 83 EC 48 80 3D E2 6B A7";
         inline constexpr std::string_view SetMeshGroupMask = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 48 8D 99 50 01";
         inline constexpr std::string_view SetModel = "40 53 48 83 EC 20 48 8B D9 4C 8B C2 48 8B 0D ED";
         inline constexpr std::string_view SetPlayerReady = "40 53 48 83 EC 20 48 8B DA 48 8D 15 ? ? ? ? 48 8B CB FF";
-        inline constexpr std::string_view SetSceneObjectAttributeFloat4 = "48 89 6C 24 10 48 89 74 24 18 57 48 83 EC 20 66 0F 6E CA 49 8B F0 66 0F 70 C9 00 8B EA 48 8B F9 45 33 C9 48 8B C1 66 66 0F 1F 84 00 00 00 00 00";
         inline constexpr std::string_view SetSelectedIndexFunctionPointer = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 48 8B F1 8B DA";
         inline constexpr std::string_view SetTraceData = "48 89 6C 24 18 48 89 7C 24 20 41 56 48 83 EC 20 48 63 29 4C 8B F2 48 8B F9 3B 69 10 0F 85 ? ? ? ? F7 41 14 00 00 00 40 0F 85 ? ? ? ? 8B";
         inline constexpr std::string_view SetTypeKV3 = "40 53 48 83 EC 30 4C 8B 11 41 B9 16 00 00 00 49";
@@ -275,13 +242,11 @@ namespace cs2::signatures {
         inline constexpr std::string_view SetupMove = "48 89 5C 24 18 48 89 6C 24 20 56 57 41 56 48 83 EC 20 48 8B EA 4C 8B F1";
         inline constexpr std::string_view SetupMovementMoves = "48 8B CE E8 ? ? ? ? 48 8B 5C 24 50 48 8B 6C 24 58 48 83";
         inline constexpr std::string_view ShowMessageBox = "44 88 4C 24 20 53 41 56 41 57 48 81 EC 60 02 00";
-        inline constexpr std::string_view SliderSetValueFunction = "40 57 48 83 EC 30 F3 0F 5F 49 40 48 8B F9 F3 0F";
         inline constexpr std::string_view SomeTimingFromPawn = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 49 63 D8 48 8B";
         inline constexpr std::string_view Spawner_PerTickOrchestrator = "48 8B C4 55 53 48 8D A8 E8 ? ? ? ? 81 EC 08";
         inline constexpr std::string_view SpectatorInput = "48 89 5C 24 10 55 56 57 41 56 41 57 48 8B EC 48 83 EC 60 48";
         inline constexpr std::string_view SpreadSeedGen = "48 89 5C 24 08 57 48 81 EC F0 00 00 00 F3 0F 10";
         inline constexpr std::string_view TestSurfaces = "40 53 57 41 56 48 83 EC 50 8B 84 24 90 00 00 00";
-        inline constexpr std::string_view TextEntrySetTextFunction = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 57 41 56 41 57 48 83 EC 40 48 8B F1 48";
         inline constexpr std::string_view ThirdPersonOffHandler = "48 83 EC 28 48 8B 0D ? ? ? ? 48 8D 54 24 30 48 8B 01 FF 90 08 03 00 00 83 7C 24 30 00 75 69";
         inline constexpr std::string_view ThirdPersonOnHandler = "48 83 EC 38 48 8B 0D ? ? ? ? 48 8D 54 24 40";
         inline constexpr std::string_view TraceCreate = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 57 41 56 41 57 48 83 EC 50 F2 0F 10 02";
@@ -294,52 +259,38 @@ namespace cs2::signatures {
         inline constexpr std::string_view TraceShape = "48 89 5C 24 20 48 89 4C 24 08 55 57 41 54 41 55";
         inline constexpr std::string_view TraceShape_Client = "48 89 5C 24 20 48 89 4C 24 08 55 57 41 54 41 55";
         inline constexpr std::string_view TraceToExit = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 57 41 56 41 57 48 83 EC 50 F2 0F 10 02";
-        inline constexpr std::string_view TransformScale3dVMT = "48 8D 0D ? ? ? ? F3 0F 10 4B ? F3 0F 10 43";
-        inline constexpr std::string_view TransformTranslate3dVMT = "00 00 80 00 48 8D 05 ? ? ? ? 48 C7 42 ? 00";
-        inline constexpr std::string_view UiEnginePointer = "48 89 78 ? 48 89 0D ? ? ? ?";
         inline constexpr std::string_view UpdateGlobalVars = "48 8B 0D ? ? ? ? 4C 8D 05 ? ? ? ? 48 85 D2 48 8D 05";
         inline constexpr std::string_view UpdatePostProcessing = "48 85 D2 0F 84 ? ? ? ? 48 89 5C 24 08 57 48 83 EC 60 80";
         inline constexpr std::string_view UpdateSkybox = "48 89 5C 24 08 57 48 83 EC 30 48 8B F9 E8 8E F1";
         inline constexpr std::string_view UpdateSubClass = "4C 8B DC 53 48 81 EC 90 01 00 00 48 8B 41 10 48";
         inline constexpr std::string_view UpdateTurningInAccuracy = "40 56 48 81 EC 80 00 00 00 48 8B F1 BA FF FF FF";
-        inline constexpr std::string_view VPhys2World_ptr = "4C 8B 25 ? ? ? ? 24";
         inline constexpr std::string_view ViewModelHideZoomed = "48 89 5C 24 20 55 56 57 41 54 41 56 48 8B EC 48 83 EC 50 48 8D 05 86 01";
-        inline constexpr std::string_view ViewRender_ptr = "48 89 05 ? ? ? ? 48 8B C8 48 85 C0";
-        inline constexpr std::string_view ViewToProjectionMatrixPointer = "48 89 4C 24 ? 4C 8D 0D ? ? ? ? 48 8B 0D";
-        inline constexpr std::string_view WeaponC4_ptr = "48 8B 15 ? ? ? ? 48 8B 5C 24 ? FF C0 89 05 ? ? ? ? 48 8B C6 48 89 34 EA 80 BE";
-        inline constexpr std::string_view WorldToProjectionMatrixPointer = "48 8D 0D ? ? ? ? 48 C1 E0 06";
         inline constexpr std::string_view WriteSubtickFromEntry = "48 89 5C 24 18 55 57 41 56 48 8D 6C 24 C9 48 81";
         inline constexpr std::string_view create_move_v2 = "85 D2 0F 85 ? ? ? ? 48 8B C4 44 88 40 18 89";
         inline constexpr std::string_view draw_smoke_array = "40 55 41 54 41 55 48 8D AC 24 20 F9 FF FF 48 81";
         inline constexpr std::string_view draw_view_punch_v2 = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 48 89 7C 24 20 41 56 48 83 EC 40 49 8B E9 49 8B F8";
-        inline constexpr std::string_view entity_list_ptr = "48 8B 1D ? ? ? ? 48 8D 46";
         inline constexpr std::string_view frame_stage_notify = "4C 8B 0D ? ? ? ? 48 8D 15 ? ? ? ? 48 8B 8F 38 04 00";
         inline constexpr std::string_view get_fov = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 48 89 7C 24 20 41 56 48 83 EC 40 49 8B E9 49 8B F8";
         inline constexpr std::string_view get_map_name = "48 83 EC 28 48 8B 0D ? ? ? ? 48 8B 01 FF 90 00 02 00 00";
         inline constexpr std::string_view get_view_angles_v2 = "4D 85 C0 74 72 85 D2 74 18 48 8D 05 ? ? ? ?";
         inline constexpr std::string_view get_view_model = "40 55 53 56 41 56 41 57 48 8B EC 48 83 EC 20 4D";
-        inline constexpr std::string_view global_vars_v2 = "48 89 1D ? ? ? ? FF 15 ? ? ? ? 84 C0 74 ? 8B 0D ? ? ? ? 4C 8D 0D ? ? ? ? 4C 8D 05 ? ? ? ? BA ? ? ? ? FF 15 ? ? ? ? 48 8B 74 24 ? 48 8B C3";
         inline constexpr std::string_view is_demo_or_hltv = "48 83 EC 28 48 8B 0D ? ? ? ? 48 8B 01 FF 90 50 01 00 00 84 C0 75 0D";
         inline constexpr std::string_view level_init_v2 = "40 55 56 41 56 48 8D 6C 24 B9 48 81 EC E0 00 00 00 48 8B 0D";
         inline constexpr std::string_view level_shutdown = "48 83 EC 28 48 8B 0D ? ? ? ? 48 8D 15 66 C4";
-        inline constexpr std::string_view local_controller = "48 8B 05 ? ? ? ? 41 89 BE";
         inline constexpr std::string_view mark_interp_latch_flags_dirty = "40 53 56 57 48 83 EC 40 80 3D A1 97 10 02 00 8B";
         inline constexpr std::string_view on_add_entity_v2 = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 57 48 83 EC 20 8B 81 C0 20";
         inline constexpr std::string_view override_view_short = "40 57 48 83 EC 60 48 8B FA E8 ? ? ? ? BA FF";
         inline constexpr std::string_view paintkit_prefab = "48 89 5C 24 10 48 89 6C 24 18 48 89 74 24 20 57 48 83 EC 30 48 8B D9 48 81 C1 80 11";
         inline constexpr std::string_view paintkit_seed = "48 89 4C 24 08 53 56 57 41 54 41 55 41 56 41 57 48 83 EC 50 65 48 8B 04";
         inline constexpr std::string_view paintkit_wear = "48 89 4C 24 08 53 56 57 41 54 41 55 41 56 41 57 48 83 EC 50 65 48 8B 04";
-        inline constexpr std::string_view planted_c4_ptr = "48 8B 15 ? ? ? ? 48 8B 5C 24 ? FF C0 89 05 ? ? ? ? 48 8B C6 ? ? ? ? 80 BE ? ? ? ? 00";
         inline constexpr std::string_view remove_legs = "40 55 53 56 41 56 41 57 48 8D AC 24 A0 FB FF FF";
         inline constexpr std::string_view statTrak_killEater = "48 89 4C 24 08 53 56 57 41 54 41 55 41 56 41 57 48 83 EC 50 65 48 8B 04";
         inline constexpr std::string_view statTrak_scoreType = "48 83 EC 28 E8 ? ? ? ? 48 8B 15 ? ? ? ? 48 8B 48 08";
         inline constexpr std::string_view unlock_inventory = "48 89 5C 24 08 48 89 6C 24 18 48 89 74 24 20 57 48 83 EC 20 48 8B E9 48";
         inline constexpr std::string_view update_global_vars = "48 8B 0D ? ? ? ? 4C 8D 05 ? ? ? ? 48 85 D2 48 8D 05";
         inline constexpr std::string_view update_post_processing_v2 = "48 89 AC 24 B8 00 00 00 45 33 ED 0F 29 74 24 70";
-        inline constexpr std::string_view view_matrix_ptr = "48 8D 0D ? ? ? ? 48 89 44 24 ? 48 89 4C 24 ? 4C 8D 0D";
     }
     namespace engine2 {
-        inline constexpr std::string_view BuildNumber_addr = "89 05 ? ? ? ? 48 8D 0D ? ? ? ? FF 15 ? ? ? ? 48 8B 0D";
         inline constexpr std::string_view CCommand_Tokenize = "48 89 6C 24 20 4C 89 44 24 18 56 57 41 54 41 56";
         inline constexpr std::string_view CGameClient_ClientCommand = "48 8B C4 4C 89 40 18 4C 89 48 20 55 53 57 48 8D";
         inline constexpr std::string_view CHLTVClient_ExecuteStringCommand = "40 53 56 48 81 EC 48 07 00 00 48 8B F1 48 8B DA";
@@ -352,7 +303,6 @@ namespace cs2::signatures {
         inline constexpr std::string_view Cvar_RevertFlaggedCvars_OnSvCheatsChange = "40 53 48 83 EC 20 48 8B 41 08 48 8B D9 8B 50 30";
         inline constexpr std::string_view DisablePvsAccessor = "48 8D 0D ? ? ? ? 33 D2 FF 50 30 48 8B CF C7";
         inline constexpr std::string_view Engine__GetScreenAspectRatio = "48 89 5C 24 08 57 48 83 EC 20 8B FA 48 8D 0D 0D";
-        inline constexpr std::string_view Engine__PVSManager_ptr = "48 8D 0D ? ? ? ? 33 D2 FF 50";
         inline constexpr std::string_view Engine__RunPrediction = "40 55 41 56 48 83 EC 68 80 B9 00 01 00 00 00 8B";
         inline constexpr std::string_view Engine_Disconnect_main = "48 89 5C 24 20 55 57 41 54 48 8B EC 48 83 EC 70";
         inline constexpr std::string_view Engine_HLTVClient_ExecuteStringCommand = "40 53 56 48 81 EC 48 07 00 00 48 8B F1 48 8B DA";
@@ -365,23 +315,14 @@ namespace cs2::signatures {
         inline constexpr std::string_view Engine_RegisterConCommand = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 57 48 83 EC 60 44 8B 15 89";
         inline constexpr std::string_view Engine_RegisterConVar = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 48 89 7C 24 20 41 54 41 56 41 57 48 81 EC D0 00 00";
         inline constexpr std::string_view IsInGame = "48 8B 05 ? ? ? ? 48 85 C0 74 15 80 B8 1F 14";
-        inline constexpr std::string_view NetworkGameClient_ptr = "48 89 3D ? ? ? ? FF 87";
-        inline constexpr std::string_view WindowHeight_addr = "8B 05 ? ? ? ? 89 03";
-        inline constexpr std::string_view WindowWidth_addr = "8B 05 ? ? ? ? 89 07";
-    }
-    namespace filesystem_stdio {
-        inline constexpr std::string_view FullFileSystem_ptr = "8B 41 28 C3 CC CC CC CC CC CC CC CC CC CC CC CC 48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 48 8D 05 ? ? ? ? C3";
     }
     namespace inputsystem {
         inline constexpr std::string_view CInputSystem_AttachToWindow = "48 89 5C 24 20 55 48 83 EC 20 48 63 41 30 48 8B";
-        inline constexpr std::string_view InputSystemSvc_ptr = "48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 40 53 48 83 EC 20 33 DB";
-        inline constexpr std::string_view InputSystem_ptr = "48 89 05 ? ? ? ? 33 C0";
         inline constexpr std::string_view SDL_EventHandler = "53 48 81 EC 60 01 00 00 8B 02 48 8B DA 2D 00 04";
     }
     namespace matchmaking {
         inline constexpr std::string_view CMatchSessionOfflineCustom_InitializeGameSettings = "40 53 48 81 EC 40 01 00 00 48 89 BC 24 58 01 00 00 48 8D 15 ? ? ? ? 48 8B F9 41 B0 01 48 8B 49 10 FF 15 60 41 06 00";
         inline constexpr std::string_view CMatchSessionOnlineHost_InitializeGameSettings = "48 8B C4 53 48 81 EC 80 01 00 00 48 89 70 10 48";
-        inline constexpr std::string_view GameTypes_ptr = "48 8D 0D ? ? ? ? FF 90";
     }
     namespace materialsystem2 {
         inline constexpr std::string_view CMaterial2_CompileComboAndGetVariables_DynamicShaderCompile = "48 89 54 24 10 55 41 55 48 8D 6C 24 F8 48 81 EC";
@@ -414,7 +355,6 @@ namespace cs2::signatures {
         inline constexpr std::string_view CNetworkSystem_RegisterNetMessageHandlerAbstract = "48 89 5C 24 10 48 89 6C 24 18 57 41 56 41 57 48 83 EC 50 4C";
         inline constexpr std::string_view NetSystem_CNetChan_ProcessMessages = "48 8B C4 53 57 41 54 41 56 48 81 EC A8 00 00 00";
         inline constexpr std::string_view NetSystem_CNetChan_SendNetMessage = "48 89 5C 24 10 48 89 6C 24 18 56 57 41 56 48 83 EC 40 41 0F";
-        inline constexpr std::string_view NetworkSystem_ptr = "48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 48 83 EC 28 BA FF FF FF";
     }
     namespace panorama {
         inline constexpr std::string_view CUIEngine_DispatchEvent = "48 8B C4 48 89 58 18 88 50 10 55 56 57 41 54 41";
@@ -424,10 +364,8 @@ namespace cs2::signatures {
         inline constexpr std::string_view OnDeletePanelFunctionPointer = "48 85 D2 0F 84 ? ? ? ? 48 89 74 24 18 57 48";
         inline constexpr std::string_view RegisterEventHandlerFunctionPointer = "48 89 5C 24 08 66 89 54 24 10 55 56 57 41 56 41";
         inline constexpr std::string_view RunScriptFunctionPointer = "48 89 5C 24 18 4C 89 4C 24 20 48 89 54 24 10 55 56 57 41 54 41 55 41 56 41 57 48 8D";
-        inline constexpr std::string_view SetPanelStylePropertyFunctionPointer = "48 89 5C 24 20 44 88 44 24 18 55 56 41 55 41 56";
     }
     namespace particles {
-        inline constexpr std::string_view GetParticleManager = "48 8B 05 ? ? ? ? C3 ? ? ? ? ? ? ? ? 48 83 EC 28 8B 0D";
         inline constexpr std::string_view Particles__CParticleSystemMgr_CreateParticleCollection = "4C 8B DC 49 89 5B 10 49 89 6B 18 49 89 73 20 57 41 56 41 57";
         inline constexpr std::string_view Particles__CParticleSystemMgr_FindParticleSystem = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 57 41 56 41 57 48 81 EC 40";
         inline constexpr std::string_view Particles__DrawArray = "40 55 53 56 57 48 8D 6C 24 F8 48 81 EC 08 01 00";
@@ -440,7 +378,6 @@ namespace cs2::signatures {
         inline constexpr std::string_view CRenderDeviceDx11_CompileShaderSourceMain = "4C 8B DC 49 89 5B 08 57 48 83 EC 70 4D 8B D0 48";
         inline constexpr std::string_view CSwapChainDx11_QueuePresentAndWait = "40 55 53 57 41 54 41 55 48 8D 6C 24 C9 48 81 EC";
         inline constexpr std::string_view CSwapChainDx11_ResizeBuffers = "48 8B C4 55 53 56 57 41 54 48 8B EC 48 83 EC 70";
-        inline constexpr std::string_view RenderDeviceMgr_ptr = "8B 5C 24 38 48 83 C4 20 5E C3 CC CC CC CC CC CC 48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 48 8D 05 ? ? ? ? C3";
         inline constexpr std::string_view RenderSystemDx11_QueuePresentAndWait = "40 55 53 57 41 54 41 55 48 8D 6C 24 C9 48 81 EC";
         inline constexpr std::string_view RenderSystemDx11_SetHardwareGammaRamp = "48 89 5C 24 18 57 B8 B0 40 00 00 E8 ? ? ? ?";
         inline constexpr std::string_view RenderSystemDx11_SetMode = "44 89 4C 24 20 44 89 44 24 18 89 54 24 10 55 53";
@@ -466,15 +403,12 @@ namespace cs2::signatures {
         inline constexpr std::string_view DrawSkyboxArray = "45 85 C9 0F 8E ? ? ? ? 4C 8B DC 55 41 56 49";
         inline constexpr std::string_view SceneSystem__DrawAggeregateObject = "48 8B C4 4C 89 48 20 4C 89 40 18 48 89 50 10 55 53 41 57 48";
         inline constexpr std::string_view SceneSystem__DrawArrayLight = "48 89 5C 24 08 48 89 6C 24 18 48 89 54 24 10 56 57 41 56 48";
-        inline constexpr std::string_view SceneSystemPointer = "72 ? ? 8B ? ? ? ? ? 48 8D 0D ? ? ? ? 48";
         inline constexpr std::string_view SceneSystem_Thread_RenderSceneDrawList = "40 55 53 56 57 41 54 41 55 41 56 41 57 48 8D 6C 24 E1 48 81 EC D8 00 00";
-        inline constexpr std::string_view SceneSystem_ptr = "48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 48 8D 0D ? ? ? ? E9";
     }
     namespace schemasystem {
         inline constexpr std::string_view CSchemaSystem_InstallSchemaBindings = "40 53 48 83 EC 20 48 8B DA 48 8B D1 48 8D 0D 8D";
         inline constexpr std::string_view CSchemaSystem_RegisterModuleAndBuiltins = "48 89 54 24 10 53 56 57 41 55 41 56 41 57 48 83";
         inline constexpr std::string_view CSchemaSystem_VerifySchemaBindingConsistency = "88 54 24 10 55 53 57 41 54 41 55 48 8B EC 48 81";
-        inline constexpr std::string_view SchemaSystem_ptr = "48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 48 89 5C 24 08 48 89 74";
     }
     namespace server {
         inline constexpr std::string_view CCSGameRules_FrameUpdatePreEntityThink = "48 89 5C 24 08 57 48 83 EC 60 48 8D 05 4F 38 E2";
@@ -485,13 +419,10 @@ namespace cs2::signatures {
     }
     namespace soundsystem {
         inline constexpr std::string_view CSosOperatorSystem_StartSoundEvent = "40 53 55 56 48 83 EC 20 83 B9 EC 24 00 00 00 49";
-        inline constexpr std::string_view SoundChannelsPointer = "8B 3D ? ? ? ? 48 89 58";
         inline constexpr std::string_view SoundSystem__PlayVSound = "48 8B C4 48 89 58 08 57 48 81 EC A0 00 00 00 33";
         inline constexpr std::string_view SoundSystem__SomeUtlSymbolFunc = "48 89 74 24 18 57 48 83 EC 20 48 63 F2 48 8B F9";
-        inline constexpr std::string_view SoundSystem_ptr = "48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 48 89 15";
     }
     namespace tier0 {
-        inline constexpr std::string_view CVar_ptr = "48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC E9";
         inline constexpr std::string_view Tier0__LoadKeyValues = "48 89 5C 24 10 48 89 6C 24 18 48 89 7C 24 20 41 54 41 56 41 57 48 83 EC 40 45 33 E4";
         inline constexpr std::string_view Tier0__UtlBuffer = "48 89 5C 24 08 57 48 83 EC 20 8B 41 04 8D 7A 08";
     }
@@ -507,7 +438,6 @@ namespace cs2::fn {
     namespace animationsystem {
         // __int64 __fastcall sub_18014F0A0(__int64 a1, __int64 a2, __int64 a3)
         using Animation__ShouldUpdateSequences_t = void(__fastcall*)(void*, ...);
-        using AnimationSystemUtils_ptr_t = void(__fastcall*)(void*, ...);
         // void __fastcall sub_18008B530(__int64 a1)
         using CAnimationSystem_FrameUpdate_t = void(__fastcall*)(void*, ...);
     }
@@ -633,7 +563,6 @@ namespace cs2::fn {
         using CGlowProperty_OnGlowTypeChanged_t = void(__fastcall*)(void*, ...);
         // __int64 sub_180FE0490()
         using CHEGrenadeProjectile_t = void(__fastcall*)(void*, ...);
-        using CInputPtrGlobal_t = void(__fastcall*)(void*, ...);
         // __int64 sub_18074E3C0()
         using CMolotovProjectile_t = void(__fastcall*)(void*, ...);
         // char __fastcall sub_18105A690(__int64 a1, __int64 a2, char *a3, __int64 a4)
@@ -648,8 +577,6 @@ namespace cs2::fn {
         using CSBaseGunFireData_fn_t = void(__fastcall*)(void*, ...);
         // double __fastcall sub_180C5E7F0(__int64 a1, unsigned int a2, __int64 a3)
         using CSGOInput_CreateMove_t = void(__fastcall*)(void*, ...);
-        using CSGOInput_ptr_t = void(__fastcall*)(void*, ...);
-        using CSGOInput_resolved_t = void(__fastcall*)(void*, ...);
         // __int64 __fastcall sub_1801A3A20(int a1, __int64 a2)
         using CSkeletonInstance_t = void(__fastcall*)(void*, ...);
         // __int64 __fastcall sub_180A2DB50(__int64 a1, __int64 a2)
@@ -736,7 +663,6 @@ namespace cs2::fn {
         using ClearHUDWeaponIcon_t = void(__fastcall*)(void*, ...);
         // void __fastcall sub_180C5C660(__int64 a1, KeyValues *a2)
         using ClientModeCSNormal_OnEvent_t = void(__fastcall*)(void*, ...);
-        using ClientMode_ptr_t = void(__fastcall*)(void*, ...);
         // __int64 __fastcall sub_1814D5B10(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4)
         using Client_DispatchSpawn_t = void(__fastcall*)(void*, ...);
         // __int64 __fastcall sub_180B91260(__int64 a1, __int64 a2, __int64 a3)
@@ -761,7 +687,6 @@ namespace cs2::fn {
         using CreateParticleEffect_t = void(__fastcall*)(void*, ...);
         // __int64 sub_180FF7770()
         using CreateSOSubclassEconItem_t = void(__fastcall*)(void*, ...);
-        using CvarPointer_t = void(__fastcall*)(void*, ...);
         // void __fastcall sub_18081FB40(__int64 a1, _QWORD *a2, __int64 a3)
         using DamageFeedbackEmitter_t = void(__fastcall*)(void*, ...);
         // void __fastcall sub_1809463E0(__int64 a1, __int64 a2, unsigned __int8 a3, char a4)
@@ -782,7 +707,6 @@ namespace cs2::fn {
         using DrawSmokeVertex_t = void(__fastcall*)(void*, ...);
         // __int64 __fastcall sub_180B63B10(__int64 a1, int a2, int a3, __int64 a4)
         using EmitSoundByHandle_t = void(__fastcall*)(void*, ...);
-        using EntitySystemPointer_t = void(__fastcall*)(void*, ...);
         // void sub_180C7E380(unsigned int a1, __int64 a2, __int64 a3, __int64 *a4, __int64 a5, int a6, int a7, ...)
         using FX_FireBullets_t = void(__fastcall*)(void*, ...);
         // _QWORD **__fastcall sub_180DC1D50(__int64 a1, unsigned __int8 a2)
@@ -797,19 +721,12 @@ namespace cs2::fn {
         using FlashOverlay_t = void(__fastcall*)(void*, ...);
         // void __fastcall sub_1809D0130(_QWORD *a1, __int64 a2)
         using ForceButtonsDown_t = void(__fastcall*)(void*, ...);
-        using GameEntitySystemPtr_t = void(__fastcall*)(void*, ...);
         // __int64 __fastcall sub_180939FF0(__int64 a1, __int64 a2, const char *a3, unsigned __int8 a4)
         using GameEventManager_AddListener_t = void(__fastcall*)(void*, ...);
         // __int64 __fastcall sub_180992900(__int64 a1, __int64 a2)
         using GameEventManager_UnserializeEvent_t = void(__fastcall*)(void*, ...);
-        using GameRulesPointer_t = void(__fastcall*)(void*, ...);
-        using GameRules_ptr_t = void(__fastcall*)(void*, ...);
-        using GetAbsOriginFunction_t = void(__fastcall*)(void*, ...);
-        using GetBBox_ptr_t = void(__fastcall*)(void*, ...);
         // __int64 __fastcall sub_180967600(__int64 a1, int a2)
         using GetBaseEntity_t = void(__fastcall*)(void*, ...);
-        using GetBombsiteACenter_t = void(__fastcall*)(void*, ...);
-        using GetBombsiteBCenter_t = void(__fastcall*)(void*, ...);
         // __int64 __fastcall sub_1808C81E0(__int64 a1, __int64 a2)
         using GetBonePositionByName_t = void(__fastcall*)(void*, ...);
         // __int64 sub_1810C3670()
@@ -828,7 +745,6 @@ namespace cs2::fn {
         using GetGlowColor_t = void(__fastcall*)(void*, ...);
         // __int64 __fastcall sub_180A17C40(__int64 a1)
         using GetHitGroup_t = void(__fastcall*)(void*, ...);
-        using GetInstanceS_t = void(__fastcall*)(void*, ...);
         // __int64 __fastcall sub_1804AAB40(__int64 a1, unsigned int a2, int a3)
         using GetInt2_Event_t = void(__fastcall*)(void*, ...);
         // __int64 *sub_1807C6430()
@@ -867,11 +783,8 @@ namespace cs2::fn {
         using GetWorldFovResolver_t = void(__fastcall*)(void*, ...);
         // _BYTE *__fastcall sub_180A8B5A0(__int64 a1)
         using GlobalLightUpdateState_t = void(__fastcall*)(void*, ...);
-        using GlobalVariables_ptr_t = void(__fastcall*)(void*, ...);
-        using GlobalVarsPointer_t = void(__fastcall*)(void*, ...);
         // void __fastcall sub_180BC1460(int *a1)
         using GloveApply_PerTick_t = void(__fastcall*)(void*, ...);
-        using GlowManager_ptr_t = void(__fastcall*)(void*, ...);
         // __int64 sub_180B0ACD0()
         using GlowObjectManager_GetInstance_t = void(__fastcall*)(void*, ...);
         // char __fastcall sub_1808211F0(__int64 a1, float *a2, __int64 a3, int a4, __int64 a5)
@@ -882,8 +795,6 @@ namespace cs2::fn {
         using HandleTeamIntro_t = void(__fastcall*)(void*, ...);
         // __int64 sub_1810C10F0(__int64 a1, unsigned int a2, __int64 a3, ...)
         using HudChatPrintf_t = void(__fastcall*)(void*, ...);
-        using HudPanelPointer_t = void(__fastcall*)(void*, ...);
-        using ImagePanelConstructorPointer_t = void(__fastcall*)(void*, ...);
         // __int64 __fastcall sub_1813D90B0(int a1, __int64 a2)
         using InfoForResourceTypeCCompositeMaterialKit_TypeManager_t = void(__fastcall*)(void*, ...);
         // __int64 __fastcall sub_1813D9600(int a1, __int64 a2)
@@ -898,18 +809,14 @@ namespace cs2::fn {
         using IsGlowing_t = void(__fastcall*)(void*, ...);
         // __int64 __fastcall sub_18084B0F0(__int64 a1, __int64 a2)
         using KillFeedbackEmitter_t = void(__fastcall*)(void*, ...);
-        using LabelPanelConstructorPointer_t = void(__fastcall*)(void*, ...);
         // __int64 __fastcall sub_1808D0100(__int64 a1)
         using LevelInit_t = void(__fastcall*)(void*, ...);
         // void __fastcall sub_18091BF40(__int64 a1)
         using LoadFileForMe_t = void(__fastcall*)(void*, ...);
         // void __fastcall sub_1806BB200(signed int *a1, signed int a2, unsigned int a3)
         using LoadPath_t = void(__fastcall*)(void*, ...);
-        using LocalPlayerController_ptr_t = void(__fastcall*)(void*, ...);
         // __int64 __fastcall sub_1808C81E0(__int64 a1, __int64 a2)
         using LookupBone_t = void(__fastcall*)(void*, ...);
-        using MainMenuPanelPointer_t = void(__fastcall*)(void*, ...);
-        using ManageGlowSceneObjectPointer_t = void(__fastcall*)(void*, ...);
         // __int64 __fastcall sub_1809DA450(__int64 a1, char a2)
         using ModulationUpdate_t = void(__fastcall*)(void*, ...);
         // __int64 __fastcall sub_180166C00(__int64 a1)
@@ -919,18 +826,14 @@ namespace cs2::fn {
         using PanelConstructorPointer_t = void(__fastcall*)(void*, ...);
         // __int64 __fastcall sub_1801F4D90(__int64 a1)
         using ParticleCollection_t = void(__fastcall*)(void*, ...);
-        using ParticleManager_ptr_t = void(__fastcall*)(void*, ...);
         // __int64 __fastcall sub_1808D7310(__int64 a1)
         using PhysicsRunThink_Ctrl_t = void(__fastcall*)(void*, ...);
         // char __fastcall sub_180B0ED50(__int64 a1)
         using PhysicsRunThink_Pawn_t = void(__fastcall*)(void*, ...);
-        using PlantedC4sPointer_t = void(__fastcall*)(void*, ...);
         // __int64 __fastcall sub_18150ED00(__int64 a1)
         using PlayVSound_client_t = void(__fastcall*)(void*, ...);
-        using PointerToClientMode_t = void(__fastcall*)(void*, ...);
         using PointerToGetInaccuracyFunction_t = void(__fastcall*)(void*, ...);
         using PointerToGetSpreadFunction_t = void(__fastcall*)(void*, ...);
-        using Prediction_ptr_t = void(__fastcall*)(void*, ...);
         // __int64 __fastcall sub_1809CEA50(_QWORD *a1, __int64 a2, __int64 a3)
         using ProcessImpacts_t = void(__fastcall*)(void*, ...);
         // __int64 __fastcall sub_1809D9A30(__int64 a1, __int64 a2)
@@ -955,7 +858,6 @@ namespace cs2::fn {
         using Scope_callsite_t = void(__fastcall*)(void*, ...);
         // __int64 sub_1810C10F0(__int64 a1, unsigned int a2, __int64 a3, ...)
         using SendChatMessage_t = void(__fastcall*)(void*, ...);
-        using Sensitivity_ptr_t = void(__fastcall*)(void*, ...);
         // __int64 __fastcall sub_18021EF50(__int64 a1, __int64 a2)
         using SetAbsOrigin_Pawn_t = void(__fastcall*)(void*, ...);
         // void __fastcall sub_180D972A0(__int64 a1, int a2, const char *a3)
@@ -966,16 +868,12 @@ namespace cs2::fn {
         using SetDynamicAttributeValue_t = void(__fastcall*)(void*, ...);
         // __int64 __fastcall sub_181004F60(__int64 a1, __int64 a2, _DWORD *a3)
         using SetDynamicAttributeValue_raw_t = void(__fastcall*)(void*, ...);
-        using SetImageFunctionPointer_t = void(__fastcall*)(void*, ...);
-        using SetItemItemIdFunction_t = void(__fastcall*)(void*, ...);
-        using SetLabelTextFunctionPointer_t = void(__fastcall*)(void*, ...);
         // __int64 __fastcall sub_180A2DB50(__int64 a1, __int64 a2)
         using SetMeshGroupMask_t = void(__fastcall*)(void*, ...);
         // __int64 __fastcall sub_1808DB1C0(__int64 a1, __int64 a2)
         using SetModel_t = void(__fastcall*)(void*, ...);
         // char __fastcall sub_180F1DD90(__int64 a1, __int64 a2)
         using SetPlayerReady_t = void(__fastcall*)(void*, ...);
-        using SetSceneObjectAttributeFloat4_t = void(__fastcall*)(void*, ...);
         using SetSelectedIndexFunctionPointer_t = void(__fastcall*)(void*, ...);
         // __int64 __fastcall sub_1807D4810(int *a1, _OWORD *a2)
         using SetTraceData_t = void(__fastcall*)(void*, ...);
@@ -990,7 +888,6 @@ namespace cs2::fn {
         // __int64 __fastcall sub_181186C10(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
         using SetupMovementMoves_t = void(__fastcall*)(void*, ...);
         using ShowMessageBox_t = void(__fastcall*)(void*, ...);
-        using SliderSetValueFunction_t = void(__fastcall*)(void*, ...);
         // float __fastcall sub_180A572B0(__int64 a1, int a2, unsigned int a3)
         using SomeTimingFromPawn_t = void(__fastcall*)(void*, ...);
         // char __fastcall sub_180BC3FE0(_QWORD *a1)
@@ -1001,7 +898,6 @@ namespace cs2::fn {
         using SpreadSeedGen_t = void(__fastcall*)(void*, ...);
         // void __fastcall sub_180806E30(__int64 a1, float a2, float a3, float a4, int a5, int a6, __int64 a7)
         using TestSurfaces_t = void(__fastcall*)(void*, ...);
-        using TextEntrySetTextFunction_t = void(__fastcall*)(void*, ...);
         // __int64 sub_180ACA2B0()
         using ThirdPersonOffHandler_t = void(__fastcall*)(void*, ...);
         // __int64 sub_180ACA390()
@@ -1026,9 +922,6 @@ namespace cs2::fn {
         using TraceShape_Client_t = void(__fastcall*)(void*, ...);
         // char __fastcall sub_180804900(__int64 a1, __int64 a2, int a3, __int64 a4, int a5, char a6)
         using TraceToExit_t = void(__fastcall*)(void*, ...);
-        using TransformScale3dVMT_t = void(__fastcall*)(void*, ...);
-        using TransformTranslate3dVMT_t = void(__fastcall*)(void*, ...);
-        using UiEnginePointer_t = void(__fastcall*)(void*, ...);
         // void *__fastcall sub_180AE4730(__int64 a1, void *a2)
         using UpdateGlobalVars_t = void(__fastcall*)(void*, ...);
         // void __fastcall sub_180F21F20(__int64 a1, _BYTE *a2)
@@ -1039,13 +932,8 @@ namespace cs2::fn {
         using UpdateSubClass_t = void(__fastcall*)(void*, ...);
         // float *__fastcall sub_1807AFDA0(float *a1)
         using UpdateTurningInAccuracy_t = void(__fastcall*)(void*, ...);
-        using VPhys2World_ptr_t = void(__fastcall*)(void*, ...);
         // __int64 __fastcall sub_1807A0460(__int64 a1, __int64 a2, __int64 **a3)
         using ViewModelHideZoomed_t = void(__fastcall*)(void*, ...);
-        using ViewRender_ptr_t = void(__fastcall*)(void*, ...);
-        using ViewToProjectionMatrixPointer_t = void(__fastcall*)(void*, ...);
-        using WeaponC4_ptr_t = void(__fastcall*)(void*, ...);
-        using WorldToProjectionMatrixPointer_t = void(__fastcall*)(void*, ...);
         using WriteSubtickFromEntry_t = void(__fastcall*)(void*, ...);
         // void __fastcall sub_180ACC120(__int64 *a1, int a2, char a3)
         using create_move_v2_t = void(__fastcall*)(void*, ...);
@@ -1053,7 +941,6 @@ namespace cs2::fn {
         using draw_smoke_array_t = void(__fastcall*)(void*, ...);
         // float *__fastcall sub_1808041C0(int a1, __int64 a2, __int64 a3, float *a4, float *a5, float *a6)
         using draw_view_punch_v2_t = void(__fastcall*)(void*, ...);
-        using entity_list_ptr_t = void(__fastcall*)(void*, ...);
         // __int64 __fastcall sub_180AD28A0(__int64 a1, int a2)
         using frame_stage_notify_t = void(__fastcall*)(void*, ...);
         // float *__fastcall sub_1808041C0(int a1, __int64 a2, __int64 a3, float *a4, float *a5, float *a6)
@@ -1064,14 +951,12 @@ namespace cs2::fn {
         using get_view_angles_v2_t = void(__fastcall*)(void*, ...);
         // void __fastcall sub_18084F430(__int64 a1, float *a2, float *a3)
         using get_view_model_t = void(__fastcall*)(void*, ...);
-        using global_vars_v2_t = void(__fastcall*)(void*, ...);
         // char sub_180EFE9B0()
         using is_demo_or_hltv_t = void(__fastcall*)(void*, ...);
         // __int64 __fastcall sub_180AFA990(__int64 a1, __int64 a2)
         using level_init_v2_t = void(__fastcall*)(void*, ...);
         // __int64 sub_180AFAC10()
         using level_shutdown_t = void(__fastcall*)(void*, ...);
-        using local_controller_t = void(__fastcall*)(void*, ...);
         // void __fastcall sub_180218070(__int64 a1, unsigned int a2)
         using mark_interp_latch_flags_dirty_t = void(__fastcall*)(void*, ...);
         // __int64 __fastcall sub_180968BB0(__int64 a1, __int64 a2, __int64 a3)
@@ -1084,7 +969,6 @@ namespace cs2::fn {
         using paintkit_seed_t = void(__fastcall*)(void*, ...);
         // __int64 __fastcall sub_180EF1330(__int64 a1)
         using paintkit_wear_t = void(__fastcall*)(void*, ...);
-        using planted_c4_ptr_t = void(__fastcall*)(void*, ...);
         // void __fastcall sub_1810F0410(__int64 *a1, __int64 *a2, __int64 a3, __int64 a4, __int64 a5)
         using remove_legs_t = void(__fastcall*)(void*, ...);
         // __int64 __fastcall sub_180EF1330(__int64 a1)
@@ -1097,10 +981,8 @@ namespace cs2::fn {
         using update_global_vars_t = void(__fastcall*)(void*, ...);
         // void __fastcall sub_180F264C0(__int64 a1)
         using update_post_processing_v2_t = void(__fastcall*)(void*, ...);
-        using view_matrix_ptr_t = void(__fastcall*)(void*, ...);
     }
     namespace engine2 {
-        using BuildNumber_addr_t = void(__fastcall*)(void*, ...);
         using CCommand_Tokenize_t = void(__fastcall*)(void*, ...);
         // char sub_1800A1240(__int64 a1, int a2, __int64 a3, ...)
         using CGameClient_ClientCommand_t = void(__fastcall*)(void*, ...);
@@ -1124,7 +1006,6 @@ namespace cs2::fn {
         using DisablePvsAccessor_t = void(__fastcall*)(void*, ...);
         // float __fastcall sub_1800769D0(__int64 a1, int a2, int a3)
         using Engine__GetScreenAspectRatio_t = void(__fastcall*)(void*, ...);
-        using Engine__PVSManager_ptr_t = void(__fastcall*)(void*, ...);
         // void __fastcall sub_180066490(__int64 a1, unsigned int a2)
         using Engine__RunPrediction_t = void(__fastcall*)(void*, ...);
         // __int64 *sub_1801D1510()
@@ -1149,18 +1030,10 @@ namespace cs2::fn {
         using Engine_RegisterConVar_t = void(__fastcall*)(void*, ...);
         // bool sub_180076450()
         using IsInGame_t = void(__fastcall*)(void*, ...);
-        using NetworkGameClient_ptr_t = void(__fastcall*)(void*, ...);
-        using WindowHeight_addr_t = void(__fastcall*)(void*, ...);
-        using WindowWidth_addr_t = void(__fastcall*)(void*, ...);
-    }
-    namespace filesystem_stdio {
-        using FullFileSystem_ptr_t = void(__fastcall*)(void*, ...);
     }
     namespace inputsystem {
         // int __fastcall sub_1800039F0(__int64 a1, HWND a2)
         using CInputSystem_AttachToWindow_t = void(__fastcall*)(void*, ...);
-        using InputSystemSvc_ptr_t = void(__fastcall*)(void*, ...);
-        using InputSystem_ptr_t = void(__fastcall*)(void*, ...);
         // void __fastcall SDL_EventHandler(__int64 a1, SDL_Event* event)
         using SDL_EventHandler_t = void(__fastcall*)(void*, ...);
     }
@@ -1169,7 +1042,6 @@ namespace cs2::fn {
         using CMatchSessionOfflineCustom_InitializeGameSettings_t = void(__fastcall*)(void*, ...);
         // char __fastcall sub_1800F0460(__int64 a1)
         using CMatchSessionOnlineHost_InitializeGameSettings_t = void(__fastcall*)(void*, ...);
-        using GameTypes_ptr_t = void(__fastcall*)(void*, ...);
     }
     namespace materialsystem2 {
         // char __fastcall sub_180013FA0(__int64 a1, __int64 a2)
@@ -1222,7 +1094,6 @@ namespace cs2::fn {
         using CNetworkSystem_RegisterNetMessageHandlerAbstract_t = void(__fastcall*)(void*, ...);
         using NetSystem_CNetChan_ProcessMessages_t = void(__fastcall*)(void*, ...);
         using NetSystem_CNetChan_SendNetMessage_t = void(__fastcall*)(void*, ...);
-        using NetworkSystem_ptr_t = void(__fastcall*)(void*, ...);
     }
     namespace panorama {
         // void __fastcall sub_180098320(int *a1, unsigned __int8 a2, __int64 a3)
@@ -1234,10 +1105,8 @@ namespace cs2::fn {
         using OnDeletePanelFunctionPointer_t = void(__fastcall*)(void*, ...);
         using RegisterEventHandlerFunctionPointer_t = void(__fastcall*)(void*, ...);
         using RunScriptFunctionPointer_t = void(__fastcall*)(void*, ...);
-        using SetPanelStylePropertyFunctionPointer_t = void(__fastcall*)(void*, ...);
     }
     namespace particles {
-        using GetParticleManager_t = void(__fastcall*)(void*, ...);
         // __int64 __fastcall sub_1800A0DD0(__int64 a1, const char *a2, __int64 a3, __int64 a4, char a5, int a6, int a7)
         using Particles__CParticleSystemMgr_CreateParticleCollection_t = void(__fastcall*)(void*, ...);
         // __int64 *__fastcall sub_1800A0BC0(__int64 a1, __int64 *a2, const char *a3, char a4)
@@ -1255,7 +1124,6 @@ namespace cs2::fn {
         using CRenderDeviceDx11_CompileShaderSourceMain_t = void(__fastcall*)(void*, ...);
         using CSwapChainDx11_QueuePresentAndWait_t = void(__fastcall*)(void*, ...);
         using CSwapChainDx11_ResizeBuffers_t = void(__fastcall*)(void*, ...);
-        using RenderDeviceMgr_ptr_t = void(__fastcall*)(void*, ...);
         using RenderSystemDx11_QueuePresentAndWait_t = void(__fastcall*)(void*, ...);
         using RenderSystemDx11_SetHardwareGammaRamp_t = void(__fastcall*)(void*, ...);
         using RenderSystemDx11_SetMode_t = void(__fastcall*)(void*, ...);
@@ -1281,15 +1149,12 @@ namespace cs2::fn {
         using DrawSkyboxArray_t = void(__fastcall*)(void*, ...);
         using SceneSystem__DrawAggeregateObject_t = void(__fastcall*)(void*, ...);
         using SceneSystem__DrawArrayLight_t = void(__fastcall*)(void*, ...);
-        using SceneSystemPointer_t = void(__fastcall*)(void*, ...);
         using SceneSystem_Thread_RenderSceneDrawList_t = void(__fastcall*)(void*, ...);
-        using SceneSystem_ptr_t = void(__fastcall*)(void*, ...);
     }
     namespace schemasystem {
         using CSchemaSystem_InstallSchemaBindings_t = void(__fastcall*)(void*, ...);
         using CSchemaSystem_RegisterModuleAndBuiltins_t = void(__fastcall*)(void*, ...);
         using CSchemaSystem_VerifySchemaBindingConsistency_t = void(__fastcall*)(void*, ...);
-        using SchemaSystem_ptr_t = void(__fastcall*)(void*, ...);
     }
     namespace server {
         // __int64 __fastcall sub_1808A9B50(__int64 a1, __int64 a2)
@@ -1305,15 +1170,12 @@ namespace cs2::fn {
     }
     namespace soundsystem {
         using CSosOperatorSystem_StartSoundEvent_t = void(__fastcall*)(void*, ...);
-        using SoundChannelsPointer_t = void(__fastcall*)(void*, ...);
         // _UNKNOWN **__fastcall sub_180349840(__int64 a1, __int64 a2, int a3, int a4)
         using SoundSystem__PlayVSound_t = void(__fastcall*)(void*, ...);
         // __int64 __fastcall sub_1800B0740(__int64 a1, unsigned int a2)
         using SoundSystem__SomeUtlSymbolFunc_t = void(__fastcall*)(void*, ...);
-        using SoundSystem_ptr_t = void(__fastcall*)(void*, ...);
     }
     namespace tier0 {
-        using CVar_ptr_t = void(__fastcall*)(void*, ...);
         using Tier0__LoadKeyValues_t = void(__fastcall*)(void*, ...);
         using Tier0__UtlBuffer_t = void(__fastcall*)(void*, ...);
     }

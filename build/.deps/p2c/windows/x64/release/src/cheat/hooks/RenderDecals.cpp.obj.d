@@ -1,5 +1,4 @@
 {
-    depfiles_format = "cl_json",
     files = {
         [[src\cheat\hooks\RenderDecals.cpp]]
     },
@@ -14,7 +13,7 @@
             [[-Ivendor\imgui]],
             [[-Ivendor\imgui\backends]],
             [[-Ivendor\json\include]],
-            [[-Ivendor\cs2-universal-offsets\output]],
+            [[-Ivendor\cs2-sdk\output]],
             [[-Ivendor\safetyhook\include]],
             [[-Ivendor\safetyhook\src]],
             [[-Ivendor\zydis\src]],
@@ -440,5 +439,6 @@
         \"ImportedModules\": [],\
         \"ImportedHeaderUnits\": []\
     }\
-}"
+}",
+    depfiles_format = "cl_json"
 }

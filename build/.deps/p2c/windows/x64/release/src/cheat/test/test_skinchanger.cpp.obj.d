@@ -1,4 +1,32 @@
 {
+    files = {
+        [[src\cheat\test\test_skinchanger.cpp]]
+    },
+    depfiles_format = "cl_json",
+    values = {
+        [[C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.50.35717\bin\HostX64\x64\cl.exe]],
+        {
+            "-nologo",
+            "-MD",
+            "-O2",
+            "-std:c++23preview",
+            "-Isrc",
+            [[-Ivendor\imgui]],
+            [[-Ivendor\imgui\backends]],
+            [[-Ivendor\json\include]],
+            [[-Ivendor\cs2-sdk\output]],
+            [[-Ivendor\safetyhook\include]],
+            [[-Ivendor\safetyhook\src]],
+            [[-Ivendor\zydis\src]],
+            [[-Ivendor\zydis]],
+            [[-Ivendor\zydis\include]],
+            [[-Ivendor\zydis\dependencies\zycore\include]],
+            "-DZYDIS_STATIC_BUILD",
+            "-DZYCORE_STATIC_BUILD",
+            "/EHsc",
+            "-DNDEBUG"
+        }
+    },
     depfiles = "{\
     \"Version\": \"1.2\",\
     \"Data\": {\
@@ -237,7 +265,7 @@
             \"c:\\\\program files (x86)\\\\windows kits\\\\10\\\\include\\\\10.0.26100.0\\\\um\\\\mcx.h\",\
             \"c:\\\\program files (x86)\\\\windows kits\\\\10\\\\include\\\\10.0.26100.0\\\\um\\\\imm.h\",\
             \"c:\\\\program files (x86)\\\\windows kits\\\\10\\\\include\\\\10.0.26100.0\\\\um\\\\ime_cmodes.h\",\
-            \"c:\\\\users\\\\macin\\\\desktop\\\\cool\\\\vendor\\\\cs2-universal-offsets\\\\output\\\\signatures\\\\signatures.hpp\",\
+            \"c:\\\\users\\\\macin\\\\desktop\\\\cool\\\\vendor\\\\cs2-sdk\\\\output\\\\signatures\\\\signatures.hpp\",\
             \"c:\\\\program files\\\\microsoft visual studio\\\\18\\\\community\\\\vc\\\\tools\\\\msvc\\\\14.50.35717\\\\include\\\\string_view\",\
             \"c:\\\\program files\\\\microsoft visual studio\\\\18\\\\community\\\\vc\\\\tools\\\\msvc\\\\14.50.35717\\\\include\\\\yvals.h\",\
             \"c:\\\\program files\\\\microsoft visual studio\\\\18\\\\community\\\\vc\\\\tools\\\\msvc\\\\14.50.35717\\\\include\\\\yvals_core.h\",\
@@ -382,33 +410,5 @@
         \"ImportedModules\": [],\
         \"ImportedHeaderUnits\": []\
     }\
-}",
-    files = {
-        [[src\cheat\test\test_skinchanger.cpp]]
-    },
-    values = {
-        [[C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.50.35717\bin\HostX64\x64\cl.exe]],
-        {
-            "-nologo",
-            "-MD",
-            "-O2",
-            "-std:c++23preview",
-            "-Isrc",
-            [[-Ivendor\imgui]],
-            [[-Ivendor\imgui\backends]],
-            [[-Ivendor\json\include]],
-            [[-Ivendor\cs2-universal-offsets\output]],
-            [[-Ivendor\safetyhook\include]],
-            [[-Ivendor\safetyhook\src]],
-            [[-Ivendor\zydis\src]],
-            [[-Ivendor\zydis]],
-            [[-Ivendor\zydis\include]],
-            [[-Ivendor\zydis\dependencies\zycore\include]],
-            "-DZYDIS_STATIC_BUILD",
-            "-DZYCORE_STATIC_BUILD",
-            "/EHsc",
-            "-DNDEBUG"
-        }
-    },
-    depfiles_format = "cl_json"
+}"
 }

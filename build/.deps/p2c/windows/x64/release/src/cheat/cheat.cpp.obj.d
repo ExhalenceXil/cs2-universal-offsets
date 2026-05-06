@@ -1,4 +1,32 @@
 {
+    files = {
+        [[src\cheat\cheat.cpp]]
+    },
+    depfiles_format = "cl_json",
+    values = {
+        [[C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.50.35717\bin\HostX64\x64\cl.exe]],
+        {
+            "-nologo",
+            "-MD",
+            "-O2",
+            "-std:c++23preview",
+            "-Isrc",
+            [[-Ivendor\imgui]],
+            [[-Ivendor\imgui\backends]],
+            [[-Ivendor\json\include]],
+            [[-Ivendor\cs2-sdk\output]],
+            [[-Ivendor\safetyhook\include]],
+            [[-Ivendor\safetyhook\src]],
+            [[-Ivendor\zydis\src]],
+            [[-Ivendor\zydis]],
+            [[-Ivendor\zydis\include]],
+            [[-Ivendor\zydis\dependencies\zycore\include]],
+            "-DZYDIS_STATIC_BUILD",
+            "-DZYCORE_STATIC_BUILD",
+            "/EHsc",
+            "-DNDEBUG"
+        }
+    },
     depfiles = "{\
     \"Version\": \"1.2\",\
     \"Data\": {\
@@ -487,60 +515,32 @@
             \"c:\\\\program files (x86)\\\\windows kits\\\\10\\\\include\\\\10.0.26100.0\\\\um\\\\d3d10effect.h\",\
             \"c:\\\\program files (x86)\\\\windows kits\\\\10\\\\include\\\\10.0.26100.0\\\\um\\\\d3d10_1shader.h\",\
             \"c:\\\\users\\\\macin\\\\desktop\\\\cool\\\\src\\\\utils\\\\input.hpp\",\
-            \"c:\\\\users\\\\macin\\\\desktop\\\\cool\\\\vendor\\\\cs2-universal-offsets\\\\output\\\\sdk\\\\cs2sdk.hpp\",\
-            \"c:\\\\users\\\\macin\\\\desktop\\\\cool\\\\vendor\\\\cs2-universal-offsets\\\\output\\\\sdk\\\\cs2sdk_macros.hpp\",\
-            \"c:\\\\users\\\\macin\\\\desktop\\\\cool\\\\vendor\\\\cs2-universal-offsets\\\\output\\\\sdk\\\\animationsystem_dll.hpp\",\
-            \"c:\\\\users\\\\macin\\\\desktop\\\\cool\\\\vendor\\\\cs2-universal-offsets\\\\output\\\\sdk\\\\client_dll.hpp\",\
-            \"c:\\\\users\\\\macin\\\\desktop\\\\cool\\\\vendor\\\\cs2-universal-offsets\\\\output\\\\sdk\\\\engine2_dll.hpp\",\
-            \"c:\\\\users\\\\macin\\\\desktop\\\\cool\\\\vendor\\\\cs2-universal-offsets\\\\output\\\\sdk\\\\host_dll.hpp\",\
-            \"c:\\\\users\\\\macin\\\\desktop\\\\cool\\\\vendor\\\\cs2-universal-offsets\\\\output\\\\sdk\\\\materialsystem2_dll.hpp\",\
-            \"c:\\\\users\\\\macin\\\\desktop\\\\cool\\\\vendor\\\\cs2-universal-offsets\\\\output\\\\sdk\\\\networksystem_dll.hpp\",\
-            \"c:\\\\users\\\\macin\\\\desktop\\\\cool\\\\vendor\\\\cs2-universal-offsets\\\\output\\\\sdk\\\\panorama_dll.hpp\",\
-            \"c:\\\\users\\\\macin\\\\desktop\\\\cool\\\\vendor\\\\cs2-universal-offsets\\\\output\\\\sdk\\\\particles_dll.hpp\",\
-            \"c:\\\\users\\\\macin\\\\desktop\\\\cool\\\\vendor\\\\cs2-universal-offsets\\\\output\\\\sdk\\\\pulse_system_dll.hpp\",\
-            \"c:\\\\users\\\\macin\\\\desktop\\\\cool\\\\vendor\\\\cs2-universal-offsets\\\\output\\\\sdk\\\\rendersystemdx11_dll.hpp\",\
-            \"c:\\\\users\\\\macin\\\\desktop\\\\cool\\\\vendor\\\\cs2-universal-offsets\\\\output\\\\sdk\\\\resourcesystem_dll.hpp\",\
-            \"c:\\\\users\\\\macin\\\\desktop\\\\cool\\\\vendor\\\\cs2-universal-offsets\\\\output\\\\sdk\\\\scenesystem_dll.hpp\",\
-            \"c:\\\\users\\\\macin\\\\desktop\\\\cool\\\\vendor\\\\cs2-universal-offsets\\\\output\\\\sdk\\\\schemasystem_dll.hpp\",\
-            \"c:\\\\users\\\\macin\\\\desktop\\\\cool\\\\vendor\\\\cs2-universal-offsets\\\\output\\\\sdk\\\\server_dll.hpp\",\
-            \"c:\\\\users\\\\macin\\\\desktop\\\\cool\\\\vendor\\\\cs2-universal-offsets\\\\output\\\\sdk\\\\soundsystem_dll.hpp\",\
-            \"c:\\\\users\\\\macin\\\\desktop\\\\cool\\\\vendor\\\\cs2-universal-offsets\\\\output\\\\sdk\\\\steamaudio_dll.hpp\",\
-            \"c:\\\\users\\\\macin\\\\desktop\\\\cool\\\\vendor\\\\cs2-universal-offsets\\\\output\\\\sdk\\\\vphysics2_dll.hpp\",\
-            \"c:\\\\users\\\\macin\\\\desktop\\\\cool\\\\vendor\\\\cs2-universal-offsets\\\\output\\\\sdk\\\\worldrenderer_dll.hpp\",\
-            \"c:\\\\users\\\\macin\\\\desktop\\\\cool\\\\vendor\\\\cs2-universal-offsets\\\\output\\\\sdk\\\\interfaces_sdk.hpp\",\
-            \"c:\\\\users\\\\macin\\\\desktop\\\\cool\\\\vendor\\\\cs2-universal-offsets\\\\output\\\\sdk\\\\netvars.hpp\",\
-            \"c:\\\\users\\\\macin\\\\desktop\\\\cool\\\\vendor\\\\cs2-universal-offsets\\\\output\\\\signatures\\\\signatures.hpp\"\
+            \"c:\\\\users\\\\macin\\\\desktop\\\\cool\\\\vendor\\\\cs2-sdk\\\\output\\\\sdk\\\\cs2sdk.hpp\",\
+            \"c:\\\\users\\\\macin\\\\desktop\\\\cool\\\\vendor\\\\cs2-sdk\\\\output\\\\sdk\\\\cs2sdk_macros.hpp\",\
+            \"c:\\\\users\\\\macin\\\\desktop\\\\cool\\\\vendor\\\\cs2-sdk\\\\output\\\\sdk\\\\animationsystem_dll.hpp\",\
+            \"c:\\\\users\\\\macin\\\\desktop\\\\cool\\\\vendor\\\\cs2-sdk\\\\output\\\\sdk\\\\client_dll.hpp\",\
+            \"c:\\\\users\\\\macin\\\\desktop\\\\cool\\\\vendor\\\\cs2-sdk\\\\output\\\\sdk\\\\engine2_dll.hpp\",\
+            \"c:\\\\users\\\\macin\\\\desktop\\\\cool\\\\vendor\\\\cs2-sdk\\\\output\\\\sdk\\\\host_dll.hpp\",\
+            \"c:\\\\users\\\\macin\\\\desktop\\\\cool\\\\vendor\\\\cs2-sdk\\\\output\\\\sdk\\\\materialsystem2_dll.hpp\",\
+            \"c:\\\\users\\\\macin\\\\desktop\\\\cool\\\\vendor\\\\cs2-sdk\\\\output\\\\sdk\\\\networksystem_dll.hpp\",\
+            \"c:\\\\users\\\\macin\\\\desktop\\\\cool\\\\vendor\\\\cs2-sdk\\\\output\\\\sdk\\\\panorama_dll.hpp\",\
+            \"c:\\\\users\\\\macin\\\\desktop\\\\cool\\\\vendor\\\\cs2-sdk\\\\output\\\\sdk\\\\particles_dll.hpp\",\
+            \"c:\\\\users\\\\macin\\\\desktop\\\\cool\\\\vendor\\\\cs2-sdk\\\\output\\\\sdk\\\\pulse_system_dll.hpp\",\
+            \"c:\\\\users\\\\macin\\\\desktop\\\\cool\\\\vendor\\\\cs2-sdk\\\\output\\\\sdk\\\\rendersystemdx11_dll.hpp\",\
+            \"c:\\\\users\\\\macin\\\\desktop\\\\cool\\\\vendor\\\\cs2-sdk\\\\output\\\\sdk\\\\resourcesystem_dll.hpp\",\
+            \"c:\\\\users\\\\macin\\\\desktop\\\\cool\\\\vendor\\\\cs2-sdk\\\\output\\\\sdk\\\\scenesystem_dll.hpp\",\
+            \"c:\\\\users\\\\macin\\\\desktop\\\\cool\\\\vendor\\\\cs2-sdk\\\\output\\\\sdk\\\\schemasystem_dll.hpp\",\
+            \"c:\\\\users\\\\macin\\\\desktop\\\\cool\\\\vendor\\\\cs2-sdk\\\\output\\\\sdk\\\\server_dll.hpp\",\
+            \"c:\\\\users\\\\macin\\\\desktop\\\\cool\\\\vendor\\\\cs2-sdk\\\\output\\\\sdk\\\\soundsystem_dll.hpp\",\
+            \"c:\\\\users\\\\macin\\\\desktop\\\\cool\\\\vendor\\\\cs2-sdk\\\\output\\\\sdk\\\\steamaudio_dll.hpp\",\
+            \"c:\\\\users\\\\macin\\\\desktop\\\\cool\\\\vendor\\\\cs2-sdk\\\\output\\\\sdk\\\\vphysics2_dll.hpp\",\
+            \"c:\\\\users\\\\macin\\\\desktop\\\\cool\\\\vendor\\\\cs2-sdk\\\\output\\\\sdk\\\\worldrenderer_dll.hpp\",\
+            \"c:\\\\users\\\\macin\\\\desktop\\\\cool\\\\vendor\\\\cs2-sdk\\\\output\\\\sdk\\\\interfaces_sdk.hpp\",\
+            \"c:\\\\users\\\\macin\\\\desktop\\\\cool\\\\vendor\\\\cs2-sdk\\\\output\\\\sdk\\\\netvars.hpp\",\
+            \"c:\\\\users\\\\macin\\\\desktop\\\\cool\\\\vendor\\\\cs2-sdk\\\\output\\\\signatures\\\\signatures.hpp\"\
         ],\
         \"ImportedModules\": [],\
         \"ImportedHeaderUnits\": []\
     }\
-}",
-    files = {
-        [[src\cheat\cheat.cpp]]
-    },
-    values = {
-        [[C:\Program Files\Microsoft Visual Studio\18\Community\VC\Tools\MSVC\14.50.35717\bin\HostX64\x64\cl.exe]],
-        {
-            "-nologo",
-            "-MD",
-            "-O2",
-            "-std:c++23preview",
-            "-Isrc",
-            [[-Ivendor\imgui]],
-            [[-Ivendor\imgui\backends]],
-            [[-Ivendor\json\include]],
-            [[-Ivendor\cs2-universal-offsets\output]],
-            [[-Ivendor\safetyhook\include]],
-            [[-Ivendor\safetyhook\src]],
-            [[-Ivendor\zydis\src]],
-            [[-Ivendor\zydis]],
-            [[-Ivendor\zydis\include]],
-            [[-Ivendor\zydis\dependencies\zycore\include]],
-            "-DZYDIS_STATIC_BUILD",
-            "-DZYCORE_STATIC_BUILD",
-            "/EHsc",
-            "-DNDEBUG"
-        }
-    },
-    depfiles_format = "cl_json"
+}"
 }

@@ -276,6 +276,9 @@ fn main() -> Result<()> {
                 fs::write(sigs_dir.join("signatures.rs"), signatures::writers::render_rs(&report.hits))?;
                 fs::write(sigs_dir.join("SIGNATURES.md"), signatures::writers::render_markdown(&report.hits))?;
 
+                // Write RIPREL signatures to sdk/offsets.hpp
+                fs::write(sdk_dir.join("offsets.hpp"), signatures::offsets_writer::render_offsets_hpp(&report.hits))?;
+
                 // Diff vs. previous session, if any.
                 if let Some(prev) = &cache_path
                     && let Ok(diff) = signatures::diff::diff_against(prev, &report)

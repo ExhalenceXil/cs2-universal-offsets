@@ -1,8 +1,4 @@
 {
-    files = {
-        [[C:\Users\macin\Desktop\cool\xmake.lua]],
-        [[C:\Users\macin\Desktop\cool\vendor\cs2-universal-offsets\.xmake\windows\x64\xmake.conf]]
-    },
     values = {
         [[src\cheat\cheat.cpp]],
         [[src\cheat\hooks\AggregateSceneObjectArray.cpp]],
@@ -52,5 +48,9 @@
         [[vendor\zydis\src\String.c]],
         [[vendor\zydis\src\Utils.c]],
         [[vendor\zydis\src\Zydis.c]]
+    },
+    files = {
+        [[C:\Users\macin\Desktop\cool\xmake.lua]],
+        [[C:\Users\macin\Desktop\cool\vendor\cs2-sdk\.xmake\windows\x64\xmake.conf]]
     }
 }
