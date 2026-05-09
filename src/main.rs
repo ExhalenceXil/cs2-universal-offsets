@@ -276,8 +276,48 @@ fn main() -> Result<()> {
                 fs::write(sigs_dir.join("signatures.rs"), signatures::writers::render_rs(&report.hits))?;
                 fs::write(sigs_dir.join("SIGNATURES.md"), signatures::writers::render_markdown(&report.hits))?;
 
-                // Write RIPREL signatures to sdk/offsets.hpp
-                fs::write(sdk_dir.join("offsets.hpp"), signatures::offsets_writer::render_offsets_hpp(&report.hits))?;
+                // Write RIPREL signatures + a2x-style dwXxx aliases to
+                // sdk/offsets.{hpp,json,rs}. The `analysis` block is what
+                // cs2-sdk.com / public CS2 cheats actually consume — it
+                // matches a2x/cs2-dumper byte-for-byte.
+                let empty_offsets = analysis::OffsetMap::new();
+                let offset_map = analysis_result
+                    .as_ref()
+                    .map(|r| &r.offsets)
+                    .unwrap_or(&empty_offsets);
+                fs::write(
+                    sdk_dir.join("offsets.hpp"),
+                    signatures::offsets_writer::render_offsets_hpp(&report.hits, offset_map),
+                )?;
+                fs::write(
+                    sdk_dir.join("offsets.json"),
+                    signatures::offsets_writer::render_offsets_json(offset_map),
+                )?;
+                fs::write(
+                    sdk_dir.join("offsets.rs"),
+                    signatures::offsets_writer::render_offsets_rs(offset_map),
+                )?;
+
+                // Stand-alone buttons.{hpp,json,rs,zig} — every kbutton
+                // pointer (jump, attack, duck, …) keyed by its in-engine
+                // name. Drop-in compatible with a2x cs2_dumper::buttons.
+                if let Some(result) = analysis_result.as_ref()
+                    && !result.buttons.is_empty()
+                {
+                    if let Err(e) = output::write_buttons(
+                        &sdk_dir,
+                        &result.buttons,
+                        &args.file_types,
+                    ) {
+                        ui::warn(&format!("buttons emit failed: {}", e));
+                    } else {
+                        ui::ok(&format!(
+                            "buttons emitted ({} entries) -> sdk/buttons.{{{}}}",
+                            result.buttons.len(),
+                            args.file_types.join(",")
+                        ));
+                    }
+                }
 
                 // Diff vs. previous session, if any.
                 if let Some(prev) = &cache_path

@@ -2,7 +2,7 @@
   "total_scanned":  508,
   "found":          443,
   "missing":        65,
-  "elapsed_ms":     13420,
+  "elapsed_ms":     11912,
   "modules":        ["animationsystem.dll", "client.dll", "engine2.dll", "filesystem_stdio.dll", "inputsystem.dll", "matchmaking.dll", "materialsystem2.dll", "networksystem.dll", "panorama.dll", "particles.dll", "rendersystemdx11.dll", "resourcesystem.dll", "scenesystem.dll", "schemasystem.dll", "server.dll", "soundsystem.dll", "tier0.dll", "vphysics2.dll", "worldrenderer.dll"],
   "signatures": [
     { "name": "RegenerateWeaponSkins"                                                  , "module": "client.dll"          , "resolve": "raw"      , "va": 0x7FFB981A0D70, "rva":   0x7B0D70, "pattern": "48 83 EC ? E8 ? ? ? ? 48 85 C0 0F 84 ? ? ? ? 48 8B 10"                                                                                                                                                                                                                                       , "bytes": "48 83 EC 48 E8 D7 6A C1 00 48 85 C0 0F 84 7F 00 00 00 48 8B 10 48 8B C8", "pattern_synth": "48 83 EC 48 E8 ? ? ? ? 48 85 C0 0F 84 7F 00"                                                                                                    , "prototype": "__int64 sub_1807B0D40()"                                                                                            },
