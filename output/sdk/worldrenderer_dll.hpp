@@ -4,7 +4,7 @@
 // classes:       32
 // enums:         3
 // build_number:  14160
-// generated_at:  2026-05-10T13:40:42.371681700+00:00
+// generated_at:  2026-05-10T13:45:17.967997+00:00
 //
 // Use:
 //   auto* pawn = reinterpret_cast<C_CSPlayerPawn*>(addr);
@@ -81,13 +81,83 @@ namespace cs2::sdk::worldrenderer {
         AGGREGATE_INSTANCE_STREAM_VERTEXBLEND_UNORM8 = 0x4,
     };
 
-    // ClutterTile_t
-    //   fields: 3
-    class ClutterTile_t {
+    // InfoForResourceTypeVMapResourceData_t
+    //   fields: 0
+    class InfoForResourceTypeVMapResourceData_t {
     public:
-        SCHEMA_FIELD(std::uint32_t                   , m_nFirstInstance                                , 0x0) // uint32
-        SCHEMA_FIELD(std::uint32_t                   , m_nLastInstance                                 , 0x4) // uint32
-        SCHEMA_FIELD(::AABB_t                        , m_BoundsWs                                      , 0x8) // AABB_t
+    };
+
+    // CVoxelVisibility
+    //   fields: 13
+    class CVoxelVisibility {
+    public:
+        SCHEMA_FIELD(std::uint32_t                   , m_nBaseClusterCount                             , 0x40) // uint32
+        SCHEMA_FIELD(std::uint32_t                   , m_nPVSBytesPerCluster                           , 0x44) // uint32
+        SCHEMA_FIELD(::Vector                        , m_vMinBounds                                    , 0x48) // Vector
+        SCHEMA_FIELD(::Vector                        , m_vMaxBounds                                    , 0x54) // Vector
+        SCHEMA_FIELD(float                           , m_flGridSize                                    , 0x60) // float32
+        SCHEMA_FIELD(std::uint32_t                   , m_nSkyVisibilityCluster                         , 0x64) // uint32
+        SCHEMA_FIELD(std::uint32_t                   , m_nSunVisibilityCluster                         , 0x68) // uint32
+        SCHEMA_FIELD(VoxelVisBlockOffset_t           , m_NodeBlock                                     , 0x6C) // VoxelVisBlockOffset_t
+        SCHEMA_FIELD(VoxelVisBlockOffset_t           , m_RegionBlock                                   , 0x74) // VoxelVisBlockOffset_t
+        SCHEMA_FIELD(VoxelVisBlockOffset_t           , m_EnclosedClusterListBlock                      , 0x7C) // VoxelVisBlockOffset_t
+        SCHEMA_FIELD(VoxelVisBlockOffset_t           , m_EnclosedClustersBlock                         , 0x84) // VoxelVisBlockOffset_t
+        SCHEMA_FIELD(VoxelVisBlockOffset_t           , m_MasksBlock                                    , 0x8C) // VoxelVisBlockOffset_t
+        SCHEMA_FIELD(VoxelVisBlockOffset_t           , m_nVisBlocks                                    , 0x94) // VoxelVisBlockOffset_t
+    };
+
+    // EntityKeyValueData_t
+    //   fields: 2
+    class EntityKeyValueData_t {
+    public:
+        SCHEMA_FIELD(CUtlVector<EntityIOConnectionData_t>, m_connections                                   , 0x8) // CUtlVector<EntityIOConnectionData_t>
+        SCHEMA_FIELD(::CUtlBinaryBlock               , m_keyValuesData                                 , 0x20) // CUtlBinaryBlock
+    };
+
+    // World_t
+    //   fields: 4
+    class World_t {
+    public:
+        SCHEMA_FIELD(WorldBuilderParams_t            , m_builderParams                                 , 0x0) // WorldBuilderParams_t
+        SCHEMA_FIELD(CUtlVector<NodeData_t>          , m_worldNodes                                    , 0x60) // CUtlVector<NodeData_t>
+        SCHEMA_FIELD(BakedLightingInfo_t             , m_worldLightingInfo                             , 0x78) // BakedLightingInfo_t
+        SCHEMA_FIELD(CUtlVector<CStrongHandleCopyable<InfoForResourceTypeCEntityLump>>, m_entityLumps                                   , 0xC0) // CUtlVector<CStrongHandleCopyable<InfoForResourceTypeCEntityLump>>
+    };
+
+    // RTProxyInstanceInfo_t
+    //   fields: 6
+    class RTProxyInstanceInfo_t {
+    public:
+        SCHEMA_FIELD(RTProxyInstanceFlags_t          , m_nFlags                                        , 0x0) // RTProxyInstanceFlags_t
+        SCHEMA_FIELD(VertexAlbedoFormat_t            , m_albedoFormat                                  , 0x1) // VertexAlbedoFormat_t
+        SCHEMA_FIELD(std::uint16_t                   , m_nBLASCount                                    , 0x2) // uint16
+        SCHEMA_FIELD(std::uint32_t                   , m_nBLASIndex                                    , 0x4) // uint32
+        SCHEMA_FIELD(std::uint32_t                   , m_nVertexAlbedoByteOffset                       , 0x8) // uint32
+        SCHEMA_FIELD(::matrix3x4_t                   , m_mWorldFromLocal                               , 0xC) // matrix3x4_t
+    };
+
+    // BaseSceneObjectOverride_t
+    //   fields: 1
+    class BaseSceneObjectOverride_t {
+    public:
+        SCHEMA_FIELD(std::uint32_t                   , m_nSceneObjectIndex                             , 0x0) // uint32
+    };
+
+    // BakedLightingInfo_t
+    //   fields: 11
+    class BakedLightingInfo_t {
+    public:
+        SCHEMA_FIELD(std::uint32_t                   , m_nLightmapVersionNumber                        , 0x0) // uint32
+        SCHEMA_FIELD(std::uint32_t                   , m_nLightmapGameVersionNumber                    , 0x4) // uint32
+        SCHEMA_FIELD(::Vector2D                      , m_vLightmapUvScale                              , 0x8) // Vector2D
+        SCHEMA_FIELD(bool                            , m_bHasLightmaps                                 , 0x10) // bool
+        SCHEMA_FIELD(bool                            , m_bBakedShadowsGamma20                          , 0x11) // bool
+        SCHEMA_FIELD(bool                            , m_bCompressionEnabled                           , 0x12) // bool
+        SCHEMA_FIELD(bool                            , m_bSHLightmaps                                  , 0x13) // bool
+        SCHEMA_FIELD(std::uint8_t                    , m_nChartPackIterations                          , 0x14) // uint8
+        SCHEMA_FIELD(std::uint8_t                    , m_nVradQuality                                  , 0x15) // uint8
+        SCHEMA_FIELD(CUtlVector<CStrongHandle<InfoForResourceTypeCTextureBase>>, m_lightMaps                                     , 0x18) // CUtlVector<CStrongHandle<InfoForResourceTypeCTextureBase>>
+        SCHEMA_FIELD(CUtlVector<BakedLightingInfo_t_BakedShadowAssignment_t>, m_bakedShadows                                  , 0x30) // CUtlVector<BakedLightingInfo_t::BakedShadowAssignment_t>
     };
 
     // NodeData_t
@@ -101,44 +171,6 @@ namespace cs2::sdk::worldrenderer {
         SCHEMA_FIELD(float                           , m_flMinimumDistance                             , 0x28) // float32
         SCHEMA_FIELD(CUtlVector<int32>               , m_ChildNodeIndices                              , 0x30) // CUtlVector<int32>
         SCHEMA_FIELD(::CUtlString                    , m_worldNodePrefix                               , 0x48) // CUtlString
-    };
-
-    // EntityKeyValueData_t
-    //   fields: 2
-    class EntityKeyValueData_t {
-    public:
-        SCHEMA_FIELD(CUtlVector<EntityIOConnectionData_t>, m_connections                                   , 0x8) // CUtlVector<EntityIOConnectionData_t>
-        SCHEMA_FIELD(::CUtlBinaryBlock               , m_keyValuesData                                 , 0x20) // CUtlBinaryBlock
-    };
-
-    // SceneObject_t
-    //   fields: 14
-    class SceneObject_t {
-    public:
-        SCHEMA_FIELD(std::uint32_t                   , m_nObjectID                                     , 0x0) // uint32
-        SCHEMA_FIELD(::Vector4D                      , m_vTransform                                    , 0x4) // Vector4D[3]
-        SCHEMA_FIELD(float                           , m_flFadeStartDistance                           , 0x34) // float32
-        SCHEMA_FIELD(float                           , m_flFadeEndDistance                             , 0x38) // float32
-        SCHEMA_FIELD(::Vector4D                      , m_vTintColor                                    , 0x3C) // Vector4D
-        SCHEMA_FIELD(::CUtlString                    , m_skin                                          , 0x50) // CUtlString
-        SCHEMA_FIELD(ObjectTypeFlags_t               , m_nObjectTypeFlags                              , 0x58) // ObjectTypeFlags_t
-        SCHEMA_FIELD(::Vector                        , m_vLightingOrigin                               , 0x5C) // Vector
-        SCHEMA_FIELD(std::int16_t                    , m_nOverlayRenderOrder                           , 0x68) // int16
-        SCHEMA_FIELD(std::int16_t                    , m_nLODOverride                                  , 0x6A) // int16
-        SCHEMA_FIELD(std::int32_t                    , m_nCubeMapPrecomputedHandshake                  , 0x6C) // int32
-        SCHEMA_FIELD(std::int32_t                    , m_nLightProbeVolumePrecomputedHandshake         , 0x70) // int32
-        SCHEMA_FIELD(CStrongHandle<InfoForResourceTypeCModel>, m_renderableModel                               , 0x78) // CStrongHandle<InfoForResourceTypeCModel>
-        SCHEMA_FIELD(CStrongHandle<InfoForResourceTypeCRenderMesh>, m_renderable                                    , 0x80) // CStrongHandle<InfoForResourceTypeCRenderMesh>
-    };
-
-    // ExtraVertexStreamOverride_t
-    //   fields: 4
-    class ExtraVertexStreamOverride_t {
-    public:
-        SCHEMA_FIELD(std::uint32_t                   , m_nSubSceneObject                               , 0x4) // uint32
-        SCHEMA_FIELD(std::uint32_t                   , m_nDrawCallIndex                                , 0x8) // uint32
-        SCHEMA_FIELD(MeshDrawPrimitiveFlags_t        , m_nAdditionalMeshDrawPrimitiveFlags             , 0xC) // MeshDrawPrimitiveFlags_t
-        SCHEMA_FIELD(::CRenderBufferBinding          , m_extraBufferBinding                            , 0x10) // CRenderBufferBinding
     };
 
     // ClutterSceneObject_t
@@ -172,11 +204,98 @@ namespace cs2::sdk::worldrenderer {
         SCHEMA_FIELD(KeyValues3                      , m_paramMap                                      , 0x30) // KeyValues3
     };
 
+    // PermEntityLumpData_t
+    //   fields: 3
+    class PermEntityLumpData_t {
+    public:
+        SCHEMA_FIELD(::CUtlString                    , m_name                                          , 0x8) // CUtlString
+        SCHEMA_FIELD(CUtlVector<CStrongHandleCopyable<InfoForResourceTypeCEntityLump>>, m_childLumps                                    , 0x10) // CUtlVector<CStrongHandleCopyable<InfoForResourceTypeCEntityLump>>
+        SCHEMA_FIELD(CUtlLeanVector<EntityKeyValueData_t>, m_entityKeyValues                               , 0x28) // CUtlLeanVector<EntityKeyValueData_t>
+    };
+
+    // SceneObject_t
+    //   fields: 14
+    class SceneObject_t {
+    public:
+        SCHEMA_FIELD(std::uint32_t                   , m_nObjectID                                     , 0x0) // uint32
+        SCHEMA_FIELD(::Vector4D                      , m_vTransform                                    , 0x4) // Vector4D[3]
+        SCHEMA_FIELD(float                           , m_flFadeStartDistance                           , 0x34) // float32
+        SCHEMA_FIELD(float                           , m_flFadeEndDistance                             , 0x38) // float32
+        SCHEMA_FIELD(::Vector4D                      , m_vTintColor                                    , 0x3C) // Vector4D
+        SCHEMA_FIELD(::CUtlString                    , m_skin                                          , 0x50) // CUtlString
+        SCHEMA_FIELD(ObjectTypeFlags_t               , m_nObjectTypeFlags                              , 0x58) // ObjectTypeFlags_t
+        SCHEMA_FIELD(::Vector                        , m_vLightingOrigin                               , 0x5C) // Vector
+        SCHEMA_FIELD(std::int16_t                    , m_nOverlayRenderOrder                           , 0x68) // int16
+        SCHEMA_FIELD(std::int16_t                    , m_nLODOverride                                  , 0x6A) // int16
+        SCHEMA_FIELD(std::int32_t                    , m_nCubeMapPrecomputedHandshake                  , 0x6C) // int32
+        SCHEMA_FIELD(std::int32_t                    , m_nLightProbeVolumePrecomputedHandshake         , 0x70) // int32
+        SCHEMA_FIELD(CStrongHandle<InfoForResourceTypeCModel>, m_renderableModel                               , 0x78) // CStrongHandle<InfoForResourceTypeCModel>
+        SCHEMA_FIELD(CStrongHandle<InfoForResourceTypeCRenderMesh>, m_renderable                                    , 0x80) // CStrongHandle<InfoForResourceTypeCRenderMesh>
+    };
+
+    // WorldBuilderParams_t
+    //   fields: 6
+    class WorldBuilderParams_t {
+    public:
+        SCHEMA_FIELD(float                           , m_flMinDrawVolumeSize                           , 0x0) // float32
+        SCHEMA_FIELD(bool                            , m_bBuildBakedLighting                           , 0x4) // bool
+        SCHEMA_FIELD(bool                            , m_bAggregateInstanceStreams                     , 0x5) // bool
+        SCHEMA_FIELD(BakedLightingInfo_t             , m_bakedLightingInfo                             , 0x8) // BakedLightingInfo_t
+        SCHEMA_FIELD(std::uint64_t                   , m_nCompileTimestamp                             , 0x50) // uint64
+        SCHEMA_FIELD(std::uint64_t                   , m_nCompileFingerprint                           , 0x58) // uint64
+    };
+
+    // AggregateInstanceStreamOnDiskData_t
+    //   fields: 2
+    class AggregateInstanceStreamOnDiskData_t {
+    public:
+        SCHEMA_FIELD(std::uint32_t                   , m_DecodedSize                                   , 0x0) // uint32
+        SCHEMA_FIELD(::CUtlBinaryBlock               , m_BufferData                                    , 0x8) // CUtlBinaryBlock
+    };
+
+    // CEntityInstance
+    //   fields: 3
+    class CEntityInstance {
+    public:
+        SCHEMA_FIELD(::CUtlSymbolLarge               , m_iszPrivateVScripts                            , 0x8) // CUtlSymbolLarge
+        SCHEMA_FIELD(CEntityIdentity*                , m_pEntity                                       , 0x10) // CEntityIdentity*
+        SCHEMA_FIELD(CScriptComponent*               , m_CScriptComponent                              , 0x28) // CScriptComponent*
+    };
+
+    // VoxelVisBlockOffset_t
+    //   fields: 2
+    class VoxelVisBlockOffset_t {
+    public:
+        SCHEMA_FIELD(std::uint32_t                   , m_nOffset                                       , 0x0) // uint32
+        SCHEMA_FIELD(std::uint32_t                   , m_nElementCount                                 , 0x4) // uint32
+    };
+
     // AggregateVertexAlbedoStreamOnDiskData_t
     //   fields: 1
     class AggregateVertexAlbedoStreamOnDiskData_t {
     public:
         SCHEMA_FIELD(::CUtlBinaryBlock               , m_BufferData                                    , 0x0) // CUtlBinaryBlock
+    };
+
+    // RTProxyBLAS_t
+    //   fields: 9
+    class RTProxyBLAS_t {
+    public:
+        SCHEMA_FIELD(std::uint32_t                   , m_nFirstIndex                                   , 0x0) // uint32
+        SCHEMA_FIELD(std::uint32_t                   , m_nIndexCount                                   , 0x4) // uint32
+        SCHEMA_FIELD(std::uint32_t                   , m_nVBByteOffset                                 , 0x8) // uint32
+        SCHEMA_FIELD(std::uint32_t                   , m_nBaseVertex                                   , 0xC) // uint32
+        SCHEMA_FIELD(std::uint16_t                   , m_nVertexCount                                  , 0x10) // uint16
+        SCHEMA_FIELD(VertexAlbedoFormat_t            , m_albedoFormat                                  , 0x12) // VertexAlbedoFormat_t
+        SCHEMA_FIELD(::AABB_t                        , m_boundLs                                       , 0x14) // AABB_t
+        SCHEMA_FIELD(::Vector                        , m_vVertexOriginLs                               , 0x2C) // Vector
+        SCHEMA_FIELD(::Vector                        , m_vVertexExtentLs                               , 0x38) // Vector
+    };
+
+    // VMapResourceData_t
+    //   fields: 0
+    class VMapResourceData_t {
+    public:
     };
 
     // AggregateLODSetup_t
@@ -209,30 +328,26 @@ namespace cs2::sdk::worldrenderer {
         SCHEMA_FIELD(bool                            , m_bHasBakedGeometryFlag                         , 0x170) // bool
     };
 
-    // AggregateMeshInfo_t
-    //   fields: 12
-    class AggregateMeshInfo_t {
+    // MaterialOverride_t
+    //   fields: 4
+    class MaterialOverride_t {
     public:
-        SCHEMA_FIELD(std::uint32_t                   , m_nVisClusterMemberOffset                       , 0x0) // uint32
-        SCHEMA_FIELD(std::uint8_t                    , m_nVisClusterMemberCount                        , 0x4) // uint8
-        SCHEMA_FIELD(bool                            , m_bHasTransform                                 , 0x5) // bool
-        SCHEMA_FIELD(std::uint8_t                    , m_nLODGroupMask                                 , 0x6) // uint8
-        SCHEMA_FIELD(std::int16_t                    , m_nDrawCallIndex                                , 0x8) // int16
-        SCHEMA_FIELD(std::int16_t                    , m_nLODSetupIndex                                , 0xA) // int16
-        SCHEMA_FIELD(::Color                         , m_vTintColor                                    , 0xC) // Color
-        SCHEMA_FIELD(ObjectTypeFlags_t               , m_objectFlags                                   , 0x10) // ObjectTypeFlags_t
-        SCHEMA_FIELD(std::int32_t                    , m_nLightProbeVolumePrecomputedHandshake         , 0x14) // int32
-        SCHEMA_FIELD(std::uint32_t                   , m_nInstanceStreamOffset                         , 0x18) // uint32
-        SCHEMA_FIELD(std::uint32_t                   , m_nVertexAlbedoStreamOffset                     , 0x1C) // uint32
-        SCHEMA_FIELD(AggregateInstanceStream_t       , m_instanceStreams                               , 0x20) // AggregateInstanceStream_t
+        SCHEMA_FIELD(std::uint32_t                   , m_nSubSceneObject                               , 0x4) // uint32
+        SCHEMA_FIELD(std::uint32_t                   , m_nDrawCallIndex                                , 0x8) // uint32
+        SCHEMA_FIELD(CStrongHandle<InfoForResourceTypeIMaterial2>, m_pMaterial                                     , 0x10) // CStrongHandle<InfoForResourceTypeIMaterial2>
+        SCHEMA_FIELD(::Vector                        , m_vLinearTintColor                              , 0x18) // Vector
     };
 
-    // VoxelVisBlockOffset_t
-    //   fields: 2
-    class VoxelVisBlockOffset_t {
+    // AggregateRTProxySceneObject_t
+    //   fields: 6
+    class AggregateRTProxySceneObject_t {
     public:
-        SCHEMA_FIELD(std::uint32_t                   , m_nOffset                                       , 0x0) // uint32
-        SCHEMA_FIELD(std::uint32_t                   , m_nElementCount                                 , 0x4) // uint32
+        SCHEMA_FIELD(std::int16_t                    , m_nLayer                                        , 0x0) // int16
+        SCHEMA_FIELD(CUtlVector<RTProxyBLAS_t>       , m_BLASes                                        , 0x8) // CUtlVector<RTProxyBLAS_t>
+        SCHEMA_FIELD(CUtlVector<RTProxyInstanceInfo_t>, m_Instances                                     , 0x20) // CUtlVector<RTProxyInstanceInfo_t>
+        SCHEMA_FIELD(::CUtlBinaryBlock               , m_VBData                                        , 0x38) // CUtlBinaryBlock
+        SCHEMA_FIELD(::CUtlBinaryBlock               , m_IBData                                        , 0x48) // CUtlBinaryBlock
+        SCHEMA_FIELD(::CUtlBinaryBlock               , m_InstanceAlbedoData                            , 0x58) // CUtlBinaryBlock
     };
 
     // AggregateSceneObject_t
@@ -251,44 +366,14 @@ namespace cs2::sdk::worldrenderer {
         SCHEMA_FIELD(CStrongHandle<InfoForResourceTypeCModel>, m_renderableModel                               , 0x70) // CStrongHandle<InfoForResourceTypeCModel>
     };
 
-    // CEntityInstance
-    //   fields: 3
-    class CEntityInstance {
+    // WorldNodeOnDiskBufferData_t
+    //   fields: 4
+    class WorldNodeOnDiskBufferData_t {
     public:
-        SCHEMA_FIELD(::CUtlSymbolLarge               , m_iszPrivateVScripts                            , 0x8) // CUtlSymbolLarge
-        SCHEMA_FIELD(CEntityIdentity*                , m_pEntity                                       , 0x10) // CEntityIdentity*
-        SCHEMA_FIELD(CScriptComponent*               , m_CScriptComponent                              , 0x28) // CScriptComponent*
-    };
-
-    // WorldBuilderParams_t
-    //   fields: 6
-    class WorldBuilderParams_t {
-    public:
-        SCHEMA_FIELD(float                           , m_flMinDrawVolumeSize                           , 0x0) // float32
-        SCHEMA_FIELD(bool                            , m_bBuildBakedLighting                           , 0x4) // bool
-        SCHEMA_FIELD(bool                            , m_bAggregateInstanceStreams                     , 0x5) // bool
-        SCHEMA_FIELD(BakedLightingInfo_t             , m_bakedLightingInfo                             , 0x8) // BakedLightingInfo_t
-        SCHEMA_FIELD(std::uint64_t                   , m_nCompileTimestamp                             , 0x50) // uint64
-        SCHEMA_FIELD(std::uint64_t                   , m_nCompileFingerprint                           , 0x58) // uint64
-    };
-
-    // BaseSceneObjectOverride_t
-    //   fields: 1
-    class BaseSceneObjectOverride_t {
-    public:
-        SCHEMA_FIELD(std::uint32_t                   , m_nSceneObjectIndex                             , 0x0) // uint32
-    };
-
-    // RTProxyInstanceInfo_t
-    //   fields: 6
-    class RTProxyInstanceInfo_t {
-    public:
-        SCHEMA_FIELD(RTProxyInstanceFlags_t          , m_nFlags                                        , 0x0) // RTProxyInstanceFlags_t
-        SCHEMA_FIELD(VertexAlbedoFormat_t            , m_albedoFormat                                  , 0x1) // VertexAlbedoFormat_t
-        SCHEMA_FIELD(std::uint16_t                   , m_nBLASCount                                    , 0x2) // uint16
-        SCHEMA_FIELD(std::uint32_t                   , m_nBLASIndex                                    , 0x4) // uint32
-        SCHEMA_FIELD(std::uint32_t                   , m_nVertexAlbedoByteOffset                       , 0x8) // uint32
-        SCHEMA_FIELD(::matrix3x4_t                   , m_mWorldFromLocal                               , 0xC) // matrix3x4_t
+        SCHEMA_FIELD(std::int32_t                    , m_nElementCount                                 , 0x0) // int32
+        SCHEMA_FIELD(std::int32_t                    , m_nElementSizeInBytes                           , 0x4) // int32
+        SCHEMA_FIELD(CUtlVector<RenderInputLayoutField_t>, m_inputLayoutFields                             , 0x8) // CUtlVector<RenderInputLayoutField_t>
+        SCHEMA_FIELD(CUtlVector<uint8>               , m_pData                                         , 0x20) // CUtlVector<uint8>
     };
 
     // CEntityComponent
@@ -315,53 +400,6 @@ namespace cs2::sdk::worldrenderer {
         SCHEMA_FIELD(CEntityIdentity*                , m_pNextByClass                                  , 0x68) // CEntityIdentity*
     };
 
-    // InfoForResourceTypeVMapResourceData_t
-    //   fields: 0
-    class InfoForResourceTypeVMapResourceData_t {
-    public:
-    };
-
-    // VMapResourceData_t
-    //   fields: 0
-    class VMapResourceData_t {
-    public:
-    };
-
-    // WorldNodeOnDiskBufferData_t
-    //   fields: 4
-    class WorldNodeOnDiskBufferData_t {
-    public:
-        SCHEMA_FIELD(std::int32_t                    , m_nElementCount                                 , 0x0) // int32
-        SCHEMA_FIELD(std::int32_t                    , m_nElementSizeInBytes                           , 0x4) // int32
-        SCHEMA_FIELD(CUtlVector<RenderInputLayoutField_t>, m_inputLayoutFields                             , 0x8) // CUtlVector<RenderInputLayoutField_t>
-        SCHEMA_FIELD(CUtlVector<uint8>               , m_pData                                         , 0x20) // CUtlVector<uint8>
-    };
-
-    // AggregateInstanceStreamOnDiskData_t
-    //   fields: 2
-    class AggregateInstanceStreamOnDiskData_t {
-    public:
-        SCHEMA_FIELD(std::uint32_t                   , m_DecodedSize                                   , 0x0) // uint32
-        SCHEMA_FIELD(::CUtlBinaryBlock               , m_BufferData                                    , 0x8) // CUtlBinaryBlock
-    };
-
-    // BakedLightingInfo_t
-    //   fields: 11
-    class BakedLightingInfo_t {
-    public:
-        SCHEMA_FIELD(std::uint32_t                   , m_nLightmapVersionNumber                        , 0x0) // uint32
-        SCHEMA_FIELD(std::uint32_t                   , m_nLightmapGameVersionNumber                    , 0x4) // uint32
-        SCHEMA_FIELD(::Vector2D                      , m_vLightmapUvScale                              , 0x8) // Vector2D
-        SCHEMA_FIELD(bool                            , m_bHasLightmaps                                 , 0x10) // bool
-        SCHEMA_FIELD(bool                            , m_bBakedShadowsGamma20                          , 0x11) // bool
-        SCHEMA_FIELD(bool                            , m_bCompressionEnabled                           , 0x12) // bool
-        SCHEMA_FIELD(bool                            , m_bSHLightmaps                                  , 0x13) // bool
-        SCHEMA_FIELD(std::uint8_t                    , m_nChartPackIterations                          , 0x14) // uint8
-        SCHEMA_FIELD(std::uint8_t                    , m_nVradQuality                                  , 0x15) // uint8
-        SCHEMA_FIELD(CUtlVector<CStrongHandle<InfoForResourceTypeCTextureBase>>, m_lightMaps                                     , 0x18) // CUtlVector<CStrongHandle<InfoForResourceTypeCTextureBase>>
-        SCHEMA_FIELD(CUtlVector<BakedLightingInfo_t_BakedShadowAssignment_t>, m_bakedShadows                                  , 0x30) // CUtlVector<BakedLightingInfo_t::BakedShadowAssignment_t>
-    };
-
     // BakedLightingInfo_t::BakedShadowAssignment_t
     //   fields: 3
     class BakedLightingInfo_t_BakedShadowAssignment_t {
@@ -371,79 +409,41 @@ namespace cs2::sdk::worldrenderer {
         SCHEMA_FIELD(std::int8_t                     , m_nShadowChannel                                , 0x8) // int8
     };
 
-    // MaterialOverride_t
+    // AggregateMeshInfo_t
+    //   fields: 12
+    class AggregateMeshInfo_t {
+    public:
+        SCHEMA_FIELD(std::uint32_t                   , m_nVisClusterMemberOffset                       , 0x0) // uint32
+        SCHEMA_FIELD(std::uint8_t                    , m_nVisClusterMemberCount                        , 0x4) // uint8
+        SCHEMA_FIELD(bool                            , m_bHasTransform                                 , 0x5) // bool
+        SCHEMA_FIELD(std::uint8_t                    , m_nLODGroupMask                                 , 0x6) // uint8
+        SCHEMA_FIELD(std::int16_t                    , m_nDrawCallIndex                                , 0x8) // int16
+        SCHEMA_FIELD(std::int16_t                    , m_nLODSetupIndex                                , 0xA) // int16
+        SCHEMA_FIELD(::Color                         , m_vTintColor                                    , 0xC) // Color
+        SCHEMA_FIELD(ObjectTypeFlags_t               , m_objectFlags                                   , 0x10) // ObjectTypeFlags_t
+        SCHEMA_FIELD(std::int32_t                    , m_nLightProbeVolumePrecomputedHandshake         , 0x14) // int32
+        SCHEMA_FIELD(std::uint32_t                   , m_nInstanceStreamOffset                         , 0x18) // uint32
+        SCHEMA_FIELD(std::uint32_t                   , m_nVertexAlbedoStreamOffset                     , 0x1C) // uint32
+        SCHEMA_FIELD(AggregateInstanceStream_t       , m_instanceStreams                               , 0x20) // AggregateInstanceStream_t
+    };
+
+    // ExtraVertexStreamOverride_t
     //   fields: 4
-    class MaterialOverride_t {
+    class ExtraVertexStreamOverride_t {
     public:
         SCHEMA_FIELD(std::uint32_t                   , m_nSubSceneObject                               , 0x4) // uint32
         SCHEMA_FIELD(std::uint32_t                   , m_nDrawCallIndex                                , 0x8) // uint32
-        SCHEMA_FIELD(CStrongHandle<InfoForResourceTypeIMaterial2>, m_pMaterial                                     , 0x10) // CStrongHandle<InfoForResourceTypeIMaterial2>
-        SCHEMA_FIELD(::Vector                        , m_vLinearTintColor                              , 0x18) // Vector
+        SCHEMA_FIELD(MeshDrawPrimitiveFlags_t        , m_nAdditionalMeshDrawPrimitiveFlags             , 0xC) // MeshDrawPrimitiveFlags_t
+        SCHEMA_FIELD(::CRenderBufferBinding          , m_extraBufferBinding                            , 0x10) // CRenderBufferBinding
     };
 
-    // AggregateRTProxySceneObject_t
-    //   fields: 6
-    class AggregateRTProxySceneObject_t {
-    public:
-        SCHEMA_FIELD(std::int16_t                    , m_nLayer                                        , 0x0) // int16
-        SCHEMA_FIELD(CUtlVector<RTProxyBLAS_t>       , m_BLASes                                        , 0x8) // CUtlVector<RTProxyBLAS_t>
-        SCHEMA_FIELD(CUtlVector<RTProxyInstanceInfo_t>, m_Instances                                     , 0x20) // CUtlVector<RTProxyInstanceInfo_t>
-        SCHEMA_FIELD(::CUtlBinaryBlock               , m_VBData                                        , 0x38) // CUtlBinaryBlock
-        SCHEMA_FIELD(::CUtlBinaryBlock               , m_IBData                                        , 0x48) // CUtlBinaryBlock
-        SCHEMA_FIELD(::CUtlBinaryBlock               , m_InstanceAlbedoData                            , 0x58) // CUtlBinaryBlock
-    };
-
-    // RTProxyBLAS_t
-    //   fields: 9
-    class RTProxyBLAS_t {
-    public:
-        SCHEMA_FIELD(std::uint32_t                   , m_nFirstIndex                                   , 0x0) // uint32
-        SCHEMA_FIELD(std::uint32_t                   , m_nIndexCount                                   , 0x4) // uint32
-        SCHEMA_FIELD(std::uint32_t                   , m_nVBByteOffset                                 , 0x8) // uint32
-        SCHEMA_FIELD(std::uint32_t                   , m_nBaseVertex                                   , 0xC) // uint32
-        SCHEMA_FIELD(std::uint16_t                   , m_nVertexCount                                  , 0x10) // uint16
-        SCHEMA_FIELD(VertexAlbedoFormat_t            , m_albedoFormat                                  , 0x12) // VertexAlbedoFormat_t
-        SCHEMA_FIELD(::AABB_t                        , m_boundLs                                       , 0x14) // AABB_t
-        SCHEMA_FIELD(::Vector                        , m_vVertexOriginLs                               , 0x2C) // Vector
-        SCHEMA_FIELD(::Vector                        , m_vVertexExtentLs                               , 0x38) // Vector
-    };
-
-    // PermEntityLumpData_t
+    // ClutterTile_t
     //   fields: 3
-    class PermEntityLumpData_t {
+    class ClutterTile_t {
     public:
-        SCHEMA_FIELD(::CUtlString                    , m_name                                          , 0x8) // CUtlString
-        SCHEMA_FIELD(CUtlVector<CStrongHandleCopyable<InfoForResourceTypeCEntityLump>>, m_childLumps                                    , 0x10) // CUtlVector<CStrongHandleCopyable<InfoForResourceTypeCEntityLump>>
-        SCHEMA_FIELD(CUtlLeanVector<EntityKeyValueData_t>, m_entityKeyValues                               , 0x28) // CUtlLeanVector<EntityKeyValueData_t>
-    };
-
-    // World_t
-    //   fields: 4
-    class World_t {
-    public:
-        SCHEMA_FIELD(WorldBuilderParams_t            , m_builderParams                                 , 0x0) // WorldBuilderParams_t
-        SCHEMA_FIELD(CUtlVector<NodeData_t>          , m_worldNodes                                    , 0x60) // CUtlVector<NodeData_t>
-        SCHEMA_FIELD(BakedLightingInfo_t             , m_worldLightingInfo                             , 0x78) // BakedLightingInfo_t
-        SCHEMA_FIELD(CUtlVector<CStrongHandleCopyable<InfoForResourceTypeCEntityLump>>, m_entityLumps                                   , 0xC0) // CUtlVector<CStrongHandleCopyable<InfoForResourceTypeCEntityLump>>
-    };
-
-    // CVoxelVisibility
-    //   fields: 13
-    class CVoxelVisibility {
-    public:
-        SCHEMA_FIELD(std::uint32_t                   , m_nBaseClusterCount                             , 0x40) // uint32
-        SCHEMA_FIELD(std::uint32_t                   , m_nPVSBytesPerCluster                           , 0x44) // uint32
-        SCHEMA_FIELD(::Vector                        , m_vMinBounds                                    , 0x48) // Vector
-        SCHEMA_FIELD(::Vector                        , m_vMaxBounds                                    , 0x54) // Vector
-        SCHEMA_FIELD(float                           , m_flGridSize                                    , 0x60) // float32
-        SCHEMA_FIELD(std::uint32_t                   , m_nSkyVisibilityCluster                         , 0x64) // uint32
-        SCHEMA_FIELD(std::uint32_t                   , m_nSunVisibilityCluster                         , 0x68) // uint32
-        SCHEMA_FIELD(VoxelVisBlockOffset_t           , m_NodeBlock                                     , 0x6C) // VoxelVisBlockOffset_t
-        SCHEMA_FIELD(VoxelVisBlockOffset_t           , m_RegionBlock                                   , 0x74) // VoxelVisBlockOffset_t
-        SCHEMA_FIELD(VoxelVisBlockOffset_t           , m_EnclosedClusterListBlock                      , 0x7C) // VoxelVisBlockOffset_t
-        SCHEMA_FIELD(VoxelVisBlockOffset_t           , m_EnclosedClustersBlock                         , 0x84) // VoxelVisBlockOffset_t
-        SCHEMA_FIELD(VoxelVisBlockOffset_t           , m_MasksBlock                                    , 0x8C) // VoxelVisBlockOffset_t
-        SCHEMA_FIELD(VoxelVisBlockOffset_t           , m_nVisBlocks                                    , 0x94) // VoxelVisBlockOffset_t
+        SCHEMA_FIELD(std::uint32_t                   , m_nFirstInstance                                , 0x0) // uint32
+        SCHEMA_FIELD(std::uint32_t                   , m_nLastInstance                                 , 0x4) // uint32
+        SCHEMA_FIELD(::AABB_t                        , m_BoundsWs                                      , 0x8) // AABB_t
     };
 
     // CScriptComponent

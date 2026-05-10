@@ -28,6 +28,10 @@ namespace cs2::offsets {
         constexpr uintptr_t GetInstanceS = 0x22B95A0;
         constexpr uintptr_t GlowManager_ptr = 0x2327D40;
         constexpr uintptr_t Sensitivity_ptr = 0x2328850;
+        constexpr uintptr_t EntityList_ptr = 0x24D0DC0;
+        constexpr uintptr_t ViewMatrix_addr = 0x2330AE0;
+        constexpr uintptr_t PlantedC4Alt_ptr = 0x2338A68;
+        constexpr uintptr_t GameRulesAlt_addr = 0x19F0A60;
         constexpr uintptr_t Prediction_ptr = 0x2056610;
         constexpr uintptr_t WeaponC4_ptr = 0x22A8E38;
         constexpr uintptr_t LocalPlayerController_ptr = 0x230A4F0;

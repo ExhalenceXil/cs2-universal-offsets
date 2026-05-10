@@ -2,7 +2,7 @@
 
 _This file is regenerated on every successful run of `cs2-sdk`._
 
-**463/509 signatures resolved across 18 module(s).**
+**471/517 signatures resolved across 18 module(s).**
 
 ## `animationsystem.dll`
 
@@ -133,7 +133,8 @@ _This file is regenerated on every successful run of `cs2-sdk`._
 | `ConCommand_firstperson` | `__int64 sub_180ACA2B0()` | `raw` | `0x7FFF2973A0F0` | `0xACA0F0` | `48 83 EC 28 48 8B 0D ? ? ? ? 48 8D 54 24 ? 48 8B 01 FF 90 08 03 00 00 83 7C 24 ? 00 75 ? 48 8B 05 ? ? ? ? C6 80 29 02 00 00 00 C7 80 A8 06 00 00 00` |
 | `ConCommand_thirdperson` | `__int64 sub_180ACA390()` | `raw` | `0x7FFF2973A1D0` | `0xACA1D0` | `48 83 EC 38 48 8B 0D ? ? ? ? 48 8D 54 24 ? 48 8B 01 FF 90 08 03 00 00 83 7C 24 ? 00 0F 85 ? ? ? ? 4C 8B 05 ? ? ? ? 41 8B 80 50 0B 00 00` |
 | `ConvarGet` | `void __fastcall sub_1808BE720(__int64 a1, unsigned int *a2)` | `raw` | `0x7FFF2952F5A2` | `0x8BF5A2` | `8B D0 48 8D 0D ? ? ? ? E8 ? ? ? ? 0F 10 45 ? 83 F0 74` |
-| `CreateBaseTypeCache` | `__int64 __fastcall sub_181510EA0(__int64 a1, unsigned int a2)` | `raw` | `0x7FFF2A1815D0` | `0x15115D0` | `40 53 48 83 EC ? 4C 8B 49 ? 44 8B D2` |
+| `CreateBaseTypeCache` | `` | `raw` | `0x7FFF2A1815D0` | `0x15115D0` | `40 53 48 83 EC ? 4C 8B 49 ? 44 8B D2` |
+| `CreateEconItem` | `` | `raw` | `0x7FFF29C67CA0` | `0xFF7CA0` | `48 83 EC 28 B9 48 00 00 00 E8 ? ? ? ? 48 85` |
 | `CreateEntityByClassName` | `__int64 __fastcall sub_181604AB0(__int64 a1, int a2, __int64 a3, __int64 a4)` | `raw` | `0x7FFF2A274EC6` | `0x1604EC6` | `4C 8D 05 ? ? ? ? 4C 8B CF BA 03 00 00 00 FF 15 ? ? ? ? EB ? 0F B7 C8 48` |
 | `CreateInterface` | `__int64 __fastcall CreateInterface(__int64 a1, _DWORD *a2)` | `raw` | `0x7FFF2A4A5A10` | `0x1835A10` | `4C 8B 0D ? ? ? ? 4C 8B D2 4C 8B D9 4D 85 C9 74 ? 49 8B 41 08` |
 | `CreateNewSubtickMoveStep` | `__int64 __fastcall sub_1804B1D80(__int64 a1)` | `rel32` | `0x7FFF29121D80` | `0x4B1D80` | `E8 ? ? ? ? 48 8B D0 48 8B CE E8 ? ? ? ? 48 8B C8` |
@@ -158,8 +159,10 @@ _This file is regenerated on every successful run of `cs2-sdk`._
 | `ForceButtonsDown` | `void __fastcall sub_1809D0130(_QWORD *a1, __int64 a2)` | `raw` | `0x7FFF2963FF20` | `0x9CFF20` | `40 53 57 41 56 48 81 EC ? ? ? ? 48 83 79` |
 | `GameEventManager_AddListener` | `__int64 __fastcall sub_180939FF0(__int64 a1, __int64 a2, const char *a3, unsigned __int8 a4)` | `raw` | `0x7FFF295A9E10` | `0x939E10` | `48 89 5C 24 10 48 89 6C 24 18 56 57 41 56 48 83 EC 50 41 0F B6 E9 48 8D 99 E0 00 00 00 49 8B F0` |
 | `GameEventManager_UnserializeEvent` | `__int64 __fastcall sub_180992900(__int64 a1, __int64 a2)` | `raw` | `0x7FFF29602720` | `0x992720` | `48 8B C4 48 89 50 10 55 41 54 41 55 41 56 48 8D 68 D8 48 81 EC 08 01 00 00 48 89 58 D8 4C 8D B1` |
+| `GetAttributeDefByName` | `` | `raw` | `0x7FFF29CBD3D0` | `0x104D3D0` | `48 89 5C 24 10 48 89 6C 24 18 57 41 56 41 57 48 83 EC 60 48 8D 05` |
 | `GetBaseEntity` | `__int64 __fastcall sub_180967600(__int64 a1, int a2)` | `raw` | `0x7FFF295D7420` | `0x967420` | `4C 8D 49 ? 81 FA` |
 | `GetBonePositionByName` | `__int64 __fastcall sub_1808C81E0(__int64 a1, __int64 a2)` | `raw` | `0x7FFF29537FF0` | `0x8C7FF0` | `40 53 48 83 EC ? 48 8B 89 ? ? ? ? 48 8B DA 48 8B 01 FF 50 ? 48 8B C8` |
+| `GetCSInvMgr_call` | `` | `rel32` | `0x7FFF29436460` | `0x7C6460` | `E8 ? ? ? ? 48 8B D8 8B F7` |
 | `GetChatObject` | `__int64 sub_1810C3670()` | `rel32` | `0x7FFF29D33BA0` | `0x10C3BA0` | `E8 ? ? ? ? 48 8B E8 48 85 C0 0F 84 ? ? ? ? 4C 8D 05` |
 | `GetClientSystem` | `__int64 *sub_181036570()` | `rel32` | `0x7FFF29CA6AA0` | `0x1036AA0` | `E8 ? ? ? ? 48 8B C8 E8 ? ? ? ? 8B D8 85 C0 74 33` |
 | `GetControllerCmd` | `__int64 __fastcall sub_1808BDC00(__int64 a1, int a2)` | `raw` | `0x7FFF2952DBA0` | `0x8BDBA0` | `40 53 48 83 EC 20 8B DA E8 ? ? ? ? 4C` |

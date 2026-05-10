@@ -243,8 +243,8 @@ pub mod client {
     pub const ConCommand_thirdperson: &str = "48 83 EC 38 48 8B 0D ? ? ? ? 48 8D 54 24 40";
     /// `void __fastcall sub_1808BE720(__int64 a1, unsigned int *a2)`
     pub const ConvarGet: &str = "8B D0 48 8D 0D ? ? ? ? E8 ? ? ? ? 0F 10 45 D0 83 F0";
-    /// `__int64 __fastcall sub_181510EA0(__int64 a1, unsigned int a2)`
     pub const CreateBaseTypeCache: &str = "40 53 48 83 EC 20 4C 8B 49 18 44 8B D2 4C 63 41";
+    pub const CreateEconItem: &str = "48 83 EC 28 B9 48 00 00 00 E8 ? ? ? ? 48 85";
     /// `__int64 __fastcall sub_181604AB0(__int64 a1, int a2, __int64 a3, __int64 a4)`
     pub const CreateEntityByClassName: &str = "4C 8D 05 ? ? ? ? 4C 8B CF BA 03 00 00 00 FF 15 D5 08 30";
     /// `__int64 __fastcall CreateInterface(__int64 a1, _DWORD *a2)`
@@ -293,10 +293,12 @@ pub mod client {
     pub const GameEventManager_AddListener: &str = "48 89 5C 24 10 48 89 6C 24 18 56 57 41 56 48 83 EC 50 41 0F";
     /// `__int64 __fastcall sub_180992900(__int64 a1, __int64 a2)`
     pub const GameEventManager_UnserializeEvent: &str = "48 8B C4 48 89 50 10 55 41 54 41 55 41 56 48 8D";
+    pub const GetAttributeDefByName: &str = "48 89 5C 24 10 48 89 6C 24 18 57 41 56 41 57 48 83 EC 60 48";
     /// `__int64 __fastcall sub_180967600(__int64 a1, int a2)`
     pub const GetBaseEntity: &str = "4C 8D 49 10 81 FA FE 7F 00 00 77 47 8B CA C1 F9";
     /// `__int64 __fastcall sub_1808C81E0(__int64 a1, __int64 a2)`
     pub const GetBonePositionByName: &str = "40 53 48 83 EC 20 48 8B 89 30 03 00 00 48 8B DA 48 8B 01 FF 50 50 48 8B";
+    pub const GetCSInvMgr_call: &str = "48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 0F B6 81 6B";
     /// `__int64 sub_1810C3670()`
     pub const GetChatObject: &str = "48 8B 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 48 8B 05 ? ? ? ? 48";
     /// `__int64 *sub_181036570()`

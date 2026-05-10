@@ -134,6 +134,7 @@ namespace cs2::signatures {
         inline constexpr std::string_view ConCommand_thirdperson = "48 83 EC 38 48 8B 0D ? ? ? ? 48 8D 54 24 40";
         inline constexpr std::string_view ConvarGet = "8B D0 48 8D 0D ? ? ? ? E8 ? ? ? ? 0F 10 45 D0 83 F0";
         inline constexpr std::string_view CreateBaseTypeCache = "40 53 48 83 EC 20 4C 8B 49 18 44 8B D2 4C 63 41";
+        inline constexpr std::string_view CreateEconItem = "48 83 EC 28 B9 48 00 00 00 E8 ? ? ? ? 48 85";
         inline constexpr std::string_view CreateEntityByClassName = "4C 8D 05 ? ? ? ? 4C 8B CF BA 03 00 00 00 FF 15 D5 08 30";
         inline constexpr std::string_view CreateInterface = "4C 8B 0D ? ? ? ? 4C 8B D2 4C 8B D9 4D 85 C9";
         inline constexpr std::string_view CreateNewSubtickMoveStep = "48 89 5C 24 10 57 48 83 EC 20 33 DB 48 8B F9 48 85 C9 75 2D B9 38 00 00 00 E8 22 D9";
@@ -158,8 +159,10 @@ namespace cs2::signatures {
         inline constexpr std::string_view ForceButtonsDown = "40 53 57 41 56 48 81 EC 30 02 00 00 48 83 79 38";
         inline constexpr std::string_view GameEventManager_AddListener = "48 89 5C 24 10 48 89 6C 24 18 56 57 41 56 48 83 EC 50 41 0F";
         inline constexpr std::string_view GameEventManager_UnserializeEvent = "48 8B C4 48 89 50 10 55 41 54 41 55 41 56 48 8D";
+        inline constexpr std::string_view GetAttributeDefByName = "48 89 5C 24 10 48 89 6C 24 18 57 41 56 41 57 48 83 EC 60 48";
         inline constexpr std::string_view GetBaseEntity = "4C 8D 49 10 81 FA FE 7F 00 00 77 47 8B CA C1 F9";
         inline constexpr std::string_view GetBonePositionByName = "40 53 48 83 EC 20 48 8B 89 30 03 00 00 48 8B DA 48 8B 01 FF 50 50 48 8B";
+        inline constexpr std::string_view GetCSInvMgr_call = "48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 0F B6 81 6B";
         inline constexpr std::string_view GetChatObject = "48 8B 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 48 8B 05 ? ? ? ? 48";
         inline constexpr std::string_view GetClientSystem = "48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 30 48";
         inline constexpr std::string_view GetControllerCmd = "40 53 48 83 EC 20 8B DA E8 ? ? ? ? 4C 8B C0";
@@ -675,8 +678,8 @@ namespace cs2::fn {
         using ConCommand_thirdperson_t = void(__fastcall*)(void*, ...);
         // void __fastcall sub_1808BE720(__int64 a1, unsigned int *a2)
         using ConvarGet_t = void(__fastcall*)(void*, ...);
-        // __int64 __fastcall sub_181510EA0(__int64 a1, unsigned int a2)
         using CreateBaseTypeCache_t = void(__fastcall*)(void*, ...);
+        using CreateEconItem_t = void(__fastcall*)(void*, ...);
         // __int64 __fastcall sub_181604AB0(__int64 a1, int a2, __int64 a3, __int64 a4)
         using CreateEntityByClassName_t = void(__fastcall*)(void*, ...);
         // __int64 __fastcall CreateInterface(__int64 a1, _DWORD *a2)
@@ -725,10 +728,12 @@ namespace cs2::fn {
         using GameEventManager_AddListener_t = void(__fastcall*)(void*, ...);
         // __int64 __fastcall sub_180992900(__int64 a1, __int64 a2)
         using GameEventManager_UnserializeEvent_t = void(__fastcall*)(void*, ...);
+        using GetAttributeDefByName_t = void(__fastcall*)(void*, ...);
         // __int64 __fastcall sub_180967600(__int64 a1, int a2)
         using GetBaseEntity_t = void(__fastcall*)(void*, ...);
         // __int64 __fastcall sub_1808C81E0(__int64 a1, __int64 a2)
         using GetBonePositionByName_t = void(__fastcall*)(void*, ...);
+        using GetCSInvMgr_call_t = void(__fastcall*)(void*, ...);
         // __int64 sub_1810C3670()
         using GetChatObject_t = void(__fastcall*)(void*, ...);
         // __int64 *sub_181036570()

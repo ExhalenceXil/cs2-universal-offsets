@@ -499,6 +499,79 @@ pub static CS2_SIGNATURES: &[Signature] = &[
     // SoundSystem_ptr â€” soundsystem.dll g_pSoundSystem (CSoundSystem instance).
     Signature { name: "SoundSystem_ptr",                      module: "soundsystem.dll", needle: "48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 48 89 15", resolve: RIPREL_3, extra_off: 0, prototype: "" },
 
+    // ---------------------------------------------------------------------
+    // Cheat-derived globals (cs2 internal cheat, github/scros22).
+    // Battle-tested at runtime on build 14160 (single match each in IDA).
+    // These cover the canonical "what's the local player / where's the
+    // entity table / what's the view matrix" set that every external and
+    // internal CS2 cheat needs but a2x didn't ship a pattern for.
+    // ---------------------------------------------------------------------
+    //
+    // EntityList_ptr â€” client.dll g_pEntityList (CGameEntitySystem*).
+    // The single qword every entity-walking ESP / aim path reads to
+    // enumerate live entities. RIP-relative store sequence in the
+    // entity-system bootstrapper:
+    //   48 89 0D disp32   mov [rip+g_pEntityList], rcx
+    //   E9 disp32         jmp continuation
+    //   CC                int3 pad
+    Signature { name: "EntityList_ptr",                       module: "client.dll", needle: "48 89 0D ? ? ? ? E9 ? ? ? ? CC", resolve: RIPREL_3, extra_off: 0, prototype: "" },
+
+    // ViewMatrix_addr â€” client.dll g_dwViewMatrix (float[4][4] world->screen).
+    // Updated every frame by the renderer. Multiplies any world-space
+    // float3 into clip-space â€” the standard W2S input for ESP/menus.
+    //   48 8D 0D disp32   lea rcx, [rip+g_ViewMatrix]
+    //   48 C1 E0 06       shl rax, 6      ; index by 64-byte stride
+    Signature { name: "ViewMatrix_addr",                      module: "client.dll", needle: "48 8D 0D ? ? ? ? 48 C1 E0 06", resolve: RIPREL_3, extra_off: 0, prototype: "" },
+
+    // PlantedC4Alt_ptr â€” client.dll g_pPlantedC4 (single-instance variant).
+    // Different call site than the existing `PlantedC4sPointer` (which is
+    // the LIST resolver via 0F ?? ... 39 ... 7E ... 48 8B 0D).
+    // This one is the SCALAR live-pointer the bomb timer reads:
+    //   48 8B 15 disp32   mov rdx, [rip+g_pPlantedC4]
+    //   41 FF C0          inc r8d
+    //   48 8D 4C 24 ??    lea rcx, [rsp+ofs]
+    Signature { name: "PlantedC4Alt_ptr",                     module: "client.dll", needle: "48 8B 15 ? ? ? ? 41 FF C0 48 8D 4C 24", resolve: RIPREL_3, extra_off: 0, prototype: "" },
+
+    // GameRulesAlt_addr â€” client.dll alternate dwGameRules write site.
+    // Distinct from `GameRules_ptr` (which is a load via 48 8B 1D).
+    // This one is the lea-rip store inside the gamerules constructor:
+    //   48 8D 05 disp32   lea rax, [rip+g_pCSGameRules]
+    //   48 89 06          mov [rsi], rax
+    //   48 8D 4E 44       lea rcx, [rsi+44h]
+    Signature { name: "GameRulesAlt_addr",                    module: "client.dll", needle: "48 8D 05 ? ? ? ? 48 89 06 48 8D 4E 44", resolve: RIPREL_3, extra_off: 0, prototype: "" },
+
+    // ---------------------------------------------------------------------
+    // Skin-changer / inventory-manager helpers (ARCHILIX + Ghidra refs).
+    // Each verified single-match on build 14160. These are the client.dll
+    // exports the in-game skin / knife / glove changer drives.
+    // ---------------------------------------------------------------------
+
+    // CCSInventoryManager::GetInstance â€” call-site resolver.
+    // The first 5 bytes are an `E8 disp32` to the GetInstance accessor
+    // (returns the global CCSInventoryManager* via the `8B F7` mov-then-
+    // shift pattern in the caller). REL32_1 resolves to the accessor fn.
+    Signature { name: "GetCSInvMgr_call",                     module: "client.dll", needle: "E8 ? ? ? ? 48 8B D8 8B F7", resolve: REL32_1, extra_off: 0, prototype: "" },
+
+    // CreateBaseTypeCache â€” inventory subsystem helper that builds the
+    // per-loadout-slot type cache used when querying GetItemInLoadout.
+    // 13-byte unique prologue: push rbx + sub rsp,?? + mov r9, [rcx+?] +
+    // mov r10d, edx.
+    Signature { name: "CreateBaseTypeCache",                  module: "client.dll", needle: "40 53 48 83 EC ? 4C 8B 49 ? 44 8B D2", resolve: NONE, extra_off: 0, prototype: "" },
+
+    // CreateEconItem â€” allocator for CEconItem (size 0x48). Required by
+    // the skin/knife injector pipeline before SetDynamicAttributeValue.
+    //   48 83 EC 28        sub rsp, 28h
+    //   B9 48 00 00 00     mov ecx, 48h    ; sizeof(CEconItem)
+    //   E8 disp32          call operator_new
+    //   48 85 ??           test rax, rax
+    Signature { name: "CreateEconItem",                       module: "client.dll", needle: "48 83 EC 28 B9 48 00 00 00 E8 ? ? ? ? 48 85", resolve: NONE, extra_off: 0, prototype: "" },
+
+    // CEconItemSchema::GetAttributeDefinitionByName â€” Ghidra-verified
+    // canonical attribute lookup. Used by the skin-changer to translate
+    // attribute display names ("set item texture prefab" etc.) into
+    // CEconItemAttributeDefinition pointers before SetDynamicAttributeValue.
+    Signature { name: "GetAttributeDefByName",                module: "client.dll", needle: "48 89 5C 24 10 48 89 6C 24 18 57 41 56 41 57 48 83 EC 60 48 8D 05", resolve: NONE, extra_off: 0, prototype: "" },
+
     // CreateInterface â€” client.dll exported factory dispatcher
     // (DLL ordinal #2). Internals load any client interface
     // (Source2Client002, GameClientExports001, ClientToolsInfo_001,
