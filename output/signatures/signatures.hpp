@@ -320,7 +320,14 @@ namespace cs2::signatures {
         inline constexpr std::string_view Cvar_RegisterConVar = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 48 89 7C 24 20 41 54 41 56 41 57 48 81 EC D0 00 00";
         inline constexpr std::string_view Cvar_RevertFlaggedCvars_OnSvCheatsChange = "40 53 48 83 EC 20 48 8B 41 08 48 8B D9 8B 50 30";
         inline constexpr std::string_view DisablePvsAccessor = "48 8D 0D ? ? ? ? 33 D2 FF 50 30 48 8B CF C7";
+        inline constexpr std::string_view Engine__CHLTVClient_SetSignonState = "40 55 53 41 55 41 56 41 57 48 8D 6C 24 C9 48 81";
+        inline constexpr std::string_view Engine__CNetworkGameClient_InternalProcessPacketEntities = "40 55 56 57 41 56 41 57 48 8D AC 24 40 FF FF FF";
+        inline constexpr std::string_view Engine__CNetworkGameClient_ProcessServerInfo = "48 89 5C 24 08 57 48 83 EC 30 48 8B FA 48 8B D9";
+        inline constexpr std::string_view Engine__CNetworkStringTableContainer_CreateStringTable = "40 53 41 56 48 83 EC 48 4C 8B F2 48 8B D9 48 8B";
+        inline constexpr std::string_view Engine__CNetworkStringTableContainer_WriteUpdateMessageAtTick = "44 89 4C 24 20 44 89 44 24 18 48 89 4C 24 08 55 53 56 57 41 54 41 55 41 57 48 8D 6C";
+        inline constexpr std::string_view Engine__CServerSideClient_ProcessServerInfo = "48 89 5C 24 20 55 56 57 41 54 41 56 48 8D AC 24";
         inline constexpr std::string_view Engine__GetScreenAspectRatio = "48 89 5C 24 08 57 48 83 EC 20 8B FA 48 8D 0D 0D";
+        inline constexpr std::string_view Engine__Host_FilterTime = "48 89 5C 24 10 48 89 74 24 18 48 89 4C 24 08 57 48 81 EC A0";
         inline constexpr std::string_view Engine__RunPrediction = "40 55 41 56 48 83 EC 68 80 B9 00 01 00 00 00 8B";
         inline constexpr std::string_view Engine_Disconnect_main = "48 89 5C 24 20 55 57 41 54 48 8B EC 48 83 EC 70";
         inline constexpr std::string_view Engine_HLTVClient_ExecuteStringCommand = "40 53 56 48 81 EC 48 07 00 00 48 8B F1 48 8B DA";
@@ -442,7 +449,11 @@ namespace cs2::signatures {
         inline constexpr std::string_view SoundSystem__SomeUtlSymbolFunc = "48 89 74 24 18 57 48 83 EC 20 48 63 F2 48 8B F9";
     }
     namespace tier0 {
+        inline constexpr std::string_view Tier0__CreateInterface = "4C 8B 0D ? ? ? ? 4C 8B D2 4C 8B D9 4D 85 C9";
         inline constexpr std::string_view Tier0__LoadKeyValues = "48 89 5C 24 10 48 89 6C 24 18 48 89 7C 24 20 41 54 41 56 41 57 48 83 EC 40 45 33 E4";
+        inline constexpr std::string_view Tier0__Plat_FloatTime = "48 83 EC 28 48 83 3D 04 FE 28 00 00 75 05 E8 5D";
+        inline constexpr std::string_view Tier0__Plat_GetTime = "48 83 EC 28 48 8D 4C 24 30 E8 ? ? ? ? 48 8B";
+        inline constexpr std::string_view Tier0__Plat_MSTime = "40 53 48 83 EC 20 48 8B 1D ? ? ? ? 48 85 DB 75 0C E8 D9";
         inline constexpr std::string_view Tier0__UtlBuffer = "48 89 5C 24 08 57 48 83 EC 20 8B 41 04 8D 7A 08";
     }
     namespace vphysics2 {
@@ -1040,8 +1051,22 @@ namespace cs2::fn {
         using Cvar_RevertFlaggedCvars_OnSvCheatsChange_t = void(__fastcall*)(void*, ...);
         // __int64 __fastcall sub_18023D2A0(_DWORD *a1, __int64 a2, int a3, char a4)
         using DisablePvsAccessor_t = void(__fastcall*)(void*, ...);
+        // char __fastcall sub_180123630(__int64 a1, int a2, __int64 a3, int a4)
+        using Engine__CHLTVClient_SetSignonState_t = void(__fastcall*)(void*, ...);
+        // void __fastcall sub_1800483A0(__int64 a1, __int64 a2)
+        using Engine__CNetworkGameClient_InternalProcessPacketEntities_t = void(__fastcall*)(void*, ...);
+        // char __fastcall sub_18006B120(__int64 a1, __int64 a2)
+        using Engine__CNetworkGameClient_ProcessServerInfo_t = void(__fastcall*)(void*, ...);
+        // __int64 __fastcall sub_18010C690(__int64 a1, const char *a2, __int64 a3)
+        using Engine__CNetworkStringTableContainer_CreateStringTable_t = void(__fastcall*)(void*, ...);
+        // __int64 __fastcall sub_18010D310(__int64 a1, __int64 a2, int a3, int a4, int a5)
+        using Engine__CNetworkStringTableContainer_WriteUpdateMessageAtTick_t = void(__fastcall*)(void*, ...);
+        // char __fastcall sub_180084B00(__int64 a1, __int64 a2)
+        using Engine__CServerSideClient_ProcessServerInfo_t = void(__fastcall*)(void*, ...);
         // float __fastcall sub_1800769D0(__int64 a1, int a2, int a3)
         using Engine__GetScreenAspectRatio_t = void(__fastcall*)(void*, ...);
+        // bool __fastcall sub_180210BF0(__int64 a1, float *a2)
+        using Engine__Host_FilterTime_t = void(__fastcall*)(void*, ...);
         // void __fastcall sub_180066490(__int64 a1, unsigned int a2)
         using Engine__RunPrediction_t = void(__fastcall*)(void*, ...);
         // __int64 *sub_1801D1510()
@@ -1212,7 +1237,15 @@ namespace cs2::fn {
         using SoundSystem__SomeUtlSymbolFunc_t = void(__fastcall*)(void*, ...);
     }
     namespace tier0 {
+        // void *__fastcall CreateInterface(const char *pName, int *pReturnCode)
+        using Tier0__CreateInterface_t = void(__fastcall*)(void*, ...);
         using Tier0__LoadKeyValues_t = void(__fastcall*)(void*, ...);
+        // double __fastcall Plat_FloatTime()
+        using Tier0__Plat_FloatTime_t = void(__fastcall*)(void*, ...);
+        // unsigned __int64 __fastcall Plat_GetTime()
+        using Tier0__Plat_GetTime_t = void(__fastcall*)(void*, ...);
+        // unsigned __int64 __fastcall Plat_MSTime()
+        using Tier0__Plat_MSTime_t = void(__fastcall*)(void*, ...);
         using Tier0__UtlBuffer_t = void(__fastcall*)(void*, ...);
     }
     namespace vphysics2 {

@@ -4,7 +4,7 @@
 // classes:       7
 // enums:         2
 // build_number:  14160
-// generated_at:  2026-05-10T14:22:48.558358900+00:00
+// generated_at:  2026-05-10T14:28:46.774659300+00:00
 //
 // Use:
 //   auto* pawn = reinterpret_cast<C_CSPlayerPawn*>(addr);
@@ -122,6 +122,20 @@ namespace cs2::sdk::schemasystem {
     public:
     };
 
+    // ResourceId_t
+    //   fields: 1
+    class ResourceId_t {
+    public:
+        SCHEMA_FIELD(std::uint64_t                   , m_Value                                         , 0x0) // uint64
+    };
+
+    // CExampleSchemaVData_PolymorphicBase
+    //   fields: 1
+    class CExampleSchemaVData_PolymorphicBase {
+    public:
+        SCHEMA_FIELD(std::int32_t                    , m_nBase                                         , 0x8) // int32
+    };
+
     // CExampleSchemaVData_Monomorphic
     //   fields: 2
     class CExampleSchemaVData_Monomorphic {
@@ -159,11 +173,11 @@ namespace cs2::sdk::schemasystem {
         SCHEMA_FIELD(KeyValues3                      , m_KV3                                           , 0x168) // KeyValues3
     };
 
-    // CExampleSchemaVData_PolymorphicBase
+    // CExampleSchemaVData_PolymorphicDerivedA
     //   fields: 1
-    class CExampleSchemaVData_PolymorphicBase {
+    class CExampleSchemaVData_PolymorphicDerivedA {
     public:
-        SCHEMA_FIELD(std::int32_t                    , m_nBase                                         , 0x8) // int32
+        SCHEMA_FIELD(std::int32_t                    , m_nDerivedA                                     , 0x10) // int32
     };
 
     // CExampleSchemaVData_PolymorphicDerivedB
@@ -171,20 +185,6 @@ namespace cs2::sdk::schemasystem {
     class CExampleSchemaVData_PolymorphicDerivedB {
     public:
         SCHEMA_FIELD(std::int32_t                    , m_nDerivedB                                     , 0x10) // int32
-    };
-
-    // ResourceId_t
-    //   fields: 1
-    class ResourceId_t {
-    public:
-        SCHEMA_FIELD(std::uint64_t                   , m_Value                                         , 0x0) // uint64
-    };
-
-    // CExampleSchemaVData_PolymorphicDerivedA
-    //   fields: 1
-    class CExampleSchemaVData_PolymorphicDerivedA {
-    public:
-        SCHEMA_FIELD(std::int32_t                    , m_nDerivedA                                     , 0x10) // int32
     };
 
 } // namespace cs2::sdk::schemasystem

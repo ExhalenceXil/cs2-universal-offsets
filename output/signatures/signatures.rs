@@ -591,8 +591,22 @@ pub mod engine2 {
     pub const Cvar_RevertFlaggedCvars_OnSvCheatsChange: &str = "40 53 48 83 EC 20 48 8B 41 08 48 8B D9 8B 50 30";
     /// `__int64 __fastcall sub_18023D2A0(_DWORD *a1, __int64 a2, int a3, char a4)`
     pub const DisablePvsAccessor: &str = "48 8D 0D ? ? ? ? 33 D2 FF 50 30 48 8B CF C7";
+    /// `char __fastcall sub_180123630(__int64 a1, int a2, __int64 a3, int a4)`
+    pub const Engine__CHLTVClient_SetSignonState: &str = "40 55 53 41 55 41 56 41 57 48 8D 6C 24 C9 48 81";
+    /// `void __fastcall sub_1800483A0(__int64 a1, __int64 a2)`
+    pub const Engine__CNetworkGameClient_InternalProcessPacketEntities: &str = "40 55 56 57 41 56 41 57 48 8D AC 24 40 FF FF FF";
+    /// `char __fastcall sub_18006B120(__int64 a1, __int64 a2)`
+    pub const Engine__CNetworkGameClient_ProcessServerInfo: &str = "48 89 5C 24 08 57 48 83 EC 30 48 8B FA 48 8B D9";
+    /// `__int64 __fastcall sub_18010C690(__int64 a1, const char *a2, __int64 a3)`
+    pub const Engine__CNetworkStringTableContainer_CreateStringTable: &str = "40 53 41 56 48 83 EC 48 4C 8B F2 48 8B D9 48 8B";
+    /// `__int64 __fastcall sub_18010D310(__int64 a1, __int64 a2, int a3, int a4, int a5)`
+    pub const Engine__CNetworkStringTableContainer_WriteUpdateMessageAtTick: &str = "44 89 4C 24 20 44 89 44 24 18 48 89 4C 24 08 55 53 56 57 41 54 41 55 41 57 48 8D 6C";
+    /// `char __fastcall sub_180084B00(__int64 a1, __int64 a2)`
+    pub const Engine__CServerSideClient_ProcessServerInfo: &str = "48 89 5C 24 20 55 56 57 41 54 41 56 48 8D AC 24";
     /// `float __fastcall sub_1800769D0(__int64 a1, int a2, int a3)`
     pub const Engine__GetScreenAspectRatio: &str = "48 89 5C 24 08 57 48 83 EC 20 8B FA 48 8D 0D 0D";
+    /// `bool __fastcall sub_180210BF0(__int64 a1, float *a2)`
+    pub const Engine__Host_FilterTime: &str = "48 89 5C 24 10 48 89 74 24 18 48 89 4C 24 08 57 48 81 EC A0";
     /// `void __fastcall sub_180066490(__int64 a1, unsigned int a2)`
     pub const Engine__RunPrediction: &str = "40 55 41 56 48 83 EC 68 80 B9 00 01 00 00 00 8B";
     /// `__int64 *sub_1801D1510()`
@@ -776,7 +790,15 @@ pub mod soundsystem {
 }
 
 pub mod tier0 {
+    /// `void *__fastcall CreateInterface(const char *pName, int *pReturnCode)`
+    pub const Tier0__CreateInterface: &str = "4C 8B 0D ? ? ? ? 4C 8B D2 4C 8B D9 4D 85 C9";
     pub const Tier0__LoadKeyValues: &str = "48 89 5C 24 10 48 89 6C 24 18 48 89 7C 24 20 41 54 41 56 41 57 48 83 EC 40 45 33 E4";
+    /// `double __fastcall Plat_FloatTime()`
+    pub const Tier0__Plat_FloatTime: &str = "48 83 EC 28 48 83 3D 04 FE 28 00 00 75 05 E8 5D";
+    /// `unsigned __int64 __fastcall Plat_GetTime()`
+    pub const Tier0__Plat_GetTime: &str = "48 83 EC 28 48 8D 4C 24 30 E8 ? ? ? ? 48 8B";
+    /// `unsigned __int64 __fastcall Plat_MSTime()`
+    pub const Tier0__Plat_MSTime: &str = "40 53 48 83 EC 20 48 8B 1D ? ? ? ? 48 85 DB 75 0C E8 D9";
     pub const Tier0__UtlBuffer: &str = "48 89 5C 24 08 57 48 83 EC 20 8B 41 04 8D 7A 08";
 }
 

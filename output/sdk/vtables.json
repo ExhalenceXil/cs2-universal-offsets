@@ -8862,7 +8862,7 @@
         {
           "index": 59,
           "module": "engine2.dll",
-          "name": "method_59",
+          "name": "Engine::CNetworkStringTableContainer_CreateStringTable",
           "rva": "0x10C690"
         },
         {
@@ -13724,7 +13724,7 @@
         {
           "index": 12,
           "module": "engine2.dll",
-          "name": "method_12",
+          "name": "Engine::CNetworkStringTableContainer_CreateStringTable",
           "rva": "0x10C690"
         },
         {
@@ -15282,7 +15282,7 @@
         {
           "index": 12,
           "module": "engine2.dll",
-          "name": "method_12",
+          "name": "Engine::CNetworkStringTableContainer_CreateStringTable",
           "rva": "0x10C690"
         },
         {

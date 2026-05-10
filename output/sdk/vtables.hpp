@@ -1561,7 +1561,7 @@ namespace cs2::vtables {
             inline constexpr std::ptrdiff_t method_56                                        =   56; // engine2.dll + 0x22680
             inline constexpr std::ptrdiff_t method_57                                        =   57; // engine2.dll + 0x3C430
             inline constexpr std::ptrdiff_t method_58                                        =   58; // engine2.dll + 0x10C550
-            inline constexpr std::ptrdiff_t method_59                                        =   59; // engine2.dll + 0x10C690
+            inline constexpr std::ptrdiff_t Engine__CNetworkStringTableContainer_CreateStringTable =   59; // engine2.dll + 0x10C690
             inline constexpr std::ptrdiff_t method_60                                        =   60; // engine2.dll + 0x10D940
             inline constexpr std::ptrdiff_t method_61                                        =   61; // engine2.dll + 0x10CA50
             inline constexpr std::ptrdiff_t method_62                                        =   62; // engine2.dll + 0x10CAD0
@@ -2406,7 +2406,7 @@ namespace cs2::vtables {
             inline constexpr std::ptrdiff_t method_9                                         =    9; // engine2.dll + 0x22680
             inline constexpr std::ptrdiff_t method_10                                        =   10; // engine2.dll + 0x3C430
             inline constexpr std::ptrdiff_t method_11                                        =   11; // engine2.dll + 0x10C550
-            inline constexpr std::ptrdiff_t method_12                                        =   12; // engine2.dll + 0x10C690
+            inline constexpr std::ptrdiff_t Engine__CNetworkStringTableContainer_CreateStringTable =   12; // engine2.dll + 0x10C690
             inline constexpr std::ptrdiff_t method_13                                        =   13; // engine2.dll + 0x10D940
             inline constexpr std::ptrdiff_t method_14                                        =   14; // engine2.dll + 0x10CA50
             inline constexpr std::ptrdiff_t method_15                                        =   15; // engine2.dll + 0x10CAD0
@@ -2671,7 +2671,7 @@ namespace cs2::vtables {
             inline constexpr std::ptrdiff_t method_9                                         =    9; // engine2.dll + 0x22680
             inline constexpr std::ptrdiff_t method_10                                        =   10; // engine2.dll + 0x3C430
             inline constexpr std::ptrdiff_t method_11                                        =   11; // engine2.dll + 0x10C550
-            inline constexpr std::ptrdiff_t method_12                                        =   12; // engine2.dll + 0x10C690
+            inline constexpr std::ptrdiff_t Engine__CNetworkStringTableContainer_CreateStringTable =   12; // engine2.dll + 0x10C690
             inline constexpr std::ptrdiff_t method_13                                        =   13; // engine2.dll + 0x10D940
             inline constexpr std::ptrdiff_t method_14                                        =   14; // engine2.dll + 0x10CA50
             inline constexpr std::ptrdiff_t method_15                                        =   15; // engine2.dll + 0x10CAD0

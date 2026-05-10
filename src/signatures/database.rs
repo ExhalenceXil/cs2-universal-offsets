@@ -1245,12 +1245,104 @@ pub static CS2_SIGNATURES: &[Signature] = &[
     Signature { name: "Tier0::UtlBuffer",                     module: "tier0.dll", needle: "48 89 5C 24 ? 57 48 83 EC ? 8B 41 ? 8D 7A", resolve: NONE, extra_off: 0, prototype: "" },
     Signature { name: "Tier0::LoadKeyValues",                 module: "tier0.dll", needle: "E8 ? ? ? ? 8B 4C 24 34 0F B6 D8", resolve: REL32_1, extra_off: 0, prototype: "" },
 
+    // Plat_FloatTime — tier0!sub_180146AF0. Returns engine wall-clock as
+    // a `double` (seconds since startup). The float-precision sibling of
+    // Plat_MSTime; this is what most of the engine actually queries when
+    // timestamping events. Hookable for time-warp / speedhack scaffolds
+    // and for getting a tier0-relative monotonic clock without going
+    // through QueryPerformanceCounter yourself. 1 hit on 14160.
+    Signature { name: "Tier0::Plat_FloatTime",                module: "tier0.dll", needle: "48 83 EC 28 48 83 3D ? ? ? ? 00 75 05 E8 ? ? ? ? 48 8D 4C 24 30 FF 15 ? ? ? ? 48 8B 4C 24 30 48 8B 05 ? ? ? ? 48 3B C8 73 05 48 8B C8 EB 07 48 89 0D ? ? ? ? 48 2B 0D ? ? ? ? 0F 57 C0 78 12", resolve: NONE, extra_off: 0, prototype: "double __fastcall Plat_FloatTime()" },
+
+    // Plat_MSTime — tier0!sub_180146B70. Integer-millisecond wall-clock
+    // (Plat_FloatTime * 1000). Distinguished from its sibling helpers
+    // (USTime / NSTime, all sharing the same prologue) by the missing
+    // REX prefix on the `imul rcx, 1000` — the only byte-level
+    // difference between the three. Useful as a cheap tick source and
+    // as a hook target for low-resolution speedhacks. 1 hit on 14160.
+    Signature { name: "Tier0::Plat_MSTime",                   module: "tier0.dll", needle: "40 53 48 83 EC 20 48 8B 1D ? ? ? ? 48 85 DB 75 0C E8 ? ? ? ? 48 8B 1D ? ? ? ? 48 8D 4C 24 30 FF 15 ? ? ? ? 48 8B 44 24 30 48 8B 0D ? ? ? ? 48 3B C1 73 05 48 8B C1 EB 07 48 89 05 ? ? ? ? 48 2B 05 ? ? ? ? 33 D2 48 F7 F3 48 8B C8 48 69 C2 E8 03 00 00 69 C9 E8 03 00 00", resolve: NONE, extra_off: 0, prototype: "unsigned __int64 __fastcall Plat_MSTime()" },
+
+    // Plat_GetTime — tier0!sub_180146930. Thin wrapper over the
+    // tier0 high-resolution clock thunk; returns raw QPC ticks. The
+    // primitive every other Plat_*Time helper sits on top of, and the
+    // canonical hook point for a single-source-of-truth speedhack
+    // (one stomp here scales every game subsystem's clock at once).
+    // 1 hit on 14160.
+    Signature { name: "Tier0::Plat_GetTime",                  module: "tier0.dll", needle: "48 83 EC 28 48 8D 4C 24 30 E8 ? ? ? ? 48 8B 44 24 30 48 83 C4 28 C3", resolve: NONE, extra_off: 0, prototype: "unsigned __int64 __fastcall Plat_GetTime()" },
+
+    // tier0!CreateInterface — sub_180210B90. The standard Source-style
+    // factory exported by every Source 2 module, but THIS specific
+    // copy is tier0's and is the bootstrap factory the loader walks
+    // first. Convenient single anchor when you want to enumerate /
+    // hook the global interface registration list (the `s_pInterfaceRegs`
+    // it walks lives at the rip-relative reference at +3). 1 hit.
+    Signature { name: "Tier0::CreateInterface",               module: "tier0.dll", needle: "4C 8B 0D ? ? ? ? 4C 8B D2 4C 8B D9 4D 85 C9 74 2E 49 8B 41 08 4D 8B C3 4C 2B C0", resolve: NONE, extra_off: 0, prototype: "void *__fastcall CreateInterface(const char *pName, int *pReturnCode)" },
+
     // ==================================================================
     // engine2.dll ------------------------------------------------------
     // ==================================================================
     Signature { name: "Engine::PVSManager_ptr",               module: "engine2.dll", needle: "48 8D 0D ? ? ? ? 33 D2 FF 50", resolve: RIPREL_3, extra_off: 0, prototype: "" },
     Signature { name: "Engine::RunPrediction",                module: "engine2.dll", needle: "40 55 41 56 48 83 EC ? 80 B9", resolve: NONE, extra_off: 0, prototype: "void __fastcall sub_180066490(__int64 a1, unsigned int a2)" },
     Signature { name: "Engine::GetScreenAspectRatio",         module: "engine2.dll", needle: "48 89 5C 24 08 57 48 83 EC 20 8B FA 48 8D 0D", resolve: NONE, extra_off: 0, prototype: "float __fastcall sub_1800769D0(__int64 a1, int a2, int a3)" },
+
+    // CNetworkGameClient::InternalProcessPacketEntities — engine2!
+    // sub_1800483A0 (~0xBBB). The client-side decoder for CSVCMsg_PacketEntities:
+    // walks the delta against the previous baseline, allocates / frees
+    // CSerializedEntity records, and dispatches per-class deserializers
+    // BEFORE the entity ever reaches the client DLL. THE choke point for
+    // pre-game-DLL netvar tampering, baseline mutation, and silent
+    // entity injection (CSGOMM-style "fake spectator" hacks). 1 hit.
+    Signature { name: "Engine::CNetworkGameClient_InternalProcessPacketEntities", module: "engine2.dll", needle: "40 55 56 57 41 56 41 57 48 8D AC 24 40 FF FF FF 48 81 EC C0 01 00 00 65 48 8B 04 25 58 00 00 00", resolve: NONE, extra_off: 0, prototype: "void __fastcall sub_1800483A0(__int64 a1, __int64 a2)" },
+
+    // CNetworkGameClient::ProcessServerInfo — engine2!sub_18006B120
+    // (~0x16B). Handles CSVCMsg_ServerInfo on the client side: stamps
+    // tickrate / max_clients / map name into the local client state.
+    // Hooked by anti-tickrate-fingerprint suites (override server tick
+    // before the game DLL learns about it) and by FOV-stretch / aspect
+    // ratio fixups that need the *real* server resolution. 1 hit.
+    Signature { name: "Engine::CNetworkGameClient_ProcessServerInfo", module: "engine2.dll", needle: "48 89 5C 24 08 57 48 83 EC 30 48 8B FA 48 8B D9 8B 0D ? ? ? ? BA 02 00 00 00 FF 15", resolve: NONE, extra_off: 0, prototype: "char __fastcall sub_18006B120(__int64 a1, __int64 a2)" },
+
+    // CHLTVClient::SetSignonState — engine2!sub_180123630 (~0x8AF).
+    // SourceTV/HLTV variant of SetSignonState; called as the demo /
+    // SourceTV pipeline transitions through CONNECTED → NEW → PRESPAWN
+    // → SPAWN → FULL. Anchor for demo-record / demo-playback
+    // interception and for "spectate as HLTV" features that need to
+    // suppress or rewrite the state machine. 1 hit.
+    Signature { name: "Engine::CHLTVClient_SetSignonState",   module: "engine2.dll", needle: "40 55 53 41 55 41 56 41 57 48 8D 6C 24 C9 48 81 EC E0 00 00 00 45 8B E8 8B DA 4C 8B F9 45 33 F6", resolve: NONE, extra_off: 0, prototype: "char __fastcall sub_180123630(__int64 a1, int a2, __int64 a3, int a4)" },
+
+    // CServerSideClientBase::ProcessServerInfo — engine2!sub_180084B00
+    // (~0x7EF). Server-side counterpart that builds the per-client
+    // ServerInfo packet (logs `OnLevelLoadingServerInfo` and
+    // `CServerSideClientBase::ProcessServerInfo(done)`). Hookable by
+    // listen-server / community-server tooling to inject custom
+    // session manifests or to spoof the advertised tickrate to
+    // joining clients. 1 hit.
+    Signature { name: "Engine::CServerSideClient_ProcessServerInfo", module: "engine2.dll", needle: "48 89 5C 24 20 55 56 57 41 54 41 56 48 8D AC 24 10 FE FF FF 48 81 EC F0 02 00 00", resolve: NONE, extra_off: 0, prototype: "char __fastcall sub_180084B00(__int64 a1, __int64 a2)" },
+
+    // CNetworkStringTableContainer::CreateStringTable — engine2!
+    // sub_18010C690 (~0x3B9). The single function every networked
+    // string table funnels through at creation (userinfo, modelprecache,
+    // soundprecache, instancebaseline, …). Hook to enumerate / log /
+    // mutate the table set as it's built — base of every "modelchams
+    // via baseline rewrite" trick and of every dumper that wants to
+    // capture the string table catalog deterministically. 1 hit.
+    Signature { name: "Engine::CNetworkStringTableContainer_CreateStringTable", module: "engine2.dll", needle: "40 53 41 56 48 83 EC 48 4C 8B F2 48 8B D9 48 8B 12 48 85 D2 0F 84 ? ? ? ? 80 79 34 00", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_18010C690(__int64 a1, const char *a2, __int64 a3)" },
+
+    // CNetworkStringTableContainer::WriteUpdateMessageAtTick — engine2!
+    // sub_18010D310 (~0x4C2). Server-side serializer that emits the
+    // CSVCMsg_UpdateStringTable delta for a given tick. The exact spot
+    // where SourceTV / demo recorders capture string table mutations,
+    // and the right hook for community servers wanting to rewrite
+    // baselines / userinfo on the wire. 1 hit.
+    Signature { name: "Engine::CNetworkStringTableContainer_WriteUpdateMessageAtTick", module: "engine2.dll", needle: "44 89 4C 24 20 44 89 44 24 18 48 89 4C 24 08 55 53 56 57 41 54 41 55 41 57 48 8D 6C 24 F0", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_18010D310(__int64 a1, __int64 a2, int a3, int a4, int a5)" },
+
+    // CHostState::FilterTime — engine2!sub_180210BF0 (~0x412). Logs the
+    // unique `FilterTime took target %g…` warning. THE per-frame gate
+    // that decides whether enough real time has elapsed to advance the
+    // host frame; clamps `host_remainder` against `fps_max` and
+    // `host_timescale`. Patching the early-return / clamp here is the
+    // canonical "engine-side fps unlock" — works regardless of what
+    // the engine ConVar layer reports back. 1 hit.
+    Signature { name: "Engine::Host_FilterTime",              module: "engine2.dll", needle: "48 89 5C 24 10 48 89 74 24 18 48 89 4C 24 08 57 48 81 EC A0 00 00 00 48 8B BC 24 D0 00 00 00", resolve: NONE, extra_off: 0, prototype: "bool __fastcall sub_180210BF0(__int64 a1, float *a2)" },
 
     // ==================================================================
     // Additional string-ref anchors (enhanced_signatures.h) ------------

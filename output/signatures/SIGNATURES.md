@@ -2,7 +2,7 @@
 
 _This file is regenerated on every successful run of `cs2-sdk`._
 
-**487/533 signatures resolved across 18 module(s).**
+**498/544 signatures resolved across 18 module(s).**
 
 ## `animationsystem.dll`
 
@@ -323,7 +323,14 @@ _This file is regenerated on every successful run of `cs2-sdk`._
 | `Cvar_RegisterConVar` | `__int128 *__fastcall sub_1803FC080(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4, __int128 *a5)` | `raw` | `0x7FFF6182BBD0` | `0x3FBBD0` | `48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 48 89 7C 24 20 41 54 41 56 41 57 48 81 EC D0 00 00` |
 | `Cvar_RevertFlaggedCvars_OnSvCheatsChange` | `void __fastcall sub_18009C1F0(__int64 a1, __int64 a2, _BYTE *a3, char *a4)` | `raw` | `0x7FFF614CC1F0` | `0x9C1F0` | `40 53 48 83 EC 20 48 8B 41 08 48 8B D9 8B 50 30 48 C1 EA 0C F6 C2 01 0F 85` |
 | `DisablePvsAccessor` | `__int64 __fastcall sub_18023D2A0(_DWORD *a1, __int64 a2, int a3, char a4)` | `raw` | `0x7FFF6166D3D2` | `0x23D3D2` | `48 8D 0D ? ? ? ? 33 D2 FF 50` |
+| `Engine::CHLTVClient_SetSignonState` | `char __fastcall sub_180123630(__int64 a1, int a2, __int64 a3, int a4)` | `raw` | `0x7FFF61553630` | `0x123630` | `40 55 53 41 55 41 56 41 57 48 8D 6C 24 C9 48 81 EC E0 00 00 00 45 8B E8 8B DA 4C 8B F9 45 33 F6` |
+| `Engine::CNetworkGameClient_InternalProcessPacketEntities` | `void __fastcall sub_1800483A0(__int64 a1, __int64 a2)` | `raw` | `0x7FFF614783A0` | `0x483A0` | `40 55 56 57 41 56 41 57 48 8D AC 24 40 FF FF FF 48 81 EC C0 01 00 00 65 48 8B 04 25 58 00 00 00` |
+| `Engine::CNetworkGameClient_ProcessServerInfo` | `char __fastcall sub_18006B120(__int64 a1, __int64 a2)` | `raw` | `0x7FFF6149B120` | `0x6B120` | `48 89 5C 24 08 57 48 83 EC 30 48 8B FA 48 8B D9 8B 0D ? ? ? ? BA 02 00 00 00 FF 15` |
+| `Engine::CNetworkStringTableContainer_CreateStringTable` | `__int64 __fastcall sub_18010C690(__int64 a1, const char *a2, __int64 a3)` | `raw` | `0x7FFF6153C690` | `0x10C690` | `40 53 41 56 48 83 EC 48 4C 8B F2 48 8B D9 48 8B 12 48 85 D2 0F 84 ? ? ? ? 80 79 34 00` |
+| `Engine::CNetworkStringTableContainer_WriteUpdateMessageAtTick` | `__int64 __fastcall sub_18010D310(__int64 a1, __int64 a2, int a3, int a4, int a5)` | `raw` | `0x7FFF6153D310` | `0x10D310` | `44 89 4C 24 20 44 89 44 24 18 48 89 4C 24 08 55 53 56 57 41 54 41 55 41 57 48 8D 6C 24 F0` |
+| `Engine::CServerSideClient_ProcessServerInfo` | `char __fastcall sub_180084B00(__int64 a1, __int64 a2)` | `raw` | `0x7FFF614B4B00` | `0x84B00` | `48 89 5C 24 20 55 56 57 41 54 41 56 48 8D AC 24 10 FE FF FF 48 81 EC F0 02 00 00` |
 | `Engine::GetScreenAspectRatio` | `float __fastcall sub_1800769D0(__int64 a1, int a2, int a3)` | `raw` | `0x7FFF614A69D0` | `0x769D0` | `48 89 5C 24 08 57 48 83 EC 20 8B FA 48 8D 0D` |
+| `Engine::Host_FilterTime` | `bool __fastcall sub_180210BF0(__int64 a1, float *a2)` | `raw` | `0x7FFF61640BF0` | `0x210BF0` | `48 89 5C 24 10 48 89 74 24 18 48 89 4C 24 08 57 48 81 EC A0 00 00 00 48 8B BC 24 D0 00 00 00` |
 | `Engine::RunPrediction` | `void __fastcall sub_180066490(__int64 a1, unsigned int a2)` | `raw` | `0x7FFF61496490` | `0x66490` | `40 55 41 56 48 83 EC ? 80 B9` |
 | `Engine_Disconnect_main` | `__int64 *sub_1801D1510()` | `raw` | `0x7FFF61601510` | `0x1D1510` | `48 89 5C 24 20 55 57 41 54 48 8B EC 48 83 EC 70 45 33 E4 48 C7 05` |
 | `Engine_HLTVClient_ExecuteStringCommand` | `char __fastcall sub_180120D70(__int64 a1, __int64 a2)` | `raw` | `0x7FFF61550D70` | `0x120D70` | `40 53 56 48 81 EC 48 07 00 00 48 8B F1 48 8B DA 48 8B 4A 48 48 83 E1 FC 48 83 79 18 0F 76 03 48` |
@@ -484,7 +491,11 @@ _This file is regenerated on every successful run of `cs2-sdk`._
 
 | Name | Prototype | Resolve | VA | RVA | Pattern |
 | --- | --- | --- | --- | --- | --- |
+| `Tier0::CreateInterface` | `void *__fastcall CreateInterface(const char *pName, int *pReturnCode)` | `raw` | `0x7FFF61FA0B90` | `0x210B90` | `4C 8B 0D ? ? ? ? 4C 8B D2 4C 8B D9 4D 85 C9 74 2E 49 8B 41 08 4D 8B C3 4C 2B C0` |
 | `Tier0::LoadKeyValues` | `` | `rel32` | `0x7FFF61EB8F50` | `0x128F50` | `E8 ? ? ? ? 8B 4C 24 34 0F B6 D8` |
+| `Tier0::Plat_FloatTime` | `double __fastcall Plat_FloatTime()` | `raw` | `0x7FFF61ED6AF0` | `0x146AF0` | `48 83 EC 28 48 83 3D ? ? ? ? 00 75 05 E8 ? ? ? ? 48 8D 4C 24 30 FF 15 ? ? ? ? 48 8B 4C 24 30 48 8B 05 ? ? ? ? 48 3B C8 73 05 48 8B C8 EB 07 48 89 0D ? ? ? ? 48 2B 0D ? ? ? ? 0F 57 C0 78 12` |
+| `Tier0::Plat_GetTime` | `unsigned __int64 __fastcall Plat_GetTime()` | `raw` | `0x7FFF61ED6930` | `0x146930` | `48 83 EC 28 48 8D 4C 24 30 E8 ? ? ? ? 48 8B 44 24 30 48 83 C4 28 C3` |
+| `Tier0::Plat_MSTime` | `unsigned __int64 __fastcall Plat_MSTime()` | `raw` | `0x7FFF61ED6B70` | `0x146B70` | `40 53 48 83 EC 20 48 8B 1D ? ? ? ? 48 85 DB 75 0C E8 ? ? ? ? 48 8B 1D ? ? ? ? 48 8D 4C 24 30 FF 15 ? ? ? ? 48 8B 44 24 30 48 8B 0D ? ? ? ? 48 3B C1 73 05 48 8B C1 EB 07 48 89 05 ? ? ? ? 48 2B 05 ? ? ? ? 33 D2 48 F7 F3 48 8B C8 48 69 C2 E8 03 00 00 69 C9 E8 03 00 00` |
 | `Tier0::UtlBuffer` | `` | `raw` | `0x7FFF61DE3F10` | `0x53F10` | `48 89 5C 24 ? 57 48 83 EC ? 8B 41 ? 8D 7A` |
 
 ## `vphysics2.dll`
