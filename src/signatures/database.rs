@@ -82,6 +82,24 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         prototype: "void __fastcall sub_18084F430(__int64 a1, float *a2, float *a3)",
     },
     Signature {
+        // Per-frame viewmodel offset / FOV resolver. Signature:
+        //   void(this_viewmodel, float* outOffsets[3], float* outFov)
+        // Reads cvars (viewmodel_fov / viewmodel_offset_*) or the pawn
+        // fields at C_CSPlayerPawn +0x1B70..+0x1B7C, then HARD-CLAMPS:
+        //     X   -> [-2.0, 2.5]
+        //     Y/Z -> [-2.0, 2.0]
+        //     FOV -> [60.0, 68.0]
+        // Hooking after the original runs and overwriting the output
+        // floats is the only reliable path to push viewmodel_fov outside
+        // the clamps. Verified IDA build 14160 (RVA 0x84EE40).
+        name: "GetViewModelOffsets",
+        module: "client.dll",
+        needle: "40 55 53 56 41 56 41 57 48 8B EC 48 83 EC 20 4D 8B F8 4C 8B F2 48 8B F1 E8",
+        resolve: NONE,
+        extra_off: 0,
+        prototype: "void __fastcall sub_18084EE40(__int64 viewmodel, float *outOffsets, float *outFov)",
+    },
+    Signature {
         name: "NoSpread1",
         module: "client.dll",
         needle: "48 89 5C 24 08 57 48 81 EC F0 00",

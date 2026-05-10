@@ -33,6 +33,7 @@ namespace cs2::signatures {
         inline constexpr std::string_view CBodyComponent = "48 83 EC 38 48 8B 05 ? ? ? ? 48 85 C0 0F 85 ? ? ? ? 48 89 5C 24 40 B9 50 00 00 00 48 89 6C 24 48 4C 89 64 24 30 4C 89 74 24 28 4C 89 7C";
         inline constexpr std::string_view CBodyComponentSkeletonInstance = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 57 48 83 EC 20 8B 0D F6 04";
         inline constexpr std::string_view CBufferStringInit = "48 89 5C 24 10 57 48 83 EC 30 8B 41 04 48 8D 79";
+        inline constexpr std::string_view CCSGOInput__CreateMove = "48 8B C4 4C 89 40 18 48 89 48 08 55 53 41 54 41";
         inline constexpr std::string_view CCSGameRules = "4C 8D 05 ? ? ? ? 48 8D 15 ? ? ? ? 48 8D 0D AB A1 21";
         inline constexpr std::string_view CCSGameRulesProxy = "48 83 EC 28 48 8D 15 ? ? ? ? 48 8D 4C 24 38 E8 DB E7 0F";
         inline constexpr std::string_view CCSInventoryManager__EquipItemInLoadout = "48 89 5C 24 08 48 89 6C 24 18 48 89 74 24 20 89 54 24 10 57 41 54 41 55 41 56 41 57 48 83 EC 70";
@@ -81,6 +82,7 @@ namespace cs2::signatures {
         inline constexpr std::string_view CPostProcessingVolume = "48 83 EC 28 48 8D 15 ? ? ? ? 48 8D 4C 24 38 E8 7B 3F 54";
         inline constexpr std::string_view CS2ItemEditor_BuildTemplateMaterialFromFile = "48 89 54 24 10 55 53 41 55 41 57 48 8D AC 24 18";
         inline constexpr std::string_view CSBaseGunFireData_fn = "48 8B C4 55 53 56 57 41 54 41 55 41 56 41 57 48 8D 68 A8 48";
+        inline constexpr std::string_view CSGOInput_CreateMove = "48 8B C4 4C 89 40 18 48 89 48 08 55 53 41 54 41";
         inline constexpr std::string_view CSkeletonInstance = "40 57 48 83 EC 20 48 8B FA 85 C9 74 23 83 F9 06 74 08 33 C0 48 83 C4 20 5F C3 48 8B 02 48 8B CF 48 8D 54 24 48 FF 10 48 8B 00 48 83 C4 20 5F C3";
         inline constexpr std::string_view CSkeletonInstance__SetMeshGroupMask = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 48 8D 99 50 01";
         inline constexpr std::string_view CSkeletonInstance_GetTransformsForHitboxList = "48 89 5C 24 18 55 56 57 41 55 41 57 48 81 EC A0";
@@ -116,12 +118,14 @@ namespace cs2::signatures {
         inline constexpr std::string_view C_PlantedC4 = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 65 48 8B 04 25 58 00 00 00 48 8D 35 ? ? ? ? 8B 0D ? ? ? ? 33 FF BA 98 00 00 00 48 8B 1C C8";
         inline constexpr std::string_view C_SmokeGrenadeProjectile = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 65 48 8B 04 25 58 00 00 00 48 8D 35 ? ? ? ? 8B 0D ? ? ? ? 33 FF BA 98 00 00 00 48 8B 1C C8";
         inline constexpr std::string_view CacheParticleEffect = "4C 8B DC 53 48 81 EC 90 00 00 00 F2 0F 10 05 65";
+        inline constexpr std::string_view CalcSpread = "48 8B C4 48 89 58 08 48 89 68 18 48 89 70 20 57 41 54 41 55 41 56 41 57 48 81 EC E0";
         inline constexpr std::string_view CalcViewmodel = "40 55 53 56 41 56 41 57 48 8B EC 48 83 EC 20 4D";
         inline constexpr std::string_view CalcViewmodelTransform_v2 = "48 89 5C 24 20 55 56 57 41 54 41 55 41 56 41 57 48 8D 6C 24 80 48 81 EC 80 01 00 00 48 8B FA 48";
         inline constexpr std::string_view CalcViewmodelView = "40 53 48 83 EC 60 48 8B 41 08 49 8B D8 8B 48 30";
         inline constexpr std::string_view CalculateInterpolation = "48 83 EC 08 4C 8B 0D ? ? ? ? 4C 8B DA 48 8B";
         inline constexpr std::string_view CalculateWorldSpaceBones = "48 89 4C 24 08 55 53 56 57 41 54 41 55 41 56 41 57 B8 58 42";
         inline constexpr std::string_view ClearHUDWeaponIcon = "4C 8B DC 55 57 48 83 EC 48 48 63 41 68 48 8B F9";
+        inline constexpr std::string_view ClientModeCSNormal_OnEvent = "40 53 57 48 81 EC 78 02 00 00 48 8B CA 48 8B FA";
         inline constexpr std::string_view Client_DispatchSpawn = "4C 8B DC 55 56 48 83 EC 78 49 8B 68 08 48 8B F1";
         inline constexpr std::string_view CompositeMaterialPanoramaPanel_Init = "48 8B C4 4C 89 40 18 55 56 41 56 48 8D 68 A1 48";
         inline constexpr std::string_view ComputeRandomSeed = "48 89 5C 24 08 57 48 81 EC F0 00 00 00 F3 0F 10";
@@ -134,6 +138,7 @@ namespace cs2::signatures {
         inline constexpr std::string_view CreateNewSubtickMoveStep = "48 89 5C 24 10 57 48 83 EC 20 33 DB 48 8B F9 48 85 C9 75 2D B9 38 00 00 00 E8 22 D9";
         inline constexpr std::string_view CreateParticleEffect = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 50 F3 0F 10 1D 01";
         inline constexpr std::string_view CreateSOSubclassEconItem = "48 83 EC 28 B9 48 00 00 00 E8 ? ? ? ? 48 85";
+        inline constexpr std::string_view DamageFeedbackEmitter = "48 89 4C 24 08 55 53 41 54 41 55 41 57 48 8D AC";
         inline constexpr std::string_view DestroyParticle = "83 FA FF 0F 84 ? ? ? ? 41 54 41 56 41 57 48";
         inline constexpr std::string_view DispatchEffect = "48 89 5C 24 08 57 48 83 EC 70 48 8B F9 48 8B DA";
         inline constexpr std::string_view DispatchSpawn_caller = "4C 8B DC 55 56 48 83 EC 78 49 8B 68 08 48 8B F1";
@@ -142,6 +147,7 @@ namespace cs2::signatures {
         inline constexpr std::string_view DrawOverHead = "40 53 48 83 EC 20 48 8B D9 83 FA FF 75 17 48 8B";
         inline constexpr std::string_view DrawScopeOverlay = "48 8B C4 53 57 48 83 EC 68 48 8B FA 44 0F 29 40";
         inline constexpr std::string_view DrawSmokeVertex = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 57 41 56 41 57 48 83 EC 40 48 8B 9C 24 88 00 00 00 4D 8B F8 48 8B FA 48 8B";
+        inline constexpr std::string_view EmitSoundByHandle = "40 53 48 83 EC 30 4C 89 4C 24 20 48 8B D9 45 8B";
         inline constexpr std::string_view FX_FireBullets = "48 8B C4 4C 89 48 20 48 89 50 10 55 53 57 41 54";
         inline constexpr std::string_view FindHudElement = "48 8D 15 ? ? ? ? 45 33 C0 B9 01 00 00 00 FF 15 F3 26 B4";
         inline constexpr std::string_view FindHudElement_panorama = "4C 8B DC 53 48 83 EC 50 48 8B 05 ? ? ? ? 48";
@@ -177,7 +183,10 @@ namespace cs2::signatures {
         inline constexpr std::string_view GetTraceInfo = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 57 48 83 EC 60 48 8B E9 0F";
         inline constexpr std::string_view GetUserCmdManager = "41 56 41 57 48 83 EC 48 48 8D 54 24 68 E8 5E A9";
         inline constexpr std::string_view GetViewAngles = "4C 8B C1 85 D2 74 08 48 8D 05 ? ? ? ? C3 8B";
+        inline constexpr std::string_view GetViewModelOffsets = "40 55 53 56 41 56 41 57 48 8B EC 48 83 EC 20 4D";
         inline constexpr std::string_view GetWeaponInAccuracyRecoveryTime = "48 89 5C 24 08 57 48 83 EC 30 48 8B D9 E8 0E 52";
+        inline constexpr std::string_view GetWorldFovResolver = "40 53 48 83 EC 50 48 8B D9 E8 ? ? ? ? 48 85";
+        inline constexpr std::string_view GlobalLightUpdateState = "40 57 48 81 EC C0 00 00 00 48 8B F9 BA FF FF FF";
         inline constexpr std::string_view GloveApply_PerTick = "40 55 56 57 48 8D AC 24 30 FD FF FF 48 81 EC D0";
         inline constexpr std::string_view GlowObjectManager_GetInstance = "48 8B 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 8B 41 38 C3";
         inline constexpr std::string_view HandleBulletPenetration = "48 8B C4 44 89 48 20 48 89 50 10 48 89 48 08 55 57 41 57 48";
@@ -190,6 +199,7 @@ namespace cs2::signatures {
         inline constexpr std::string_view InitPlayerMovementTraceFilter = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 0F B6 41 39 33 FF C7 41 34";
         inline constexpr std::string_view InitTraceInfo = "40 55 41 55 41 57 48 83 EC 30 4C 8B 3D AF B9 EE";
         inline constexpr std::string_view IsGlowing = "0F B6 41 51 C3 CC CC CC CC CC CC CC CC CC CC CC";
+        inline constexpr std::string_view KillFeedbackEmitter = "48 89 5C 24 08 48 89 74 24 18 48 89 7C 24 20 55 41 56 41 57 48 8B EC 48 81 EC 80 00";
         inline constexpr std::string_view LevelInit = "40 55 56 41 56 48 8D 6C 24 90 48 81 EC 70 01 00";
         inline constexpr std::string_view LoadFileForMe = "40 55 57 41 56 48 83 EC 20 4C 63 71 18 33 FF 48";
         inline constexpr std::string_view LoadPath = "48 89 74 24 20 57 48 83 EC 20 44 8B 49 04 BF FF FF FF 7F 44 23 CF 48 8B F1 41 8B C8 45 85 C0 74 30 83 E9 ? ? ? ? F9 01 0F 85 ? ? ? ? 41";
@@ -209,6 +219,7 @@ namespace cs2::signatures {
         inline constexpr std::string_view RegenerateWeaponSkin = "40 55 53 41 57 48 8D AC 24 00 FE FF FF 48 81 EC";
         inline constexpr std::string_view RegenerateWeaponSkin_v2 = "40 55 53 41 57 48 8D AC 24 00 FE FF FF 48 81 EC";
         inline constexpr std::string_view RegenerateWeaponSkins = "48 83 EC 48 E8 ? ? ? ? 48 85 C0 0F 84 7F 00";
+        inline constexpr std::string_view RenderDecals = "44 88 4C 24 20 55 53 57 41 54 41 55 48 8D 6C 24";
         inline constexpr std::string_view ReportHit = "40 53 48 83 EC 20 48 8D 05 ? ? ? ? 48 8D 59 08 48 89 01 F6 03 01 74 08 48 8B CB E8 AF FB EA";
         inline constexpr std::string_view RunCommand = "48 8B C4 48 81 EC C8 00 00 00 48 89 58 10 48 89";
         inline constexpr std::string_view RunCommand_processor = "48 8B C4 48 81 EC C8 00 00 00 48 89 58 10 48 89";
@@ -254,6 +265,7 @@ namespace cs2::signatures {
         inline constexpr std::string_view UpdateSubClass = "4C 8B DC 53 48 81 EC 90 01 00 00 48 8B 41 10 48";
         inline constexpr std::string_view UpdateTurningInAccuracy = "40 56 48 81 EC 80 00 00 00 48 8B F1 BA FF FF FF";
         inline constexpr std::string_view ViewModelHideZoomed = "48 89 5C 24 20 55 56 57 41 54 41 56 48 8B EC 48 83 EC 50 48 8D 05 36 F1";
+        inline constexpr std::string_view WriteSubtickFromEntry = "48 89 5C 24 18 55 57 41 56 48 8D 6C 24 C9 48 81";
         inline constexpr std::string_view create_move_v2 = "85 D2 0F 85 ? ? ? ? 48 8B C4 44 88 40 18 89";
         inline constexpr std::string_view draw_smoke_array = "40 55 41 54 41 55 48 8D AC 24 20 F9 FF FF 48 81";
         inline constexpr std::string_view draw_view_punch_v2 = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 48 89 7C 24 20 41 56 48 83 EC 40 49 8B E9 49 8B F8";
@@ -377,6 +389,10 @@ namespace cs2::signatures {
     }
     namespace scenesystem {
         inline constexpr std::string_view AllocateAttributeListFunctionPointer = "40 55 48 83 EC 20 48 83 BA A8 00 00 00 00 48 8B";
+        inline constexpr std::string_view BuildSceneInfoGpu = "4C 89 4C 24 20 4C 89 44 24 18 48 89 4C 24 08 55 48 8D AC 24 00 E3 FF FF";
+        inline constexpr std::string_view CSceneAnimatableObject__GeneratePrimitives = "48 8B C4 48 89 58 08 48 89 50 10 55 56 57 41 54 41 55 41 56 41 57 48 81";
+        inline constexpr std::string_view CSceneAnimatableObject_GeneratePrimitives = "48 8B C4 48 89 58 08 48 89 50 10 55 56 57 41 54 41 55 41 56 41 57 48 81";
+        inline constexpr std::string_view CSceneSkyBoxObject_DrawSkyboxArray = "45 85 C9 0F 8E ? ? ? ? 4C 8B DC 55 41 56 49";
         inline constexpr std::string_view CSceneSystem_CreateStaticShape = "48 8B C4 48 89 48 08 55 41 54 41 56 48 8D 68 D8";
         inline constexpr std::string_view CSceneSystem_InitGfxObjects = "40 55 53 56 57 41 54 41 55 41 56 41 57 48 8D AC 24 08 FE FF";
         inline constexpr std::string_view CSceneSystem_RenderViewLayer_Dispatch = "48 8B C4 48 89 48 08 55 53 56 57 41 54 41 55 41 56 41 57 48 8D A8 B8 FE";
@@ -384,6 +400,7 @@ namespace cs2::signatures {
         inline constexpr std::string_view DeleteSceneObjectFunctionPointer = "48 85 D2 0F 84 ? ? ? ? 48 8B C4 48 89 50 10";
         inline constexpr std::string_view DrawAggregateSceneObjectArray = "48 8B C4 48 89 50 10 48 89 48 08 55 53 56 57 41 54 41 55 41 56 41 57 48 8D A8 38 F9";
         inline constexpr std::string_view DrawObject_legacy = "48 8B C4 53 57 41 54 48 81 EC D0 00 00 00 49 63";
+        inline constexpr std::string_view DrawSkyboxArray = "45 85 C9 0F 8E ? ? ? ? 4C 8B DC 55 41 56 49";
         inline constexpr std::string_view SceneSystem__DrawAggeregateObject = "48 8B C4 4C 89 48 20 4C 89 40 18 48 89 50 10 55 53 41 57 48";
         inline constexpr std::string_view SceneSystem__DrawArrayLight = "48 89 5C 24 08 48 89 6C 24 18 48 89 54 24 10 56 57 41 56 48";
         inline constexpr std::string_view SceneSystem_Thread_RenderSceneDrawList = "40 55 53 56 57 41 54 41 55 41 56 41 57 48 8D 6C 24 E1 48 81 EC D8 00 00";
@@ -400,6 +417,7 @@ namespace cs2::signatures {
         inline constexpr std::string_view CCSPlayerPawn_GiveNamedItem = "48 89 5C 24 08 48 89 74 24 10 48 89 7C 24 20 44 89 44 24 18";
     }
     namespace soundsystem {
+        inline constexpr std::string_view CSosOperatorSystem_StartSoundEvent = "40 53 55 56 48 83 EC 20 83 B9 EC 24 00 00 00 49";
         inline constexpr std::string_view SoundSystem__PlayVSound = "48 8B C4 48 89 58 08 57 48 81 EC A0 00 00 00 33";
         inline constexpr std::string_view SoundSystem__SomeUtlSymbolFunc = "48 89 74 24 18 57 48 83 EC 20 48 63 F2 48 8B F9";
     }
@@ -458,6 +476,8 @@ namespace cs2::fn {
         using CBodyComponentSkeletonInstance_t = void(__fastcall*)(void*, ...);
         // char __fastcall sub_1817E29D0(__int64 a1, const char *a2)
         using CBufferStringInit_t = void(__fastcall*)(void*, ...);
+        // double __fastcall sub_180C5E7F0(__int64 a1, unsigned int a2, __int64 a3)
+        using CCSGOInput__CreateMove_t = void(__fastcall*)(void*, ...);
         // _QWORD *sub_18007E160()
         using CCSGameRules_t = void(__fastcall*)(void*, ...);
         // __int64 sub_1806E9500()
@@ -554,6 +574,8 @@ namespace cs2::fn {
         using CS2ItemEditor_BuildTemplateMaterialFromFile_t = void(__fastcall*)(void*, ...);
         // void __fastcall sub_1814E8140(__int64 a1)
         using CSBaseGunFireData_fn_t = void(__fastcall*)(void*, ...);
+        // double __fastcall sub_180C5E7F0(__int64 a1, unsigned int a2, __int64 a3)
+        using CSGOInput_CreateMove_t = void(__fastcall*)(void*, ...);
         // __int64 __fastcall sub_1801A3A20(int a1, __int64 a2)
         using CSkeletonInstance_t = void(__fastcall*)(void*, ...);
         // __int64 __fastcall sub_180A2DB50(__int64 a1, __int64 a2)
@@ -623,6 +645,7 @@ namespace cs2::fn {
         // __int64 (__fastcall *sub_180095A10())()
         using C_SmokeGrenadeProjectile_t = void(__fastcall*)(void*, ...);
         using CacheParticleEffect_t = void(__fastcall*)(void*, ...);
+        using CalcSpread_t = void(__fastcall*)(void*, ...);
         // void __fastcall sub_18084F430(__int64 a1, float *a2, float *a3)
         using CalcViewmodel_t = void(__fastcall*)(void*, ...);
         // __int64 __fastcall sub_1807A24F0(__int64 a1, __int64 a2)
@@ -635,6 +658,8 @@ namespace cs2::fn {
         using CalculateWorldSpaceBones_t = void(__fastcall*)(void*, ...);
         // __int64 __fastcall sub_180DEDDD0(__int64 a1, int a2, __int64 a3)
         using ClearHUDWeaponIcon_t = void(__fastcall*)(void*, ...);
+        // void __fastcall sub_180C5C660(__int64 a1, KeyValues *a2)
+        using ClientModeCSNormal_OnEvent_t = void(__fastcall*)(void*, ...);
         // __int64 __fastcall sub_1814D5B10(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4)
         using Client_DispatchSpawn_t = void(__fastcall*)(void*, ...);
         // __int64 __fastcall sub_180B91260(__int64 a1, __int64 a2, __int64 a3)
@@ -659,6 +684,8 @@ namespace cs2::fn {
         using CreateParticleEffect_t = void(__fastcall*)(void*, ...);
         // __int64 sub_180FF7770()
         using CreateSOSubclassEconItem_t = void(__fastcall*)(void*, ...);
+        // void __fastcall sub_18081FB40(__int64 a1, _QWORD *a2, __int64 a3)
+        using DamageFeedbackEmitter_t = void(__fastcall*)(void*, ...);
         // void __fastcall sub_1809463E0(__int64 a1, __int64 a2, unsigned __int8 a3, char a4)
         using DestroyParticle_t = void(__fastcall*)(void*, ...);
         // __int64 __fastcall sub_18035A570(__int64 a1, __int64 a2)
@@ -675,6 +702,8 @@ namespace cs2::fn {
         using DrawScopeOverlay_t = void(__fastcall*)(void*, ...);
         // __int64 __fastcall sub_180C7B290(__int64 a1, __int64 a2, int a3, int a4, __int64 a5, __int64 a6)
         using DrawSmokeVertex_t = void(__fastcall*)(void*, ...);
+        // __int64 __fastcall sub_180B63B10(__int64 a1, int a2, int a3, __int64 a4)
+        using EmitSoundByHandle_t = void(__fastcall*)(void*, ...);
         // void sub_180C7E380(unsigned int a1, __int64 a2, __int64 a3, __int64 *a4, __int64 a5, int a6, int a7, ...)
         using FX_FireBullets_t = void(__fastcall*)(void*, ...);
         // _QWORD **__fastcall sub_180DC1D50(__int64 a1, unsigned __int8 a2)
@@ -745,8 +774,14 @@ namespace cs2::fn {
         using GetUserCmdManager_t = void(__fastcall*)(void*, ...);
         // __int64 *__fastcall sub_180AD5CA0(__int64 a1, int a2)
         using GetViewAngles_t = void(__fastcall*)(void*, ...);
+        // void __fastcall sub_18084EE40(__int64 viewmodel, float *outOffsets, float *outFov)
+        using GetViewModelOffsets_t = void(__fastcall*)(void*, ...);
         // __m128 __fastcall sub_180796600(__int64 a1)
         using GetWeaponInAccuracyRecoveryTime_t = void(__fastcall*)(void*, ...);
+        // float __fastcall sub_18080CEF0(__int64 a1)
+        using GetWorldFovResolver_t = void(__fastcall*)(void*, ...);
+        // _BYTE *__fastcall sub_180A8B5A0(__int64 a1)
+        using GlobalLightUpdateState_t = void(__fastcall*)(void*, ...);
         // void __fastcall sub_180BC1460(int *a1)
         using GloveApply_PerTick_t = void(__fastcall*)(void*, ...);
         // __int64 sub_180B0ACD0()
@@ -771,6 +806,8 @@ namespace cs2::fn {
         using InitTraceInfo_t = void(__fastcall*)(void*, ...);
         // __int64 __fastcall sub_180B0C300(__int64 a1)
         using IsGlowing_t = void(__fastcall*)(void*, ...);
+        // __int64 __fastcall sub_18084B0F0(__int64 a1, __int64 a2)
+        using KillFeedbackEmitter_t = void(__fastcall*)(void*, ...);
         // __int64 __fastcall sub_1808D0100(__int64 a1)
         using LevelInit_t = void(__fastcall*)(void*, ...);
         // void __fastcall sub_18091BF40(__int64 a1)
@@ -806,6 +843,8 @@ namespace cs2::fn {
         using RegenerateWeaponSkin_v2_t = void(__fastcall*)(void*, ...);
         // __int64 sub_1807B0D40()
         using RegenerateWeaponSkins_t = void(__fastcall*)(void*, ...);
+        // _BYTE *__fastcall sub_1810ECA50(__int64 a1, __int64 **a2, char a3, char a4)
+        using RenderDecals_t = void(__fastcall*)(void*, ...);
         // char __fastcall sub_180602290(_QWORD *a1)
         using ReportHit_t = void(__fastcall*)(void*, ...);
         // void __fastcall sub_1809DBAF0(__int64 a1, __int64 a2)
@@ -894,6 +933,7 @@ namespace cs2::fn {
         using UpdateTurningInAccuracy_t = void(__fastcall*)(void*, ...);
         // __int64 __fastcall sub_1807A0460(__int64 a1, __int64 a2, __int64 **a3)
         using ViewModelHideZoomed_t = void(__fastcall*)(void*, ...);
+        using WriteSubtickFromEntry_t = void(__fastcall*)(void*, ...);
         // void __fastcall sub_180ACC120(__int64 *a1, int a2, char a3)
         using create_move_v2_t = void(__fastcall*)(void*, ...);
         // __int64 __fastcall sub_180C7B380(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, unsigned int *a6)
@@ -1094,6 +1134,10 @@ namespace cs2::fn {
     }
     namespace scenesystem {
         using AllocateAttributeListFunctionPointer_t = void(__fastcall*)(void*, ...);
+        using BuildSceneInfoGpu_t = void(__fastcall*)(void*, ...);
+        using CSceneAnimatableObject__GeneratePrimitives_t = void(__fastcall*)(void*, ...);
+        using CSceneAnimatableObject_GeneratePrimitives_t = void(__fastcall*)(void*, ...);
+        using CSceneSkyBoxObject_DrawSkyboxArray_t = void(__fastcall*)(void*, ...);
         using CSceneSystem_CreateStaticShape_t = void(__fastcall*)(void*, ...);
         using CSceneSystem_InitGfxObjects_t = void(__fastcall*)(void*, ...);
         using CSceneSystem_RenderViewLayer_Dispatch_t = void(__fastcall*)(void*, ...);
@@ -1101,6 +1145,7 @@ namespace cs2::fn {
         using DeleteSceneObjectFunctionPointer_t = void(__fastcall*)(void*, ...);
         using DrawAggregateSceneObjectArray_t = void(__fastcall*)(void*, ...);
         using DrawObject_legacy_t = void(__fastcall*)(void*, ...);
+        using DrawSkyboxArray_t = void(__fastcall*)(void*, ...);
         using SceneSystem__DrawAggeregateObject_t = void(__fastcall*)(void*, ...);
         using SceneSystem__DrawArrayLight_t = void(__fastcall*)(void*, ...);
         using SceneSystem_Thread_RenderSceneDrawList_t = void(__fastcall*)(void*, ...);
@@ -1121,6 +1166,7 @@ namespace cs2::fn {
         using CCSPlayerPawn_GiveNamedItem_t = void(__fastcall*)(void*, ...);
     }
     namespace soundsystem {
+        using CSosOperatorSystem_StartSoundEvent_t = void(__fastcall*)(void*, ...);
         // _UNKNOWN **__fastcall sub_180349840(__int64 a1, __int64 a2, int a3, int a4)
         using SoundSystem__PlayVSound_t = void(__fastcall*)(void*, ...);
         // __int64 __fastcall sub_1800B0740(__int64 a1, unsigned int a2)

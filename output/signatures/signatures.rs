@@ -46,6 +46,8 @@ pub mod client {
     pub const CBodyComponentSkeletonInstance: &str = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 57 48 83 EC 20 8B 0D F6 04";
     /// `char __fastcall sub_1817E29D0(__int64 a1, const char *a2)`
     pub const CBufferStringInit: &str = "48 89 5C 24 10 57 48 83 EC 30 8B 41 04 48 8D 79";
+    /// `double __fastcall sub_180C5E7F0(__int64 a1, unsigned int a2, __int64 a3)`
+    pub const CCSGOInput__CreateMove: &str = "48 8B C4 4C 89 40 18 48 89 48 08 55 53 41 54 41";
     /// `_QWORD *sub_18007E160()`
     pub const CCSGameRules: &str = "4C 8D 05 ? ? ? ? 48 8D 15 ? ? ? ? 48 8D 0D AB A1 21";
     /// `__int64 sub_1806E9500()`
@@ -142,6 +144,8 @@ pub mod client {
     pub const CS2ItemEditor_BuildTemplateMaterialFromFile: &str = "48 89 54 24 10 55 53 41 55 41 57 48 8D AC 24 18";
     /// `void __fastcall sub_1814E8140(__int64 a1)`
     pub const CSBaseGunFireData_fn: &str = "48 8B C4 55 53 56 57 41 54 41 55 41 56 41 57 48 8D 68 A8 48";
+    /// `double __fastcall sub_180C5E7F0(__int64 a1, unsigned int a2, __int64 a3)`
+    pub const CSGOInput_CreateMove: &str = "48 8B C4 4C 89 40 18 48 89 48 08 55 53 41 54 41";
     /// `__int64 __fastcall sub_1801A3A20(int a1, __int64 a2)`
     pub const CSkeletonInstance: &str = "40 57 48 83 EC 20 48 8B FA 85 C9 74 23 83 F9 06 74 08 33 C0 48 83 C4 20 5F C3 48 8B 02 48 8B CF 48 8D 54 24 48 FF 10 48 8B 00 48 83 C4 20 5F C3";
     /// `__int64 __fastcall sub_180A2DB50(__int64 a1, __int64 a2)`
@@ -211,6 +215,7 @@ pub mod client {
     /// `__int64 (__fastcall *sub_180095A10())()`
     pub const C_SmokeGrenadeProjectile: &str = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 65 48 8B 04 25 58 00 00 00 48 8D 35 ? ? ? ? 8B 0D ? ? ? ? 33 FF BA 98 00 00 00 48 8B 1C C8";
     pub const CacheParticleEffect: &str = "4C 8B DC 53 48 81 EC 90 00 00 00 F2 0F 10 05 65";
+    pub const CalcSpread: &str = "48 8B C4 48 89 58 08 48 89 68 18 48 89 70 20 57 41 54 41 55 41 56 41 57 48 81 EC E0";
     /// `void __fastcall sub_18084F430(__int64 a1, float *a2, float *a3)`
     pub const CalcViewmodel: &str = "40 55 53 56 41 56 41 57 48 8B EC 48 83 EC 20 4D";
     /// `__int64 __fastcall sub_1807A24F0(__int64 a1, __int64 a2)`
@@ -223,6 +228,8 @@ pub mod client {
     pub const CalculateWorldSpaceBones: &str = "48 89 4C 24 08 55 53 56 57 41 54 41 55 41 56 41 57 B8 58 42";
     /// `__int64 __fastcall sub_180DEDDD0(__int64 a1, int a2, __int64 a3)`
     pub const ClearHUDWeaponIcon: &str = "4C 8B DC 55 57 48 83 EC 48 48 63 41 68 48 8B F9";
+    /// `void __fastcall sub_180C5C660(__int64 a1, KeyValues *a2)`
+    pub const ClientModeCSNormal_OnEvent: &str = "40 53 57 48 81 EC 78 02 00 00 48 8B CA 48 8B FA";
     /// `__int64 __fastcall sub_1814D5B10(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4)`
     pub const Client_DispatchSpawn: &str = "4C 8B DC 55 56 48 83 EC 78 49 8B 68 08 48 8B F1";
     /// `__int64 __fastcall sub_180B91260(__int64 a1, __int64 a2, __int64 a3)`
@@ -247,6 +254,8 @@ pub mod client {
     pub const CreateParticleEffect: &str = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 50 F3 0F 10 1D 01";
     /// `__int64 sub_180FF7770()`
     pub const CreateSOSubclassEconItem: &str = "48 83 EC 28 B9 48 00 00 00 E8 ? ? ? ? 48 85";
+    /// `void __fastcall sub_18081FB40(__int64 a1, _QWORD *a2, __int64 a3)`
+    pub const DamageFeedbackEmitter: &str = "48 89 4C 24 08 55 53 41 54 41 55 41 57 48 8D AC";
     /// `void __fastcall sub_1809463E0(__int64 a1, __int64 a2, unsigned __int8 a3, char a4)`
     pub const DestroyParticle: &str = "83 FA FF 0F 84 ? ? ? ? 41 54 41 56 41 57 48";
     /// `__int64 __fastcall sub_18035A570(__int64 a1, __int64 a2)`
@@ -263,6 +272,8 @@ pub mod client {
     pub const DrawScopeOverlay: &str = "48 8B C4 53 57 48 83 EC 68 48 8B FA 44 0F 29 40";
     /// `__int64 __fastcall sub_180C7B290(__int64 a1, __int64 a2, int a3, int a4, __int64 a5, __int64 a6)`
     pub const DrawSmokeVertex: &str = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 57 41 56 41 57 48 83 EC 40 48 8B 9C 24 88 00 00 00 4D 8B F8 48 8B FA 48 8B";
+    /// `__int64 __fastcall sub_180B63B10(__int64 a1, int a2, int a3, __int64 a4)`
+    pub const EmitSoundByHandle: &str = "40 53 48 83 EC 30 4C 89 4C 24 20 48 8B D9 45 8B";
     /// `void sub_180C7E380(unsigned int a1, __int64 a2, __int64 a3, __int64 *a4, __int64 a5, int a6, int a7, ...)`
     pub const FX_FireBullets: &str = "48 8B C4 4C 89 48 20 48 89 50 10 55 53 57 41 54";
     /// `_QWORD **__fastcall sub_180DC1D50(__int64 a1, unsigned __int8 a2)`
@@ -333,8 +344,14 @@ pub mod client {
     pub const GetUserCmdManager: &str = "41 56 41 57 48 83 EC 48 48 8D 54 24 68 E8 5E A9";
     /// `__int64 *__fastcall sub_180AD5CA0(__int64 a1, int a2)`
     pub const GetViewAngles: &str = "4C 8B C1 85 D2 74 08 48 8D 05 ? ? ? ? C3 8B";
+    /// `void __fastcall sub_18084EE40(__int64 viewmodel, float *outOffsets, float *outFov)`
+    pub const GetViewModelOffsets: &str = "40 55 53 56 41 56 41 57 48 8B EC 48 83 EC 20 4D";
     /// `__m128 __fastcall sub_180796600(__int64 a1)`
     pub const GetWeaponInAccuracyRecoveryTime: &str = "48 89 5C 24 08 57 48 83 EC 30 48 8B D9 E8 0E 52";
+    /// `float __fastcall sub_18080CEF0(__int64 a1)`
+    pub const GetWorldFovResolver: &str = "40 53 48 83 EC 50 48 8B D9 E8 ? ? ? ? 48 85";
+    /// `_BYTE *__fastcall sub_180A8B5A0(__int64 a1)`
+    pub const GlobalLightUpdateState: &str = "40 57 48 81 EC C0 00 00 00 48 8B F9 BA FF FF FF";
     /// `void __fastcall sub_180BC1460(int *a1)`
     pub const GloveApply_PerTick: &str = "40 55 56 57 48 8D AC 24 30 FD FF FF 48 81 EC D0";
     /// `__int64 sub_180B0ACD0()`
@@ -359,6 +376,8 @@ pub mod client {
     pub const InitTraceInfo: &str = "40 55 41 55 41 57 48 83 EC 30 4C 8B 3D AF B9 EE";
     /// `__int64 __fastcall sub_180B0C300(__int64 a1)`
     pub const IsGlowing: &str = "0F B6 41 51 C3 CC CC CC CC CC CC CC CC CC CC CC";
+    /// `__int64 __fastcall sub_18084B0F0(__int64 a1, __int64 a2)`
+    pub const KillFeedbackEmitter: &str = "48 89 5C 24 08 48 89 74 24 18 48 89 7C 24 20 55 41 56 41 57 48 8B EC 48 81 EC 80 00";
     /// `__int64 __fastcall sub_1808D0100(__int64 a1)`
     pub const LevelInit: &str = "40 55 56 41 56 48 8D 6C 24 90 48 81 EC 70 01 00";
     /// `void __fastcall sub_18091BF40(__int64 a1)`
@@ -394,6 +413,8 @@ pub mod client {
     pub const RegenerateWeaponSkin_v2: &str = "40 55 53 41 57 48 8D AC 24 00 FE FF FF 48 81 EC";
     /// `__int64 sub_1807B0D40()`
     pub const RegenerateWeaponSkins: &str = "48 83 EC 48 E8 ? ? ? ? 48 85 C0 0F 84 7F 00";
+    /// `_BYTE *__fastcall sub_1810ECA50(__int64 a1, __int64 **a2, char a3, char a4)`
+    pub const RenderDecals: &str = "44 88 4C 24 20 55 53 57 41 54 41 55 48 8D 6C 24";
     /// `char __fastcall sub_180602290(_QWORD *a1)`
     pub const ReportHit: &str = "40 53 48 83 EC 20 48 8D 05 ? ? ? ? 48 8D 59 08 48 89 01 F6 03 01 74 08 48 8B CB E8 AF FB EA";
     /// `void __fastcall sub_1809DBAF0(__int64 a1, __int64 a2)`
@@ -482,6 +503,7 @@ pub mod client {
     pub const UpdateTurningInAccuracy: &str = "40 56 48 81 EC 80 00 00 00 48 8B F1 BA FF FF FF";
     /// `__int64 __fastcall sub_1807A0460(__int64 a1, __int64 a2, __int64 **a3)`
     pub const ViewModelHideZoomed: &str = "48 89 5C 24 20 55 56 57 41 54 41 56 48 8B EC 48 83 EC 50 48 8D 05 36 F1";
+    pub const WriteSubtickFromEntry: &str = "48 89 5C 24 18 55 57 41 56 48 8D 6C 24 C9 48 81";
     /// `void __fastcall sub_180ACC120(__int64 *a1, int a2, char a3)`
     pub const create_move_v2: &str = "85 D2 0F 85 ? ? ? ? 48 8B C4 44 88 40 18 89";
     /// `__int64 __fastcall sub_180C7B380(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, unsigned int *a6)`
@@ -692,6 +714,10 @@ pub mod resourcesystem {
 
 pub mod scenesystem {
     pub const AllocateAttributeListFunctionPointer: &str = "40 55 48 83 EC 20 48 83 BA A8 00 00 00 00 48 8B";
+    pub const BuildSceneInfoGpu: &str = "4C 89 4C 24 20 4C 89 44 24 18 48 89 4C 24 08 55 48 8D AC 24 00 E3 FF FF";
+    pub const CSceneAnimatableObject__GeneratePrimitives: &str = "48 8B C4 48 89 58 08 48 89 50 10 55 56 57 41 54 41 55 41 56 41 57 48 81";
+    pub const CSceneAnimatableObject_GeneratePrimitives: &str = "48 8B C4 48 89 58 08 48 89 50 10 55 56 57 41 54 41 55 41 56 41 57 48 81";
+    pub const CSceneSkyBoxObject_DrawSkyboxArray: &str = "45 85 C9 0F 8E ? ? ? ? 4C 8B DC 55 41 56 49";
     pub const CSceneSystem_CreateStaticShape: &str = "48 8B C4 48 89 48 08 55 41 54 41 56 48 8D 68 D8";
     pub const CSceneSystem_InitGfxObjects: &str = "40 55 53 56 57 41 54 41 55 41 56 41 57 48 8D AC 24 08 FE FF";
     pub const CSceneSystem_RenderViewLayer_Dispatch: &str = "48 8B C4 48 89 48 08 55 53 56 57 41 54 41 55 41 56 41 57 48 8D A8 B8 FE";
@@ -699,6 +725,7 @@ pub mod scenesystem {
     pub const DeleteSceneObjectFunctionPointer: &str = "48 85 D2 0F 84 ? ? ? ? 48 8B C4 48 89 50 10";
     pub const DrawAggregateSceneObjectArray: &str = "48 8B C4 48 89 50 10 48 89 48 08 55 53 56 57 41 54 41 55 41 56 41 57 48 8D A8 38 F9";
     pub const DrawObject_legacy: &str = "48 8B C4 53 57 41 54 48 81 EC D0 00 00 00 49 63";
+    pub const DrawSkyboxArray: &str = "45 85 C9 0F 8E ? ? ? ? 4C 8B DC 55 41 56 49";
     pub const SceneSystem__DrawAggeregateObject: &str = "48 8B C4 4C 89 48 20 4C 89 40 18 48 89 50 10 55 53 41 57 48";
     pub const SceneSystem__DrawArrayLight: &str = "48 89 5C 24 08 48 89 6C 24 18 48 89 54 24 10 56 57 41 56 48";
     pub const SceneSystem_Thread_RenderSceneDrawList: &str = "40 55 53 56 57 41 54 41 55 41 56 41 57 48 8D 6C 24 E1 48 81 EC D8 00 00";
@@ -722,6 +749,7 @@ pub mod server {
 }
 
 pub mod soundsystem {
+    pub const CSosOperatorSystem_StartSoundEvent: &str = "40 53 55 56 48 83 EC 20 83 B9 EC 24 00 00 00 49";
     /// `_UNKNOWN **__fastcall sub_180349840(__int64 a1, __int64 a2, int a3, int a4)`
     pub const SoundSystem__PlayVSound: &str = "48 8B C4 48 89 58 08 57 48 81 EC A0 00 00 00 33";
     /// `__int64 __fastcall sub_1800B0740(__int64 a1, unsigned int a2)`
