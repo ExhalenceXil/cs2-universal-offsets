@@ -70,6 +70,8 @@ pub fn render_module_headers(
     timestamp: &str,
 ) -> Vec<(String, String)> {
     let mut out = Vec::with_capacity(schemas.len());
+    let mut module_data: Vec<(String, String, Vec<Class>, Vec<Enum>)> = Vec::with_capacity(schemas.len());
+    let mut type_namespace_map: BTreeMap<String, String> = BTreeMap::new();
     // Cross-module dedup: a schema class registered in two modules
     // (common for shared bases like CBaseEntity in both client.dll and
     // server.dll) is only emitted in the FIRST module that contained it.
@@ -88,8 +90,36 @@ pub fn render_module_headers(
             .filter(|e| seen_enums.insert(type_ident(&e.name)))
             .cloned()
             .collect();
+        let ns = slugify(module.trim_end_matches(".dll"));
+        for c in &filtered_classes {
+            type_namespace_map
+                .entry(sanitize_class_name(&c.name))
+                .or_insert_with(|| ns.clone());
+        }
+        for e in &filtered_enums {
+            let enum_name = type_ident(&e.name);
+            type_namespace_map
+                .entry(enum_name)
+                .or_insert_with(|| ns.clone());
+            type_namespace_map
+                .entry(sanitize_class_name(&e.name))
+                .or_insert_with(|| ns.clone());
+        }
+
         let file_name = format!("{}.hpp", slugify(module));
-        let body = render_one_module(module, &filtered_classes, &filtered_enums, buttons, build_number, timestamp);
+        module_data.push((file_name, module.clone(), filtered_classes, filtered_enums));
+    }
+
+    for (file_name, module, filtered_classes, filtered_enums) in module_data {
+        let body = render_one_module(
+            &module,
+            &filtered_classes,
+            &filtered_enums,
+            buttons,
+            build_number,
+            timestamp,
+            &type_namespace_map,
+        );
         out.push((file_name, body));
     }
     out
@@ -1522,6 +1552,7 @@ fn render_one_module(
     buttons: &BTreeMap<String, u64>,
     build_number: Option<u32>,
     timestamp: &str,
+    type_namespace_map: &BTreeMap<String, String>,
 ) -> String {
     let ns = slugify(module.trim_end_matches(".dll"));
     let mut s = String::with_capacity(64 * 1024);
@@ -1631,7 +1662,7 @@ fn render_one_module(
         let mut alias_counter = 0;
         let mut field_aliases: Vec<(usize, String)> = Vec::new();
         for (idx, f) in c.fields.iter().enumerate() {
-            let cpp_ty = map_schema_type(&f.type_name);
+            let cpp_ty = map_schema_type(&f.type_name, &ns, type_namespace_map);
             if cpp_ty.contains(',') {
                 let alias_name = format!("_Type{}", alias_counter);
                 writeln!(s, "        using {} = {};", alias_name, cpp_ty).ok();
@@ -1642,7 +1673,7 @@ fn render_one_module(
 
         // Second pass: emit SCHEMA_FIELD with type aliases where needed
         for (idx, f) in c.fields.iter().enumerate() {
-            let cpp_ty = map_schema_type(&f.type_name);
+            let cpp_ty = map_schema_type(&f.type_name, &ns, type_namespace_map);
 
             // Skip bitfield types - they can't be accessed via SCHEMA_FIELD macro
             if f.type_name.starts_with("bitfield:") {
@@ -1730,16 +1761,20 @@ fn write_class_doc(s: &mut String, c: &Class) {
 /// understand is wrapped in a forward-decl-friendly pointer or returned
 /// verbatim. This keeps the header useful even for types we haven't yet
 /// hand-mapped.
-fn map_schema_type(raw: &str) -> String {
+fn map_schema_type(
+    raw: &str,
+    current_ns: &str,
+    type_namespace_map: &BTreeMap<String, String>,
+) -> String {
     let t = raw.trim();
 
     // Handle array types: Type[N] -> Type (the SCHEMA_FIELD macro handles array access)
     if let Some(bracket_pos) = t.find('[') {
         let base_type = &t[..bracket_pos];
-        return map_schema_type(base_type);
+        return map_schema_type(base_type, current_ns, type_namespace_map);
     }
 
-    match t {
+    let mapped = match t {
         "bool" => "bool".into(),
         "char" => "char".into(),
         "int8"  | "int8_t"   => "std::int8_t".into(),
@@ -1810,7 +1845,51 @@ fn map_schema_type(raw: &str) -> String {
 
             result
         }
+    };
+
+    qualify_cross_module_type_refs(&mapped, current_ns, type_namespace_map)
+}
+
+fn qualify_cross_module_type_refs(
+    cpp_type: &str,
+    current_ns: &str,
+    type_namespace_map: &BTreeMap<String, String>,
+) -> String {
+    let chars: Vec<char> = cpp_type.chars().collect();
+    let mut out = String::with_capacity(cpp_type.len());
+    let mut i = 0;
+
+    while i < chars.len() {
+        if chars[i].is_ascii_alphabetic() || chars[i] == '_' {
+            let start = i;
+            i += 1;
+            while i < chars.len() && (chars[i].is_ascii_alphanumeric() || chars[i] == '_') {
+                i += 1;
+            }
+
+            let token: String = chars[start..i].iter().collect();
+            let scoped = start >= 2 && chars[start - 2] == ':' && chars[start - 1] == ':';
+            if !scoped {
+                if let Some(owner_ns) = type_namespace_map.get(&token) {
+                    if owner_ns != current_ns {
+                        out.push_str("::sdk::");
+                        out.push_str(owner_ns);
+                        out.push_str("::");
+                        out.push_str(&token);
+                        continue;
+                    }
+                }
+            }
+
+            out.push_str(&token);
+            continue;
+        }
+
+        out.push(chars[i]);
+        i += 1;
     }
+
+    out
 }
 
 fn sanitize_enum_member(raw: &str) -> String {
