@@ -6,7 +6,6 @@
 //! Windows Terminal both render it correctly.
 
 use std::io::{self, Write};
-use std::time::Duration;
 
 // ---------------------------------------------------------------------------
 // ANSI palette
@@ -33,7 +32,7 @@ pub const CIRCLE: &str = "◉";
 pub const CHECK: &str = "✓";
 pub const CROSS: &str = "✗";
 pub const WARN: &str = "!";
-pub const INFO: &str = "i";
+
 pub const HLINE: &str = "─";
 pub const CORNER_TL: &str = "╭";
 pub const CORNER_TR: &str = "╮";
@@ -107,21 +106,18 @@ pub fn sound(cue: Cue) {
     }
     match cue {
         Cue::Start => {
-            beep(660, 90);
-            beep(880, 110);
-            beep(1175, 140);
+            beep(523, 35);
+            beep(659, 40);
         }
-        Cue::Step => beep(988, 55),
+        Cue::Step => beep(587, 25),
         Cue::Success => {
-            beep(784, 100);
-            beep(988, 100);
-            beep(1318, 180);
-            beep(1568, 220);
+            beep(587, 35);
+            beep(698, 45);
+            beep(784, 55);
         }
         Cue::Failure => {
-            beep(330, 160);
-            beep(262, 220);
-            beep(196, 280);
+            beep(294, 50);
+            beep(247, 65);
         }
     }
 }
@@ -255,15 +251,4 @@ pub fn not_found(name: &str, reason: &str) {
 
 pub fn divider() {
     println!("  {DIM}{FG_GRAY}{}{RESET}", HLINE.repeat(66));
-}
-
-pub fn fmt_duration(d: Duration) -> String {
-    let secs = d.as_secs_f64();
-    if secs < 1.0 {
-        format!("{:.0} ms", d.as_millis())
-    } else if secs < 60.0 {
-        format!("{:.2} s", secs)
-    } else {
-        format!("{:.0} m {:.0} s", secs / 60.0, secs % 60.0)
-    }
 }

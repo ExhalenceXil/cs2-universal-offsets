@@ -21,7 +21,7 @@ const RIPREL_19: ResolveKind = ResolveKind::RipRel { rel_off: 19 };
 pub static CS2_SIGNATURES: &[Signature] = &[
     // ---------- client.dll : input / movement --------------------------
     Signature {
-        name: "CCSGOInput::CreateMove",
+        name: "CreateMove",
         module: "client.dll",
         needle: "48 8B C4 4C 89 40 18 48 89 48 08 55 53 41 54 41 55",
         resolve: NONE,
@@ -782,16 +782,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
     // backing g_pAnimationSystemUtils inside animationsystem.dll.
     Signature { name: "AnimationSystemUtils_ptr",             module: "animationsystem.dll", needle: "48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 48 83 EC 28 48 8B CA 48 8D 15", resolve: RIPREL_3, extra_off: 0, prototype: "" },
 
-    // ---------- vphysics2.dll -----------------------------------------
-    // VPhysics2_Startup Ã”Ã‡Ã¶ vphysics2!sub_18006AF20 (~size 0x2a8). The
-    // module-level startup that brings up the physics world, surface-prop
-    // loader, and the VPhysics2_Interface_001 singleton chain. Hook here
-    // to inject custom collision filters / disable convex sweeps before
-    // the world is registered (server-grade no-clip / silent-walk).
-    // First module-level vphysics2 sig in the universal-dumper Ã”Ã‡Ã¶ the
-    // module's entire string table is heavily stripped, so RAW prologue
-    // anchored on the unique `48 83 3D` global-init guard works best.
-    Signature { name: "VPhysics2_Startup",                    module: "vphysics2.dll", needle: "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 48 89 7C 24 20 41 54 41 56 41 57 48 83 EC 70 48 83 3D", resolve: NONE, extra_off: 0, prototype: "" },
+
 
     // ---------- schemasystem.dll --------------------------------------
     // CSchemaSystem_VerifySchemaBindingConsistency Ã”Ã‡Ã¶ schemasystem!
@@ -1126,7 +1117,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
     Signature { name: "ForceButtonsDown",                     module: "client.dll", needle: "40 53 57 41 56 48 81 EC ? ? ? ? 48 83 79", resolve: NONE, extra_off: 0, prototype: "void __fastcall sub_1809D0130(_QWORD *a1, __int64 a2)" },
     Signature { name: "SetupMovementMoves",                   module: "client.dll", needle: "48 8B ? E8 ? ? ? ? 48 8B 5C 24 ? 48 8B 6C 24 ? 48 83 C4 30", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_181186C10(__int64 a1, __int64 a2, __int64 a3, __int64 a4)" },
     Signature { name: "ProcessImpacts",                       module: "client.dll", needle: "48 8B C4 53 56 41 55", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_1809CEA50(_QWORD *a1, __int64 a2, __int64 a3)" },
-    Signature { name: "CSBaseGunFireData_fn",                 module: "client.dll", needle: "48 8B C4 55 53 56 57 41 54 41 55 41 56 41 57 48 8D 68 A8 48 81 EC ? ? ? ? 4C 8B 69", resolve: NONE, extra_off: 0, prototype: "void __fastcall sub_1814E8140(__int64 a1)" },
+    Signature { name: "CSBaseGunFireData",                    module: "client.dll", needle: "48 8B C4 55 53 56 57 41 54 41 55 41 56 41 57 48 8D 68 A8 48 81 EC ? ? ? ? 4C 8B 69", resolve: NONE, extra_off: 0, prototype: "void __fastcall sub_1814E8140(__int64 a1)" },
     Signature { name: "GetWeaponInAccuracyRecoveryTime",      module: "client.dll", needle: "E8 ? ? ? ? F3 0F 10 B7 ? ? ? ? F3 0F 5E F8", resolve: REL32_1, extra_off: 0, prototype: "__m128 __fastcall sub_180796600(__int64 a1)" },
     Signature { name: "UpdateTurningInAccuracy",              module: "client.dll", needle: "E8 ? ? ? ? F3 0F 10 87 ? ? ? ? 44 0F 2F C8", resolve: REL32_1, extra_off: 0, prototype: "float *__fastcall sub_1807AFDA0(float *a1)" },
 
@@ -4318,14 +4309,6 @@ pub static CS2_SIGNATURES: &[Signature] = &[
     // delta â†’ view angles â†’ shoot angles â†’ buttons). Hook this
     // instead of patching individual subtick writers when you want
     // a single chokepoint for aim/anti-aim/triggerbot.
-    Signature {
-        name: "CSGOInput_CreateMove",
-        module: "client.dll",
-        needle: "48 8B C4 4C 89 40 18 48 89 48 08 55 53 41 54 41 55 48 8D A8 F8 FE FF FF",
-        resolve: NONE,
-        extra_off: 0,
-        prototype: "double __fastcall sub_180C5E7F0(__int64 a1, unsigned int a2, __int64 a3)",
-    },
 
     // ==================================================================
     // NUVORA MAY-05-2026 EXPANSION v2 (build 14158, ports 13338+13339)
@@ -4542,17 +4525,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         prototype: "void __fastcall sub_18008B530(__int64 a1)",
     },
 
-    // CWorldRendererMgr_ServiceWorldRequests - worldrenderer!sub_18002B4A0
-    // Per-frame world-streaming dispatcher (rdtsc-timed; logs "long frame"
-    // to console when budget exceeded). Hook for skybox / world overrides.
-    Signature {
-        name: "CWorldRendererMgr_ServiceWorldRequests",
-        module: "worldrenderer.dll",
-        needle: "48 89 5C 24 10 48 89 6C 24 18 48 89 74 24 20 57 41 54 41 55 41 56 41 57 48 83 EC 40 48 8B D9 0F 29 74 24 30 48 8D 0D ? ? ? ? 0F 29 7C 24 20 BA FF FF FF FF",
-        resolve: NONE,
-        extra_off: 0,
-        prototype: "__int64 __fastcall sub_18002B4A0(__int64 a1)",
-    },
+
 
     // CUIEngine_RunFrame - panorama!sub_1800A95F0 - per-frame Panorama UI
     // tick: runs scheduled delegates, repaints, processes script tasks.

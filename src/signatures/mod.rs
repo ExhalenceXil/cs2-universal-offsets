@@ -14,7 +14,7 @@
 //!                       workflow, robust across CS2 patches.
 
 use std::collections::BTreeMap;
-use std::time::Instant;
+
 
 use anyhow::{Context, Result, anyhow};
 use memflow::prelude::v1::*;
@@ -27,8 +27,14 @@ pub mod database;
 pub mod diff;
 pub mod writers;
 pub mod offsets_writer;
+pub mod tutorials;
 
 pub use cache::SignatureCache;
+
+#[derive(Clone, Debug, serde::Serialize)]
+pub struct SignatureTutorial {
+    pub steps: Vec<String>,
+}
 
 // ---------------------------------------------------------------------------
 // Public types
@@ -72,6 +78,9 @@ pub struct SignatureHit {
     /// when no prototype has been recorded yet.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub prototype: Option<String>,
+    /// Optional curated IDA tutorial attached to this signature.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub ida_tutorial: Option<SignatureTutorial>,
     /// 24 bytes of the resolved function's prologue, formatted as an
     /// IDA-style space-separated hex pattern (no wildcards).  Useful as a
     /// drop-in signature on builds where the database pattern is missing
@@ -112,21 +121,13 @@ pub struct SignatureReport {
     pub found: usize,
     pub modules: Vec<String>,
     pub hits: Vec<SignatureHit>,
-    pub elapsed_ms: u128,
 }
 
 // ---------------------------------------------------------------------------
-// Entry point
+/// Entry point
 // ---------------------------------------------------------------------------
 
-pub fn scan_all<P>(process: &mut P, sigs: &[Signature]) -> Result<SignatureReport>
-where
-    P: Process + MemoryView,
-{
-    scan_all_with_cache(process, sigs, &SignatureCache::default())
-}
-
-/// Like [`scan_all`] but consults `cache` first.  When a cached
+/// Like `scan_all` but consults `cache` first.  When a cached
 /// `match_rva` still has the pattern bytes the scanner expects, the entry
 /// is satisfied without performing a full module sweep — useful when
 /// re-running on the same CS2 build.
@@ -138,7 +139,7 @@ pub fn scan_all_with_cache<P>(
 where
     P: Process + MemoryView,
 {
-    let t0 = Instant::now();
+
 
     // Pre-load each unique module image once so every signature reuses it.
     let mut module_cache: BTreeMap<String, ModuleCache> = BTreeMap::new();
@@ -210,7 +211,6 @@ where
         );
     }
 
-    report.elapsed_ms = t0.elapsed().as_millis();
     Ok(report)
 }
 
@@ -245,11 +245,12 @@ fn try_satisfy_from_cache(
     }
 
     Some(SignatureHit {
-        name: sig.name.to_string(),
+        name: display_name(sig.name),
         module: mc.name.clone(),
         resolve: kind_name(sig.resolve),
         pattern: sig.needle.to_string(),
-        prototype: opt_proto(sig.prototype),
+        prototype: opt_proto(sig.name, sig.prototype),
+        ida_tutorial: tutorials::for_signature(sig),
         bytes: capture_prologue(mc, res_rva),
         pattern_synth: synthesize_pattern(mc, res_rva),
         found: true,
@@ -257,7 +258,7 @@ fn try_satisfy_from_cache(
         match_va: Some(match_va),
         rva: Some(res_rva),
         va: Some(res_va),
-        matches: 1,
+        matches: default_match_count(),
         from_cache: true,
         error: None,
     })
@@ -464,11 +465,12 @@ fn scan_pattern(mc: &ModuleCache, sig: &Signature) -> SignatureHit {
     }
 
     SignatureHit {
-        name: sig.name.to_string(),
+        name: display_name(sig.name),
         module: mc.name.clone(),
         resolve: kind_name(sig.resolve),
         pattern: sig.needle.to_string(),
-        prototype: opt_proto(sig.prototype),
+        prototype: opt_proto(sig.name, sig.prototype),
+        ida_tutorial: tutorials::for_signature(sig),
         bytes: capture_prologue(mc, res_rva),
         pattern_synth: synthesize_pattern(mc, res_rva),
         found: true,
@@ -573,11 +575,12 @@ fn scan_string_ref(mc: &ModuleCache, sig: &Signature) -> SignatureHit {
             let match_va = mc.base + hit as u64;
             let fn_va = mc.base + fn_rva as u64 + sig.extra_off as u64;
             return SignatureHit {
-                name: sig.name.to_string(),
+                name: display_name(sig.name),
                 module: mc.name.clone(),
                 resolve: kind_name(sig.resolve),
                 pattern: format!("\"{}\"", sig.needle),
-                prototype: opt_proto(sig.prototype),
+                prototype: opt_proto(sig.name, sig.prototype),
+                ida_tutorial: tutorials::for_signature(sig),
                 bytes: capture_prologue(mc, fn_rva as u64),
                 pattern_synth: synthesize_pattern(mc, fn_rva as u64),
                 found: true,
@@ -585,7 +588,7 @@ fn scan_string_ref(mc: &ModuleCache, sig: &Signature) -> SignatureHit {
                 match_va: Some(match_va),
                 rva: Some(fn_rva as u64),
                 va: Some(fn_va),
-                matches: 1,
+                matches: default_match_count(),
                 from_cache: false,
                 error: None,
             };
@@ -677,11 +680,12 @@ fn kind_name(k: ResolveKind) -> &'static str {
 impl SignatureHit {
     fn fail(sig: &Signature, err: &str) -> Self {
         Self {
-            name: sig.name.to_string(),
+            name: display_name(sig.name),
             module: sig.module.to_string(),
             resolve: kind_name(sig.resolve),
             pattern: sig.needle.to_string(),
-            prototype: opt_proto(sig.prototype),
+            prototype: opt_proto(sig.name, sig.prototype),
+            ida_tutorial: tutorials::for_signature(sig),
             bytes: None,
             pattern_synth: None,
             found: false,
@@ -696,9 +700,54 @@ impl SignatureHit {
     }
 }
 
-#[inline]
-fn opt_proto(p: &'static str) -> Option<String> {
-    if p.is_empty() { None } else { Some(p.to_string()) }
+fn display_name(raw: &str) -> String {
+    if raw.is_empty() {
+        return String::new();
+    }
+    if let Some(idx) = raw.rfind("::") {
+        return raw[idx + 2..].to_string();
+    }
+    if raw.starts_with("m_") || raw.starts_with("dw") || raw.starts_with("g_") || raw.starts_with("C_") || raw.ends_with("_t") {
+        return raw.to_string();
+    }
+
+    let parts: Vec<&str> = raw.split('_').filter(|p| !p.is_empty()).collect();
+    if parts.len() > 1 {
+        let head = parts[0];
+        let tail = parts[parts.len() - 1];
+        let bad_tail = matches!(tail, "fn" | "ptr" | "call" | "func" | "function")
+            || tail.chars().next().map(|c| c.is_ascii_lowercase()).unwrap_or(true);
+        let looks_like_class = head
+            .chars()
+            .next()
+            .map(|c| c.is_ascii_uppercase())
+            .unwrap_or(false);
+        if looks_like_class && !bad_tail {
+            return tail.to_string();
+        }
+    }
+    raw.to_string()
+}
+
+fn opt_proto(sig_name: &str, p: &'static str) -> Option<String> {
+    if p.is_empty() {
+        return None;
+    }
+
+    if sig_name == "CreateMove" {
+        return Some("bool __fastcall CreateMove(void* pthis, int nSlot, float flInputSampleTime, bool bActive)".to_string());
+    }
+
+    let display = display_name(sig_name);
+    let mut out = p.to_string();
+    if let Some(start) = out.find("sub_") {
+        let mut end = start + 4;
+        while end < out.len() && out.as_bytes()[end].is_ascii_hexdigit() {
+            end += 1;
+        }
+        out.replace_range(start..end, &display);
+    }
+    Some(out)
 }
 
 // ---------------------------------------------------------------------------

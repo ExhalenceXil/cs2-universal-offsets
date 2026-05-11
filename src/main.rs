@@ -11,13 +11,12 @@
 //         manifest.json                       run metadata + module fingerprints
 //         logs/cs2-sdk.log                    full TRACE-level run log
 //         signatures/
-//             signatures.json   (hand-formatted, one entry per line)
-//             signatures.hpp    (C++ namespace per module � patterns +
-//                                 fn-ptr typedefs)
-//             signatures.hpp    (C++ namespace per module � patterns)
-//             signatures.rs     (Rust module per module � patterns)
-//             SIGNATURES.md     (human-readable table)
-//             diff.json         (delta vs. previous session, when found)
+//             signatures.json     (hand-formatted, one entry per line)
+//             signatures.hpp      (C++ namespace per module + fn-ptr typedefs)
+//             signatures.rs       (Rust module per module patterns)
+//             ida_tutorials.json   (curated IDA walkthroughs)
+//             SIGNATURES.md       (human-readable table)
+//             diff.json           (delta vs. previous session, when found)
 //         sdk/
 //             cs2sdk.hpp                       single-include amalgamation
 //             cs2sdk.rs                        Rust amalgamation module
@@ -36,7 +35,7 @@ use std::collections::BTreeMap;
 use std::fs::{self, File};
 use std::path::{Path, PathBuf};
 use std::str::FromStr;
-use std::time::{Duration, Instant};
+
 
 use anyhow::{Context, Result};
 use chrono::Local;
@@ -140,15 +139,12 @@ fn main() -> Result<()> {
 
     // --- stage 1: offsets --------------------------------------------------
     let mut offsets_ok = true;
-    let mut offsets_elapsed = Duration::ZERO;
     let mut build_number: Option<u32> = None;
     let mut analysis_result: Option<analysis::AnalysisResult> = None;
 
     if !args.skip_offsets {
         ui::section("Offsets, interfaces, buttons, schemas");
         ui::sound(ui::Cue::Step);
-        let t0 = Instant::now();
-
         match analysis::analyze_all(&mut process) {
             Ok(result) => {
                 ui::ok(&format!(
@@ -216,8 +212,6 @@ fn main() -> Result<()> {
                     ));
                 }
 
-                offsets_elapsed = t0.elapsed();
-                ui::ok(&format!("offsets pass completed in {}", ui::fmt_duration(offsets_elapsed)));
                 drop(out);
                 analysis_result = Some(result);
             }
@@ -261,11 +255,10 @@ fn main() -> Result<()> {
         ) {
             Ok(report) => {
                 ui::ok(&format!(
-                    "{}/{} signatures resolved across {} module(s) in {}",
+                    "{}/{} signatures resolved across {} module(s)",
                     report.found,
                     report.total,
-                    report.modules.len(),
-                    ui::fmt_duration(Duration::from_millis(report.elapsed_ms as u64))
+                    report.modules.len()
                 ));
 
                 let json_path = sigs_dir.join("signatures.json");
@@ -275,6 +268,10 @@ fn main() -> Result<()> {
                 // Multi-language fan-out (C++ only — Rust output dropped).
                 fs::write(sigs_dir.join("signatures.hpp"), signatures::writers::render_hpp(&report.hits))?;
                 fs::write(sigs_dir.join("SIGNATURES.md"), signatures::writers::render_markdown(&report.hits))?;
+                fs::write(
+                    sigs_dir.join("ida_tutorials.json"),
+                    signatures::tutorials::render_json(signatures::database::CS2_SIGNATURES),
+                )?;
 
                 // Write RIPREL signatures + a2x-style dwXxx aliases to
                 // sdk/offsets.{hpp,json}. The `analysis` block is what
@@ -388,14 +385,13 @@ fn main() -> Result<()> {
             "offsets": {
                 "enabled": !args.skip_offsets,
                 "success": offsets_ok,
-                "elapsed_ms": offsets_elapsed.as_millis(),
                 "output_dir": sdk_dir,
             },
             "signatures": {
                 "enabled": !args.skip_signatures,
                 "success": sigs_ok,
                 "counts": sig_counts,
-                "elapsed_ms": sig_report.as_ref().map(|r| r.elapsed_ms),
+
                 "output_dir": sigs_dir,
             },
         },
@@ -606,7 +602,7 @@ fn format_found_signatures(report: &signatures::SignatureReport) -> String {
     s.push_str(&format!("  \"total_scanned\":  {},\n", report.total));
     s.push_str(&format!("  \"found\":          {},\n", report.found));
     s.push_str(&format!("  \"missing\":        {},\n", report.total - report.found));
-    s.push_str(&format!("  \"elapsed_ms\":     {},\n", report.elapsed_ms));
+
     s.push_str(&format!(
         "  \"modules\":        [{}],\n",
         report

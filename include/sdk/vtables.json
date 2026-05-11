@@ -248,7 +248,7 @@
         {
           "index": 36,
           "module": "animationsystem.dll",
-          "name": "CAnimationSystem_FrameUpdate",
+          "name": "FrameUpdate",
           "rva": "0x8B530"
         },
         {
@@ -1698,7 +1698,7 @@
         {
           "index": 3,
           "module": "client.dll",
-          "name": "Client::CLegacyGameUI_Initialize",
+          "name": "CLegacyGameUI_Initialize",
           "rva": "0xCA6A40"
         },
         {
@@ -1934,7 +1934,7 @@
         {
           "index": 4,
           "module": "client.dll",
-          "name": "CSource2Client_Shutdown",
+          "name": "Shutdown",
           "rva": "0xAE59D0"
         },
         {
@@ -3762,7 +3762,7 @@
         {
           "index": 11,
           "module": "client.dll",
-          "name": "Client::CPrediction_Update",
+          "name": "CPrediction_Update",
           "rva": "0xB4DA50"
         },
         {
@@ -5928,7 +5928,7 @@
         {
           "index": 16,
           "module": "engine2.dll",
-          "name": "Engine::CGameEventSystem_PostEventAbstract",
+          "name": "CGameEventSystem_PostEventAbstract",
           "rva": "0x215830"
         },
         {
@@ -6506,7 +6506,7 @@
         {
           "index": 16,
           "module": "engine2.dll",
-          "name": "Engine::CGameEventSystem_PostEventAbstract",
+          "name": "CGameEventSystem_PostEventAbstract",
           "rva": "0x215830"
         },
         {
@@ -8862,7 +8862,7 @@
         {
           "index": 59,
           "module": "engine2.dll",
-          "name": "Engine::CNetworkStringTableContainer_CreateStringTable",
+          "name": "CNetworkStringTableContainer_CreateStringTable",
           "rva": "0x10C690"
         },
         {
@@ -13020,7 +13020,7 @@
         {
           "index": 87,
           "module": "engine2.dll",
-          "name": "Engine::GetScreenAspectRatio",
+          "name": "GetScreenAspectRatio",
           "rva": "0x769D0"
         },
         {
@@ -13724,7 +13724,7 @@
         {
           "index": 12,
           "module": "engine2.dll",
-          "name": "Engine::CNetworkStringTableContainer_CreateStringTable",
+          "name": "CNetworkStringTableContainer_CreateStringTable",
           "rva": "0x10C690"
         },
         {
@@ -14494,7 +14494,7 @@
         {
           "index": 46,
           "module": "engine2.dll",
-          "name": "CGameClient_ClientCommand",
+          "name": "ClientCommand",
           "rva": "0xA1240"
         },
         {
@@ -15282,7 +15282,7 @@
         {
           "index": 12,
           "module": "engine2.dll",
-          "name": "Engine::CNetworkStringTableContainer_CreateStringTable",
+          "name": "CNetworkStringTableContainer_CreateStringTable",
           "rva": "0x10C690"
         },
         {
@@ -19430,7 +19430,7 @@
         {
           "index": 11,
           "module": "inputsystem.dll",
-          "name": "CInputSystem_AttachToWindow",
+          "name": "AttachToWindow",
           "rva": "0x39F0"
         },
         {
@@ -23100,7 +23100,7 @@
         {
           "index": 3,
           "module": "materialsystem2.dll",
-          "name": "CMaterialSystem2_Init",
+          "name": "Init",
           "rva": "0x36E40"
         },
         {
@@ -23202,7 +23202,7 @@
         {
           "index": 20,
           "module": "materialsystem2.dll",
-          "name": "CMaterialSystem2_FrameUpdate",
+          "name": "FrameUpdate",
           "rva": "0x3BAC0"
         },
         {
@@ -25210,7 +25210,7 @@
         {
           "index": 51,
           "module": "networksystem.dll",
-          "name": "CNetworkSystem_Init",
+          "name": "Init",
           "rva": "0xEC0C0"
         },
         {
@@ -26164,7 +26164,7 @@
         {
           "index": 15,
           "module": "particles.dll",
-          "name": "Particles::CParticleSystemMgr_FindParticleSystem",
+          "name": "CParticleSystemMgr_FindParticleSystem",
           "rva": "0xA0BC0"
         },
         {
@@ -26182,7 +26182,7 @@
         {
           "index": 18,
           "module": "particles.dll",
-          "name": "Particles::CParticleSystemMgr_CreateParticleCollection",
+          "name": "CParticleSystemMgr_CreateParticleCollection",
           "rva": "0xA0DD0"
         },
         {
@@ -27824,7 +27824,7 @@
         {
           "index": 41,
           "module": "resourcesystem.dll",
-          "name": "ResourceSystem_BlockingLoadResourceByName",
+          "name": "BlockingLoadResourceByName",
           "rva": "0x17360"
         },
         {
@@ -28052,7 +28052,7 @@
         {
           "index": 79,
           "module": "resourcesystem.dll",
-          "name": "ResourceSystem_FindOrRegisterResourceByName",
+          "name": "FindOrRegisterResourceByName",
           "rva": "0x16D80"
         },
         {
@@ -29024,7 +29024,7 @@
         {
           "index": 74,
           "module": "scenesystem.dll",
-          "name": "CSceneSystem_FrameUpdate",
+          "name": "FrameUpdate",
           "rva": "0xE1C30"
         },
         {
@@ -30392,7 +30392,7 @@
         {
           "index": 21,
           "module": "schemasystem.dll",
-          "name": "CSchemaSystem_RegisterModuleAndBuiltins",
+          "name": "RegisterModuleAndBuiltins",
           "rva": "0x106F0"
         },
         {
@@ -30428,7 +30428,7 @@
         {
           "index": 27,
           "module": "schemasystem.dll",
-          "name": "CSchemaSystem_VerifySchemaBindingConsistency",
+          "name": "VerifySchemaBindingConsistency",
           "rva": "0x58F0"
         },
         {
@@ -42952,7 +42952,7 @@
         {
           "index": 3,
           "module": "vphysics2.dll",
-          "name": "VPhysics2_Startup",
+          "name": "method_3",
           "rva": "0x6AF20"
         },
         {
@@ -44616,7 +44616,7 @@
         {
           "index": 32,
           "module": "worldrenderer.dll",
-          "name": "CWorldRendererMgr_ServiceWorldRequests",
+          "name": "method_32",
           "rva": "0x2B4A0"
         },
         {

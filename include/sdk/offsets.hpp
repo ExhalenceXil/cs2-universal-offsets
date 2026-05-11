@@ -74,7 +74,7 @@ namespace cs2::offsets {
         constexpr uintptr_t NetworkGameClient_ptr = 0x9090C0;
         constexpr uintptr_t WindowWidth_addr = 0x90D4E8;
         constexpr uintptr_t WindowHeight_addr = 0x90D4EC;
-        constexpr uintptr_t Engine_PVSManager_ptr = 0x6123F0;
+        constexpr uintptr_t PVSManager_ptr = 0x6123F0;
     }
     // Module: filesystem_stdio.dll
     namespace filesystem_stdio {
