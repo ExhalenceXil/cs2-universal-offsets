@@ -4665,4 +4665,8 @@ pub static CS2_SIGNATURES: &[Signature] = &[
     // ----- soundsystem.dll -----
     Signature { name: "SoundChannelsPointer", module: "soundsystem.dll", needle: "8B 3D ? ? ? ? 48 89 58", resolve: ResolveKind::RipRel { rel_off: 2 }, extra_off: 0, prototype: "" },
 
+    // ---------- cspatterns.dev/cpp new entries (2026-05-17) -----
+    Signature { name: "EmitPanoramaSound", module: "client.dll", needle: "40 53 48 81 EC ? ? ? ? ? ? ? 48 8B 05", resolve: NONE, extra_off: 0, prototype: "" },
+    Signature { name: "PlayVSND", module: "soundsystem.dll", needle: "48 89 5C 24 ? 48 89 74 24 ? 48 89 7C 24 ? 55 48 8D 6C 24 ? 48 81 EC ? ? ? ? 33 F6 C7 45 ? ? ? ? ? 4C 8B C1", resolve: NONE, extra_off: 0, prototype: "" },
+    Signature { name: "ToneMapUpdate", module: "scenesystem.dll", needle: "40 53 48 83 EC ? 48 8B D9 0F 29 74 24", resolve: NONE, extra_off: 0, prototype: "" },
 ];
