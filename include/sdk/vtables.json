@@ -2126,7 +2126,7 @@
         {
           "index": 36,
           "module": "client.dll",
-          "name": "method_36",
+          "name": "FrameStageNotify",
           "rva": "0xAD36B0"
         },
         {
@@ -12696,7 +12696,7 @@
         {
           "index": 40,
           "module": "engine2.dll",
-          "name": "method_40",
+          "name": "IsConnected",
           "rva": "0x764A0"
         },
         {
@@ -12834,13 +12834,13 @@
         {
           "index": 63,
           "module": "engine2.dll",
-          "name": "method_63",
+          "name": "GetLevelName",
           "rva": "0x76540"
         },
         {
           "index": 64,
           "module": "engine2.dll",
-          "name": "method_64",
+          "name": "GetLevelNameShort",
           "rva": "0x765A0"
         },
         {
@@ -34176,7 +34176,7 @@
         {
           "index": 12,
           "module": "server.dll",
-          "name": "method_12",
+          "name": "CheckTransmit",
           "rva": "0xCE3080"
         },
         {
@@ -43347,316 +43347,6 @@
       "rtti_class": "CSource2V8System",
       "vtable_module": "v8system.dll",
       "vtable_rva": "0x2AF18"
-    }
-  },
-  "vconcomm.dll": {
-    "VConComm001": {
-      "method_count": 50,
-      "methods": [
-        {
-          "index": 0,
-          "module": "vconcomm.dll",
-          "name": "method_0",
-          "rva": "0xA160"
-        },
-        {
-          "index": 1,
-          "module": "vconcomm.dll",
-          "name": "method_1",
-          "rva": "0xA0D0"
-        },
-        {
-          "index": 2,
-          "module": "vconcomm.dll",
-          "name": "method_2",
-          "rva": "0x15F0"
-        },
-        {
-          "index": 3,
-          "module": "vconcomm.dll",
-          "name": "method_3",
-          "rva": "0x5470"
-        },
-        {
-          "index": 4,
-          "module": "vconcomm.dll",
-          "name": "method_4",
-          "rva": "0x5A90"
-        },
-        {
-          "index": 5,
-          "module": "vconcomm.dll",
-          "name": "method_5",
-          "rva": "0x38F0"
-        },
-        {
-          "index": 6,
-          "module": "vconcomm.dll",
-          "name": "method_6",
-          "rva": "0x5460"
-        },
-        {
-          "index": 7,
-          "module": "vconcomm.dll",
-          "name": "method_7",
-          "rva": "0xA110"
-        },
-        {
-          "index": 8,
-          "module": "vconcomm.dll",
-          "name": "method_8",
-          "rva": "0xA120"
-        },
-        {
-          "index": 9,
-          "module": "vconcomm.dll",
-          "name": "method_9",
-          "rva": "0xA1A0"
-        },
-        {
-          "index": 10,
-          "module": "vconcomm.dll",
-          "name": "method_10",
-          "rva": "0xA110"
-        },
-        {
-          "index": 11,
-          "module": "vconcomm.dll",
-          "name": "method_11",
-          "rva": "0x5F50"
-        },
-        {
-          "index": 12,
-          "module": "vconcomm.dll",
-          "name": "method_12",
-          "rva": "0x6EF0"
-        },
-        {
-          "index": 13,
-          "module": "vconcomm.dll",
-          "name": "method_13",
-          "rva": "0x5FF0"
-        },
-        {
-          "index": 14,
-          "module": "vconcomm.dll",
-          "name": "method_14",
-          "rva": "0x81C0"
-        },
-        {
-          "index": 15,
-          "module": "vconcomm.dll",
-          "name": "method_15",
-          "rva": "0x8460"
-        },
-        {
-          "index": 16,
-          "module": "vconcomm.dll",
-          "name": "method_16",
-          "rva": "0x85D0"
-        },
-        {
-          "index": 17,
-          "module": "vconcomm.dll",
-          "name": "method_17",
-          "rva": "0x8DB0"
-        },
-        {
-          "index": 18,
-          "module": "vconcomm.dll",
-          "name": "method_18",
-          "rva": "0x5F90"
-        },
-        {
-          "index": 19,
-          "module": "vconcomm.dll",
-          "name": "method_19",
-          "rva": "0x6020"
-        },
-        {
-          "index": 20,
-          "module": "vconcomm.dll",
-          "name": "method_20",
-          "rva": "0x6B50"
-        },
-        {
-          "index": 21,
-          "module": "vconcomm.dll",
-          "name": "method_21",
-          "rva": "0x5E50"
-        },
-        {
-          "index": 22,
-          "module": "vconcomm.dll",
-          "name": "method_22",
-          "rva": "0x6170"
-        },
-        {
-          "index": 23,
-          "module": "vconcomm.dll",
-          "name": "method_23",
-          "rva": "0x68B0"
-        },
-        {
-          "index": 24,
-          "module": "vconcomm.dll",
-          "name": "method_24",
-          "rva": "0x6520"
-        },
-        {
-          "index": 25,
-          "module": "vconcomm.dll",
-          "name": "method_25",
-          "rva": "0x8E00"
-        },
-        {
-          "index": 26,
-          "module": "vconcomm.dll",
-          "name": "method_26",
-          "rva": "0x8EB0"
-        },
-        {
-          "index": 27,
-          "module": "vconcomm.dll",
-          "name": "method_27",
-          "rva": "0x6E00"
-        },
-        {
-          "index": 28,
-          "module": "vconcomm.dll",
-          "name": "method_28",
-          "rva": "0x8F70"
-        },
-        {
-          "index": 29,
-          "module": "vconcomm.dll",
-          "name": "method_29",
-          "rva": "0x5200"
-        },
-        {
-          "index": 30,
-          "module": "vconcomm.dll",
-          "name": "method_30",
-          "rva": "0x2F820"
-        },
-        {
-          "index": 31,
-          "module": "vconcomm.dll",
-          "name": "method_31",
-          "rva": "0x4950"
-        },
-        {
-          "index": 32,
-          "module": "vconcomm.dll",
-          "name": "method_32",
-          "rva": "0x4A20"
-        },
-        {
-          "index": 33,
-          "module": "vconcomm.dll",
-          "name": "method_33",
-          "rva": "0x4B70"
-        },
-        {
-          "index": 34,
-          "module": "vconcomm.dll",
-          "name": "method_34",
-          "rva": "0x2F740"
-        },
-        {
-          "index": 35,
-          "module": "vconcomm.dll",
-          "name": "method_35",
-          "rva": "0xA0A0"
-        },
-        {
-          "index": 36,
-          "module": "vconcomm.dll",
-          "name": "method_36",
-          "rva": "0x2F578"
-        },
-        {
-          "index": 37,
-          "module": "vconcomm.dll",
-          "name": "method_37",
-          "rva": "0x4710"
-        },
-        {
-          "index": 38,
-          "module": "vconcomm.dll",
-          "name": "method_38",
-          "rva": "0x47C0"
-        },
-        {
-          "index": 39,
-          "module": "vconcomm.dll",
-          "name": "method_39",
-          "rva": "0x2F1B8"
-        },
-        {
-          "index": 40,
-          "module": "vconcomm.dll",
-          "name": "method_40",
-          "rva": "0x4240"
-        },
-        {
-          "index": 41,
-          "module": "vconcomm.dll",
-          "name": "method_41",
-          "rva": "0x2F2B0"
-        },
-        {
-          "index": 42,
-          "module": "vconcomm.dll",
-          "name": "method_42",
-          "rva": "0x4C60"
-        },
-        {
-          "index": 43,
-          "module": "vconcomm.dll",
-          "name": "method_43",
-          "rva": "0xDBAF"
-        },
-        {
-          "index": 44,
-          "module": "vconcomm.dll",
-          "name": "method_44",
-          "rva": "0x4CE0"
-        },
-        {
-          "index": 45,
-          "module": "vconcomm.dll",
-          "name": "method_45",
-          "rva": "0xDBA9"
-        },
-        {
-          "index": 46,
-          "module": "vconcomm.dll",
-          "name": "method_46",
-          "rva": "0xDBA3"
-        },
-        {
-          "index": 47,
-          "module": "vconcomm.dll",
-          "name": "method_47",
-          "rva": "0xDB9D"
-        },
-        {
-          "index": 48,
-          "module": "vconcomm.dll",
-          "name": "method_48",
-          "rva": "0x2F538"
-        },
-        {
-          "index": 49,
-          "module": "vconcomm.dll",
-          "name": "method_49",
-          "rva": "0x3FB0"
-        }
-      ],
-      "rtti_class": "CVConComm",
-      "vtable_module": "vconcomm.dll",
-      "vtable_rva": "0x2D848"
     }
   },
   "vphysics2.dll": {

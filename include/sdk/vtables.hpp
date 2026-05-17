@@ -393,7 +393,7 @@ namespace cs2::vtables {
             inline constexpr std::ptrdiff_t method_33                                        =   33; // client.dll + 0xADDF90
             inline constexpr std::ptrdiff_t method_34                                        =   34; // client.dll + 0xAD3E20
             inline constexpr std::ptrdiff_t method_35                                        =   35; // client.dll + 0xAE2280
-            inline constexpr std::ptrdiff_t method_36                                        =   36; // client.dll + 0xAD36B0
+            inline constexpr std::ptrdiff_t FrameStageNotify                                 =   36; // client.dll + 0xAD36B0
             inline constexpr std::ptrdiff_t method_37                                        =   37; // client.dll + 0xAD7360
             inline constexpr std::ptrdiff_t method_38                                        =   38; // client.dll + 0xAD7180
             inline constexpr std::ptrdiff_t method_39                                        =   39; // client.dll + 0xAD7170
@@ -2232,7 +2232,7 @@ namespace cs2::vtables {
             inline constexpr std::ptrdiff_t method_37                                        =   37; // engine2.dll + 0x763B0
             inline constexpr std::ptrdiff_t method_38                                        =   38; // engine2.dll + 0x763D0
             inline constexpr std::ptrdiff_t IsInGame                                         =   39; // engine2.dll + 0x76470
-            inline constexpr std::ptrdiff_t method_40                                        =   40; // engine2.dll + 0x764A0
+            inline constexpr std::ptrdiff_t IsConnected                                      =   40; // engine2.dll + 0x764A0
             inline constexpr std::ptrdiff_t method_41                                        =   41; // engine2.dll + 0x76630
             inline constexpr std::ptrdiff_t method_42                                        =   42; // engine2.dll + 0x76650
             inline constexpr std::ptrdiff_t method_43                                        =   43; // engine2.dll + 0x766A0
@@ -2255,8 +2255,8 @@ namespace cs2::vtables {
             inline constexpr std::ptrdiff_t method_60                                        =   60; // engine2.dll + 0x75DE0
             inline constexpr std::ptrdiff_t method_61                                        =   61; // engine2.dll + 0x764C0
             inline constexpr std::ptrdiff_t method_62                                        =   62; // engine2.dll + 0x764E0
-            inline constexpr std::ptrdiff_t method_63                                        =   63; // engine2.dll + 0x76540
-            inline constexpr std::ptrdiff_t method_64                                        =   64; // engine2.dll + 0x765A0
+            inline constexpr std::ptrdiff_t GetLevelName                                     =   63; // engine2.dll + 0x76540
+            inline constexpr std::ptrdiff_t GetLevelNameShort                                =   64; // engine2.dll + 0x765A0
             inline constexpr std::ptrdiff_t method_65                                        =   65; // engine2.dll + 0x24DE0
             inline constexpr std::ptrdiff_t method_66                                        =   66; // engine2.dll + 0x76610
             inline constexpr std::ptrdiff_t method_67                                        =   67; // engine2.dll + 0x768E0
@@ -6020,7 +6020,7 @@ namespace cs2::vtables {
             inline constexpr std::ptrdiff_t method_9                                         =    9; // server.dll + 0xCE2C10
             inline constexpr std::ptrdiff_t method_10                                        =   10; // server.dll + 0xCE2C20
             inline constexpr std::ptrdiff_t method_11                                        =   11; // server.dll + 0xCE3D40
-            inline constexpr std::ptrdiff_t method_12                                        =   12; // server.dll + 0xCE3080
+            inline constexpr std::ptrdiff_t CheckTransmit                                    =   12; // server.dll + 0xCE3080
             inline constexpr std::ptrdiff_t method_13                                        =   13; // server.dll + 0xCE3980
             inline constexpr std::ptrdiff_t method_14                                        =   14; // server.dll + 0xCE39B0
             inline constexpr std::ptrdiff_t method_15                                        =   15; // server.dll + 0xCE3B30
@@ -7650,63 +7650,6 @@ namespace cs2::vtables {
         } // namespace CSource2V8System
 
     } // namespace v8system_dll
-
-    namespace vconcomm_dll {
-        // CVConComm (iface: VConComm001) | vtable @ vconcomm.dll+0x2D848 (50 methods)
-        namespace CVConComm {
-            inline constexpr std::ptrdiff_t method_0                                         =    0; // vconcomm.dll + 0xA160
-            inline constexpr std::ptrdiff_t method_1                                         =    1; // vconcomm.dll + 0xA0D0
-            inline constexpr std::ptrdiff_t method_2                                         =    2; // vconcomm.dll + 0x15F0
-            inline constexpr std::ptrdiff_t method_3                                         =    3; // vconcomm.dll + 0x5470
-            inline constexpr std::ptrdiff_t method_4                                         =    4; // vconcomm.dll + 0x5A90
-            inline constexpr std::ptrdiff_t method_5                                         =    5; // vconcomm.dll + 0x38F0
-            inline constexpr std::ptrdiff_t method_6                                         =    6; // vconcomm.dll + 0x5460
-            inline constexpr std::ptrdiff_t method_7                                         =    7; // vconcomm.dll + 0xA110
-            inline constexpr std::ptrdiff_t method_8                                         =    8; // vconcomm.dll + 0xA120
-            inline constexpr std::ptrdiff_t method_9                                         =    9; // vconcomm.dll + 0xA1A0
-            inline constexpr std::ptrdiff_t method_10                                        =   10; // vconcomm.dll + 0xA110
-            inline constexpr std::ptrdiff_t method_11                                        =   11; // vconcomm.dll + 0x5F50
-            inline constexpr std::ptrdiff_t method_12                                        =   12; // vconcomm.dll + 0x6EF0
-            inline constexpr std::ptrdiff_t method_13                                        =   13; // vconcomm.dll + 0x5FF0
-            inline constexpr std::ptrdiff_t method_14                                        =   14; // vconcomm.dll + 0x81C0
-            inline constexpr std::ptrdiff_t method_15                                        =   15; // vconcomm.dll + 0x8460
-            inline constexpr std::ptrdiff_t method_16                                        =   16; // vconcomm.dll + 0x85D0
-            inline constexpr std::ptrdiff_t method_17                                        =   17; // vconcomm.dll + 0x8DB0
-            inline constexpr std::ptrdiff_t method_18                                        =   18; // vconcomm.dll + 0x5F90
-            inline constexpr std::ptrdiff_t method_19                                        =   19; // vconcomm.dll + 0x6020
-            inline constexpr std::ptrdiff_t method_20                                        =   20; // vconcomm.dll + 0x6B50
-            inline constexpr std::ptrdiff_t method_21                                        =   21; // vconcomm.dll + 0x5E50
-            inline constexpr std::ptrdiff_t method_22                                        =   22; // vconcomm.dll + 0x6170
-            inline constexpr std::ptrdiff_t method_23                                        =   23; // vconcomm.dll + 0x68B0
-            inline constexpr std::ptrdiff_t method_24                                        =   24; // vconcomm.dll + 0x6520
-            inline constexpr std::ptrdiff_t method_25                                        =   25; // vconcomm.dll + 0x8E00
-            inline constexpr std::ptrdiff_t method_26                                        =   26; // vconcomm.dll + 0x8EB0
-            inline constexpr std::ptrdiff_t method_27                                        =   27; // vconcomm.dll + 0x6E00
-            inline constexpr std::ptrdiff_t method_28                                        =   28; // vconcomm.dll + 0x8F70
-            inline constexpr std::ptrdiff_t method_29                                        =   29; // vconcomm.dll + 0x5200
-            inline constexpr std::ptrdiff_t method_30                                        =   30; // vconcomm.dll + 0x2F820
-            inline constexpr std::ptrdiff_t method_31                                        =   31; // vconcomm.dll + 0x4950
-            inline constexpr std::ptrdiff_t method_32                                        =   32; // vconcomm.dll + 0x4A20
-            inline constexpr std::ptrdiff_t method_33                                        =   33; // vconcomm.dll + 0x4B70
-            inline constexpr std::ptrdiff_t method_34                                        =   34; // vconcomm.dll + 0x2F740
-            inline constexpr std::ptrdiff_t method_35                                        =   35; // vconcomm.dll + 0xA0A0
-            inline constexpr std::ptrdiff_t method_36                                        =   36; // vconcomm.dll + 0x2F578
-            inline constexpr std::ptrdiff_t method_37                                        =   37; // vconcomm.dll + 0x4710
-            inline constexpr std::ptrdiff_t method_38                                        =   38; // vconcomm.dll + 0x47C0
-            inline constexpr std::ptrdiff_t method_39                                        =   39; // vconcomm.dll + 0x2F1B8
-            inline constexpr std::ptrdiff_t method_40                                        =   40; // vconcomm.dll + 0x4240
-            inline constexpr std::ptrdiff_t method_41                                        =   41; // vconcomm.dll + 0x2F2B0
-            inline constexpr std::ptrdiff_t method_42                                        =   42; // vconcomm.dll + 0x4C60
-            inline constexpr std::ptrdiff_t method_43                                        =   43; // vconcomm.dll + 0xDBAF
-            inline constexpr std::ptrdiff_t method_44                                        =   44; // vconcomm.dll + 0x4CE0
-            inline constexpr std::ptrdiff_t method_45                                        =   45; // vconcomm.dll + 0xDBA9
-            inline constexpr std::ptrdiff_t method_46                                        =   46; // vconcomm.dll + 0xDBA3
-            inline constexpr std::ptrdiff_t method_47                                        =   47; // vconcomm.dll + 0xDB9D
-            inline constexpr std::ptrdiff_t method_48                                        =   48; // vconcomm.dll + 0x2F538
-            inline constexpr std::ptrdiff_t method_49                                        =   49; // vconcomm.dll + 0x3FB0
-        } // namespace CVConComm
-
-    } // namespace vconcomm_dll
 
     namespace vphysics2_dll {
         // CVPhysics2Interface (iface: VPhysics2_Interface_001) | vtable @ vphysics2.dll+0x3AD798 (169 methods)

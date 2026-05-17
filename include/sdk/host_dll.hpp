@@ -3,7 +3,7 @@
 // module:        host.dll
 // classes:       2
 // enums:         0
-// generated_at:  2026-05-16T23:37:11.572506700+00:00
+// generated_at:  2026-05-17T14:17:59.271361100+00:00
 //
 // Use:
 //   auto* pawn = reinterpret_cast<C_CSPlayerPawn*>(addr);
@@ -17,18 +17,18 @@ namespace sdk::host {
     class EmptyTestScript;
     class CAnimScriptBase;
 
-    // CAnimScriptBase
-    //   fields: 1
-    class CAnimScriptBase {
-    public:
-        SCHEMA_FIELD(bool                            , m_bIsValid                                      , 0x8) // bool
-    };
-
     // EmptyTestScript
     //   fields: 1
     class EmptyTestScript {
     public:
         SCHEMA_FIELD(CAnimScriptParam<float32>       , m_hTest                                         , 0x10) // CAnimScriptParam<float32>
+    };
+
+    // CAnimScriptBase
+    //   fields: 1
+    class CAnimScriptBase {
+    public:
+        SCHEMA_FIELD(bool                            , m_bIsValid                                      , 0x8) // bool
     };
 
 } // namespace sdk::host

@@ -220,10 +220,6 @@ namespace cs2::ifaces {
         inline void* Source2V8System001(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0x31730); }
     } // namespace v8system_dll
 
-    namespace vconcomm_dll {
-        inline void* VConComm001(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0x395C0); }
-    } // namespace vconcomm_dll
-
     namespace vphysics2_dll {
         inline void* VPhysics2_Interface_001(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0x40DDA0); }
     } // namespace vphysics2_dll

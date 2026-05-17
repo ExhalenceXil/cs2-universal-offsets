@@ -111,6 +111,7 @@ namespace sdk::sigs {
         inline constexpr std::string_view ComputeRandomSeed = "48 89 5C 24 08 57 48 81 EC F0 00 00 00 F3 0F 10";
         inline constexpr std::string_view ConCommand_firstperson = "48 83 EC 28 48 8B 0D ? ? ? ? 48 8D 54 24 30 48 8B 01 FF 90 08 03 00 00 83 7C 24 30 00 75 69";
         inline constexpr std::string_view ConCommand_thirdperson = "48 83 EC 38 48 8B 0D ? ? ? ? 48 8D 54 24 40";
+        inline constexpr std::string_view Constructor = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 30 48 8B F1 48 8B FA B9 50 00 00 00 E8 21";
         inline constexpr std::string_view Context = "48 8B C4 48 81 EC C8 00 00 00 48 89 58 10 48 89";
         inline constexpr std::string_view ConvarGet = "8B D0 48 8D 0D ? ? ? ? E8 ? ? ? ? 0F 10 45 D0 83 F0";
         inline constexpr std::string_view CreateBaseTypeCache = "40 53 48 83 EC 20 4C 8B 49 18 44 8B D2 4C 63 41";
@@ -121,6 +122,7 @@ namespace sdk::sigs {
         inline constexpr std::string_view CreateNewSubtickMoveStep = "48 89 5C 24 10 57 48 83 EC 20 33 DB 48 8B F9 48 85 C9 75 2D B9 38 00 00 00 E8 E2 EF";
         inline constexpr std::string_view CreateParticleEffect = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 50 F3 0F 10 1D E1";
         inline constexpr std::string_view CreateSOSubclassEconItem = "48 83 EC 28 B9 48 00 00 00 E8 ? ? ? ? 48 85";
+        inline constexpr std::string_view CreateTrace = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 57 41 56 41 57 48 83 EC 50 F2 0F 10 02";
         inline constexpr std::string_view Ctrl = "48 89 5C 24 20 57 48 81 EC D0 06 00 00 48 8B 01";
         inline constexpr std::string_view DamageFeedbackEmitter = "48 89 4C 24 08 55 53 41 54 41 55 41 57 48 8D AC";
         inline constexpr std::string_view DamageServices = "40 55 41 56 41 57 48 8B EC 48 83 EC 40 4C 8B F2 83 F9 06 0F 87 1E 03 00";
@@ -135,6 +137,7 @@ namespace sdk::sigs {
         inline constexpr std::string_view DrawScopeOverlay = "48 8B C4 53 57 48 83 EC 68 48 8B FA 44 0F 29 40";
         inline constexpr std::string_view DrawSmokeVertex = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 57 41 56 41 57 48 83 EC 40 48 8B 9C 24 88 00 00 00 4D 8B F8 48 8B FA 48 8B";
         inline constexpr std::string_view E8 = "40 53 48 83 EC 20 48 8B 89 90 14 00 00 48 8B DA";
+        inline constexpr std::string_view EmitPanoramaSound = "40 53 48 81 EC B0 00 00 00 0F 10 02 48 8B 05 D5";
         inline constexpr std::string_view EmitSoundByHandle = "40 53 48 83 EC 30 4C 89 4C 24 20 48 8B D9 45 8B";
         inline constexpr std::string_view EquipItemInLoadout = "48 89 5C 24 08 48 89 6C 24 18 48 89 74 24 20 89 54 24 10 57 41 54 41 55 41 56 41 57 48 83 EC 70";
         inline constexpr std::string_view Event = "48 89 74 24 18 48 89 7C 24 20 41 56 48 83 EC 20 48 63 FA 41 8B F0 4C 8B F1 45 85 C0 74 79 8B 41 10 48 89 5C 24 30 8B 19 41 03 D8 4C 89 7C 24 38";
@@ -146,6 +149,7 @@ namespace sdk::sigs {
         inline constexpr std::string_view FirstPersonLegs = "40 55 53 56 41 56 41 57 48 8D AC 24 A0 FB FF FF";
         inline constexpr std::string_view FlashOverlay = "85 D2 0F 88 ? ? ? ? 48 89 4C 24 08 55 53 41";
         inline constexpr std::string_view ForceButtonsDown = "40 53 57 41 56 48 81 EC 30 02 00 00 48 83 79 38";
+        inline constexpr std::string_view FrameStageNotify = "48 89 5C 24 18 48 89 6C 24 20 57 48 83 EC 40 48 8B F9 33 ED";
         inline constexpr std::string_view GetAttributeDefByName = "48 89 5C 24 10 48 89 6C 24 18 57 41 56 41 57 48 83 EC 60 48";
         inline constexpr std::string_view GetAttributeDefinitionByName = "48 89 5C 24 10 48 89 6C 24 18 57 41 56 41 57 48 83 EC 60 48";
         inline constexpr std::string_view GetBaseEntity = "4C 8D 49 10 81 FA FE 7F 00 00 77 47 8B CA C1 F9";
@@ -160,6 +164,7 @@ namespace sdk::sigs {
         inline constexpr std::string_view GetEntityHandle = "48 85 C9 74 32 48 8B 49 10 48 85 C9 74 29 44 8B";
         inline constexpr std::string_view GetGlowColor = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 57 48 83 EC 20 48 8B F2 48 8B F9 48 8B";
         inline constexpr std::string_view GetHitGroup = "40 53 48 83 EC 20 48 83 79 10 00 48 8B D9 74 16";
+        inline constexpr std::string_view GetInaccuracy = "48 89 5C 24 10 55 56 57 48 81 EC B0 00 00 00 44";
         inline constexpr std::string_view GetInstance = "48 8B 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 8B 41 38 C3";
         inline constexpr std::string_view GetInventoryManager = "48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 0F B6 81 6B";
         inline constexpr std::string_view GetItemInLoadout = "40 55 48 83 EC 30 49 63 E8 ? ? ? ? 87 94 01";
@@ -190,6 +195,7 @@ namespace sdk::sigs {
         inline constexpr std::string_view Init = "48 8B C4 4C 89 40 18 55 56 41 56 48 8D 68 A1 48";
         inline constexpr std::string_view InitFilter = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 0F B6 41 39 33 FF 24 C9 C7";
         inline constexpr std::string_view InitPlayerMovementTraceFilter = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 0F B6 41 39 33 FF C7 41 34";
+        inline constexpr std::string_view InitTraceData = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 48 8D 79 08 33";
         inline constexpr std::string_view InitTraceInfo = "40 55 41 55 41 57 48 83 EC 30 4C 8B 3D 5F E2 EE";
         inline constexpr std::string_view InsecureEmitter = "48 89 5C 24 20 56 48 83 EC 20 48 8B D9 48 89 6C 24 30 48 8B E9 48 8B 0D";
         inline constexpr std::string_view InventoryServices = "40 55 41 56 41 57 48 8B EC 48 83 EC 40 4C 8B F2 83 F9 06 0F 87 1E 03 00";
@@ -201,14 +207,17 @@ namespace sdk::sigs {
         inline constexpr std::string_view LoadFileForMe = "40 55 57 41 56 48 83 EC 20 4C 63 71 18 33 FF 48";
         inline constexpr std::string_view LoadPath = "48 89 74 24 20 57 48 83 EC 20 44 8B 49 04 BF FF FF FF 7F 44 23 CF 48 8B F1 41 8B C8 45 85 C0 74 30 83 E9 ? ? ? ? F9 01 0F 85 ? ? ? ? 41";
         inline constexpr std::string_view LookupBone = "40 53 48 83 EC 20 48 8B 89 30 03 00 00 48 8B DA 48 8B 01 FF 50 50 48 8B";
+        inline constexpr std::string_view MatchFoundHandler = "48 83 EC 28 48 8B 0D ? ? ? ? 48 85 C9 74 60";
         inline constexpr std::string_view ModulationUpdate = "48 89 5C 24 08 57 48 83 EC 20 8B FA 48 8B D9 E8 ? ? ? ? 84 C0 0F 84";
         inline constexpr std::string_view MovementServices = "48 83 EC 28 8B 0D ? ? ? ? 65 48 8B 04 25 58 00 00 00 BA 98 00 00 00 48 8B 04 C8 8B 04 02 39 05 A3 6A AC 01 0F 8F D3";
         inline constexpr std::string_view NoClipOnChange = "48 89 5C 24 10 48 89 74 24 18 48 89 7C 24 20 55 48 8B EC 48 83 EC 30 48 8D 05 12 3A";
         inline constexpr std::string_view NoSpread1 = "48 89 5C 24 08 57 48 81 EC F0 00 00 00 F3 0F 10";
+        inline constexpr std::string_view OnAddEntity = "48 89 74 24 10 57 48 83 EC 20 41 B9 FF 7F 00 00 41 8B C0 41 23 C1 48 8B F2 41 83 F8 FF 48 8B F9 44 0F 45 C8 41 81 F9 00 40 00 00 73 0D FF 81 90";
         inline constexpr std::string_view OnBodyGroupChoiceChanged = "48 89 5C 24 08 57 48 83 EC 20 49 63 D8 49 8B F9";
         inline constexpr std::string_view OnEvent = "40 53 57 48 81 EC 78 02 00 00 48 8B CA 48 8B FA";
         inline constexpr std::string_view OnGlowTypeChanged = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 48 8B 05 9A 12";
         inline constexpr std::string_view OnPostDataUpdate = "48 89 5C 24 08 48 89 74 24 18 55 57 41 56 48 8B EC 48 83 EC 50 45 8B F1";
+        inline constexpr std::string_view OnRemoveEntity = "48 89 74 24 10 57 48 83 EC 20 41 B9 FF 7F 00 00 41 8B C0 41 23 C1 48 8B F2 41 83 F8 FF 48 8B F9 44 0F 45 C8 41 81 F9 00 40 00 00 73 08 FF 89 90";
         inline constexpr std::string_view OnSkeletonModelChanged = "49 8B 00 48 89 81 B8 00 00 00 C6 81 B0 00 00 00";
         inline constexpr std::string_view PanelConstructorPointer = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 30 48 8B F1 48 8B FA B9 20 00";
         inline constexpr std::string_view ParseSubtickDuration = "40 55 48 8D AC 24 70 FD FF FF 48 81 EC 90 03 00";
@@ -254,6 +263,7 @@ namespace sdk::sigs {
         inline constexpr std::string_view SetTypeKV3 = "40 53 48 83 EC 30 4C 8B 11 41 B9 16 00 00 00 49";
         inline constexpr std::string_view SetViewAngle = "85 D2 75 3D 48 63 81 50 0B 00 00 F2 41 0F 10 00";
         inline constexpr std::string_view SetupCmd = "48 83 EC 28 E8 ? ? ? ? 8B 80 10 59 00 00 48";
+        inline constexpr std::string_view SetupMapInfo = "48 8B C4 48 89 58 10 48 89 68 18 48 89 70 20 57 48 81 EC A0 00 00 00 0F";
         inline constexpr std::string_view SetupMove = "48 89 5C 24 18 48 89 6C 24 20 56 57 41 56 48 83 EC 20 48 8B EA 4C 8B F1";
         inline constexpr std::string_view SetupMovementMoves = "48 8B CE E8 ? ? ? ? 48 8B 5C 24 50 48 8B 6C 24 58 48 83";
         inline constexpr std::string_view SharedRandomFloat = "4C 8B DC 49 89 5B 08 49 89 73 10 57 48 81 EC 00";
@@ -279,6 +289,7 @@ namespace sdk::sigs {
         inline constexpr std::string_view TraceShape = "48 89 5C 24 20 48 89 4C 24 08 55 57 41 54 41 55";
         inline constexpr std::string_view TraceToExit = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 57 41 56 41 57 48 83 EC 50 F2 0F 10 02";
         inline constexpr std::string_view TypeManager = "40 55 41 56 48 83 EC 78 4C 8B F2 83 F9 06 0F 87 ? ? ? ? 48 63 C1 48 8D 15 F2 4F";
+        inline constexpr std::string_view UnknownParticleFunction = "40 56 48 83 EC 20 41 8B F0 49 8B C1 45 33 C0 4C";
         inline constexpr std::string_view UnserializeEvent = "48 8B C4 48 89 50 10 55 41 54 41 55 41 56 48 8D";
         inline constexpr std::string_view UntrustedFlagSetter = "74 26 C6 05 CA 7C 04 02 01 33 C0 83 F8 01 74 18";
         inline constexpr std::string_view UpdateGlobalVars = "48 8B 0D ? ? ? ? 4C 8D 05 ? ? ? ? 48 85 D2 48 8D 05";
@@ -336,8 +347,14 @@ namespace sdk::sigs {
         inline constexpr std::string_view Engine_Disconnect_main = "48 89 5C 24 20 55 57 41 54 48 8B EC 48 83 EC 70";
         inline constexpr std::string_view ExecuteStringCommand = "40 53 56 48 81 EC 48 07 00 00 48 8B F1 48 8B DA";
         inline constexpr std::string_view ForceDemoRecordingFullUpdateAfterNextDeltaPacket = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 48 8B 1D CA 0E";
+        inline constexpr std::string_view GetFreeClient = "48 89 54 24 10 53 56 57 41 56 48 83 EC 28 48 8B";
+        inline constexpr std::string_view GetLevelName = "48 83 EC 28 E8 ? ? ? ? 84 C0 74 0C 48 8D 05 ? ? ? ? 48 83 C4 28 C3 48 8B 0D ? ? ? ? 48 85 C9 74 23 83 B9 30 02 00 00 02 7C 1A 48 8B";
+        inline constexpr std::string_view GetLevelNameShort = "48 83 EC 28 E8 ? ? ? ? 84 C0 74 0C 48 8D 05 ? ? ? ? 48 83 C4 28 C3 48 8B 0D ? ? ? ? 48 85 C9 74 23 83 B9 30 02 00 00 02 7C 1A 48 8B";
         inline constexpr std::string_view GetScreenAspectRatio = "48 89 5C 24 08 57 48 83 EC 20 8B FA 48 8D 0D CD";
+        inline constexpr std::string_view HostStateRequest = "48 89 74 24 10 57 48 83 EC 30 33 F6 48 8B FA 48";
         inline constexpr std::string_view Host_FilterTime = "48 89 5C 24 10 48 89 74 24 18 48 89 4C 24 08 57 48 81 EC A0";
+        inline constexpr std::string_view IsConnected = "48 8B 05 ? ? ? ? 48 85 C0 74 0B 83 B8 30 02 00 00 02 0F";
+        inline constexpr std::string_view IsHearingClient = "40 53 48 83 EC 20 48 8B D9 3B 51 48 75 0D 0F B6";
         inline constexpr std::string_view IsInGame = "48 8B 05 ? ? ? ? 48 85 C0 74 15 80 B8 1F 14";
         inline constexpr std::string_view LoadGameInfo = "40 55 56 41 56 48 8D 6C 24 F0 48 81 EC 10 01 00";
         inline constexpr std::string_view MountAddon = "48 85 D2 0F 84 ? ? ? ? 48 8B C4 44 88 40 18";
@@ -347,6 +364,7 @@ namespace sdk::sigs {
         inline constexpr std::string_view QueueNewRequest = "48 89 6C 24 18 48 89 7C 24 20 41 56 48 83 EC 30 48 8B EA 48";
         inline constexpr std::string_view RegisterConCommand = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 57 48 83 EC 60 44 8B 15 19";
         inline constexpr std::string_view RegisterConVar = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 48 89 7C 24 20 41 54 41 56 41 57 48 81 EC D0 00 00";
+        inline constexpr std::string_view ReplyConnection = "48 8B C4 55 41 55 41 56 41 57 48 8D A8 F8 FE FF";
         inline constexpr std::string_view RunPrediction = "40 55 41 56 48 83 EC 68 80 B9 00 01 00 00 00 8B";
         inline constexpr std::string_view SetSignonState = "44 89 44 24 18 89 54 24 10 55 53 56 57 41 55 41";
         inline constexpr std::string_view Tokenize = "48 89 6C 24 20 4C 89 44 24 18 56 57 41 54 41 56";
@@ -396,6 +414,7 @@ namespace sdk::sigs {
         inline constexpr std::string_view OnDeletePanelFunctionPointer = "48 85 D2 0F 84 ? ? ? ? 48 89 74 24 18 57 48";
         inline constexpr std::string_view RegisterEventHandlerFunctionPointer = "48 89 5C 24 08 66 89 54 24 10 55 56 57 41 56 41";
         inline constexpr std::string_view RunFrame = "48 89 5C 24 10 48 89 6C 24 18 56 57 41 54 41 56 41 57 48 81 EC 80 00 00 00 45 33 F6";
+        inline constexpr std::string_view RunScript = "48 89 5C 24 18 4C 89 4C 24 20 48 89 54 24 10 55 56 57 41 54 41 55 41 56 41 57 48 8D";
         inline constexpr std::string_view RunScriptFunctionPointer = "48 89 5C 24 18 4C 89 4C 24 20 48 89 54 24 10 55 56 57 41 54 41 55 41 56 41 57 48 8D";
     }
     namespace particles {
@@ -433,8 +452,10 @@ namespace sdk::sigs {
         inline constexpr std::string_view DrawObject_legacy = "48 8B C4 53 57 41 54 48 81 EC D0 00 00 00 49 63";
         inline constexpr std::string_view DrawSkyboxArray = "45 85 C9 0F 8E ? ? ? ? 4C 8B DC 55 41 56 49";
         inline constexpr std::string_view FrameUpdate = "48 8B C4 88 50 10 48 89 48 08 55 53 41 54 41 55";
+        inline constexpr std::string_view GeneratePrimitives = "48 8B C4 48 89 58 08 48 89 50 10 55 56 57 41 54 41 55 41 56 41 57 48 81";
         inline constexpr std::string_view InitGfxObjects = "40 55 53 56 57 41 54 41 55 41 56 41 57 48 8D AC 24 08 FE FF";
         inline constexpr std::string_view RenderSceneDrawList = "40 55 53 56 57 41 54 41 55 41 56 41 57 48 8D 6C 24 E1 48 81 EC D8 00 00";
+        inline constexpr std::string_view ToneMapUpdate = "40 53 48 83 EC 60 48 8B D9 0F 29 74 24 50 48 8D";
     }
     namespace schemasystem {
         inline constexpr std::string_view InstallSchemaBindings = "40 53 48 83 EC 20 48 8B DA 48 8B D1 48 8D 0D 8D";
@@ -442,12 +463,66 @@ namespace sdk::sigs {
         inline constexpr std::string_view VerifySchemaBindingConsistency = "88 54 24 10 55 53 57 41 54 41 55 48 8B EC 48 81";
     }
     namespace server {
+        inline constexpr std::string_view AcceptInput = "48 89 5C 24 10 48 89 74 24 18 57 48 83 EC 50 49 8B F0 48 8B D9 48 8B 0D";
+        inline constexpr std::string_view AddEntityIOEvent = "48 89 5C 24 18 4C 89 4C 24 20 48 89 4C 24 08 55 56 57 41 54 41 55 41 56 41 57 48 83 EC 20 49 8B";
+        inline constexpr std::string_view BotNavIgnore = "0F 84 ? ? ? ? 80 B8 00 01 00 00 00 0F 84 51";
+        inline constexpr std::string_view CCSGameRules__sm_mapGcBanInformation = "48 8D 0D ? ? ? ? 48 89 45 F7 0F 11 45 37 0F";
+        inline constexpr std::string_view CTakeDamageInfo = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 48 89 7C 24 20 41 56 48 83 EC 60 45 33";
+        inline constexpr std::string_view CanAcquire = "44 89 44 24 18 48 89 54 24 10 48 89 4C 24 08 55 53 56 57 41 55 41 56 41 57 48 8B EC";
+        inline constexpr std::string_view CanUse = "48 89 5C 24 10 48 89 6C 24 18 48 89 74 24 20 57 41 54 41 55 41 56 41 57 48 83 EC 60 48 8B 01 48";
+        inline constexpr std::string_view CheckSteamBan = "41 54 48 81 EC B0 00 00 00 BA FF FF FF FF 48 8D";
+        inline constexpr std::string_view CheckTransmit = "48 8B C4 4C 89 48 20 48 89 50 10 48 89 48 08 55 48 8D A8 C8";
+        inline constexpr std::string_view ClientPrint = "48 85 C9 0F 84 ? ? ? ? 48 89 5C 24 20 55 56";
+        inline constexpr std::string_view ClientPrintAll = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 57 48 83 EC 60 8B E9 49 8B";
+        inline constexpr std::string_view CreateEntityByName = "48 83 EC 48 C6 44 24 30 00 4C 8B C1 48 8B 0D 55";
+        inline constexpr std::string_view DispatchParticleEffect = "48 89 5C 24 08 48 89 74 24 10 48 89 7C 24 18 4C 89 74 24 20 55 48 8D 6C 24 D1 48 81";
+        inline constexpr std::string_view DispatchSpawn = "48 89 5C 24 10 57 48 83 EC 30 48 8B DA 48 8B F9 48 85 C9 0F";
+        inline constexpr std::string_view EmitSoundFilter = "40 53 48 83 EC 30 4C 89 4C 24 20 48 8B D9 45 8B";
+        inline constexpr std::string_view EmitSoundParams = "48 89 5C 24 08 48 89 74 24 10 48 89 7C 24 18 55 48 8B EC 48 81 EC 80 00 00 00 33 C0";
+        inline constexpr std::string_view EndTouch = "40 53 41 55 48 83 EC 28 83 BA B8 00 00 00 00 4C";
+        inline constexpr std::string_view EquipWeapon = "48 89 5C 24 10 57 48 83 EC 20 48 83 79 38 00 48 8B FA 48 8B D9 75 05 E8";
+        inline constexpr std::string_view FindEntityByClassName = "48 83 EC 68 45 33 C9 C6 44 24 20 00 48 8D 4C 24";
+        inline constexpr std::string_view FindEntityByName = "48 81 EC 88 00 00 00 4D 85 C0 75 0A 33 C0 48 81";
+        inline constexpr std::string_view FindUseEntity = "4C 89 44 24 18 F3 0F 11 4C 24 10 55 53 56 57 41";
+        inline constexpr std::string_view FireOutputInternal = "4C 89 4C 24 20 48 89 4C 24 08 53 56 57 41 55 41";
+        inline constexpr std::string_view GameSystems = "8B 05 ? ? ? ? 83 E8 ? ? ? ? 0F 88 AD 00";
+        inline constexpr std::string_view GetCSWeaponDataFromKey = "48 89 5C 24 08 57 48 83 EC 20 33 FF 4C 8B CA 8B";
+        inline constexpr std::string_view GetEyeAngles = "48 89 5C 24 10 57 48 81 EC 80 00 00 00 48 8B F9";
+        inline constexpr std::string_view GetSpawnGroups = "40 56 48 83 EC 40 48 89 5C 24 50 48 8D B1 20 01";
         inline constexpr std::string_view GiveNamedItem = "48 89 5C 24 08 48 89 74 24 10 48 89 7C 24 20 44 89 44 24 18";
+        inline constexpr std::string_view GravityTouch = "48 89 5C 24 08 57 48 83 EC 20 48 8B 02 48 8B F9 48 8B CA 48 8B DA FF 90 48 05 00 00 84 C0 74 10";
+        inline constexpr std::string_view IGameSystem_InitAllSystems_pFirst = "48 8B 1D ? ? ? ? 48 85 DB 0F 84 ? ? ? ? BD FF FF 00";
+        inline constexpr std::string_view IGameSystem_LoopPostInitAllSystems_pEventDispatcher = "48 39 1D C0 16 8F 01 74 4D 39 05 08 15 8F 01 7E";
+        inline constexpr std::string_view Init = "40 53 48 83 EC 20 48 8B 01 48 8B D9 FF 50 10 48";
+        inline constexpr std::string_view InputTestActivator = "48 89 5C 24 08 57 48 83 EC 20 4C 8B 02 48 8B FA";
+        inline constexpr std::string_view InputTriggerForActivatedPlayer = "48 89 5C 24 18 56 48 83 EC 20 48 8B 1A 48 8B F1";
+        inline constexpr std::string_view InputTriggerForAllPlayers = "40 55 53 41 54 41 56 48 8B EC 48 83 EC 48 4C 8B";
+        inline constexpr std::string_view LegacyGameEventListener = "48 8B 15 ? ? ? ? 48 85 D2 74 14 83 F9 3F 77";
+        inline constexpr std::string_view NetworkStateChanged = "4C 8B C2 48 8B D1 48 8B 09 48 85 C9 74 35 48 8B";
+        inline constexpr std::string_view PostThink = "40 55 53 56 57 41 54 48 8D 6C 24 C9 48 81 EC D0";
+        inline constexpr std::string_view ProcessUsercmds = "48 8B C4 44 88 48 20 44 89 40 18 48 89 50 10 53";
+        inline constexpr std::string_view Remove = "48 85 C9 74 0F 48 8B D1 48 8B 0D ? ? ? ? E9";
+        inline constexpr std::string_view RemovePlayerItem = "48 85 D2 0F 84 ? ? ? ? 48 89 5C 24 08 57 48 83 EC 30 48 8B DA 48 8B F9 E8 92 99";
+        inline constexpr std::string_view Say = "44 89 4C 24 20 44 88 44 24 18 55 53 56 57 41 54";
+        inline constexpr std::string_view SayText2Filter = "48 89 5C 24 08 48 89 74 24 10 48 89 7C 24 20 55 41 56 41 57 48 8D 6C 24 D9 48 81 EC";
+        inline constexpr std::string_view SayTextFilter = "48 89 5C 24 10 48 89 74 24 18 48 89 7C 24 20 55 41 56 41 57 48 8D 6C 24 B9 48 81 EC D0 00 00 00 49 8B F8 48 89 4D B7 48";
+        inline constexpr std::string_view SetEntityName = "48 89 5C 24 10 57 48 83 EC 20 48 8B D9 4C 8B C2";
+        inline constexpr std::string_view SetGravityScale = "48 89 5C 24 08 57 48 83 EC 30 F3 0F 10 81 FC 03";
+        inline constexpr std::string_view SetGroundEntity = "48 89 5C 24 18 55 56 57 41 55 41 57 48 83 EC 20 44 8B 89 EC";
+        inline constexpr std::string_view SetModel = "40 53 48 83 EC 20 48 8B D9 4C 8B C2 48 8B 0D 45";
+        inline constexpr std::string_view SetMoveType = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 48 89 7C 24 20 41 56 48 83 EC 20 41 0F";
+        inline constexpr std::string_view SetOrAddAttributeValueByName = "40 53 55 41 56 48 81 EC 90 00 00 00 0F 29 74 24";
+        inline constexpr std::string_view SetPawn = "44 88 4C 24 20 53 57 41 54 41 56 41 57 48 83 EC";
+        inline constexpr std::string_view StartTouch = "40 57 41 56 48 83 EC 28 48 8B 01 4C 8B F2 48 8B";
         inline constexpr std::string_view SwitchTeam = "40 53 57 48 81 EC 88 00 00 00 48 8B D9 8B FA 8B";
         inline constexpr std::string_view TerminateRound = "48 8B C4 4C 89 48 20 48 89 48 08 55 56 41 56 41";
         inline constexpr std::string_view Think = "40 55 53 41 55 41 57 48 8D 6C 24 C1 48 81 EC A8";
+        inline constexpr std::string_view Touch = "40 55 53 57 48 8D 6C 24 B9 48 81 EC 90 00 00 00 48 8B 02 48";
+        inline constexpr std::string_view TraceFunc = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 48 89 7C 24 20 41 54 41 56 41 57 48 81 EC 90 00 00";
+        inline constexpr std::string_view Use = "4C 8B 43 08 48 8D 8F B8 08 00 00 48 8B 13 E8 8F";
     }
     namespace soundsystem {
+        inline constexpr std::string_view PlayVSND = "48 89 5C 24 08 48 89 74 24 18 48 89 7C 24 20 55 48 8D 6C 24";
         inline constexpr std::string_view PlayVSound = "48 8B C4 48 89 58 08 57 48 81 EC A0 00 00 00 33";
         inline constexpr std::string_view SomeUtlSymbolFunc = "48 89 74 24 18 57 48 83 EC 20 48 63 F2 48 8B F9";
         inline constexpr std::string_view StartSoundEvent = "40 53 55 56 48 83 EC 20 83 B9 EC 24 00 00 00 49";
@@ -571,6 +646,8 @@ namespace sdk::sigs_fn {
         using ConCommand_firstperson_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 ConCommand_thirdperson() (placeholder — verify in IDA)
         using ConCommand_thirdperson_t = void(__fastcall*)(void*, ...);
+        // PROTOTYPE: not yet reverse-engineered (placeholder)
+        using Constructor_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: void __fastcall Context(__int64 a1, __int64 a2) (placeholder — verify in IDA)
         using Context_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: void __fastcall ConvarGet(__int64 a1, unsigned int *a2) (placeholder — verify in IDA)
@@ -591,6 +668,8 @@ namespace sdk::sigs_fn {
         using CreateParticleEffect_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 CreateSOSubclassEconItem() (placeholder — verify in IDA)
         using CreateSOSubclassEconItem_t = void(__fastcall*)(void*, ...);
+        // PROTOTYPE: not yet reverse-engineered (placeholder)
+        using CreateTrace_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall Ctrl(__int64 a1) (placeholder — verify in IDA)
         using Ctrl_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: void __fastcall DamageFeedbackEmitter(__int64 a1, _QWORD *a2, __int64 a3) (placeholder — verify in IDA)
@@ -619,6 +698,8 @@ namespace sdk::sigs_fn {
         using DrawSmokeVertex_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall E8(__int64 a1, __int64 a2) (placeholder — verify in IDA)
         using E8_t = void(__fastcall*)(void*, ...);
+        // PROTOTYPE: not yet reverse-engineered (placeholder)
+        using EmitPanoramaSound_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall EmitSoundByHandle(__int64 a1, int a2, int a3, __int64 a4) (placeholder — verify in IDA)
         using EmitSoundByHandle_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: char __fastcall EquipItemInLoadout(_QWORD *a1, unsigned int a2, int a3, unsigned __int64 a4) (placeholder — verify in IDA)
@@ -641,6 +722,8 @@ namespace sdk::sigs_fn {
         using FlashOverlay_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: void __fastcall ForceButtonsDown(_QWORD *a1, __int64 a2) (placeholder — verify in IDA)
         using ForceButtonsDown_t = void(__fastcall*)(void*, ...);
+        // PROTOTYPE: not yet reverse-engineered (placeholder)
+        using FrameStageNotify_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: not yet reverse-engineered (placeholder)
         using GetAttributeDefByName_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall GetAttributeDefinitionByName(__int64 a1, unsigned __int8 *a2) (placeholder — verify in IDA)
@@ -669,6 +752,8 @@ namespace sdk::sigs_fn {
         using GetGlowColor_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall GetHitGroup(__int64 a1) (placeholder — verify in IDA)
         using GetHitGroup_t = void(__fastcall*)(void*, ...);
+        // PROTOTYPE: not yet reverse-engineered (placeholder)
+        using GetInaccuracy_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 GetInstance() (placeholder — verify in IDA)
         using GetInstance_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 *GetInventoryManager() (placeholder — verify in IDA)
@@ -729,6 +814,8 @@ namespace sdk::sigs_fn {
         using InitFilter_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall InitPlayerMovementTraceFilter(__int64 a1, _DWORD *a2, __int64 a3, char a4) (placeholder — verify in IDA)
         using InitPlayerMovementTraceFilter_t = void(__fastcall*)(void*, ...);
+        // PROTOTYPE: not yet reverse-engineered (placeholder)
+        using InitTraceData_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall InitTraceInfo(__int64 a1) (placeholder — verify in IDA)
         using InitTraceInfo_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: not yet reverse-engineered (placeholder)
@@ -751,6 +838,8 @@ namespace sdk::sigs_fn {
         using LoadPath_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall LookupBone(__int64 a1, __int64 a2) (placeholder — verify in IDA)
         using LookupBone_t = void(__fastcall*)(void*, ...);
+        // PROTOTYPE: not yet reverse-engineered (placeholder)
+        using MatchFoundHandler_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall ModulationUpdate(__int64 a1, char a2) (placeholder — verify in IDA)
         using ModulationUpdate_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 *MovementServices() (placeholder — verify in IDA)
@@ -759,6 +848,8 @@ namespace sdk::sigs_fn {
         using NoClipOnChange_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall NoSpread1(__int64 a1, __int64 a2, int a3) (placeholder — verify in IDA)
         using NoSpread1_t = void(__fastcall*)(void*, ...);
+        // PROTOTYPE: __int64 __fastcall OnAddEntity(__int64 a1, __int64 a2, int a3) (placeholder — verify in IDA)
+        using OnAddEntity_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall OnBodyGroupChoiceChanged(__int64 a1, __int64 a2, int a3, _DWORD *a4) (placeholder — verify in IDA)
         using OnBodyGroupChoiceChanged_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: void __fastcall OnEvent(__int64 a1, KeyValues *a2) (placeholder — verify in IDA)
@@ -767,6 +858,8 @@ namespace sdk::sigs_fn {
         using OnGlowTypeChanged_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: not yet reverse-engineered (placeholder)
         using OnPostDataUpdate_t = void(__fastcall*)(void*, ...);
+        // PROTOTYPE: __int64 __fastcall OnRemoveEntity(__int64 a1, _QWORD *a2, int a3) (placeholder — verify in IDA)
+        using OnRemoveEntity_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall OnSkeletonModelChanged(__int64 a1, __int64 a2, __int64 *a3) (placeholder — verify in IDA)
         using OnSkeletonModelChanged_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: not yet reverse-engineered (placeholder)
@@ -857,6 +950,8 @@ namespace sdk::sigs_fn {
         using SetViewAngle_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall SetupCmd(__int64 a1) (placeholder — verify in IDA)
         using SetupCmd_t = void(__fastcall*)(void*, ...);
+        // PROTOTYPE: not yet reverse-engineered (placeholder)
+        using SetupMapInfo_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall SetupMove(__int64 a1, int *a2) (placeholder — verify in IDA)
         using SetupMove_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall SetupMovementMoves(__int64 a1, __int64 a2, __int64 a3, __int64 a4) (placeholder — verify in IDA)
@@ -907,6 +1002,8 @@ namespace sdk::sigs_fn {
         using TraceToExit_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall TypeManager(int a1, __int64 a2) (placeholder — verify in IDA)
         using TypeManager_t = void(__fastcall*)(void*, ...);
+        // PROTOTYPE: not yet reverse-engineered (placeholder)
+        using UnknownParticleFunction_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall UnserializeEvent(__int64 a1, __int64 a2) (placeholder — verify in IDA)
         using UnserializeEvent_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: not yet reverse-engineered (placeholder)
@@ -1017,10 +1114,22 @@ namespace sdk::sigs_fn {
         using ExecuteStringCommand_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: char __fastcall ForceDemoRecordingFullUpdateAfterNextDeltaPacket(__int64 a1, const char *a2) (placeholder — verify in IDA)
         using ForceDemoRecordingFullUpdateAfterNextDeltaPacket_t = void(__fastcall*)(void*, ...);
+        // PROTOTYPE: not yet reverse-engineered (placeholder)
+        using GetFreeClient_t = void(__fastcall*)(void*, ...);
+        // PROTOTYPE: not yet reverse-engineered (placeholder)
+        using GetLevelName_t = void(__fastcall*)(void*, ...);
+        // PROTOTYPE: not yet reverse-engineered (placeholder)
+        using GetLevelNameShort_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: float __fastcall GetScreenAspectRatio(__int64 a1, int a2, int a3) (placeholder — verify in IDA)
         using GetScreenAspectRatio_t = void(__fastcall*)(void*, ...);
+        // PROTOTYPE: not yet reverse-engineered (placeholder)
+        using HostStateRequest_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: bool __fastcall Host_FilterTime(__int64 a1, float *a2) (placeholder — verify in IDA)
         using Host_FilterTime_t = void(__fastcall*)(void*, ...);
+        // PROTOTYPE: not yet reverse-engineered (placeholder)
+        using IsConnected_t = void(__fastcall*)(void*, ...);
+        // PROTOTYPE: not yet reverse-engineered (placeholder)
+        using IsHearingClient_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: bool IsInGame() (placeholder — verify in IDA)
         using IsInGame_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: char __fastcall LoadGameInfo(__int64 a1, const char *a2) (placeholder — verify in IDA)
@@ -1039,6 +1148,8 @@ namespace sdk::sigs_fn {
         using RegisterConCommand_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int128 *__fastcall RegisterConVar(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4, __int128 *a5) (placeholder — verify in IDA)
         using RegisterConVar_t = void(__fastcall*)(void*, ...);
+        // PROTOTYPE: not yet reverse-engineered (placeholder)
+        using ReplyConnection_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: void __fastcall RunPrediction(__int64 a1, unsigned int a2) (placeholder — verify in IDA)
         using RunPrediction_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: char __fastcall SetSignonState(__int64 a1, unsigned int a2, unsigned int a3, __int64 a4) (placeholder — verify in IDA)
@@ -1128,6 +1239,8 @@ namespace sdk::sigs_fn {
         // PROTOTYPE: __int64 __fastcall RunFrame(_QWORD *a1) (placeholder — verify in IDA)
         using RunFrame_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: not yet reverse-engineered (placeholder)
+        using RunScript_t = void(__fastcall*)(void*, ...);
+        // PROTOTYPE: not yet reverse-engineered (placeholder)
         using RunScriptFunctionPointer_t = void(__fastcall*)(void*, ...);
     }
     namespace particles {
@@ -1194,9 +1307,13 @@ namespace sdk::sigs_fn {
         // PROTOTYPE: not yet reverse-engineered (placeholder)
         using FrameUpdate_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: not yet reverse-engineered (placeholder)
+        using GeneratePrimitives_t = void(__fastcall*)(void*, ...);
+        // PROTOTYPE: not yet reverse-engineered (placeholder)
         using InitGfxObjects_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: not yet reverse-engineered (placeholder)
         using RenderSceneDrawList_t = void(__fastcall*)(void*, ...);
+        // PROTOTYPE: not yet reverse-engineered (placeholder)
+        using ToneMapUpdate_t = void(__fastcall*)(void*, ...);
     }
     namespace schemasystem {
         // PROTOTYPE: not yet reverse-engineered (placeholder)
@@ -1207,16 +1324,118 @@ namespace sdk::sigs_fn {
         using VerifySchemaBindingConsistency_t = void(__fastcall*)(void*, ...);
     }
     namespace server {
+        // PROTOTYPE: not yet reverse-engineered (placeholder)
+        using AcceptInput_t = void(__fastcall*)(void*, ...);
+        // PROTOTYPE: not yet reverse-engineered (placeholder)
+        using AddEntityIOEvent_t = void(__fastcall*)(void*, ...);
+        // PROTOTYPE: not yet reverse-engineered (placeholder)
+        using BotNavIgnore_t = void(__fastcall*)(void*, ...);
+        // PROTOTYPE: not yet reverse-engineered (placeholder)
+        using CTakeDamageInfo_t = void(__fastcall*)(void*, ...);
+        // PROTOTYPE: not yet reverse-engineered (placeholder)
+        using CanAcquire_t = void(__fastcall*)(void*, ...);
+        // PROTOTYPE: not yet reverse-engineered (placeholder)
+        using CanUse_t = void(__fastcall*)(void*, ...);
+        // PROTOTYPE: not yet reverse-engineered (placeholder)
+        using CheckSteamBan_t = void(__fastcall*)(void*, ...);
+        // PROTOTYPE: not yet reverse-engineered (placeholder)
+        using CheckTransmit_t = void(__fastcall*)(void*, ...);
+        // PROTOTYPE: not yet reverse-engineered (placeholder)
+        using ClientPrint_t = void(__fastcall*)(void*, ...);
+        // PROTOTYPE: not yet reverse-engineered (placeholder)
+        using ClientPrintAll_t = void(__fastcall*)(void*, ...);
+        // PROTOTYPE: not yet reverse-engineered (placeholder)
+        using CreateEntityByName_t = void(__fastcall*)(void*, ...);
+        // PROTOTYPE: not yet reverse-engineered (placeholder)
+        using DispatchParticleEffect_t = void(__fastcall*)(void*, ...);
+        // PROTOTYPE: not yet reverse-engineered (placeholder)
+        using DispatchSpawn_t = void(__fastcall*)(void*, ...);
+        // PROTOTYPE: not yet reverse-engineered (placeholder)
+        using EmitSoundFilter_t = void(__fastcall*)(void*, ...);
+        // PROTOTYPE: not yet reverse-engineered (placeholder)
+        using EmitSoundParams_t = void(__fastcall*)(void*, ...);
+        // PROTOTYPE: not yet reverse-engineered (placeholder)
+        using EndTouch_t = void(__fastcall*)(void*, ...);
+        // PROTOTYPE: not yet reverse-engineered (placeholder)
+        using EquipWeapon_t = void(__fastcall*)(void*, ...);
+        // PROTOTYPE: not yet reverse-engineered (placeholder)
+        using FindEntityByClassName_t = void(__fastcall*)(void*, ...);
+        // PROTOTYPE: not yet reverse-engineered (placeholder)
+        using FindEntityByName_t = void(__fastcall*)(void*, ...);
+        // PROTOTYPE: not yet reverse-engineered (placeholder)
+        using FindUseEntity_t = void(__fastcall*)(void*, ...);
+        // PROTOTYPE: not yet reverse-engineered (placeholder)
+        using FireOutputInternal_t = void(__fastcall*)(void*, ...);
+        // PROTOTYPE: not yet reverse-engineered (placeholder)
+        using GameSystems_t = void(__fastcall*)(void*, ...);
+        // PROTOTYPE: not yet reverse-engineered (placeholder)
+        using GetCSWeaponDataFromKey_t = void(__fastcall*)(void*, ...);
+        // PROTOTYPE: not yet reverse-engineered (placeholder)
+        using GetEyeAngles_t = void(__fastcall*)(void*, ...);
+        // PROTOTYPE: not yet reverse-engineered (placeholder)
+        using GetSpawnGroups_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall GiveNamedItem(__int64 a1, const char *a2, int a3, __int64 a4, char a5, unsigned __int64 *a6) (placeholder — verify in IDA)
         using GiveNamedItem_t = void(__fastcall*)(void*, ...);
+        // PROTOTYPE: not yet reverse-engineered (placeholder)
+        using GravityTouch_t = void(__fastcall*)(void*, ...);
+        // PROTOTYPE: not yet reverse-engineered (placeholder)
+        using Init_t = void(__fastcall*)(void*, ...);
+        // PROTOTYPE: not yet reverse-engineered (placeholder)
+        using InputTestActivator_t = void(__fastcall*)(void*, ...);
+        // PROTOTYPE: not yet reverse-engineered (placeholder)
+        using InputTriggerForActivatedPlayer_t = void(__fastcall*)(void*, ...);
+        // PROTOTYPE: not yet reverse-engineered (placeholder)
+        using InputTriggerForAllPlayers_t = void(__fastcall*)(void*, ...);
+        // PROTOTYPE: not yet reverse-engineered (placeholder)
+        using LegacyGameEventListener_t = void(__fastcall*)(void*, ...);
+        // PROTOTYPE: not yet reverse-engineered (placeholder)
+        using NetworkStateChanged_t = void(__fastcall*)(void*, ...);
+        // PROTOTYPE: not yet reverse-engineered (placeholder)
+        using PostThink_t = void(__fastcall*)(void*, ...);
+        // PROTOTYPE: not yet reverse-engineered (placeholder)
+        using ProcessUsercmds_t = void(__fastcall*)(void*, ...);
+        // PROTOTYPE: not yet reverse-engineered (placeholder)
+        using Remove_t = void(__fastcall*)(void*, ...);
+        // PROTOTYPE: not yet reverse-engineered (placeholder)
+        using RemovePlayerItem_t = void(__fastcall*)(void*, ...);
+        // PROTOTYPE: not yet reverse-engineered (placeholder)
+        using Say_t = void(__fastcall*)(void*, ...);
+        // PROTOTYPE: not yet reverse-engineered (placeholder)
+        using SayText2Filter_t = void(__fastcall*)(void*, ...);
+        // PROTOTYPE: not yet reverse-engineered (placeholder)
+        using SayTextFilter_t = void(__fastcall*)(void*, ...);
+        // PROTOTYPE: not yet reverse-engineered (placeholder)
+        using SetEntityName_t = void(__fastcall*)(void*, ...);
+        // PROTOTYPE: not yet reverse-engineered (placeholder)
+        using SetGravityScale_t = void(__fastcall*)(void*, ...);
+        // PROTOTYPE: not yet reverse-engineered (placeholder)
+        using SetGroundEntity_t = void(__fastcall*)(void*, ...);
+        // PROTOTYPE: not yet reverse-engineered (placeholder)
+        using SetModel_t = void(__fastcall*)(void*, ...);
+        // PROTOTYPE: not yet reverse-engineered (placeholder)
+        using SetMoveType_t = void(__fastcall*)(void*, ...);
+        // PROTOTYPE: not yet reverse-engineered (placeholder)
+        using SetOrAddAttributeValueByName_t = void(__fastcall*)(void*, ...);
+        // PROTOTYPE: not yet reverse-engineered (placeholder)
+        using SetPawn_t = void(__fastcall*)(void*, ...);
+        // PROTOTYPE: not yet reverse-engineered (placeholder)
+        using StartTouch_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall SwitchTeam(__int64 a1, unsigned int a2) (placeholder — verify in IDA)
         using SwitchTeam_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: _BYTE *__fastcall TerminateRound(__int64 a1, __int64 a2, unsigned int a3, __int64 a4) (placeholder — verify in IDA)
         using TerminateRound_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: double __fastcall Think(__int64 a1) (placeholder — verify in IDA)
         using Think_t = void(__fastcall*)(void*, ...);
+        // PROTOTYPE: not yet reverse-engineered (placeholder)
+        using Touch_t = void(__fastcall*)(void*, ...);
+        // PROTOTYPE: not yet reverse-engineered (placeholder)
+        using TraceFunc_t = void(__fastcall*)(void*, ...);
+        // PROTOTYPE: not yet reverse-engineered (placeholder)
+        using Use_t = void(__fastcall*)(void*, ...);
     }
     namespace soundsystem {
+        // PROTOTYPE: not yet reverse-engineered (placeholder)
+        using PlayVSND_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: _UNKNOWN **__fastcall PlayVSound(__int64 a1, __int64 a2, int a3, int a4) (placeholder — verify in IDA)
         using PlayVSound_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall SomeUtlSymbolFunc(__int64 a1, unsigned int a2) (placeholder — verify in IDA)
@@ -1241,5 +1460,3 @@ namespace sdk::sigs_fn {
         using UtlBuffer_t = void(__fastcall*)(void*, ...);
     }
 }
-
-#include "signatures_custom.hpp"
