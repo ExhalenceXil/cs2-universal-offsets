@@ -3,7 +3,7 @@
 // module:        server.dll
 // classes:       713
 // enums:         168
-// generated_at:  2026-05-22T22:56:37.709926700+00:00
+// generated_at:  2026-05-22T22:57:36.764293900+00:00
 //
 // Use:
 //   auto* pawn = reinterpret_cast<C_CSPlayerPawn*>(addr);
@@ -2490,9 +2490,21 @@ namespace sdk::server {
         MOVETYPE_MAX_BITS = 0x5,
     };
 
-    // CNmSnapWeaponTask
+    // CBaseIssue
+    //   fields: 6
+    class CBaseIssue {
+    public:
+        SCHEMA_FIELD(char                            , m_szTypeString                                  , 0x20) // char[64]
+        SCHEMA_FIELD(char                            , m_szDetailsString                               , 0x60) // char[260]
+        SCHEMA_FIELD(std::int32_t                    , m_iNumYesVotes                                  , 0x164) // int32
+        SCHEMA_FIELD(std::int32_t                    , m_iNumNoVotes                                   , 0x168) // int32
+        SCHEMA_FIELD(std::int32_t                    , m_iNumPotentialVotes                            , 0x16C) // int32
+        SCHEMA_FIELD(CVoteController*                , m_pVoteController                               , 0x170) // CVoteController*
+    };
+
+    // CNmEventConsumerLegacy
     //   fields: 0
-    class CNmSnapWeaponTask {
+    class CNmEventConsumerLegacy {
     public:
     };
 
@@ -2506,6 +2518,83 @@ namespace sdk::server {
         SCHEMA_FIELD(float                           , m_flFarBlurryDistance                           , 0xC) // float32
     };
 
+    // CRopeOverlapHit
+    //   fields: 2
+    class CRopeOverlapHit {
+    public:
+        SCHEMA_FIELD(CHandle<CBaseEntity>            , m_hEntity                                       , 0x0) // CHandle<CBaseEntity>
+        SCHEMA_FIELD(CUtlVector<int32>               , m_vecOverlappingLinks                           , 0x8) // CUtlVector<int32>
+    };
+
+    // CSkeletonAnimationController
+    //   fields: 1
+    class CSkeletonAnimationController {
+    public:
+        SCHEMA_FIELD(::sdk::client::CSkeletonInstance*, m_pSkeletonInstance                             , 0x8) // CSkeletonInstance*
+    };
+
+    // CNmAimCSTask
+    //   fields: 0
+    class CNmAimCSTask {
+    public:
+    };
+
+    // CAttributeManager
+    //   fields: 6
+    class CAttributeManager {
+    public:
+        SCHEMA_FIELD(CUtlVector<CHandle<CBaseEntity>>, m_Providers                                     , 0x8) // CUtlVector<CHandle<CBaseEntity>>
+        SCHEMA_FIELD(std::int32_t                    , m_iReapplyProvisionParity                       , 0x20) // int32
+        SCHEMA_FIELD(CHandle<CBaseEntity>            , m_hOuter                                        , 0x24) // CHandle<CBaseEntity>
+        SCHEMA_FIELD(bool                            , m_bPreventLoopback                              , 0x28) // bool
+        SCHEMA_FIELD(attributeprovidertypes_t        , m_ProviderType                                  , 0x2C) // attributeprovidertypes_t
+        SCHEMA_FIELD(CUtlVector<::sdk::client::CAttributeManager_cached_attribute_float_t>, m_CachedResults                                 , 0x30) // CUtlVector<CAttributeManager::cached_attribute_float_t>
+    };
+
+    // CDebugSnapshotData_t
+    //   fields: 14
+    class CDebugSnapshotData_t {
+    public:
+        SCHEMA_FIELD(::CUtlString                    , m_text                                          , 0x0) // CUtlString
+        SCHEMA_FIELD(std::uint32_t                   , m_dataType                                      , 0x8) // uint32
+        SCHEMA_FIELD(std::uint32_t                   , m_userFlags                                     , 0xC) // uint32
+        SCHEMA_FIELD(std::uint32_t                   , m_userData                                      , 0x10) // uint32
+        SCHEMA_FIELD(VectorWS                        , m_userVector                                    , 0x14) // VectorWS
+        SCHEMA_FIELD(CTransformWS                    , m_userTransform                                 , 0x20) // CTransformWS
+        SCHEMA_FIELD(::sdk::vphysics2::CGenericShapeProxy, m_userShape                                     , 0x40) // CGenericShapeProxy
+        SCHEMA_FIELD(::Color                         , m_drawColor                                     , 0xD8) // Color
+        SCHEMA_FIELD(CUtlVector<CDebugDrawHistoryData*>, m_vecDebugOverlayData                           , 0xE0) // CUtlVector<CDebugDrawHistoryData*>
+        SCHEMA_FIELD(DebugSnapshotBaseStructuredData_t*, m_pStructuredData                               , 0xF8) // DebugSnapshotBaseStructuredData_t*
+        SCHEMA_FIELD(CHandle<CBaseEntity>            , m_hEntity                                       , 0x100) // CHandle<CBaseEntity>
+        SCHEMA_FIELD(::CUtlString                    , m_sEntityName                                   , 0x108) // CUtlString
+        SCHEMA_FIELD(CEntityIndex                    , m_nEntityIndex                                  , 0x110) // CEntityIndex
+        SCHEMA_FIELD(CUtlLeanVector<CDebugSnapshotData_t>, m_children                                      , 0x120) // CUtlLeanVector<CDebugSnapshotData_t>
+    };
+
+    // CBtActionAim
+    //   fields: 12
+    class CBtActionAim {
+    public:
+        SCHEMA_FIELD(::CUtlString                    , m_szSensorInputKey                              , 0x68) // CUtlString
+        SCHEMA_FIELD(::CUtlString                    , m_szAimReadyKey                                 , 0x80) // CUtlString
+        SCHEMA_FIELD(float                           , m_flZoomCooldownTimestamp                       , 0x88) // float32
+        SCHEMA_FIELD(bool                            , m_bDoneAiming                                   , 0x8C) // bool
+        SCHEMA_FIELD(float                           , m_flLerpStartTime                               , 0x90) // float32
+        SCHEMA_FIELD(float                           , m_flNextLookTargetLerpTime                      , 0x94) // float32
+        SCHEMA_FIELD(float                           , m_flPenaltyReductionRatio                       , 0x98) // float32
+        SCHEMA_FIELD(::QAngle                        , m_NextLookTarget                                , 0x9C) // QAngle
+        SCHEMA_FIELD(::sdk::client::CountdownTimer   , m_AimTimer                                      , 0xA8) // CountdownTimer
+        SCHEMA_FIELD(::sdk::client::CountdownTimer   , m_SniperHoldTimer                               , 0xC0) // CountdownTimer
+        SCHEMA_FIELD(::sdk::client::CountdownTimer   , m_FocusIntervalTimer                            , 0xD8) // CountdownTimer
+        SCHEMA_FIELD(bool                            , m_bAcquired                                     , 0xF0) // bool
+    };
+
+    // CBaseEntityAPI
+    //   fields: 0
+    class CBaseEntityAPI {
+    public:
+    };
+
     // CPulseCell_Outflow_PlayVOLine
     //   fields: 1
     class CPulseCell_Outflow_PlayVOLine {
@@ -2513,10 +2602,60 @@ namespace sdk::server {
         SCHEMA_FIELD(::sdk::animationsystem::CPulse_ResumePoint, m_OnFinished                                    , 0x48) // CPulse_ResumePoint
     };
 
-    // CNmEventConsumerAttributes
+    // CBaseModelEntityAPI
     //   fields: 0
-    class CNmEventConsumerAttributes {
+    class CBaseModelEntityAPI {
     public:
+    };
+
+    // CPlayerControllerComponent
+    //   fields: 1
+    class CPlayerControllerComponent {
+    public:
+        SCHEMA_FIELD(::sdk::engine2::CNetworkVarChainer, __m_pChainEntity                                , 0x8) // CNetworkVarChainer
+    };
+
+    // AI_MotorGroundAnimgraph_DebugSnapshotData_t
+    //   fields: 10
+    class AI_MotorGroundAnimgraph_DebugSnapshotData_t {
+    public:
+        SCHEMA_FIELD(CGlobalSymbol                   , state                                           , 0x8) // CGlobalSymbol
+        SCHEMA_FIELD(bool                            , b_has_path                                      , 0x10) // bool
+        SCHEMA_FIELD(float                           , f_remaining_ground_path_length                  , 0x14) // float32
+        SCHEMA_FIELD(float                           , f_current_speed                                 , 0x18) // float32
+        SCHEMA_FIELD(CGlobalSymbol                   , move_type                                       , 0x20) // CGlobalSymbol
+        SCHEMA_FIELD(float                           , f_move_heading_actual                           , 0x28) // float32
+        SCHEMA_FIELD(float                           , f_move_heading_desired                          , 0x2C) // float32
+        SCHEMA_FIELD(float                           , f_current_lean                                  , 0x30) // float32
+        SCHEMA_FIELD(float                           , f_target_lean                                   , 0x34) // float32
+        SCHEMA_FIELD(CUtlVector<AI_MotorGroundAnimgraph_DebugSnapshotData_t_Event_t>, vec_events                                      , 0x38) // CUtlVector<AI_MotorGroundAnimgraph_DebugSnapshotData_t::Event_t>
+    };
+
+    // DebugSnapshotBaseStructuredData_t
+    //   fields: 0
+    class DebugSnapshotBaseStructuredData_t {
+    public:
+    };
+
+    // DecalGroupOption_t
+    //   fields: 6
+    class DecalGroupOption_t {
+    public:
+        SCHEMA_FIELD(CStrongHandleCopyable<InfoForResourceTypeIMaterial2>, m_hMaterial                                     , 0x0) // CStrongHandleCopyable<InfoForResourceTypeIMaterial2>
+        SCHEMA_FIELD(CGlobalSymbol                   , m_sSequenceName                                 , 0x8) // CGlobalSymbol
+        SCHEMA_FIELD(float                           , m_flProbability                                 , 0x10) // float32
+        SCHEMA_FIELD(bool                            , m_bEnableAngleBetweenNormalAndGravityRange      , 0x14) // bool
+        SCHEMA_FIELD(float                           , m_flMinAngleBetweenNormalAndGravity             , 0x18) // float32
+        SCHEMA_FIELD(float                           , m_flMaxAngleBetweenNormalAndGravity             , 0x1C) // float32
+    };
+
+    // CNmSnapWeaponNode::CDefinition
+    //   fields: 3
+    class CNmSnapWeaponNode_CDefinition {
+    public:
+        SCHEMA_FIELD(std::int16_t                    , m_nFlashedAmountNodeIdx                         , 0x18) // int16
+        SCHEMA_FIELD(std::int16_t                    , m_nWeaponCategoryNodeIdx                        , 0x1A) // int16
+        SCHEMA_FIELD(std::int16_t                    , m_nWeaponTypeNodeIdx                            , 0x1C) // int16
     };
 
     // CGameScriptedMoveDef_t
@@ -2534,171 +2673,11 @@ namespace sdk::server {
         SCHEMA_FIELD(ForcedCrouchState_t             , m_nForcedCrouchState                            , 0x2C) // ForcedCrouchState_t
     };
 
-    // CInButtonState
+    // SceneOpportunityHandle_t
     //   fields: 1
-    class CInButtonState {
+    class SceneOpportunityHandle_t {
     public:
-        SCHEMA_FIELD(std::uint64_t                   , m_pButtonStates                                 , 0x8) // uint64[3]
-    };
-
-    // NavGravity_t
-    //   fields: 2
-    class NavGravity_t {
-    public:
-        SCHEMA_FIELD(::Vector                        , m_vGravity                                      , 0x0) // Vector
-        SCHEMA_FIELD(bool                            , m_bDefault                                      , 0xC) // bool
-    };
-
-    // CDebugDrawHistoryData
-    //   fields: 9
-    class CDebugDrawHistoryData {
-    public:
-        SCHEMA_FIELD(CHandle<CBaseEntity>            , m_hEntity                                       , 0x0) // CHandle<CBaseEntity>
-        SCHEMA_FIELD(::sdk::scenesystem::ESceneViewDebugOverlaysListenerDataType_t, m_etype                                         , 0x4) // ESceneViewDebugOverlaysListenerDataType_t
-        SCHEMA_FIELD(CUtlLeanVector<Vector4D>        , m_vectors                                       , 0x8) // CUtlLeanVector<Vector4D>
-        SCHEMA_FIELD(CUtlLeanVector<Color>           , m_colors                                        , 0x18) // CUtlLeanVector<Color>
-        SCHEMA_FIELD(CUtlLeanVector<float32>         , m_dimensions                                    , 0x28) // CUtlLeanVector<float32>
-        SCHEMA_FIELD(CUtlLeanVector<float64>         , m_times                                         , 0x38) // CUtlLeanVector<float64>
-        SCHEMA_FIELD(CUtlLeanVector<uint64>          , m_uint64s                                       , 0x48) // CUtlLeanVector<uint64>
-        SCHEMA_FIELD(CUtlLeanVector<bool>            , m_bools                                         , 0x58) // CUtlLeanVector<bool>
-        SCHEMA_FIELD(CUtlLeanVector<CUtlString>      , m_strings                                       , 0x68) // CUtlLeanVector<CUtlString>
-    };
-
-    // ragdoll_t
-    //   fields: 5
-    class ragdoll_t {
-    public:
-        SCHEMA_FIELD(CUtlVector<ragdollelement_t>    , list                                            , 0x0) // CUtlVector<ragdollelement_t>
-        SCHEMA_FIELD(CUtlVector<ragdollhierarchyjoint_t>, hierarchyJoints                                 , 0x18) // CUtlVector<ragdollhierarchyjoint_t>
-        SCHEMA_FIELD(CUtlVector<int32>               , boneIndex                                       , 0x30) // CUtlVector<int32>
-        SCHEMA_FIELD(bool                            , allowStretch                                    , 0x48) // bool
-        SCHEMA_FIELD(bool                            , unused                                          , 0x49) // bool
-    };
-
-    // CBot
-    //   fields: 13
-    class CBot {
-    public:
-        SCHEMA_FIELD(::sdk::client::CCSPlayerController*, m_pController                                   , 0x10) // CCSPlayerController*
-        SCHEMA_FIELD(CCSPlayerPawn*                  , m_pPlayer                                       , 0x18) // CCSPlayerPawn*
-        SCHEMA_FIELD(bool                            , m_bHasSpawned                                   , 0x20) // bool
-        SCHEMA_FIELD(std::uint32_t                   , m_id                                            , 0x24) // uint32
-        SCHEMA_FIELD(bool                            , m_isRunning                                     , 0xC0) // bool
-        SCHEMA_FIELD(bool                            , m_isCrouching                                   , 0xC1) // bool
-        SCHEMA_FIELD(float                           , m_forwardSpeed                                  , 0xC4) // float32
-        SCHEMA_FIELD(float                           , m_leftSpeed                                     , 0xC8) // float32
-        SCHEMA_FIELD(float                           , m_verticalSpeed                                 , 0xCC) // float32
-        SCHEMA_FIELD(std::uint64_t                   , m_buttonFlags                                   , 0xD0) // uint64
-        SCHEMA_FIELD(float                           , m_jumpTimestamp                                 , 0xD8) // float32
-        SCHEMA_FIELD(::Vector                        , m_viewForward                                   , 0xDC) // Vector
-        SCHEMA_FIELD(std::int32_t                    , m_postureStackIndex                             , 0xF8) // int32
-    };
-
-    // CRemapFloat
-    //   fields: 1
-    class CRemapFloat {
-    public:
-        SCHEMA_FIELD(float                           , m_pValue                                        , 0x0) // float32[4]
-    };
-
-    // CPulsePhysicsConstraintsFuncs
-    //   fields: 0
-    class CPulsePhysicsConstraintsFuncs {
-    public:
-    };
-
-    // CSceneEventInfo
-    //   fields: 16
-    class CSceneEventInfo {
-    public:
-        SCHEMA_FIELD(std::int32_t                    , m_iLayer                                        , 0x0) // int32
-        SCHEMA_FIELD(std::int32_t                    , m_iPriority                                     , 0x4) // int32
-        SCHEMA_FIELD(::sdk::animationsystem::HSequence, m_hSequence                                     , 0x8) // HSequence
-        SCHEMA_FIELD(float                           , m_flWeight                                      , 0xC) // float32
-        SCHEMA_FIELD(CStrongHandle<InfoForResourceTypeCNmClip>, m_hAnimClip                                     , 0x10) // CStrongHandle<InfoForResourceTypeCNmClip>
-        SCHEMA_FIELD(CGlobalSymbol                   , m_sAnimClipSlot                                 , 0x18) // CGlobalSymbol
-        SCHEMA_FIELD(CGlobalSymbol                   , m_sAnimClipSlotWeight                           , 0x20) // CGlobalSymbol
-        SCHEMA_FIELD(bool                            , m_bHasArrived                                   , 0x28) // bool
-        SCHEMA_FIELD(std::int32_t                    , m_nType                                         , 0x2C) // int32
-        SCHEMA_FIELD(::GameTime_t                    , m_flNext                                        , 0x30) // GameTime_t
-        SCHEMA_FIELD(bool                            , m_bIsGesture                                    , 0x34) // bool
-        SCHEMA_FIELD(bool                            , m_bShouldRemove                                 , 0x35) // bool
-        SCHEMA_FIELD(CHandle<CBaseEntity>            , m_hTarget                                       , 0x5C) // CHandle<CBaseEntity>
-        SCHEMA_FIELD(SceneEventId_t                  , m_nSceneEventId                                 , 0x60) // SceneEventId_t
-        SCHEMA_FIELD(bool                            , m_bClientSide                                   , 0x64) // bool
-        SCHEMA_FIELD(bool                            , m_bStarted                                      , 0x65) // bool
-    };
-
-    // CTestPulseIO::EntityNameStringArgs_t
-    //   fields: 2
-    class CTestPulseIO_EntityNameStringArgs_t {
-    public:
-        SCHEMA_FIELD(CEntityNameString               , nameA                                           , 0x0) // CEntityNameString
-        SCHEMA_FIELD(::CUtlSymbolLarge               , strValueB                                       , 0x8) // CUtlSymbolLarge
-    };
-
-    // ragdollhierarchyjoint_t
-    //   fields: 2
-    class ragdollhierarchyjoint_t {
-    public:
-        SCHEMA_FIELD(std::int32_t                    , parentIndex                                     , 0x0) // int32
-        SCHEMA_FIELD(std::int32_t                    , childIndex                                      , 0x4) // int32
-    };
-
-    // CAI_Expresser
-    //   fields: 11
-    class CAI_Expresser {
-    public:
-        SCHEMA_FIELD(::GameTime_t                    , m_flStopTalkTime                                , 0x60) // GameTime_t
-        SCHEMA_FIELD(::GameTime_t                    , m_flStopTalkTimeWithoutDelay                    , 0x64) // GameTime_t
-        SCHEMA_FIELD(::GameTime_t                    , m_flQueuedSpeechTime                            , 0x68) // GameTime_t
-        SCHEMA_FIELD(::GameTime_t                    , m_flBlockedTalkTime                             , 0x6C) // GameTime_t
-        SCHEMA_FIELD(std::int32_t                    , m_voicePitch                                    , 0x70) // int32
-        SCHEMA_FIELD(::GameTime_t                    , m_flLastTimeAcceptedSpeak                       , 0x74) // GameTime_t
-        SCHEMA_FIELD(bool                            , m_bAllowSpeakingInterrupts                      , 0x78) // bool
-        SCHEMA_FIELD(bool                            , m_bConsiderSceneInvolvementAsSpeech             , 0x79) // bool
-        SCHEMA_FIELD(bool                            , m_bSceneEntityDisabled                          , 0x7A) // bool
-        SCHEMA_FIELD(std::int32_t                    , m_nLastSpokenPriority                           , 0x7C) // int32
-        SCHEMA_FIELD(CBaseModelEntity*               , m_pOuter                                        , 0x98) // CBaseModelEntity*
-    };
-
-    // CNmAimCSTask
-    //   fields: 0
-    class CNmAimCSTask {
-    public:
-    };
-
-    // CSoundEnvelope
-    //   fields: 4
-    class CSoundEnvelope {
-    public:
-        SCHEMA_FIELD(float                           , m_current                                       , 0x0) // float32
-        SCHEMA_FIELD(float                           , m_target                                        , 0x4) // float32
-        SCHEMA_FIELD(float                           , m_rate                                          , 0x8) // float32
-        SCHEMA_FIELD(bool                            , m_forceupdate                                   , 0xC) // bool
-    };
-
-    // magnetted_objects_t
-    //   fields: 1
-    class magnetted_objects_t {
-    public:
-        SCHEMA_FIELD(CHandle<CBaseEntity>            , hEntity                                         , 0x8) // CHandle<CBaseEntity>
-    };
-
-    // CBreakableStageHelper
-    //   fields: 2
-    class CBreakableStageHelper {
-    public:
-        SCHEMA_FIELD(std::int32_t                    , m_nCurrentStage                                 , 0x8) // int32
-        SCHEMA_FIELD(std::int32_t                    , m_nStageCount                                   , 0xC) // int32
-    };
-
-    // CRopeOverlapHit
-    //   fields: 2
-    class CRopeOverlapHit {
-    public:
-        SCHEMA_FIELD(CHandle<CBaseEntity>            , m_hEntity                                       , 0x0) // CHandle<CBaseEntity>
-        SCHEMA_FIELD(CUtlVector<int32>               , m_vecOverlappingLinks                           , 0x8) // CUtlVector<int32>
+        SCHEMA_FIELD(std::int32_t                    , m_Value                                         , 0x0) // int32
     };
 
     // CTestPulseIOComponent
@@ -2709,107 +2688,34 @@ namespace sdk::server {
         SCHEMA_FIELD(CEntityOutputTemplate<CUtlSymbolLarge>, m_OnComponentTestFunc                           , 0x10) // CEntityOutputTemplate<CUtlSymbolLarge>
     };
 
-    // AI_DefaultNPC_DebugSnapshotData_t
-    //   fields: 8
-    class AI_DefaultNPC_DebugSnapshotData_t {
+    // CPulseCell_SoundEventStart
+    //   fields: 1
+    class CPulseCell_SoundEventStart {
     public:
-        SCHEMA_FIELD(CGlobalSymbol                   , s_npc_current_ability                           , 0x8) // CGlobalSymbol
-        SCHEMA_FIELD(CGlobalSymbol                   , s_npc_tactic_current                            , 0x10) // CGlobalSymbol
-        SCHEMA_FIELD(CGlobalSymbol                   , s_npc_tactic_phase                              , 0x18) // CGlobalSymbol
-        SCHEMA_FIELD(CUtlVector<CGlobalSymbol>       , tactic_interrupt_conditions                     , 0x20) // CUtlVector<CGlobalSymbol>
-        SCHEMA_FIELD(::CUtlString                    , s_npc_current_movement                          , 0x38) // CUtlString
-        SCHEMA_FIELD(AI_DefaultNPC_DebugSnapshotData_t_PathQuery_t, path_query_schedule                             , 0x40) // AI_DefaultNPC_DebugSnapshotData_t::PathQuery_t
-        SCHEMA_FIELD(AI_DefaultNPC_DebugSnapshotData_t_PathQuery_t, path_query_tactic                               , 0x68) // AI_DefaultNPC_DebugSnapshotData_t::PathQuery_t
-        SCHEMA_FIELD(CUtlVector<AI_DefaultNPC_DebugSnapshotData_t_PathQuery_t>, path_queries_speculative                        , 0x90) // CUtlVector<AI_DefaultNPC_DebugSnapshotData_t::PathQuery_t>
+        SCHEMA_FIELD(SoundEventStartType_t           , m_Type                                          , 0x48) // SoundEventStartType_t
     };
 
-    // CDecalGroupVData
-    //   fields: 2
-    class CDecalGroupVData {
+    // CMultiplayer_Expresser
+    //   fields: 1
+    class CMultiplayer_Expresser {
     public:
-        SCHEMA_FIELD(CUtlVector<DecalGroupOption_t>  , m_vecOptions                                    , 0x0) // CUtlVector<DecalGroupOption_t>
-        SCHEMA_FIELD(float                           , m_flTotalProbability                            , 0x18) // float32
+        SCHEMA_FIELD(bool                            , m_bAllowMultipleScenes                          , 0xA0) // bool
     };
 
-    // ragdollelement_t
+    // CBtActionCombatPositioning
     //   fields: 4
-    class ragdollelement_t {
+    class CBtActionCombatPositioning {
     public:
-        SCHEMA_FIELD(::Vector                        , originParentSpace                               , 0x0) // Vector
-        SCHEMA_FIELD(std::int32_t                    , parentIndex                                     , 0x20) // int32
-        SCHEMA_FIELD(float                           , m_flRadius                                      , 0x24) // float32
-        SCHEMA_FIELD(std::int32_t                    , m_nHeight                                       , 0x28) // int32
+        SCHEMA_FIELD(::CUtlString                    , m_szSensorInputKey                              , 0x68) // CUtlString
+        SCHEMA_FIELD(::CUtlString                    , m_szIsAttackingKey                              , 0x80) // CUtlString
+        SCHEMA_FIELD(::sdk::client::CountdownTimer   , m_ActionTimer                                   , 0x88) // CountdownTimer
+        SCHEMA_FIELD(bool                            , m_bCrouching                                    , 0xA0) // bool
     };
 
-    // CScriptUniformRandomStream
-    //   fields: 2
-    class CScriptUniformRandomStream {
-    public:
-        SCHEMA_FIELD(HSCRIPT                         , m_hScriptScope                                  , 0x8) // HSCRIPT
-        SCHEMA_FIELD(std::int32_t                    , m_nInitialSeed                                  , 0x9C) // int32
-    };
-
-    // CBaseModelEntity::OnDamageLevelChangedArgs_t
-    //   fields: 4
-    class CBaseModelEntity_OnDamageLevelChangedArgs_t {
-    public:
-        SCHEMA_FIELD(HitGroup_t                      , nHitGroup                                       , 0x0) // HitGroup_t
-        SCHEMA_FIELD(std::int32_t                    , nDamageLevel                                    , 0x4) // int32
-        SCHEMA_FIELD(std::int32_t                    , nDamageLevelsRemaining                          , 0x8) // int32
-        SCHEMA_FIELD(std::int32_t                    , nPrevDamageLevel                                , 0xC) // int32
-    };
-
-    // CSceneOpportunity
-    //   fields: 18
-    class CSceneOpportunity {
-    public:
-        SCHEMA_FIELD(CHandle<CBaseEntity>            , m_hOwner                                        , 0x0) // CHandle<CBaseEntity>
-        SCHEMA_FIELD(SceneOpportunityHandle_t        , m_uHandle                                       , 0x4) // SceneOpportunityHandle_t
-        SCHEMA_FIELD(::CUtlSymbolLarge               , m_strInteractVDataName                          , 0x8) // CUtlSymbolLarge
-        SCHEMA_FIELD(bool                            , m_bEnabled                                      , 0x10) // bool
-        SCHEMA_FIELD(bool                            , m_bActive                                       , 0x11) // bool
-        SCHEMA_FIELD(InteractionPriority_t           , m_ePriority                                     , 0x14) // InteractionPriority_t
-        SCHEMA_FIELD(float                           , m_flRadius                                      , 0x18) // float32
-        SCHEMA_FIELD(SceneInterestTags_t             , m_LocalInterestReqTags                          , 0x20) // SceneInterestTags_t
-        SCHEMA_FIELD(SceneInterestTags_t             , m_LocalInterestOptTags                          , 0x38) // SceneInterestTags_t
-        SCHEMA_FIELD(float                           , m_flOwnerFOV                                    , 0x50) // float32
-        SCHEMA_FIELD(CUtlVector<SceneOpportunityActor_t>, m_ActorList                                     , 0x58) // CUtlVector<SceneOpportunityActor_t>
-        SCHEMA_FIELD(CHandle<CBaseEntity>            , m_hLookTarget                                   , 0x70) // CHandle<CBaseEntity>
-        SCHEMA_FIELD(float                           , m_flDuration                                    , 0x74) // float32
-        SCHEMA_FIELD(::GameTime_t                    , m_tStartTime                                    , 0x78) // GameTime_t
-        SCHEMA_FIELD(float                           , m_flCooldown                                    , 0x7C) // float32
-        SCHEMA_FIELD(::GameTime_t                    , m_tCooldownTime                                 , 0x80) // GameTime_t
-        SCHEMA_FIELD(std::int32_t                    , m_nRepeatCount                                  , 0x84) // int32
-        SCHEMA_FIELD(bool                            , m_bDisableOnExit                                , 0x88) // bool
-    };
-
-    // CPhysMotorAPI
+    // ISkeletonAnimationController
     //   fields: 0
-    class CPhysMotorAPI {
+    class ISkeletonAnimationController {
     public:
-    };
-
-    // SimpleConstraintSoundProfile
-    //   fields: 5
-    class SimpleConstraintSoundProfile {
-    public:
-        SCHEMA_FIELD(float                           , m_flKeyPointMinSoundThreshold                   , 0x8) // float32
-        SCHEMA_FIELD(float                           , m_flKeyPointMaxSoundThreshold                   , 0xC) // float32
-        SCHEMA_FIELD(float                           , m_reversalSoundThresholdSmall                   , 0x10) // float32
-        SCHEMA_FIELD(float                           , m_reversalSoundThresholdMedium                  , 0x14) // float32
-        SCHEMA_FIELD(float                           , m_reversalSoundThresholdLarge                   , 0x18) // float32
-    };
-
-    // CBaseIssue
-    //   fields: 6
-    class CBaseIssue {
-    public:
-        SCHEMA_FIELD(char                            , m_szTypeString                                  , 0x20) // char[64]
-        SCHEMA_FIELD(char                            , m_szDetailsString                               , 0x60) // char[260]
-        SCHEMA_FIELD(std::int32_t                    , m_iNumYesVotes                                  , 0x164) // int32
-        SCHEMA_FIELD(std::int32_t                    , m_iNumNoVotes                                   , 0x168) // int32
-        SCHEMA_FIELD(std::int32_t                    , m_iNumPotentialVotes                            , 0x16C) // int32
-        SCHEMA_FIELD(CVoteController*                , m_pVoteController                               , 0x170) // CVoteController*
     };
 
     // globalentity_t
@@ -2822,75 +2728,346 @@ namespace sdk::server {
         SCHEMA_FIELD(std::int32_t                    , counter                                         , 0x8) // int32
     };
 
-    // IEconItemInterface
+    // PhysObjectHeader_t
+    //   fields: 8
+    class PhysObjectHeader_t {
+    public:
+        SCHEMA_FIELD(::sdk::vphysics2::PhysInterfaceId_t, type                                            , 0x0) // PhysInterfaceId_t
+        SCHEMA_FIELD(CHandle<CBaseEntity>            , hEntity                                         , 0x4) // CHandle<CBaseEntity>
+        SCHEMA_FIELD(::CUtlSymbolLarge               , fieldName                                       , 0x8) // CUtlSymbolLarge
+        SCHEMA_FIELD(std::int32_t                    , nObjects                                        , 0x10) // int32
+        SCHEMA_FIELD(::CUtlSymbolLarge               , modelName                                       , 0x18) // CUtlSymbolLarge
+        SCHEMA_FIELD(::AABB_t                        , bbox                                            , 0x20) // AABB_t
+        SCHEMA_FIELD(physics_save_sphere_t           , sphere                                          , 0x38) // physics_save_sphere_t
+        SCHEMA_FIELD(std::int32_t                    , iCollide                                        , 0x3C) // int32
+    };
+
+    // CPhysMotorAPI
     //   fields: 0
-    class IEconItemInterface {
+    class CPhysMotorAPI {
     public:
     };
 
-    // CNmAimCSNode::CDefinition
-    //   fields: 11
-    class CNmAimCSNode_CDefinition {
-    public:
-        SCHEMA_FIELD(std::int16_t                    , m_nVerticalAngleNodeIdx                         , 0x18) // int16
-        SCHEMA_FIELD(std::int16_t                    , m_nHorizontalAngleNodeIdx                       , 0x1A) // int16
-        SCHEMA_FIELD(std::int16_t                    , m_nWeaponCategoryNodeIdx                        , 0x1C) // int16
-        SCHEMA_FIELD(std::int16_t                    , m_nWeaponTypeNodeIdx                            , 0x1E) // int16
-        SCHEMA_FIELD(std::int16_t                    , m_nWeaponActionNodeIdx                          , 0x20) // int16
-        SCHEMA_FIELD(std::int16_t                    , m_nWeaponDropNodeIdx                            , 0x22) // int16
-        SCHEMA_FIELD(std::int16_t                    , m_nIsDefusingNodeIdx                            , 0x24) // int16
-        SCHEMA_FIELD(std::int16_t                    , m_nCrouchWeightNodeIdx                          , 0x26) // int16
-        SCHEMA_FIELD(float                           , m_flHandIKBlendInTimeSeconds                    , 0x28) // float32
-        SCHEMA_FIELD(float                           , m_flActionBlendTimeSeconds                      , 0x2C) // float32
-        SCHEMA_FIELD(float                           , m_flPlantingBlendTimeSeconds                    , 0x30) // float32
-    };
-
-    // SoundeventPathCornerPairNetworked_t
-    //   fields: 5
-    class SoundeventPathCornerPairNetworked_t {
-    public:
-        SCHEMA_FIELD(VectorWS                        , vP1                                             , 0x0) // VectorWS
-        SCHEMA_FIELD(VectorWS                        , vP2                                             , 0xC) // VectorWS
-        SCHEMA_FIELD(float                           , flPathLengthSqr                                 , 0x18) // float32
-        SCHEMA_FIELD(float                           , flP1Pct                                         , 0x1C) // float32
-        SCHEMA_FIELD(float                           , flP2Pct                                         , 0x20) // float32
-    };
-
-    // levellist_t
-    //   fields: 5
-    class levellist_t {
-    public:
-        SCHEMA_FIELD(::CUtlString                    , m_sMapName                                      , 0x0) // CUtlString
-        SCHEMA_FIELD(::CUtlString                    , m_sLandmarkName                                 , 0x8) // CUtlString
-        SCHEMA_FIELD(CEntityHandle                   , m_hEntLandmark                                  , 0x10) // CEntityHandle
-        SCHEMA_FIELD(::Vector                        , m_vecLandmarkOrigin                             , 0x14) // Vector
-        SCHEMA_FIELD(::QAngle                        , m_vecLandmarkAngles                             , 0x20) // QAngle
-    };
-
-    // CSkeletonAnimationController
+    // CBtActionParachutePositioning
     //   fields: 1
-    class CSkeletonAnimationController {
+    class CBtActionParachutePositioning {
     public:
-        SCHEMA_FIELD(::sdk::client::CSkeletonInstance*, m_pSkeletonInstance                             , 0x8) // CSkeletonInstance*
+        SCHEMA_FIELD(::sdk::client::CountdownTimer   , m_ActionTimer                                   , 0x58) // CountdownTimer
     };
 
-    // CVectorMovingAverage
-    //   fields: 0
-    class CVectorMovingAverage {
+    // SceneRequestTargetMapPair_t
+    //   fields: 2
+    class SceneRequestTargetMapPair_t {
     public:
+        SCHEMA_FIELD(::CUtlSymbolLarge               , m_actorName                                     , 0x0) // CUtlSymbolLarge
+        SCHEMA_FIELD(::CUtlSymbolLarge               , m_targetName                                    , 0x8) // CUtlSymbolLarge
     };
 
-    // CMultiplayRules
-    //   fields: 0
-    class CMultiplayRules {
+    // RotatorHistoryEntry_t
+    //   fields: 2
+    class RotatorHistoryEntry_t {
     public:
+        SCHEMA_FIELD(::Quaternion                    , qInvChange                                      , 0x0) // Quaternion
+        SCHEMA_FIELD(::GameTime_t                    , flTimeRotationStart                             , 0x10) // GameTime_t
     };
 
-    // CRangeInt
+    // CPhysicsShake
     //   fields: 1
-    class CRangeInt {
+    class CPhysicsShake {
     public:
-        SCHEMA_FIELD(std::int32_t                    , m_pValue                                        , 0x0) // int32[2]
+        SCHEMA_FIELD(::Vector                        , m_force                                         , 0x8) // Vector
+    };
+
+    // hudtextparms_t
+    //   fields: 6
+    class hudtextparms_t {
+    public:
+        SCHEMA_FIELD(::Color                         , color1                                          , 0x0) // Color
+        SCHEMA_FIELD(::Color                         , color2                                          , 0x4) // Color
+        SCHEMA_FIELD(std::uint8_t                    , effect                                          , 0x8) // uint8
+        SCHEMA_FIELD(std::uint8_t                    , channel                                         , 0x9) // uint8
+        SCHEMA_FIELD(float                           , x                                               , 0xC) // float32
+        SCHEMA_FIELD(float                           , y                                               , 0x10) // float32
+    };
+
+    // DestructiblePartDamageRequest_t
+    //   fields: 9
+    class DestructiblePartDamageRequest_t {
+    public:
+        SCHEMA_FIELD(HitGroup_t                      , m_nHitGroup                                     , 0x0) // HitGroup_t
+        SCHEMA_FIELD(std::int32_t                    , m_nDamageLevel                                  , 0x4) // int32
+        SCHEMA_FIELD(std::uint16_t                   , m_nDesiredHealth                                , 0x8) // uint16
+        SCHEMA_FIELD(EDestructibleParts_DestroyParameterFlags, m_nDestroyFlags                                 , 0xC) // EDestructibleParts_DestroyParameterFlags
+        SCHEMA_FIELD(DamageTypes_t                   , m_nDamageType                                   , 0x10) // DamageTypes_t
+        SCHEMA_FIELD(float                           , m_flBreakDamage                                 , 0x14) // float32
+        SCHEMA_FIELD(float                           , m_flBreakDamageRadius                           , 0x18) // float32
+        SCHEMA_FIELD(VectorWS                        , m_vWsBreakDamageOrigin                          , 0x1C) // VectorWS
+        SCHEMA_FIELD(::Vector                        , m_vWsBreakDamageForce                           , 0x28) // Vector
+    };
+
+    // CPulseGraphInstance_GameBlackboard
+    //   fields: 0
+    class CPulseGraphInstance_GameBlackboard {
+    public:
+    };
+
+    // CPulseCell_Outflow_ScriptedSequence
+    //   fields: 10
+    class CPulseCell_Outflow_ScriptedSequence {
+    public:
+        SCHEMA_FIELD(::CUtlString                    , m_szSyncGroup                                   , 0x48) // CUtlString
+        SCHEMA_FIELD(std::int32_t                    , m_nExpectedNumSequencesInSyncGroup              , 0x50) // int32
+        SCHEMA_FIELD(bool                            , m_bEnsureOnNavmeshOnFinish                      , 0x54) // bool
+        SCHEMA_FIELD(bool                            , m_bDontTeleportAtEnd                            , 0x55) // bool
+        SCHEMA_FIELD(bool                            , m_bDisallowInterrupts                           , 0x56) // bool
+        SCHEMA_FIELD(PulseScriptedSequenceData_t     , m_scriptedSequenceDataMain                      , 0x58) // PulseScriptedSequenceData_t
+        SCHEMA_FIELD(CUtlVector<PulseScriptedSequenceData_t>, m_vecAdditionalActors                           , 0x90) // CUtlVector<PulseScriptedSequenceData_t>
+        SCHEMA_FIELD(::sdk::animationsystem::CPulse_ResumePoint, m_OnFinished                                    , 0xA8) // CPulse_ResumePoint
+        SCHEMA_FIELD(::sdk::animationsystem::CPulse_ResumePoint, m_OnCanceled                                    , 0xF0) // CPulse_ResumePoint
+        SCHEMA_FIELD(CUtlVector<::sdk::animationsystem::CPulse_OutflowConnection>, m_Triggers                                      , 0x138) // CUtlVector<CPulse_OutflowConnection>
+    };
+
+    // CBtNodeCondition
+    //   fields: 1
+    class CBtNodeCondition {
+    public:
+        SCHEMA_FIELD(bool                            , m_bNegated                                      , 0x58) // bool
+    };
+
+    // ParticleNode_t
+    //   fields: 7
+    class ParticleNode_t {
+    public:
+        SCHEMA_FIELD(CHandle<CBaseEntity>            , m_hEntity                                       , 0x0) // CHandle<CBaseEntity>
+        SCHEMA_FIELD(::sdk::particles::ParticleIndex_t, m_iIndex                                        , 0x4) // ParticleIndex_t
+        SCHEMA_FIELD(::GameTime_t                    , m_flStartTime                                   , 0x8) // GameTime_t
+        SCHEMA_FIELD(float                           , m_flGrowthDuration                              , 0xC) // float32
+        SCHEMA_FIELD(::Vector                        , m_vecGrowthOrigin                               , 0x10) // Vector
+        SCHEMA_FIELD(float                           , m_flEndcapTime                                  , 0x1C) // float32
+        SCHEMA_FIELD(bool                            , m_bMarkedForDelete                              , 0x20) // bool
+    };
+
+    // ResponseParams
+    //   fields: 3
+    class ResponseParams {
+    public:
+        SCHEMA_FIELD(std::int16_t                    , odds                                            , 0x10) // int16
+        SCHEMA_FIELD(std::int16_t                    , flags                                           , 0x12) // int16
+        SCHEMA_FIELD(ResponseFollowup*               , m_pFollowup                                     , 0x18) // ResponseFollowup*
+    };
+
+    // PulseScriptedSequenceData_t
+    //   fields: 12
+    class PulseScriptedSequenceData_t {
+    public:
+        SCHEMA_FIELD(std::int32_t                    , m_nActorID                                      , 0x0) // int32
+        SCHEMA_FIELD(::CUtlString                    , m_szPreIdleSequence                             , 0x8) // CUtlString
+        SCHEMA_FIELD(::CUtlString                    , m_szEntrySequence                               , 0x10) // CUtlString
+        SCHEMA_FIELD(::CUtlString                    , m_szSequence                                    , 0x18) // CUtlString
+        SCHEMA_FIELD(::CUtlString                    , m_szExitSequence                                , 0x20) // CUtlString
+        SCHEMA_FIELD(::sdk::animationsystem::ScriptedMoveTo_t, m_nMoveTo                                       , 0x28) // ScriptedMoveTo_t
+        SCHEMA_FIELD(::sdk::animationsystem::SharedMovementGait_t, m_nMoveToGait                                   , 0x2C) // SharedMovementGait_t
+        SCHEMA_FIELD(::sdk::animationsystem::ScriptedHeldWeaponBehavior_t, m_nHeldWeaponBehavior                           , 0x30) // ScriptedHeldWeaponBehavior_t
+        SCHEMA_FIELD(bool                            , m_bLoopPreIdleSequence                          , 0x34) // bool
+        SCHEMA_FIELD(bool                            , m_bLoopActionSequence                           , 0x35) // bool
+        SCHEMA_FIELD(bool                            , m_bLoopPostIdleSequence                         , 0x36) // bool
+        SCHEMA_FIELD(bool                            , m_bIgnoreLookAt                                 , 0x37) // bool
+    };
+
+    // ExternalAnimGraphHandle_t
+    //   fields: 1
+    class ExternalAnimGraphHandle_t {
+    public:
+        SCHEMA_FIELD(std::uint32_t                   , m_Value                                         , 0x0) // uint32
+    };
+
+    // CFiringModeInt
+    //   fields: 1
+    class CFiringModeInt {
+    public:
+        SCHEMA_FIELD(std::int32_t                    , m_nValues                                       , 0x0) // int32[2]
+    };
+
+    // CDestructiblePart_DamageLevel
+    //   fields: 10
+    class CDestructiblePart_DamageLevel {
+    public:
+        SCHEMA_FIELD(::CUtlString                    , m_sName                                         , 0x0) // CUtlString
+        SCHEMA_FIELD(CGlobalSymbol                   , m_sBreakablePieceName                           , 0x8) // CGlobalSymbol
+        SCHEMA_FIELD(std::int32_t                    , m_nBodyGroupValue                               , 0x10) // int32
+        SCHEMA_FIELD(CSkillInt                       , m_nHealth                                       , 0x14) // CSkillInt
+        SCHEMA_FIELD(float                           , m_flCriticalDamagePercent                       , 0x24) // float32
+        SCHEMA_FIELD(EDestructiblePartDamagePassThroughType, m_nDamagePassthroughType                        , 0x28) // EDestructiblePartDamagePassThroughType
+        SCHEMA_FIELD(DestructiblePartDestructionDeathBehavior_t, m_nDestructionDeathBehavior                     , 0x2C) // DestructiblePartDestructionDeathBehavior_t
+        SCHEMA_FIELD(CGlobalSymbol                   , m_sCustomDeathHandshake                         , 0x30) // CGlobalSymbol
+        SCHEMA_FIELD(bool                            , m_bShouldDestroyOnDeath                         , 0x38) // bool
+        SCHEMA_FIELD(CRangeFloat                     , m_flDeathDestroyTime                            , 0x3C) // CRangeFloat
+    };
+
+    // WrappedPhysicsJoint_t
+    //   fields: 1
+    class WrappedPhysicsJoint_t {
+    public:
+        SCHEMA_FIELD(::sdk::vphysics2::IPhysicsJoint*, m_pJoint                                        , 0x0) // IPhysicsJoint*
+    };
+
+    // CNmSnapWeaponTask
+    //   fields: 0
+    class CNmSnapWeaponTask {
+    public:
+    };
+
+    // RotatorQueueEntry_t
+    //   fields: 2
+    class RotatorQueueEntry_t {
+    public:
+        SCHEMA_FIELD(::Quaternion                    , qTarget                                         , 0x0) // Quaternion
+        SCHEMA_FIELD(RotatorTargetSpace_t            , eSpace                                          , 0x10) // RotatorTargetSpace_t
+    };
+
+    // CEmptyGraphController
+    //   fields: 0
+    class CEmptyGraphController {
+    public:
+    };
+
+    // SPAWNGROUP_HEADER
+    //   fields: 5
+    class SPAWNGROUP_HEADER {
+    public:
+        SCHEMA_FIELD(::CUtlString                    , m_sGroupName                                    , 0x0) // CUtlString
+        SCHEMA_FIELD(::CUtlString                    , m_sEntityLumpName                               , 0x8) // CUtlString
+        SCHEMA_FIELD(matrix3x4a_t                    , m_vecWorldOffset                                , 0x10) // matrix3x4a_t
+        SCHEMA_FIELD(bool                            , m_bClientSpawnGroup                             , 0x40) // bool
+        SCHEMA_FIELD(bool                            , m_bSuppressAllEntities                          , 0x41) // bool
+    };
+
+    // CBaseAnimGraphDestructibleParts_GraphController
+    //   fields: 0
+    class CBaseAnimGraphDestructibleParts_GraphController {
+    public:
+    };
+
+    // CDecalGroupVData
+    //   fields: 2
+    class CDecalGroupVData {
+    public:
+        SCHEMA_FIELD(CUtlVector<DecalGroupOption_t>  , m_vecOptions                                    , 0x0) // CUtlVector<DecalGroupOption_t>
+        SCHEMA_FIELD(float                           , m_flTotalProbability                            , 0x18) // float32
+    };
+
+    // CPulseCell_Outflow_ListenForEntityOutput
+    //   fields: 5
+    class CPulseCell_Outflow_ListenForEntityOutput {
+    public:
+        SCHEMA_FIELD(::sdk::animationsystem::SignatureOutflow_Resume, m_OnFired                                       , 0x48) // SignatureOutflow_Resume
+        SCHEMA_FIELD(::sdk::animationsystem::CPulse_ResumePoint, m_OnCanceled                                    , 0x90) // CPulse_ResumePoint
+        SCHEMA_FIELD(CGlobalSymbol                   , m_strEntityOutput                               , 0xD8) // CGlobalSymbol
+        SCHEMA_FIELD(::CUtlString                    , m_strEntityOutputParam                          , 0xE0) // CUtlString
+        SCHEMA_FIELD(bool                            , m_bListenUntilCanceled                          , 0xE8) // bool
+    };
+
+    // CBtNodeConditionInactive
+    //   fields: 3
+    class CBtNodeConditionInactive {
+    public:
+        SCHEMA_FIELD(float                           , m_flRoundStartThresholdSeconds                  , 0x78) // float32
+        SCHEMA_FIELD(float                           , m_flSensorInactivityThresholdSeconds            , 0x7C) // float32
+        SCHEMA_FIELD(::sdk::client::CountdownTimer   , m_SensorInactivityTimer                         , 0x80) // CountdownTimer
+    };
+
+    // HullFlags_t
+    //   fields: 10
+    class HullFlags_t {
+    public:
+        SCHEMA_FIELD(bool                            , m_bHull_Human                                   , 0x0) // bool
+        SCHEMA_FIELD(bool                            , m_bHull_SmallCentered                           , 0x1) // bool
+        SCHEMA_FIELD(bool                            , m_bHull_WideHuman                               , 0x2) // bool
+        SCHEMA_FIELD(bool                            , m_bHull_Tiny                                    , 0x3) // bool
+        SCHEMA_FIELD(bool                            , m_bHull_Medium                                  , 0x4) // bool
+        SCHEMA_FIELD(bool                            , m_bHull_TinyCentered                            , 0x5) // bool
+        SCHEMA_FIELD(bool                            , m_bHull_Large                                   , 0x6) // bool
+        SCHEMA_FIELD(bool                            , m_bHull_LargeCentered                           , 0x7) // bool
+        SCHEMA_FIELD(bool                            , m_bHull_MediumTall                              , 0x8) // bool
+        SCHEMA_FIELD(bool                            , m_bHull_Small                                   , 0x9) // bool
+    };
+
+    // locksound_t
+    //   fields: 3
+    class locksound_t {
+    public:
+        SCHEMA_FIELD(::CUtlSymbolLarge               , sLockedSound                                    , 0x8) // CUtlSymbolLarge
+        SCHEMA_FIELD(::CUtlSymbolLarge               , sUnlockedSound                                  , 0x10) // CUtlSymbolLarge
+        SCHEMA_FIELD(::GameTime_t                    , flwaitSound                                     , 0x18) // GameTime_t
+    };
+
+    // Extent
+    //   fields: 2
+    class Extent {
+    public:
+        SCHEMA_FIELD(VectorWS                        , lo                                              , 0x0) // VectorWS
+        SCHEMA_FIELD(VectorWS                        , hi                                              , 0xC) // VectorWS
+    };
+
+    // CNavVolumeMarkupVolume
+    //   fields: 0
+    class CNavVolumeMarkupVolume {
+    public:
+    };
+
+    // SceneRequestHandle_t
+    //   fields: 1
+    class SceneRequestHandle_t {
+    public:
+        SCHEMA_FIELD(std::int32_t                    , m_Value                                         , 0x0) // int32
+    };
+
+    // CTakeDamageInfo
+    //   fields: 22
+    class CTakeDamageInfo {
+    public:
+        SCHEMA_FIELD(::Vector                        , m_vecDamageForce                                , 0x8) // Vector
+        SCHEMA_FIELD(VectorWS                        , m_vecDamagePosition                             , 0x14) // VectorWS
+        SCHEMA_FIELD(VectorWS                        , m_vecReportedPosition                           , 0x20) // VectorWS
+        SCHEMA_FIELD(::Vector                        , m_vecDamageDirection                            , 0x2C) // Vector
+        SCHEMA_FIELD(CHandle<CBaseEntity>            , m_hInflictor                                    , 0x38) // CHandle<CBaseEntity>
+        SCHEMA_FIELD(CHandle<CBaseEntity>            , m_hAttacker                                     , 0x3C) // CHandle<CBaseEntity>
+        SCHEMA_FIELD(CHandle<CBaseEntity>            , m_hAbility                                      , 0x40) // CHandle<CBaseEntity>
+        SCHEMA_FIELD(float                           , m_flDamage                                      , 0x44) // float32
+        SCHEMA_FIELD(float                           , m_flTotalledDamage                              , 0x48) // float32
+        SCHEMA_FIELD(DamageTypes_t                   , m_bitsDamageType                                , 0x4C) // DamageTypes_t
+        SCHEMA_FIELD(std::int32_t                    , m_iDamageCustom                                 , 0x50) // int32
+        SCHEMA_FIELD(AmmoIndex_t                     , m_iAmmoType                                     , 0x54) // AmmoIndex_t
+        SCHEMA_FIELD(float                           , m_flOriginalDamage                              , 0x60) // float32
+        SCHEMA_FIELD(bool                            , m_bShouldBleed                                  , 0x64) // bool
+        SCHEMA_FIELD(bool                            , m_bShouldSpark                                  , 0x65) // bool
+        SCHEMA_FIELD(TakeDamageFlags_t               , m_nDamageFlags                                  , 0x70) // TakeDamageFlags_t
+        SCHEMA_FIELD(HitGroup_t                      , m_iHitGroupId                                   , 0x78) // HitGroup_t
+        SCHEMA_FIELD(std::int32_t                    , m_nNumObjectsPenetrated                         , 0x7C) // int32
+        SCHEMA_FIELD(float                           , m_flFriendlyFireDamageReductionRatio            , 0x80) // float32
+        SCHEMA_FIELD(bool                            , m_bStoppedBullet                                , 0x84) // bool
+        SCHEMA_FIELD(CUtlLeanVector<DestructiblePartDamageRequest_t>, m_DestructibleHitGroupRequests                  , 0x100) // CUtlLeanVector<DestructiblePartDamageRequest_t>
+        SCHEMA_FIELD(bool                            , m_bInTakeDamageFlow                             , 0x110) // bool
+    };
+
+    // CTakeDamageResult
+    //   fields: 14
+    class CTakeDamageResult {
+    public:
+        SCHEMA_FIELD(CTakeDamageInfo*                , m_pOriginatingInfo                              , 0x0) // CTakeDamageInfo*
+        SCHEMA_FIELD(CUtlLeanVector<DestructiblePartDamageRequest_t>, m_DestructibleHitGroupRequests                  , 0x8) // CUtlLeanVector<DestructiblePartDamageRequest_t>
+        SCHEMA_FIELD(std::int32_t                    , m_nHealthLost                                   , 0x18) // int32
+        SCHEMA_FIELD(std::int32_t                    , m_nHealthBefore                                 , 0x1C) // int32
+        SCHEMA_FIELD(float                           , m_flDamageDealt                                 , 0x20) // float32
+        SCHEMA_FIELD(float                           , m_flPreModifiedDamage                           , 0x24) // float32
+        SCHEMA_FIELD(std::int32_t                    , m_nTotalledHealthLost                           , 0x28) // int32
+        SCHEMA_FIELD(float                           , m_flTotalledDamageDealt                         , 0x2C) // float32
+        SCHEMA_FIELD(float                           , m_flTotalledPreModifiedDamage                   , 0x30) // float32
+        SCHEMA_FIELD(float                           , m_flNewDamageAccumulatorValue                   , 0x34) // float32
+        SCHEMA_FIELD(TakeDamageFlags_t               , m_nDamageFlags                                  , 0x38) // TakeDamageFlags_t
+        SCHEMA_FIELD(bool                            , m_bWasDamageSuppressed                          , 0x40) // bool
+        SCHEMA_FIELD(bool                            , m_bSuppressFlinch                               , 0x41) // bool
+        SCHEMA_FIELD(HitGroup_t                      , m_nOverrideFlinchHitGroup                       , 0x44) // HitGroup_t
     };
 
     // CCSGameRules
@@ -3088,606 +3265,16 @@ namespace sdk::server {
         SCHEMA_FIELD(double                          , m_flLastPerfSampleTime                          , 0x5420) // float64
     };
 
-    // CPhysicsBodyGameMarkup
-    //   fields: 2
-    class CPhysicsBodyGameMarkup {
-    public:
-        SCHEMA_FIELD(::CUtlString                    , m_TargetBody                                    , 0x0) // CUtlString
-        SCHEMA_FIELD(CGlobalSymbol                   , m_Tag                                           , 0x8) // CGlobalSymbol
-    };
-
-    // VelocitySampler
-    //   fields: 3
-    class VelocitySampler {
-    public:
-        SCHEMA_FIELD(::Vector                        , m_prevSample                                    , 0x0) // Vector
-        SCHEMA_FIELD(::GameTime_t                    , m_fPrevSampleTime                               , 0xC) // GameTime_t
-        SCHEMA_FIELD(float                           , m_fIdealSampleRate                              , 0x10) // float32
-    };
-
-    // HullFlags_t
-    //   fields: 10
-    class HullFlags_t {
-    public:
-        SCHEMA_FIELD(bool                            , m_bHull_Human                                   , 0x0) // bool
-        SCHEMA_FIELD(bool                            , m_bHull_SmallCentered                           , 0x1) // bool
-        SCHEMA_FIELD(bool                            , m_bHull_WideHuman                               , 0x2) // bool
-        SCHEMA_FIELD(bool                            , m_bHull_Tiny                                    , 0x3) // bool
-        SCHEMA_FIELD(bool                            , m_bHull_Medium                                  , 0x4) // bool
-        SCHEMA_FIELD(bool                            , m_bHull_TinyCentered                            , 0x5) // bool
-        SCHEMA_FIELD(bool                            , m_bHull_Large                                   , 0x6) // bool
-        SCHEMA_FIELD(bool                            , m_bHull_LargeCentered                           , 0x7) // bool
-        SCHEMA_FIELD(bool                            , m_bHull_MediumTall                              , 0x8) // bool
-        SCHEMA_FIELD(bool                            , m_bHull_Small                                   , 0x9) // bool
-    };
-
-    // CIronSightController
-    //   fields: 4
-    class CIronSightController {
-    public:
-        SCHEMA_FIELD(bool                            , m_bIronSightAvailable                           , 0x8) // bool
-        SCHEMA_FIELD(float                           , m_flIronSightAmount                             , 0xC) // float32
-        SCHEMA_FIELD(float                           , m_flIronSightAmountGained                       , 0x10) // float32
-        SCHEMA_FIELD(float                           , m_flIronSightAmountBiased                       , 0x14) // float32
-    };
-
-    // SceneOpportunityHandle_t
-    //   fields: 1
-    class SceneOpportunityHandle_t {
-    public:
-        SCHEMA_FIELD(std::int32_t                    , m_Value                                         , 0x0) // int32
-    };
-
-    // CAnimGraphControllerBase
-    //   fields: 1
-    class CAnimGraphControllerBase {
-    public:
-        SCHEMA_FIELD(ExternalAnimGraphHandle_t       , m_hExternalGraph                                , 0x10) // ExternalAnimGraphHandle_t
-    };
-
-    // CPulseCell_Outflow_PlayVCD::VCDRequirementInfo_t
-    //   fields: 2
-    class CPulseCell_Outflow_PlayVCD_VCDRequirementInfo_t {
-    public:
-        SCHEMA_FIELD(std::int32_t                    , m_nEventID                                      , 0x0) // int32
-        SCHEMA_FIELD(::sdk::animationsystem::CPulse_OutflowConnection, m_Outflow                                       , 0x8) // CPulse_OutflowConnection
-    };
-
-    // CNmEventConsumerParticle
-    //   fields: 0
-    class CNmEventConsumerParticle {
-    public:
-    };
-
-    // CNavVolume
-    //   fields: 0
-    class CNavVolume {
-    public:
-    };
-
-    // CCSPointPulseAPI
-    //   fields: 0
-    class CCSPointPulseAPI {
-    public:
-    };
-
-    // CNetworkVelocityVector
-    //   fields: 3
-    class CNetworkVelocityVector {
-    public:
-        SCHEMA_FIELD(CNetworkedQuantizedFloat        , m_vecX                                          , 0x10) // CNetworkedQuantizedFloat
-        SCHEMA_FIELD(CNetworkedQuantizedFloat        , m_vecY                                          , 0x18) // CNetworkedQuantizedFloat
-        SCHEMA_FIELD(CNetworkedQuantizedFloat        , m_vecZ                                          , 0x20) // CNetworkedQuantizedFloat
-    };
-
-    // CTestPulseIOAPI
-    //   fields: 0
-    class CTestPulseIOAPI {
-    public:
-    };
-
-    // CBaseAnimGraphVariationUserData
-    //   fields: 0
-    class CBaseAnimGraphVariationUserData {
-    public:
-    };
-
-    // CBaseModelEntityAPI
-    //   fields: 0
-    class CBaseModelEntityAPI {
-    public:
-    };
-
-    // AI_MotorGroundAnimgraph_DebugSnapshotData_t
-    //   fields: 10
-    class AI_MotorGroundAnimgraph_DebugSnapshotData_t {
-    public:
-        SCHEMA_FIELD(CGlobalSymbol                   , state                                           , 0x8) // CGlobalSymbol
-        SCHEMA_FIELD(bool                            , b_has_path                                      , 0x10) // bool
-        SCHEMA_FIELD(float                           , f_remaining_ground_path_length                  , 0x14) // float32
-        SCHEMA_FIELD(float                           , f_current_speed                                 , 0x18) // float32
-        SCHEMA_FIELD(CGlobalSymbol                   , move_type                                       , 0x20) // CGlobalSymbol
-        SCHEMA_FIELD(float                           , f_move_heading_actual                           , 0x28) // float32
-        SCHEMA_FIELD(float                           , f_move_heading_desired                          , 0x2C) // float32
-        SCHEMA_FIELD(float                           , f_current_lean                                  , 0x30) // float32
-        SCHEMA_FIELD(float                           , f_target_lean                                   , 0x34) // float32
-        SCHEMA_FIELD(CUtlVector<AI_MotorGroundAnimgraph_DebugSnapshotData_t_Event_t>, vec_events                                      , 0x38) // CUtlVector<AI_MotorGroundAnimgraph_DebugSnapshotData_t::Event_t>
-    };
-
-    // CPointPrefabAPI
-    //   fields: 0
-    class CPointPrefabAPI {
-    public:
-    };
-
-    // QuestProgress
-    //   fields: 0
-    class QuestProgress {
-    public:
-    };
-
-    // CPulseCell_Outflow_ScriptedSequence::CursorState_t
-    //   fields: 1
-    class CPulseCell_Outflow_ScriptedSequence_CursorState_t {
-    public:
-        SCHEMA_FIELD(CHandle<CBaseEntity>            , m_scriptedSequence                              , 0x0) // CHandle<CBaseEntity>
-    };
-
-    // CTestPulseIO::ThreeStringArgs_t
-    //   fields: 3
-    class CTestPulseIO_ThreeStringArgs_t {
-    public:
-        SCHEMA_FIELD(::CUtlString                    , strArg1                                         , 0x0) // CUtlString
-        SCHEMA_FIELD(::CUtlString                    , strArg2                                         , 0x8) // CUtlString
-        SCHEMA_FIELD(::CUtlString                    , strArg3                                         , 0x10) // CUtlString
-    };
-
-    // CPulseCell_Outflow_ListenForEntityOutput::CursorState_t
-    //   fields: 1
-    class CPulseCell_Outflow_ListenForEntityOutput_CursorState_t {
-    public:
-        SCHEMA_FIELD(CHandle<CBaseEntity>            , m_entity                                        , 0x0) // CHandle<CBaseEntity>
-    };
-
-    // PulseScriptedSequenceData_t
-    //   fields: 12
-    class PulseScriptedSequenceData_t {
-    public:
-        SCHEMA_FIELD(std::int32_t                    , m_nActorID                                      , 0x0) // int32
-        SCHEMA_FIELD(::CUtlString                    , m_szPreIdleSequence                             , 0x8) // CUtlString
-        SCHEMA_FIELD(::CUtlString                    , m_szEntrySequence                               , 0x10) // CUtlString
-        SCHEMA_FIELD(::CUtlString                    , m_szSequence                                    , 0x18) // CUtlString
-        SCHEMA_FIELD(::CUtlString                    , m_szExitSequence                                , 0x20) // CUtlString
-        SCHEMA_FIELD(::sdk::animationsystem::ScriptedMoveTo_t, m_nMoveTo                                       , 0x28) // ScriptedMoveTo_t
-        SCHEMA_FIELD(::sdk::animationsystem::SharedMovementGait_t, m_nMoveToGait                                   , 0x2C) // SharedMovementGait_t
-        SCHEMA_FIELD(::sdk::animationsystem::ScriptedHeldWeaponBehavior_t, m_nHeldWeaponBehavior                           , 0x30) // ScriptedHeldWeaponBehavior_t
-        SCHEMA_FIELD(bool                            , m_bLoopPreIdleSequence                          , 0x34) // bool
-        SCHEMA_FIELD(bool                            , m_bLoopActionSequence                           , 0x35) // bool
-        SCHEMA_FIELD(bool                            , m_bLoopPostIdleSequence                         , 0x36) // bool
-        SCHEMA_FIELD(bool                            , m_bIgnoreLookAt                                 , 0x37) // bool
-    };
-
-    // CSingleplayRules
-    //   fields: 1
-    class CSingleplayRules {
-    public:
-        SCHEMA_FIELD(bool                            , m_bSinglePlayerGameEnding                       , 0xD0) // bool
-    };
-
-    // AmmoIndex_t
-    //   fields: 1
-    class AmmoIndex_t {
-    public:
-        SCHEMA_FIELD(std::int8_t                     , m_Value                                         , 0x0) // int8
-    };
-
-    // CGameScriptedMoveData
-    //   fields: 18
-    class CGameScriptedMoveData {
-    public:
-        SCHEMA_FIELD(::Vector                        , m_vAccumulatedRootMotion                        , 0x0) // Vector
-        SCHEMA_FIELD(::QAngle                        , m_angAccumulatedRootMotionRotation              , 0xC) // QAngle
-        SCHEMA_FIELD(VectorWS                        , m_vSrc                                          , 0x18) // VectorWS
-        SCHEMA_FIELD(::QAngle                        , m_angSrc                                        , 0x24) // QAngle
-        SCHEMA_FIELD(::QAngle                        , m_angCurrent                                    , 0x30) // QAngle
-        SCHEMA_FIELD(float                           , m_flLockedSpeed                                 , 0x3C) // float32
-        SCHEMA_FIELD(float                           , m_flAngRate                                     , 0x40) // float32
-        SCHEMA_FIELD(float                           , m_flDuration                                    , 0x44) // float32
-        SCHEMA_FIELD(::GameTime_t                    , m_flStartTime                                   , 0x48) // GameTime_t
-        SCHEMA_FIELD(bool                            , m_bActive                                       , 0x4C) // bool
-        SCHEMA_FIELD(bool                            , m_bTeleportOnEnd                                , 0x4D) // bool
-        SCHEMA_FIELD(bool                            , m_bIgnoreRotation                               , 0x4E) // bool
-        SCHEMA_FIELD(bool                            , m_bSuccess                                      , 0x4F) // bool
-        SCHEMA_FIELD(ForcedCrouchState_t             , m_nForcedCrouchState                            , 0x50) // ForcedCrouchState_t
-        SCHEMA_FIELD(bool                            , m_bIgnoreCollisions                             , 0x54) // bool
-        SCHEMA_FIELD(::Vector                        , m_vDest                                         , 0x58) // Vector
-        SCHEMA_FIELD(::QAngle                        , m_angDst                                        , 0x64) // QAngle
-        SCHEMA_FIELD(CHandle<CBaseEntity>            , m_hDestEntity                                   , 0x70) // CHandle<CBaseEntity>
-    };
-
-    // ExternalAnimGraphHandle_t
-    //   fields: 1
-    class ExternalAnimGraphHandle_t {
-    public:
-        SCHEMA_FIELD(std::uint32_t                   , m_Value                                         , 0x0) // uint32
-    };
-
-    // CTakeDamageResult
-    //   fields: 14
-    class CTakeDamageResult {
-    public:
-        SCHEMA_FIELD(CTakeDamageInfo*                , m_pOriginatingInfo                              , 0x0) // CTakeDamageInfo*
-        SCHEMA_FIELD(CUtlLeanVector<DestructiblePartDamageRequest_t>, m_DestructibleHitGroupRequests                  , 0x8) // CUtlLeanVector<DestructiblePartDamageRequest_t>
-        SCHEMA_FIELD(std::int32_t                    , m_nHealthLost                                   , 0x18) // int32
-        SCHEMA_FIELD(std::int32_t                    , m_nHealthBefore                                 , 0x1C) // int32
-        SCHEMA_FIELD(float                           , m_flDamageDealt                                 , 0x20) // float32
-        SCHEMA_FIELD(float                           , m_flPreModifiedDamage                           , 0x24) // float32
-        SCHEMA_FIELD(std::int32_t                    , m_nTotalledHealthLost                           , 0x28) // int32
-        SCHEMA_FIELD(float                           , m_flTotalledDamageDealt                         , 0x2C) // float32
-        SCHEMA_FIELD(float                           , m_flTotalledPreModifiedDamage                   , 0x30) // float32
-        SCHEMA_FIELD(float                           , m_flNewDamageAccumulatorValue                   , 0x34) // float32
-        SCHEMA_FIELD(TakeDamageFlags_t               , m_nDamageFlags                                  , 0x38) // TakeDamageFlags_t
-        SCHEMA_FIELD(bool                            , m_bWasDamageSuppressed                          , 0x40) // bool
-        SCHEMA_FIELD(bool                            , m_bSuppressFlinch                               , 0x41) // bool
-        SCHEMA_FIELD(HitGroup_t                      , m_nOverrideFlinchHitGroup                       , 0x44) // HitGroup_t
-    };
-
-    // CTakeDamageInfo
-    //   fields: 22
-    class CTakeDamageInfo {
-    public:
-        SCHEMA_FIELD(::Vector                        , m_vecDamageForce                                , 0x8) // Vector
-        SCHEMA_FIELD(VectorWS                        , m_vecDamagePosition                             , 0x14) // VectorWS
-        SCHEMA_FIELD(VectorWS                        , m_vecReportedPosition                           , 0x20) // VectorWS
-        SCHEMA_FIELD(::Vector                        , m_vecDamageDirection                            , 0x2C) // Vector
-        SCHEMA_FIELD(CHandle<CBaseEntity>            , m_hInflictor                                    , 0x38) // CHandle<CBaseEntity>
-        SCHEMA_FIELD(CHandle<CBaseEntity>            , m_hAttacker                                     , 0x3C) // CHandle<CBaseEntity>
-        SCHEMA_FIELD(CHandle<CBaseEntity>            , m_hAbility                                      , 0x40) // CHandle<CBaseEntity>
-        SCHEMA_FIELD(float                           , m_flDamage                                      , 0x44) // float32
-        SCHEMA_FIELD(float                           , m_flTotalledDamage                              , 0x48) // float32
-        SCHEMA_FIELD(DamageTypes_t                   , m_bitsDamageType                                , 0x4C) // DamageTypes_t
-        SCHEMA_FIELD(std::int32_t                    , m_iDamageCustom                                 , 0x50) // int32
-        SCHEMA_FIELD(AmmoIndex_t                     , m_iAmmoType                                     , 0x54) // AmmoIndex_t
-        SCHEMA_FIELD(float                           , m_flOriginalDamage                              , 0x60) // float32
-        SCHEMA_FIELD(bool                            , m_bShouldBleed                                  , 0x64) // bool
-        SCHEMA_FIELD(bool                            , m_bShouldSpark                                  , 0x65) // bool
-        SCHEMA_FIELD(TakeDamageFlags_t               , m_nDamageFlags                                  , 0x70) // TakeDamageFlags_t
-        SCHEMA_FIELD(HitGroup_t                      , m_iHitGroupId                                   , 0x78) // HitGroup_t
-        SCHEMA_FIELD(std::int32_t                    , m_nNumObjectsPenetrated                         , 0x7C) // int32
-        SCHEMA_FIELD(float                           , m_flFriendlyFireDamageReductionRatio            , 0x80) // float32
-        SCHEMA_FIELD(bool                            , m_bStoppedBullet                                , 0x84) // bool
-        SCHEMA_FIELD(CUtlLeanVector<DestructiblePartDamageRequest_t>, m_DestructibleHitGroupRequests                  , 0x100) // CUtlLeanVector<DestructiblePartDamageRequest_t>
-        SCHEMA_FIELD(bool                            , m_bInTakeDamageFlow                             , 0x110) // bool
-    };
-
-    // PrecipitationFilter_t
-    //   fields: 1
-    class PrecipitationFilter_t {
-    public:
-        SCHEMA_FIELD(float                           , m_flMaxRadius                                   , 0x0) // float32
-    };
-
-    // SceneEventId_t
-    //   fields: 1
-    class SceneEventId_t {
-    public:
-        SCHEMA_FIELD(std::uint32_t                   , m_Value                                         , 0x0) // uint32
-    };
-
-    // CodeGenAABB_t
-    //   fields: 2
-    class CodeGenAABB_t {
-    public:
-        SCHEMA_FIELD(::Vector                        , m_vMinBounds                                    , 0x0) // Vector
-        SCHEMA_FIELD(::Vector                        , m_vMaxBounds                                    , 0xC) // Vector
-    };
-
-    // CNavHullPresetVData
-    //   fields: 1
-    class CNavHullPresetVData {
-    public:
-        SCHEMA_FIELD(CUtlVector<CUtlString>          , m_vecNavHulls                                   , 0x0) // CUtlVector<CUtlString>
-    };
-
-    // CSkillFloat
-    //   fields: 1
-    class CSkillFloat {
-    public:
-        SCHEMA_FIELD(float                           , m_pValue                                        , 0x0) // float32[4]
-    };
-
-    // CAnimEventListener
-    //   fields: 0
-    class CAnimEventListener {
-    public:
-    };
-
-    // CNavVolumeCalculatedVector
-    //   fields: 0
-    class CNavVolumeCalculatedVector {
-    public:
-    };
-
-    // CPlayerPawnComponent
-    //   fields: 1
-    class CPlayerPawnComponent {
-    public:
-        SCHEMA_FIELD(::sdk::engine2::CNetworkVarChainer, __m_pChainEntity                                , 0x8) // CNetworkVarChainer
-    };
-
-    // CBtNodeComposite
-    //   fields: 0
-    class CBtNodeComposite {
-    public:
-    };
-
-    // ResponseFollowup
-    //   fields: 8
-    class ResponseFollowup {
-    public:
-        SCHEMA_FIELD(char*                           , followup_concept                                , 0x0) // char*
-        SCHEMA_FIELD(char*                           , followup_contexts                               , 0x8) // char*
-        SCHEMA_FIELD(float                           , followup_delay                                  , 0x10) // float32
-        SCHEMA_FIELD(char*                           , followup_target                                 , 0x14) // char*
-        SCHEMA_FIELD(char*                           , followup_entityiotarget                         , 0x1C) // char*
-        SCHEMA_FIELD(char*                           , followup_entityioinput                          , 0x24) // char*
-        SCHEMA_FIELD(float                           , followup_entityiodelay                          , 0x2C) // float32
-        SCHEMA_FIELD(bool                            , bFired                                          , 0x30) // bool
-    };
-
-    // AI_MotorGroundAnimgraph_DebugSnapshotData_t::Event_t
-    //   fields: 2
-    class AI_MotorGroundAnimgraph_DebugSnapshotData_t_Event_t {
-    public:
-        SCHEMA_FIELD(::CUtlString                    , description                                     , 0x0) // CUtlString
-        SCHEMA_FIELD(VectorWS                        , location                                        , 0x8) // VectorWS
-    };
-
-    // CSkillInt
-    //   fields: 1
-    class CSkillInt {
-    public:
-        SCHEMA_FIELD(std::int32_t                    , m_pValue                                        , 0x0) // int32[4]
-    };
-
-    // AI_Motor_DebugSnapshotData_t
-    //   fields: 3
-    class AI_Motor_DebugSnapshotData_t {
-    public:
-        SCHEMA_FIELD(CGlobalSymbol                   , current_movement_gait_set                       , 0x8) // CGlobalSymbol
-        SCHEMA_FIELD(CGlobalSymbol                   , current_movement_gait                           , 0x10) // CGlobalSymbol
-        SCHEMA_FIELD(CGlobalSymbol                   , movement_setting_id                             , 0x18) // CGlobalSymbol
-    };
-
-    // CBtActionAim
-    //   fields: 12
-    class CBtActionAim {
-    public:
-        SCHEMA_FIELD(::CUtlString                    , m_szSensorInputKey                              , 0x68) // CUtlString
-        SCHEMA_FIELD(::CUtlString                    , m_szAimReadyKey                                 , 0x80) // CUtlString
-        SCHEMA_FIELD(float                           , m_flZoomCooldownTimestamp                       , 0x88) // float32
-        SCHEMA_FIELD(bool                            , m_bDoneAiming                                   , 0x8C) // bool
-        SCHEMA_FIELD(float                           , m_flLerpStartTime                               , 0x90) // float32
-        SCHEMA_FIELD(float                           , m_flNextLookTargetLerpTime                      , 0x94) // float32
-        SCHEMA_FIELD(float                           , m_flPenaltyReductionRatio                       , 0x98) // float32
-        SCHEMA_FIELD(::QAngle                        , m_NextLookTarget                                , 0x9C) // QAngle
-        SCHEMA_FIELD(::sdk::client::CountdownTimer   , m_AimTimer                                      , 0xA8) // CountdownTimer
-        SCHEMA_FIELD(::sdk::client::CountdownTimer   , m_SniperHoldTimer                               , 0xC0) // CountdownTimer
-        SCHEMA_FIELD(::sdk::client::CountdownTimer   , m_FocusIntervalTimer                            , 0xD8) // CountdownTimer
-        SCHEMA_FIELD(bool                            , m_bAcquired                                     , 0xF0) // bool
-    };
-
-    // SAVE_HEADER
-    //   fields: 7
-    class SAVE_HEADER {
-    public:
-        SCHEMA_FIELD(std::int32_t                    , m_saveId                                        , 0x0) // int32
-        SCHEMA_FIELD(std::int32_t                    , m_version                                       , 0x4) // int32
-        SCHEMA_FIELD(std::int32_t                    , m_nConnectionCount                              , 0x8) // int32
-        SCHEMA_FIELD(std::int32_t                    , m_nMapVersion                                   , 0xC) // int32
-        SCHEMA_FIELD(::CUtlString                    , m_sSpawnGroupName                               , 0x10) // CUtlString
-        SCHEMA_FIELD(matrix3x4a_t                    , m_vecWorldOffset                                , 0x20) // matrix3x4a_t
-        SCHEMA_FIELD(float                           , m_flSaveTime                                    , 0x50) // float32
-    };
-
-    // PathMoverEntitySpawn
-    //   fields: 2
-    class PathMoverEntitySpawn {
-    public:
-        SCHEMA_FIELD(CHandle<CFuncMover>             , hMover                                          , 0x0) // CHandle<CFuncMover>
-        SCHEMA_FIELD(CUtlVector<CHandle<CBaseEntity>>, vecOtherEntities                                , 0x8) // CUtlVector<CHandle<CBaseEntity>>
-    };
-
-    // CFiringModeInt
-    //   fields: 1
-    class CFiringModeInt {
-    public:
-        SCHEMA_FIELD(std::int32_t                    , m_nValues                                       , 0x0) // int32[2]
-    };
-
-    // locksound_t
-    //   fields: 3
-    class locksound_t {
-    public:
-        SCHEMA_FIELD(::CUtlSymbolLarge               , sLockedSound                                    , 0x8) // CUtlSymbolLarge
-        SCHEMA_FIELD(::CUtlSymbolLarge               , sUnlockedSound                                  , 0x10) // CUtlSymbolLarge
-        SCHEMA_FIELD(::GameTime_t                    , flwaitSound                                     , 0x18) // GameTime_t
-    };
-
-    // CRelativeLocation
-    //   fields: 4
-    class CRelativeLocation {
-    public:
-        SCHEMA_FIELD(RelativeLocationType_t          , m_Type                                          , 0x18) // RelativeLocationType_t
-        SCHEMA_FIELD(::Vector                        , m_vRelativeOffset                               , 0x1C) // Vector
-        SCHEMA_FIELD(VectorWS                        , m_vWorldSpacePos                                , 0x28) // VectorWS
-        SCHEMA_FIELD(CHandle<CBaseEntity>            , m_hEntity                                       , 0x34) // CHandle<CBaseEntity>
-    };
-
-    // CDestructiblePart_DamageLevel
-    //   fields: 10
-    class CDestructiblePart_DamageLevel {
-    public:
-        SCHEMA_FIELD(::CUtlString                    , m_sName                                         , 0x0) // CUtlString
-        SCHEMA_FIELD(CGlobalSymbol                   , m_sBreakablePieceName                           , 0x8) // CGlobalSymbol
-        SCHEMA_FIELD(std::int32_t                    , m_nBodyGroupValue                               , 0x10) // int32
-        SCHEMA_FIELD(CSkillInt                       , m_nHealth                                       , 0x14) // CSkillInt
-        SCHEMA_FIELD(float                           , m_flCriticalDamagePercent                       , 0x24) // float32
-        SCHEMA_FIELD(EDestructiblePartDamagePassThroughType, m_nDamagePassthroughType                        , 0x28) // EDestructiblePartDamagePassThroughType
-        SCHEMA_FIELD(DestructiblePartDestructionDeathBehavior_t, m_nDestructionDeathBehavior                     , 0x2C) // DestructiblePartDestructionDeathBehavior_t
-        SCHEMA_FIELD(CGlobalSymbol                   , m_sCustomDeathHandshake                         , 0x30) // CGlobalSymbol
-        SCHEMA_FIELD(bool                            , m_bShouldDestroyOnDeath                         , 0x38) // bool
-        SCHEMA_FIELD(CRangeFloat                     , m_flDeathDestroyTime                            , 0x3C) // CRangeFloat
-    };
-
-    // CNavVolumeVector
-    //   fields: 1
-    class CNavVolumeVector {
-    public:
-        SCHEMA_FIELD(bool                            , m_bHasBeenPreFiltered                           , 0x80) // bool
-    };
-
-    // sndopvarlatchdata_t
-    //   fields: 5
-    class sndopvarlatchdata_t {
-    public:
-        SCHEMA_FIELD(::CUtlSymbolLarge               , m_iszStack                                      , 0x8) // CUtlSymbolLarge
-        SCHEMA_FIELD(::CUtlSymbolLarge               , m_iszOperator                                   , 0x10) // CUtlSymbolLarge
-        SCHEMA_FIELD(::CUtlSymbolLarge               , m_iszOpvar                                      , 0x18) // CUtlSymbolLarge
-        SCHEMA_FIELD(float                           , m_flVal                                         , 0x20) // float32
-        SCHEMA_FIELD(::Vector                        , m_vPos                                          , 0x24) // Vector
-    };
-
-    // CInfoChoreoAnchorPosition
+    // CPulseGraphInstance_ServerEntity
     //   fields: 6
-    class CInfoChoreoAnchorPosition {
+    class CPulseGraphInstance_ServerEntity {
     public:
-        SCHEMA_FIELD(::Vector                        , m_vOrigin                                       , 0x0) // Vector
-        SCHEMA_FIELD(::QAngle                        , m_qAngles                                       , 0xC) // QAngle
-        SCHEMA_FIELD(::Vector                        , m_vExtentsMin                                   , 0x18) // Vector
-        SCHEMA_FIELD(::Vector                        , m_vExtentsMax                                   , 0x24) // Vector
-        SCHEMA_FIELD(float                           , m_flRadius                                      , 0x30) // float32
-        SCHEMA_FIELD(CInfoChoreoLocatorShapeType_t   , m_nShapeType                                    , 0x34) // CInfoChoreoLocatorShapeType_t
-    };
-
-    // CNmEventConsumer
-    //   fields: 0
-    class CNmEventConsumer {
-    public:
-    };
-
-    // SceneInterestTags_t
-    //   fields: 1
-    class SceneInterestTags_t {
-    public:
-        SCHEMA_FIELD(CUtlVector<CUtlString>          , m_Tags                                          , 0x0) // CUtlVector<CUtlString>
-    };
-
-    // CPointTeleportAPI
-    //   fields: 0
-    class CPointTeleportAPI {
-    public:
-    };
-
-    // AI_DefaultNPC_DebugSnapshotData_t::PathQuery_t
-    //   fields: 5
-    class AI_DefaultNPC_DebugSnapshotData_t_PathQuery_t {
-    public:
-        SCHEMA_FIELD(CGlobalSymbol                   , m_sInitialQueryName                             , 0x0) // CGlobalSymbol
-        SCHEMA_FIELD(CGlobalSymbol                   , m_sCurrentQueryName                             , 0x8) // CGlobalSymbol
-        SCHEMA_FIELD(CGlobalSymbol                   , m_nMode                                         , 0x10) // CGlobalSymbol
-        SCHEMA_FIELD(CGlobalSymbol                   , m_nType                                         , 0x18) // CGlobalSymbol
-        SCHEMA_FIELD(CGlobalSymbol                   , m_nState                                        , 0x20) // CGlobalSymbol
-    };
-
-    // CMultiplayer_Expresser
-    //   fields: 1
-    class CMultiplayer_Expresser {
-    public:
-        SCHEMA_FIELD(bool                            , m_bAllowMultipleScenes                          , 0xA0) // bool
-    };
-
-    // CBtActionCombatPositioning
-    //   fields: 4
-    class CBtActionCombatPositioning {
-    public:
-        SCHEMA_FIELD(::CUtlString                    , m_szSensorInputKey                              , 0x68) // CUtlString
-        SCHEMA_FIELD(::CUtlString                    , m_szIsAttackingKey                              , 0x80) // CUtlString
-        SCHEMA_FIELD(::sdk::client::CountdownTimer   , m_ActionTimer                                   , 0x88) // CountdownTimer
-        SCHEMA_FIELD(bool                            , m_bCrouching                                    , 0xA0) // bool
-    };
-
-    // CBtNodeCondition
-    //   fields: 1
-    class CBtNodeCondition {
-    public:
-        SCHEMA_FIELD(bool                            , m_bNegated                                      , 0x58) // bool
-    };
-
-    // AmmoTypeInfo_t
-    //   fields: 5
-    class AmmoTypeInfo_t {
-    public:
-        SCHEMA_FIELD(std::int32_t                    , m_nMaxCarry                                     , 0x10) // int32
-        SCHEMA_FIELD(CRangeInt                       , m_nSplashSize                                   , 0x1C) // CRangeInt
-        SCHEMA_FIELD(AmmoFlags_t                     , m_nFlags                                        , 0x24) // AmmoFlags_t
-        SCHEMA_FIELD(float                           , m_flMass                                        , 0x28) // float32
-        SCHEMA_FIELD(CRangeFloat                     , m_flSpeed                                       , 0x2C) // CRangeFloat
-    };
-
-    // AI_Navigator_DebugSnapshotData_t::Waypoint_t
-    //   fields: 3
-    class AI_Navigator_DebugSnapshotData_t_Waypoint_t {
-    public:
-        SCHEMA_FIELD(VectorWS                        , position                                        , 0x0) // VectorWS
-        SCHEMA_FIELD(std::uint32_t                   , nav_type                                        , 0xC) // uint32
-        SCHEMA_FIELD(std::uint32_t                   , flags                                           , 0x10) // uint32
-    };
-
-    // CDebugSnapshotData_t
-    //   fields: 14
-    class CDebugSnapshotData_t {
-    public:
-        SCHEMA_FIELD(::CUtlString                    , m_text                                          , 0x0) // CUtlString
-        SCHEMA_FIELD(std::uint32_t                   , m_dataType                                      , 0x8) // uint32
-        SCHEMA_FIELD(std::uint32_t                   , m_userFlags                                     , 0xC) // uint32
-        SCHEMA_FIELD(std::uint32_t                   , m_userData                                      , 0x10) // uint32
-        SCHEMA_FIELD(VectorWS                        , m_userVector                                    , 0x14) // VectorWS
-        SCHEMA_FIELD(CTransformWS                    , m_userTransform                                 , 0x20) // CTransformWS
-        SCHEMA_FIELD(::sdk::vphysics2::CGenericShapeProxy, m_userShape                                     , 0x40) // CGenericShapeProxy
-        SCHEMA_FIELD(::Color                         , m_drawColor                                     , 0xD8) // Color
-        SCHEMA_FIELD(CUtlVector<CDebugDrawHistoryData*>, m_vecDebugOverlayData                           , 0xE0) // CUtlVector<CDebugDrawHistoryData*>
-        SCHEMA_FIELD(DebugSnapshotBaseStructuredData_t*, m_pStructuredData                               , 0xF8) // DebugSnapshotBaseStructuredData_t*
-        SCHEMA_FIELD(CHandle<CBaseEntity>            , m_hEntity                                       , 0x100) // CHandle<CBaseEntity>
-        SCHEMA_FIELD(::CUtlString                    , m_sEntityName                                   , 0x108) // CUtlString
-        SCHEMA_FIELD(CEntityIndex                    , m_nEntityIndex                                  , 0x110) // CEntityIndex
-        SCHEMA_FIELD(CUtlLeanVector<CDebugSnapshotData_t>, m_children                                      , 0x120) // CUtlLeanVector<CDebugSnapshotData_t>
-    };
-
-    // IHasAttributes
-    //   fields: 0
-    class IHasAttributes {
-    public:
-    };
-
-    // CPulseServerCursor
-    //   fields: 2
-    class CPulseServerCursor {
-    public:
-        SCHEMA_FIELD(CHandle<CBaseEntity>            , m_hActivator                                    , 0xE8) // CHandle<CBaseEntity>
-        SCHEMA_FIELD(CHandle<CBaseEntity>            , m_hCaller                                       , 0xEC) // CHandle<CBaseEntity>
-    };
-
-    // CRetakeGameRules
-    //   fields: 6
-    class CRetakeGameRules {
-    public:
-        SCHEMA_FIELD(std::int32_t                    , m_nMatchSeed                                    , 0x138) // int32
-        SCHEMA_FIELD(bool                            , m_bBlockersPresent                              , 0x13C) // bool
-        SCHEMA_FIELD(bool                            , m_bRoundInProgress                              , 0x13D) // bool
-        SCHEMA_FIELD(std::int32_t                    , m_iFirstSecondHalfRound                         , 0x140) // int32
-        SCHEMA_FIELD(std::int32_t                    , m_iBombSite                                     , 0x144) // int32
-        SCHEMA_FIELD(CHandle<CCSPlayerPawn>          , m_hBombPlanter                                  , 0x148) // CHandle<CCSPlayerPawn>
+        SCHEMA_FIELD(CHandle<CBaseEntity>            , m_hOwner                                        , 0x1A8) // CHandle<CBaseEntity>
+        SCHEMA_FIELD(bool                            , m_bActivated                                    , 0x1AC) // bool
+        SCHEMA_FIELD(::CUtlSymbolLarge               , m_sNameFixupStaticPrefix                        , 0x1B0) // CUtlSymbolLarge
+        SCHEMA_FIELD(::CUtlSymbolLarge               , m_sNameFixupParent                              , 0x1B8) // CUtlSymbolLarge
+        SCHEMA_FIELD(::CUtlSymbolLarge               , m_sNameFixupLocal                               , 0x1C0) // CUtlSymbolLarge
+        SCHEMA_FIELD(::CUtlSymbolLarge               , m_sProceduralWorldNameForRelays                 , 0x1C8) // CUtlSymbolLarge
     };
 
     // SoundCommand_t
@@ -3700,764 +3287,22 @@ namespace sdk::server {
         SCHEMA_FIELD(float                           , m_value                                         , 0x14) // float32
     };
 
-    // CNetworkOriginQuantizedVector
-    //   fields: 3
-    class CNetworkOriginQuantizedVector {
-    public:
-        SCHEMA_FIELD(CNetworkedQuantizedFloat        , m_vecX                                          , 0x10) // CNetworkedQuantizedFloat
-        SCHEMA_FIELD(CNetworkedQuantizedFloat        , m_vecY                                          , 0x18) // CNetworkedQuantizedFloat
-        SCHEMA_FIELD(CNetworkedQuantizedFloat        , m_vecZ                                          , 0x20) // CNetworkedQuantizedFloat
-    };
-
-    // CAnimGraphControllerManager
-    //   fields: 2
-    class CAnimGraphControllerManager {
-    public:
-        SCHEMA_FIELD(CUtlVector<CAnimGraphControllerBase*>, m_controllers                                   , 0x0) // CUtlVector<CAnimGraphControllerBase*>
-        SCHEMA_FIELD(bool                            , m_bGraphBindingsCreated                         , 0xA8) // bool
-    };
-
-    // CSimpleSimTimer
-    //   fields: 2
-    class CSimpleSimTimer {
-    public:
-        SCHEMA_FIELD(::GameTime_t                    , m_flNext                                        , 0x0) // GameTime_t
-        SCHEMA_FIELD(::WorldGroupId_t                , m_nWorldGroupId                                 , 0x4) // WorldGroupId_t
-    };
-
-    // INavObstacle
-    //   fields: 1
-    class INavObstacle {
-    public:
-        SCHEMA_FIELD(std::uint64_t                   , m_nId                                           , 0x8) // uint64
-    };
-
-    // SummaryTakeDamageInfo_t
-    //   fields: 4
-    class SummaryTakeDamageInfo_t {
-    public:
-        SCHEMA_FIELD(std::int32_t                    , nSummarisedCount                                , 0x0) // int32
-        SCHEMA_FIELD(CTakeDamageInfo                 , info                                            , 0x8) // CTakeDamageInfo
-        SCHEMA_FIELD(CTakeDamageResult               , result                                          , 0x120) // CTakeDamageResult
-        SCHEMA_FIELD(CHandle<CBaseEntity>            , hTarget                                         , 0x170) // CHandle<CBaseEntity>
-    };
-
-    // CEntitySubclassVDataBase
-    //   fields: 0
-    class CEntitySubclassVDataBase {
-    public:
-    };
-
-    // AutoRoomDoorwayPairs_t
-    //   fields: 2
-    class AutoRoomDoorwayPairs_t {
-    public:
-        SCHEMA_FIELD(::Vector                        , vP1                                             , 0x0) // Vector
-        SCHEMA_FIELD(::Vector                        , vP2                                             , 0xC) // Vector
-    };
-
-    // lerpdata_t
-    //   fields: 6
-    class lerpdata_t {
-    public:
-        SCHEMA_FIELD(CHandle<CBaseEntity>            , m_hEnt                                          , 0x0) // CHandle<CBaseEntity>
-        SCHEMA_FIELD(MoveType_t                      , m_MoveType                                      , 0x4) // MoveType_t
-        SCHEMA_FIELD(::GameTime_t                    , m_flStartTime                                   , 0x8) // GameTime_t
-        SCHEMA_FIELD(::Vector                        , m_vecStartOrigin                                , 0xC) // Vector
-        SCHEMA_FIELD(::Quaternion                    , m_qStartRot                                     , 0x20) // Quaternion
-        SCHEMA_FIELD(::sdk::particles::ParticleIndex_t, m_nFXIndex                                      , 0x30) // ParticleIndex_t
-    };
-
-    // CNavHullVData
-    //   fields: 15
-    class CNavHullVData {
-    public:
-        SCHEMA_FIELD(bool                            , m_bAgentEnabled                                 , 0x0) // bool
-        SCHEMA_FIELD(float                           , m_agentRadius                                   , 0x4) // float32
-        SCHEMA_FIELD(float                           , m_agentHeight                                   , 0x8) // float32
-        SCHEMA_FIELD(bool                            , m_agentShortHeightEnabled                       , 0xC) // bool
-        SCHEMA_FIELD(float                           , m_agentShortHeight                              , 0x10) // float32
-        SCHEMA_FIELD(bool                            , m_agentCrawlEnabled                             , 0x14) // bool
-        SCHEMA_FIELD(float                           , m_agentCrawlHeight                              , 0x18) // float32
-        SCHEMA_FIELD(float                           , m_agentMaxClimb                                 , 0x1C) // float32
-        SCHEMA_FIELD(std::int32_t                    , m_agentMaxSlope                                 , 0x20) // int32
-        SCHEMA_FIELD(float                           , m_agentMaxJumpDownDist                          , 0x24) // float32
-        SCHEMA_FIELD(float                           , m_agentMaxJumpHorizDistBase                     , 0x28) // float32
-        SCHEMA_FIELD(float                           , m_agentMaxJumpUpDist                            , 0x2C) // float32
-        SCHEMA_FIELD(std::int32_t                    , m_agentBorderErosion                            , 0x30) // int32
-        SCHEMA_FIELD(bool                            , m_flowMapGenerationEnabled                      , 0x34) // bool
-        SCHEMA_FIELD(float                           , m_flowMapNodeMaxRadius                          , 0x38) // float32
-    };
-
-    // CPulseCell_SoundEventStart
-    //   fields: 1
-    class CPulseCell_SoundEventStart {
-    public:
-        SCHEMA_FIELD(SoundEventStartType_t           , m_Type                                          , 0x48) // SoundEventStartType_t
-    };
-
-    // CSAdditionalMatchStats_t
-    //   fields: 12
-    class CSAdditionalMatchStats_t {
-    public:
-        SCHEMA_FIELD(std::int32_t                    , m_numRoundsSurvivedStreak                       , 0xF8) // int32
-        SCHEMA_FIELD(std::int32_t                    , m_maxNumRoundsSurvivedStreak                    , 0xFC) // int32
-        SCHEMA_FIELD(std::int32_t                    , m_numRoundsSurvivedTotal                        , 0x100) // int32
-        SCHEMA_FIELD(std::int32_t                    , m_iRoundsWonWithoutPurchase                     , 0x104) // int32
-        SCHEMA_FIELD(std::int32_t                    , m_iRoundsWonWithoutPurchaseTotal                , 0x108) // int32
-        SCHEMA_FIELD(std::int32_t                    , m_numFirstKills                                 , 0x10C) // int32
-        SCHEMA_FIELD(std::int32_t                    , m_numClutchKills                                , 0x110) // int32
-        SCHEMA_FIELD(std::int32_t                    , m_numPistolKills                                , 0x114) // int32
-        SCHEMA_FIELD(std::int32_t                    , m_numSniperKills                                , 0x118) // int32
-        SCHEMA_FIELD(std::int32_t                    , m_iNumSuicides                                  , 0x11C) // int32
-        SCHEMA_FIELD(std::int32_t                    , m_iNumTeamKills                                 , 0x120) // int32
-        SCHEMA_FIELD(float                           , m_flTeamDamage                                  , 0x124) // float32
-    };
-
-    // entitytable_t
-    //   fields: 10
-    class entitytable_t {
-    public:
-        SCHEMA_FIELD(std::int32_t                    , id                                              , 0x0) // int32
-        SCHEMA_FIELD(CEntityIndex                    , edictindex                                      , 0x4) // CEntityIndex
-        SCHEMA_FIELD(CEntityIndex                    , saveentityindex                                 , 0x8) // CEntityIndex
-        SCHEMA_FIELD(bool                            , bWasSaved                                       , 0x14) // bool
-        SCHEMA_FIELD(SaveRestoreTableFlags_t         , flags                                           , 0x18) // SaveRestoreTableFlags_t
-        SCHEMA_FIELD(::CUtlSymbolLarge               , classname                                       , 0x20) // CUtlSymbolLarge
-        SCHEMA_FIELD(::CUtlSymbolLarge               , globalname                                      , 0x28) // CUtlSymbolLarge
-        SCHEMA_FIELD(::CUtlSymbolLarge               , entityname                                      , 0x30) // CUtlSymbolLarge
-        SCHEMA_FIELD(::Vector                        , landmarkModelSpace                              , 0x38) // Vector
-        SCHEMA_FIELD(::sdk::engine2::CEntityKeyValues*, m_pPrecacheEntityKeys                           , 0x48) // CEntityKeyValues*
-    };
-
-    // CPulseCell_Outflow_PlaySequence
-    //   fields: 1
-    class CPulseCell_Outflow_PlaySequence {
-    public:
-        SCHEMA_FIELD(::CUtlString                    , m_ParamSequenceName                             , 0xF0) // CUtlString
-    };
-
-    // CEconItemView
-    //   fields: 13
-    class CEconItemView {
-    public:
-        SCHEMA_FIELD(std::uint16_t                   , m_iItemDefinitionIndex                          , 0x38) // uint16
-        SCHEMA_FIELD(std::int32_t                    , m_iEntityQuality                                , 0x3C) // int32
-        SCHEMA_FIELD(std::uint32_t                   , m_iEntityLevel                                  , 0x40) // uint32
-        SCHEMA_FIELD(std::uint64_t                   , m_iItemID                                       , 0x48) // uint64
-        SCHEMA_FIELD(std::uint32_t                   , m_iItemIDHigh                                   , 0x50) // uint32
-        SCHEMA_FIELD(std::uint32_t                   , m_iItemIDLow                                    , 0x54) // uint32
-        SCHEMA_FIELD(std::uint32_t                   , m_iAccountID                                    , 0x58) // uint32
-        SCHEMA_FIELD(std::uint32_t                   , m_iInventoryPosition                            , 0x5C) // uint32
-        SCHEMA_FIELD(bool                            , m_bInitialized                                  , 0x68) // bool
-        SCHEMA_FIELD(::sdk::client::CAttributeList   , m_AttributeList                                 , 0x70) // CAttributeList
-        SCHEMA_FIELD(::sdk::client::CAttributeList   , m_NetworkedDynamicAttributes                    , 0xE8) // CAttributeList
-        SCHEMA_FIELD(char                            , m_szCustomName                                  , 0x160) // char[161]
-        SCHEMA_FIELD(char                            , m_szCustomNameOverride                          , 0x201) // char[161]
-    };
-
-    // CNmEventConsumerSound
-    //   fields: 0
-    class CNmEventConsumerSound {
-    public:
-    };
-
-    // Relationship_t
-    //   fields: 2
-    class Relationship_t {
-    public:
-        SCHEMA_FIELD(Disposition_t                   , disposition                                     , 0x0) // Disposition_t
-        SCHEMA_FIELD(std::int32_t                    , priority                                        , 0x4) // int32
-    };
-
-    // CCSPlayerAnimationState
-    //   fields: 16
-    class CCSPlayerAnimationState {
-    public:
-        SCHEMA_FIELD(CCSPlayerAnimationState_MoveType_t, m_currentMoveType                               , 0x18) // CCSPlayerAnimationState::MoveType_t
-        SCHEMA_FIELD(CCSPlayerAnimationState_GroundMoveState_t, m_groundMoveState                               , 0x19) // CCSPlayerAnimationState::GroundMoveState_t
-        SCHEMA_FIELD(CCSPlayerAnimationState_Direction_t, m_groundActionDirection                         , 0x1A) // CCSPlayerAnimationState::Direction_t
-        SCHEMA_FIELD(CCSPlayerAnimationState_AirAction_t, m_airAction                                     , 0x1B) // CCSPlayerAnimationState::AirAction_t
-        SCHEMA_FIELD(bool                            , m_bWasOnGroundLastUpdate                        , 0x1C) // bool
-        SCHEMA_FIELD(bool                            , m_bWasStationaryLastUpdate                      , 0x1D) // bool
-        SCHEMA_FIELD(::GameTick_t                    , m_actionStartTick                               , 0x20) // GameTick_t
-        SCHEMA_FIELD(::GameTick_t                    , m_staticAimTimerStartTick                       , 0x24) // GameTick_t
-        SCHEMA_FIELD(::GameTick_t                    , m_plantAndTurnStartTick                         , 0x28) // GameTick_t
-        SCHEMA_FIELD(float                           , m_flTurnOnSpotAngle                             , 0x2C) // float32
-        SCHEMA_FIELD(float                           , m_flPreviousAimYaw                              , 0x30) // float32
-        SCHEMA_FIELD(float                           , m_flPreviousHorizontalSpeed                     , 0x34) // float32
-        SCHEMA_FIELD(float                           , m_flFootIKOffsetLeft                            , 0x38) // float32
-        SCHEMA_FIELD(float                           , m_flFootIKOffsetRight                           , 0x3C) // float32
-        SCHEMA_FIELD(float                           , m_flWeaponDropPercentageDueToMovement           , 0x40) // float32
-        SCHEMA_FIELD(float                           , m_flWeaponDropSmoothDampVelocity                , 0x44) // float32
-    };
-
-    // CPulseCell_Outflow_ListenForAnimgraphTag
-    //   fields: 4
-    class CPulseCell_Outflow_ListenForAnimgraphTag {
-    public:
-        SCHEMA_FIELD(::sdk::animationsystem::CPulse_ResumePoint, m_OnStart                                       , 0x48) // CPulse_ResumePoint
-        SCHEMA_FIELD(::sdk::animationsystem::CPulse_ResumePoint, m_OnEnd                                         , 0x90) // CPulse_ResumePoint
-        SCHEMA_FIELD(::sdk::animationsystem::CPulse_ResumePoint, m_OnCanceled                                    , 0xD8) // CPulse_ResumePoint
-        SCHEMA_FIELD(CGlobalSymbol                   , m_TagName                                       , 0x120) // CGlobalSymbol
-    };
-
-    // AI_BaseNPC_DebugSnapshotData_t
-    //   fields: 10
-    class AI_BaseNPC_DebugSnapshotData_t {
-    public:
-        SCHEMA_FIELD(CGlobalSymbol                   , npc_state                                       , 0x8) // CGlobalSymbol
-        SCHEMA_FIELD(CHandle<CBaseEntity>            , current_enemy                                   , 0x10) // CHandle<CBaseEntity>
-        SCHEMA_FIELD(::CUtlString                    , s_current_schedule                              , 0x18) // CUtlString
-        SCHEMA_FIELD(CGlobalSymbol                   , s_current_task                                  , 0x20) // CGlobalSymbol
-        SCHEMA_FIELD(::CUtlString                    , s_schedule_interrupt_reason                     , 0x28) // CUtlString
-        SCHEMA_FIELD(::CUtlString                    , s_schedule_fail_reason                          , 0x30) // CUtlString
-        SCHEMA_FIELD(CUtlVector<CGlobalSymbol>       , conditions                                      , 0x38) // CUtlVector<CGlobalSymbol>
-        SCHEMA_FIELD(CUtlVector<CGlobalSymbol>       , anim_events                                     , 0x50) // CUtlVector<CGlobalSymbol>
-        SCHEMA_FIELD(CGlobalSymbol                   , e_action_body_section                           , 0x68) // CGlobalSymbol
-        SCHEMA_FIELD(CGlobalSymbol                   , e_movement_body_section                         , 0x70) // CGlobalSymbol
-    };
-
-    // CBaseEntityAPI
-    //   fields: 0
-    class CBaseEntityAPI {
-    public:
-    };
-
-    // CEntityComponent
-    //   fields: 0
-    class CEntityComponent {
-    public:
-    };
-
-    // CNavVolumeMarkupVolume
-    //   fields: 0
-    class CNavVolumeMarkupVolume {
-    public:
-    };
-
-    // WrappedPhysicsJoint_t
-    //   fields: 1
-    class WrappedPhysicsJoint_t {
-    public:
-        SCHEMA_FIELD(::sdk::vphysics2::IPhysicsJoint*, m_pJoint                                        , 0x0) // IPhysicsJoint*
-    };
-
-    // CPhysicsShake
-    //   fields: 1
-    class CPhysicsShake {
-    public:
-        SCHEMA_FIELD(::Vector                        , m_force                                         , 0x8) // Vector
-    };
-
-    // IChoreoServices
-    //   fields: 0
-    class IChoreoServices {
-    public:
-    };
-
-    // Extent
-    //   fields: 2
-    class Extent {
-    public:
-        SCHEMA_FIELD(VectorWS                        , lo                                              , 0x0) // VectorWS
-        SCHEMA_FIELD(VectorWS                        , hi                                              , 0xC) // VectorWS
-    };
-
-    // CPlayerControllerComponent
-    //   fields: 1
-    class CPlayerControllerComponent {
-    public:
-        SCHEMA_FIELD(::sdk::engine2::CNetworkVarChainer, __m_pChainEntity                                , 0x8) // CNetworkVarChainer
-    };
-
-    // CSkillDamage
-    //   fields: 3
-    class CSkillDamage {
-    public:
-        SCHEMA_FIELD(CSkillFloat                     , m_flDamage                                      , 0x0) // CSkillFloat
-        SCHEMA_FIELD(float                           , m_flNPCDamageScalarVsNPC                        , 0x10) // float32
-        SCHEMA_FIELD(float                           , m_flPhysicsForceDamage                          , 0x14) // float32
-    };
-
-    // CSoundPatch
-    //   fields: 13
-    class CSoundPatch {
-    public:
-        SCHEMA_FIELD(CSoundEnvelope                  , m_pitch                                         , 0x8) // CSoundEnvelope
-        SCHEMA_FIELD(CSoundEnvelope                  , m_volume                                        , 0x18) // CSoundEnvelope
-        SCHEMA_FIELD(float                           , m_shutdownTime                                  , 0x3C) // float32
-        SCHEMA_FIELD(float                           , m_flLastTime                                    , 0x40) // float32
-        SCHEMA_FIELD(::CUtlSymbolLarge               , m_iszSoundScriptName                            , 0x48) // CUtlSymbolLarge
-        SCHEMA_FIELD(CHandle<CBaseEntity>            , m_hEnt                                          , 0x50) // CHandle<CBaseEntity>
-        SCHEMA_FIELD(CEntityIndex                    , m_soundEntityIndex                              , 0x54) // CEntityIndex
-        SCHEMA_FIELD(VectorWS                        , m_soundOrigin                                   , 0x58) // VectorWS
-        SCHEMA_FIELD(std::int32_t                    , m_isPlaying                                     , 0x64) // int32
-        SCHEMA_FIELD(CCopyRecipientFilter            , m_Filter                                        , 0x68) // CCopyRecipientFilter
-        SCHEMA_FIELD(float                           , m_flCloseCaptionDuration                        , 0xA0) // float32
-        SCHEMA_FIELD(bool                            , m_bUpdatedSoundOrigin                           , 0xA4) // bool
-        SCHEMA_FIELD(::CUtlSymbolLarge               , m_iszClassName                                  , 0xA8) // CUtlSymbolLarge
-    };
-
-    // CSmoothFunc
+    // levellist_t
     //   fields: 5
-    class CSmoothFunc {
+    class levellist_t {
     public:
-        SCHEMA_FIELD(float                           , m_flSmoothAmplitude                             , 0x8) // float32
-        SCHEMA_FIELD(float                           , m_flSmoothBias                                  , 0xC) // float32
-        SCHEMA_FIELD(float                           , m_flSmoothDuration                              , 0x10) // float32
-        SCHEMA_FIELD(float                           , m_flSmoothRemainingTime                         , 0x14) // float32
-        SCHEMA_FIELD(std::int32_t                    , m_nSmoothDir                                    , 0x18) // int32
+        SCHEMA_FIELD(::CUtlString                    , m_sMapName                                      , 0x0) // CUtlString
+        SCHEMA_FIELD(::CUtlString                    , m_sLandmarkName                                 , 0x8) // CUtlString
+        SCHEMA_FIELD(CEntityHandle                   , m_hEntLandmark                                  , 0x10) // CEntityHandle
+        SCHEMA_FIELD(::Vector                        , m_vecLandmarkOrigin                             , 0x14) // Vector
+        SCHEMA_FIELD(::QAngle                        , m_vecLandmarkAngles                             , 0x20) // QAngle
     };
 
-    // SceneRequestTargetMapPair_t
-    //   fields: 2
-    class SceneRequestTargetMapPair_t {
-    public:
-        SCHEMA_FIELD(::CUtlSymbolLarge               , m_actorName                                     , 0x0) // CUtlSymbolLarge
-        SCHEMA_FIELD(::CUtlSymbolLarge               , m_targetName                                    , 0x8) // CUtlSymbolLarge
-    };
-
-    // SPAWNGROUP_HEADER
-    //   fields: 5
-    class SPAWNGROUP_HEADER {
-    public:
-        SCHEMA_FIELD(::CUtlString                    , m_sGroupName                                    , 0x0) // CUtlString
-        SCHEMA_FIELD(::CUtlString                    , m_sEntityLumpName                               , 0x8) // CUtlString
-        SCHEMA_FIELD(matrix3x4a_t                    , m_vecWorldOffset                                , 0x10) // matrix3x4a_t
-        SCHEMA_FIELD(bool                            , m_bClientSpawnGroup                             , 0x40) // bool
-        SCHEMA_FIELD(bool                            , m_bSuppressAllEntities                          , 0x41) // bool
-    };
-
-    // CPulseCell_Outflow_PlaySceneBase::CursorState_t
-    //   fields: 3
-    class CPulseCell_Outflow_PlaySceneBase_CursorState_t {
-    public:
-        using _Type0 = CUtlHashtable<::sdk::animationsystem::PulseCursorID_t,int32>;
-        SCHEMA_FIELD(CHandle<CBaseEntity>            , m_sceneInstance                                 , 0x0) // CHandle<CBaseEntity>
-        SCHEMA_FIELD(CHandle<CBaseEntity>            , m_mainActor                                     , 0x4) // CHandle<CBaseEntity>
-        SCHEMA_FIELD(_Type0                          , m_cursorIDToEventID                             , 0x8) // CUtlHashtable<PulseCursorID_t,int32>
-    };
-
-    // ExternalAnimGraph_t
-    //   fields: 5
-    class ExternalAnimGraph_t {
-    public:
-        SCHEMA_FIELD(ExternalAnimGraphHandle_t       , m_hExtGraphHandle                               , 0x0) // ExternalAnimGraphHandle_t
-        SCHEMA_FIELD(CGlobalSymbol                   , m_sExternalGraphSlotID                          , 0x8) // CGlobalSymbol
-        SCHEMA_FIELD(CStrongHandleCopyable<InfoForResourceTypeCNmGraphDefinition>, m_hGraphDefinition                              , 0x10) // CStrongHandleCopyable<InfoForResourceTypeCNmGraphDefinition>
-        SCHEMA_FIELD(CHandle<CBaseAnimGraph>         , m_hExternalGraphOwner                           , 0x18) // CHandle<CBaseAnimGraph>
-        SCHEMA_FIELD(ExternalAnimGraphInactiveBehavior_t, m_nInactiveBehavior                             , 0x30) // ExternalAnimGraphInactiveBehavior_t
-    };
-
-    // CNetworkViewOffsetVector
-    //   fields: 3
-    class CNetworkViewOffsetVector {
-    public:
-        SCHEMA_FIELD(CNetworkedQuantizedFloat        , m_vecX                                          , 0x10) // CNetworkedQuantizedFloat
-        SCHEMA_FIELD(CNetworkedQuantizedFloat        , m_vecY                                          , 0x18) // CNetworkedQuantizedFloat
-        SCHEMA_FIELD(CNetworkedQuantizedFloat        , m_vecZ                                          , 0x20) // CNetworkedQuantizedFloat
-    };
-
-    // CConstantForceController
-    //   fields: 4
-    class CConstantForceController {
-    public:
-        SCHEMA_FIELD(::Vector                        , m_linear                                        , 0xC) // Vector
-        SCHEMA_FIELD(RotationVector                  , m_angular                                       , 0x18) // RotationVector
-        SCHEMA_FIELD(::Vector                        , m_linearSave                                    , 0x24) // Vector
-        SCHEMA_FIELD(RotationVector                  , m_angularSave                                   , 0x30) // RotationVector
-    };
-
-    // CTeamplayRules
-    //   fields: 0
-    class CTeamplayRules {
-    public:
-    };
-
-    // CDestructiblePart
-    //   fields: 7
-    class CDestructiblePart {
-    public:
-        SCHEMA_FIELD(CGlobalSymbol                   , m_DebugName                                     , 0x0) // CGlobalSymbol
-        SCHEMA_FIELD(HitGroup_t                      , m_nHitGroup                                     , 0x8) // HitGroup_t
-        SCHEMA_FIELD(bool                            , m_bDisableHitGroupWhenDestroyed                 , 0xC) // bool
-        SCHEMA_FIELD(CUtlVector<HitGroup_t>          , m_nOtherHitgroupsToDestroyWhenFullyDestructed   , 0x10) // CUtlVector<HitGroup_t>
-        SCHEMA_FIELD(bool                            , m_bOnlyDestroyWhenGibbing                       , 0x28) // bool
-        SCHEMA_FIELD(CGlobalSymbol                   , m_sBodyGroupName                                , 0x30) // CGlobalSymbol
-        SCHEMA_FIELD(CUtlVector<CDestructiblePart_DamageLevel>, m_DamageLevels                                  , 0x38) // CUtlVector<CDestructiblePart_DamageLevel>
-    };
-
-    // CCopyRecipientFilter
-    //   fields: 3
-    class CCopyRecipientFilter {
-    public:
-        SCHEMA_FIELD(std::int32_t                    , m_Flags                                         , 0x8) // int32
-        SCHEMA_FIELD(CUtlVector<CPlayerSlot>         , m_Recipients                                    , 0x10) // CUtlVector<CPlayerSlot>
-        SCHEMA_FIELD(CPlayerSlot                     , m_slotPlayerExcludedDueToPrediction             , 0x30) // CPlayerSlot
-    };
-
-    // CNetworkTransmitComponent
+    // CRangeFloat
     //   fields: 1
-    class CNetworkTransmitComponent {
+    class CRangeFloat {
     public:
-        SCHEMA_FIELD(std::uint8_t                    , m_nTransmitStateOwnedCounter                    , 0x184) // uint8
-    };
-
-    // modifiedconvars_t
-    //   fields: 3
-    class modifiedconvars_t {
-    public:
-        SCHEMA_FIELD(char                            , pszConvar                                       , 0x0) // char[128]
-        SCHEMA_FIELD(char                            , pszCurrentValue                                 , 0x80) // char[128]
-        SCHEMA_FIELD(char                            , pszOrgValue                                     , 0x100) // char[128]
-    };
-
-    // CDecalInstance
-    //   fields: 26
-    class CDecalInstance {
-    public:
-        SCHEMA_FIELD(CGlobalSymbol                   , m_sDecalGroup                                   , 0x0) // CGlobalSymbol
-        SCHEMA_FIELD(CStrongHandle<InfoForResourceTypeIMaterial2>, m_hMaterial                                     , 0x8) // CStrongHandle<InfoForResourceTypeIMaterial2>
-        SCHEMA_FIELD(CUtlStringToken                 , m_sSequenceName                                 , 0x10) // CUtlStringToken
-        SCHEMA_FIELD(CHandle<CBaseEntity>            , m_hEntity                                       , 0x14) // CHandle<CBaseEntity>
-        SCHEMA_FIELD(std::int32_t                    , m_nBoneIndex                                    , 0x18) // int32
-        SCHEMA_FIELD(std::int32_t                    , m_nTriangleIndex                                , 0x1C) // int32
-        SCHEMA_FIELD(::Vector                        , m_vPositionLS                                   , 0x20) // Vector
-        SCHEMA_FIELD(::Vector                        , m_vPositionOS                                   , 0x2C) // Vector
-        SCHEMA_FIELD(::Vector                        , m_vNormalLS                                     , 0x38) // Vector
-        SCHEMA_FIELD(::Vector                        , m_vSAxisLS                                      , 0x44) // Vector
-        SCHEMA_FIELD(DecalFlags_t                    , m_nFlags                                        , 0x50) // DecalFlags_t
-        SCHEMA_FIELD(::Color                         , m_Color                                         , 0x54) // Color
-        SCHEMA_FIELD(float                           , m_flWidth                                       , 0x58) // float32
-        SCHEMA_FIELD(float                           , m_flHeight                                      , 0x5C) // float32
-        SCHEMA_FIELD(float                           , m_flDepth                                       , 0x60) // float32
-        SCHEMA_FIELD(CTransformWS                    , m_transform                                     , 0x70) // CTransformWS
-        SCHEMA_FIELD(float                           , m_flAnimationScale                              , 0x90) // float32
-        SCHEMA_FIELD(float                           , m_flAnimationStartTime                          , 0x94) // float32
-        SCHEMA_FIELD(::GameTime_t                    , m_flPlaceTime                                   , 0x98) // GameTime_t
-        SCHEMA_FIELD(float                           , m_flFadeStartTime                               , 0x9C) // float32
-        SCHEMA_FIELD(float                           , m_flFadeDuration                                , 0xA0) // float32
-        SCHEMA_FIELD(float                           , m_flLightingOriginOffset                        , 0xA4) // float32
-        SCHEMA_FIELD(float                           , m_flBoundingRadiusSqr                           , 0xB0) // float32
-        SCHEMA_FIELD(std::int16_t                    , m_nSequenceIndex                                , 0xB4) // int16
-        SCHEMA_FIELD(bool                            , m_bIsAdjacent                                   , 0xB6) // bool
-        SCHEMA_FIELD(bool                            , m_bDoDecalLightmapping                          , 0xB7) // bool
-    };
-
-    // ResponseParams
-    //   fields: 3
-    class ResponseParams {
-    public:
-        SCHEMA_FIELD(std::int16_t                    , odds                                            , 0x10) // int16
-        SCHEMA_FIELD(std::int16_t                    , flags                                           , 0x12) // int16
-        SCHEMA_FIELD(ResponseFollowup*               , m_pFollowup                                     , 0x18) // ResponseFollowup*
-    };
-
-    // CPulseCell_Outflow_ScriptedSequence
-    //   fields: 10
-    class CPulseCell_Outflow_ScriptedSequence {
-    public:
-        SCHEMA_FIELD(::CUtlString                    , m_szSyncGroup                                   , 0x48) // CUtlString
-        SCHEMA_FIELD(std::int32_t                    , m_nExpectedNumSequencesInSyncGroup              , 0x50) // int32
-        SCHEMA_FIELD(bool                            , m_bEnsureOnNavmeshOnFinish                      , 0x54) // bool
-        SCHEMA_FIELD(bool                            , m_bDontTeleportAtEnd                            , 0x55) // bool
-        SCHEMA_FIELD(bool                            , m_bDisallowInterrupts                           , 0x56) // bool
-        SCHEMA_FIELD(PulseScriptedSequenceData_t     , m_scriptedSequenceDataMain                      , 0x58) // PulseScriptedSequenceData_t
-        SCHEMA_FIELD(CUtlVector<PulseScriptedSequenceData_t>, m_vecAdditionalActors                           , 0x90) // CUtlVector<PulseScriptedSequenceData_t>
-        SCHEMA_FIELD(::sdk::animationsystem::CPulse_ResumePoint, m_OnFinished                                    , 0xA8) // CPulse_ResumePoint
-        SCHEMA_FIELD(::sdk::animationsystem::CPulse_ResumePoint, m_OnCanceled                                    , 0xF0) // CPulse_ResumePoint
-        SCHEMA_FIELD(CUtlVector<::sdk::animationsystem::CPulse_OutflowConnection>, m_Triggers                                      , 0x138) // CUtlVector<CPulse_OutflowConnection>
-    };
-
-    // CBtActionMoveTo
-    //   fields: 14
-    class CBtActionMoveTo {
-    public:
-        SCHEMA_FIELD(::CUtlString                    , m_szDestinationInputKey                         , 0x60) // CUtlString
-        SCHEMA_FIELD(::CUtlString                    , m_szHidingSpotInputKey                          , 0x68) // CUtlString
-        SCHEMA_FIELD(::CUtlString                    , m_szThreatInputKey                              , 0x70) // CUtlString
-        SCHEMA_FIELD(::Vector                        , m_vecDestination                                , 0x78) // Vector
-        SCHEMA_FIELD(bool                            , m_bAutoLookAdjust                               , 0x84) // bool
-        SCHEMA_FIELD(bool                            , m_bComputePath                                  , 0x85) // bool
-        SCHEMA_FIELD(float                           , m_flDamagingAreasPenaltyCost                    , 0x88) // float32
-        SCHEMA_FIELD(::sdk::client::CountdownTimer   , m_CheckApproximateCornersTimer                  , 0x90) // CountdownTimer
-        SCHEMA_FIELD(::sdk::client::CountdownTimer   , m_CheckHighPriorityItem                         , 0xA8) // CountdownTimer
-        SCHEMA_FIELD(::sdk::client::CountdownTimer   , m_RepathTimer                                   , 0xC0) // CountdownTimer
-        SCHEMA_FIELD(float                           , m_flArrivalEpsilon                              , 0xD8) // float32
-        SCHEMA_FIELD(float                           , m_flAdditionalArrivalEpsilon2D                  , 0xDC) // float32
-        SCHEMA_FIELD(float                           , m_flHidingSpotCheckDistanceThreshold            , 0xE0) // float32
-        SCHEMA_FIELD(float                           , m_flNearestAreaDistanceThreshold                , 0xE4) // float32
-    };
-
-    // DynamicVolumeDef_t
-    //   fields: 8
-    class DynamicVolumeDef_t {
-    public:
-        SCHEMA_FIELD(CHandle<CBaseEntity>            , m_source                                        , 0x0) // CHandle<CBaseEntity>
-        SCHEMA_FIELD(CHandle<CBaseEntity>            , m_target                                        , 0x4) // CHandle<CBaseEntity>
-        SCHEMA_FIELD(std::int32_t                    , m_nHullIdx                                      , 0x8) // int32
-        SCHEMA_FIELD(::Vector                        , m_vSourceAnchorPos                              , 0xC) // Vector
-        SCHEMA_FIELD(::Vector                        , m_vTargetAnchorPos                              , 0x18) // Vector
-        SCHEMA_FIELD(std::uint32_t                   , m_nAreaSrc                                      , 0x24) // uint32
-        SCHEMA_FIELD(std::uint32_t                   , m_nAreaDst                                      , 0x28) // uint32
-        SCHEMA_FIELD(bool                            , m_bAttached                                     , 0x2C) // bool
-    };
-
-    // CBtNode
-    //   fields: 0
-    class CBtNode {
-    public:
-    };
-
-    // GameAmmoTypeInfo_t
-    //   fields: 2
-    class GameAmmoTypeInfo_t {
-    public:
-        SCHEMA_FIELD(std::int32_t                    , m_nBuySize                                      , 0x38) // int32
-        SCHEMA_FIELD(std::int32_t                    , m_nCost                                         , 0x3C) // int32
-    };
-
-    // IRagdoll
-    //   fields: 0
-    class IRagdoll {
-    public:
-    };
-
-    // AI_BaseNPCAnimGraph_DebugSnapshotData_t
-    //   fields: 4
-    class AI_BaseNPCAnimGraph_DebugSnapshotData_t {
-    public:
-        SCHEMA_FIELD(CGlobalSymbol                   , e_action_desired                                , 0x8) // CGlobalSymbol
-        SCHEMA_FIELD(bool                            , b_action_restart                                , 0x10) // bool
-        SCHEMA_FIELD(CGlobalSymbol                   , e_movement_type_desired                         , 0x18) // CGlobalSymbol
-        SCHEMA_FIELD(bool                            , b_movement_type_restart                         , 0x20) // bool
-    };
-
-    // CPulseServerFuncs_Sounds
-    //   fields: 0
-    class CPulseServerFuncs_Sounds {
-    public:
-    };
-
-    // CResponseCriteriaSet
-    //   fields: 2
-    class CResponseCriteriaSet {
-    public:
-        SCHEMA_FIELD(std::int32_t                    , m_nNumPrefixedContexts                          , 0x30) // int32
-        SCHEMA_FIELD(bool                            , m_bOverrideOnAppend                             , 0x34) // bool
-    };
-
-    // CPulseFuncs_GameParticleManager
-    //   fields: 0
-    class CPulseFuncs_GameParticleManager {
-    public:
-    };
-
-    // CEnvWindShared
-    //   fields: 17
-    class CEnvWindShared {
-    public:
-        SCHEMA_FIELD(::GameTime_t                    , m_flStartTime                                   , 0x8) // GameTime_t
-        SCHEMA_FIELD(std::uint32_t                   , m_iWindSeed                                     , 0xC) // uint32
-        SCHEMA_FIELD(std::uint16_t                   , m_iMinWind                                      , 0x10) // uint16
-        SCHEMA_FIELD(std::uint16_t                   , m_iMaxWind                                      , 0x12) // uint16
-        SCHEMA_FIELD(std::int32_t                    , m_windRadius                                    , 0x14) // int32
-        SCHEMA_FIELD(std::uint16_t                   , m_iMinGust                                      , 0x18) // uint16
-        SCHEMA_FIELD(std::uint16_t                   , m_iMaxGust                                      , 0x1A) // uint16
-        SCHEMA_FIELD(float                           , m_flMinGustDelay                                , 0x1C) // float32
-        SCHEMA_FIELD(float                           , m_flMaxGustDelay                                , 0x20) // float32
-        SCHEMA_FIELD(float                           , m_flGustDuration                                , 0x24) // float32
-        SCHEMA_FIELD(std::uint16_t                   , m_iGustDirChange                                , 0x28) // uint16
-        SCHEMA_FIELD(std::uint16_t                   , m_iInitialWindDir                               , 0x2A) // uint16
-        SCHEMA_FIELD(float                           , m_flInitialWindSpeed                            , 0x2C) // float32
-        SCHEMA_FIELD(VectorWS                        , m_location                                      , 0x30) // VectorWS
-        SCHEMA_FIELD(::sdk::engine2::CEntityIOOutput , m_OnGustStart                                   , 0x40) // CEntityIOOutput
-        SCHEMA_FIELD(::sdk::engine2::CEntityIOOutput , m_OnGustEnd                                     , 0x58) // CEntityIOOutput
-        SCHEMA_FIELD(CHandle<CBaseEntity>            , m_hEntOwner                                     , 0x70) // CHandle<CBaseEntity>
-    };
-
-    // CBtActionParachutePositioning
-    //   fields: 1
-    class CBtActionParachutePositioning {
-    public:
-        SCHEMA_FIELD(::sdk::client::CountdownTimer   , m_ActionTimer                                   , 0x58) // CountdownTimer
-    };
-
-    // CNavVolumeBreadthFirstSearch
-    //   fields: 2
-    class CNavVolumeBreadthFirstSearch {
-    public:
-        SCHEMA_FIELD(VectorWS                        , m_vStartPos                                     , 0xA8) // VectorWS
-        SCHEMA_FIELD(float                           , m_flSearchDist                                  , 0xB4) // float32
-    };
-
-    // physics_save_sphere_t
-    //   fields: 1
-    class physics_save_sphere_t {
-    public:
-        SCHEMA_FIELD(float                           , radius                                          , 0x0) // float32
-    };
-
-    // CFootstepTableHandle
-    //   fields: 0
-    class CFootstepTableHandle {
-    public:
-    };
-
-    // CTestPulseIO::FloatStringArgs_t
-    //   fields: 2
-    class CTestPulseIO_FloatStringArgs_t {
-    public:
-        SCHEMA_FIELD(float                           , flOutFloat                                      , 0x0) // float32
-        SCHEMA_FIELD(::CUtlSymbolLarge               , strOutString                                    , 0x8) // CUtlSymbolLarge
-    };
-
-    // CPulseCell_Outflow_PlaySceneBase
-    //   fields: 3
-    class CPulseCell_Outflow_PlaySceneBase {
-    public:
-        SCHEMA_FIELD(::sdk::animationsystem::CPulse_ResumePoint, m_OnFinished                                    , 0x48) // CPulse_ResumePoint
-        SCHEMA_FIELD(::sdk::animationsystem::CPulse_ResumePoint, m_OnCanceled                                    , 0x90) // CPulse_ResumePoint
-        SCHEMA_FIELD(CUtlVector<::sdk::animationsystem::CPulse_OutflowConnection>, m_Triggers                                      , 0xD8) // CUtlVector<CPulse_OutflowConnection>
-    };
-
-    // PhysBlockHeader_t
-    //   fields: 2
-    class PhysBlockHeader_t {
-    public:
-        SCHEMA_FIELD(std::int32_t                    , nSaved                                          , 0x0) // int32
-        SCHEMA_FIELD(std::uint64_t                   , pWorldObject                                    , 0x8) // uint64
-    };
-
-    // DecalGroupOption_t
-    //   fields: 6
-    class DecalGroupOption_t {
-    public:
-        SCHEMA_FIELD(CStrongHandleCopyable<InfoForResourceTypeIMaterial2>, m_hMaterial                                     , 0x0) // CStrongHandleCopyable<InfoForResourceTypeIMaterial2>
-        SCHEMA_FIELD(CGlobalSymbol                   , m_sSequenceName                                 , 0x8) // CGlobalSymbol
-        SCHEMA_FIELD(float                           , m_flProbability                                 , 0x10) // float32
-        SCHEMA_FIELD(bool                            , m_bEnableAngleBetweenNormalAndGravityRange      , 0x14) // bool
-        SCHEMA_FIELD(float                           , m_flMinAngleBetweenNormalAndGravity             , 0x18) // float32
-        SCHEMA_FIELD(float                           , m_flMaxAngleBetweenNormalAndGravity             , 0x1C) // float32
-    };
-
-    // CFiringModeFloat
-    //   fields: 1
-    class CFiringModeFloat {
-    public:
-        SCHEMA_FIELD(float                           , m_flValues                                      , 0x0) // float32[2]
-    };
-
-    // CPulseCell_Outflow_PlayVCD
-    //   fields: 4
-    class CPulseCell_Outflow_PlayVCD {
-    public:
-        SCHEMA_FIELD(CStrongHandle<InfoForResourceTypeCChoreoSceneResource>, m_hChoreoScene                                  , 0xF0) // CStrongHandle<InfoForResourceTypeCChoreoSceneResource>
-        SCHEMA_FIELD(::sdk::animationsystem::CPulse_OutflowConnection, m_OnPaused                                      , 0xF8) // CPulse_OutflowConnection
-        SCHEMA_FIELD(::sdk::animationsystem::CPulse_OutflowConnection, m_OnResumed                                     , 0x140) // CPulse_OutflowConnection
-        SCHEMA_FIELD(CUtlVector<CPulseCell_Outflow_PlayVCD_VCDRequirementInfo_t>, m_OutRequirements                               , 0x188) // CUtlVector<CPulseCell_Outflow_PlayVCD::VCDRequirementInfo_t>
-    };
-
-    // RotatorHistoryEntry_t
-    //   fields: 2
-    class RotatorHistoryEntry_t {
-    public:
-        SCHEMA_FIELD(::Quaternion                    , qInvChange                                      , 0x0) // Quaternion
-        SCHEMA_FIELD(::GameTime_t                    , flTimeRotationStart                             , 0x10) // GameTime_t
-    };
-
-    // CSimpleStopwatch
-    //   fields: 0
-    class CSimpleStopwatch {
-    public:
-    };
-
-    // CDestructiblePartsSystemData
-    //   fields: 2
-    class CDestructiblePartsSystemData {
-    public:
-        using _Type0 = CUtlOrderedMap<HitGroup_t,CDestructiblePart>;
-        SCHEMA_FIELD(_Type0                          , m_PartsDataByHitGroup                           , 0x0) // CUtlOrderedMap<HitGroup_t,CDestructiblePart>
-        SCHEMA_FIELD(CRangeInt                       , m_nMinMaxNumberHitGroupsToDestroyWhenGibbing    , 0x28) // CRangeInt
-    };
-
-    // CSceneRequest
-    //   fields: 9
-    class CSceneRequest {
-    public:
-        SCHEMA_FIELD(::CUtlSymbolLarge               , m_szPayloadVDataName                            , 0x0) // CUtlSymbolLarge
-        SCHEMA_FIELD(SceneRequestHandle_t            , m_uHandle                                       , 0x8) // SceneRequestHandle_t
-        SCHEMA_FIELD(ESceneRequestState_t            , m_state                                         , 0xC) // ESceneRequestState_t
-        SCHEMA_FIELD(ENPCBehaviorOverride_t          , m_nNPCBehaviorOverride                          , 0x10) // ENPCBehaviorOverride_t
-        SCHEMA_FIELD(CUtlVector<SceneRequestTargetMapPair_t>, m_vecActorMap                                   , 0x18) // CUtlVector<SceneRequestTargetMapPair_t>
-        SCHEMA_FIELD(CUtlVector<SceneRequestTargetMapPair_t>, m_vecAnchorMap                                  , 0x30) // CUtlVector<SceneRequestTargetMapPair_t>
-        SCHEMA_FIELD(CUtlVector<SceneRequestTargetMapPair_t>, m_vecGraphMap                                   , 0x48) // CUtlVector<SceneRequestTargetMapPair_t>
-        SCHEMA_FIELD(CHandle<CBaseEntity>            , m_hOwner                                        , 0x60) // CHandle<CBaseEntity>
-        SCHEMA_FIELD(KeyValues3                      , m_nameMapKV3                                    , 0x68) // KeyValues3
-    };
-
-    // hudtextparms_t
-    //   fields: 6
-    class hudtextparms_t {
-    public:
-        SCHEMA_FIELD(::Color                         , color1                                          , 0x0) // Color
-        SCHEMA_FIELD(::Color                         , color2                                          , 0x4) // Color
-        SCHEMA_FIELD(std::uint8_t                    , effect                                          , 0x8) // uint8
-        SCHEMA_FIELD(std::uint8_t                    , channel                                         , 0x9) // uint8
-        SCHEMA_FIELD(float                           , x                                               , 0xC) // float32
-        SCHEMA_FIELD(float                           , y                                               , 0x10) // float32
-    };
-
-    // CAI_ExpresserWithFollowup
-    //   fields: 0
-    class CAI_ExpresserWithFollowup {
-    public:
-    };
-
-    // CAnimEventListenerBase
-    //   fields: 0
-    class CAnimEventListenerBase {
-    public:
-    };
-
-    // CTestPulseIOComponent_API
-    //   fields: 0
-    class CTestPulseIOComponent_API {
-    public:
-    };
-
-    // CHintMessageQueue
-    //   fields: 3
-    class CHintMessageQueue {
-    public:
-        SCHEMA_FIELD(float                           , m_tmMessageEnd                                  , 0x0) // float32
-        SCHEMA_FIELD(CUtlVector<CHintMessage*>       , m_messages                                      , 0x8) // CUtlVector<CHintMessage*>
-        SCHEMA_FIELD(::sdk::client::CBasePlayerController*, m_pPlayerController                             , 0x20) // CBasePlayerController*
-    };
-
-    // RotatorQueueEntry_t
-    //   fields: 2
-    class RotatorQueueEntry_t {
-    public:
-        SCHEMA_FIELD(::Quaternion                    , qTarget                                         , 0x0) // Quaternion
-        SCHEMA_FIELD(RotatorTargetSpace_t            , eSpace                                          , 0x10) // RotatorTargetSpace_t
-    };
-
-    // CCS2ChickenGraphController
-    //   fields: 10
-    class CCS2ChickenGraphController {
-    public:
-        SCHEMA_FIELD(CAnimGraph2ParamOptionalRef<CGlobalSymbol>, m_action                                        , 0x88) // CAnimGraph2ParamOptionalRef<CGlobalSymbol>
-        SCHEMA_FIELD(CAnimGraph2ParamOptionalRef<CGlobalSymbol>, m_actionSubtype                                 , 0xA0) // CAnimGraph2ParamOptionalRef<CGlobalSymbol>
-        SCHEMA_FIELD(CAnimGraph2ParamAutoResetOptionalRef, m_bActionReset                                  , 0xB8) // CAnimGraph2ParamAutoResetOptionalRef
-        SCHEMA_FIELD(CAnimGraph2ParamOptionalRef<float32>, m_idleVariation                                 , 0xD8) // CAnimGraph2ParamOptionalRef<float32>
-        SCHEMA_FIELD(CAnimGraph2ParamOptionalRef<float32>, m_runVariation                                  , 0xF0) // CAnimGraph2ParamOptionalRef<float32>
-        SCHEMA_FIELD(CAnimGraph2ParamOptionalRef<float32>, m_panicVariation                                , 0x108) // CAnimGraph2ParamOptionalRef<float32>
-        SCHEMA_FIELD(CAnimGraph2ParamOptionalRef<float32>, m_squatVariation                                , 0x120) // CAnimGraph2ParamOptionalRef<float32>
-        SCHEMA_FIELD(CAnimGraph2ParamOptionalRef<bool>, m_bInWater                                      , 0x138) // CAnimGraph2ParamOptionalRef<bool>
-        SCHEMA_FIELD(bool                            , m_bHasActionCompletedEvent                      , 0x150) // bool
-        SCHEMA_FIELD(bool                            , m_bWaitingForCompletedEvent                     , 0x151) // bool
+        SCHEMA_FIELD(float                           , m_pValue                                        , 0x0) // float32[2]
     };
 
     // WaterWheelDrag_t
@@ -4466,185 +3311,6 @@ namespace sdk::server {
     public:
         SCHEMA_FIELD(float                           , m_flFractionOfWheelSubmerged                    , 0x0) // float32
         SCHEMA_FIELD(float                           , m_flWheelDrag                                   , 0x4) // float32
-    };
-
-    // CBtNodeDecorator
-    //   fields: 0
-    class CBtNodeDecorator {
-    public:
-    };
-
-    // CPulseCell_Outflow_ListenForEntityOutput
-    //   fields: 5
-    class CPulseCell_Outflow_ListenForEntityOutput {
-    public:
-        SCHEMA_FIELD(::sdk::animationsystem::SignatureOutflow_Resume, m_OnFired                                       , 0x48) // SignatureOutflow_Resume
-        SCHEMA_FIELD(::sdk::animationsystem::CPulse_ResumePoint, m_OnCanceled                                    , 0x90) // CPulse_ResumePoint
-        SCHEMA_FIELD(CGlobalSymbol                   , m_strEntityOutput                               , 0xD8) // CGlobalSymbol
-        SCHEMA_FIELD(::CUtlString                    , m_strEntityOutputParam                          , 0xE0) // CUtlString
-        SCHEMA_FIELD(bool                            , m_bListenUntilCanceled                          , 0xE8) // bool
-    };
-
-    // SceneOpportunityActor_t
-    //   fields: 6
-    class SceneOpportunityActor_t {
-    public:
-        SCHEMA_FIELD(CHandle<CBaseModelEntity>       , m_hActor                                        , 0x0) // CHandle<CBaseModelEntity>
-        SCHEMA_FIELD(bool                            , m_bDynamicActor                                 , 0x4) // bool
-        SCHEMA_FIELD(bool                            , m_bAnchor                                       , 0x5) // bool
-        SCHEMA_FIELD(::CUtlSymbolLarge               , m_strActorName                                  , 0x8) // CUtlSymbolLarge
-        SCHEMA_FIELD(::CUtlSymbolLarge               , m_strEntityName                                 , 0x10) // CUtlSymbolLarge
-        SCHEMA_FIELD(SceneInterestTags_t             , m_InterestTags                                  , 0x18) // SceneInterestTags_t
-    };
-
-    // ResponseContext_t
-    //   fields: 3
-    class ResponseContext_t {
-    public:
-        SCHEMA_FIELD(::CUtlSymbolLarge               , m_iszName                                       , 0x0) // CUtlSymbolLarge
-        SCHEMA_FIELD(::CUtlSymbolLarge               , m_iszValue                                      , 0x8) // CUtlSymbolLarge
-        SCHEMA_FIELD(::GameTime_t                    , m_fExpirationTime                               , 0x10) // GameTime_t
-    };
-
-    // CNetworkOriginCellCoordQuantizedVector
-    //   fields: 7
-    class CNetworkOriginCellCoordQuantizedVector {
-    public:
-        SCHEMA_FIELD(std::uint16_t                   , m_cellX                                         , 0x10) // uint16
-        SCHEMA_FIELD(std::uint16_t                   , m_cellY                                         , 0x12) // uint16
-        SCHEMA_FIELD(std::uint16_t                   , m_cellZ                                         , 0x14) // uint16
-        SCHEMA_FIELD(std::uint16_t                   , m_nOutsideWorld                                 , 0x16) // uint16
-        SCHEMA_FIELD(CNetworkedQuantizedFloat        , m_vecX                                          , 0x18) // CNetworkedQuantizedFloat
-        SCHEMA_FIELD(CNetworkedQuantizedFloat        , m_vecY                                          , 0x20) // CNetworkedQuantizedFloat
-        SCHEMA_FIELD(CNetworkedQuantizedFloat        , m_vecZ                                          , 0x28) // CNetworkedQuantizedFloat
-    };
-
-    // fogplayerparams_t
-    //   fields: 14
-    class fogplayerparams_t {
-    public:
-        SCHEMA_FIELD(CHandle<CFogController>         , m_hCtrl                                         , 0x8) // CHandle<CFogController>
-        SCHEMA_FIELD(float                           , m_flTransitionTime                              , 0xC) // float32
-        SCHEMA_FIELD(::Color                         , m_OldColor                                      , 0x10) // Color
-        SCHEMA_FIELD(float                           , m_flOldStart                                    , 0x14) // float32
-        SCHEMA_FIELD(float                           , m_flOldEnd                                      , 0x18) // float32
-        SCHEMA_FIELD(float                           , m_flOldMaxDensity                               , 0x1C) // float32
-        SCHEMA_FIELD(float                           , m_flOldHDRColorScale                            , 0x20) // float32
-        SCHEMA_FIELD(float                           , m_flOldFarZ                                     , 0x24) // float32
-        SCHEMA_FIELD(::Color                         , m_NewColor                                      , 0x28) // Color
-        SCHEMA_FIELD(float                           , m_flNewStart                                    , 0x2C) // float32
-        SCHEMA_FIELD(float                           , m_flNewEnd                                      , 0x30) // float32
-        SCHEMA_FIELD(float                           , m_flNewMaxDensity                               , 0x34) // float32
-        SCHEMA_FIELD(float                           , m_flNewHDRColorScale                            , 0x38) // float32
-        SCHEMA_FIELD(float                           , m_flNewFarZ                                     , 0x3C) // float32
-    };
-
-    // DebugDrawBoneTransforms_t
-    //   fields: 1
-    class DebugDrawBoneTransforms_t {
-    public:
-        using _Type0 = CUtlVectorFixedGrowable<CTransform,128>;
-        SCHEMA_FIELD(_Type0                          , vecBones                                        , 0x10) // CUtlVectorFixedGrowable<CTransform,128>
-    };
-
-    // SoundOpvarTraceResult_t
-    //   fields: 3
-    class SoundOpvarTraceResult_t {
-    public:
-        SCHEMA_FIELD(::Vector                        , vPos                                            , 0x0) // Vector
-        SCHEMA_FIELD(bool                            , bDidHit                                         , 0xC) // bool
-        SCHEMA_FIELD(float                           , flDistSqrToCenter                               , 0x10) // float32
-    };
-
-    // FuncMoverMovementSummary_t
-    //   fields: 8
-    class FuncMoverMovementSummary_t {
-    public:
-        SCHEMA_FIELD(float                           , flStartT                                        , 0x0) // float32
-        SCHEMA_FIELD(float                           , flEndT                                          , 0x4) // float32
-        SCHEMA_FIELD(std::int32_t                    , nStartNodeIndex                                 , 0x8) // int32
-        SCHEMA_FIELD(std::int32_t                    , nStopNodeIndex                                  , 0xC) // int32
-        SCHEMA_FIELD(std::int32_t                    , nMovementMode                                   , 0x10) // int32
-        SCHEMA_FIELD(FuncMoverMovementSummaryFlags_t , nFlags                                          , 0x14) // FuncMoverMovementSummaryFlags_t
-        SCHEMA_FIELD(::GameTick_t                    , nTick                                           , 0x18) // GameTick_t
-        SCHEMA_FIELD(CHandle<::sdk::client::CPathMover>, hPathMover                                      , 0x1C) // CHandle<CPathMover>
-    };
-
-    // CAnimEventQueueListener
-    //   fields: 0
-    class CAnimEventQueueListener {
-    public:
-    };
-
-    // CResponseQueue
-    //   fields: 1
-    class CResponseQueue {
-    public:
-        SCHEMA_FIELD(CUtlVector<CAI_Expresser*>      , m_ExpresserTargets                              , 0x38) // CUtlVector<CAI_Expresser*>
-    };
-
-    // RagdollCreationParams_t
-    //   fields: 5
-    class RagdollCreationParams_t {
-    public:
-        SCHEMA_FIELD(::Vector                        , m_vForce                                        , 0x0) // Vector
-        SCHEMA_FIELD(std::int32_t                    , m_nForceBone                                    , 0xC) // int32
-        SCHEMA_FIELD(bool                            , m_bForceCurrentWorldTransform                   , 0x10) // bool
-        SCHEMA_FIELD(bool                            , m_bUseLRURetirement                             , 0x11) // bool
-        SCHEMA_FIELD(std::int32_t                    , m_nHealthToGrant                                , 0x14) // int32
-    };
-
-    // CBtNodeConditionInactive
-    //   fields: 3
-    class CBtNodeConditionInactive {
-    public:
-        SCHEMA_FIELD(float                           , m_flRoundStartThresholdSeconds                  , 0x78) // float32
-        SCHEMA_FIELD(float                           , m_flSensorInactivityThresholdSeconds            , 0x7C) // float32
-        SCHEMA_FIELD(::sdk::client::CountdownTimer   , m_SensorInactivityTimer                         , 0x80) // CountdownTimer
-    };
-
-    // CTakeDamageSummaryScopeGuard
-    //   fields: 1
-    class CTakeDamageSummaryScopeGuard {
-    public:
-        SCHEMA_FIELD(CUtlVector<SummaryTakeDamageInfo_t*>, m_vecSummaries                                  , 0x8) // CUtlVector<SummaryTakeDamageInfo_t*>
-    };
-
-    // CRelativeTransform
-    //   fields: 4
-    class CRelativeTransform {
-    public:
-        SCHEMA_FIELD(bool                            , m_bTransformIsWorldSpace                        , 0x0) // bool
-        SCHEMA_FIELD(CTransform                      , m_transform                                     , 0x10) // CTransform
-        SCHEMA_FIELD(CTransformWS                    , m_transformWS                                   , 0x30) // CTransformWS
-        SCHEMA_FIELD(CHandle<CBaseEntity>            , m_hEntity                                       , 0x50) // CHandle<CBaseEntity>
-    };
-
-    // PhysObjectHeader_t
-    //   fields: 8
-    class PhysObjectHeader_t {
-    public:
-        SCHEMA_FIELD(::sdk::vphysics2::PhysInterfaceId_t, type                                            , 0x0) // PhysInterfaceId_t
-        SCHEMA_FIELD(CHandle<CBaseEntity>            , hEntity                                         , 0x4) // CHandle<CBaseEntity>
-        SCHEMA_FIELD(::CUtlSymbolLarge               , fieldName                                       , 0x8) // CUtlSymbolLarge
-        SCHEMA_FIELD(std::int32_t                    , nObjects                                        , 0x10) // int32
-        SCHEMA_FIELD(::CUtlSymbolLarge               , modelName                                       , 0x18) // CUtlSymbolLarge
-        SCHEMA_FIELD(::AABB_t                        , bbox                                            , 0x20) // AABB_t
-        SCHEMA_FIELD(physics_save_sphere_t           , sphere                                          , 0x38) // physics_save_sphere_t
-        SCHEMA_FIELD(std::int32_t                    , iCollide                                        , 0x3C) // int32
-    };
-
-    // ModelConfigHandle_t
-    //   fields: 1
-    class ModelConfigHandle_t {
-    public:
-        SCHEMA_FIELD(std::uint32_t                   , m_Value                                         , 0x0) // uint32
-    };
-
-    // ISkeletonAnimationController
-    //   fields: 0
-    class ISkeletonAnimationController {
-    public:
     };
 
     // thinkfunc_t
@@ -4658,303 +3324,95 @@ namespace sdk::server {
         SCHEMA_FIELD(::GameTick_t                    , m_nLastThinkTick                                , 0x18) // GameTick_t
     };
 
-    // CCommentarySystem
-    //   fields: 10
-    class CCommentarySystem {
-    public:
-        SCHEMA_FIELD(bool                            , m_bCommentaryEnabledMidGame                     , 0x12) // bool
-        SCHEMA_FIELD(::GameTime_t                    , m_flNextTeleportTime                            , 0x14) // GameTime_t
-        SCHEMA_FIELD(std::int32_t                    , m_iTeleportStage                                , 0x18) // int32
-        SCHEMA_FIELD(bool                            , m_bCheatState                                   , 0x1C) // bool
-        SCHEMA_FIELD(bool                            , m_bIsFirstSpawnGroupToLoad                      , 0x1D) // bool
-        SCHEMA_FIELD(CUtlVector<modifiedconvars_t>   , m_ModifiedConvars                               , 0x20) // CUtlVector<modifiedconvars_t>
-        SCHEMA_FIELD(CHandle<CPointCommentaryNode>   , m_hCurrentNode                                  , 0x38) // CHandle<CPointCommentaryNode>
-        SCHEMA_FIELD(CHandle<CPointCommentaryNode>   , m_hActiveCommentaryNode                         , 0x3C) // CHandle<CPointCommentaryNode>
-        SCHEMA_FIELD(CHandle<CPointCommentaryNode>   , m_hLastCommentaryNode                           , 0x40) // CHandle<CPointCommentaryNode>
-        SCHEMA_FIELD(CUtlVector<CHandle<CPointCommentaryNode>>, m_vecNodes                                      , 0x48) // CUtlVector<CHandle<CPointCommentaryNode>>
-    };
-
-    // CNavVolumeAll
-    //   fields: 0
-    class CNavVolumeAll {
-    public:
-    };
-
-    // CNavVolumeSphericalShell
-    //   fields: 1
-    class CNavVolumeSphericalShell {
-    public:
-        SCHEMA_FIELD(float                           , m_flRadiusInner                                 , 0x88) // float32
-    };
-
-    // CRR_Response
-    //   fields: 10
-    class CRR_Response {
-    public:
-        SCHEMA_FIELD(std::uint8_t                    , m_Type                                          , 0x0) // uint8
-        SCHEMA_FIELD(char                            , m_szResponseName                                , 0x1) // char[192]
-        SCHEMA_FIELD(char                            , m_szMatchingRule                                , 0xC1) // char[128]
-        SCHEMA_FIELD(ResponseParams                  , m_Params                                        , 0x160) // ResponseParams
-        SCHEMA_FIELD(float                           , m_fMatchScore                                   , 0x180) // float32
-        SCHEMA_FIELD(bool                            , m_bAnyMatchingRulesInCooldown                   , 0x184) // bool
-        SCHEMA_FIELD(char*                           , m_szSpeakerContext                              , 0x188) // char*
-        SCHEMA_FIELD(char*                           , m_szWorldContext                                , 0x190) // char*
-        SCHEMA_FIELD(ResponseFollowup                , m_Followup                                      , 0x198) // ResponseFollowup
-        SCHEMA_FIELD(CUtlSymbol                      , m_recipientFilter                               , 0x1CA) // CUtlSymbol
-    };
-
-    // CVectorExponentialMovingAverage
-    //   fields: 0
-    class CVectorExponentialMovingAverage {
-    public:
-    };
-
-    // GAME_HEADER
-    //   fields: 4
-    class GAME_HEADER {
-    public:
-        SCHEMA_FIELD(::CUtlString                    , m_sComment                                      , 0x0) // CUtlString
-        SCHEMA_FIELD(std::int32_t                    , m_nSpawnGroupCount                              , 0x8) // int32
-        SCHEMA_FIELD(::CUtlString                    , m_sLandmark                                     , 0x10) // CUtlString
-        SCHEMA_FIELD(::CUtlString                    , m_sRequiredAddons                               , 0x18) // CUtlString
-    };
-
-    // CTestPulseIOComponent_Derived
-    //   fields: 0
-    class CTestPulseIOComponent_Derived {
-    public:
-    };
-
-    // CNmSnapWeaponNode::CDefinition
+    // CHintMessageQueue
     //   fields: 3
-    class CNmSnapWeaponNode_CDefinition {
+    class CHintMessageQueue {
     public:
-        SCHEMA_FIELD(std::int16_t                    , m_nFlashedAmountNodeIdx                         , 0x18) // int16
-        SCHEMA_FIELD(std::int16_t                    , m_nWeaponCategoryNodeIdx                        , 0x1A) // int16
-        SCHEMA_FIELD(std::int16_t                    , m_nWeaponTypeNodeIdx                            , 0x1C) // int16
+        SCHEMA_FIELD(float                           , m_tmMessageEnd                                  , 0x0) // float32
+        SCHEMA_FIELD(CUtlVector<CHintMessage*>       , m_messages                                      , 0x8) // CUtlVector<CHintMessage*>
+        SCHEMA_FIELD(::sdk::client::CBasePlayerController*, m_pPlayerController                             , 0x20) // CBasePlayerController*
     };
 
-    // CPulseCell_Outflow_PlayVOLine::CursorState_t
-    //   fields: 1
-    class CPulseCell_Outflow_PlayVOLine_CursorState_t {
+    // AI_DefaultNPC_DebugSnapshotData_t
+    //   fields: 8
+    class AI_DefaultNPC_DebugSnapshotData_t {
     public:
-        SCHEMA_FIELD(CHandle<CBaseEntity>            , m_sceneInstance                                 , 0x0) // CHandle<CBaseEntity>
+        SCHEMA_FIELD(CGlobalSymbol                   , s_npc_current_ability                           , 0x8) // CGlobalSymbol
+        SCHEMA_FIELD(CGlobalSymbol                   , s_npc_tactic_current                            , 0x10) // CGlobalSymbol
+        SCHEMA_FIELD(CGlobalSymbol                   , s_npc_tactic_phase                              , 0x18) // CGlobalSymbol
+        SCHEMA_FIELD(CUtlVector<CGlobalSymbol>       , tactic_interrupt_conditions                     , 0x20) // CUtlVector<CGlobalSymbol>
+        SCHEMA_FIELD(::CUtlString                    , s_npc_current_movement                          , 0x38) // CUtlString
+        SCHEMA_FIELD(AI_DefaultNPC_DebugSnapshotData_t_PathQuery_t, path_query_schedule                             , 0x40) // AI_DefaultNPC_DebugSnapshotData_t::PathQuery_t
+        SCHEMA_FIELD(AI_DefaultNPC_DebugSnapshotData_t_PathQuery_t, path_query_tactic                               , 0x68) // AI_DefaultNPC_DebugSnapshotData_t::PathQuery_t
+        SCHEMA_FIELD(CUtlVector<AI_DefaultNPC_DebugSnapshotData_t_PathQuery_t>, path_queries_speculative                        , 0x90) // CUtlVector<AI_DefaultNPC_DebugSnapshotData_t::PathQuery_t>
     };
 
-    // CMotorController
-    //   fields: 4
-    class CMotorController {
-    public:
-        SCHEMA_FIELD(float                           , m_speed                                         , 0x8) // float32
-        SCHEMA_FIELD(float                           , m_maxTorque                                     , 0xC) // float32
-        SCHEMA_FIELD(VectorWS                        , m_axis                                          , 0x10) // VectorWS
-        SCHEMA_FIELD(float                           , m_inertiaFactor                                 , 0x1C) // float32
-    };
-
-    // CWorldCompositionChunkReferenceElement_t
+    // Relationship_t
     //   fields: 2
-    class CWorldCompositionChunkReferenceElement_t {
+    class Relationship_t {
     public:
-        SCHEMA_FIELD(::CUtlString                    , m_strMapToLoad                                  , 0x0) // CUtlString
-        SCHEMA_FIELD(::CUtlString                    , m_strLandmarkName                               , 0x8) // CUtlString
+        SCHEMA_FIELD(Disposition_t                   , disposition                                     , 0x0) // Disposition_t
+        SCHEMA_FIELD(std::int32_t                    , priority                                        , 0x4) // int32
     };
 
-    // ParticleNode_t
-    //   fields: 7
-    class ParticleNode_t {
-    public:
-        SCHEMA_FIELD(CHandle<CBaseEntity>            , m_hEntity                                       , 0x0) // CHandle<CBaseEntity>
-        SCHEMA_FIELD(::sdk::particles::ParticleIndex_t, m_iIndex                                        , 0x4) // ParticleIndex_t
-        SCHEMA_FIELD(::GameTime_t                    , m_flStartTime                                   , 0x8) // GameTime_t
-        SCHEMA_FIELD(float                           , m_flGrowthDuration                              , 0xC) // float32
-        SCHEMA_FIELD(::Vector                        , m_vecGrowthOrigin                               , 0x10) // Vector
-        SCHEMA_FIELD(float                           , m_flEndcapTime                                  , 0x1C) // float32
-        SCHEMA_FIELD(bool                            , m_bMarkedForDelete                              , 0x20) // bool
-    };
-
-    // SceneRequestHandle_t
-    //   fields: 1
-    class SceneRequestHandle_t {
-    public:
-        SCHEMA_FIELD(std::int32_t                    , m_Value                                         , 0x0) // int32
-    };
-
-    // CPulseGraphInstance_GameBlackboard
-    //   fields: 0
-    class CPulseGraphInstance_GameBlackboard {
-    public:
-    };
-
-    // DebugSnapshotBaseStructuredData_t
-    //   fields: 0
-    class DebugSnapshotBaseStructuredData_t {
-    public:
-    };
-
-    // CPhysicsBodyGameMarkupData
-    //   fields: 1
-    class CPhysicsBodyGameMarkupData {
-    public:
-        using _Type0 = CUtlOrderedMap<CUtlString,CPhysicsBodyGameMarkup>;
-        SCHEMA_FIELD(_Type0                          , m_PhysicsBodyMarkupByBoneName                   , 0x0) // CUtlOrderedMap<CUtlString,CPhysicsBodyGameMarkup>
-    };
-
-    // AI_Navigator_DebugSnapshotData_t
-    //   fields: 6
-    class AI_Navigator_DebugSnapshotData_t {
-    public:
-        SCHEMA_FIELD(CGlobalSymbol                   , s_npc_nav_authority                             , 0x8) // CGlobalSymbol
-        SCHEMA_FIELD(CGlobalSymbol                   , s_goal_nav_search_id                            , 0x10) // CGlobalSymbol
-        SCHEMA_FIELD(::CUtlString                    , s_goal_source_location                          , 0x18) // CUtlString
-        SCHEMA_FIELD(VectorWS                        , goal_actual_pos                                 , 0x20) // VectorWS
-        SCHEMA_FIELD(VectorWS                        , goal_base_pos                                   , 0x2C) // VectorWS
-        SCHEMA_FIELD(CUtlVector<AI_Navigator_DebugSnapshotData_t_Waypoint_t>, waypoints                                       , 0x38) // CUtlVector<AI_Navigator_DebugSnapshotData_t::Waypoint_t>
-    };
-
-    // CTestPulseIOComponent_DerivedAPI
-    //   fields: 0
-    class CTestPulseIOComponent_DerivedAPI {
-    public:
-    };
-
-    // CPathQueryUtil
-    //   fields: 5
-    class CPathQueryUtil {
-    public:
-        SCHEMA_FIELD(CTransform                      , m_PathToEntityTransform                         , 0x10) // CTransform
-        SCHEMA_FIELD(CUtlVector<Vector>              , m_vecPathSamplePositions                        , 0x30) // CUtlVector<Vector>
-        SCHEMA_FIELD(CUtlVector<float32>             , m_vecPathSampleParameters                       , 0x48) // CUtlVector<float32>
-        SCHEMA_FIELD(CUtlVector<float32>             , m_vecPathSampleDistances                        , 0x60) // CUtlVector<float32>
-        SCHEMA_FIELD(bool                            , m_bIsClosedLoop                                 , 0x78) // bool
-    };
-
-    // ConstraintSoundInfo
-    //   fields: 10
-    class ConstraintSoundInfo {
-    public:
-        SCHEMA_FIELD(VelocitySampler                 , m_vSampler                                      , 0x8) // VelocitySampler
-        SCHEMA_FIELD(SimpleConstraintSoundProfile    , m_soundProfile                                  , 0x20) // SimpleConstraintSoundProfile
-        SCHEMA_FIELD(::Vector                        , m_forwardAxis                                   , 0x40) // Vector
-        SCHEMA_FIELD(::CUtlSymbolLarge               , m_iszTravelSoundFwd                             , 0x50) // CUtlSymbolLarge
-        SCHEMA_FIELD(::CUtlSymbolLarge               , m_iszTravelSoundBack                            , 0x58) // CUtlSymbolLarge
-        SCHEMA_FIELD(::CUtlSymbolLarge               , m_iszReversalSoundSmall                         , 0x78) // CUtlSymbolLarge
-        SCHEMA_FIELD(::CUtlSymbolLarge               , m_iszReversalSoundMedium                        , 0x80) // CUtlSymbolLarge
-        SCHEMA_FIELD(::CUtlSymbolLarge               , m_iszReversalSoundLarge                         , 0x88) // CUtlSymbolLarge
-        SCHEMA_FIELD(bool                            , m_bPlayTravelSound                              , 0x90) // bool
-        SCHEMA_FIELD(bool                            , m_bPlayReversalSound                            , 0x91) // bool
-    };
-
-    // CPulseCell_Step_SetAnimGraphParam
-    //   fields: 1
-    class CPulseCell_Step_SetAnimGraphParam {
-    public:
-        SCHEMA_FIELD(::CUtlString                    , m_ParamName                                     , 0x48) // CUtlString
-    };
-
-    // CHintMessage
-    //   fields: 3
-    class CHintMessage {
-    public:
-        SCHEMA_FIELD(char*                           , m_hintString                                    , 0x0) // char*
-        SCHEMA_FIELD(CUtlVector<char*>               , m_args                                          , 0x8) // CUtlVector<char*>
-        SCHEMA_FIELD(float                           , m_duration                                      , 0x20) // float32
-    };
-
-    // CPulseServerFuncs
-    //   fields: 0
-    class CPulseServerFuncs {
-    public:
-    };
-
-    // CBaseAnimGraphDestructibleParts_GraphController
-    //   fields: 0
-    class CBaseAnimGraphDestructibleParts_GraphController {
-    public:
-    };
-
-    // CFloatExponentialMovingAverage
-    //   fields: 0
-    class CFloatExponentialMovingAverage {
-    public:
-    };
-
-    // CFloatMovingAverage
-    //   fields: 0
-    class CFloatMovingAverage {
-    public:
-    };
-
-    // CRangeFloat
-    //   fields: 1
-    class CRangeFloat {
-    public:
-        SCHEMA_FIELD(float                           , m_pValue                                        , 0x0) // float32[2]
-    };
-
-    // CGameChoreoServices
-    //   fields: 5
-    class CGameChoreoServices {
-    public:
-        SCHEMA_FIELD(CHandle<CBaseModelEntity>       , m_hOwner                                        , 0x8) // CHandle<CBaseModelEntity>
-        SCHEMA_FIELD(CHandle<CScriptedSequence>      , m_hScriptedSequence                             , 0xC) // CHandle<CScriptedSequence>
-        SCHEMA_FIELD(IChoreoServices_ScriptState_t   , m_scriptState                                   , 0x10) // IChoreoServices::ScriptState_t
-        SCHEMA_FIELD(IChoreoServices_ChoreoState_t   , m_choreoState                                   , 0x14) // IChoreoServices::ChoreoState_t
-        SCHEMA_FIELD(::GameTime_t                    , m_flTimeStartedState                            , 0x18) // GameTime_t
-    };
-
-    // CPulseGraphInstance_ServerEntity
-    //   fields: 6
-    class CPulseGraphInstance_ServerEntity {
-    public:
-        SCHEMA_FIELD(CHandle<CBaseEntity>            , m_hOwner                                        , 0x1A8) // CHandle<CBaseEntity>
-        SCHEMA_FIELD(bool                            , m_bActivated                                    , 0x1AC) // bool
-        SCHEMA_FIELD(::CUtlSymbolLarge               , m_sNameFixupStaticPrefix                        , 0x1B0) // CUtlSymbolLarge
-        SCHEMA_FIELD(::CUtlSymbolLarge               , m_sNameFixupParent                              , 0x1B8) // CUtlSymbolLarge
-        SCHEMA_FIELD(::CUtlSymbolLarge               , m_sNameFixupLocal                               , 0x1C0) // CUtlSymbolLarge
-        SCHEMA_FIELD(::CUtlSymbolLarge               , m_sProceduralWorldNameForRelays                 , 0x1C8) // CUtlSymbolLarge
-    };
-
-    // CMovementStatsProperty
+    // CPulseCell_Step_FollowEntity
     //   fields: 2
-    class CMovementStatsProperty {
+    class CPulseCell_Step_FollowEntity {
     public:
-        SCHEMA_FIELD(std::int32_t                    , m_nUseCounter                                   , 0x10) // int32
-        SCHEMA_FIELD(CVectorExponentialMovingAverage , m_emaMovementDirection                          , 0x14) // CVectorExponentialMovingAverage
+        SCHEMA_FIELD(::CUtlString                    , m_ParamBoneOrAttachName                         , 0x48) // CUtlString
+        SCHEMA_FIELD(::CUtlString                    , m_ParamBoneOrAttachNameChild                    , 0x50) // CUtlString
     };
 
-    // CSceneCriteria
-    //   fields: 4
-    class CSceneCriteria {
+    // CShatterGlassShard
+    //   fields: 28
+    class CShatterGlassShard {
     public:
-        SCHEMA_FIELD(CHandle<CBaseEntity>            , m_hOwner                                        , 0x0) // CHandle<CBaseEntity>
-        SCHEMA_FIELD(InteractionPriority_t           , m_ePriority                                     , 0x4) // InteractionPriority_t
-        SCHEMA_FIELD(SceneInterestTags_t             , m_InterestReqTags                               , 0x8) // SceneInterestTags_t
-        SCHEMA_FIELD(SceneInterestTags_t             , m_InterestOptTags                               , 0x20) // SceneInterestTags_t
+        SCHEMA_FIELD(std::uint32_t                   , m_hShardHandle                                  , 0x8) // uint32
+        SCHEMA_FIELD(CUtlVector<Vector2D>            , m_vecPanelVertices                              , 0x10) // CUtlVector<Vector2D>
+        SCHEMA_FIELD(::Vector2D                      , m_vLocalPanelSpaceOrigin                        , 0x28) // Vector2D
+        SCHEMA_FIELD(CStrongHandle<InfoForResourceTypeCModel>, m_hModel                                        , 0x30) // CStrongHandle<InfoForResourceTypeCModel>
+        SCHEMA_FIELD(CHandle<CShatterGlassShardPhysics>, m_hPhysicsEntity                                , 0x38) // CHandle<CShatterGlassShardPhysics>
+        SCHEMA_FIELD(CHandle<CFuncShatterglass>      , m_hParentPanel                                  , 0x3C) // CHandle<CFuncShatterglass>
+        SCHEMA_FIELD(std::uint32_t                   , m_hParentShard                                  , 0x40) // uint32
+        SCHEMA_FIELD(ShatterGlassStressType          , m_ShatterStressType                             , 0x44) // ShatterGlassStressType
+        SCHEMA_FIELD(::Vector                        , m_vecStressVelocity                             , 0x48) // Vector
+        SCHEMA_FIELD(bool                            , m_bCreatedModel                                 , 0x54) // bool
+        SCHEMA_FIELD(float                           , m_flLongestEdge                                 , 0x58) // float32
+        SCHEMA_FIELD(float                           , m_flShortestEdge                                , 0x5C) // float32
+        SCHEMA_FIELD(float                           , m_flLongestAcross                               , 0x60) // float32
+        SCHEMA_FIELD(float                           , m_flShortestAcross                              , 0x64) // float32
+        SCHEMA_FIELD(float                           , m_flSumOfAllEdges                               , 0x68) // float32
+        SCHEMA_FIELD(float                           , m_flArea                                        , 0x6C) // float32
+        SCHEMA_FIELD(OnFrame                         , m_nOnFrameEdge                                  , 0x70) // OnFrame
+        SCHEMA_FIELD(std::int32_t                    , m_nSubShardGeneration                           , 0x74) // int32
+        SCHEMA_FIELD(::Vector2D                      , m_vecAverageVertPosition                        , 0x78) // Vector2D
+        SCHEMA_FIELD(bool                            , m_bAverageVertPositionIsValid                   , 0x80) // bool
+        SCHEMA_FIELD(::Vector2D                      , m_vecPanelSpaceStressPositionA                  , 0x84) // Vector2D
+        SCHEMA_FIELD(::Vector2D                      , m_vecPanelSpaceStressPositionB                  , 0x8C) // Vector2D
+        SCHEMA_FIELD(bool                            , m_bStressPositionAIsValid                       , 0x94) // bool
+        SCHEMA_FIELD(bool                            , m_bStressPositionBIsValid                       , 0x95) // bool
+        SCHEMA_FIELD(bool                            , m_bFlaggedForRemoval                            , 0x96) // bool
+        SCHEMA_FIELD(::GameTime_t                    , m_flPhysicsEntitySpawnedAtTime                  , 0x98) // GameTime_t
+        SCHEMA_FIELD(CHandle<CBaseEntity>            , m_hEntityHittingMe                              , 0x9C) // CHandle<CBaseEntity>
+        SCHEMA_FIELD(CUtlVector<uint32>              , m_vecNeighbors                                  , 0xA0) // CUtlVector<uint32>
     };
 
-    // CSAdditionalPerRoundStats_t
-    //   fields: 12
-    class CSAdditionalPerRoundStats_t {
+    // AI_DefaultNPC_DebugSnapshotData_t::PathQuery_t
+    //   fields: 5
+    class AI_DefaultNPC_DebugSnapshotData_t_PathQuery_t {
     public:
-        SCHEMA_FIELD(std::int32_t                    , m_numChickensKilled                             , 0x0) // int32
-        SCHEMA_FIELD(std::int32_t                    , m_killsWhileBlind                               , 0x4) // int32
-        SCHEMA_FIELD(std::int32_t                    , m_bombCarrierkills                              , 0x8) // int32
-        SCHEMA_FIELD(float                           , m_flBurnDamageInflicted                         , 0xC) // float32
-        SCHEMA_FIELD(float                           , m_flBlastDamageInflicted                        , 0x10) // float32
-        SCHEMA_FIELD(std::int32_t                    , m_iDinks                                        , 0x14) // int32
-        SCHEMA_FIELD(bool                            , m_bFreshStartThisRound                          , 0x18) // bool
-        SCHEMA_FIELD(bool                            , m_bBombPlantedAndAlive                          , 0x19) // bool
-        SCHEMA_FIELD(std::int32_t                    , m_nDefuseStarts                                 , 0x1C) // int32
-        SCHEMA_FIELD(std::int32_t                    , m_nHostagePickUps                               , 0x20) // int32
-        SCHEMA_FIELD(std::int32_t                    , m_numTeammatesFlashed                           , 0x24) // int32
-        SCHEMA_FIELD(::CUtlString                    , m_strAnnotationsWorkshopId                      , 0x28) // CUtlString
+        SCHEMA_FIELD(CGlobalSymbol                   , m_sInitialQueryName                             , 0x0) // CGlobalSymbol
+        SCHEMA_FIELD(CGlobalSymbol                   , m_sCurrentQueryName                             , 0x8) // CGlobalSymbol
+        SCHEMA_FIELD(CGlobalSymbol                   , m_nMode                                         , 0x10) // CGlobalSymbol
+        SCHEMA_FIELD(CGlobalSymbol                   , m_nType                                         , 0x18) // CGlobalSymbol
+        SCHEMA_FIELD(CGlobalSymbol                   , m_nState                                        , 0x20) // CGlobalSymbol
     };
 
-    // NavHull_t
+    // CRemapFloat
     //   fields: 1
-    class NavHull_t {
+    class CRemapFloat {
     public:
-        SCHEMA_FIELD(std::int32_t                    , m_nHullIdx                                      , 0x0) // int32
+        SCHEMA_FIELD(float                           , m_pValue                                        , 0x0) // float32[4]
     };
 
     // CBaseEntity
@@ -5049,32 +3507,1230 @@ namespace sdk::server {
         SCHEMA_FIELD(CPulseGraphInstance_ServerEntity*, m_pPulseGraphInstance                           , 0x4A0) // CPulseGraphInstance_ServerEntity*
     };
 
-    // CPulseCell_Step_FollowEntity
-    //   fields: 2
-    class CPulseCell_Step_FollowEntity {
+    // CSoundPatch
+    //   fields: 13
+    class CSoundPatch {
     public:
-        SCHEMA_FIELD(::CUtlString                    , m_ParamBoneOrAttachName                         , 0x48) // CUtlString
-        SCHEMA_FIELD(::CUtlString                    , m_ParamBoneOrAttachNameChild                    , 0x50) // CUtlString
+        SCHEMA_FIELD(CSoundEnvelope                  , m_pitch                                         , 0x8) // CSoundEnvelope
+        SCHEMA_FIELD(CSoundEnvelope                  , m_volume                                        , 0x18) // CSoundEnvelope
+        SCHEMA_FIELD(float                           , m_shutdownTime                                  , 0x3C) // float32
+        SCHEMA_FIELD(float                           , m_flLastTime                                    , 0x40) // float32
+        SCHEMA_FIELD(::CUtlSymbolLarge               , m_iszSoundScriptName                            , 0x48) // CUtlSymbolLarge
+        SCHEMA_FIELD(CHandle<CBaseEntity>            , m_hEnt                                          , 0x50) // CHandle<CBaseEntity>
+        SCHEMA_FIELD(CEntityIndex                    , m_soundEntityIndex                              , 0x54) // CEntityIndex
+        SCHEMA_FIELD(VectorWS                        , m_soundOrigin                                   , 0x58) // VectorWS
+        SCHEMA_FIELD(std::int32_t                    , m_isPlaying                                     , 0x64) // int32
+        SCHEMA_FIELD(CCopyRecipientFilter            , m_Filter                                        , 0x68) // CCopyRecipientFilter
+        SCHEMA_FIELD(float                           , m_flCloseCaptionDuration                        , 0xA0) // float32
+        SCHEMA_FIELD(bool                            , m_bUpdatedSoundOrigin                           , 0xA4) // bool
+        SCHEMA_FIELD(::CUtlSymbolLarge               , m_iszClassName                                  , 0xA8) // CUtlSymbolLarge
     };
 
-    // CAttributeManager
+    // CResponseQueue
+    //   fields: 1
+    class CResponseQueue {
+    public:
+        SCHEMA_FIELD(CUtlVector<CAI_Expresser*>      , m_ExpresserTargets                              , 0x38) // CUtlVector<CAI_Expresser*>
+    };
+
+    // GAME_HEADER
+    //   fields: 4
+    class GAME_HEADER {
+    public:
+        SCHEMA_FIELD(::CUtlString                    , m_sComment                                      , 0x0) // CUtlString
+        SCHEMA_FIELD(std::int32_t                    , m_nSpawnGroupCount                              , 0x8) // int32
+        SCHEMA_FIELD(::CUtlString                    , m_sLandmark                                     , 0x10) // CUtlString
+        SCHEMA_FIELD(::CUtlString                    , m_sRequiredAddons                               , 0x18) // CUtlString
+    };
+
+    // CTestPulseIOAPI
+    //   fields: 0
+    class CTestPulseIOAPI {
+    public:
+    };
+
+    // CPulseCell_Outflow_PlaySceneBase::CursorState_t
+    //   fields: 3
+    class CPulseCell_Outflow_PlaySceneBase_CursorState_t {
+    public:
+        using _Type0 = CUtlHashtable<::sdk::animationsystem::PulseCursorID_t,int32>;
+        SCHEMA_FIELD(CHandle<CBaseEntity>            , m_sceneInstance                                 , 0x0) // CHandle<CBaseEntity>
+        SCHEMA_FIELD(CHandle<CBaseEntity>            , m_mainActor                                     , 0x4) // CHandle<CBaseEntity>
+        SCHEMA_FIELD(_Type0                          , m_cursorIDToEventID                             , 0x8) // CUtlHashtable<PulseCursorID_t,int32>
+    };
+
+    // ResponseContext_t
+    //   fields: 3
+    class ResponseContext_t {
+    public:
+        SCHEMA_FIELD(::CUtlSymbolLarge               , m_iszName                                       , 0x0) // CUtlSymbolLarge
+        SCHEMA_FIELD(::CUtlSymbolLarge               , m_iszValue                                      , 0x8) // CUtlSymbolLarge
+        SCHEMA_FIELD(::GameTime_t                    , m_fExpirationTime                               , 0x10) // GameTime_t
+    };
+
+    // ragdollelement_t
+    //   fields: 4
+    class ragdollelement_t {
+    public:
+        SCHEMA_FIELD(::Vector                        , originParentSpace                               , 0x0) // Vector
+        SCHEMA_FIELD(std::int32_t                    , parentIndex                                     , 0x20) // int32
+        SCHEMA_FIELD(float                           , m_flRadius                                      , 0x24) // float32
+        SCHEMA_FIELD(std::int32_t                    , m_nHeight                                       , 0x28) // int32
+    };
+
+    // AI_MotorGroundAnimgraph_DebugSnapshotData_t::Event_t
+    //   fields: 2
+    class AI_MotorGroundAnimgraph_DebugSnapshotData_t_Event_t {
+    public:
+        SCHEMA_FIELD(::CUtlString                    , description                                     , 0x0) // CUtlString
+        SCHEMA_FIELD(VectorWS                        , location                                        , 0x8) // VectorWS
+    };
+
+    // CNavVolumeSphericalShell
+    //   fields: 1
+    class CNavVolumeSphericalShell {
+    public:
+        SCHEMA_FIELD(float                           , m_flRadiusInner                                 , 0x88) // float32
+    };
+
+    // AmmoTypeInfo_t
+    //   fields: 5
+    class AmmoTypeInfo_t {
+    public:
+        SCHEMA_FIELD(std::int32_t                    , m_nMaxCarry                                     , 0x10) // int32
+        SCHEMA_FIELD(CRangeInt                       , m_nSplashSize                                   , 0x1C) // CRangeInt
+        SCHEMA_FIELD(AmmoFlags_t                     , m_nFlags                                        , 0x24) // AmmoFlags_t
+        SCHEMA_FIELD(float                           , m_flMass                                        , 0x28) // float32
+        SCHEMA_FIELD(CRangeFloat                     , m_flSpeed                                       , 0x2C) // CRangeFloat
+    };
+
+    // CPulseCell_Step_SetAnimGraphParam
+    //   fields: 1
+    class CPulseCell_Step_SetAnimGraphParam {
+    public:
+        SCHEMA_FIELD(::CUtlString                    , m_ParamName                                     , 0x48) // CUtlString
+    };
+
+    // CAnimGraphControllerManager
+    //   fields: 2
+    class CAnimGraphControllerManager {
+    public:
+        SCHEMA_FIELD(CUtlVector<CAnimGraphControllerBase*>, m_controllers                                   , 0x0) // CUtlVector<CAnimGraphControllerBase*>
+        SCHEMA_FIELD(bool                            , m_bGraphBindingsCreated                         , 0xA8) // bool
+    };
+
+    // CBreakableStageHelper
+    //   fields: 2
+    class CBreakableStageHelper {
+    public:
+        SCHEMA_FIELD(std::int32_t                    , m_nCurrentStage                                 , 0x8) // int32
+        SCHEMA_FIELD(std::int32_t                    , m_nStageCount                                   , 0xC) // int32
+    };
+
+    // CNavVolumeBreadthFirstSearch
+    //   fields: 2
+    class CNavVolumeBreadthFirstSearch {
+    public:
+        SCHEMA_FIELD(VectorWS                        , m_vStartPos                                     , 0xA8) // VectorWS
+        SCHEMA_FIELD(float                           , m_flSearchDist                                  , 0xB4) // float32
+    };
+
+    // CNetworkViewOffsetVector
+    //   fields: 3
+    class CNetworkViewOffsetVector {
+    public:
+        SCHEMA_FIELD(CNetworkedQuantizedFloat        , m_vecX                                          , 0x10) // CNetworkedQuantizedFloat
+        SCHEMA_FIELD(CNetworkedQuantizedFloat        , m_vecY                                          , 0x18) // CNetworkedQuantizedFloat
+        SCHEMA_FIELD(CNetworkedQuantizedFloat        , m_vecZ                                          , 0x20) // CNetworkedQuantizedFloat
+    };
+
+    // CCS2ChickenGraphController
+    //   fields: 10
+    class CCS2ChickenGraphController {
+    public:
+        SCHEMA_FIELD(CAnimGraph2ParamOptionalRef<CGlobalSymbol>, m_action                                        , 0x88) // CAnimGraph2ParamOptionalRef<CGlobalSymbol>
+        SCHEMA_FIELD(CAnimGraph2ParamOptionalRef<CGlobalSymbol>, m_actionSubtype                                 , 0xA0) // CAnimGraph2ParamOptionalRef<CGlobalSymbol>
+        SCHEMA_FIELD(CAnimGraph2ParamAutoResetOptionalRef, m_bActionReset                                  , 0xB8) // CAnimGraph2ParamAutoResetOptionalRef
+        SCHEMA_FIELD(CAnimGraph2ParamOptionalRef<float32>, m_idleVariation                                 , 0xD8) // CAnimGraph2ParamOptionalRef<float32>
+        SCHEMA_FIELD(CAnimGraph2ParamOptionalRef<float32>, m_runVariation                                  , 0xF0) // CAnimGraph2ParamOptionalRef<float32>
+        SCHEMA_FIELD(CAnimGraph2ParamOptionalRef<float32>, m_panicVariation                                , 0x108) // CAnimGraph2ParamOptionalRef<float32>
+        SCHEMA_FIELD(CAnimGraph2ParamOptionalRef<float32>, m_squatVariation                                , 0x120) // CAnimGraph2ParamOptionalRef<float32>
+        SCHEMA_FIELD(CAnimGraph2ParamOptionalRef<bool>, m_bInWater                                      , 0x138) // CAnimGraph2ParamOptionalRef<bool>
+        SCHEMA_FIELD(bool                            , m_bHasActionCompletedEvent                      , 0x150) // bool
+        SCHEMA_FIELD(bool                            , m_bWaitingForCompletedEvent                     , 0x151) // bool
+    };
+
+    // sndopvarlatchdata_t
+    //   fields: 5
+    class sndopvarlatchdata_t {
+    public:
+        SCHEMA_FIELD(::CUtlSymbolLarge               , m_iszStack                                      , 0x8) // CUtlSymbolLarge
+        SCHEMA_FIELD(::CUtlSymbolLarge               , m_iszOperator                                   , 0x10) // CUtlSymbolLarge
+        SCHEMA_FIELD(::CUtlSymbolLarge               , m_iszOpvar                                      , 0x18) // CUtlSymbolLarge
+        SCHEMA_FIELD(float                           , m_flVal                                         , 0x20) // float32
+        SCHEMA_FIELD(::Vector                        , m_vPos                                          , 0x24) // Vector
+    };
+
+    // CNavVolumeSphere
+    //   fields: 2
+    class CNavVolumeSphere {
+    public:
+        SCHEMA_FIELD(VectorWS                        , m_vCenter                                       , 0x78) // VectorWS
+        SCHEMA_FIELD(float                           , m_flRadius                                      , 0x84) // float32
+    };
+
+    // SceneInterestTags_t
+    //   fields: 1
+    class SceneInterestTags_t {
+    public:
+        SCHEMA_FIELD(CUtlVector<CUtlString>          , m_Tags                                          , 0x0) // CUtlVector<CUtlString>
+    };
+
+    // CNetworkOriginCellCoordQuantizedVector
+    //   fields: 7
+    class CNetworkOriginCellCoordQuantizedVector {
+    public:
+        SCHEMA_FIELD(std::uint16_t                   , m_cellX                                         , 0x10) // uint16
+        SCHEMA_FIELD(std::uint16_t                   , m_cellY                                         , 0x12) // uint16
+        SCHEMA_FIELD(std::uint16_t                   , m_cellZ                                         , 0x14) // uint16
+        SCHEMA_FIELD(std::uint16_t                   , m_nOutsideWorld                                 , 0x16) // uint16
+        SCHEMA_FIELD(CNetworkedQuantizedFloat        , m_vecX                                          , 0x18) // CNetworkedQuantizedFloat
+        SCHEMA_FIELD(CNetworkedQuantizedFloat        , m_vecY                                          , 0x20) // CNetworkedQuantizedFloat
+        SCHEMA_FIELD(CNetworkedQuantizedFloat        , m_vecZ                                          , 0x28) // CNetworkedQuantizedFloat
+    };
+
+    // AI_BaseNPCAnimGraph_DebugSnapshotData_t
+    //   fields: 4
+    class AI_BaseNPCAnimGraph_DebugSnapshotData_t {
+    public:
+        SCHEMA_FIELD(CGlobalSymbol                   , e_action_desired                                , 0x8) // CGlobalSymbol
+        SCHEMA_FIELD(bool                            , b_action_restart                                , 0x10) // bool
+        SCHEMA_FIELD(CGlobalSymbol                   , e_movement_type_desired                         , 0x18) // CGlobalSymbol
+        SCHEMA_FIELD(bool                            , b_movement_type_restart                         , 0x20) // bool
+    };
+
+    // SimpleConstraintSoundProfile
+    //   fields: 5
+    class SimpleConstraintSoundProfile {
+    public:
+        SCHEMA_FIELD(float                           , m_flKeyPointMinSoundThreshold                   , 0x8) // float32
+        SCHEMA_FIELD(float                           , m_flKeyPointMaxSoundThreshold                   , 0xC) // float32
+        SCHEMA_FIELD(float                           , m_reversalSoundThresholdSmall                   , 0x10) // float32
+        SCHEMA_FIELD(float                           , m_reversalSoundThresholdMedium                  , 0x14) // float32
+        SCHEMA_FIELD(float                           , m_reversalSoundThresholdLarge                   , 0x18) // float32
+    };
+
+    // CSmoothFunc
+    //   fields: 5
+    class CSmoothFunc {
+    public:
+        SCHEMA_FIELD(float                           , m_flSmoothAmplitude                             , 0x8) // float32
+        SCHEMA_FIELD(float                           , m_flSmoothBias                                  , 0xC) // float32
+        SCHEMA_FIELD(float                           , m_flSmoothDuration                              , 0x10) // float32
+        SCHEMA_FIELD(float                           , m_flSmoothRemainingTime                         , 0x14) // float32
+        SCHEMA_FIELD(std::int32_t                    , m_nSmoothDir                                    , 0x18) // int32
+    };
+
+    // CBtNodeDecorator
+    //   fields: 0
+    class CBtNodeDecorator {
+    public:
+    };
+
+    // CSAdditionalPerRoundStats_t
+    //   fields: 12
+    class CSAdditionalPerRoundStats_t {
+    public:
+        SCHEMA_FIELD(std::int32_t                    , m_numChickensKilled                             , 0x0) // int32
+        SCHEMA_FIELD(std::int32_t                    , m_killsWhileBlind                               , 0x4) // int32
+        SCHEMA_FIELD(std::int32_t                    , m_bombCarrierkills                              , 0x8) // int32
+        SCHEMA_FIELD(float                           , m_flBurnDamageInflicted                         , 0xC) // float32
+        SCHEMA_FIELD(float                           , m_flBlastDamageInflicted                        , 0x10) // float32
+        SCHEMA_FIELD(std::int32_t                    , m_iDinks                                        , 0x14) // int32
+        SCHEMA_FIELD(bool                            , m_bFreshStartThisRound                          , 0x18) // bool
+        SCHEMA_FIELD(bool                            , m_bBombPlantedAndAlive                          , 0x19) // bool
+        SCHEMA_FIELD(std::int32_t                    , m_nDefuseStarts                                 , 0x1C) // int32
+        SCHEMA_FIELD(std::int32_t                    , m_nHostagePickUps                               , 0x20) // int32
+        SCHEMA_FIELD(std::int32_t                    , m_numTeammatesFlashed                           , 0x24) // int32
+        SCHEMA_FIELD(::CUtlString                    , m_strAnnotationsWorkshopId                      , 0x28) // CUtlString
+    };
+
+    // CFootstepTableHandle
+    //   fields: 0
+    class CFootstepTableHandle {
+    public:
+    };
+
+    // CScriptUniformRandomStream
+    //   fields: 2
+    class CScriptUniformRandomStream {
+    public:
+        SCHEMA_FIELD(HSCRIPT                         , m_hScriptScope                                  , 0x8) // HSCRIPT
+        SCHEMA_FIELD(std::int32_t                    , m_nInitialSeed                                  , 0x9C) // int32
+    };
+
+    // IHasAttributes
+    //   fields: 0
+    class IHasAttributes {
+    public:
+    };
+
+    // CNetworkVelocityVector
+    //   fields: 3
+    class CNetworkVelocityVector {
+    public:
+        SCHEMA_FIELD(CNetworkedQuantizedFloat        , m_vecX                                          , 0x10) // CNetworkedQuantizedFloat
+        SCHEMA_FIELD(CNetworkedQuantizedFloat        , m_vecY                                          , 0x18) // CNetworkedQuantizedFloat
+        SCHEMA_FIELD(CNetworkedQuantizedFloat        , m_vecZ                                          , 0x20) // CNetworkedQuantizedFloat
+    };
+
+    // FuncMoverMovementSummary_t
+    //   fields: 8
+    class FuncMoverMovementSummary_t {
+    public:
+        SCHEMA_FIELD(float                           , flStartT                                        , 0x0) // float32
+        SCHEMA_FIELD(float                           , flEndT                                          , 0x4) // float32
+        SCHEMA_FIELD(std::int32_t                    , nStartNodeIndex                                 , 0x8) // int32
+        SCHEMA_FIELD(std::int32_t                    , nStopNodeIndex                                  , 0xC) // int32
+        SCHEMA_FIELD(std::int32_t                    , nMovementMode                                   , 0x10) // int32
+        SCHEMA_FIELD(FuncMoverMovementSummaryFlags_t , nFlags                                          , 0x14) // FuncMoverMovementSummaryFlags_t
+        SCHEMA_FIELD(::GameTick_t                    , nTick                                           , 0x18) // GameTick_t
+        SCHEMA_FIELD(CHandle<::sdk::client::CPathMover>, hPathMover                                      , 0x1C) // CHandle<CPathMover>
+    };
+
+    // CEntityComponent
+    //   fields: 0
+    class CEntityComponent {
+    public:
+    };
+
+    // RagdollCreationParams_t
+    //   fields: 5
+    class RagdollCreationParams_t {
+    public:
+        SCHEMA_FIELD(::Vector                        , m_vForce                                        , 0x0) // Vector
+        SCHEMA_FIELD(std::int32_t                    , m_nForceBone                                    , 0xC) // int32
+        SCHEMA_FIELD(bool                            , m_bForceCurrentWorldTransform                   , 0x10) // bool
+        SCHEMA_FIELD(bool                            , m_bUseLRURetirement                             , 0x11) // bool
+        SCHEMA_FIELD(std::int32_t                    , m_nHealthToGrant                                , 0x14) // int32
+    };
+
+    // CMotorController
+    //   fields: 4
+    class CMotorController {
+    public:
+        SCHEMA_FIELD(float                           , m_speed                                         , 0x8) // float32
+        SCHEMA_FIELD(float                           , m_maxTorque                                     , 0xC) // float32
+        SCHEMA_FIELD(VectorWS                        , m_axis                                          , 0x10) // VectorWS
+        SCHEMA_FIELD(float                           , m_inertiaFactor                                 , 0x1C) // float32
+    };
+
+    // CNmAimCSNode::CDefinition
+    //   fields: 11
+    class CNmAimCSNode_CDefinition {
+    public:
+        SCHEMA_FIELD(std::int16_t                    , m_nVerticalAngleNodeIdx                         , 0x18) // int16
+        SCHEMA_FIELD(std::int16_t                    , m_nHorizontalAngleNodeIdx                       , 0x1A) // int16
+        SCHEMA_FIELD(std::int16_t                    , m_nWeaponCategoryNodeIdx                        , 0x1C) // int16
+        SCHEMA_FIELD(std::int16_t                    , m_nWeaponTypeNodeIdx                            , 0x1E) // int16
+        SCHEMA_FIELD(std::int16_t                    , m_nWeaponActionNodeIdx                          , 0x20) // int16
+        SCHEMA_FIELD(std::int16_t                    , m_nWeaponDropNodeIdx                            , 0x22) // int16
+        SCHEMA_FIELD(std::int16_t                    , m_nIsDefusingNodeIdx                            , 0x24) // int16
+        SCHEMA_FIELD(std::int16_t                    , m_nCrouchWeightNodeIdx                          , 0x26) // int16
+        SCHEMA_FIELD(float                           , m_flHandIKBlendInTimeSeconds                    , 0x28) // float32
+        SCHEMA_FIELD(float                           , m_flActionBlendTimeSeconds                      , 0x2C) // float32
+        SCHEMA_FIELD(float                           , m_flPlantingBlendTimeSeconds                    , 0x30) // float32
+    };
+
+    // CAnimGraphControllerBase
+    //   fields: 1
+    class CAnimGraphControllerBase {
+    public:
+        SCHEMA_FIELD(ExternalAnimGraphHandle_t       , m_hExternalGraph                                , 0x10) // ExternalAnimGraphHandle_t
+    };
+
+    // AI_Motor_DebugSnapshotData_t
+    //   fields: 3
+    class AI_Motor_DebugSnapshotData_t {
+    public:
+        SCHEMA_FIELD(CGlobalSymbol                   , current_movement_gait_set                       , 0x8) // CGlobalSymbol
+        SCHEMA_FIELD(CGlobalSymbol                   , current_movement_gait                           , 0x10) // CGlobalSymbol
+        SCHEMA_FIELD(CGlobalSymbol                   , movement_setting_id                             , 0x18) // CGlobalSymbol
+    };
+
+    // CFloatExponentialMovingAverage
+    //   fields: 0
+    class CFloatExponentialMovingAverage {
+    public:
+    };
+
+    // CMovementStatsProperty
+    //   fields: 2
+    class CMovementStatsProperty {
+    public:
+        SCHEMA_FIELD(std::int32_t                    , m_nUseCounter                                   , 0x10) // int32
+        SCHEMA_FIELD(CVectorExponentialMovingAverage , m_emaMovementDirection                          , 0x14) // CVectorExponentialMovingAverage
+    };
+
+    // NavHull_t
+    //   fields: 1
+    class NavHull_t {
+    public:
+        SCHEMA_FIELD(std::int32_t                    , m_nHullIdx                                      , 0x0) // int32
+    };
+
+    // AI_BaseNPC_DebugSnapshotData_t
+    //   fields: 10
+    class AI_BaseNPC_DebugSnapshotData_t {
+    public:
+        SCHEMA_FIELD(CGlobalSymbol                   , npc_state                                       , 0x8) // CGlobalSymbol
+        SCHEMA_FIELD(CHandle<CBaseEntity>            , current_enemy                                   , 0x10) // CHandle<CBaseEntity>
+        SCHEMA_FIELD(::CUtlString                    , s_current_schedule                              , 0x18) // CUtlString
+        SCHEMA_FIELD(CGlobalSymbol                   , s_current_task                                  , 0x20) // CGlobalSymbol
+        SCHEMA_FIELD(::CUtlString                    , s_schedule_interrupt_reason                     , 0x28) // CUtlString
+        SCHEMA_FIELD(::CUtlString                    , s_schedule_fail_reason                          , 0x30) // CUtlString
+        SCHEMA_FIELD(CUtlVector<CGlobalSymbol>       , conditions                                      , 0x38) // CUtlVector<CGlobalSymbol>
+        SCHEMA_FIELD(CUtlVector<CGlobalSymbol>       , anim_events                                     , 0x50) // CUtlVector<CGlobalSymbol>
+        SCHEMA_FIELD(CGlobalSymbol                   , e_action_body_section                           , 0x68) // CGlobalSymbol
+        SCHEMA_FIELD(CGlobalSymbol                   , e_movement_body_section                         , 0x70) // CGlobalSymbol
+    };
+
+    // PathMoverEntitySpawn
+    //   fields: 2
+    class PathMoverEntitySpawn {
+    public:
+        SCHEMA_FIELD(CHandle<CFuncMover>             , hMover                                          , 0x0) // CHandle<CFuncMover>
+        SCHEMA_FIELD(CUtlVector<CHandle<CBaseEntity>>, vecOtherEntities                                , 0x8) // CUtlVector<CHandle<CBaseEntity>>
+    };
+
+    // CAnimEventListener
+    //   fields: 0
+    class CAnimEventListener {
+    public:
+    };
+
+    // SAVE_HEADER
+    //   fields: 7
+    class SAVE_HEADER {
+    public:
+        SCHEMA_FIELD(std::int32_t                    , m_saveId                                        , 0x0) // int32
+        SCHEMA_FIELD(std::int32_t                    , m_version                                       , 0x4) // int32
+        SCHEMA_FIELD(std::int32_t                    , m_nConnectionCount                              , 0x8) // int32
+        SCHEMA_FIELD(std::int32_t                    , m_nMapVersion                                   , 0xC) // int32
+        SCHEMA_FIELD(::CUtlString                    , m_sSpawnGroupName                               , 0x10) // CUtlString
+        SCHEMA_FIELD(matrix3x4a_t                    , m_vecWorldOffset                                , 0x20) // matrix3x4a_t
+        SCHEMA_FIELD(float                           , m_flSaveTime                                    , 0x50) // float32
+    };
+
+    // AI_Navigator_DebugSnapshotData_t
     //   fields: 6
-    class CAttributeManager {
+    class AI_Navigator_DebugSnapshotData_t {
     public:
-        SCHEMA_FIELD(CUtlVector<CHandle<CBaseEntity>>, m_Providers                                     , 0x8) // CUtlVector<CHandle<CBaseEntity>>
-        SCHEMA_FIELD(std::int32_t                    , m_iReapplyProvisionParity                       , 0x20) // int32
-        SCHEMA_FIELD(CHandle<CBaseEntity>            , m_hOuter                                        , 0x24) // CHandle<CBaseEntity>
-        SCHEMA_FIELD(bool                            , m_bPreventLoopback                              , 0x28) // bool
-        SCHEMA_FIELD(attributeprovidertypes_t        , m_ProviderType                                  , 0x2C) // attributeprovidertypes_t
-        SCHEMA_FIELD(CUtlVector<::sdk::client::CAttributeManager_cached_attribute_float_t>, m_CachedResults                                 , 0x30) // CUtlVector<CAttributeManager::cached_attribute_float_t>
+        SCHEMA_FIELD(CGlobalSymbol                   , s_npc_nav_authority                             , 0x8) // CGlobalSymbol
+        SCHEMA_FIELD(CGlobalSymbol                   , s_goal_nav_search_id                            , 0x10) // CGlobalSymbol
+        SCHEMA_FIELD(::CUtlString                    , s_goal_source_location                          , 0x18) // CUtlString
+        SCHEMA_FIELD(VectorWS                        , goal_actual_pos                                 , 0x20) // VectorWS
+        SCHEMA_FIELD(VectorWS                        , goal_base_pos                                   , 0x2C) // VectorWS
+        SCHEMA_FIELD(CUtlVector<AI_Navigator_DebugSnapshotData_t_Waypoint_t>, waypoints                                       , 0x38) // CUtlVector<AI_Navigator_DebugSnapshotData_t::Waypoint_t>
     };
 
-    // CTestPulseIO::EntityHandleIntArgs_t
-    //   fields: 2
-    class CTestPulseIO_EntityHandleIntArgs_t {
+    // CPulseFuncs_GameParticleManager
+    //   fields: 0
+    class CPulseFuncs_GameParticleManager {
     public:
-        SCHEMA_FIELD(CEntityHandle                   , handleA                                         , 0x0) // CEntityHandle
-        SCHEMA_FIELD(std::int32_t                    , valueB                                          , 0x4) // int32
+    };
+
+    // CCommentarySystem
+    //   fields: 10
+    class CCommentarySystem {
+    public:
+        SCHEMA_FIELD(bool                            , m_bCommentaryEnabledMidGame                     , 0x12) // bool
+        SCHEMA_FIELD(::GameTime_t                    , m_flNextTeleportTime                            , 0x14) // GameTime_t
+        SCHEMA_FIELD(std::int32_t                    , m_iTeleportStage                                , 0x18) // int32
+        SCHEMA_FIELD(bool                            , m_bCheatState                                   , 0x1C) // bool
+        SCHEMA_FIELD(bool                            , m_bIsFirstSpawnGroupToLoad                      , 0x1D) // bool
+        SCHEMA_FIELD(CUtlVector<modifiedconvars_t>   , m_ModifiedConvars                               , 0x20) // CUtlVector<modifiedconvars_t>
+        SCHEMA_FIELD(CHandle<CPointCommentaryNode>   , m_hCurrentNode                                  , 0x38) // CHandle<CPointCommentaryNode>
+        SCHEMA_FIELD(CHandle<CPointCommentaryNode>   , m_hActiveCommentaryNode                         , 0x3C) // CHandle<CPointCommentaryNode>
+        SCHEMA_FIELD(CHandle<CPointCommentaryNode>   , m_hLastCommentaryNode                           , 0x40) // CHandle<CPointCommentaryNode>
+        SCHEMA_FIELD(CUtlVector<CHandle<CPointCommentaryNode>>, m_vecNodes                                      , 0x48) // CUtlVector<CHandle<CPointCommentaryNode>>
+    };
+
+    // CPhysicsBodyGameMarkup
+    //   fields: 2
+    class CPhysicsBodyGameMarkup {
+    public:
+        SCHEMA_FIELD(::CUtlString                    , m_TargetBody                                    , 0x0) // CUtlString
+        SCHEMA_FIELD(CGlobalSymbol                   , m_Tag                                           , 0x8) // CGlobalSymbol
+    };
+
+    // CGameChoreoServices
+    //   fields: 5
+    class CGameChoreoServices {
+    public:
+        SCHEMA_FIELD(CHandle<CBaseModelEntity>       , m_hOwner                                        , 0x8) // CHandle<CBaseModelEntity>
+        SCHEMA_FIELD(CHandle<CScriptedSequence>      , m_hScriptedSequence                             , 0xC) // CHandle<CScriptedSequence>
+        SCHEMA_FIELD(IChoreoServices_ScriptState_t   , m_scriptState                                   , 0x10) // IChoreoServices::ScriptState_t
+        SCHEMA_FIELD(IChoreoServices_ChoreoState_t   , m_choreoState                                   , 0x14) // IChoreoServices::ChoreoState_t
+        SCHEMA_FIELD(::GameTime_t                    , m_flTimeStartedState                            , 0x18) // GameTime_t
+    };
+
+    // CTakeDamageSummaryScopeGuard
+    //   fields: 1
+    class CTakeDamageSummaryScopeGuard {
+    public:
+        SCHEMA_FIELD(CUtlVector<SummaryTakeDamageInfo_t*>, m_vecSummaries                                  , 0x8) // CUtlVector<SummaryTakeDamageInfo_t*>
+    };
+
+    // IChoreoServices
+    //   fields: 0
+    class IChoreoServices {
+    public:
+    };
+
+    // CVectorMovingAverage
+    //   fields: 0
+    class CVectorMovingAverage {
+    public:
+    };
+
+    // modifiedconvars_t
+    //   fields: 3
+    class modifiedconvars_t {
+    public:
+        SCHEMA_FIELD(char                            , pszConvar                                       , 0x0) // char[128]
+        SCHEMA_FIELD(char                            , pszCurrentValue                                 , 0x80) // char[128]
+        SCHEMA_FIELD(char                            , pszOrgValue                                     , 0x100) // char[128]
+    };
+
+    // CNmEventConsumerAttributes
+    //   fields: 0
+    class CNmEventConsumerAttributes {
+    public:
+    };
+
+    // CBtActionMoveTo
+    //   fields: 14
+    class CBtActionMoveTo {
+    public:
+        SCHEMA_FIELD(::CUtlString                    , m_szDestinationInputKey                         , 0x60) // CUtlString
+        SCHEMA_FIELD(::CUtlString                    , m_szHidingSpotInputKey                          , 0x68) // CUtlString
+        SCHEMA_FIELD(::CUtlString                    , m_szThreatInputKey                              , 0x70) // CUtlString
+        SCHEMA_FIELD(::Vector                        , m_vecDestination                                , 0x78) // Vector
+        SCHEMA_FIELD(bool                            , m_bAutoLookAdjust                               , 0x84) // bool
+        SCHEMA_FIELD(bool                            , m_bComputePath                                  , 0x85) // bool
+        SCHEMA_FIELD(float                           , m_flDamagingAreasPenaltyCost                    , 0x88) // float32
+        SCHEMA_FIELD(::sdk::client::CountdownTimer   , m_CheckApproximateCornersTimer                  , 0x90) // CountdownTimer
+        SCHEMA_FIELD(::sdk::client::CountdownTimer   , m_CheckHighPriorityItem                         , 0xA8) // CountdownTimer
+        SCHEMA_FIELD(::sdk::client::CountdownTimer   , m_RepathTimer                                   , 0xC0) // CountdownTimer
+        SCHEMA_FIELD(float                           , m_flArrivalEpsilon                              , 0xD8) // float32
+        SCHEMA_FIELD(float                           , m_flAdditionalArrivalEpsilon2D                  , 0xDC) // float32
+        SCHEMA_FIELD(float                           , m_flHidingSpotCheckDistanceThreshold            , 0xE0) // float32
+        SCHEMA_FIELD(float                           , m_flNearestAreaDistanceThreshold                , 0xE4) // float32
+    };
+
+    // physics_save_sphere_t
+    //   fields: 1
+    class physics_save_sphere_t {
+    public:
+        SCHEMA_FIELD(float                           , radius                                          , 0x0) // float32
+    };
+
+    // ResponseFollowup
+    //   fields: 8
+    class ResponseFollowup {
+    public:
+        SCHEMA_FIELD(char*                           , followup_concept                                , 0x0) // char*
+        SCHEMA_FIELD(char*                           , followup_contexts                               , 0x8) // char*
+        SCHEMA_FIELD(float                           , followup_delay                                  , 0x10) // float32
+        SCHEMA_FIELD(char*                           , followup_target                                 , 0x14) // char*
+        SCHEMA_FIELD(char*                           , followup_entityiotarget                         , 0x1C) // char*
+        SCHEMA_FIELD(char*                           , followup_entityioinput                          , 0x24) // char*
+        SCHEMA_FIELD(float                           , followup_entityiodelay                          , 0x2C) // float32
+        SCHEMA_FIELD(bool                            , bFired                                          , 0x30) // bool
+    };
+
+    // magnetted_objects_t
+    //   fields: 1
+    class magnetted_objects_t {
+    public:
+        SCHEMA_FIELD(CHandle<CBaseEntity>            , hEntity                                         , 0x8) // CHandle<CBaseEntity>
+    };
+
+    // CNavHullVData
+    //   fields: 15
+    class CNavHullVData {
+    public:
+        SCHEMA_FIELD(bool                            , m_bAgentEnabled                                 , 0x0) // bool
+        SCHEMA_FIELD(float                           , m_agentRadius                                   , 0x4) // float32
+        SCHEMA_FIELD(float                           , m_agentHeight                                   , 0x8) // float32
+        SCHEMA_FIELD(bool                            , m_agentShortHeightEnabled                       , 0xC) // bool
+        SCHEMA_FIELD(float                           , m_agentShortHeight                              , 0x10) // float32
+        SCHEMA_FIELD(bool                            , m_agentCrawlEnabled                             , 0x14) // bool
+        SCHEMA_FIELD(float                           , m_agentCrawlHeight                              , 0x18) // float32
+        SCHEMA_FIELD(float                           , m_agentMaxClimb                                 , 0x1C) // float32
+        SCHEMA_FIELD(std::int32_t                    , m_agentMaxSlope                                 , 0x20) // int32
+        SCHEMA_FIELD(float                           , m_agentMaxJumpDownDist                          , 0x24) // float32
+        SCHEMA_FIELD(float                           , m_agentMaxJumpHorizDistBase                     , 0x28) // float32
+        SCHEMA_FIELD(float                           , m_agentMaxJumpUpDist                            , 0x2C) // float32
+        SCHEMA_FIELD(std::int32_t                    , m_agentBorderErosion                            , 0x30) // int32
+        SCHEMA_FIELD(bool                            , m_flowMapGenerationEnabled                      , 0x34) // bool
+        SCHEMA_FIELD(float                           , m_flowMapNodeMaxRadius                          , 0x38) // float32
+    };
+
+    // CSceneCriteria
+    //   fields: 4
+    class CSceneCriteria {
+    public:
+        SCHEMA_FIELD(CHandle<CBaseEntity>            , m_hOwner                                        , 0x0) // CHandle<CBaseEntity>
+        SCHEMA_FIELD(InteractionPriority_t           , m_ePriority                                     , 0x4) // InteractionPriority_t
+        SCHEMA_FIELD(SceneInterestTags_t             , m_InterestReqTags                               , 0x8) // SceneInterestTags_t
+        SCHEMA_FIELD(SceneInterestTags_t             , m_InterestOptTags                               , 0x20) // SceneInterestTags_t
+    };
+
+    // CSimpleSimTimer
+    //   fields: 2
+    class CSimpleSimTimer {
+    public:
+        SCHEMA_FIELD(::GameTime_t                    , m_flNext                                        , 0x0) // GameTime_t
+        SCHEMA_FIELD(::WorldGroupId_t                , m_nWorldGroupId                                 , 0x4) // WorldGroupId_t
+    };
+
+    // CBaseAnimGraphVariationUserData
+    //   fields: 0
+    class CBaseAnimGraphVariationUserData {
+    public:
+    };
+
+    // CNavVolumeVector
+    //   fields: 1
+    class CNavVolumeVector {
+    public:
+        SCHEMA_FIELD(bool                            , m_bHasBeenPreFiltered                           , 0x80) // bool
+    };
+
+    // AmmoIndex_t
+    //   fields: 1
+    class AmmoIndex_t {
+    public:
+        SCHEMA_FIELD(std::int8_t                     , m_Value                                         , 0x0) // int8
+    };
+
+    // fogplayerparams_t
+    //   fields: 14
+    class fogplayerparams_t {
+    public:
+        SCHEMA_FIELD(CHandle<CFogController>         , m_hCtrl                                         , 0x8) // CHandle<CFogController>
+        SCHEMA_FIELD(float                           , m_flTransitionTime                              , 0xC) // float32
+        SCHEMA_FIELD(::Color                         , m_OldColor                                      , 0x10) // Color
+        SCHEMA_FIELD(float                           , m_flOldStart                                    , 0x14) // float32
+        SCHEMA_FIELD(float                           , m_flOldEnd                                      , 0x18) // float32
+        SCHEMA_FIELD(float                           , m_flOldMaxDensity                               , 0x1C) // float32
+        SCHEMA_FIELD(float                           , m_flOldHDRColorScale                            , 0x20) // float32
+        SCHEMA_FIELD(float                           , m_flOldFarZ                                     , 0x24) // float32
+        SCHEMA_FIELD(::Color                         , m_NewColor                                      , 0x28) // Color
+        SCHEMA_FIELD(float                           , m_flNewStart                                    , 0x2C) // float32
+        SCHEMA_FIELD(float                           , m_flNewEnd                                      , 0x30) // float32
+        SCHEMA_FIELD(float                           , m_flNewMaxDensity                               , 0x34) // float32
+        SCHEMA_FIELD(float                           , m_flNewHDRColorScale                            , 0x38) // float32
+        SCHEMA_FIELD(float                           , m_flNewFarZ                                     , 0x3C) // float32
+    };
+
+    // CPointTeleportAPI
+    //   fields: 0
+    class CPointTeleportAPI {
+    public:
+    };
+
+    // CInButtonState
+    //   fields: 1
+    class CInButtonState {
+    public:
+        SCHEMA_FIELD(std::uint64_t                   , m_pButtonStates                                 , 0x8) // uint64[3]
+    };
+
+    // CNmEventConsumerParticle
+    //   fields: 0
+    class CNmEventConsumerParticle {
+    public:
+    };
+
+    // CEntitySubclassVDataBase
+    //   fields: 0
+    class CEntitySubclassVDataBase {
+    public:
+    };
+
+    // AutoRoomDoorwayPairs_t
+    //   fields: 2
+    class AutoRoomDoorwayPairs_t {
+    public:
+        SCHEMA_FIELD(::Vector                        , vP1                                             , 0x0) // Vector
+        SCHEMA_FIELD(::Vector                        , vP2                                             , 0xC) // Vector
+    };
+
+    // CNavVolume
+    //   fields: 0
+    class CNavVolume {
+    public:
+    };
+
+    // CPulseServerCursor
+    //   fields: 2
+    class CPulseServerCursor {
+    public:
+        SCHEMA_FIELD(CHandle<CBaseEntity>            , m_hActivator                                    , 0xE8) // CHandle<CBaseEntity>
+        SCHEMA_FIELD(CHandle<CBaseEntity>            , m_hCaller                                       , 0xEC) // CHandle<CBaseEntity>
+    };
+
+    // CConstantForceController
+    //   fields: 4
+    class CConstantForceController {
+    public:
+        SCHEMA_FIELD(::Vector                        , m_linear                                        , 0xC) // Vector
+        SCHEMA_FIELD(RotationVector                  , m_angular                                       , 0x18) // RotationVector
+        SCHEMA_FIELD(::Vector                        , m_linearSave                                    , 0x24) // Vector
+        SCHEMA_FIELD(RotationVector                  , m_angularSave                                   , 0x30) // RotationVector
+    };
+
+    // CNetworkOriginQuantizedVector
+    //   fields: 3
+    class CNetworkOriginQuantizedVector {
+    public:
+        SCHEMA_FIELD(CNetworkedQuantizedFloat        , m_vecX                                          , 0x10) // CNetworkedQuantizedFloat
+        SCHEMA_FIELD(CNetworkedQuantizedFloat        , m_vecY                                          , 0x18) // CNetworkedQuantizedFloat
+        SCHEMA_FIELD(CNetworkedQuantizedFloat        , m_vecZ                                          , 0x20) // CNetworkedQuantizedFloat
+    };
+
+    // CGameScriptedMoveData
+    //   fields: 18
+    class CGameScriptedMoveData {
+    public:
+        SCHEMA_FIELD(::Vector                        , m_vAccumulatedRootMotion                        , 0x0) // Vector
+        SCHEMA_FIELD(::QAngle                        , m_angAccumulatedRootMotionRotation              , 0xC) // QAngle
+        SCHEMA_FIELD(VectorWS                        , m_vSrc                                          , 0x18) // VectorWS
+        SCHEMA_FIELD(::QAngle                        , m_angSrc                                        , 0x24) // QAngle
+        SCHEMA_FIELD(::QAngle                        , m_angCurrent                                    , 0x30) // QAngle
+        SCHEMA_FIELD(float                           , m_flLockedSpeed                                 , 0x3C) // float32
+        SCHEMA_FIELD(float                           , m_flAngRate                                     , 0x40) // float32
+        SCHEMA_FIELD(float                           , m_flDuration                                    , 0x44) // float32
+        SCHEMA_FIELD(::GameTime_t                    , m_flStartTime                                   , 0x48) // GameTime_t
+        SCHEMA_FIELD(bool                            , m_bActive                                       , 0x4C) // bool
+        SCHEMA_FIELD(bool                            , m_bTeleportOnEnd                                , 0x4D) // bool
+        SCHEMA_FIELD(bool                            , m_bIgnoreRotation                               , 0x4E) // bool
+        SCHEMA_FIELD(bool                            , m_bSuccess                                      , 0x4F) // bool
+        SCHEMA_FIELD(ForcedCrouchState_t             , m_nForcedCrouchState                            , 0x50) // ForcedCrouchState_t
+        SCHEMA_FIELD(bool                            , m_bIgnoreCollisions                             , 0x54) // bool
+        SCHEMA_FIELD(::Vector                        , m_vDest                                         , 0x58) // Vector
+        SCHEMA_FIELD(::QAngle                        , m_angDst                                        , 0x64) // QAngle
+        SCHEMA_FIELD(CHandle<CBaseEntity>            , m_hDestEntity                                   , 0x70) // CHandle<CBaseEntity>
+    };
+
+    // CSingleplayRules
+    //   fields: 1
+    class CSingleplayRules {
+    public:
+        SCHEMA_FIELD(bool                            , m_bSinglePlayerGameEnding                       , 0xD0) // bool
+    };
+
+    // CAI_ExpresserWithFollowup
+    //   fields: 0
+    class CAI_ExpresserWithFollowup {
+    public:
+    };
+
+    // CTeamplayRules
+    //   fields: 0
+    class CTeamplayRules {
+    public:
+    };
+
+    // CAnimEventQueueListener
+    //   fields: 0
+    class CAnimEventQueueListener {
+    public:
+    };
+
+    // CPulseCell_Outflow_ListenForAnimgraphTag
+    //   fields: 4
+    class CPulseCell_Outflow_ListenForAnimgraphTag {
+    public:
+        SCHEMA_FIELD(::sdk::animationsystem::CPulse_ResumePoint, m_OnStart                                       , 0x48) // CPulse_ResumePoint
+        SCHEMA_FIELD(::sdk::animationsystem::CPulse_ResumePoint, m_OnEnd                                         , 0x90) // CPulse_ResumePoint
+        SCHEMA_FIELD(::sdk::animationsystem::CPulse_ResumePoint, m_OnCanceled                                    , 0xD8) // CPulse_ResumePoint
+        SCHEMA_FIELD(CGlobalSymbol                   , m_TagName                                       , 0x120) // CGlobalSymbol
+    };
+
+    // CTestPulseIOComponent_DerivedAPI
+    //   fields: 0
+    class CTestPulseIOComponent_DerivedAPI {
+    public:
+    };
+
+    // CAI_Expresser
+    //   fields: 11
+    class CAI_Expresser {
+    public:
+        SCHEMA_FIELD(::GameTime_t                    , m_flStopTalkTime                                , 0x60) // GameTime_t
+        SCHEMA_FIELD(::GameTime_t                    , m_flStopTalkTimeWithoutDelay                    , 0x64) // GameTime_t
+        SCHEMA_FIELD(::GameTime_t                    , m_flQueuedSpeechTime                            , 0x68) // GameTime_t
+        SCHEMA_FIELD(::GameTime_t                    , m_flBlockedTalkTime                             , 0x6C) // GameTime_t
+        SCHEMA_FIELD(std::int32_t                    , m_voicePitch                                    , 0x70) // int32
+        SCHEMA_FIELD(::GameTime_t                    , m_flLastTimeAcceptedSpeak                       , 0x74) // GameTime_t
+        SCHEMA_FIELD(bool                            , m_bAllowSpeakingInterrupts                      , 0x78) // bool
+        SCHEMA_FIELD(bool                            , m_bConsiderSceneInvolvementAsSpeech             , 0x79) // bool
+        SCHEMA_FIELD(bool                            , m_bSceneEntityDisabled                          , 0x7A) // bool
+        SCHEMA_FIELD(std::int32_t                    , m_nLastSpokenPriority                           , 0x7C) // int32
+        SCHEMA_FIELD(CBaseModelEntity*               , m_pOuter                                        , 0x98) // CBaseModelEntity*
+    };
+
+    // CDebugDrawHistoryData
+    //   fields: 9
+    class CDebugDrawHistoryData {
+    public:
+        SCHEMA_FIELD(CHandle<CBaseEntity>            , m_hEntity                                       , 0x0) // CHandle<CBaseEntity>
+        SCHEMA_FIELD(::sdk::scenesystem::ESceneViewDebugOverlaysListenerDataType_t, m_etype                                         , 0x4) // ESceneViewDebugOverlaysListenerDataType_t
+        SCHEMA_FIELD(CUtlLeanVector<Vector4D>        , m_vectors                                       , 0x8) // CUtlLeanVector<Vector4D>
+        SCHEMA_FIELD(CUtlLeanVector<Color>           , m_colors                                        , 0x18) // CUtlLeanVector<Color>
+        SCHEMA_FIELD(CUtlLeanVector<float32>         , m_dimensions                                    , 0x28) // CUtlLeanVector<float32>
+        SCHEMA_FIELD(CUtlLeanVector<float64>         , m_times                                         , 0x38) // CUtlLeanVector<float64>
+        SCHEMA_FIELD(CUtlLeanVector<uint64>          , m_uint64s                                       , 0x48) // CUtlLeanVector<uint64>
+        SCHEMA_FIELD(CUtlLeanVector<bool>            , m_bools                                         , 0x58) // CUtlLeanVector<bool>
+        SCHEMA_FIELD(CUtlLeanVector<CUtlString>      , m_strings                                       , 0x68) // CUtlLeanVector<CUtlString>
+    };
+
+    // NavGravity_t
+    //   fields: 2
+    class NavGravity_t {
+    public:
+        SCHEMA_FIELD(::Vector                        , m_vGravity                                      , 0x0) // Vector
+        SCHEMA_FIELD(bool                            , m_bDefault                                      , 0xC) // bool
+    };
+
+    // CPulseCell_Outflow_PlayVCD
+    //   fields: 4
+    class CPulseCell_Outflow_PlayVCD {
+    public:
+        SCHEMA_FIELD(CStrongHandle<InfoForResourceTypeCChoreoSceneResource>, m_hChoreoScene                                  , 0xF0) // CStrongHandle<InfoForResourceTypeCChoreoSceneResource>
+        SCHEMA_FIELD(::sdk::animationsystem::CPulse_OutflowConnection, m_OnPaused                                      , 0xF8) // CPulse_OutflowConnection
+        SCHEMA_FIELD(::sdk::animationsystem::CPulse_OutflowConnection, m_OnResumed                                     , 0x140) // CPulse_OutflowConnection
+        SCHEMA_FIELD(CUtlVector<CPulseCell_Outflow_PlayVCD_VCDRequirementInfo_t>, m_OutRequirements                               , 0x188) // CUtlVector<CPulseCell_Outflow_PlayVCD::VCDRequirementInfo_t>
+    };
+
+    // ExternalAnimGraph_t
+    //   fields: 5
+    class ExternalAnimGraph_t {
+    public:
+        SCHEMA_FIELD(ExternalAnimGraphHandle_t       , m_hExtGraphHandle                               , 0x0) // ExternalAnimGraphHandle_t
+        SCHEMA_FIELD(CGlobalSymbol                   , m_sExternalGraphSlotID                          , 0x8) // CGlobalSymbol
+        SCHEMA_FIELD(CStrongHandleCopyable<InfoForResourceTypeCNmGraphDefinition>, m_hGraphDefinition                              , 0x10) // CStrongHandleCopyable<InfoForResourceTypeCNmGraphDefinition>
+        SCHEMA_FIELD(CHandle<CBaseAnimGraph>         , m_hExternalGraphOwner                           , 0x18) // CHandle<CBaseAnimGraph>
+        SCHEMA_FIELD(ExternalAnimGraphInactiveBehavior_t, m_nInactiveBehavior                             , 0x30) // ExternalAnimGraphInactiveBehavior_t
+    };
+
+    // CSceneEventInfo
+    //   fields: 16
+    class CSceneEventInfo {
+    public:
+        SCHEMA_FIELD(std::int32_t                    , m_iLayer                                        , 0x0) // int32
+        SCHEMA_FIELD(std::int32_t                    , m_iPriority                                     , 0x4) // int32
+        SCHEMA_FIELD(::sdk::animationsystem::HSequence, m_hSequence                                     , 0x8) // HSequence
+        SCHEMA_FIELD(float                           , m_flWeight                                      , 0xC) // float32
+        SCHEMA_FIELD(CStrongHandle<InfoForResourceTypeCNmClip>, m_hAnimClip                                     , 0x10) // CStrongHandle<InfoForResourceTypeCNmClip>
+        SCHEMA_FIELD(CGlobalSymbol                   , m_sAnimClipSlot                                 , 0x18) // CGlobalSymbol
+        SCHEMA_FIELD(CGlobalSymbol                   , m_sAnimClipSlotWeight                           , 0x20) // CGlobalSymbol
+        SCHEMA_FIELD(bool                            , m_bHasArrived                                   , 0x28) // bool
+        SCHEMA_FIELD(std::int32_t                    , m_nType                                         , 0x2C) // int32
+        SCHEMA_FIELD(::GameTime_t                    , m_flNext                                        , 0x30) // GameTime_t
+        SCHEMA_FIELD(bool                            , m_bIsGesture                                    , 0x34) // bool
+        SCHEMA_FIELD(bool                            , m_bShouldRemove                                 , 0x35) // bool
+        SCHEMA_FIELD(CHandle<CBaseEntity>            , m_hTarget                                       , 0x5C) // CHandle<CBaseEntity>
+        SCHEMA_FIELD(SceneEventId_t                  , m_nSceneEventId                                 , 0x60) // SceneEventId_t
+        SCHEMA_FIELD(bool                            , m_bClientSide                                   , 0x64) // bool
+        SCHEMA_FIELD(bool                            , m_bStarted                                      , 0x65) // bool
+    };
+
+    // CPointPrefabAPI
+    //   fields: 0
+    class CPointPrefabAPI {
+    public:
+    };
+
+    // VelocitySampler
+    //   fields: 3
+    class VelocitySampler {
+    public:
+        SCHEMA_FIELD(::Vector                        , m_prevSample                                    , 0x0) // Vector
+        SCHEMA_FIELD(::GameTime_t                    , m_fPrevSampleTime                               , 0xC) // GameTime_t
+        SCHEMA_FIELD(float                           , m_fIdealSampleRate                              , 0x10) // float32
+    };
+
+    // CBaseModelEntity::OnDamageLevelChangedArgs_t
+    //   fields: 4
+    class CBaseModelEntity_OnDamageLevelChangedArgs_t {
+    public:
+        SCHEMA_FIELD(HitGroup_t                      , nHitGroup                                       , 0x0) // HitGroup_t
+        SCHEMA_FIELD(std::int32_t                    , nDamageLevel                                    , 0x4) // int32
+        SCHEMA_FIELD(std::int32_t                    , nDamageLevelsRemaining                          , 0x8) // int32
+        SCHEMA_FIELD(std::int32_t                    , nPrevDamageLevel                                , 0xC) // int32
+    };
+
+    // CPulseCell_Outflow_ListenForEntityOutput::CursorState_t
+    //   fields: 1
+    class CPulseCell_Outflow_ListenForEntityOutput_CursorState_t {
+    public:
+        SCHEMA_FIELD(CHandle<CBaseEntity>            , m_entity                                        , 0x0) // CHandle<CBaseEntity>
+    };
+
+    // CodeGenAABB_t
+    //   fields: 2
+    class CodeGenAABB_t {
+    public:
+        SCHEMA_FIELD(::Vector                        , m_vMinBounds                                    , 0x0) // Vector
+        SCHEMA_FIELD(::Vector                        , m_vMaxBounds                                    , 0xC) // Vector
+    };
+
+    // CBot
+    //   fields: 13
+    class CBot {
+    public:
+        SCHEMA_FIELD(::sdk::client::CCSPlayerController*, m_pController                                   , 0x10) // CCSPlayerController*
+        SCHEMA_FIELD(CCSPlayerPawn*                  , m_pPlayer                                       , 0x18) // CCSPlayerPawn*
+        SCHEMA_FIELD(bool                            , m_bHasSpawned                                   , 0x20) // bool
+        SCHEMA_FIELD(std::uint32_t                   , m_id                                            , 0x24) // uint32
+        SCHEMA_FIELD(bool                            , m_isRunning                                     , 0xC0) // bool
+        SCHEMA_FIELD(bool                            , m_isCrouching                                   , 0xC1) // bool
+        SCHEMA_FIELD(float                           , m_forwardSpeed                                  , 0xC4) // float32
+        SCHEMA_FIELD(float                           , m_leftSpeed                                     , 0xC8) // float32
+        SCHEMA_FIELD(float                           , m_verticalSpeed                                 , 0xCC) // float32
+        SCHEMA_FIELD(std::uint64_t                   , m_buttonFlags                                   , 0xD0) // uint64
+        SCHEMA_FIELD(float                           , m_jumpTimestamp                                 , 0xD8) // float32
+        SCHEMA_FIELD(::Vector                        , m_viewForward                                   , 0xDC) // Vector
+        SCHEMA_FIELD(std::int32_t                    , m_postureStackIndex                             , 0xF8) // int32
+    };
+
+    // CDecalInstance
+    //   fields: 26
+    class CDecalInstance {
+    public:
+        SCHEMA_FIELD(CGlobalSymbol                   , m_sDecalGroup                                   , 0x0) // CGlobalSymbol
+        SCHEMA_FIELD(CStrongHandle<InfoForResourceTypeIMaterial2>, m_hMaterial                                     , 0x8) // CStrongHandle<InfoForResourceTypeIMaterial2>
+        SCHEMA_FIELD(CUtlStringToken                 , m_sSequenceName                                 , 0x10) // CUtlStringToken
+        SCHEMA_FIELD(CHandle<CBaseEntity>            , m_hEntity                                       , 0x14) // CHandle<CBaseEntity>
+        SCHEMA_FIELD(std::int32_t                    , m_nBoneIndex                                    , 0x18) // int32
+        SCHEMA_FIELD(std::int32_t                    , m_nTriangleIndex                                , 0x1C) // int32
+        SCHEMA_FIELD(::Vector                        , m_vPositionLS                                   , 0x20) // Vector
+        SCHEMA_FIELD(::Vector                        , m_vPositionOS                                   , 0x2C) // Vector
+        SCHEMA_FIELD(::Vector                        , m_vNormalLS                                     , 0x38) // Vector
+        SCHEMA_FIELD(::Vector                        , m_vSAxisLS                                      , 0x44) // Vector
+        SCHEMA_FIELD(DecalFlags_t                    , m_nFlags                                        , 0x50) // DecalFlags_t
+        SCHEMA_FIELD(::Color                         , m_Color                                         , 0x54) // Color
+        SCHEMA_FIELD(float                           , m_flWidth                                       , 0x58) // float32
+        SCHEMA_FIELD(float                           , m_flHeight                                      , 0x5C) // float32
+        SCHEMA_FIELD(float                           , m_flDepth                                       , 0x60) // float32
+        SCHEMA_FIELD(CTransformWS                    , m_transform                                     , 0x70) // CTransformWS
+        SCHEMA_FIELD(float                           , m_flAnimationScale                              , 0x90) // float32
+        SCHEMA_FIELD(float                           , m_flAnimationStartTime                          , 0x94) // float32
+        SCHEMA_FIELD(::GameTime_t                    , m_flPlaceTime                                   , 0x98) // GameTime_t
+        SCHEMA_FIELD(float                           , m_flFadeStartTime                               , 0x9C) // float32
+        SCHEMA_FIELD(float                           , m_flFadeDuration                                , 0xA0) // float32
+        SCHEMA_FIELD(float                           , m_flLightingOriginOffset                        , 0xA4) // float32
+        SCHEMA_FIELD(float                           , m_flBoundingRadiusSqr                           , 0xB0) // float32
+        SCHEMA_FIELD(std::int16_t                    , m_nSequenceIndex                                , 0xB4) // int16
+        SCHEMA_FIELD(bool                            , m_bIsAdjacent                                   , 0xB6) // bool
+        SCHEMA_FIELD(bool                            , m_bDoDecalLightmapping                          , 0xB7) // bool
+    };
+
+    // IEconItemInterface
+    //   fields: 0
+    class IEconItemInterface {
+    public:
+    };
+
+    // AI_Navigator_DebugSnapshotData_t::Waypoint_t
+    //   fields: 3
+    class AI_Navigator_DebugSnapshotData_t_Waypoint_t {
+    public:
+        SCHEMA_FIELD(VectorWS                        , position                                        , 0x0) // VectorWS
+        SCHEMA_FIELD(std::uint32_t                   , nav_type                                        , 0xC) // uint32
+        SCHEMA_FIELD(std::uint32_t                   , flags                                           , 0x10) // uint32
+    };
+
+    // CPulseCell_Outflow_PlayVCD::VCDRequirementInfo_t
+    //   fields: 2
+    class CPulseCell_Outflow_PlayVCD_VCDRequirementInfo_t {
+    public:
+        SCHEMA_FIELD(std::int32_t                    , m_nEventID                                      , 0x0) // int32
+        SCHEMA_FIELD(::sdk::animationsystem::CPulse_OutflowConnection, m_Outflow                                       , 0x8) // CPulse_OutflowConnection
+    };
+
+    // CPulsePhysicsConstraintsFuncs
+    //   fields: 0
+    class CPulsePhysicsConstraintsFuncs {
+    public:
+    };
+
+    // CBtNode
+    //   fields: 0
+    class CBtNode {
+    public:
+    };
+
+    // CFuncMoverAPI
+    //   fields: 0
+    class CFuncMoverAPI {
+    public:
+    };
+
+    // CSkillDamage
+    //   fields: 3
+    class CSkillDamage {
+    public:
+        SCHEMA_FIELD(CSkillFloat                     , m_flDamage                                      , 0x0) // CSkillFloat
+        SCHEMA_FIELD(float                           , m_flNPCDamageScalarVsNPC                        , 0x10) // float32
+        SCHEMA_FIELD(float                           , m_flPhysicsForceDamage                          , 0x14) // float32
+    };
+
+    // CSkillInt
+    //   fields: 1
+    class CSkillInt {
+    public:
+        SCHEMA_FIELD(std::int32_t                    , m_pValue                                        , 0x0) // int32[4]
+    };
+
+    // WaterWheelFrictionScale_t
+    //   fields: 2
+    class WaterWheelFrictionScale_t {
+    public:
+        SCHEMA_FIELD(float                           , m_flFractionOfWheelSubmerged                    , 0x0) // float32
+        SCHEMA_FIELD(float                           , m_flFrictionScale                               , 0x4) // float32
+    };
+
+    // CFiringModeFloat
+    //   fields: 1
+    class CFiringModeFloat {
+    public:
+        SCHEMA_FIELD(float                           , m_flValues                                      , 0x0) // float32[2]
+    };
+
+    // CDestructiblePart
+    //   fields: 7
+    class CDestructiblePart {
+    public:
+        SCHEMA_FIELD(CGlobalSymbol                   , m_DebugName                                     , 0x0) // CGlobalSymbol
+        SCHEMA_FIELD(HitGroup_t                      , m_nHitGroup                                     , 0x8) // HitGroup_t
+        SCHEMA_FIELD(bool                            , m_bDisableHitGroupWhenDestroyed                 , 0xC) // bool
+        SCHEMA_FIELD(CUtlVector<HitGroup_t>          , m_nOtherHitgroupsToDestroyWhenFullyDestructed   , 0x10) // CUtlVector<HitGroup_t>
+        SCHEMA_FIELD(bool                            , m_bOnlyDestroyWhenGibbing                       , 0x28) // bool
+        SCHEMA_FIELD(CGlobalSymbol                   , m_sBodyGroupName                                , 0x30) // CGlobalSymbol
+        SCHEMA_FIELD(CUtlVector<CDestructiblePart_DamageLevel>, m_DamageLevels                                  , 0x38) // CUtlVector<CDestructiblePart_DamageLevel>
+    };
+
+    // CSoundEnvelope
+    //   fields: 4
+    class CSoundEnvelope {
+    public:
+        SCHEMA_FIELD(float                           , m_current                                       , 0x0) // float32
+        SCHEMA_FIELD(float                           , m_target                                        , 0x4) // float32
+        SCHEMA_FIELD(float                           , m_rate                                          , 0x8) // float32
+        SCHEMA_FIELD(bool                            , m_forceupdate                                   , 0xC) // bool
+    };
+
+    // ModelConfigHandle_t
+    //   fields: 1
+    class ModelConfigHandle_t {
+    public:
+        SCHEMA_FIELD(std::uint32_t                   , m_Value                                         , 0x0) // uint32
+    };
+
+    // CEnvWindShared
+    //   fields: 17
+    class CEnvWindShared {
+    public:
+        SCHEMA_FIELD(::GameTime_t                    , m_flStartTime                                   , 0x8) // GameTime_t
+        SCHEMA_FIELD(std::uint32_t                   , m_iWindSeed                                     , 0xC) // uint32
+        SCHEMA_FIELD(std::uint16_t                   , m_iMinWind                                      , 0x10) // uint16
+        SCHEMA_FIELD(std::uint16_t                   , m_iMaxWind                                      , 0x12) // uint16
+        SCHEMA_FIELD(std::int32_t                    , m_windRadius                                    , 0x14) // int32
+        SCHEMA_FIELD(std::uint16_t                   , m_iMinGust                                      , 0x18) // uint16
+        SCHEMA_FIELD(std::uint16_t                   , m_iMaxGust                                      , 0x1A) // uint16
+        SCHEMA_FIELD(float                           , m_flMinGustDelay                                , 0x1C) // float32
+        SCHEMA_FIELD(float                           , m_flMaxGustDelay                                , 0x20) // float32
+        SCHEMA_FIELD(float                           , m_flGustDuration                                , 0x24) // float32
+        SCHEMA_FIELD(std::uint16_t                   , m_iGustDirChange                                , 0x28) // uint16
+        SCHEMA_FIELD(std::uint16_t                   , m_iInitialWindDir                               , 0x2A) // uint16
+        SCHEMA_FIELD(float                           , m_flInitialWindSpeed                            , 0x2C) // float32
+        SCHEMA_FIELD(VectorWS                        , m_location                                      , 0x30) // VectorWS
+        SCHEMA_FIELD(::sdk::engine2::CEntityIOOutput , m_OnGustStart                                   , 0x40) // CEntityIOOutput
+        SCHEMA_FIELD(::sdk::engine2::CEntityIOOutput , m_OnGustEnd                                     , 0x58) // CEntityIOOutput
+        SCHEMA_FIELD(CHandle<CBaseEntity>            , m_hEntOwner                                     , 0x70) // CHandle<CBaseEntity>
+    };
+
+    // CPulseServerFuncs
+    //   fields: 0
+    class CPulseServerFuncs {
+    public:
+    };
+
+    // CPulseCell_Outflow_PlaySceneBase
+    //   fields: 3
+    class CPulseCell_Outflow_PlaySceneBase {
+    public:
+        SCHEMA_FIELD(::sdk::animationsystem::CPulse_ResumePoint, m_OnFinished                                    , 0x48) // CPulse_ResumePoint
+        SCHEMA_FIELD(::sdk::animationsystem::CPulse_ResumePoint, m_OnCanceled                                    , 0x90) // CPulse_ResumePoint
+        SCHEMA_FIELD(CUtlVector<::sdk::animationsystem::CPulse_OutflowConnection>, m_Triggers                                      , 0xD8) // CUtlVector<CPulse_OutflowConnection>
+    };
+
+    // CPulseServerFuncs_Sounds
+    //   fields: 0
+    class CPulseServerFuncs_Sounds {
+    public:
+    };
+
+    // CPhysicsBodyGameMarkupData
+    //   fields: 1
+    class CPhysicsBodyGameMarkupData {
+    public:
+        using _Type0 = CUtlOrderedMap<CUtlString,CPhysicsBodyGameMarkup>;
+        SCHEMA_FIELD(_Type0                          , m_PhysicsBodyMarkupByBoneName                   , 0x0) // CUtlOrderedMap<CUtlString,CPhysicsBodyGameMarkup>
+    };
+
+    // CInfoChoreoAnchorPosition
+    //   fields: 6
+    class CInfoChoreoAnchorPosition {
+    public:
+        SCHEMA_FIELD(::Vector                        , m_vOrigin                                       , 0x0) // Vector
+        SCHEMA_FIELD(::QAngle                        , m_qAngles                                       , 0xC) // QAngle
+        SCHEMA_FIELD(::Vector                        , m_vExtentsMin                                   , 0x18) // Vector
+        SCHEMA_FIELD(::Vector                        , m_vExtentsMax                                   , 0x24) // Vector
+        SCHEMA_FIELD(float                           , m_flRadius                                      , 0x30) // float32
+        SCHEMA_FIELD(CInfoChoreoLocatorShapeType_t   , m_nShapeType                                    , 0x34) // CInfoChoreoLocatorShapeType_t
+    };
+
+    // PrecipitationFilter_t
+    //   fields: 1
+    class PrecipitationFilter_t {
+    public:
+        SCHEMA_FIELD(float                           , m_flMaxRadius                                   , 0x0) // float32
+    };
+
+    // CCSPlayerAnimationState
+    //   fields: 16
+    class CCSPlayerAnimationState {
+    public:
+        SCHEMA_FIELD(CCSPlayerAnimationState_MoveType_t, m_currentMoveType                               , 0x18) // CCSPlayerAnimationState::MoveType_t
+        SCHEMA_FIELD(CCSPlayerAnimationState_GroundMoveState_t, m_groundMoveState                               , 0x19) // CCSPlayerAnimationState::GroundMoveState_t
+        SCHEMA_FIELD(CCSPlayerAnimationState_Direction_t, m_groundActionDirection                         , 0x1A) // CCSPlayerAnimationState::Direction_t
+        SCHEMA_FIELD(CCSPlayerAnimationState_AirAction_t, m_airAction                                     , 0x1B) // CCSPlayerAnimationState::AirAction_t
+        SCHEMA_FIELD(bool                            , m_bWasOnGroundLastUpdate                        , 0x1C) // bool
+        SCHEMA_FIELD(bool                            , m_bWasStationaryLastUpdate                      , 0x1D) // bool
+        SCHEMA_FIELD(::GameTick_t                    , m_actionStartTick                               , 0x20) // GameTick_t
+        SCHEMA_FIELD(::GameTick_t                    , m_staticAimTimerStartTick                       , 0x24) // GameTick_t
+        SCHEMA_FIELD(::GameTick_t                    , m_plantAndTurnStartTick                         , 0x28) // GameTick_t
+        SCHEMA_FIELD(float                           , m_flTurnOnSpotAngle                             , 0x2C) // float32
+        SCHEMA_FIELD(float                           , m_flPreviousAimYaw                              , 0x30) // float32
+        SCHEMA_FIELD(float                           , m_flPreviousHorizontalSpeed                     , 0x34) // float32
+        SCHEMA_FIELD(float                           , m_flFootIKOffsetLeft                            , 0x38) // float32
+        SCHEMA_FIELD(float                           , m_flFootIKOffsetRight                           , 0x3C) // float32
+        SCHEMA_FIELD(float                           , m_flWeaponDropPercentageDueToMovement           , 0x40) // float32
+        SCHEMA_FIELD(float                           , m_flWeaponDropSmoothDampVelocity                , 0x44) // float32
+    };
+
+    // CCSPointPulseAPI
+    //   fields: 0
+    class CCSPointPulseAPI {
+    public:
+    };
+
+    // CSceneRequest
+    //   fields: 9
+    class CSceneRequest {
+    public:
+        SCHEMA_FIELD(::CUtlSymbolLarge               , m_szPayloadVDataName                            , 0x0) // CUtlSymbolLarge
+        SCHEMA_FIELD(SceneRequestHandle_t            , m_uHandle                                       , 0x8) // SceneRequestHandle_t
+        SCHEMA_FIELD(ESceneRequestState_t            , m_state                                         , 0xC) // ESceneRequestState_t
+        SCHEMA_FIELD(ENPCBehaviorOverride_t          , m_nNPCBehaviorOverride                          , 0x10) // ENPCBehaviorOverride_t
+        SCHEMA_FIELD(CUtlVector<SceneRequestTargetMapPair_t>, m_vecActorMap                                   , 0x18) // CUtlVector<SceneRequestTargetMapPair_t>
+        SCHEMA_FIELD(CUtlVector<SceneRequestTargetMapPair_t>, m_vecAnchorMap                                  , 0x30) // CUtlVector<SceneRequestTargetMapPair_t>
+        SCHEMA_FIELD(CUtlVector<SceneRequestTargetMapPair_t>, m_vecGraphMap                                   , 0x48) // CUtlVector<SceneRequestTargetMapPair_t>
+        SCHEMA_FIELD(CHandle<CBaseEntity>            , m_hOwner                                        , 0x60) // CHandle<CBaseEntity>
+        SCHEMA_FIELD(KeyValues3                      , m_nameMapKV3                                    , 0x68) // KeyValues3
+    };
+
+    // CTestPulseIOComponent_Derived
+    //   fields: 0
+    class CTestPulseIOComponent_Derived {
+    public:
+    };
+
+    // CTestPulseIO::ThreeStringArgs_t
+    //   fields: 3
+    class CTestPulseIO_ThreeStringArgs_t {
+    public:
+        SCHEMA_FIELD(::CUtlString                    , strArg1                                         , 0x0) // CUtlString
+        SCHEMA_FIELD(::CUtlString                    , strArg2                                         , 0x8) // CUtlString
+        SCHEMA_FIELD(::CUtlString                    , strArg3                                         , 0x10) // CUtlString
+    };
+
+    // DebugDrawBoneTransforms_t
+    //   fields: 1
+    class DebugDrawBoneTransforms_t {
+    public:
+        using _Type0 = CUtlVectorFixedGrowable<CTransform,128>;
+        SCHEMA_FIELD(_Type0                          , vecBones                                        , 0x10) // CUtlVectorFixedGrowable<CTransform,128>
+    };
+
+    // SceneEventId_t
+    //   fields: 1
+    class SceneEventId_t {
+    public:
+        SCHEMA_FIELD(std::uint32_t                   , m_Value                                         , 0x0) // uint32
+    };
+
+    // CRangeInt
+    //   fields: 1
+    class CRangeInt {
+    public:
+        SCHEMA_FIELD(std::int32_t                    , m_pValue                                        , 0x0) // int32[2]
+    };
+
+    // entitytable_t
+    //   fields: 10
+    class entitytable_t {
+    public:
+        SCHEMA_FIELD(std::int32_t                    , id                                              , 0x0) // int32
+        SCHEMA_FIELD(CEntityIndex                    , edictindex                                      , 0x4) // CEntityIndex
+        SCHEMA_FIELD(CEntityIndex                    , saveentityindex                                 , 0x8) // CEntityIndex
+        SCHEMA_FIELD(bool                            , bWasSaved                                       , 0x14) // bool
+        SCHEMA_FIELD(SaveRestoreTableFlags_t         , flags                                           , 0x18) // SaveRestoreTableFlags_t
+        SCHEMA_FIELD(::CUtlSymbolLarge               , classname                                       , 0x20) // CUtlSymbolLarge
+        SCHEMA_FIELD(::CUtlSymbolLarge               , globalname                                      , 0x28) // CUtlSymbolLarge
+        SCHEMA_FIELD(::CUtlSymbolLarge               , entityname                                      , 0x30) // CUtlSymbolLarge
+        SCHEMA_FIELD(::Vector                        , landmarkModelSpace                              , 0x38) // Vector
+        SCHEMA_FIELD(::sdk::engine2::CEntityKeyValues*, m_pPrecacheEntityKeys                           , 0x48) // CEntityKeyValues*
+    };
+
+    // CGameRules
+    //   fields: 8
+    class CGameRules {
+    public:
+        SCHEMA_FIELD(::sdk::engine2::CNetworkVarChainer, __m_pChainEntity                                , 0x8) // CNetworkVarChainer
+        SCHEMA_FIELD(char                            , m_szQuestName                                   , 0x30) // char[128]
+        SCHEMA_FIELD(std::int32_t                    , m_nQuestPhase                                   , 0xB0) // int32
+        SCHEMA_FIELD(std::uint32_t                   , m_nLastMatchTime                                , 0xB4) // uint32
+        SCHEMA_FIELD(std::uint64_t                   , m_nLastMatchTime_MatchID64                      , 0xB8) // uint64
+        SCHEMA_FIELD(std::int32_t                    , m_nTotalPausedTicks                             , 0xC0) // int32
+        SCHEMA_FIELD(std::int32_t                    , m_nPauseStartTick                               , 0xC4) // int32
+        SCHEMA_FIELD(bool                            , m_bGamePaused                                   , 0xC8) // bool
+    };
+
+    // CHintMessage
+    //   fields: 3
+    class CHintMessage {
+    public:
+        SCHEMA_FIELD(char*                           , m_hintString                                    , 0x0) // char*
+        SCHEMA_FIELD(CUtlVector<char*>               , m_args                                          , 0x8) // CUtlVector<char*>
+        SCHEMA_FIELD(float                           , m_duration                                      , 0x20) // float32
     };
 
     // dynpitchvol_base_t
@@ -5108,285 +4764,453 @@ namespace sdk::server {
         SCHEMA_FIELD(std::int32_t                    , lfomult                                         , 0x60) // int32
     };
 
-    // CFuncMoverAPI
+    // CPulseCell_Outflow_PlayVOLine::CursorState_t
+    //   fields: 1
+    class CPulseCell_Outflow_PlayVOLine_CursorState_t {
+    public:
+        SCHEMA_FIELD(CHandle<CBaseEntity>            , m_sceneInstance                                 , 0x0) // CHandle<CBaseEntity>
+    };
+
+    // SoundeventPathCornerPairNetworked_t
+    //   fields: 5
+    class SoundeventPathCornerPairNetworked_t {
+    public:
+        SCHEMA_FIELD(VectorWS                        , vP1                                             , 0x0) // VectorWS
+        SCHEMA_FIELD(VectorWS                        , vP2                                             , 0xC) // VectorWS
+        SCHEMA_FIELD(float                           , flPathLengthSqr                                 , 0x18) // float32
+        SCHEMA_FIELD(float                           , flP1Pct                                         , 0x1C) // float32
+        SCHEMA_FIELD(float                           , flP2Pct                                         , 0x20) // float32
+    };
+
+    // CBtNodeComposite
     //   fields: 0
-    class CFuncMoverAPI {
+    class CBtNodeComposite {
     public:
     };
 
-    // CEmptyGraphController
+    // QuestProgress
     //   fields: 0
-    class CEmptyGraphController {
+    class QuestProgress {
     public:
     };
 
-    // DestructiblePartDamageRequest_t
-    //   fields: 9
-    class DestructiblePartDamageRequest_t {
+    // ragdoll_t
+    //   fields: 5
+    class ragdoll_t {
     public:
-        SCHEMA_FIELD(HitGroup_t                      , m_nHitGroup                                     , 0x0) // HitGroup_t
-        SCHEMA_FIELD(std::int32_t                    , m_nDamageLevel                                  , 0x4) // int32
-        SCHEMA_FIELD(std::uint16_t                   , m_nDesiredHealth                                , 0x8) // uint16
-        SCHEMA_FIELD(EDestructibleParts_DestroyParameterFlags, m_nDestroyFlags                                 , 0xC) // EDestructibleParts_DestroyParameterFlags
-        SCHEMA_FIELD(DamageTypes_t                   , m_nDamageType                                   , 0x10) // DamageTypes_t
-        SCHEMA_FIELD(float                           , m_flBreakDamage                                 , 0x14) // float32
-        SCHEMA_FIELD(float                           , m_flBreakDamageRadius                           , 0x18) // float32
-        SCHEMA_FIELD(VectorWS                        , m_vWsBreakDamageOrigin                          , 0x1C) // VectorWS
-        SCHEMA_FIELD(::Vector                        , m_vWsBreakDamageForce                           , 0x28) // Vector
+        SCHEMA_FIELD(CUtlVector<ragdollelement_t>    , list                                            , 0x0) // CUtlVector<ragdollelement_t>
+        SCHEMA_FIELD(CUtlVector<ragdollhierarchyjoint_t>, hierarchyJoints                                 , 0x18) // CUtlVector<ragdollhierarchyjoint_t>
+        SCHEMA_FIELD(CUtlVector<int32>               , boneIndex                                       , 0x30) // CUtlVector<int32>
+        SCHEMA_FIELD(bool                            , allowStretch                                    , 0x48) // bool
+        SCHEMA_FIELD(bool                            , unused                                          , 0x49) // bool
     };
 
-    // CShatterGlassShard
-    //   fields: 28
-    class CShatterGlassShard {
-    public:
-        SCHEMA_FIELD(std::uint32_t                   , m_hShardHandle                                  , 0x8) // uint32
-        SCHEMA_FIELD(CUtlVector<Vector2D>            , m_vecPanelVertices                              , 0x10) // CUtlVector<Vector2D>
-        SCHEMA_FIELD(::Vector2D                      , m_vLocalPanelSpaceOrigin                        , 0x28) // Vector2D
-        SCHEMA_FIELD(CStrongHandle<InfoForResourceTypeCModel>, m_hModel                                        , 0x30) // CStrongHandle<InfoForResourceTypeCModel>
-        SCHEMA_FIELD(CHandle<CShatterGlassShardPhysics>, m_hPhysicsEntity                                , 0x38) // CHandle<CShatterGlassShardPhysics>
-        SCHEMA_FIELD(CHandle<CFuncShatterglass>      , m_hParentPanel                                  , 0x3C) // CHandle<CFuncShatterglass>
-        SCHEMA_FIELD(std::uint32_t                   , m_hParentShard                                  , 0x40) // uint32
-        SCHEMA_FIELD(ShatterGlassStressType          , m_ShatterStressType                             , 0x44) // ShatterGlassStressType
-        SCHEMA_FIELD(::Vector                        , m_vecStressVelocity                             , 0x48) // Vector
-        SCHEMA_FIELD(bool                            , m_bCreatedModel                                 , 0x54) // bool
-        SCHEMA_FIELD(float                           , m_flLongestEdge                                 , 0x58) // float32
-        SCHEMA_FIELD(float                           , m_flShortestEdge                                , 0x5C) // float32
-        SCHEMA_FIELD(float                           , m_flLongestAcross                               , 0x60) // float32
-        SCHEMA_FIELD(float                           , m_flShortestAcross                              , 0x64) // float32
-        SCHEMA_FIELD(float                           , m_flSumOfAllEdges                               , 0x68) // float32
-        SCHEMA_FIELD(float                           , m_flArea                                        , 0x6C) // float32
-        SCHEMA_FIELD(OnFrame                         , m_nOnFrameEdge                                  , 0x70) // OnFrame
-        SCHEMA_FIELD(std::int32_t                    , m_nSubShardGeneration                           , 0x74) // int32
-        SCHEMA_FIELD(::Vector2D                      , m_vecAverageVertPosition                        , 0x78) // Vector2D
-        SCHEMA_FIELD(bool                            , m_bAverageVertPositionIsValid                   , 0x80) // bool
-        SCHEMA_FIELD(::Vector2D                      , m_vecPanelSpaceStressPositionA                  , 0x84) // Vector2D
-        SCHEMA_FIELD(::Vector2D                      , m_vecPanelSpaceStressPositionB                  , 0x8C) // Vector2D
-        SCHEMA_FIELD(bool                            , m_bStressPositionAIsValid                       , 0x94) // bool
-        SCHEMA_FIELD(bool                            , m_bStressPositionBIsValid                       , 0x95) // bool
-        SCHEMA_FIELD(bool                            , m_bFlaggedForRemoval                            , 0x96) // bool
-        SCHEMA_FIELD(::GameTime_t                    , m_flPhysicsEntitySpawnedAtTime                  , 0x98) // GameTime_t
-        SCHEMA_FIELD(CHandle<CBaseEntity>            , m_hEntityHittingMe                              , 0x9C) // CHandle<CBaseEntity>
-        SCHEMA_FIELD(CUtlVector<uint32>              , m_vecNeighbors                                  , 0xA0) // CUtlVector<uint32>
-    };
-
-    // WaterWheelFrictionScale_t
+    // CResponseCriteriaSet
     //   fields: 2
-    class WaterWheelFrictionScale_t {
+    class CResponseCriteriaSet {
     public:
-        SCHEMA_FIELD(float                           , m_flFractionOfWheelSubmerged                    , 0x0) // float32
-        SCHEMA_FIELD(float                           , m_flFrictionScale                               , 0x4) // float32
+        SCHEMA_FIELD(std::int32_t                    , m_nNumPrefixedContexts                          , 0x30) // int32
+        SCHEMA_FIELD(bool                            , m_bOverrideOnAppend                             , 0x34) // bool
     };
 
-    // CNmEventConsumerLegacy
+    // CDestructiblePartsSystemData
+    //   fields: 2
+    class CDestructiblePartsSystemData {
+    public:
+        using _Type0 = CUtlOrderedMap<HitGroup_t,CDestructiblePart>;
+        SCHEMA_FIELD(_Type0                          , m_PartsDataByHitGroup                           , 0x0) // CUtlOrderedMap<HitGroup_t,CDestructiblePart>
+        SCHEMA_FIELD(CRangeInt                       , m_nMinMaxNumberHitGroupsToDestroyWhenGibbing    , 0x28) // CRangeInt
+    };
+
+    // CSkillFloat
+    //   fields: 1
+    class CSkillFloat {
+    public:
+        SCHEMA_FIELD(float                           , m_pValue                                        , 0x0) // float32[4]
+    };
+
+    // CPulseCell_Outflow_PlaySequence
+    //   fields: 1
+    class CPulseCell_Outflow_PlaySequence {
+    public:
+        SCHEMA_FIELD(::CUtlString                    , m_ParamSequenceName                             , 0xF0) // CUtlString
+    };
+
+    // CTestPulseIO::EntityHandleIntArgs_t
+    //   fields: 2
+    class CTestPulseIO_EntityHandleIntArgs_t {
+    public:
+        SCHEMA_FIELD(CEntityHandle                   , handleA                                         , 0x0) // CEntityHandle
+        SCHEMA_FIELD(std::int32_t                    , valueB                                          , 0x4) // int32
+    };
+
+    // GameAmmoTypeInfo_t
+    //   fields: 2
+    class GameAmmoTypeInfo_t {
+    public:
+        SCHEMA_FIELD(std::int32_t                    , m_nBuySize                                      , 0x38) // int32
+        SCHEMA_FIELD(std::int32_t                    , m_nCost                                         , 0x3C) // int32
+    };
+
+    // IRagdoll
     //   fields: 0
-    class CNmEventConsumerLegacy {
+    class IRagdoll {
     public:
     };
 
-    // CGameRules
+    // ragdollhierarchyjoint_t
+    //   fields: 2
+    class ragdollhierarchyjoint_t {
+    public:
+        SCHEMA_FIELD(std::int32_t                    , parentIndex                                     , 0x0) // int32
+        SCHEMA_FIELD(std::int32_t                    , childIndex                                      , 0x4) // int32
+    };
+
+    // CMultiplayRules
+    //   fields: 0
+    class CMultiplayRules {
+    public:
+    };
+
+    // CVectorExponentialMovingAverage
+    //   fields: 0
+    class CVectorExponentialMovingAverage {
+    public:
+    };
+
+    // CNavVolumeAll
+    //   fields: 0
+    class CNavVolumeAll {
+    public:
+    };
+
+    // SceneOpportunityActor_t
+    //   fields: 6
+    class SceneOpportunityActor_t {
+    public:
+        SCHEMA_FIELD(CHandle<CBaseModelEntity>       , m_hActor                                        , 0x0) // CHandle<CBaseModelEntity>
+        SCHEMA_FIELD(bool                            , m_bDynamicActor                                 , 0x4) // bool
+        SCHEMA_FIELD(bool                            , m_bAnchor                                       , 0x5) // bool
+        SCHEMA_FIELD(::CUtlSymbolLarge               , m_strActorName                                  , 0x8) // CUtlSymbolLarge
+        SCHEMA_FIELD(::CUtlSymbolLarge               , m_strEntityName                                 , 0x10) // CUtlSymbolLarge
+        SCHEMA_FIELD(SceneInterestTags_t             , m_InterestTags                                  , 0x18) // SceneInterestTags_t
+    };
+
+    // CNmEventConsumerSound
+    //   fields: 0
+    class CNmEventConsumerSound {
+    public:
+    };
+
+    // CTestPulseIO::EntityNameStringArgs_t
+    //   fields: 2
+    class CTestPulseIO_EntityNameStringArgs_t {
+    public:
+        SCHEMA_FIELD(CEntityNameString               , nameA                                           , 0x0) // CEntityNameString
+        SCHEMA_FIELD(::CUtlSymbolLarge               , strValueB                                       , 0x8) // CUtlSymbolLarge
+    };
+
+    // CRelativeTransform
+    //   fields: 4
+    class CRelativeTransform {
+    public:
+        SCHEMA_FIELD(bool                            , m_bTransformIsWorldSpace                        , 0x0) // bool
+        SCHEMA_FIELD(CTransform                      , m_transform                                     , 0x10) // CTransform
+        SCHEMA_FIELD(CTransformWS                    , m_transformWS                                   , 0x30) // CTransformWS
+        SCHEMA_FIELD(CHandle<CBaseEntity>            , m_hEntity                                       , 0x50) // CHandle<CBaseEntity>
+    };
+
+    // CWorldCompositionChunkReferenceElement_t
+    //   fields: 2
+    class CWorldCompositionChunkReferenceElement_t {
+    public:
+        SCHEMA_FIELD(::CUtlString                    , m_strMapToLoad                                  , 0x0) // CUtlString
+        SCHEMA_FIELD(::CUtlString                    , m_strLandmarkName                               , 0x8) // CUtlString
+    };
+
+    // CNmEventConsumer
+    //   fields: 0
+    class CNmEventConsumer {
+    public:
+    };
+
+    // SummaryTakeDamageInfo_t
+    //   fields: 4
+    class SummaryTakeDamageInfo_t {
+    public:
+        SCHEMA_FIELD(std::int32_t                    , nSummarisedCount                                , 0x0) // int32
+        SCHEMA_FIELD(CTakeDamageInfo                 , info                                            , 0x8) // CTakeDamageInfo
+        SCHEMA_FIELD(CTakeDamageResult               , result                                          , 0x120) // CTakeDamageResult
+        SCHEMA_FIELD(CHandle<CBaseEntity>            , hTarget                                         , 0x170) // CHandle<CBaseEntity>
+    };
+
+    // CTestPulseIOComponent_API
+    //   fields: 0
+    class CTestPulseIOComponent_API {
+    public:
+    };
+
+    // CRR_Response
+    //   fields: 10
+    class CRR_Response {
+    public:
+        SCHEMA_FIELD(std::uint8_t                    , m_Type                                          , 0x0) // uint8
+        SCHEMA_FIELD(char                            , m_szResponseName                                , 0x1) // char[192]
+        SCHEMA_FIELD(char                            , m_szMatchingRule                                , 0xC1) // char[128]
+        SCHEMA_FIELD(ResponseParams                  , m_Params                                        , 0x160) // ResponseParams
+        SCHEMA_FIELD(float                           , m_fMatchScore                                   , 0x180) // float32
+        SCHEMA_FIELD(bool                            , m_bAnyMatchingRulesInCooldown                   , 0x184) // bool
+        SCHEMA_FIELD(char*                           , m_szSpeakerContext                              , 0x188) // char*
+        SCHEMA_FIELD(char*                           , m_szWorldContext                                , 0x190) // char*
+        SCHEMA_FIELD(ResponseFollowup                , m_Followup                                      , 0x198) // ResponseFollowup
+        SCHEMA_FIELD(CUtlSymbol                      , m_recipientFilter                               , 0x1CA) // CUtlSymbol
+    };
+
+    // CNavVolumeCalculatedVector
+    //   fields: 0
+    class CNavVolumeCalculatedVector {
+    public:
+    };
+
+    // CTestPulseIO::FloatStringArgs_t
+    //   fields: 2
+    class CTestPulseIO_FloatStringArgs_t {
+    public:
+        SCHEMA_FIELD(float                           , flOutFloat                                      , 0x0) // float32
+        SCHEMA_FIELD(::CUtlSymbolLarge               , strOutString                                    , 0x8) // CUtlSymbolLarge
+    };
+
+    // CNetworkTransmitComponent
+    //   fields: 1
+    class CNetworkTransmitComponent {
+    public:
+        SCHEMA_FIELD(std::uint8_t                    , m_nTransmitStateOwnedCounter                    , 0x184) // uint8
+    };
+
+    // CPathQueryUtil
+    //   fields: 5
+    class CPathQueryUtil {
+    public:
+        SCHEMA_FIELD(CTransform                      , m_PathToEntityTransform                         , 0x10) // CTransform
+        SCHEMA_FIELD(CUtlVector<Vector>              , m_vecPathSamplePositions                        , 0x30) // CUtlVector<Vector>
+        SCHEMA_FIELD(CUtlVector<float32>             , m_vecPathSampleParameters                       , 0x48) // CUtlVector<float32>
+        SCHEMA_FIELD(CUtlVector<float32>             , m_vecPathSampleDistances                        , 0x60) // CUtlVector<float32>
+        SCHEMA_FIELD(bool                            , m_bIsClosedLoop                                 , 0x78) // bool
+    };
+
+    // SoundOpvarTraceResult_t
+    //   fields: 3
+    class SoundOpvarTraceResult_t {
+    public:
+        SCHEMA_FIELD(::Vector                        , vPos                                            , 0x0) // Vector
+        SCHEMA_FIELD(bool                            , bDidHit                                         , 0xC) // bool
+        SCHEMA_FIELD(float                           , flDistSqrToCenter                               , 0x10) // float32
+    };
+
+    // ConstraintSoundInfo
+    //   fields: 10
+    class ConstraintSoundInfo {
+    public:
+        SCHEMA_FIELD(VelocitySampler                 , m_vSampler                                      , 0x8) // VelocitySampler
+        SCHEMA_FIELD(SimpleConstraintSoundProfile    , m_soundProfile                                  , 0x20) // SimpleConstraintSoundProfile
+        SCHEMA_FIELD(::Vector                        , m_forwardAxis                                   , 0x40) // Vector
+        SCHEMA_FIELD(::CUtlSymbolLarge               , m_iszTravelSoundFwd                             , 0x50) // CUtlSymbolLarge
+        SCHEMA_FIELD(::CUtlSymbolLarge               , m_iszTravelSoundBack                            , 0x58) // CUtlSymbolLarge
+        SCHEMA_FIELD(::CUtlSymbolLarge               , m_iszReversalSoundSmall                         , 0x78) // CUtlSymbolLarge
+        SCHEMA_FIELD(::CUtlSymbolLarge               , m_iszReversalSoundMedium                        , 0x80) // CUtlSymbolLarge
+        SCHEMA_FIELD(::CUtlSymbolLarge               , m_iszReversalSoundLarge                         , 0x88) // CUtlSymbolLarge
+        SCHEMA_FIELD(bool                            , m_bPlayTravelSound                              , 0x90) // bool
+        SCHEMA_FIELD(bool                            , m_bPlayReversalSound                            , 0x91) // bool
+    };
+
+    // DynamicVolumeDef_t
     //   fields: 8
-    class CGameRules {
+    class DynamicVolumeDef_t {
+    public:
+        SCHEMA_FIELD(CHandle<CBaseEntity>            , m_source                                        , 0x0) // CHandle<CBaseEntity>
+        SCHEMA_FIELD(CHandle<CBaseEntity>            , m_target                                        , 0x4) // CHandle<CBaseEntity>
+        SCHEMA_FIELD(std::int32_t                    , m_nHullIdx                                      , 0x8) // int32
+        SCHEMA_FIELD(::Vector                        , m_vSourceAnchorPos                              , 0xC) // Vector
+        SCHEMA_FIELD(::Vector                        , m_vTargetAnchorPos                              , 0x18) // Vector
+        SCHEMA_FIELD(std::uint32_t                   , m_nAreaSrc                                      , 0x24) // uint32
+        SCHEMA_FIELD(std::uint32_t                   , m_nAreaDst                                      , 0x28) // uint32
+        SCHEMA_FIELD(bool                            , m_bAttached                                     , 0x2C) // bool
+    };
+
+    // CNavHullPresetVData
+    //   fields: 1
+    class CNavHullPresetVData {
+    public:
+        SCHEMA_FIELD(CUtlVector<CUtlString>          , m_vecNavHulls                                   , 0x0) // CUtlVector<CUtlString>
+    };
+
+    // CPulseCell_Outflow_ScriptedSequence::CursorState_t
+    //   fields: 1
+    class CPulseCell_Outflow_ScriptedSequence_CursorState_t {
+    public:
+        SCHEMA_FIELD(CHandle<CBaseEntity>            , m_scriptedSequence                              , 0x0) // CHandle<CBaseEntity>
+    };
+
+    // CCopyRecipientFilter
+    //   fields: 3
+    class CCopyRecipientFilter {
+    public:
+        SCHEMA_FIELD(std::int32_t                    , m_Flags                                         , 0x8) // int32
+        SCHEMA_FIELD(CUtlVector<CPlayerSlot>         , m_Recipients                                    , 0x10) // CUtlVector<CPlayerSlot>
+        SCHEMA_FIELD(CPlayerSlot                     , m_slotPlayerExcludedDueToPrediction             , 0x30) // CPlayerSlot
+    };
+
+    // CEconItemView
+    //   fields: 13
+    class CEconItemView {
+    public:
+        SCHEMA_FIELD(std::uint16_t                   , m_iItemDefinitionIndex                          , 0x38) // uint16
+        SCHEMA_FIELD(std::int32_t                    , m_iEntityQuality                                , 0x3C) // int32
+        SCHEMA_FIELD(std::uint32_t                   , m_iEntityLevel                                  , 0x40) // uint32
+        SCHEMA_FIELD(std::uint64_t                   , m_iItemID                                       , 0x48) // uint64
+        SCHEMA_FIELD(std::uint32_t                   , m_iItemIDHigh                                   , 0x50) // uint32
+        SCHEMA_FIELD(std::uint32_t                   , m_iItemIDLow                                    , 0x54) // uint32
+        SCHEMA_FIELD(std::uint32_t                   , m_iAccountID                                    , 0x58) // uint32
+        SCHEMA_FIELD(std::uint32_t                   , m_iInventoryPosition                            , 0x5C) // uint32
+        SCHEMA_FIELD(bool                            , m_bInitialized                                  , 0x68) // bool
+        SCHEMA_FIELD(::sdk::client::CAttributeList   , m_AttributeList                                 , 0x70) // CAttributeList
+        SCHEMA_FIELD(::sdk::client::CAttributeList   , m_NetworkedDynamicAttributes                    , 0xE8) // CAttributeList
+        SCHEMA_FIELD(char                            , m_szCustomName                                  , 0x160) // char[161]
+        SCHEMA_FIELD(char                            , m_szCustomNameOverride                          , 0x201) // char[161]
+    };
+
+    // CSceneOpportunity
+    //   fields: 18
+    class CSceneOpportunity {
+    public:
+        SCHEMA_FIELD(CHandle<CBaseEntity>            , m_hOwner                                        , 0x0) // CHandle<CBaseEntity>
+        SCHEMA_FIELD(SceneOpportunityHandle_t        , m_uHandle                                       , 0x4) // SceneOpportunityHandle_t
+        SCHEMA_FIELD(::CUtlSymbolLarge               , m_strInteractVDataName                          , 0x8) // CUtlSymbolLarge
+        SCHEMA_FIELD(bool                            , m_bEnabled                                      , 0x10) // bool
+        SCHEMA_FIELD(bool                            , m_bActive                                       , 0x11) // bool
+        SCHEMA_FIELD(InteractionPriority_t           , m_ePriority                                     , 0x14) // InteractionPriority_t
+        SCHEMA_FIELD(float                           , m_flRadius                                      , 0x18) // float32
+        SCHEMA_FIELD(SceneInterestTags_t             , m_LocalInterestReqTags                          , 0x20) // SceneInterestTags_t
+        SCHEMA_FIELD(SceneInterestTags_t             , m_LocalInterestOptTags                          , 0x38) // SceneInterestTags_t
+        SCHEMA_FIELD(float                           , m_flOwnerFOV                                    , 0x50) // float32
+        SCHEMA_FIELD(CUtlVector<SceneOpportunityActor_t>, m_ActorList                                     , 0x58) // CUtlVector<SceneOpportunityActor_t>
+        SCHEMA_FIELD(CHandle<CBaseEntity>            , m_hLookTarget                                   , 0x70) // CHandle<CBaseEntity>
+        SCHEMA_FIELD(float                           , m_flDuration                                    , 0x74) // float32
+        SCHEMA_FIELD(::GameTime_t                    , m_tStartTime                                    , 0x78) // GameTime_t
+        SCHEMA_FIELD(float                           , m_flCooldown                                    , 0x7C) // float32
+        SCHEMA_FIELD(::GameTime_t                    , m_tCooldownTime                                 , 0x80) // GameTime_t
+        SCHEMA_FIELD(std::int32_t                    , m_nRepeatCount                                  , 0x84) // int32
+        SCHEMA_FIELD(bool                            , m_bDisableOnExit                                , 0x88) // bool
+    };
+
+    // CSimpleStopwatch
+    //   fields: 0
+    class CSimpleStopwatch {
+    public:
+    };
+
+    // CFloatMovingAverage
+    //   fields: 0
+    class CFloatMovingAverage {
+    public:
+    };
+
+    // CSAdditionalMatchStats_t
+    //   fields: 12
+    class CSAdditionalMatchStats_t {
+    public:
+        SCHEMA_FIELD(std::int32_t                    , m_numRoundsSurvivedStreak                       , 0xF8) // int32
+        SCHEMA_FIELD(std::int32_t                    , m_maxNumRoundsSurvivedStreak                    , 0xFC) // int32
+        SCHEMA_FIELD(std::int32_t                    , m_numRoundsSurvivedTotal                        , 0x100) // int32
+        SCHEMA_FIELD(std::int32_t                    , m_iRoundsWonWithoutPurchase                     , 0x104) // int32
+        SCHEMA_FIELD(std::int32_t                    , m_iRoundsWonWithoutPurchaseTotal                , 0x108) // int32
+        SCHEMA_FIELD(std::int32_t                    , m_numFirstKills                                 , 0x10C) // int32
+        SCHEMA_FIELD(std::int32_t                    , m_numClutchKills                                , 0x110) // int32
+        SCHEMA_FIELD(std::int32_t                    , m_numPistolKills                                , 0x114) // int32
+        SCHEMA_FIELD(std::int32_t                    , m_numSniperKills                                , 0x118) // int32
+        SCHEMA_FIELD(std::int32_t                    , m_iNumSuicides                                  , 0x11C) // int32
+        SCHEMA_FIELD(std::int32_t                    , m_iNumTeamKills                                 , 0x120) // int32
+        SCHEMA_FIELD(float                           , m_flTeamDamage                                  , 0x124) // float32
+    };
+
+    // PhysBlockHeader_t
+    //   fields: 2
+    class PhysBlockHeader_t {
+    public:
+        SCHEMA_FIELD(std::int32_t                    , nSaved                                          , 0x0) // int32
+        SCHEMA_FIELD(std::uint64_t                   , pWorldObject                                    , 0x8) // uint64
+    };
+
+    // INavObstacle
+    //   fields: 1
+    class INavObstacle {
+    public:
+        SCHEMA_FIELD(std::uint64_t                   , m_nId                                           , 0x8) // uint64
+    };
+
+    // lerpdata_t
+    //   fields: 6
+    class lerpdata_t {
+    public:
+        SCHEMA_FIELD(CHandle<CBaseEntity>            , m_hEnt                                          , 0x0) // CHandle<CBaseEntity>
+        SCHEMA_FIELD(MoveType_t                      , m_MoveType                                      , 0x4) // MoveType_t
+        SCHEMA_FIELD(::GameTime_t                    , m_flStartTime                                   , 0x8) // GameTime_t
+        SCHEMA_FIELD(::Vector                        , m_vecStartOrigin                                , 0xC) // Vector
+        SCHEMA_FIELD(::Quaternion                    , m_qStartRot                                     , 0x20) // Quaternion
+        SCHEMA_FIELD(::sdk::particles::ParticleIndex_t, m_nFXIndex                                      , 0x30) // ParticleIndex_t
+    };
+
+    // CRelativeLocation
+    //   fields: 4
+    class CRelativeLocation {
+    public:
+        SCHEMA_FIELD(RelativeLocationType_t          , m_Type                                          , 0x18) // RelativeLocationType_t
+        SCHEMA_FIELD(::Vector                        , m_vRelativeOffset                               , 0x1C) // Vector
+        SCHEMA_FIELD(VectorWS                        , m_vWorldSpacePos                                , 0x28) // VectorWS
+        SCHEMA_FIELD(CHandle<CBaseEntity>            , m_hEntity                                       , 0x34) // CHandle<CBaseEntity>
+    };
+
+    // CRetakeGameRules
+    //   fields: 6
+    class CRetakeGameRules {
+    public:
+        SCHEMA_FIELD(std::int32_t                    , m_nMatchSeed                                    , 0x138) // int32
+        SCHEMA_FIELD(bool                            , m_bBlockersPresent                              , 0x13C) // bool
+        SCHEMA_FIELD(bool                            , m_bRoundInProgress                              , 0x13D) // bool
+        SCHEMA_FIELD(std::int32_t                    , m_iFirstSecondHalfRound                         , 0x140) // int32
+        SCHEMA_FIELD(std::int32_t                    , m_iBombSite                                     , 0x144) // int32
+        SCHEMA_FIELD(CHandle<CCSPlayerPawn>          , m_hBombPlanter                                  , 0x148) // CHandle<CCSPlayerPawn>
+    };
+
+    // CAnimEventListenerBase
+    //   fields: 0
+    class CAnimEventListenerBase {
+    public:
+    };
+
+    // CPlayerPawnComponent
+    //   fields: 1
+    class CPlayerPawnComponent {
     public:
         SCHEMA_FIELD(::sdk::engine2::CNetworkVarChainer, __m_pChainEntity                                , 0x8) // CNetworkVarChainer
-        SCHEMA_FIELD(char                            , m_szQuestName                                   , 0x30) // char[128]
-        SCHEMA_FIELD(std::int32_t                    , m_nQuestPhase                                   , 0xB0) // int32
-        SCHEMA_FIELD(std::uint32_t                   , m_nLastMatchTime                                , 0xB4) // uint32
-        SCHEMA_FIELD(std::uint64_t                   , m_nLastMatchTime_MatchID64                      , 0xB8) // uint64
-        SCHEMA_FIELD(std::int32_t                    , m_nTotalPausedTicks                             , 0xC0) // int32
-        SCHEMA_FIELD(std::int32_t                    , m_nPauseStartTick                               , 0xC4) // int32
-        SCHEMA_FIELD(bool                            , m_bGamePaused                                   , 0xC8) // bool
     };
 
-    // CNavVolumeSphere
-    //   fields: 2
-    class CNavVolumeSphere {
+    // CIronSightController
+    //   fields: 4
+    class CIronSightController {
     public:
-        SCHEMA_FIELD(VectorWS                        , m_vCenter                                       , 0x78) // VectorWS
-        SCHEMA_FIELD(float                           , m_flRadius                                      , 0x84) // float32
+        SCHEMA_FIELD(bool                            , m_bIronSightAvailable                           , 0x8) // bool
+        SCHEMA_FIELD(float                           , m_flIronSightAmount                             , 0xC) // float32
+        SCHEMA_FIELD(float                           , m_flIronSightAmountGained                       , 0x10) // float32
+        SCHEMA_FIELD(float                           , m_flIronSightAmountBiased                       , 0x14) // float32
     };
 
-    // CCSBot
-    //   parent: CBot
-    //   fields: 140
-    class CCSBot : public CBot {
-    public:
-        SCHEMA_FIELD(VectorWS                        , m_eyePosition                                   , 0x108) // VectorWS
-        SCHEMA_FIELD(char                            , m_name                                          , 0x114) // char[64]
-        SCHEMA_FIELD(float                           , m_combatRange                                   , 0x154) // float32
-        SCHEMA_FIELD(bool                            , m_isRogue                                       , 0x158) // bool
-        SCHEMA_FIELD(::sdk::client::CountdownTimer   , m_rogueTimer                                    , 0x160) // CountdownTimer
-        SCHEMA_FIELD(bool                            , m_diedLastRound                                 , 0x17C) // bool
-        SCHEMA_FIELD(float                           , m_safeTime                                      , 0x180) // float32
-        SCHEMA_FIELD(bool                            , m_wasSafe                                       , 0x184) // bool
-        SCHEMA_FIELD(bool                            , m_blindFire                                     , 0x18C) // bool
-        SCHEMA_FIELD(::sdk::client::CountdownTimer   , m_surpriseTimer                                 , 0x190) // CountdownTimer
-        SCHEMA_FIELD(bool                            , m_bAllowActive                                  , 0x1A8) // bool
-        SCHEMA_FIELD(bool                            , m_isFollowing                                   , 0x1A9) // bool
-        SCHEMA_FIELD(CHandle<CCSPlayerPawn>          , m_leader                                        , 0x1AC) // CHandle<CCSPlayerPawn>
-        SCHEMA_FIELD(float                           , m_followTimestamp                               , 0x1B0) // float32
-        SCHEMA_FIELD(float                           , m_allowAutoFollowTime                           , 0x1B4) // float32
-        SCHEMA_FIELD(::sdk::client::CountdownTimer   , m_hurryTimer                                    , 0x1B8) // CountdownTimer
-        SCHEMA_FIELD(::sdk::client::CountdownTimer   , m_alertTimer                                    , 0x1D0) // CountdownTimer
-        SCHEMA_FIELD(::sdk::client::CountdownTimer   , m_sneakTimer                                    , 0x1E8) // CountdownTimer
-        SCHEMA_FIELD(::sdk::client::CountdownTimer   , m_panicTimer                                    , 0x200) // CountdownTimer
-        SCHEMA_FIELD(float                           , m_stateTimestamp                                , 0x5C8) // float32
-        SCHEMA_FIELD(bool                            , m_isAttacking                                   , 0x5CC) // bool
-        SCHEMA_FIELD(bool                            , m_isOpeningDoor                                 , 0x5CD) // bool
-        SCHEMA_FIELD(CHandle<CBaseEntity>            , m_taskEntity                                    , 0x5D4) // CHandle<CBaseEntity>
-        SCHEMA_FIELD(VectorWS                        , m_goalPosition                                  , 0x5E4) // VectorWS
-        SCHEMA_FIELD(CHandle<CBaseEntity>            , m_goalEntity                                    , 0x5F0) // CHandle<CBaseEntity>
-        SCHEMA_FIELD(CHandle<CBaseEntity>            , m_avoid                                         , 0x5F4) // CHandle<CBaseEntity>
-        SCHEMA_FIELD(float                           , m_avoidTimestamp                                , 0x5F8) // float32
-        SCHEMA_FIELD(bool                            , m_isStopping                                    , 0x5FC) // bool
-        SCHEMA_FIELD(bool                            , m_hasVisitedEnemySpawn                          , 0x5FD) // bool
-        SCHEMA_FIELD(::sdk::client::IntervalTimer    , m_stillTimer                                    , 0x600) // IntervalTimer
-        SCHEMA_FIELD(bool                            , m_bEyeAnglesUnderPathFinderControl              , 0x610) // bool
-        SCHEMA_FIELD(std::int32_t                    , m_pathIndex                                     , 0x4F10) // int32
-        SCHEMA_FIELD(::GameTime_t                    , m_areaEnteredTimestamp                          , 0x4F14) // GameTime_t
-        SCHEMA_FIELD(::sdk::client::CountdownTimer   , m_repathTimer                                   , 0x4F18) // CountdownTimer
-        SCHEMA_FIELD(::sdk::client::CountdownTimer   , m_avoidFriendTimer                              , 0x4F30) // CountdownTimer
-        SCHEMA_FIELD(bool                            , m_isFriendInTheWay                              , 0x4F48) // bool
-        SCHEMA_FIELD(::sdk::client::CountdownTimer   , m_politeTimer                                   , 0x4F50) // CountdownTimer
-        SCHEMA_FIELD(bool                            , m_isWaitingBehindFriend                         , 0x4F68) // bool
-        SCHEMA_FIELD(float                           , m_pathLadderEnd                                 , 0x4F94) // float32
-        SCHEMA_FIELD(::sdk::client::CountdownTimer   , m_mustRunTimer                                  , 0x4FE0) // CountdownTimer
-        SCHEMA_FIELD(::sdk::client::CountdownTimer   , m_waitTimer                                     , 0x4FF8) // CountdownTimer
-        SCHEMA_FIELD(::sdk::client::CountdownTimer   , m_updateTravelDistanceTimer                     , 0x5010) // CountdownTimer
-        SCHEMA_FIELD(float                           , m_playerTravelDistance                          , 0x5028) // float32[64]
-        SCHEMA_FIELD(std::uint8_t                    , m_travelDistancePhase                           , 0x5128) // uint8
-        SCHEMA_FIELD(std::uint8_t                    , m_hostageEscortCount                            , 0x52C0) // uint8
-        SCHEMA_FIELD(float                           , m_hostageEscortCountTimestamp                   , 0x52C4) // float32
-        SCHEMA_FIELD(std::int32_t                    , m_desiredTeam                                   , 0x52C8) // int32
-        SCHEMA_FIELD(bool                            , m_hasJoined                                     , 0x52CC) // bool
-        SCHEMA_FIELD(bool                            , m_isWaitingForHostage                           , 0x52CD) // bool
-        SCHEMA_FIELD(::sdk::client::CountdownTimer   , m_inhibitWaitingForHostageTimer                 , 0x52D0) // CountdownTimer
-        SCHEMA_FIELD(::sdk::client::CountdownTimer   , m_waitForHostageTimer                           , 0x52E8) // CountdownTimer
-        SCHEMA_FIELD(::Vector                        , m_noisePosition                                 , 0x5300) // Vector
-        SCHEMA_FIELD(float                           , m_noiseTravelDistance                           , 0x530C) // float32
-        SCHEMA_FIELD(float                           , m_noiseTimestamp                                , 0x5310) // float32
-        SCHEMA_FIELD(CCSPlayerPawn*                  , m_noiseSource                                   , 0x5318) // CCSPlayerPawn*
-        SCHEMA_FIELD(::sdk::client::CountdownTimer   , m_noiseBendTimer                                , 0x5330) // CountdownTimer
-        SCHEMA_FIELD(::Vector                        , m_bentNoisePosition                             , 0x5348) // Vector
-        SCHEMA_FIELD(bool                            , m_bendNoisePositionValid                        , 0x5354) // bool
-        SCHEMA_FIELD(float                           , m_lookAroundStateTimestamp                      , 0x5358) // float32
-        SCHEMA_FIELD(float                           , m_lookAheadAngle                                , 0x535C) // float32
-        SCHEMA_FIELD(float                           , m_lookUpAngle                                   , 0x5360) // float32
-        SCHEMA_FIELD(float                           , m_forwardAngle                                  , 0x5364) // float32
-        SCHEMA_FIELD(float                           , m_inhibitLookAroundTimestamp                    , 0x5368) // float32
-        SCHEMA_FIELD(::Vector                        , m_lookAtSpot                                    , 0x5370) // Vector
-        SCHEMA_FIELD(float                           , m_lookAtSpotDuration                            , 0x5380) // float32
-        SCHEMA_FIELD(float                           , m_lookAtSpotTimestamp                           , 0x5384) // float32
-        SCHEMA_FIELD(float                           , m_lookAtSpotAngleTolerance                      , 0x5388) // float32
-        SCHEMA_FIELD(bool                            , m_lookAtSpotClearIfClose                        , 0x538C) // bool
-        SCHEMA_FIELD(bool                            , m_lookAtSpotAttack                              , 0x538D) // bool
-        SCHEMA_FIELD(char*                           , m_lookAtDesc                                    , 0x5390) // char*
-        SCHEMA_FIELD(float                           , m_peripheralTimestamp                           , 0x5398) // float32
-        SCHEMA_FIELD(std::uint8_t                    , m_approachPointCount                            , 0x5520) // uint8
-        SCHEMA_FIELD(::Vector                        , m_approachPointViewPosition                     , 0x5524) // Vector
-        SCHEMA_FIELD(::sdk::client::IntervalTimer    , m_viewSteadyTimer                               , 0x5530) // IntervalTimer
-        SCHEMA_FIELD(::sdk::client::CountdownTimer   , m_tossGrenadeTimer                              , 0x5548) // CountdownTimer
-        SCHEMA_FIELD(::sdk::client::CountdownTimer   , m_isAvoidingGrenade                             , 0x5568) // CountdownTimer
-        SCHEMA_FIELD(float                           , m_spotCheckTimestamp                            , 0x5588) // float32
-        SCHEMA_FIELD(std::int32_t                    , m_checkedHidingSpotCount                        , 0x5990) // int32
-        SCHEMA_FIELD(float                           , m_lookPitch                                     , 0x5994) // float32
-        SCHEMA_FIELD(float                           , m_lookPitchVel                                  , 0x5998) // float32
-        SCHEMA_FIELD(float                           , m_lookYaw                                       , 0x599C) // float32
-        SCHEMA_FIELD(float                           , m_lookYawVel                                    , 0x59A0) // float32
-        SCHEMA_FIELD(::Vector                        , m_targetSpot                                    , 0x59A4) // Vector
-        SCHEMA_FIELD(::Vector                        , m_targetSpotVelocity                            , 0x59B0) // Vector
-        SCHEMA_FIELD(::Vector                        , m_targetSpotPredicted                           , 0x59BC) // Vector
-        SCHEMA_FIELD(::QAngle                        , m_aimError                                      , 0x59C8) // QAngle
-        SCHEMA_FIELD(::QAngle                        , m_aimGoal                                       , 0x59D4) // QAngle
-        SCHEMA_FIELD(::GameTime_t                    , m_targetSpotTime                                , 0x59E0) // GameTime_t
-        SCHEMA_FIELD(float                           , m_aimFocus                                      , 0x59E4) // float32
-        SCHEMA_FIELD(float                           , m_aimFocusInterval                              , 0x59E8) // float32
-        SCHEMA_FIELD(::GameTime_t                    , m_aimFocusNextUpdate                            , 0x59EC) // GameTime_t
-        SCHEMA_FIELD(::sdk::client::CountdownTimer   , m_ignoreEnemiesTimer                            , 0x59F8) // CountdownTimer
-        SCHEMA_FIELD(CHandle<CCSPlayerPawn>          , m_enemy                                         , 0x5A10) // CHandle<CCSPlayerPawn>
-        SCHEMA_FIELD(bool                            , m_isEnemyVisible                                , 0x5A14) // bool
-        SCHEMA_FIELD(std::uint8_t                    , m_visibleEnemyParts                             , 0x5A15) // uint8
-        SCHEMA_FIELD(::Vector                        , m_lastEnemyPosition                             , 0x5A18) // Vector
-        SCHEMA_FIELD(float                           , m_lastSawEnemyTimestamp                         , 0x5A24) // float32
-        SCHEMA_FIELD(float                           , m_firstSawEnemyTimestamp                        , 0x5A28) // float32
-        SCHEMA_FIELD(float                           , m_currentEnemyAcquireTimestamp                  , 0x5A2C) // float32
-        SCHEMA_FIELD(float                           , m_enemyDeathTimestamp                           , 0x5A30) // float32
-        SCHEMA_FIELD(float                           , m_friendDeathTimestamp                          , 0x5A34) // float32
-        SCHEMA_FIELD(bool                            , m_isLastEnemyDead                               , 0x5A38) // bool
-        SCHEMA_FIELD(std::int32_t                    , m_nearbyEnemyCount                              , 0x5A3C) // int32
-        SCHEMA_FIELD(CHandle<CCSPlayerPawn>          , m_bomber                                        , 0x5C48) // CHandle<CCSPlayerPawn>
-        SCHEMA_FIELD(std::int32_t                    , m_nearbyFriendCount                             , 0x5C4C) // int32
-        SCHEMA_FIELD(CHandle<CCSPlayerPawn>          , m_closestVisibleFriend                          , 0x5C50) // CHandle<CCSPlayerPawn>
-        SCHEMA_FIELD(CHandle<CCSPlayerPawn>          , m_closestVisibleHumanFriend                     , 0x5C54) // CHandle<CCSPlayerPawn>
-        SCHEMA_FIELD(::sdk::client::IntervalTimer    , m_attentionInterval                             , 0x5C58) // IntervalTimer
-        SCHEMA_FIELD(CHandle<CCSPlayerPawn>          , m_attacker                                      , 0x5C68) // CHandle<CCSPlayerPawn>
-        SCHEMA_FIELD(float                           , m_attackedTimestamp                             , 0x5C6C) // float32
-        SCHEMA_FIELD(::sdk::client::IntervalTimer    , m_burnedByFlamesTimer                           , 0x5C70) // IntervalTimer
-        SCHEMA_FIELD(std::int32_t                    , m_lastVictimID                                  , 0x5C80) // int32
-        SCHEMA_FIELD(bool                            , m_isAimingAtEnemy                               , 0x5C84) // bool
-        SCHEMA_FIELD(bool                            , m_isRapidFiring                                 , 0x5C85) // bool
-        SCHEMA_FIELD(::sdk::client::IntervalTimer    , m_equipTimer                                    , 0x5C88) // IntervalTimer
-        SCHEMA_FIELD(::sdk::client::CountdownTimer   , m_zoomTimer                                     , 0x5C98) // CountdownTimer
-        SCHEMA_FIELD(::GameTime_t                    , m_fireWeaponTimestamp                           , 0x5CB0) // GameTime_t
-        SCHEMA_FIELD(::sdk::client::CountdownTimer   , m_lookForWeaponsOnGroundTimer                   , 0x5CB8) // CountdownTimer
-        SCHEMA_FIELD(bool                            , m_bIsSleeping                                   , 0x5CD0) // bool
-        SCHEMA_FIELD(bool                            , m_isEnemySniperVisible                          , 0x5CD1) // bool
-        SCHEMA_FIELD(::sdk::client::CountdownTimer   , m_sawEnemySniperTimer                           , 0x5CD8) // CountdownTimer
-        SCHEMA_FIELD(std::uint8_t                    , m_enemyQueueIndex                               , 0x5D90) // uint8
-        SCHEMA_FIELD(std::uint8_t                    , m_enemyQueueCount                               , 0x5D91) // uint8
-        SCHEMA_FIELD(std::uint8_t                    , m_enemyQueueAttendIndex                         , 0x5D92) // uint8
-        SCHEMA_FIELD(bool                            , m_isStuck                                       , 0x5D93) // bool
-        SCHEMA_FIELD(::GameTime_t                    , m_stuckTimestamp                                , 0x5D94) // GameTime_t
-        SCHEMA_FIELD(::Vector                        , m_stuckSpot                                     , 0x5D98) // Vector
-        SCHEMA_FIELD(::sdk::client::CountdownTimer   , m_wiggleTimer                                   , 0x5DA8) // CountdownTimer
-        SCHEMA_FIELD(::sdk::client::CountdownTimer   , m_stuckJumpTimer                                , 0x5DC0) // CountdownTimer
-        SCHEMA_FIELD(::GameTime_t                    , m_nextCleanupCheckTimestamp                     , 0x5DD8) // GameTime_t
-        SCHEMA_FIELD(float                           , m_avgVel                                        , 0x5DDC) // float32[10]
-        SCHEMA_FIELD(std::int32_t                    , m_avgVelIndex                                   , 0x5E04) // int32
-        SCHEMA_FIELD(std::int32_t                    , m_avgVelCount                                   , 0x5E08) // int32
-        SCHEMA_FIELD(::Vector                        , m_lastOrigin                                    , 0x5E0C) // Vector
-        SCHEMA_FIELD(float                           , m_lastRadioRecievedTimestamp                    , 0x5E1C) // float32
-        SCHEMA_FIELD(float                           , m_lastRadioSentTimestamp                        , 0x5E20) // float32
-        SCHEMA_FIELD(CHandle<CCSPlayerPawn>          , m_radioSubject                                  , 0x5E24) // CHandle<CCSPlayerPawn>
-        SCHEMA_FIELD(::Vector                        , m_radioPosition                                 , 0x5E28) // Vector
-        SCHEMA_FIELD(float                           , m_voiceEndTimestamp                             , 0x5E34) // float32
-        SCHEMA_FIELD(std::int32_t                    , m_lastValidReactionQueueFrame                   , 0x5E40) // int32
-    };
-
-    // CCSPlayer_RadioServices
-    //   parent: CPlayerPawnComponent
-    //   fields: 5
-    class CCSPlayer_RadioServices : public CPlayerPawnComponent {
-    public:
-        SCHEMA_FIELD(::GameTime_t                    , m_flGotHostageTalkTimer                         , 0x48) // GameTime_t
-        SCHEMA_FIELD(::GameTime_t                    , m_flDefusingTalkTimer                           , 0x4C) // GameTime_t
-        SCHEMA_FIELD(::GameTime_t                    , m_flC4PlantTalkTimer                            , 0x50) // GameTime_t
-        SCHEMA_FIELD(::GameTime_t                    , m_flRadioTokenSlots                             , 0x54) // GameTime_t[3]
-        SCHEMA_FIELD(bool                            , m_bIgnoreRadio                                  , 0x60) // bool
-    };
-
-    // CStopwatchBase
-    //   parent: CSimpleSimTimer
+    // CAttributeContainer
+    //   parent: CAttributeManager
     //   fields: 1
-    class CStopwatchBase : public CSimpleSimTimer {
+    class CAttributeContainer : public CAttributeManager {
     public:
-        SCHEMA_FIELD(bool                            , m_fIsRunning                                    , 0x8) // bool
-    };
-
-    // CSimTimer
-    //   parent: CSimpleSimTimer
-    //   fields: 1
-    class CSimTimer : public CSimpleSimTimer {
-    public:
-        SCHEMA_FIELD(float                           , m_flInterval                                    , 0x8) // float32
-    };
-
-    // CRandSimTimer
-    //   parent: CSimpleSimTimer
-    //   fields: 2
-    class CRandSimTimer : public CSimpleSimTimer {
-    public:
-        SCHEMA_FIELD(float                           , m_flMinInterval                                 , 0x8) // float32
-        SCHEMA_FIELD(float                           , m_flMaxInterval                                 , 0xC) // float32
+        SCHEMA_FIELD(CEconItemView                   , m_Item                                          , 0x50) // CEconItemView
     };
 
     // RelationshipOverride_t
@@ -5396,13 +5220,6 @@ namespace sdk::server {
     public:
         SCHEMA_FIELD(CHandle<CBaseEntity>            , entity                                          , 0x8) // CHandle<CBaseEntity>
         SCHEMA_FIELD(Class_T                         , classType                                       , 0xC) // Class_T
-    };
-
-    // CTouchExpansionComponent
-    //   parent: CEntityComponent
-    //   fields: 0
-    class CTouchExpansionComponent : public CEntityComponent {
-    public:
     };
 
     // CPointEntity
@@ -6490,12 +6307,183 @@ namespace sdk::server {
         SCHEMA_FIELD(bool                            , m_Entity_bEnabled                               , 0x588) // bool
     };
 
-    // CAttributeContainer
-    //   parent: CAttributeManager
-    //   fields: 1
-    class CAttributeContainer : public CAttributeManager {
+    // CTouchExpansionComponent
+    //   parent: CEntityComponent
+    //   fields: 0
+    class CTouchExpansionComponent : public CEntityComponent {
     public:
-        SCHEMA_FIELD(CEconItemView                   , m_Item                                          , 0x50) // CEconItemView
+    };
+
+    // CStopwatchBase
+    //   parent: CSimpleSimTimer
+    //   fields: 1
+    class CStopwatchBase : public CSimpleSimTimer {
+    public:
+        SCHEMA_FIELD(bool                            , m_fIsRunning                                    , 0x8) // bool
+    };
+
+    // CSimTimer
+    //   parent: CSimpleSimTimer
+    //   fields: 1
+    class CSimTimer : public CSimpleSimTimer {
+    public:
+        SCHEMA_FIELD(float                           , m_flInterval                                    , 0x8) // float32
+    };
+
+    // CRandSimTimer
+    //   parent: CSimpleSimTimer
+    //   fields: 2
+    class CRandSimTimer : public CSimpleSimTimer {
+    public:
+        SCHEMA_FIELD(float                           , m_flMinInterval                                 , 0x8) // float32
+        SCHEMA_FIELD(float                           , m_flMaxInterval                                 , 0xC) // float32
+    };
+
+    // CCSBot
+    //   parent: CBot
+    //   fields: 140
+    class CCSBot : public CBot {
+    public:
+        SCHEMA_FIELD(VectorWS                        , m_eyePosition                                   , 0x108) // VectorWS
+        SCHEMA_FIELD(char                            , m_name                                          , 0x114) // char[64]
+        SCHEMA_FIELD(float                           , m_combatRange                                   , 0x154) // float32
+        SCHEMA_FIELD(bool                            , m_isRogue                                       , 0x158) // bool
+        SCHEMA_FIELD(::sdk::client::CountdownTimer   , m_rogueTimer                                    , 0x160) // CountdownTimer
+        SCHEMA_FIELD(bool                            , m_diedLastRound                                 , 0x17C) // bool
+        SCHEMA_FIELD(float                           , m_safeTime                                      , 0x180) // float32
+        SCHEMA_FIELD(bool                            , m_wasSafe                                       , 0x184) // bool
+        SCHEMA_FIELD(bool                            , m_blindFire                                     , 0x18C) // bool
+        SCHEMA_FIELD(::sdk::client::CountdownTimer   , m_surpriseTimer                                 , 0x190) // CountdownTimer
+        SCHEMA_FIELD(bool                            , m_bAllowActive                                  , 0x1A8) // bool
+        SCHEMA_FIELD(bool                            , m_isFollowing                                   , 0x1A9) // bool
+        SCHEMA_FIELD(CHandle<CCSPlayerPawn>          , m_leader                                        , 0x1AC) // CHandle<CCSPlayerPawn>
+        SCHEMA_FIELD(float                           , m_followTimestamp                               , 0x1B0) // float32
+        SCHEMA_FIELD(float                           , m_allowAutoFollowTime                           , 0x1B4) // float32
+        SCHEMA_FIELD(::sdk::client::CountdownTimer   , m_hurryTimer                                    , 0x1B8) // CountdownTimer
+        SCHEMA_FIELD(::sdk::client::CountdownTimer   , m_alertTimer                                    , 0x1D0) // CountdownTimer
+        SCHEMA_FIELD(::sdk::client::CountdownTimer   , m_sneakTimer                                    , 0x1E8) // CountdownTimer
+        SCHEMA_FIELD(::sdk::client::CountdownTimer   , m_panicTimer                                    , 0x200) // CountdownTimer
+        SCHEMA_FIELD(float                           , m_stateTimestamp                                , 0x5C8) // float32
+        SCHEMA_FIELD(bool                            , m_isAttacking                                   , 0x5CC) // bool
+        SCHEMA_FIELD(bool                            , m_isOpeningDoor                                 , 0x5CD) // bool
+        SCHEMA_FIELD(CHandle<CBaseEntity>            , m_taskEntity                                    , 0x5D4) // CHandle<CBaseEntity>
+        SCHEMA_FIELD(VectorWS                        , m_goalPosition                                  , 0x5E4) // VectorWS
+        SCHEMA_FIELD(CHandle<CBaseEntity>            , m_goalEntity                                    , 0x5F0) // CHandle<CBaseEntity>
+        SCHEMA_FIELD(CHandle<CBaseEntity>            , m_avoid                                         , 0x5F4) // CHandle<CBaseEntity>
+        SCHEMA_FIELD(float                           , m_avoidTimestamp                                , 0x5F8) // float32
+        SCHEMA_FIELD(bool                            , m_isStopping                                    , 0x5FC) // bool
+        SCHEMA_FIELD(bool                            , m_hasVisitedEnemySpawn                          , 0x5FD) // bool
+        SCHEMA_FIELD(::sdk::client::IntervalTimer    , m_stillTimer                                    , 0x600) // IntervalTimer
+        SCHEMA_FIELD(bool                            , m_bEyeAnglesUnderPathFinderControl              , 0x610) // bool
+        SCHEMA_FIELD(std::int32_t                    , m_pathIndex                                     , 0x4F10) // int32
+        SCHEMA_FIELD(::GameTime_t                    , m_areaEnteredTimestamp                          , 0x4F14) // GameTime_t
+        SCHEMA_FIELD(::sdk::client::CountdownTimer   , m_repathTimer                                   , 0x4F18) // CountdownTimer
+        SCHEMA_FIELD(::sdk::client::CountdownTimer   , m_avoidFriendTimer                              , 0x4F30) // CountdownTimer
+        SCHEMA_FIELD(bool                            , m_isFriendInTheWay                              , 0x4F48) // bool
+        SCHEMA_FIELD(::sdk::client::CountdownTimer   , m_politeTimer                                   , 0x4F50) // CountdownTimer
+        SCHEMA_FIELD(bool                            , m_isWaitingBehindFriend                         , 0x4F68) // bool
+        SCHEMA_FIELD(float                           , m_pathLadderEnd                                 , 0x4F94) // float32
+        SCHEMA_FIELD(::sdk::client::CountdownTimer   , m_mustRunTimer                                  , 0x4FE0) // CountdownTimer
+        SCHEMA_FIELD(::sdk::client::CountdownTimer   , m_waitTimer                                     , 0x4FF8) // CountdownTimer
+        SCHEMA_FIELD(::sdk::client::CountdownTimer   , m_updateTravelDistanceTimer                     , 0x5010) // CountdownTimer
+        SCHEMA_FIELD(float                           , m_playerTravelDistance                          , 0x5028) // float32[64]
+        SCHEMA_FIELD(std::uint8_t                    , m_travelDistancePhase                           , 0x5128) // uint8
+        SCHEMA_FIELD(std::uint8_t                    , m_hostageEscortCount                            , 0x52C0) // uint8
+        SCHEMA_FIELD(float                           , m_hostageEscortCountTimestamp                   , 0x52C4) // float32
+        SCHEMA_FIELD(std::int32_t                    , m_desiredTeam                                   , 0x52C8) // int32
+        SCHEMA_FIELD(bool                            , m_hasJoined                                     , 0x52CC) // bool
+        SCHEMA_FIELD(bool                            , m_isWaitingForHostage                           , 0x52CD) // bool
+        SCHEMA_FIELD(::sdk::client::CountdownTimer   , m_inhibitWaitingForHostageTimer                 , 0x52D0) // CountdownTimer
+        SCHEMA_FIELD(::sdk::client::CountdownTimer   , m_waitForHostageTimer                           , 0x52E8) // CountdownTimer
+        SCHEMA_FIELD(::Vector                        , m_noisePosition                                 , 0x5300) // Vector
+        SCHEMA_FIELD(float                           , m_noiseTravelDistance                           , 0x530C) // float32
+        SCHEMA_FIELD(float                           , m_noiseTimestamp                                , 0x5310) // float32
+        SCHEMA_FIELD(CCSPlayerPawn*                  , m_noiseSource                                   , 0x5318) // CCSPlayerPawn*
+        SCHEMA_FIELD(::sdk::client::CountdownTimer   , m_noiseBendTimer                                , 0x5330) // CountdownTimer
+        SCHEMA_FIELD(::Vector                        , m_bentNoisePosition                             , 0x5348) // Vector
+        SCHEMA_FIELD(bool                            , m_bendNoisePositionValid                        , 0x5354) // bool
+        SCHEMA_FIELD(float                           , m_lookAroundStateTimestamp                      , 0x5358) // float32
+        SCHEMA_FIELD(float                           , m_lookAheadAngle                                , 0x535C) // float32
+        SCHEMA_FIELD(float                           , m_lookUpAngle                                   , 0x5360) // float32
+        SCHEMA_FIELD(float                           , m_forwardAngle                                  , 0x5364) // float32
+        SCHEMA_FIELD(float                           , m_inhibitLookAroundTimestamp                    , 0x5368) // float32
+        SCHEMA_FIELD(::Vector                        , m_lookAtSpot                                    , 0x5370) // Vector
+        SCHEMA_FIELD(float                           , m_lookAtSpotDuration                            , 0x5380) // float32
+        SCHEMA_FIELD(float                           , m_lookAtSpotTimestamp                           , 0x5384) // float32
+        SCHEMA_FIELD(float                           , m_lookAtSpotAngleTolerance                      , 0x5388) // float32
+        SCHEMA_FIELD(bool                            , m_lookAtSpotClearIfClose                        , 0x538C) // bool
+        SCHEMA_FIELD(bool                            , m_lookAtSpotAttack                              , 0x538D) // bool
+        SCHEMA_FIELD(char*                           , m_lookAtDesc                                    , 0x5390) // char*
+        SCHEMA_FIELD(float                           , m_peripheralTimestamp                           , 0x5398) // float32
+        SCHEMA_FIELD(std::uint8_t                    , m_approachPointCount                            , 0x5520) // uint8
+        SCHEMA_FIELD(::Vector                        , m_approachPointViewPosition                     , 0x5524) // Vector
+        SCHEMA_FIELD(::sdk::client::IntervalTimer    , m_viewSteadyTimer                               , 0x5530) // IntervalTimer
+        SCHEMA_FIELD(::sdk::client::CountdownTimer   , m_tossGrenadeTimer                              , 0x5548) // CountdownTimer
+        SCHEMA_FIELD(::sdk::client::CountdownTimer   , m_isAvoidingGrenade                             , 0x5568) // CountdownTimer
+        SCHEMA_FIELD(float                           , m_spotCheckTimestamp                            , 0x5588) // float32
+        SCHEMA_FIELD(std::int32_t                    , m_checkedHidingSpotCount                        , 0x5990) // int32
+        SCHEMA_FIELD(float                           , m_lookPitch                                     , 0x5994) // float32
+        SCHEMA_FIELD(float                           , m_lookPitchVel                                  , 0x5998) // float32
+        SCHEMA_FIELD(float                           , m_lookYaw                                       , 0x599C) // float32
+        SCHEMA_FIELD(float                           , m_lookYawVel                                    , 0x59A0) // float32
+        SCHEMA_FIELD(::Vector                        , m_targetSpot                                    , 0x59A4) // Vector
+        SCHEMA_FIELD(::Vector                        , m_targetSpotVelocity                            , 0x59B0) // Vector
+        SCHEMA_FIELD(::Vector                        , m_targetSpotPredicted                           , 0x59BC) // Vector
+        SCHEMA_FIELD(::QAngle                        , m_aimError                                      , 0x59C8) // QAngle
+        SCHEMA_FIELD(::QAngle                        , m_aimGoal                                       , 0x59D4) // QAngle
+        SCHEMA_FIELD(::GameTime_t                    , m_targetSpotTime                                , 0x59E0) // GameTime_t
+        SCHEMA_FIELD(float                           , m_aimFocus                                      , 0x59E4) // float32
+        SCHEMA_FIELD(float                           , m_aimFocusInterval                              , 0x59E8) // float32
+        SCHEMA_FIELD(::GameTime_t                    , m_aimFocusNextUpdate                            , 0x59EC) // GameTime_t
+        SCHEMA_FIELD(::sdk::client::CountdownTimer   , m_ignoreEnemiesTimer                            , 0x59F8) // CountdownTimer
+        SCHEMA_FIELD(CHandle<CCSPlayerPawn>          , m_enemy                                         , 0x5A10) // CHandle<CCSPlayerPawn>
+        SCHEMA_FIELD(bool                            , m_isEnemyVisible                                , 0x5A14) // bool
+        SCHEMA_FIELD(std::uint8_t                    , m_visibleEnemyParts                             , 0x5A15) // uint8
+        SCHEMA_FIELD(::Vector                        , m_lastEnemyPosition                             , 0x5A18) // Vector
+        SCHEMA_FIELD(float                           , m_lastSawEnemyTimestamp                         , 0x5A24) // float32
+        SCHEMA_FIELD(float                           , m_firstSawEnemyTimestamp                        , 0x5A28) // float32
+        SCHEMA_FIELD(float                           , m_currentEnemyAcquireTimestamp                  , 0x5A2C) // float32
+        SCHEMA_FIELD(float                           , m_enemyDeathTimestamp                           , 0x5A30) // float32
+        SCHEMA_FIELD(float                           , m_friendDeathTimestamp                          , 0x5A34) // float32
+        SCHEMA_FIELD(bool                            , m_isLastEnemyDead                               , 0x5A38) // bool
+        SCHEMA_FIELD(std::int32_t                    , m_nearbyEnemyCount                              , 0x5A3C) // int32
+        SCHEMA_FIELD(CHandle<CCSPlayerPawn>          , m_bomber                                        , 0x5C48) // CHandle<CCSPlayerPawn>
+        SCHEMA_FIELD(std::int32_t                    , m_nearbyFriendCount                             , 0x5C4C) // int32
+        SCHEMA_FIELD(CHandle<CCSPlayerPawn>          , m_closestVisibleFriend                          , 0x5C50) // CHandle<CCSPlayerPawn>
+        SCHEMA_FIELD(CHandle<CCSPlayerPawn>          , m_closestVisibleHumanFriend                     , 0x5C54) // CHandle<CCSPlayerPawn>
+        SCHEMA_FIELD(::sdk::client::IntervalTimer    , m_attentionInterval                             , 0x5C58) // IntervalTimer
+        SCHEMA_FIELD(CHandle<CCSPlayerPawn>          , m_attacker                                      , 0x5C68) // CHandle<CCSPlayerPawn>
+        SCHEMA_FIELD(float                           , m_attackedTimestamp                             , 0x5C6C) // float32
+        SCHEMA_FIELD(::sdk::client::IntervalTimer    , m_burnedByFlamesTimer                           , 0x5C70) // IntervalTimer
+        SCHEMA_FIELD(std::int32_t                    , m_lastVictimID                                  , 0x5C80) // int32
+        SCHEMA_FIELD(bool                            , m_isAimingAtEnemy                               , 0x5C84) // bool
+        SCHEMA_FIELD(bool                            , m_isRapidFiring                                 , 0x5C85) // bool
+        SCHEMA_FIELD(::sdk::client::IntervalTimer    , m_equipTimer                                    , 0x5C88) // IntervalTimer
+        SCHEMA_FIELD(::sdk::client::CountdownTimer   , m_zoomTimer                                     , 0x5C98) // CountdownTimer
+        SCHEMA_FIELD(::GameTime_t                    , m_fireWeaponTimestamp                           , 0x5CB0) // GameTime_t
+        SCHEMA_FIELD(::sdk::client::CountdownTimer   , m_lookForWeaponsOnGroundTimer                   , 0x5CB8) // CountdownTimer
+        SCHEMA_FIELD(bool                            , m_bIsSleeping                                   , 0x5CD0) // bool
+        SCHEMA_FIELD(bool                            , m_isEnemySniperVisible                          , 0x5CD1) // bool
+        SCHEMA_FIELD(::sdk::client::CountdownTimer   , m_sawEnemySniperTimer                           , 0x5CD8) // CountdownTimer
+        SCHEMA_FIELD(std::uint8_t                    , m_enemyQueueIndex                               , 0x5D90) // uint8
+        SCHEMA_FIELD(std::uint8_t                    , m_enemyQueueCount                               , 0x5D91) // uint8
+        SCHEMA_FIELD(std::uint8_t                    , m_enemyQueueAttendIndex                         , 0x5D92) // uint8
+        SCHEMA_FIELD(bool                            , m_isStuck                                       , 0x5D93) // bool
+        SCHEMA_FIELD(::GameTime_t                    , m_stuckTimestamp                                , 0x5D94) // GameTime_t
+        SCHEMA_FIELD(::Vector                        , m_stuckSpot                                     , 0x5D98) // Vector
+        SCHEMA_FIELD(::sdk::client::CountdownTimer   , m_wiggleTimer                                   , 0x5DA8) // CountdownTimer
+        SCHEMA_FIELD(::sdk::client::CountdownTimer   , m_stuckJumpTimer                                , 0x5DC0) // CountdownTimer
+        SCHEMA_FIELD(::GameTime_t                    , m_nextCleanupCheckTimestamp                     , 0x5DD8) // GameTime_t
+        SCHEMA_FIELD(float                           , m_avgVel                                        , 0x5DDC) // float32[10]
+        SCHEMA_FIELD(std::int32_t                    , m_avgVelIndex                                   , 0x5E04) // int32
+        SCHEMA_FIELD(std::int32_t                    , m_avgVelCount                                   , 0x5E08) // int32
+        SCHEMA_FIELD(::Vector                        , m_lastOrigin                                    , 0x5E0C) // Vector
+        SCHEMA_FIELD(float                           , m_lastRadioRecievedTimestamp                    , 0x5E1C) // float32
+        SCHEMA_FIELD(float                           , m_lastRadioSentTimestamp                        , 0x5E20) // float32
+        SCHEMA_FIELD(CHandle<CCSPlayerPawn>          , m_radioSubject                                  , 0x5E24) // CHandle<CCSPlayerPawn>
+        SCHEMA_FIELD(::Vector                        , m_radioPosition                                 , 0x5E28) // Vector
+        SCHEMA_FIELD(float                           , m_voiceEndTimestamp                             , 0x5E34) // float32
+        SCHEMA_FIELD(std::int32_t                    , m_lastValidReactionQueueFrame                   , 0x5E40) // int32
     };
 
     // dynpitchvol_t
@@ -6505,21 +6493,16 @@ namespace sdk::server {
     public:
     };
 
-    // CStopwatch
-    //   parent: CStopwatchBase
-    //   fields: 1
-    class CStopwatch : public CStopwatchBase {
+    // CCSPlayer_RadioServices
+    //   parent: CPlayerPawnComponent
+    //   fields: 5
+    class CCSPlayer_RadioServices : public CPlayerPawnComponent {
     public:
-        SCHEMA_FIELD(float                           , m_flInterval                                    , 0xC) // float32
-    };
-
-    // CRandStopwatch
-    //   parent: CStopwatchBase
-    //   fields: 2
-    class CRandStopwatch : public CStopwatchBase {
-    public:
-        SCHEMA_FIELD(float                           , m_flMinInterval                                 , 0xC) // float32
-        SCHEMA_FIELD(float                           , m_flMaxInterval                                 , 0x10) // float32
+        SCHEMA_FIELD(::GameTime_t                    , m_flGotHostageTalkTimer                         , 0x48) // GameTime_t
+        SCHEMA_FIELD(::GameTime_t                    , m_flDefusingTalkTimer                           , 0x4C) // GameTime_t
+        SCHEMA_FIELD(::GameTime_t                    , m_flC4PlantTalkTimer                            , 0x50) // GameTime_t
+        SCHEMA_FIELD(::GameTime_t                    , m_flRadioTokenSlots                             , 0x54) // GameTime_t[3]
+        SCHEMA_FIELD(bool                            , m_bIgnoreRadio                                  , 0x60) // bool
     };
 
     // CAmbientGeneric
@@ -8300,6 +8283,23 @@ namespace sdk::server {
     //   fields: 0
     class CEnvCubemapBox : public CEnvCubemap {
     public:
+    };
+
+    // CStopwatch
+    //   parent: CStopwatchBase
+    //   fields: 1
+    class CStopwatch : public CStopwatchBase {
+    public:
+        SCHEMA_FIELD(float                           , m_flInterval                                    , 0xC) // float32
+    };
+
+    // CRandStopwatch
+    //   parent: CStopwatchBase
+    //   fields: 2
+    class CRandStopwatch : public CStopwatchBase {
+    public:
+        SCHEMA_FIELD(float                           , m_flMinInterval                                 , 0xC) // float32
+        SCHEMA_FIELD(float                           , m_flMaxInterval                                 , 0x10) // float32
     };
 
     // CMoverPathNode

@@ -1,6 +1,6 @@
 {
   "build_number": 14164,
-  "generated_at": "2026-05-22T23:56:36.501892500+01:00",
+  "generated_at": "2026-05-22T23:57:35.528427900+01:00",
   "modules": {
     "animationsystem.dll": {
       "base": "0x7FFA73C70000",
@@ -126,7 +126,7 @@
     },
     "signatures": {
       "counts": {
-        "found": 602,
+        "found": 580,
         "total": 649
       },
       "enabled": true,

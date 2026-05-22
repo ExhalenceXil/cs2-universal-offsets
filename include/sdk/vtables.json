@@ -1331,6 +1331,2760 @@
       "vtable_rva": "0x6EB8D8"
     }
   },
+  "client.dll": {
+    "ClientToolsInfo_001": {
+      "method_count": 11,
+      "methods": [
+        {
+          "index": 0,
+          "module": "client.dll",
+          "name": "method_0",
+          "rva": "0xABFFF0"
+        },
+        {
+          "index": 1,
+          "module": "client.dll",
+          "name": "method_1",
+          "rva": "0xAC0050"
+        },
+        {
+          "index": 2,
+          "module": "client.dll",
+          "name": "method_2",
+          "rva": "0xABFFA0"
+        },
+        {
+          "index": 3,
+          "module": "client.dll",
+          "name": "method_3",
+          "rva": "0xAC00F0"
+        },
+        {
+          "index": 4,
+          "module": "client.dll",
+          "name": "method_4",
+          "rva": "0xAC0120"
+        },
+        {
+          "index": 5,
+          "module": "client.dll",
+          "name": "method_5",
+          "rva": "0xABFFB0"
+        },
+        {
+          "index": 6,
+          "module": "client.dll",
+          "name": "method_6",
+          "rva": "0xAC0130"
+        },
+        {
+          "index": 7,
+          "module": "client.dll",
+          "name": "method_7",
+          "rva": "0xABFFE0"
+        },
+        {
+          "index": 8,
+          "module": "client.dll",
+          "name": "method_8",
+          "rva": "0xAC0090"
+        },
+        {
+          "index": 9,
+          "module": "client.dll",
+          "name": "method_9",
+          "rva": "0xABFFC0"
+        },
+        {
+          "index": 10,
+          "module": "client.dll",
+          "name": "method_10",
+          "rva": "0xABFFD0"
+        }
+      ],
+      "rtti_class": "CClientToolsInfo",
+      "vtable_module": "client.dll",
+      "vtable_rva": "0x1AAECD8"
+    },
+    "EmptyWorldService001_Client": {
+      "method_count": 23,
+      "methods": [
+        {
+          "index": 0,
+          "module": "client.dll",
+          "name": "method_0",
+          "rva": "0x71FDF0"
+        },
+        {
+          "index": 1,
+          "module": "client.dll",
+          "name": "method_1",
+          "rva": "0x7202F0"
+        },
+        {
+          "index": 2,
+          "module": "client.dll",
+          "name": "method_2",
+          "rva": "0x72D550"
+        },
+        {
+          "index": 3,
+          "module": "client.dll",
+          "name": "method_3",
+          "rva": "0x726300"
+        },
+        {
+          "index": 4,
+          "module": "client.dll",
+          "name": "method_4",
+          "rva": "0x72EA10"
+        },
+        {
+          "index": 5,
+          "module": "client.dll",
+          "name": "method_5",
+          "rva": "0x72CBA0"
+        },
+        {
+          "index": 6,
+          "module": "client.dll",
+          "name": "method_6",
+          "rva": "0x7218D0"
+        },
+        {
+          "index": 7,
+          "module": "client.dll",
+          "name": "method_7",
+          "rva": "0x722580"
+        },
+        {
+          "index": 8,
+          "module": "client.dll",
+          "name": "method_8",
+          "rva": "0x72D850"
+        },
+        {
+          "index": 9,
+          "module": "client.dll",
+          "name": "method_9",
+          "rva": "0x72B580"
+        },
+        {
+          "index": 10,
+          "module": "client.dll",
+          "name": "method_10",
+          "rva": "0x722500"
+        },
+        {
+          "index": 11,
+          "module": "client.dll",
+          "name": "method_11",
+          "rva": "0x7223E0"
+        },
+        {
+          "index": 12,
+          "module": "client.dll",
+          "name": "method_12",
+          "rva": "0x7221F0"
+        },
+        {
+          "index": 13,
+          "module": "client.dll",
+          "name": "method_13",
+          "rva": "0x72E9F0"
+        },
+        {
+          "index": 14,
+          "module": "client.dll",
+          "name": "method_14",
+          "rva": "0x72C5C0"
+        },
+        {
+          "index": 15,
+          "module": "client.dll",
+          "name": "method_15",
+          "rva": "0x72C6A0"
+        },
+        {
+          "index": 16,
+          "module": "client.dll",
+          "name": "method_16",
+          "rva": "0x72B3F0"
+        },
+        {
+          "index": 17,
+          "module": "client.dll",
+          "name": "method_17",
+          "rva": "0x72E110"
+        },
+        {
+          "index": 18,
+          "module": "client.dll",
+          "name": "method_18",
+          "rva": "0x72E5F0"
+        },
+        {
+          "index": 19,
+          "module": "client.dll",
+          "name": "method_19",
+          "rva": "0x72D8A0"
+        },
+        {
+          "index": 20,
+          "module": "client.dll",
+          "name": "method_20",
+          "rva": "0x7223F0"
+        },
+        {
+          "index": 21,
+          "module": "client.dll",
+          "name": "method_21",
+          "rva": "0x72E600"
+        },
+        {
+          "index": 22,
+          "module": "client.dll",
+          "name": "method_22",
+          "rva": "0x71ADA0"
+        }
+      ],
+      "rtti_class": "CEmptyWorldService",
+      "vtable_module": "client.dll",
+      "vtable_rva": "0x1A0DC18"
+    },
+    "GameClientExports001": {
+      "method_count": 19,
+      "methods": [
+        {
+          "index": 0,
+          "module": "client.dll",
+          "name": "method_0",
+          "rva": "0xAC0370"
+        },
+        {
+          "index": 1,
+          "module": "client.dll",
+          "name": "method_1",
+          "rva": "0xAC03D0"
+        },
+        {
+          "index": 2,
+          "module": "client.dll",
+          "name": "method_2",
+          "rva": "0xAC02E0"
+        },
+        {
+          "index": 3,
+          "module": "client.dll",
+          "name": "method_3",
+          "rva": "0xAC0340"
+        },
+        {
+          "index": 4,
+          "module": "client.dll",
+          "name": "method_4",
+          "rva": "0xAC0330"
+        },
+        {
+          "index": 5,
+          "module": "client.dll",
+          "name": "method_5",
+          "rva": "0xAC02F0"
+        },
+        {
+          "index": 6,
+          "module": "client.dll",
+          "name": "method_6",
+          "rva": "0xAC0300"
+        },
+        {
+          "index": 7,
+          "module": "client.dll",
+          "name": "method_7",
+          "rva": "0xAC0360"
+        },
+        {
+          "index": 8,
+          "module": "client.dll",
+          "name": "method_8",
+          "rva": "0xAC0410"
+        },
+        {
+          "index": 9,
+          "module": "client.dll",
+          "name": "method_9",
+          "rva": "0xAC0310"
+        },
+        {
+          "index": 10,
+          "module": "client.dll",
+          "name": "method_10",
+          "rva": "0xAC0320"
+        },
+        {
+          "index": 11,
+          "module": "client.dll",
+          "name": "method_11",
+          "rva": "0xAC0470"
+        },
+        {
+          "index": 12,
+          "module": "client.dll",
+          "name": "method_12",
+          "rva": "0xAC0490"
+        },
+        {
+          "index": 13,
+          "module": "client.dll",
+          "name": "method_13",
+          "rva": "0xAC04A0"
+        },
+        {
+          "index": 14,
+          "module": "client.dll",
+          "name": "LevelShutdown",
+          "rva": "0xAC04B0"
+        },
+        {
+          "index": 15,
+          "module": "client.dll",
+          "name": "method_15",
+          "rva": "0xAC04F0"
+        },
+        {
+          "index": 16,
+          "module": "client.dll",
+          "name": "method_16",
+          "rva": "0xAC0530"
+        },
+        {
+          "index": 17,
+          "module": "client.dll",
+          "name": "method_17",
+          "rva": "0xAC0540"
+        },
+        {
+          "index": 18,
+          "module": "client.dll",
+          "name": "method_18",
+          "rva": "0xAC0550"
+        }
+      ],
+      "rtti_class": "CGameClientExports",
+      "vtable_module": "client.dll",
+      "vtable_rva": "0x1AAF698"
+    },
+    "LegacyGameUI001": {
+      "method_count": 37,
+      "methods": [
+        {
+          "index": 0,
+          "module": "client.dll",
+          "name": "method_0",
+          "rva": "0xCA8A60"
+        },
+        {
+          "index": 1,
+          "module": "client.dll",
+          "name": "method_1",
+          "rva": "0xCA97C0"
+        },
+        {
+          "index": 2,
+          "module": "client.dll",
+          "name": "method_2",
+          "rva": "0xCAC580"
+        },
+        {
+          "index": 3,
+          "module": "client.dll",
+          "name": "CLegacyGameUI_Initialize",
+          "rva": "0xCA9D30"
+        },
+        {
+          "index": 4,
+          "module": "client.dll",
+          "name": "method_4",
+          "rva": "0xCAD5A0"
+        },
+        {
+          "index": 5,
+          "module": "client.dll",
+          "name": "method_5",
+          "rva": "0xCAC570"
+        },
+        {
+          "index": 6,
+          "module": "client.dll",
+          "name": "method_6",
+          "rva": "0xCA9B70"
+        },
+        {
+          "index": 7,
+          "module": "client.dll",
+          "name": "method_7",
+          "rva": "0xCA9CE0"
+        },
+        {
+          "index": 8,
+          "module": "client.dll",
+          "name": "method_8",
+          "rva": "0xCAC590"
+        },
+        {
+          "index": 9,
+          "module": "client.dll",
+          "name": "method_9",
+          "rva": "0xCAB060"
+        },
+        {
+          "index": 10,
+          "module": "client.dll",
+          "name": "method_10",
+          "rva": "0xCA9CD0"
+        },
+        {
+          "index": 11,
+          "module": "client.dll",
+          "name": "method_11",
+          "rva": "0xCAC520"
+        },
+        {
+          "index": 12,
+          "module": "client.dll",
+          "name": "method_12",
+          "rva": "0xCAD7A0"
+        },
+        {
+          "index": 13,
+          "module": "client.dll",
+          "name": "method_13",
+          "rva": "0xCAD0A0"
+        },
+        {
+          "index": 14,
+          "module": "client.dll",
+          "name": "method_14",
+          "rva": "0xCA8F30"
+        },
+        {
+          "index": 15,
+          "module": "client.dll",
+          "name": "method_15",
+          "rva": "0xCAB570"
+        },
+        {
+          "index": 16,
+          "module": "client.dll",
+          "name": "method_16",
+          "rva": "0xCAB750"
+        },
+        {
+          "index": 17,
+          "module": "client.dll",
+          "name": "method_17",
+          "rva": "0xCABAE0"
+        },
+        {
+          "index": 18,
+          "module": "client.dll",
+          "name": "method_18",
+          "rva": "0xCAB810"
+        },
+        {
+          "index": 19,
+          "module": "client.dll",
+          "name": "method_19",
+          "rva": "0xCAE240"
+        },
+        {
+          "index": 20,
+          "module": "client.dll",
+          "name": "method_20",
+          "rva": "0xCAD3E0"
+        },
+        {
+          "index": 21,
+          "module": "client.dll",
+          "name": "method_21",
+          "rva": "0xCAB1D0"
+        },
+        {
+          "index": 22,
+          "module": "client.dll",
+          "name": "method_22",
+          "rva": "0xCAD3F0"
+        },
+        {
+          "index": 23,
+          "module": "client.dll",
+          "name": "method_23",
+          "rva": "0xCAB1E0"
+        },
+        {
+          "index": 24,
+          "module": "client.dll",
+          "name": "method_24",
+          "rva": "0xCAB1C0"
+        },
+        {
+          "index": 25,
+          "module": "client.dll",
+          "name": "method_25",
+          "rva": "0xCAD590"
+        },
+        {
+          "index": 26,
+          "module": "client.dll",
+          "name": "method_26",
+          "rva": "0xCA7BE0"
+        },
+        {
+          "index": 27,
+          "module": "client.dll",
+          "name": "method_27",
+          "rva": "0xCAAFF0"
+        },
+        {
+          "index": 28,
+          "module": "client.dll",
+          "name": "ShowMessageBox",
+          "rva": "0xCA8BA0"
+        },
+        {
+          "index": 29,
+          "module": "client.dll",
+          "name": "method_29",
+          "rva": "0xCA8E20"
+        },
+        {
+          "index": 30,
+          "module": "client.dll",
+          "name": "method_30",
+          "rva": "0xCA9210"
+        },
+        {
+          "index": 31,
+          "module": "client.dll",
+          "name": "method_31",
+          "rva": "0xCA9580"
+        },
+        {
+          "index": 32,
+          "module": "client.dll",
+          "name": "method_32",
+          "rva": "0xCA9430"
+        },
+        {
+          "index": 33,
+          "module": "client.dll",
+          "name": "method_33",
+          "rva": "0xCAB050"
+        },
+        {
+          "index": 34,
+          "module": "client.dll",
+          "name": "method_34",
+          "rva": "0xCAB070"
+        },
+        {
+          "index": 35,
+          "module": "client.dll",
+          "name": "method_35",
+          "rva": "0xCAD400"
+        },
+        {
+          "index": 36,
+          "module": "client.dll",
+          "name": "method_36",
+          "rva": "0xCAD410"
+        }
+      ],
+      "rtti_class": "CLegacyGameUI",
+      "vtable_module": "client.dll",
+      "vtable_rva": "0x1AFB458"
+    },
+    "Source2Client002": {
+      "method_count": 231,
+      "methods": [
+        {
+          "index": 0,
+          "module": "client.dll",
+          "name": "method_0",
+          "rva": "0xACDF40"
+        },
+        {
+          "index": 1,
+          "module": "client.dll",
+          "name": "method_1",
+          "rva": "0xAD0890"
+        },
+        {
+          "index": 2,
+          "module": "client.dll",
+          "name": "method_2",
+          "rva": "0xAE3F20"
+        },
+        {
+          "index": 3,
+          "module": "client.dll",
+          "name": "method_3",
+          "rva": "0xAD99E0"
+        },
+        {
+          "index": 4,
+          "module": "client.dll",
+          "name": "Shutdown",
+          "rva": "0xAE8C30"
+        },
+        {
+          "index": 5,
+          "module": "client.dll",
+          "name": "method_5",
+          "rva": "0xAE2D20"
+        },
+        {
+          "index": 6,
+          "module": "client.dll",
+          "name": "method_6",
+          "rva": "0xAD6860"
+        },
+        {
+          "index": 7,
+          "module": "client.dll",
+          "name": "method_7",
+          "rva": "0xAD8750"
+        },
+        {
+          "index": 8,
+          "module": "client.dll",
+          "name": "method_8",
+          "rva": "0xAE4320"
+        },
+        {
+          "index": 9,
+          "module": "client.dll",
+          "name": "method_9",
+          "rva": "0xADD260"
+        },
+        {
+          "index": 10,
+          "module": "client.dll",
+          "name": "method_10",
+          "rva": "0xAD8740"
+        },
+        {
+          "index": 11,
+          "module": "client.dll",
+          "name": "update_global_vars",
+          "rva": "0xAE77D0"
+        },
+        {
+          "index": 12,
+          "module": "client.dll",
+          "name": "method_12",
+          "rva": "0xADCF40"
+        },
+        {
+          "index": 13,
+          "module": "client.dll",
+          "name": "method_13",
+          "rva": "0xAE4100"
+        },
+        {
+          "index": 14,
+          "module": "client.dll",
+          "name": "method_14",
+          "rva": "0xAE2A50"
+        },
+        {
+          "index": 15,
+          "module": "client.dll",
+          "name": "method_15",
+          "rva": "0xAD0000"
+        },
+        {
+          "index": 16,
+          "module": "client.dll",
+          "name": "method_16",
+          "rva": "0xAD5590"
+        },
+        {
+          "index": 17,
+          "module": "client.dll",
+          "name": "method_17",
+          "rva": "0xAE9160"
+        },
+        {
+          "index": 18,
+          "module": "client.dll",
+          "name": "method_18",
+          "rva": "0xAD7940"
+        },
+        {
+          "index": 19,
+          "module": "client.dll",
+          "name": "method_19",
+          "rva": "0xAD7970"
+        },
+        {
+          "index": 20,
+          "module": "client.dll",
+          "name": "method_20",
+          "rva": "0xAD7B60"
+        },
+        {
+          "index": 21,
+          "module": "client.dll",
+          "name": "method_21",
+          "rva": "0xAE13D0"
+        },
+        {
+          "index": 22,
+          "module": "client.dll",
+          "name": "method_22",
+          "rva": "0xAE37F0"
+        },
+        {
+          "index": 23,
+          "module": "client.dll",
+          "name": "method_23",
+          "rva": "0xAEBDB0"
+        },
+        {
+          "index": 24,
+          "module": "client.dll",
+          "name": "method_24",
+          "rva": "0xAD0F50"
+        },
+        {
+          "index": 25,
+          "module": "client.dll",
+          "name": "method_25",
+          "rva": "0xAD0040"
+        },
+        {
+          "index": 26,
+          "module": "client.dll",
+          "name": "method_26",
+          "rva": "0xAD8850"
+        },
+        {
+          "index": 27,
+          "module": "client.dll",
+          "name": "method_27",
+          "rva": "0xAE77B0"
+        },
+        {
+          "index": 28,
+          "module": "client.dll",
+          "name": "method_28",
+          "rva": "0xAE91C0"
+        },
+        {
+          "index": 29,
+          "module": "client.dll",
+          "name": "method_29",
+          "rva": "0xAD7130"
+        },
+        {
+          "index": 30,
+          "module": "client.dll",
+          "name": "method_30",
+          "rva": "0xACEF50"
+        },
+        {
+          "index": 31,
+          "module": "client.dll",
+          "name": "method_31",
+          "rva": "0xAD0790"
+        },
+        {
+          "index": 32,
+          "module": "client.dll",
+          "name": "method_32",
+          "rva": "0xAD7DB0"
+        },
+        {
+          "index": 33,
+          "module": "client.dll",
+          "name": "method_33",
+          "rva": "0xADFFD0"
+        },
+        {
+          "index": 34,
+          "module": "client.dll",
+          "name": "method_34",
+          "rva": "0xAD5E60"
+        },
+        {
+          "index": 35,
+          "module": "client.dll",
+          "name": "method_35",
+          "rva": "0xAE42C0"
+        },
+        {
+          "index": 36,
+          "module": "client.dll",
+          "name": "FrameStageNotify",
+          "rva": "0xAD56F0"
+        },
+        {
+          "index": 37,
+          "module": "client.dll",
+          "name": "method_37",
+          "rva": "0xAD93A0"
+        },
+        {
+          "index": 38,
+          "module": "client.dll",
+          "name": "method_38",
+          "rva": "0xAD91C0"
+        },
+        {
+          "index": 39,
+          "module": "client.dll",
+          "name": "method_39",
+          "rva": "0xAD91B0"
+        },
+        {
+          "index": 40,
+          "module": "client.dll",
+          "name": "method_40",
+          "rva": "0xAE1270"
+        },
+        {
+          "index": 41,
+          "module": "client.dll",
+          "name": "method_41",
+          "rva": "0xACCBB0"
+        },
+        {
+          "index": 42,
+          "module": "client.dll",
+          "name": "method_42",
+          "rva": "0xAEBA70"
+        },
+        {
+          "index": 43,
+          "module": "client.dll",
+          "name": "method_43",
+          "rva": "0xAE1450"
+        },
+        {
+          "index": 44,
+          "module": "client.dll",
+          "name": "method_44",
+          "rva": "0xAE9700"
+        },
+        {
+          "index": 45,
+          "module": "client.dll",
+          "name": "method_45",
+          "rva": "0xACCBA0"
+        },
+        {
+          "index": 46,
+          "module": "client.dll",
+          "name": "method_46",
+          "rva": "0xAE0E40"
+        },
+        {
+          "index": 47,
+          "module": "client.dll",
+          "name": "method_47",
+          "rva": "0xAE13E0"
+        },
+        {
+          "index": 48,
+          "module": "client.dll",
+          "name": "method_48",
+          "rva": "0xAEBBD0"
+        },
+        {
+          "index": 49,
+          "module": "client.dll",
+          "name": "method_49",
+          "rva": "0xAC9E90"
+        },
+        {
+          "index": 50,
+          "module": "client.dll",
+          "name": "method_50",
+          "rva": "0xAD5CD0"
+        },
+        {
+          "index": 51,
+          "module": "client.dll",
+          "name": "method_51",
+          "rva": "0xAD7CA0"
+        },
+        {
+          "index": 52,
+          "module": "client.dll",
+          "name": "method_52",
+          "rva": "0xAEAE60"
+        },
+        {
+          "index": 53,
+          "module": "client.dll",
+          "name": "method_53",
+          "rva": "0xAE13C0"
+        },
+        {
+          "index": 54,
+          "module": "client.dll",
+          "name": "method_54",
+          "rva": "0xAD97F0"
+        },
+        {
+          "index": 55,
+          "module": "client.dll",
+          "name": "method_55",
+          "rva": "0xAEBBA0"
+        },
+        {
+          "index": 56,
+          "module": "client.dll",
+          "name": "method_56",
+          "rva": "0xADFD60"
+        },
+        {
+          "index": 57,
+          "module": "client.dll",
+          "name": "method_57",
+          "rva": "0xACCB60"
+        },
+        {
+          "index": 58,
+          "module": "client.dll",
+          "name": "method_58",
+          "rva": "0xAD6850"
+        },
+        {
+          "index": 59,
+          "module": "client.dll",
+          "name": "method_59",
+          "rva": "0xACCAD0"
+        },
+        {
+          "index": 60,
+          "module": "client.dll",
+          "name": "method_60",
+          "rva": "0xAE0610"
+        },
+        {
+          "index": 61,
+          "module": "client.dll",
+          "name": "method_61",
+          "rva": "0xAE0620"
+        },
+        {
+          "index": 62,
+          "module": "client.dll",
+          "name": "method_62",
+          "rva": "0xAE03D0"
+        },
+        {
+          "index": 63,
+          "module": "client.dll",
+          "name": "method_63",
+          "rva": "0xAE0580"
+        },
+        {
+          "index": 64,
+          "module": "client.dll",
+          "name": "method_64",
+          "rva": "0xAE03B0"
+        },
+        {
+          "index": 65,
+          "module": "client.dll",
+          "name": "method_65",
+          "rva": "0xAE7E00"
+        },
+        {
+          "index": 66,
+          "module": "client.dll",
+          "name": "method_66",
+          "rva": "0xAE8130"
+        },
+        {
+          "index": 67,
+          "module": "client.dll",
+          "name": "method_67",
+          "rva": "0xAE8510"
+        },
+        {
+          "index": 68,
+          "module": "client.dll",
+          "name": "method_68",
+          "rva": "0xACCD90"
+        },
+        {
+          "index": 69,
+          "module": "client.dll",
+          "name": "method_69",
+          "rva": "0xAE0630"
+        },
+        {
+          "index": 70,
+          "module": "client.dll",
+          "name": "method_70",
+          "rva": "0xAE07D0"
+        },
+        {
+          "index": 71,
+          "module": "client.dll",
+          "name": "method_71",
+          "rva": "0xAE8BF0"
+        },
+        {
+          "index": 72,
+          "module": "client.dll",
+          "name": "method_72",
+          "rva": "0xADA3D0"
+        },
+        {
+          "index": 73,
+          "module": "client.dll",
+          "name": "method_73",
+          "rva": "0xACCD80"
+        },
+        {
+          "index": 74,
+          "module": "client.dll",
+          "name": "method_74",
+          "rva": "0xAEB220"
+        },
+        {
+          "index": 75,
+          "module": "client.dll",
+          "name": "method_75",
+          "rva": "0xAE8C10"
+        },
+        {
+          "index": 76,
+          "module": "client.dll",
+          "name": "method_76",
+          "rva": "0xAD64A0"
+        },
+        {
+          "index": 77,
+          "module": "client.dll",
+          "name": "method_77",
+          "rva": "0xAE10C0"
+        },
+        {
+          "index": 78,
+          "module": "client.dll",
+          "name": "method_78",
+          "rva": "0xAD6540"
+        },
+        {
+          "index": 79,
+          "module": "client.dll",
+          "name": "get_view_angles_v2",
+          "rva": "0xAD7450"
+        },
+        {
+          "index": 80,
+          "module": "client.dll",
+          "name": "method_80",
+          "rva": "0xAE9170"
+        },
+        {
+          "index": 81,
+          "module": "client.dll",
+          "name": "method_81",
+          "rva": "0xAD7350"
+        },
+        {
+          "index": 82,
+          "module": "client.dll",
+          "name": "method_82",
+          "rva": "0xAD7AA0"
+        },
+        {
+          "index": 83,
+          "module": "client.dll",
+          "name": "method_83",
+          "rva": "0xADD080"
+        },
+        {
+          "index": 84,
+          "module": "client.dll",
+          "name": "method_84",
+          "rva": "0xAD6BF0"
+        },
+        {
+          "index": 85,
+          "module": "client.dll",
+          "name": "method_85",
+          "rva": "0xAD6C90"
+        },
+        {
+          "index": 86,
+          "module": "client.dll",
+          "name": "method_86",
+          "rva": "0xAD6B60"
+        },
+        {
+          "index": 87,
+          "module": "client.dll",
+          "name": "method_87",
+          "rva": "0xAD71E0"
+        },
+        {
+          "index": 88,
+          "module": "client.dll",
+          "name": "method_88",
+          "rva": "0xAD70E0"
+        },
+        {
+          "index": 89,
+          "module": "client.dll",
+          "name": "method_89",
+          "rva": "0xAD6740"
+        },
+        {
+          "index": 90,
+          "module": "client.dll",
+          "name": "method_90",
+          "rva": "0xAD7170"
+        },
+        {
+          "index": 91,
+          "module": "client.dll",
+          "name": "method_91",
+          "rva": "0xAD6D00"
+        },
+        {
+          "index": 92,
+          "module": "client.dll",
+          "name": "method_92",
+          "rva": "0xAD6E30"
+        },
+        {
+          "index": 93,
+          "module": "client.dll",
+          "name": "method_93",
+          "rva": "0xAD7420"
+        },
+        {
+          "index": 94,
+          "module": "client.dll",
+          "name": "method_94",
+          "rva": "0xAD7050"
+        },
+        {
+          "index": 95,
+          "module": "client.dll",
+          "name": "method_95",
+          "rva": "0xAD7B20"
+        },
+        {
+          "index": 96,
+          "module": "client.dll",
+          "name": "method_96",
+          "rva": "0xAD7860"
+        },
+        {
+          "index": 97,
+          "module": "client.dll",
+          "name": "method_97",
+          "rva": "0xAD7DF0"
+        },
+        {
+          "index": 98,
+          "module": "client.dll",
+          "name": "method_98",
+          "rva": "0xAD80B0"
+        },
+        {
+          "index": 99,
+          "module": "client.dll",
+          "name": "method_99",
+          "rva": "0xAD00C0"
+        },
+        {
+          "index": 100,
+          "module": "client.dll",
+          "name": "method_100",
+          "rva": "0xAE2030"
+        },
+        {
+          "index": 101,
+          "module": "client.dll",
+          "name": "method_101",
+          "rva": "0xAD8250"
+        },
+        {
+          "index": 102,
+          "module": "client.dll",
+          "name": "method_102",
+          "rva": "0xAD64C0"
+        },
+        {
+          "index": 103,
+          "module": "client.dll",
+          "name": "method_103",
+          "rva": "0xAEB330"
+        },
+        {
+          "index": 104,
+          "module": "client.dll",
+          "name": "method_104",
+          "rva": "0xAD0080"
+        },
+        {
+          "index": 105,
+          "module": "client.dll",
+          "name": "method_105",
+          "rva": "0xAEB1D0"
+        },
+        {
+          "index": 106,
+          "module": "client.dll",
+          "name": "method_106",
+          "rva": "0xAD0070"
+        },
+        {
+          "index": 107,
+          "module": "client.dll",
+          "name": "method_107",
+          "rva": "0xAEB5F0"
+        },
+        {
+          "index": 108,
+          "module": "client.dll",
+          "name": "method_108",
+          "rva": "0xAD00A0"
+        },
+        {
+          "index": 109,
+          "module": "client.dll",
+          "name": "method_109",
+          "rva": "0xAEAF10"
+        },
+        {
+          "index": 110,
+          "module": "client.dll",
+          "name": "method_110",
+          "rva": "0xAD0050"
+        },
+        {
+          "index": 111,
+          "module": "client.dll",
+          "name": "method_111",
+          "rva": "0xAEA080"
+        },
+        {
+          "index": 112,
+          "module": "client.dll",
+          "name": "method_112",
+          "rva": "0xAEA170"
+        },
+        {
+          "index": 113,
+          "module": "client.dll",
+          "name": "method_113",
+          "rva": "0xAD8270"
+        },
+        {
+          "index": 114,
+          "module": "client.dll",
+          "name": "method_114",
+          "rva": "0xAD82C0"
+        },
+        {
+          "index": 115,
+          "module": "client.dll",
+          "name": "method_115",
+          "rva": "0xAD82D0"
+        },
+        {
+          "index": 116,
+          "module": "client.dll",
+          "name": "method_116",
+          "rva": "0xADDF40"
+        },
+        {
+          "index": 117,
+          "module": "client.dll",
+          "name": "method_117",
+          "rva": "0xAD0F00"
+        },
+        {
+          "index": 118,
+          "module": "client.dll",
+          "name": "method_118",
+          "rva": "0xADD240"
+        },
+        {
+          "index": 119,
+          "module": "client.dll",
+          "name": "method_119",
+          "rva": "0xAD8260"
+        },
+        {
+          "index": 120,
+          "module": "client.dll",
+          "name": "method_120",
+          "rva": "0xAD6620"
+        },
+        {
+          "index": 121,
+          "module": "client.dll",
+          "name": "method_121",
+          "rva": "0xADFFC0"
+        },
+        {
+          "index": 122,
+          "module": "client.dll",
+          "name": "method_122",
+          "rva": "0xAEBBC0"
+        },
+        {
+          "index": 123,
+          "module": "client.dll",
+          "name": "method_123",
+          "rva": "0xAEB990"
+        },
+        {
+          "index": 124,
+          "module": "client.dll",
+          "name": "method_124",
+          "rva": "0xAEB210"
+        },
+        {
+          "index": 125,
+          "module": "client.dll",
+          "name": "method_125",
+          "rva": "0xAD7740"
+        },
+        {
+          "index": 126,
+          "module": "client.dll",
+          "name": "method_126",
+          "rva": "0xAE13B0"
+        },
+        {
+          "index": 127,
+          "module": "client.dll",
+          "name": "method_127",
+          "rva": "0xAEB1E0"
+        },
+        {
+          "index": 128,
+          "module": "client.dll",
+          "name": "method_128",
+          "rva": "0xAD6B20"
+        },
+        {
+          "index": 129,
+          "module": "client.dll",
+          "name": "method_129",
+          "rva": "0xAD5E00"
+        },
+        {
+          "index": 130,
+          "module": "client.dll",
+          "name": "method_130",
+          "rva": "0xADFE40"
+        },
+        {
+          "index": 131,
+          "module": "client.dll",
+          "name": "method_131",
+          "rva": "0xAD7C00"
+        },
+        {
+          "index": 132,
+          "module": "client.dll",
+          "name": "method_132",
+          "rva": "0xAC9EB0"
+        },
+        {
+          "index": 133,
+          "module": "client.dll",
+          "name": "method_133",
+          "rva": "0xAC9F20"
+        },
+        {
+          "index": 134,
+          "module": "client.dll",
+          "name": "method_134",
+          "rva": "0xAD7750"
+        },
+        {
+          "index": 135,
+          "module": "client.dll",
+          "name": "method_135",
+          "rva": "0xAD8F50"
+        },
+        {
+          "index": 136,
+          "module": "client.dll",
+          "name": "method_136",
+          "rva": "0xAD8840"
+        },
+        {
+          "index": 137,
+          "module": "client.dll",
+          "name": "method_137",
+          "rva": "0xAD6630"
+        },
+        {
+          "index": 138,
+          "module": "client.dll",
+          "name": "method_138",
+          "rva": "0xAD8420"
+        },
+        {
+          "index": 139,
+          "module": "client.dll",
+          "name": "method_139",
+          "rva": "0xAD73B0"
+        },
+        {
+          "index": 140,
+          "module": "client.dll",
+          "name": "method_140",
+          "rva": "0xAD8820"
+        },
+        {
+          "index": 141,
+          "module": "client.dll",
+          "name": "method_141",
+          "rva": "0xAC8230"
+        },
+        {
+          "index": 142,
+          "module": "client.dll",
+          "name": "method_142",
+          "rva": "0xAC8240"
+        },
+        {
+          "index": 143,
+          "module": "client.dll",
+          "name": "method_143",
+          "rva": "0xADD270"
+        },
+        {
+          "index": 144,
+          "module": "client.dll",
+          "name": "method_144",
+          "rva": "0xAD8580"
+        },
+        {
+          "index": 145,
+          "module": "client.dll",
+          "name": "method_145",
+          "rva": "0xAD0010"
+        },
+        {
+          "index": 146,
+          "module": "client.dll",
+          "name": "method_146",
+          "rva": "0xACEC60"
+        },
+        {
+          "index": 147,
+          "module": "client.dll",
+          "name": "method_147",
+          "rva": "0xAE1690"
+        },
+        {
+          "index": 148,
+          "module": "client.dll",
+          "name": "method_148",
+          "rva": "0xAD7760"
+        },
+        {
+          "index": 149,
+          "module": "client.dll",
+          "name": "method_149",
+          "rva": "0xAD73C0"
+        },
+        {
+          "index": 150,
+          "module": "client.dll",
+          "name": "method_150",
+          "rva": "0xAD5E80"
+        },
+        {
+          "index": 151,
+          "module": "client.dll",
+          "name": "method_151",
+          "rva": "0xAE5660"
+        },
+        {
+          "index": 152,
+          "module": "client.dll",
+          "name": "method_152",
+          "rva": "0xAEB5D0"
+        },
+        {
+          "index": 153,
+          "module": "client.dll",
+          "name": "method_153",
+          "rva": "0xAC8250"
+        },
+        {
+          "index": 154,
+          "module": "client.dll",
+          "name": "method_154",
+          "rva": "0xAD6010"
+        },
+        {
+          "index": 155,
+          "module": "client.dll",
+          "name": "method_155",
+          "rva": "0xAD5EF0"
+        },
+        {
+          "index": 156,
+          "module": "client.dll",
+          "name": "method_156",
+          "rva": "0xAE4940"
+        },
+        {
+          "index": 157,
+          "module": "client.dll",
+          "name": "method_157",
+          "rva": "0xAE9710"
+        },
+        {
+          "index": 158,
+          "module": "client.dll",
+          "name": "method_158",
+          "rva": "0xAEAE30"
+        },
+        {
+          "index": 159,
+          "module": "client.dll",
+          "name": "method_159",
+          "rva": "0xAD8B30"
+        },
+        {
+          "index": 160,
+          "module": "client.dll",
+          "name": "method_160",
+          "rva": "0xAD6680"
+        },
+        {
+          "index": 161,
+          "module": "client.dll",
+          "name": "method_161",
+          "rva": "0xAD8460"
+        },
+        {
+          "index": 162,
+          "module": "client.dll",
+          "name": "method_162",
+          "rva": "0xAE1080"
+        },
+        {
+          "index": 163,
+          "module": "client.dll",
+          "name": "method_163",
+          "rva": "0xAE10A0"
+        },
+        {
+          "index": 164,
+          "module": "client.dll",
+          "name": "method_164",
+          "rva": "0xAD7790"
+        },
+        {
+          "index": 165,
+          "module": "client.dll",
+          "name": "method_165",
+          "rva": "0xAE1040"
+        },
+        {
+          "index": 166,
+          "module": "client.dll",
+          "name": "method_166",
+          "rva": "0xAD8570"
+        },
+        {
+          "index": 167,
+          "module": "client.dll",
+          "name": "method_167",
+          "rva": "0xAD79A0"
+        },
+        {
+          "index": 168,
+          "module": "client.dll",
+          "name": "method_168",
+          "rva": "0xAE05D0"
+        },
+        {
+          "index": 169,
+          "module": "client.dll",
+          "name": "method_169",
+          "rva": "0xAD0FC0"
+        },
+        {
+          "index": 170,
+          "module": "client.dll",
+          "name": "method_170",
+          "rva": "0xAD0880"
+        },
+        {
+          "index": 171,
+          "module": "client.dll",
+          "name": "method_171",
+          "rva": "0xAD80E0"
+        },
+        {
+          "index": 172,
+          "module": "client.dll",
+          "name": "method_172",
+          "rva": "0xAD6FC0"
+        },
+        {
+          "index": 173,
+          "module": "client.dll",
+          "name": "method_173",
+          "rva": "0xAD1FA0"
+        },
+        {
+          "index": 174,
+          "module": "client.dll",
+          "name": "method_174",
+          "rva": "0xAD0EF0"
+        },
+        {
+          "index": 175,
+          "module": "client.dll",
+          "name": "method_175",
+          "rva": "0xAC8D30"
+        },
+        {
+          "index": 176,
+          "module": "client.dll",
+          "name": "method_176",
+          "rva": "0xAE53D0"
+        },
+        {
+          "index": 177,
+          "module": "client.dll",
+          "name": "method_177",
+          "rva": "0xAD6660"
+        },
+        {
+          "index": 178,
+          "module": "client.dll",
+          "name": "method_178",
+          "rva": "0xAD7150"
+        },
+        {
+          "index": 179,
+          "module": "client.dll",
+          "name": "method_179",
+          "rva": "0xAE2FC0"
+        },
+        {
+          "index": 180,
+          "module": "client.dll",
+          "name": "method_180",
+          "rva": "0xAE1E40"
+        },
+        {
+          "index": 181,
+          "module": "client.dll",
+          "name": "method_181",
+          "rva": "0xAE3A60"
+        },
+        {
+          "index": 182,
+          "module": "client.dll",
+          "name": "method_182",
+          "rva": "0xADA7E0"
+        },
+        {
+          "index": 183,
+          "module": "client.dll",
+          "name": "method_183",
+          "rva": "0xAE3030"
+        },
+        {
+          "index": 184,
+          "module": "client.dll",
+          "name": "method_184",
+          "rva": "0xAE2CE0"
+        },
+        {
+          "index": 185,
+          "module": "client.dll",
+          "name": "method_185",
+          "rva": "0xAE3050"
+        },
+        {
+          "index": 186,
+          "module": "client.dll",
+          "name": "method_186",
+          "rva": "0xAE2D00"
+        },
+        {
+          "index": 187,
+          "module": "client.dll",
+          "name": "method_187",
+          "rva": "0xAE1380"
+        },
+        {
+          "index": 188,
+          "module": "client.dll",
+          "name": "method_188",
+          "rva": "0xAD6B10"
+        },
+        {
+          "index": 189,
+          "module": "client.dll",
+          "name": "method_189",
+          "rva": "0xAD6B00"
+        },
+        {
+          "index": 190,
+          "module": "client.dll",
+          "name": "method_190",
+          "rva": "0xAD6B40"
+        },
+        {
+          "index": 191,
+          "module": "client.dll",
+          "name": "method_191",
+          "rva": "0xAD6B30"
+        },
+        {
+          "index": 192,
+          "module": "client.dll",
+          "name": "method_192",
+          "rva": "0xAD6AF0"
+        },
+        {
+          "index": 193,
+          "module": "client.dll",
+          "name": "method_193",
+          "rva": "0xAD6B50"
+        },
+        {
+          "index": 194,
+          "module": "client.dll",
+          "name": "method_194",
+          "rva": "0xAD6840"
+        },
+        {
+          "index": 195,
+          "module": "client.dll",
+          "name": "method_195",
+          "rva": "0xAD6830"
+        },
+        {
+          "index": 196,
+          "module": "client.dll",
+          "name": "method_196",
+          "rva": "0xAD6600"
+        },
+        {
+          "index": 197,
+          "module": "client.dll",
+          "name": "method_197",
+          "rva": "0xAD7C70"
+        },
+        {
+          "index": 198,
+          "module": "client.dll",
+          "name": "method_198",
+          "rva": "0xAD6610"
+        },
+        {
+          "index": 199,
+          "module": "client.dll",
+          "name": "method_199",
+          "rva": "0xAD6800"
+        },
+        {
+          "index": 200,
+          "module": "client.dll",
+          "name": "method_200",
+          "rva": "0xADD180"
+        },
+        {
+          "index": 201,
+          "module": "client.dll",
+          "name": "method_201",
+          "rva": "0xAD7DA0"
+        },
+        {
+          "index": 202,
+          "module": "client.dll",
+          "name": "method_202",
+          "rva": "0xAD7B50"
+        },
+        {
+          "index": 203,
+          "module": "client.dll",
+          "name": "method_203",
+          "rva": "0x1D3A000"
+        },
+        {
+          "index": 204,
+          "module": "client.dll",
+          "name": "method_204",
+          "rva": "0xAE9520"
+        },
+        {
+          "index": 205,
+          "module": "client.dll",
+          "name": "method_205",
+          "rva": "0x1D3A028"
+        },
+        {
+          "index": 206,
+          "module": "client.dll",
+          "name": "method_206",
+          "rva": "0xAE15B0"
+        },
+        {
+          "index": 207,
+          "module": "client.dll",
+          "name": "method_207",
+          "rva": "0x1D3A808"
+        },
+        {
+          "index": 208,
+          "module": "client.dll",
+          "name": "method_208",
+          "rva": "0xAC8070"
+        },
+        {
+          "index": 209,
+          "module": "client.dll",
+          "name": "method_209",
+          "rva": "0x920400"
+        },
+        {
+          "index": 210,
+          "module": "client.dll",
+          "name": "method_210",
+          "rva": "0x9203F0"
+        },
+        {
+          "index": 211,
+          "module": "client.dll",
+          "name": "method_211",
+          "rva": "0x920410"
+        },
+        {
+          "index": 212,
+          "module": "client.dll",
+          "name": "method_212",
+          "rva": "0x920460"
+        },
+        {
+          "index": 213,
+          "module": "client.dll",
+          "name": "method_213",
+          "rva": "0x1D3A8A8"
+        },
+        {
+          "index": 214,
+          "module": "client.dll",
+          "name": "method_214",
+          "rva": "0xAC7754"
+        },
+        {
+          "index": 215,
+          "module": "client.dll",
+          "name": "method_215",
+          "rva": "0x11740F0"
+        },
+        {
+          "index": 216,
+          "module": "client.dll",
+          "name": "method_216",
+          "rva": "0x5084D0"
+        },
+        {
+          "index": 217,
+          "module": "client.dll",
+          "name": "method_217",
+          "rva": "0x508620"
+        },
+        {
+          "index": 218,
+          "module": "client.dll",
+          "name": "method_218",
+          "rva": "0x5086A0"
+        },
+        {
+          "index": 219,
+          "module": "client.dll",
+          "name": "method_219",
+          "rva": "0x1174120"
+        },
+        {
+          "index": 220,
+          "module": "client.dll",
+          "name": "method_220",
+          "rva": "0x1173550"
+        },
+        {
+          "index": 221,
+          "module": "client.dll",
+          "name": "method_221",
+          "rva": "0x508750"
+        },
+        {
+          "index": 222,
+          "module": "client.dll",
+          "name": "method_222",
+          "rva": "0x508A30"
+        },
+        {
+          "index": 223,
+          "module": "client.dll",
+          "name": "method_223",
+          "rva": "0x5087F0"
+        },
+        {
+          "index": 224,
+          "module": "client.dll",
+          "name": "method_224",
+          "rva": "0x1537C0"
+        },
+        {
+          "index": 225,
+          "module": "client.dll",
+          "name": "method_225",
+          "rva": "0x5089A0"
+        },
+        {
+          "index": 226,
+          "module": "client.dll",
+          "name": "method_226",
+          "rva": "0x1174640"
+        },
+        {
+          "index": 227,
+          "module": "client.dll",
+          "name": "method_227",
+          "rva": "0x1174D60"
+        },
+        {
+          "index": 228,
+          "module": "client.dll",
+          "name": "method_228",
+          "rva": "0x508B20"
+        },
+        {
+          "index": 229,
+          "module": "client.dll",
+          "name": "method_229",
+          "rva": "0x508E80"
+        },
+        {
+          "index": 230,
+          "module": "client.dll",
+          "name": "method_230",
+          "rva": "0x508E60"
+        }
+      ],
+      "rtti_class": "CSource2Client",
+      "vtable_module": "client.dll",
+      "vtable_rva": "0x1AB1E78"
+    },
+    "Source2ClientConfig001": {
+      "method_count": 64,
+      "methods": [
+        {
+          "index": 0,
+          "module": "client.dll",
+          "name": "method_0",
+          "rva": "0x6C1F60"
+        },
+        {
+          "index": 1,
+          "module": "client.dll",
+          "name": "method_1",
+          "rva": "0x6C1FE0"
+        },
+        {
+          "index": 2,
+          "module": "client.dll",
+          "name": "method_2",
+          "rva": "0x970650"
+        },
+        {
+          "index": 3,
+          "module": "client.dll",
+          "name": "method_3",
+          "rva": "0x6C2C60"
+        },
+        {
+          "index": 4,
+          "module": "client.dll",
+          "name": "method_4",
+          "rva": "0x6C1F50"
+        },
+        {
+          "index": 5,
+          "module": "client.dll",
+          "name": "method_5",
+          "rva": "0x6C1F10"
+        },
+        {
+          "index": 6,
+          "module": "client.dll",
+          "name": "method_6",
+          "rva": "0x6C1F20"
+        },
+        {
+          "index": 7,
+          "module": "client.dll",
+          "name": "method_7",
+          "rva": "0x6C2020"
+        },
+        {
+          "index": 8,
+          "module": "client.dll",
+          "name": "method_8",
+          "rva": "0x6C1FA0"
+        },
+        {
+          "index": 9,
+          "module": "client.dll",
+          "name": "method_9",
+          "rva": "0x6C1F30"
+        },
+        {
+          "index": 10,
+          "module": "client.dll",
+          "name": "method_10",
+          "rva": "0x6C1F40"
+        },
+        {
+          "index": 11,
+          "module": "client.dll",
+          "name": "method_11",
+          "rva": "0x95A830"
+        },
+        {
+          "index": 12,
+          "module": "client.dll",
+          "name": "method_12",
+          "rva": "0x6C2F40"
+        },
+        {
+          "index": 13,
+          "module": "client.dll",
+          "name": "method_13",
+          "rva": "0x6C2DF0"
+        },
+        {
+          "index": 14,
+          "module": "client.dll",
+          "name": "method_14",
+          "rva": "0xA1FF70"
+        },
+        {
+          "index": 15,
+          "module": "client.dll",
+          "name": "method_15",
+          "rva": "0xA1FF60"
+        },
+        {
+          "index": 16,
+          "module": "client.dll",
+          "name": "method_16",
+          "rva": "0x6C3060"
+        },
+        {
+          "index": 17,
+          "module": "client.dll",
+          "name": "method_17",
+          "rva": "0x9438D0"
+        },
+        {
+          "index": 18,
+          "module": "client.dll",
+          "name": "method_18",
+          "rva": "0x6C1F00"
+        },
+        {
+          "index": 19,
+          "module": "client.dll",
+          "name": "method_19",
+          "rva": "0x6C2090"
+        },
+        {
+          "index": 20,
+          "module": "client.dll",
+          "name": "method_20",
+          "rva": "0x6C20A0"
+        },
+        {
+          "index": 21,
+          "module": "client.dll",
+          "name": "method_21",
+          "rva": "0x6C2CA0"
+        },
+        {
+          "index": 22,
+          "module": "client.dll",
+          "name": "method_22",
+          "rva": "0x6C2CB0"
+        },
+        {
+          "index": 23,
+          "module": "client.dll",
+          "name": "method_23",
+          "rva": "0xA31DB0"
+        },
+        {
+          "index": 24,
+          "module": "client.dll",
+          "name": "method_24",
+          "rva": "0x95A840"
+        },
+        {
+          "index": 25,
+          "module": "client.dll",
+          "name": "method_25",
+          "rva": "0x6C2DD0"
+        },
+        {
+          "index": 26,
+          "module": "client.dll",
+          "name": "method_26",
+          "rva": "0xA2C4F0"
+        },
+        {
+          "index": 27,
+          "module": "client.dll",
+          "name": "method_27",
+          "rva": "0x952750"
+        },
+        {
+          "index": 28,
+          "module": "client.dll",
+          "name": "method_28",
+          "rva": "0x956750"
+        },
+        {
+          "index": 29,
+          "module": "client.dll",
+          "name": "method_29",
+          "rva": "0x6C30E0"
+        },
+        {
+          "index": 30,
+          "module": "client.dll",
+          "name": "method_30",
+          "rva": "0xA21210"
+        },
+        {
+          "index": 31,
+          "module": "client.dll",
+          "name": "method_31",
+          "rva": "0x6C20B0"
+        },
+        {
+          "index": 32,
+          "module": "client.dll",
+          "name": "method_32",
+          "rva": "0x965030"
+        },
+        {
+          "index": 33,
+          "module": "client.dll",
+          "name": "method_33",
+          "rva": "0x9526A0"
+        },
+        {
+          "index": 34,
+          "module": "client.dll",
+          "name": "method_34",
+          "rva": "0x1D136B0"
+        },
+        {
+          "index": 35,
+          "module": "client.dll",
+          "name": "method_35",
+          "rva": "0x6C3344"
+        },
+        {
+          "index": 36,
+          "module": "client.dll",
+          "name": "method_36",
+          "rva": "0x6C3350"
+        },
+        {
+          "index": 37,
+          "module": "client.dll",
+          "name": "method_37",
+          "rva": "0x6C335C"
+        },
+        {
+          "index": 38,
+          "module": "client.dll",
+          "name": "method_38",
+          "rva": "0x6C33C8"
+        },
+        {
+          "index": 39,
+          "module": "client.dll",
+          "name": "method_39",
+          "rva": "0x6C3368"
+        },
+        {
+          "index": 40,
+          "module": "client.dll",
+          "name": "method_40",
+          "rva": "0x6C3374"
+        },
+        {
+          "index": 41,
+          "module": "client.dll",
+          "name": "method_41",
+          "rva": "0x6C3380"
+        },
+        {
+          "index": 42,
+          "module": "client.dll",
+          "name": "method_42",
+          "rva": "0x6C338C"
+        },
+        {
+          "index": 43,
+          "module": "client.dll",
+          "name": "method_43",
+          "rva": "0x6C3398"
+        },
+        {
+          "index": 44,
+          "module": "client.dll",
+          "name": "method_44",
+          "rva": "0x6C33A4"
+        },
+        {
+          "index": 45,
+          "module": "client.dll",
+          "name": "method_45",
+          "rva": "0x6C33B0"
+        },
+        {
+          "index": 46,
+          "module": "client.dll",
+          "name": "method_46",
+          "rva": "0x6C2C50"
+        },
+        {
+          "index": 47,
+          "module": "client.dll",
+          "name": "method_47",
+          "rva": "0x6C3020"
+        },
+        {
+          "index": 48,
+          "module": "client.dll",
+          "name": "method_48",
+          "rva": "0x6C2C80"
+        },
+        {
+          "index": 49,
+          "module": "client.dll",
+          "name": "method_49",
+          "rva": "0x6C33BC"
+        },
+        {
+          "index": 50,
+          "module": "client.dll",
+          "name": "method_50",
+          "rva": "0x95A820"
+        },
+        {
+          "index": 51,
+          "module": "client.dll",
+          "name": "method_51",
+          "rva": "0x93FD60"
+        },
+        {
+          "index": 52,
+          "module": "client.dll",
+          "name": "method_52",
+          "rva": "0x6C2030"
+        },
+        {
+          "index": 53,
+          "module": "client.dll",
+          "name": "method_53",
+          "rva": "0x6C2E00"
+        },
+        {
+          "index": 54,
+          "module": "client.dll",
+          "name": "method_54",
+          "rva": "0x93FD50"
+        },
+        {
+          "index": 55,
+          "module": "client.dll",
+          "name": "method_55",
+          "rva": "0x956770"
+        },
+        {
+          "index": 56,
+          "module": "client.dll",
+          "name": "method_56",
+          "rva": "0x93FD70"
+        },
+        {
+          "index": 57,
+          "module": "client.dll",
+          "name": "method_57",
+          "rva": "0x986660"
+        },
+        {
+          "index": 58,
+          "module": "client.dll",
+          "name": "method_58",
+          "rva": "0x6C2FC0"
+        },
+        {
+          "index": 59,
+          "module": "client.dll",
+          "name": "method_59",
+          "rva": "0x6C2FF0"
+        },
+        {
+          "index": 60,
+          "module": "client.dll",
+          "name": "method_60",
+          "rva": "0x6C3010"
+        },
+        {
+          "index": 61,
+          "module": "client.dll",
+          "name": "method_61",
+          "rva": "0x6C30D0"
+        },
+        {
+          "index": 62,
+          "module": "client.dll",
+          "name": "method_62",
+          "rva": "0x6C2080"
+        },
+        {
+          "index": 63,
+          "module": "client.dll",
+          "name": "method_63",
+          "rva": "0x945B00"
+        }
+      ],
+      "rtti_class": "CCSGameConfiguration",
+      "vtable_module": "client.dll",
+      "vtable_rva": "0x19FD9C8"
+    },
+    "Source2ClientPrediction001": {
+      "method_count": 34,
+      "methods": [
+        {
+          "index": 0,
+          "module": "client.dll",
+          "name": "method_0",
+          "rva": "0xB35FE0"
+        },
+        {
+          "index": 1,
+          "module": "client.dll",
+          "name": "method_1",
+          "rva": "0xB37B80"
+        },
+        {
+          "index": 2,
+          "module": "client.dll",
+          "name": "method_2",
+          "rva": "0xB4A420"
+        },
+        {
+          "index": 3,
+          "module": "client.dll",
+          "name": "method_3",
+          "rva": "0xB3E160"
+        },
+        {
+          "index": 4,
+          "module": "client.dll",
+          "name": "method_4",
+          "rva": "0xB4ED70"
+        },
+        {
+          "index": 5,
+          "module": "client.dll",
+          "name": "method_5",
+          "rva": "0xB48350"
+        },
+        {
+          "index": 6,
+          "module": "client.dll",
+          "name": "method_6",
+          "rva": "0xB3B810"
+        },
+        {
+          "index": 7,
+          "module": "client.dll",
+          "name": "method_7",
+          "rva": "0xB3D110"
+        },
+        {
+          "index": 8,
+          "module": "client.dll",
+          "name": "method_8",
+          "rva": "0xB4AB90"
+        },
+        {
+          "index": 9,
+          "module": "client.dll",
+          "name": "method_9",
+          "rva": "0xB42120"
+        },
+        {
+          "index": 10,
+          "module": "client.dll",
+          "name": "method_10",
+          "rva": "0xB3D040"
+        },
+        {
+          "index": 11,
+          "module": "client.dll",
+          "name": "CPrediction_Update",
+          "rva": "0xB51210"
+        },
+        {
+          "index": 12,
+          "module": "client.dll",
+          "name": "method_12",
+          "rva": "0xB44D40"
+        },
+        {
+          "index": 13,
+          "module": "client.dll",
+          "name": "method_13",
+          "rva": "0xB44F50"
+        },
+        {
+          "index": 14,
+          "module": "client.dll",
+          "name": "method_14",
+          "rva": "0xB471A0"
+        },
+        {
+          "index": 15,
+          "module": "client.dll",
+          "name": "method_15",
+          "rva": "0xB474B0"
+        },
+        {
+          "index": 16,
+          "module": "client.dll",
+          "name": "method_16",
+          "rva": "0xB46290"
+        },
+        {
+          "index": 17,
+          "module": "client.dll",
+          "name": "method_17",
+          "rva": "0xB33FF0"
+        },
+        {
+          "index": 18,
+          "module": "client.dll",
+          "name": "method_18",
+          "rva": "0xAD8360"
+        },
+        {
+          "index": 19,
+          "module": "client.dll",
+          "name": "method_19",
+          "rva": "0xB331D0"
+        },
+        {
+          "index": 20,
+          "module": "client.dll",
+          "name": "method_20",
+          "rva": "0xB3D7C0"
+        },
+        {
+          "index": 21,
+          "module": "client.dll",
+          "name": "method_21",
+          "rva": "0xB3D8C0"
+        },
+        {
+          "index": 22,
+          "module": "client.dll",
+          "name": "method_22",
+          "rva": "0xB3D870"
+        },
+        {
+          "index": 23,
+          "module": "client.dll",
+          "name": "method_23",
+          "rva": "0xB3BED0"
+        },
+        {
+          "index": 24,
+          "module": "client.dll",
+          "name": "method_24",
+          "rva": "0xB4E190"
+        },
+        {
+          "index": 25,
+          "module": "client.dll",
+          "name": "method_25",
+          "rva": "0xB4E1C0"
+        },
+        {
+          "index": 26,
+          "module": "client.dll",
+          "name": "method_26",
+          "rva": "0xB420F0"
+        },
+        {
+          "index": 27,
+          "module": "client.dll",
+          "name": "method_27",
+          "rva": "0xB4EAC0"
+        },
+        {
+          "index": 28,
+          "module": "client.dll",
+          "name": "method_28",
+          "rva": "0x8C7E50"
+        },
+        {
+          "index": 29,
+          "module": "client.dll",
+          "name": "method_29",
+          "rva": "0xB42130"
+        },
+        {
+          "index": 30,
+          "module": "client.dll",
+          "name": "method_30",
+          "rva": "0xB3D7B0"
+        },
+        {
+          "index": 31,
+          "module": "client.dll",
+          "name": "method_31",
+          "rva": "0xB45DE0"
+        },
+        {
+          "index": 32,
+          "module": "client.dll",
+          "name": "method_32",
+          "rva": "0x1D3EC00"
+        },
+        {
+          "index": 33,
+          "module": "client.dll",
+          "name": "method_33",
+          "rva": "0xB44670"
+        }
+      ],
+      "rtti_class": "CPrediction",
+      "vtable_module": "client.dll",
+      "vtable_rva": "0x1AC0380"
+    },
+    "Source2ClientUI001": {
+      "method_count": 29,
+      "methods": [
+        {
+          "index": 0,
+          "module": "client.dll",
+          "name": "method_0",
+          "rva": "0xC42800"
+        },
+        {
+          "index": 1,
+          "module": "client.dll",
+          "name": "method_1",
+          "rva": "0xC43EA0"
+        },
+        {
+          "index": 2,
+          "module": "client.dll",
+          "name": "method_2",
+          "rva": "0xC65700"
+        },
+        {
+          "index": 3,
+          "module": "client.dll",
+          "name": "method_3",
+          "rva": "0x16B090"
+        },
+        {
+          "index": 4,
+          "module": "client.dll",
+          "name": "method_4",
+          "rva": "0xC6A6A0"
+        },
+        {
+          "index": 5,
+          "module": "client.dll",
+          "name": "method_5",
+          "rva": "0xC64BA0"
+        },
+        {
+          "index": 6,
+          "module": "client.dll",
+          "name": "method_6",
+          "rva": "0xC4D830"
+        },
+        {
+          "index": 7,
+          "module": "client.dll",
+          "name": "method_7",
+          "rva": "0xC4F860"
+        },
+        {
+          "index": 8,
+          "module": "client.dll",
+          "name": "method_8",
+          "rva": "0xC66660"
+        },
+        {
+          "index": 9,
+          "module": "client.dll",
+          "name": "method_9",
+          "rva": "0xC5B740"
+        },
+        {
+          "index": 10,
+          "module": "client.dll",
+          "name": "method_10",
+          "rva": "0xC4F850"
+        },
+        {
+          "index": 11,
+          "module": "client.dll",
+          "name": "method_11",
+          "rva": "0xC42F70"
+        },
+        {
+          "index": 12,
+          "module": "client.dll",
+          "name": "method_12",
+          "rva": "0x165570"
+        },
+        {
+          "index": 13,
+          "module": "client.dll",
+          "name": "method_13",
+          "rva": "0x16B030"
+        },
+        {
+          "index": 14,
+          "module": "client.dll",
+          "name": "method_14",
+          "rva": "0x16FC70"
+        },
+        {
+          "index": 15,
+          "module": "client.dll",
+          "name": "method_15",
+          "rva": "0x16FBF0"
+        },
+        {
+          "index": 16,
+          "module": "client.dll",
+          "name": "method_16",
+          "rva": "0x1763E0"
+        },
+        {
+          "index": 17,
+          "module": "client.dll",
+          "name": "method_17",
+          "rva": "0xC5B5A0"
+        },
+        {
+          "index": 18,
+          "module": "client.dll",
+          "name": "method_18",
+          "rva": "0x1695E0"
+        },
+        {
+          "index": 19,
+          "module": "client.dll",
+          "name": "method_19",
+          "rva": "0x1714D0"
+        },
+        {
+          "index": 20,
+          "module": "client.dll",
+          "name": "method_20",
+          "rva": "0x175450"
+        },
+        {
+          "index": 21,
+          "module": "client.dll",
+          "name": "method_21",
+          "rva": "0x16D9B0"
+        },
+        {
+          "index": 22,
+          "module": "client.dll",
+          "name": "method_22",
+          "rva": "0x1753F0"
+        },
+        {
+          "index": 23,
+          "module": "client.dll",
+          "name": "method_23",
+          "rva": "0x16A470"
+        },
+        {
+          "index": 24,
+          "module": "client.dll",
+          "name": "method_24",
+          "rva": "0x166680"
+        },
+        {
+          "index": 25,
+          "module": "client.dll",
+          "name": "method_25",
+          "rva": "0x1D4AB48"
+        },
+        {
+          "index": 26,
+          "module": "client.dll",
+          "name": "method_26",
+          "rva": "0xC3E420"
+        },
+        {
+          "index": 27,
+          "module": "client.dll",
+          "name": "method_27",
+          "rva": "0x38BE60"
+        },
+        {
+          "index": 28,
+          "module": "client.dll",
+          "name": "method_28",
+          "rva": "0x3A74C0"
+        }
+      ],
+      "rtti_class": "CCsgoClientUI",
+      "vtable_module": "client.dll",
+      "vtable_rva": "0x1AEFCA0"
+    }
+  },
   "engine2.dll": {
     "BenchmarkService001": {
       "method_count": 73,
@@ -15535,6 +18289,912 @@
       "vtable_rva": "0x1B0EC8"
     }
   },
+  "host.dll": {
+    "DebugDrawQueueManager001": {
+      "method_count": 14,
+      "methods": [
+        {
+          "index": 0,
+          "module": "host.dll",
+          "name": "method_0",
+          "rva": "0x15380"
+        },
+        {
+          "index": 1,
+          "module": "host.dll",
+          "name": "method_1",
+          "rva": "0x15340"
+        },
+        {
+          "index": 2,
+          "module": "host.dll",
+          "name": "method_2",
+          "rva": "0x7CF0"
+        },
+        {
+          "index": 3,
+          "module": "host.dll",
+          "name": "method_3",
+          "rva": "0x152B0"
+        },
+        {
+          "index": 4,
+          "module": "host.dll",
+          "name": "method_4",
+          "rva": "0x152D0"
+        },
+        {
+          "index": 5,
+          "module": "host.dll",
+          "name": "method_5",
+          "rva": "0x7C20"
+        },
+        {
+          "index": 6,
+          "module": "host.dll",
+          "name": "method_6",
+          "rva": "0x152A0"
+        },
+        {
+          "index": 7,
+          "module": "host.dll",
+          "name": "method_7",
+          "rva": "0x153E0"
+        },
+        {
+          "index": 8,
+          "module": "host.dll",
+          "name": "method_8",
+          "rva": "0x152E0"
+        },
+        {
+          "index": 9,
+          "module": "host.dll",
+          "name": "method_9",
+          "rva": "0x7D00"
+        },
+        {
+          "index": 10,
+          "module": "host.dll",
+          "name": "method_10",
+          "rva": "0x153F0"
+        },
+        {
+          "index": 11,
+          "module": "host.dll",
+          "name": "method_11",
+          "rva": "0x150C0"
+        },
+        {
+          "index": 12,
+          "module": "host.dll",
+          "name": "method_12",
+          "rva": "0x151D0"
+        },
+        {
+          "index": 13,
+          "module": "host.dll",
+          "name": "method_13",
+          "rva": "0x15230"
+        }
+      ],
+      "rtti_class": "CDebugDrawQueueMgr",
+      "vtable_module": "host.dll",
+      "vtable_rva": "0x116B68"
+    },
+    "GameModelInfo001": {
+      "method_count": 17,
+      "methods": [
+        {
+          "index": 0,
+          "module": "host.dll",
+          "name": "method_0",
+          "rva": "0x15890"
+        },
+        {
+          "index": 1,
+          "module": "host.dll",
+          "name": "method_1",
+          "rva": "0x15810"
+        },
+        {
+          "index": 2,
+          "module": "host.dll",
+          "name": "method_2",
+          "rva": "0x7CF0"
+        },
+        {
+          "index": 3,
+          "module": "host.dll",
+          "name": "method_3",
+          "rva": "0x152B0"
+        },
+        {
+          "index": 4,
+          "module": "host.dll",
+          "name": "method_4",
+          "rva": "0x152D0"
+        },
+        {
+          "index": 5,
+          "module": "host.dll",
+          "name": "method_5",
+          "rva": "0x7C20"
+        },
+        {
+          "index": 6,
+          "module": "host.dll",
+          "name": "method_6",
+          "rva": "0x7CF0"
+        },
+        {
+          "index": 7,
+          "module": "host.dll",
+          "name": "method_7",
+          "rva": "0x15800"
+        },
+        {
+          "index": 8,
+          "module": "host.dll",
+          "name": "method_8",
+          "rva": "0x15850"
+        },
+        {
+          "index": 9,
+          "module": "host.dll",
+          "name": "method_9",
+          "rva": "0x7D00"
+        },
+        {
+          "index": 10,
+          "module": "host.dll",
+          "name": "method_10",
+          "rva": "0x153F0"
+        },
+        {
+          "index": 11,
+          "module": "host.dll",
+          "name": "method_11",
+          "rva": "0x15740"
+        },
+        {
+          "index": 12,
+          "module": "host.dll",
+          "name": "method_12",
+          "rva": "0x15440"
+        },
+        {
+          "index": 13,
+          "module": "host.dll",
+          "name": "method_13",
+          "rva": "0x15560"
+        },
+        {
+          "index": 14,
+          "module": "host.dll",
+          "name": "method_14",
+          "rva": "0x15640"
+        },
+        {
+          "index": 15,
+          "module": "host.dll",
+          "name": "method_15",
+          "rva": "0x156E0"
+        },
+        {
+          "index": 16,
+          "module": "host.dll",
+          "name": "method_16",
+          "rva": "0x15730"
+        }
+      ],
+      "rtti_class": "CGameModelInfo",
+      "vtable_module": "host.dll",
+      "vtable_rva": "0x116C38"
+    },
+    "GameSystem2HostHook": {
+      "method_count": 15,
+      "methods": [
+        {
+          "index": 0,
+          "module": "host.dll",
+          "name": "method_0",
+          "rva": "0x15380"
+        },
+        {
+          "index": 1,
+          "module": "host.dll",
+          "name": "method_1",
+          "rva": "0x15340"
+        },
+        {
+          "index": 2,
+          "module": "host.dll",
+          "name": "method_2",
+          "rva": "0x7CF0"
+        },
+        {
+          "index": 3,
+          "module": "host.dll",
+          "name": "method_3",
+          "rva": "0x158E0"
+        },
+        {
+          "index": 4,
+          "module": "host.dll",
+          "name": "method_4",
+          "rva": "0x15AB0"
+        },
+        {
+          "index": 5,
+          "module": "host.dll",
+          "name": "method_5",
+          "rva": "0x7C20"
+        },
+        {
+          "index": 6,
+          "module": "host.dll",
+          "name": "method_6",
+          "rva": "0x7CF0"
+        },
+        {
+          "index": 7,
+          "module": "host.dll",
+          "name": "method_7",
+          "rva": "0x153E0"
+        },
+        {
+          "index": 8,
+          "module": "host.dll",
+          "name": "method_8",
+          "rva": "0x152E0"
+        },
+        {
+          "index": 9,
+          "module": "host.dll",
+          "name": "method_9",
+          "rva": "0x7D00"
+        },
+        {
+          "index": 10,
+          "module": "host.dll",
+          "name": "method_10",
+          "rva": "0x153F0"
+        },
+        {
+          "index": 11,
+          "module": "host.dll",
+          "name": "method_11",
+          "rva": "0x15B10"
+        },
+        {
+          "index": 12,
+          "module": "host.dll",
+          "name": "method_12",
+          "rva": "0x15B20"
+        },
+        {
+          "index": 13,
+          "module": "host.dll",
+          "name": "method_13",
+          "rva": "0x15B90"
+        },
+        {
+          "index": 14,
+          "module": "host.dll",
+          "name": "method_14",
+          "rva": "0x15D80"
+        }
+      ],
+      "rtti_class": "CGameSystem2HostHook",
+      "vtable_module": "host.dll",
+      "vtable_rva": "0x116D80"
+    },
+    "HostUtils001": {
+      "method_count": 22,
+      "methods": [
+        {
+          "index": 0,
+          "module": "host.dll",
+          "name": "method_0",
+          "rva": "0x15380"
+        },
+        {
+          "index": 1,
+          "module": "host.dll",
+          "name": "method_1",
+          "rva": "0x15340"
+        },
+        {
+          "index": 2,
+          "module": "host.dll",
+          "name": "method_2",
+          "rva": "0x7CF0"
+        },
+        {
+          "index": 3,
+          "module": "host.dll",
+          "name": "method_3",
+          "rva": "0x152B0"
+        },
+        {
+          "index": 4,
+          "module": "host.dll",
+          "name": "method_4",
+          "rva": "0x152D0"
+        },
+        {
+          "index": 5,
+          "module": "host.dll",
+          "name": "method_5",
+          "rva": "0x7C20"
+        },
+        {
+          "index": 6,
+          "module": "host.dll",
+          "name": "method_6",
+          "rva": "0x162C0"
+        },
+        {
+          "index": 7,
+          "module": "host.dll",
+          "name": "method_7",
+          "rva": "0x153E0"
+        },
+        {
+          "index": 8,
+          "module": "host.dll",
+          "name": "method_8",
+          "rva": "0x152E0"
+        },
+        {
+          "index": 9,
+          "module": "host.dll",
+          "name": "method_9",
+          "rva": "0x7D00"
+        },
+        {
+          "index": 10,
+          "module": "host.dll",
+          "name": "method_10",
+          "rva": "0x153F0"
+        },
+        {
+          "index": 11,
+          "module": "host.dll",
+          "name": "method_11",
+          "rva": "0x162D0"
+        },
+        {
+          "index": 12,
+          "module": "host.dll",
+          "name": "method_12",
+          "rva": "0x162E0"
+        },
+        {
+          "index": 13,
+          "module": "host.dll",
+          "name": "method_13",
+          "rva": "0x16680"
+        },
+        {
+          "index": 14,
+          "module": "host.dll",
+          "name": "method_14",
+          "rva": "0x11DE38"
+        },
+        {
+          "index": 15,
+          "module": "host.dll",
+          "name": "method_15",
+          "rva": "0x160A0"
+        },
+        {
+          "index": 16,
+          "module": "host.dll",
+          "name": "method_16",
+          "rva": "0x160D0"
+        },
+        {
+          "index": 17,
+          "module": "host.dll",
+          "name": "method_17",
+          "rva": "0x11DE10"
+        },
+        {
+          "index": 18,
+          "module": "host.dll",
+          "name": "method_18",
+          "rva": "0x16950"
+        },
+        {
+          "index": 19,
+          "module": "host.dll",
+          "name": "method_19",
+          "rva": "0x16920"
+        },
+        {
+          "index": 20,
+          "module": "host.dll",
+          "name": "method_20",
+          "rva": "0x15E10"
+        },
+        {
+          "index": 21,
+          "module": "host.dll",
+          "name": "method_21",
+          "rva": "0x116BD8"
+        }
+      ],
+      "rtti_class": "CHostUtils",
+      "vtable_module": "host.dll",
+      "vtable_rva": "0x116F60"
+    },
+    "PredictionDiffManager001": {
+      "method_count": 15,
+      "methods": [
+        {
+          "index": 0,
+          "module": "host.dll",
+          "name": "method_0",
+          "rva": "0x15380"
+        },
+        {
+          "index": 1,
+          "module": "host.dll",
+          "name": "method_1",
+          "rva": "0x15340"
+        },
+        {
+          "index": 2,
+          "module": "host.dll",
+          "name": "method_2",
+          "rva": "0x7CF0"
+        },
+        {
+          "index": 3,
+          "module": "host.dll",
+          "name": "method_3",
+          "rva": "0x152B0"
+        },
+        {
+          "index": 4,
+          "module": "host.dll",
+          "name": "method_4",
+          "rva": "0x152D0"
+        },
+        {
+          "index": 5,
+          "module": "host.dll",
+          "name": "method_5",
+          "rva": "0x7C20"
+        },
+        {
+          "index": 6,
+          "module": "host.dll",
+          "name": "method_6",
+          "rva": "0x1BB00"
+        },
+        {
+          "index": 7,
+          "module": "host.dll",
+          "name": "method_7",
+          "rva": "0x153E0"
+        },
+        {
+          "index": 8,
+          "module": "host.dll",
+          "name": "method_8",
+          "rva": "0x152E0"
+        },
+        {
+          "index": 9,
+          "module": "host.dll",
+          "name": "method_9",
+          "rva": "0x7D00"
+        },
+        {
+          "index": 10,
+          "module": "host.dll",
+          "name": "method_10",
+          "rva": "0x153F0"
+        },
+        {
+          "index": 11,
+          "module": "host.dll",
+          "name": "method_11",
+          "rva": "0x1BB10"
+        },
+        {
+          "index": 12,
+          "module": "host.dll",
+          "name": "method_12",
+          "rva": "0x1BB40"
+        },
+        {
+          "index": 13,
+          "module": "host.dll",
+          "name": "method_13",
+          "rva": "0x1BD40"
+        },
+        {
+          "index": 14,
+          "module": "host.dll",
+          "name": "method_14",
+          "rva": "0x1BFA0"
+        }
+      ],
+      "rtti_class": "CPredictionDiffMgr",
+      "vtable_module": "host.dll",
+      "vtable_rva": "0x117C38"
+    },
+    "SaveRestoreDataVersion001": {
+      "method_count": 29,
+      "methods": [
+        {
+          "index": 0,
+          "module": "host.dll",
+          "name": "method_0",
+          "rva": "0x15890"
+        },
+        {
+          "index": 1,
+          "module": "host.dll",
+          "name": "method_1",
+          "rva": "0x15810"
+        },
+        {
+          "index": 2,
+          "module": "host.dll",
+          "name": "method_2",
+          "rva": "0x7CF0"
+        },
+        {
+          "index": 3,
+          "module": "host.dll",
+          "name": "method_3",
+          "rva": "0x152B0"
+        },
+        {
+          "index": 4,
+          "module": "host.dll",
+          "name": "method_4",
+          "rva": "0x152D0"
+        },
+        {
+          "index": 5,
+          "module": "host.dll",
+          "name": "method_5",
+          "rva": "0x7C20"
+        },
+        {
+          "index": 6,
+          "module": "host.dll",
+          "name": "method_6",
+          "rva": "0x7CF0"
+        },
+        {
+          "index": 7,
+          "module": "host.dll",
+          "name": "method_7",
+          "rva": "0x15800"
+        },
+        {
+          "index": 8,
+          "module": "host.dll",
+          "name": "method_8",
+          "rva": "0x15850"
+        },
+        {
+          "index": 9,
+          "module": "host.dll",
+          "name": "method_9",
+          "rva": "0x7D00"
+        },
+        {
+          "index": 10,
+          "module": "host.dll",
+          "name": "method_10",
+          "rva": "0x153F0"
+        },
+        {
+          "index": 11,
+          "module": "host.dll",
+          "name": "method_11",
+          "rva": "0x1E160"
+        },
+        {
+          "index": 12,
+          "module": "host.dll",
+          "name": "method_12",
+          "rva": "0x1E140"
+        },
+        {
+          "index": 13,
+          "module": "host.dll",
+          "name": "method_13",
+          "rva": "0x1E150"
+        },
+        {
+          "index": 14,
+          "module": "host.dll",
+          "name": "method_14",
+          "rva": "0x11E7A8"
+        },
+        {
+          "index": 15,
+          "module": "host.dll",
+          "name": "method_15",
+          "rva": "0xCE08C"
+        },
+        {
+          "index": 16,
+          "module": "host.dll",
+          "name": "method_16",
+          "rva": "0xCE08C"
+        },
+        {
+          "index": 17,
+          "module": "host.dll",
+          "name": "method_17",
+          "rva": "0xCE08C"
+        },
+        {
+          "index": 18,
+          "module": "host.dll",
+          "name": "method_18",
+          "rva": "0xCE08C"
+        },
+        {
+          "index": 19,
+          "module": "host.dll",
+          "name": "method_19",
+          "rva": "0xCE08C"
+        },
+        {
+          "index": 20,
+          "module": "host.dll",
+          "name": "method_20",
+          "rva": "0xCE08C"
+        },
+        {
+          "index": 21,
+          "module": "host.dll",
+          "name": "method_21",
+          "rva": "0xCE08C"
+        },
+        {
+          "index": 22,
+          "module": "host.dll",
+          "name": "method_22",
+          "rva": "0xCE08C"
+        },
+        {
+          "index": 23,
+          "module": "host.dll",
+          "name": "method_23",
+          "rva": "0xCE08C"
+        },
+        {
+          "index": 24,
+          "module": "host.dll",
+          "name": "method_24",
+          "rva": "0xCE08C"
+        },
+        {
+          "index": 25,
+          "module": "host.dll",
+          "name": "method_25",
+          "rva": "0xCE08C"
+        },
+        {
+          "index": 26,
+          "module": "host.dll",
+          "name": "method_26",
+          "rva": "0x1E100"
+        },
+        {
+          "index": 27,
+          "module": "host.dll",
+          "name": "method_27",
+          "rva": "0xCE08C"
+        },
+        {
+          "index": 28,
+          "module": "host.dll",
+          "name": "method_28",
+          "rva": "0xCE08C"
+        }
+      ],
+      "rtti_class": "CSaveRestoreDataMgr",
+      "vtable_module": "host.dll",
+      "vtable_rva": "0x117CD8"
+    },
+    "SinglePlayerSharedMemory001": {
+      "method_count": 12,
+      "methods": [
+        {
+          "index": 0,
+          "module": "host.dll",
+          "name": "method_0",
+          "rva": "0x15380"
+        },
+        {
+          "index": 1,
+          "module": "host.dll",
+          "name": "method_1",
+          "rva": "0x15340"
+        },
+        {
+          "index": 2,
+          "module": "host.dll",
+          "name": "method_2",
+          "rva": "0x7CF0"
+        },
+        {
+          "index": 3,
+          "module": "host.dll",
+          "name": "method_3",
+          "rva": "0x152B0"
+        },
+        {
+          "index": 4,
+          "module": "host.dll",
+          "name": "method_4",
+          "rva": "0x1E230"
+        },
+        {
+          "index": 5,
+          "module": "host.dll",
+          "name": "method_5",
+          "rva": "0x7C20"
+        },
+        {
+          "index": 6,
+          "module": "host.dll",
+          "name": "method_6",
+          "rva": "0x7CF0"
+        },
+        {
+          "index": 7,
+          "module": "host.dll",
+          "name": "method_7",
+          "rva": "0x153E0"
+        },
+        {
+          "index": 8,
+          "module": "host.dll",
+          "name": "method_8",
+          "rva": "0x152E0"
+        },
+        {
+          "index": 9,
+          "module": "host.dll",
+          "name": "method_9",
+          "rva": "0x7D00"
+        },
+        {
+          "index": 10,
+          "module": "host.dll",
+          "name": "method_10",
+          "rva": "0x153F0"
+        },
+        {
+          "index": 11,
+          "module": "host.dll",
+          "name": "method_11",
+          "rva": "0x1E2A0"
+        }
+      ],
+      "rtti_class": "CSPSharedMemoryManager",
+      "vtable_module": "host.dll",
+      "vtable_rva": "0x117E50"
+    },
+    "Source2Host001": {
+      "method_count": 16,
+      "methods": [
+        {
+          "index": 0,
+          "module": "host.dll",
+          "name": "method_0",
+          "rva": "0x15380"
+        },
+        {
+          "index": 1,
+          "module": "host.dll",
+          "name": "method_1",
+          "rva": "0x15340"
+        },
+        {
+          "index": 2,
+          "module": "host.dll",
+          "name": "method_2",
+          "rva": "0x7CF0"
+        },
+        {
+          "index": 3,
+          "module": "host.dll",
+          "name": "method_3",
+          "rva": "0x1E5F0"
+        },
+        {
+          "index": 4,
+          "module": "host.dll",
+          "name": "method_4",
+          "rva": "0x1E6E0"
+        },
+        {
+          "index": 5,
+          "module": "host.dll",
+          "name": "method_5",
+          "rva": "0x7C20"
+        },
+        {
+          "index": 6,
+          "module": "host.dll",
+          "name": "method_6",
+          "rva": "0x1E5E0"
+        },
+        {
+          "index": 7,
+          "module": "host.dll",
+          "name": "method_7",
+          "rva": "0x153E0"
+        },
+        {
+          "index": 8,
+          "module": "host.dll",
+          "name": "method_8",
+          "rva": "0x152E0"
+        },
+        {
+          "index": 9,
+          "module": "host.dll",
+          "name": "method_9",
+          "rva": "0x7D00"
+        },
+        {
+          "index": 10,
+          "module": "host.dll",
+          "name": "method_10",
+          "rva": "0x153F0"
+        },
+        {
+          "index": 11,
+          "module": "host.dll",
+          "name": "method_11",
+          "rva": "0x1E710"
+        },
+        {
+          "index": 12,
+          "module": "host.dll",
+          "name": "method_12",
+          "rva": "0x1E820"
+        },
+        {
+          "index": 13,
+          "module": "host.dll",
+          "name": "method_13",
+          "rva": "0x14E10"
+        },
+        {
+          "index": 14,
+          "module": "host.dll",
+          "name": "method_14",
+          "rva": "0x14E20"
+        },
+        {
+          "index": 15,
+          "module": "host.dll",
+          "name": "method_15",
+          "rva": "0x14E40"
+        }
+      ],
+      "rtti_class": "CSource2HostBase",
+      "vtable_module": "host.dll",
+      "vtable_rva": "0x117F60"
+    }
+  },
   "imemanager.dll": {
     "IMEManager001": {
       "method_count": 23,
@@ -17233,6 +20893,660 @@
       "rtti_class": "CLocalize",
       "vtable_module": "localize.dll",
       "vtable_rva": "0x56808"
+    }
+  },
+  "matchmaking.dll": {
+    "GameTypes001": {
+      "method_count": 76,
+      "methods": [
+        {
+          "index": 0,
+          "module": "matchmaking.dll",
+          "name": "method_0",
+          "rva": "0x3E040"
+        },
+        {
+          "index": 1,
+          "module": "matchmaking.dll",
+          "name": "method_1",
+          "rva": "0x3E000"
+        },
+        {
+          "index": 2,
+          "module": "matchmaking.dll",
+          "name": "method_2",
+          "rva": "0x9470"
+        },
+        {
+          "index": 3,
+          "module": "matchmaking.dll",
+          "name": "method_3",
+          "rva": "0x36DD0"
+        },
+        {
+          "index": 4,
+          "module": "matchmaking.dll",
+          "name": "method_4",
+          "rva": "0x91D0"
+        },
+        {
+          "index": 5,
+          "module": "matchmaking.dll",
+          "name": "method_5",
+          "rva": "0x91D0"
+        },
+        {
+          "index": 6,
+          "module": "matchmaking.dll",
+          "name": "method_6",
+          "rva": "0x9470"
+        },
+        {
+          "index": 7,
+          "module": "matchmaking.dll",
+          "name": "method_7",
+          "rva": "0x3E0A0"
+        },
+        {
+          "index": 8,
+          "module": "matchmaking.dll",
+          "name": "method_8",
+          "rva": "0x3DFA0"
+        },
+        {
+          "index": 9,
+          "module": "matchmaking.dll",
+          "name": "method_9",
+          "rva": "0x9480"
+        },
+        {
+          "index": 10,
+          "module": "matchmaking.dll",
+          "name": "method_10",
+          "rva": "0x3E0B0"
+        },
+        {
+          "index": 11,
+          "module": "matchmaking.dll",
+          "name": "method_11",
+          "rva": "0x369A0"
+        },
+        {
+          "index": 12,
+          "module": "matchmaking.dll",
+          "name": "method_12",
+          "rva": "0x36DF0"
+        },
+        {
+          "index": 13,
+          "module": "matchmaking.dll",
+          "name": "method_13",
+          "rva": "0x35DA0"
+        },
+        {
+          "index": 14,
+          "module": "matchmaking.dll",
+          "name": "method_14",
+          "rva": "0x3A640"
+        },
+        {
+          "index": 15,
+          "module": "matchmaking.dll",
+          "name": "method_15",
+          "rva": "0x3A040"
+        },
+        {
+          "index": 16,
+          "module": "matchmaking.dll",
+          "name": "method_16",
+          "rva": "0x3A450"
+        },
+        {
+          "index": 17,
+          "module": "matchmaking.dll",
+          "name": "method_17",
+          "rva": "0x3A6C0"
+        },
+        {
+          "index": 18,
+          "module": "matchmaking.dll",
+          "name": "method_18",
+          "rva": "0x3B4B0"
+        },
+        {
+          "index": 19,
+          "module": "matchmaking.dll",
+          "name": "method_19",
+          "rva": "0x3B9A0"
+        },
+        {
+          "index": 20,
+          "module": "matchmaking.dll",
+          "name": "method_20",
+          "rva": "0x3B9D0"
+        },
+        {
+          "index": 21,
+          "module": "matchmaking.dll",
+          "name": "method_21",
+          "rva": "0x35DB0"
+        },
+        {
+          "index": 22,
+          "module": "matchmaking.dll",
+          "name": "method_22",
+          "rva": "0x3A550"
+        },
+        {
+          "index": 23,
+          "module": "matchmaking.dll",
+          "name": "method_23",
+          "rva": "0x35DD0"
+        },
+        {
+          "index": 24,
+          "module": "matchmaking.dll",
+          "name": "method_24",
+          "rva": "0x3BA00"
+        },
+        {
+          "index": 25,
+          "module": "matchmaking.dll",
+          "name": "method_25",
+          "rva": "0x3BAA0"
+        },
+        {
+          "index": 26,
+          "module": "matchmaking.dll",
+          "name": "method_26",
+          "rva": "0x3BBA0"
+        },
+        {
+          "index": 27,
+          "module": "matchmaking.dll",
+          "name": "method_27",
+          "rva": "0x3BF80"
+        },
+        {
+          "index": 28,
+          "module": "matchmaking.dll",
+          "name": "method_28",
+          "rva": "0x3C1B0"
+        },
+        {
+          "index": 29,
+          "module": "matchmaking.dll",
+          "name": "method_29",
+          "rva": "0x3C2A0"
+        },
+        {
+          "index": 30,
+          "module": "matchmaking.dll",
+          "name": "method_30",
+          "rva": "0x3C390"
+        },
+        {
+          "index": 31,
+          "module": "matchmaking.dll",
+          "name": "method_31",
+          "rva": "0x3D8E0"
+        },
+        {
+          "index": 32,
+          "module": "matchmaking.dll",
+          "name": "method_32",
+          "rva": "0x3D9D0"
+        },
+        {
+          "index": 33,
+          "module": "matchmaking.dll",
+          "name": "method_33",
+          "rva": "0x3D0C0"
+        },
+        {
+          "index": 34,
+          "module": "matchmaking.dll",
+          "name": "method_34",
+          "rva": "0x3D120"
+        },
+        {
+          "index": 35,
+          "module": "matchmaking.dll",
+          "name": "method_35",
+          "rva": "0x3D2A0"
+        },
+        {
+          "index": 36,
+          "module": "matchmaking.dll",
+          "name": "method_36",
+          "rva": "0x3D450"
+        },
+        {
+          "index": 37,
+          "module": "matchmaking.dll",
+          "name": "method_37",
+          "rva": "0x3DAE0"
+        },
+        {
+          "index": 38,
+          "module": "matchmaking.dll",
+          "name": "method_38",
+          "rva": "0x3DE40"
+        },
+        {
+          "index": 39,
+          "module": "matchmaking.dll",
+          "name": "method_39",
+          "rva": "0x3C480"
+        },
+        {
+          "index": 40,
+          "module": "matchmaking.dll",
+          "name": "method_40",
+          "rva": "0x3C5D0"
+        },
+        {
+          "index": 41,
+          "module": "matchmaking.dll",
+          "name": "method_41",
+          "rva": "0x3C610"
+        },
+        {
+          "index": 42,
+          "module": "matchmaking.dll",
+          "name": "method_42",
+          "rva": "0x3C680"
+        },
+        {
+          "index": 43,
+          "module": "matchmaking.dll",
+          "name": "method_43",
+          "rva": "0x3C790"
+        },
+        {
+          "index": 44,
+          "module": "matchmaking.dll",
+          "name": "method_44",
+          "rva": "0x3C850"
+        },
+        {
+          "index": 45,
+          "module": "matchmaking.dll",
+          "name": "method_45",
+          "rva": "0x3CA70"
+        },
+        {
+          "index": 46,
+          "module": "matchmaking.dll",
+          "name": "method_46",
+          "rva": "0x3CAA0"
+        },
+        {
+          "index": 47,
+          "module": "matchmaking.dll",
+          "name": "method_47",
+          "rva": "0x3CB70"
+        },
+        {
+          "index": 48,
+          "module": "matchmaking.dll",
+          "name": "method_48",
+          "rva": "0x3CD40"
+        },
+        {
+          "index": 49,
+          "module": "matchmaking.dll",
+          "name": "method_49",
+          "rva": "0x3CDF0"
+        },
+        {
+          "index": 50,
+          "module": "matchmaking.dll",
+          "name": "method_50",
+          "rva": "0x3CE20"
+        },
+        {
+          "index": 51,
+          "module": "matchmaking.dll",
+          "name": "method_51",
+          "rva": "0x3CE50"
+        },
+        {
+          "index": 52,
+          "module": "matchmaking.dll",
+          "name": "method_52",
+          "rva": "0x9470"
+        },
+        {
+          "index": 53,
+          "module": "matchmaking.dll",
+          "name": "method_53",
+          "rva": "0x3CFA0"
+        },
+        {
+          "index": 54,
+          "module": "matchmaking.dll",
+          "name": "method_54",
+          "rva": "0x3CFD0"
+        },
+        {
+          "index": 55,
+          "module": "matchmaking.dll",
+          "name": "method_55",
+          "rva": "0x3CE80"
+        },
+        {
+          "index": 56,
+          "module": "matchmaking.dll",
+          "name": "method_56",
+          "rva": "0x3CEB0"
+        },
+        {
+          "index": 57,
+          "module": "matchmaking.dll",
+          "name": "method_57",
+          "rva": "0x3CEE0"
+        },
+        {
+          "index": 58,
+          "module": "matchmaking.dll",
+          "name": "method_58",
+          "rva": "0x3CF10"
+        },
+        {
+          "index": 59,
+          "module": "matchmaking.dll",
+          "name": "method_59",
+          "rva": "0x3CF40"
+        },
+        {
+          "index": 60,
+          "module": "matchmaking.dll",
+          "name": "method_60",
+          "rva": "0x3CF70"
+        },
+        {
+          "index": 61,
+          "module": "matchmaking.dll",
+          "name": "method_61",
+          "rva": "0x3D000"
+        },
+        {
+          "index": 62,
+          "module": "matchmaking.dll",
+          "name": "method_62",
+          "rva": "0x35DF0"
+        },
+        {
+          "index": 63,
+          "module": "matchmaking.dll",
+          "name": "method_63",
+          "rva": "0x35E00"
+        },
+        {
+          "index": 64,
+          "module": "matchmaking.dll",
+          "name": "method_64",
+          "rva": "0x35E10"
+        },
+        {
+          "index": 65,
+          "module": "matchmaking.dll",
+          "name": "method_65",
+          "rva": "0x35E20"
+        },
+        {
+          "index": 66,
+          "module": "matchmaking.dll",
+          "name": "method_66",
+          "rva": "0x3D060"
+        },
+        {
+          "index": 67,
+          "module": "matchmaking.dll",
+          "name": "method_67",
+          "rva": "0x3D030"
+        },
+        {
+          "index": 68,
+          "module": "matchmaking.dll",
+          "name": "method_68",
+          "rva": "0x3D5E0"
+        },
+        {
+          "index": 69,
+          "module": "matchmaking.dll",
+          "name": "method_69",
+          "rva": "0x3DAC0"
+        },
+        {
+          "index": 70,
+          "module": "matchmaking.dll",
+          "name": "method_70",
+          "rva": "0x3DAD0"
+        },
+        {
+          "index": 71,
+          "module": "matchmaking.dll",
+          "name": "method_71",
+          "rva": "0x3D1C0"
+        },
+        {
+          "index": 72,
+          "module": "matchmaking.dll",
+          "name": "method_72",
+          "rva": "0x389F0"
+        },
+        {
+          "index": 73,
+          "module": "matchmaking.dll",
+          "name": "method_73",
+          "rva": "0x3DE70"
+        },
+        {
+          "index": 74,
+          "module": "matchmaking.dll",
+          "name": "method_74",
+          "rva": "0x3DEA0"
+        },
+        {
+          "index": 75,
+          "module": "matchmaking.dll",
+          "name": "method_75",
+          "rva": "0x3DED0"
+        }
+      ],
+      "rtti_class": "GameTypes",
+      "vtable_module": "matchmaking.dll",
+      "vtable_rva": "0x183350"
+    },
+    "MATCHFRAMEWORK_001": {
+      "method_count": 30,
+      "methods": [
+        {
+          "index": 0,
+          "module": "matchmaking.dll",
+          "name": "method_0",
+          "rva": "0xEB1E0"
+        },
+        {
+          "index": 1,
+          "module": "matchmaking.dll",
+          "name": "method_1",
+          "rva": "0xEB2E0"
+        },
+        {
+          "index": 2,
+          "module": "matchmaking.dll",
+          "name": "method_2",
+          "rva": "0xEB3F0"
+        },
+        {
+          "index": 3,
+          "module": "matchmaking.dll",
+          "name": "method_3",
+          "rva": "0xEA210"
+        },
+        {
+          "index": 4,
+          "module": "matchmaking.dll",
+          "name": "method_4",
+          "rva": "0xEAEF0"
+        },
+        {
+          "index": 5,
+          "module": "matchmaking.dll",
+          "name": "method_5",
+          "rva": "0x91D0"
+        },
+        {
+          "index": 6,
+          "module": "matchmaking.dll",
+          "name": "method_6",
+          "rva": "0xEA190"
+        },
+        {
+          "index": 7,
+          "module": "matchmaking.dll",
+          "name": "method_7",
+          "rva": "0x3E0B0"
+        },
+        {
+          "index": 8,
+          "module": "matchmaking.dll",
+          "name": "method_8",
+          "rva": "0xEAD10"
+        },
+        {
+          "index": 9,
+          "module": "matchmaking.dll",
+          "name": "method_9",
+          "rva": "0x9480"
+        },
+        {
+          "index": 10,
+          "module": "matchmaking.dll",
+          "name": "method_10",
+          "rva": "0x3E0B0"
+        },
+        {
+          "index": 11,
+          "module": "matchmaking.dll",
+          "name": "method_11",
+          "rva": "0xEAD50"
+        },
+        {
+          "index": 12,
+          "module": "matchmaking.dll",
+          "name": "method_12",
+          "rva": "0xEA1B0"
+        },
+        {
+          "index": 13,
+          "module": "matchmaking.dll",
+          "name": "method_13",
+          "rva": "0xEA1A0"
+        },
+        {
+          "index": 14,
+          "module": "matchmaking.dll",
+          "name": "method_14",
+          "rva": "0xEA1F0"
+        },
+        {
+          "index": 15,
+          "module": "matchmaking.dll",
+          "name": "method_15",
+          "rva": "0xEA1D0"
+        },
+        {
+          "index": 16,
+          "module": "matchmaking.dll",
+          "name": "method_16",
+          "rva": "0xEA1C0"
+        },
+        {
+          "index": 17,
+          "module": "matchmaking.dll",
+          "name": "method_17",
+          "rva": "0xEA1E0"
+        },
+        {
+          "index": 18,
+          "module": "matchmaking.dll",
+          "name": "method_18",
+          "rva": "0xE9D50"
+        },
+        {
+          "index": 19,
+          "module": "matchmaking.dll",
+          "name": "method_19",
+          "rva": "0xE9E00"
+        },
+        {
+          "index": 20,
+          "module": "matchmaking.dll",
+          "name": "method_20",
+          "rva": "0xEA510"
+        },
+        {
+          "index": 21,
+          "module": "matchmaking.dll",
+          "name": "method_21",
+          "rva": "0xE9D80"
+        },
+        {
+          "index": 22,
+          "module": "matchmaking.dll",
+          "name": "method_22",
+          "rva": "0xEA270"
+        },
+        {
+          "index": 23,
+          "module": "matchmaking.dll",
+          "name": "method_23",
+          "rva": "0xEA280"
+        },
+        {
+          "index": 24,
+          "module": "matchmaking.dll",
+          "name": "method_24",
+          "rva": "0xEB150"
+        },
+        {
+          "index": 25,
+          "module": "matchmaking.dll",
+          "name": "method_25",
+          "rva": "0xE9F40"
+        },
+        {
+          "index": 26,
+          "module": "matchmaking.dll",
+          "name": "method_26",
+          "rva": "0xEA0B0"
+        },
+        {
+          "index": 27,
+          "module": "matchmaking.dll",
+          "name": "method_27",
+          "rva": "0xEA200"
+        },
+        {
+          "index": 28,
+          "module": "matchmaking.dll",
+          "name": "method_28",
+          "rva": "0x188DB8"
+        },
+        {
+          "index": 29,
+          "module": "matchmaking.dll",
+          "name": "method_29",
+          "rva": "0xEA6A0"
+        }
+      ],
+      "rtti_class": "CMatchFramework",
+      "vtable_module": "matchmaking.dll",
+      "vtable_rva": "0x160550"
     }
   },
   "materialsystem2.dll": {
@@ -19577,6 +23891,94 @@
       "rtti_class": "CMeshSystem",
       "vtable_module": "meshsystem.dll",
       "vtable_rva": "0x1283A0"
+    }
+  },
+  "navsystem.dll": {
+    "NavSystem001": {
+      "method_count": 13,
+      "methods": [
+        {
+          "index": 0,
+          "module": "navsystem.dll",
+          "name": "method_0",
+          "rva": "0xBC60"
+        },
+        {
+          "index": 1,
+          "module": "navsystem.dll",
+          "name": "method_1",
+          "rva": "0xBBC0"
+        },
+        {
+          "index": 2,
+          "module": "navsystem.dll",
+          "name": "method_2",
+          "rva": "0xBCD0"
+        },
+        {
+          "index": 3,
+          "module": "navsystem.dll",
+          "name": "method_3",
+          "rva": "0xBC00"
+        },
+        {
+          "index": 4,
+          "module": "navsystem.dll",
+          "name": "method_4",
+          "rva": "0xBCA0"
+        },
+        {
+          "index": 5,
+          "module": "navsystem.dll",
+          "name": "method_5",
+          "rva": "0xBCE0"
+        },
+        {
+          "index": 6,
+          "module": "navsystem.dll",
+          "name": "method_6",
+          "rva": "0xBCD0"
+        },
+        {
+          "index": 7,
+          "module": "navsystem.dll",
+          "name": "method_7",
+          "rva": "0xBBB0"
+        },
+        {
+          "index": 8,
+          "module": "navsystem.dll",
+          "name": "method_8",
+          "rva": "0xBC20"
+        },
+        {
+          "index": 9,
+          "module": "navsystem.dll",
+          "name": "method_9",
+          "rva": "0xBCC0"
+        },
+        {
+          "index": 10,
+          "module": "navsystem.dll",
+          "name": "method_10",
+          "rva": "0xBCB0"
+        },
+        {
+          "index": 11,
+          "module": "navsystem.dll",
+          "name": "method_11",
+          "rva": "0xBAF0"
+        },
+        {
+          "index": 12,
+          "module": "navsystem.dll",
+          "name": "method_12",
+          "rva": "0xBB80"
+        }
+      ],
+      "rtti_class": "CNavSystem",
+      "vtable_module": "navsystem.dll",
+      "vtable_rva": "0x108210"
     }
   },
   "networksystem.dll": {
@@ -24053,6 +28455,222 @@
       "rtti_class": "CResourceSystem",
       "vtable_module": "resourcesystem.dll",
       "vtable_rva": "0x60E88"
+    }
+  },
+  "scenefilecache.dll": {
+    "ResponseRulesCache001": {
+      "method_count": 19,
+      "methods": [
+        {
+          "index": 0,
+          "module": "scenefilecache.dll",
+          "name": "method_0",
+          "rva": "0x8520"
+        },
+        {
+          "index": 1,
+          "module": "scenefilecache.dll",
+          "name": "method_1",
+          "rva": "0x8510"
+        },
+        {
+          "index": 2,
+          "module": "scenefilecache.dll",
+          "name": "method_2",
+          "rva": "0x6A20"
+        },
+        {
+          "index": 3,
+          "module": "scenefilecache.dll",
+          "name": "method_3",
+          "rva": "0x8280"
+        },
+        {
+          "index": 4,
+          "module": "scenefilecache.dll",
+          "name": "method_4",
+          "rva": "0x8300"
+        },
+        {
+          "index": 5,
+          "module": "scenefilecache.dll",
+          "name": "method_5",
+          "rva": "0x6A10"
+        },
+        {
+          "index": 6,
+          "module": "scenefilecache.dll",
+          "name": "method_6",
+          "rva": "0x6A20"
+        },
+        {
+          "index": 7,
+          "module": "scenefilecache.dll",
+          "name": "method_7",
+          "rva": "0x8500"
+        },
+        {
+          "index": 8,
+          "module": "scenefilecache.dll",
+          "name": "method_8",
+          "rva": "0x8550"
+        },
+        {
+          "index": 9,
+          "module": "scenefilecache.dll",
+          "name": "method_9",
+          "rva": "0x6A00"
+        },
+        {
+          "index": 10,
+          "module": "scenefilecache.dll",
+          "name": "method_10",
+          "rva": "0x8540"
+        },
+        {
+          "index": 11,
+          "module": "scenefilecache.dll",
+          "name": "method_11",
+          "rva": "0x7370"
+        },
+        {
+          "index": 12,
+          "module": "scenefilecache.dll",
+          "name": "method_12",
+          "rva": "0x74F0"
+        },
+        {
+          "index": 13,
+          "module": "scenefilecache.dll",
+          "name": "method_13",
+          "rva": "0x7430"
+        },
+        {
+          "index": 14,
+          "module": "scenefilecache.dll",
+          "name": "method_14",
+          "rva": "0x7720"
+        },
+        {
+          "index": 15,
+          "module": "scenefilecache.dll",
+          "name": "method_15",
+          "rva": "0x7800"
+        },
+        {
+          "index": 16,
+          "module": "scenefilecache.dll",
+          "name": "method_16",
+          "rva": "0x77F0"
+        },
+        {
+          "index": 17,
+          "module": "scenefilecache.dll",
+          "name": "method_17",
+          "rva": "0x7810"
+        },
+        {
+          "index": 18,
+          "module": "scenefilecache.dll",
+          "name": "method_18",
+          "rva": "0xD2084"
+        }
+      ],
+      "rtti_class": "CResponseRulesFileCache",
+      "vtable_module": "scenefilecache.dll",
+      "vtable_rva": "0xD25F8"
+    },
+    "SceneFileCache002": {
+      "method_count": 14,
+      "methods": [
+        {
+          "index": 0,
+          "module": "scenefilecache.dll",
+          "name": "method_0",
+          "rva": "0xBB00"
+        },
+        {
+          "index": 1,
+          "module": "scenefilecache.dll",
+          "name": "method_1",
+          "rva": "0xBB40"
+        },
+        {
+          "index": 2,
+          "module": "scenefilecache.dll",
+          "name": "method_2",
+          "rva": "0x6A20"
+        },
+        {
+          "index": 3,
+          "module": "scenefilecache.dll",
+          "name": "method_3",
+          "rva": "0xBB80"
+        },
+        {
+          "index": 4,
+          "module": "scenefilecache.dll",
+          "name": "method_4",
+          "rva": "0xBC40"
+        },
+        {
+          "index": 5,
+          "module": "scenefilecache.dll",
+          "name": "method_5",
+          "rva": "0x6A10"
+        },
+        {
+          "index": 6,
+          "module": "scenefilecache.dll",
+          "name": "method_6",
+          "rva": "0xBAF0"
+        },
+        {
+          "index": 7,
+          "module": "scenefilecache.dll",
+          "name": "method_7",
+          "rva": "0xBAE0"
+        },
+        {
+          "index": 8,
+          "module": "scenefilecache.dll",
+          "name": "method_8",
+          "rva": "0xC090"
+        },
+        {
+          "index": 9,
+          "module": "scenefilecache.dll",
+          "name": "method_9",
+          "rva": "0x6A00"
+        },
+        {
+          "index": 10,
+          "module": "scenefilecache.dll",
+          "name": "method_10",
+          "rva": "0x8540"
+        },
+        {
+          "index": 11,
+          "module": "scenefilecache.dll",
+          "name": "method_11",
+          "rva": "0xBCA0"
+        },
+        {
+          "index": 12,
+          "module": "scenefilecache.dll",
+          "name": "method_12",
+          "rva": "0xBCB0"
+        },
+        {
+          "index": 13,
+          "module": "scenefilecache.dll",
+          "name": "method_13",
+          "rva": "0xBEA0"
+        }
+      ],
+      "rtti_class": "CSceneFileCache",
+      "vtable_module": "scenefilecache.dll",
+      "vtable_rva": "0xD2B58"
     }
   },
   "scenesystem.dll": {

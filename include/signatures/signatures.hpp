@@ -95,8 +95,6 @@ namespace sdk::sigs {
         inline constexpr std::string_view C_PlantedC4_ClientThink = "40 55 53 57 41 57 48 8D 6C 24 B8 48 81 EC 48 01";
         inline constexpr std::string_view C_SmokeGrenadeProjectile = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 65 48 8B 04 25 58 00 00 00 48 8D 35 ? ? ? ? 8B 0D ? ? ? ? 33 FF BA 98 00 00 00 48 8B 1C C8";
         inline constexpr std::string_view CacheParticleEffect = "4C 8B DC 53 48 81 EC 90 00 00 00 F2 0F 10 05 A5";
-        inline constexpr std::string_view CalcSpread = "48 8B C4 48 89 58 08 48 89 68 18 48 89 70 20 57 41 54 41 55 41 56 41 57 48 81 EC E0";
-        inline constexpr std::string_view CalcViewmodel = "40 55 53 56 41 56 41 57 48 8B EC 48 83 EC 20 4D";
         inline constexpr std::string_view CalcViewmodelTransform_v2 = "48 89 5C 24 20 55 56 57 41 54 41 55 41 56 41 57 48 8D 6C 24 80 48 81 EC 80 01 00 00 48 8B FA 48";
         inline constexpr std::string_view CalcViewmodelView = "40 53 48 83 EC 60 48 8B 41 08 49 8B D8 8B 48 30";
         inline constexpr std::string_view CalculateInterpolation = "48 83 EC 08 4C 8B 0D ? ? ? ? 4C 8B DA 48 8B";
@@ -117,13 +115,11 @@ namespace sdk::sigs {
         inline constexpr std::string_view CreateEconItem = "48 83 EC 28 B9 48 00 00 00 E8 ? ? ? ? 48 85";
         inline constexpr std::string_view CreateEntityByClassName = "4C 8D 05 ? ? ? ? 4C 8B CF BA 03 00 00 00 FF 15 2D 16 30";
         inline constexpr std::string_view CreateInterface = "4C 8B 0D ? ? ? ? 4C 8B D2 4C 8B D9 4D 85 C9";
-        inline constexpr std::string_view CreateMove = "48 8B C4 4C 89 40 18 48 89 48 08 55 53 41 54 41";
         inline constexpr std::string_view CreateNewSubtickMoveStep = "48 89 5C 24 10 57 48 83 EC 20 33 DB 48 8B F9 48 85 C9 75 2D B9 38 00 00 00 E8 22 0D";
         inline constexpr std::string_view CreateParticleEffect = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 50 F3 0F 10 1D 41";
         inline constexpr std::string_view CreateSOSubclassEconItem = "48 83 EC 28 B9 48 00 00 00 E8 ? ? ? ? 48 85";
         inline constexpr std::string_view CreateTrace = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 57 41 56 41 57 48 83 EC 50 F2 0F 10 02";
         inline constexpr std::string_view Ctrl = "48 89 5C 24 20 57 48 81 EC D0 06 00 00 48 8B 01";
-        inline constexpr std::string_view DamageFeedbackEmitter = "48 89 4C 24 08 55 53 41 54 41 55 41 57 48 8D AC";
         inline constexpr std::string_view DamageServices = "40 55 41 56 41 57 48 8B EC 48 83 EC 40 4C 8B F2 83 F9 06 0F 87 1E 03 00";
         inline constexpr std::string_view DestroyParticle = "83 FA FF 0F 84 ? ? ? ? 41 54 41 56 41 57 48";
         inline constexpr std::string_view DispatchEffect = "48 89 5C 24 08 57 48 83 EC 70 48 8B F9 48 8B DA";
@@ -138,7 +134,6 @@ namespace sdk::sigs {
         inline constexpr std::string_view DrawTeamIntro = "48 83 EC 28 45 0F B6 08 44 38 89 04 0F 00 00 74";
         inline constexpr std::string_view E8 = "40 53 48 83 EC 20 48 8B 89 90 14 00 00 48 8B DA";
         inline constexpr std::string_view EmitPanoramaSound = "40 53 48 81 EC B0 00 00 00 0F 10 02 48 8B 05 F5";
-        inline constexpr std::string_view EmitSoundByHandle = "40 53 48 83 EC 30 4C 89 4C 24 20 48 8B D9 45 8B";
         inline constexpr std::string_view EquipItemInLoadout = "48 89 5C 24 08 48 89 6C 24 18 48 89 74 24 20 89 54 24 10 57 41 54 41 55 41 56 41 57 48 83 EC 70";
         inline constexpr std::string_view Event = "48 89 74 24 18 48 89 7C 24 20 41 56 48 83 EC 20 48 63 FA 41 8B F0 4C 8B F1 45 85 C0 74 79 8B 41 10 48 89 5C 24 30 8B 19 41 03 D8 4C 89 7C 24 38";
         inline constexpr std::string_view FindHudElement = "48 8D 15 ? ? ? ? 45 33 C0 B9 01 00 00 00 FF 15 33 F2 B4";
@@ -185,10 +180,7 @@ namespace sdk::sigs {
         inline constexpr std::string_view GetTransformsForHitboxList = "48 89 5C 24 18 55 56 57 41 55 41 57 48 81 EC A0";
         inline constexpr std::string_view GetUserCmdManager = "41 56 41 57 48 83 EC 48 48 8D 54 24 68 E8 AE 78";
         inline constexpr std::string_view GetViewAngles = "4C 8B C1 85 D2 74 08 48 8D 05 ? ? ? ? C3 8B";
-        inline constexpr std::string_view GetViewModelOffsets = "40 55 53 56 41 56 41 57 48 8B EC 48 83 EC 20 4D";
         inline constexpr std::string_view GetWeaponInAccuracyRecoveryTime = "48 89 5C 24 08 57 48 83 EC 30 48 8B D9 E8 CE 61";
-        inline constexpr std::string_view GetWorldFovResolver = "40 53 48 83 EC 50 48 8B D9 E8 ? ? ? ? 48 85";
-        inline constexpr std::string_view GlobalLightUpdateState = "40 57 48 81 EC C0 00 00 00 48 8B F9 BA FF FF FF";
         inline constexpr std::string_view HandleBulletPenetration = "48 8B C4 44 89 48 20 48 89 50 10 48 89 48 08 55 57 41 57 48";
         inline constexpr std::string_view HandleEntityList = "48 8B C4 4C 89 48 20 4C 89 40 18 48 89 50 10 55 56 41 57 48";
         inline constexpr std::string_view HandleTeamIntro = "48 83 EC 28 45 0F B6 08 44 38 89 04 0F 00 00 74";
@@ -200,33 +192,28 @@ namespace sdk::sigs {
         inline constexpr std::string_view InitPlayerMovementTraceFilter = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 0F B6 41 39 33 FF C7 41 34";
         inline constexpr std::string_view InitTraceData = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 48 8D 79 08 33";
         inline constexpr std::string_view InitTraceInfo = "40 55 41 55 41 57 48 83 EC 30 4C 8B 3D 0F FE EE";
-        inline constexpr std::string_view InsecureEmitter = "48 89 5C 24 20 56 48 83 EC 20 48 8B D9 48 89 6C 24 30 48 8B E9 48 8B 0D";
         inline constexpr std::string_view InventoryServices = "40 55 41 56 41 57 48 8B EC 48 83 EC 40 4C 8B F2 83 F9 06 0F 87 1E 03 00";
         inline constexpr std::string_view IsLatched = "0F B6 81 08 02 00 00 C3 CC CC CC CC CC CC CC CC 48 83 EC 28";
         inline constexpr std::string_view IsLocalPlayerWatchingOwnDemo = "48 89 5C 24 08 48 89 6C 24 18 56 57 41 56 48 83 EC 20 48 8B 0D BF 4B 43";
         inline constexpr std::string_view IsOverwatch = "48 83 EC 28 E8 ? ? ? ? 0F B6 40 72 48 83 C4";
         inline constexpr std::string_view ItemServices = "40 53 48 83 EC 50 8B 15 ? ? ? ? 48 8B D9 65 48 8B 04 25 58 00 00 00 B9 98 00 00 00 48 8B 04 D0 8B 04 01 39 05 16 0B";
-        inline constexpr std::string_view KillFeedbackEmitter = "48 89 5C 24 08 48 89 74 24 18 48 89 7C 24 20 55 41 56 41 57 48 8B EC 48 81 EC 80 00";
         inline constexpr std::string_view LevelInit = "40 55 56 41 56 48 8D 6C 24 90 48 81 EC 70 01 00";
         inline constexpr std::string_view LevelShutdown = "48 83 EC 28 48 8B 0D ? ? ? ? 48 8D 15 6E F2";
         inline constexpr std::string_view LoadDefaultKit = "48 89 6C 24 20 56 57 41 54 41 55 41 57 48 81 EC";
         inline constexpr std::string_view LoadFileForMe = "40 55 57 41 56 48 83 EC 20 4C 63 71 18 33 FF 48";
         inline constexpr std::string_view LoadPath = "48 89 74 24 20 57 48 83 EC 20 44 8B 49 04 BF FF FF FF 7F 44 23 CF 48 8B F1 41 8B C8 45 85 C0 74 30 83 E9 ? ? ? ? F9 01 0F 85 ? ? ? ? 41";
         inline constexpr std::string_view LookupBone = "40 53 48 83 EC 20 48 8B 89 30 03 00 00 48 8B DA 48 8B 01 FF 50 50 48 8B";
-        inline constexpr std::string_view MatchFoundHandler = "48 85 D2 0F 84 ? ? ? ? 48 8B C4 55 53 56 57";
         inline constexpr std::string_view ModulationUpdate = "48 89 5C 24 08 57 48 83 EC 20 8B FA 48 8B D9 E8 ? ? ? ? 84 C0 0F 84";
         inline constexpr std::string_view MovementServices = "48 83 EC 28 8B 0D ? ? ? ? 65 48 8B 04 25 58 00 00 00 BA 98 00 00 00 48 8B 04 C8 8B 04 02 39 05 D3 41 AD 01 0F 8F D3";
         inline constexpr std::string_view NoClipOnChange = "48 89 5C 24 10 48 89 74 24 18 48 89 7C 24 20 55 48 8B EC 48 83 EC 30 48 8D 05 3A 18";
         inline constexpr std::string_view NoSpread1 = "48 89 5C 24 08 57 48 81 EC F0 00 00 00 F3 0F 10";
         inline constexpr std::string_view OnAddEntity = "48 89 74 24 10 57 48 83 EC 20 41 B9 FF 7F 00 00 41 8B C0 41 23 C1 48 8B F2 41 83 F8 FF 48 8B F9 44 0F 45 C8 41 81 F9 00 40 00 00 73 0D FF 81 90";
         inline constexpr std::string_view OnBodyGroupChoiceChanged = "48 89 5C 24 08 57 48 83 EC 20 49 63 D8 49 8B F9";
-        inline constexpr std::string_view OnEvent = "40 53 57 48 81 EC 78 02 00 00 48 8B CA 48 8B FA";
         inline constexpr std::string_view OnGlowTypeChanged = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 48 8B 05 2A E3";
         inline constexpr std::string_view OnPostDataUpdate = "48 89 5C 24 08 48 89 74 24 18 55 57 41 56 48 8B EC 48 83 EC 50 45 8B F1";
         inline constexpr std::string_view OnRemoveEntity = "48 89 74 24 10 57 48 83 EC 20 41 B9 FF 7F 00 00 41 8B C0 41 23 C1 48 8B F2 41 83 F8 FF 48 8B F9 44 0F 45 C8 41 81 F9 00 40 00 00 73 08 FF 89 90";
         inline constexpr std::string_view OnSkeletonModelChanged = "49 8B 00 48 89 81 B8 00 00 00 C6 81 B0 00 00 00";
         inline constexpr std::string_view PanelConstructorPointer = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 30 48 8B F1 48 8B FA B9 20 00";
-        inline constexpr std::string_view PanoramaEvent = "40 56 57 41 57 48 83 EC 40 48 8B 3D ? ? ? ?";
         inline constexpr std::string_view ParseSubtickDuration = "40 55 48 8D AC 24 70 FD FF FF 48 81 EC 90 03 00";
         inline constexpr std::string_view ParseSubtickFraction = "40 55 48 8D AC 24 40 FE FF FF 48 81 EC C0 02 00";
         inline constexpr std::string_view ParticleCollection = "48 89 5C 24 08 57 48 83 EC 20 0F 28 05 DF 5A 2F";
@@ -247,7 +234,6 @@ namespace sdk::sigs {
         inline constexpr std::string_view RegenerateWeaponSkin = "40 55 53 41 57 48 8D AC 24 00 FE FF FF 48 81 EC";
         inline constexpr std::string_view RegenerateWeaponSkin_v2 = "40 55 53 41 57 48 8D AC 24 00 FE FF FF 48 81 EC";
         inline constexpr std::string_view RegenerateWeaponSkins = "48 83 EC 48 E8 ? ? ? ? 48 85 C0 0F 84 7F 00";
-        inline constexpr std::string_view RenderDecals = "44 88 4C 24 20 55 53 57 41 54 41 55 48 8D 6C 24";
         inline constexpr std::string_view ReportHit = "40 53 48 83 EC 20 48 8D 05 ? ? ? ? 48 8D 59 08 48 89 01 F6 03 01 74 08 48 8B CB E8 8F FB EA";
         inline constexpr std::string_view RunCommand = "48 8B C4 48 81 EC C8 00 00 00 48 89 58 10 48 89";
         inline constexpr std::string_view RunCommand_processor = "48 8B C4 48 81 EC C8 00 00 00 48 89 58 10 48 89";
@@ -314,7 +300,6 @@ namespace sdk::sigs {
         inline constexpr std::string_view ViewModelHideZoomed = "48 89 5C 24 20 55 56 57 41 54 41 56 48 8B EC 48 83 EC 50 48 8D 05 A6 06";
         inline constexpr std::string_view WaterServices = "48 83 EC 28 8B 0D ? ? ? ? 65 48 8B 04 25 58 00 00 00 BA 98 00 00 00 48 8B 04 C8 8B 04 02 39 05 9B D2 A9 01 0F 8F 43";
         inline constexpr std::string_view WeaponServices = "48 83 EC 28 8B 0D ? ? ? ? 65 48 8B 04 25 58 00 00 00 BA 98 00 00 00 48 8B 04 C8 8B 04 02 39 05 93 E4 A9 01 0F 8F C4";
-        inline constexpr std::string_view WriteSubtickFromEntry = "48 89 5C 24 18 55 57 41 56 48 8D 6C 24 C9 48 81";
         inline constexpr std::string_view create_move_v2 = "85 D2 0F 85 ? ? ? ? 48 8B C4 44 88 40 18 89";
         inline constexpr std::string_view draw_smoke_array = "40 55 41 54 41 55 48 8D AC 24 20 F9 FF FF 48 81";
         inline constexpr std::string_view draw_view_punch_v2 = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 48 89 7C 24 20 41 56 48 83 EC 40 49 8B E9 49 8B F8";
@@ -322,7 +307,6 @@ namespace sdk::sigs {
         inline constexpr std::string_view get_fov = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 48 89 7C 24 20 41 56 48 83 EC 40 49 8B E9 49 8B F8";
         inline constexpr std::string_view get_map_name = "48 83 EC 28 48 8B 0D ? ? ? ? 48 8B 01 FF 90 00 02 00 00";
         inline constexpr std::string_view get_view_angles_v2 = "4D 85 C0 74 72 85 D2 74 18 48 8D 05 ? ? ? ?";
-        inline constexpr std::string_view get_view_model = "40 55 53 56 41 56 41 57 48 8B EC 48 83 EC 20 4D";
         inline constexpr std::string_view is_demo_or_hltv = "48 83 EC 28 48 8B 0D ? ? ? ? 48 8B 01 FF 90 50 01 00 00 84 C0 75 0D";
         inline constexpr std::string_view level_init_v2 = "40 55 56 41 56 48 8D 6C 24 B9 48 81 EC E0 00 00 00 48 8B 0D";
         inline constexpr std::string_view level_shutdown = "48 83 EC 28 48 8B 0D ? ? ? ? 48 8D 15 56 91";
@@ -454,7 +438,6 @@ namespace sdk::sigs {
     }
     namespace scenesystem {
         inline constexpr std::string_view AllocateAttributeListFunctionPointer = "40 55 48 83 EC 20 48 83 BA A8 00 00 00 00 48 8B";
-        inline constexpr std::string_view BuildSceneInfoGpu = "4C 89 4C 24 20 4C 89 44 24 18 48 89 4C 24 08 55 48 8D AC 24 00 E3 FF FF";
         inline constexpr std::string_view CAnimatableSceneObjectDescRender = "48 8B C4 53 57 41 54 48 81 EC D0 00 00 00 49 63";
         inline constexpr std::string_view CreateStaticShape = "48 8B C4 48 89 48 08 55 41 54 41 56 48 8D 68 D8";
         inline constexpr std::string_view CullView = "4C 89 44 24 18 48 89 54 24 10 48 89 4C 24 08 55 53 56 57 41 54 41 55 41 56 41 57 48 8D 6C 24 E1";
@@ -465,9 +448,7 @@ namespace sdk::sigs {
         inline constexpr std::string_view DrawAggregateSceneObjectArray = "48 8B C4 48 89 50 10 48 89 48 08 55 53 56 57 41 54 41 55 41 56 41 57 48 8D A8 38 F9";
         inline constexpr std::string_view DrawArrayLight = "48 89 5C 24 08 48 89 6C 24 18 48 89 54 24 10 56 57 41 56 48";
         inline constexpr std::string_view DrawObject_legacy = "48 8B C4 53 57 41 54 48 81 EC D0 00 00 00 49 63";
-        inline constexpr std::string_view DrawSkyboxArray = "45 85 C9 0F 8E ? ? ? ? 4C 8B DC 55 41 56 49";
         inline constexpr std::string_view FrameUpdate = "48 8B C4 88 50 10 48 89 48 08 55 53 41 54 41 55";
-        inline constexpr std::string_view GeneratePrimitives = "48 8B C4 48 89 58 08 48 89 50 10 55 56 57 41 54 41 55 41 56 41 57 48 81";
         inline constexpr std::string_view InitGfxObjects = "40 55 53 56 57 41 54 41 55 41 56 41 57 48 8D AC 24 08 FE FF";
         inline constexpr std::string_view RenderSceneDrawList = "40 55 53 56 57 41 54 41 55 41 56 41 57 48 8D 6C 24 E1 48 81 EC D8 00 00";
         inline constexpr std::string_view ToneMapUpdate = "40 53 48 83 EC 60 48 8B D9 0F 29 74 24 50 48 8D";
@@ -540,7 +521,6 @@ namespace sdk::sigs {
         inline constexpr std::string_view PlayVSND = "48 89 5C 24 08 48 89 74 24 18 48 89 7C 24 20 55 48 8D 6C 24";
         inline constexpr std::string_view PlayVSound = "48 8B C4 48 89 58 08 57 48 81 EC A0 00 00 00 33";
         inline constexpr std::string_view SomeUtlSymbolFunc = "48 89 74 24 18 57 48 83 EC 20 48 63 F2 48 8B F9";
-        inline constexpr std::string_view StartSoundEvent = "40 53 55 56 48 83 EC 20 83 B9 EC 24 00 00 00 49";
     }
     namespace tier0 {
         inline constexpr std::string_view CreateInterface = "4C 8B 0D ? ? ? ? 4C 8B D2 4C 8B D9 4D 85 C9";
@@ -631,10 +611,6 @@ namespace sdk::sigs_fn {
         using CTonemapController2_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: not yet reverse-engineered (placeholder)
         using CacheParticleEffect_t = void(__fastcall*)(void*, ...);
-        // PROTOTYPE: not yet reverse-engineered (placeholder)
-        using CalcSpread_t = void(__fastcall*)(void*, ...);
-        // PROTOTYPE: void __fastcall CalcViewmodel(__int64 a1, float *a2, float *a3) (placeholder — verify in IDA)
-        using CalcViewmodel_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall CalcViewmodelTransform_v2(__int64 a1, __int64 a2) (placeholder — verify in IDA)
         using CalcViewmodelTransform_v2_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall CalcViewmodelView(__int64 a1, __int64 a2, _DWORD *a3) (placeholder — verify in IDA)
@@ -675,8 +651,6 @@ namespace sdk::sigs_fn {
         using CreateEntityByClassName_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall CreateInterface(__int64 a1, _DWORD *a2) (placeholder — verify in IDA)
         using CreateInterface_t = void(__fastcall*)(void*, ...);
-        // PROTOTYPE: bool __fastcall CreateMove(void* pthis, int nSlot, float flInputSampleTime, bool bActive) (placeholder — verify in IDA)
-        using CreateMove_t = bool(__fastcall*)(void* pthis, int nSlot, float flInputSampleTime, bool bActive);
         // PROTOTYPE: __int64 __fastcall CreateNewSubtickMoveStep(__int64 a1) (placeholder — verify in IDA)
         using CreateNewSubtickMoveStep_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall CreateParticleEffect(int a1, int a2, int a3, __int64 a4, int a5) (placeholder — verify in IDA)
@@ -687,8 +661,6 @@ namespace sdk::sigs_fn {
         using CreateTrace_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall Ctrl(__int64 a1) (placeholder — verify in IDA)
         using Ctrl_t = void(__fastcall*)(void*, ...);
-        // PROTOTYPE: void __fastcall DamageFeedbackEmitter(__int64 a1, _QWORD *a2, __int64 a3) (placeholder — verify in IDA)
-        using DamageFeedbackEmitter_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall DamageServices(int a1, _QWORD *a2) (placeholder — verify in IDA)
         using DamageServices_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: void __fastcall DestroyParticle(__int64 a1, __int64 a2, unsigned __int8 a3, char a4) (placeholder — verify in IDA)
@@ -717,8 +689,6 @@ namespace sdk::sigs_fn {
         using E8_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: not yet reverse-engineered (placeholder)
         using EmitPanoramaSound_t = void(__fastcall*)(void*, ...);
-        // PROTOTYPE: __int64 __fastcall EmitSoundByHandle(__int64 a1, int a2, int a3, __int64 a4) (placeholder — verify in IDA)
-        using EmitSoundByHandle_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: char __fastcall EquipItemInLoadout(_QWORD *a1, unsigned int a2, int a3, unsigned __int64 a4) (placeholder — verify in IDA)
         using EquipItemInLoadout_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall Event(__int64 a1, unsigned int a2, int a3) (placeholder — verify in IDA)
@@ -811,14 +781,8 @@ namespace sdk::sigs_fn {
         using GetUserCmdManager_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 *__fastcall GetViewAngles(__int64 a1, int a2) (placeholder — verify in IDA)
         using GetViewAngles_t = void(__fastcall*)(void*, ...);
-        // PROTOTYPE: void __fastcall GetViewModelOffsets(__int64 viewmodel, float *outOffsets, float *outFov) (placeholder — verify in IDA)
-        using GetViewModelOffsets_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __m128 __fastcall GetWeaponInAccuracyRecoveryTime(__int64 a1) (placeholder — verify in IDA)
         using GetWeaponInAccuracyRecoveryTime_t = void(__fastcall*)(void*, ...);
-        // PROTOTYPE: float __fastcall GetWorldFovResolver(__int64 a1) (placeholder — verify in IDA)
-        using GetWorldFovResolver_t = void(__fastcall*)(void*, ...);
-        // PROTOTYPE: _BYTE *__fastcall GlobalLightUpdateState(__int64 a1) (placeholder — verify in IDA)
-        using GlobalLightUpdateState_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: char __fastcall HandleBulletPenetration(__int64 a1, float *a2, __int64 a3, int a4, __int64 a5) (placeholder — verify in IDA)
         using HandleBulletPenetration_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall HandleEntityList(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, int a6, int a7) (placeholder — verify in IDA)
@@ -841,8 +805,6 @@ namespace sdk::sigs_fn {
         using InitTraceData_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall InitTraceInfo(__int64 a1) (placeholder — verify in IDA)
         using InitTraceInfo_t = void(__fastcall*)(void*, ...);
-        // PROTOTYPE: not yet reverse-engineered (placeholder)
-        using InsecureEmitter_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall InventoryServices(int a1, _QWORD *a2) (placeholder — verify in IDA)
         using InventoryServices_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: not yet reverse-engineered (placeholder)
@@ -853,8 +815,6 @@ namespace sdk::sigs_fn {
         using IsOverwatch_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: void *__fastcall ItemServices(__int64 a1) (placeholder — verify in IDA)
         using ItemServices_t = void(__fastcall*)(void*, ...);
-        // PROTOTYPE: __int64 __fastcall KillFeedbackEmitter(__int64 a1, __int64 a2) (placeholder — verify in IDA)
-        using KillFeedbackEmitter_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall LevelInit(__int64 a1) (placeholder — verify in IDA)
         using LevelInit_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: not yet reverse-engineered (placeholder)
@@ -867,8 +827,6 @@ namespace sdk::sigs_fn {
         using LoadPath_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall LookupBone(__int64 a1, __int64 a2) (placeholder — verify in IDA)
         using LookupBone_t = void(__fastcall*)(void*, ...);
-        // PROTOTYPE: void __fastcall MatchFoundHandler(__int64 thisptr, __int64 *kv) (placeholder — verify in IDA)
-        using MatchFoundHandler_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall ModulationUpdate(__int64 a1, char a2) (placeholder — verify in IDA)
         using ModulationUpdate_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 *MovementServices() (placeholder — verify in IDA)
@@ -881,8 +839,6 @@ namespace sdk::sigs_fn {
         using OnAddEntity_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall OnBodyGroupChoiceChanged(__int64 a1, __int64 a2, int a3, _DWORD *a4) (placeholder — verify in IDA)
         using OnBodyGroupChoiceChanged_t = void(__fastcall*)(void*, ...);
-        // PROTOTYPE: void __fastcall OnEvent(__int64 a1, KeyValues *a2) (placeholder — verify in IDA)
-        using OnEvent_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall OnGlowTypeChanged(__int64 a1) (placeholder — verify in IDA)
         using OnGlowTypeChanged_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: not yet reverse-engineered (placeholder)
@@ -893,8 +849,6 @@ namespace sdk::sigs_fn {
         using OnSkeletonModelChanged_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: not yet reverse-engineered (placeholder)
         using PanelConstructorPointer_t = void(__fastcall*)(void*, ...);
-        // PROTOTYPE: not yet reverse-engineered (placeholder)
-        using PanoramaEvent_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: not yet reverse-engineered (placeholder)
         using ParseSubtickDuration_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: not yet reverse-engineered (placeholder)
@@ -935,8 +889,6 @@ namespace sdk::sigs_fn {
         using RegenerateWeaponSkin_v2_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 RegenerateWeaponSkins() (placeholder — verify in IDA)
         using RegenerateWeaponSkins_t = void(__fastcall*)(void*, ...);
-        // PROTOTYPE: _BYTE *__fastcall RenderDecals(__int64 a1, __int64 **a2, char a3, char a4) (placeholder — verify in IDA)
-        using RenderDecals_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: char __fastcall ReportHit(_QWORD *a1) (placeholder — verify in IDA)
         using ReportHit_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: void __fastcall RunCommand(__int64 a1, __int64 a2) (placeholder — verify in IDA)
@@ -1069,8 +1021,6 @@ namespace sdk::sigs_fn {
         using WaterServices_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 *WeaponServices() (placeholder — verify in IDA)
         using WeaponServices_t = void(__fastcall*)(void*, ...);
-        // PROTOTYPE: not yet reverse-engineered (placeholder)
-        using WriteSubtickFromEntry_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: void __fastcall create_move_v2(__int64 *a1, int a2, char a3) (placeholder — verify in IDA)
         using create_move_v2_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall draw_smoke_array(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, unsigned int *a6) (placeholder — verify in IDA)
@@ -1085,8 +1035,6 @@ namespace sdk::sigs_fn {
         using get_map_name_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: void __fastcall get_view_angles_v2(__int64 a1, int a2, __int64 a3) (placeholder — verify in IDA)
         using get_view_angles_v2_t = void(__fastcall*)(void*, ...);
-        // PROTOTYPE: void __fastcall get_view_model(__int64 a1, float *a2, float *a3) (placeholder — verify in IDA)
-        using get_view_model_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: char is_demo_or_hltv() (placeholder — verify in IDA)
         using is_demo_or_hltv_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall level_init_v2(__int64 a1, __int64 a2) (placeholder — verify in IDA)
@@ -1326,8 +1274,6 @@ namespace sdk::sigs_fn {
         // PROTOTYPE: not yet reverse-engineered (placeholder)
         using AllocateAttributeListFunctionPointer_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: not yet reverse-engineered (placeholder)
-        using BuildSceneInfoGpu_t = void(__fastcall*)(void*, ...);
-        // PROTOTYPE: not yet reverse-engineered (placeholder)
         using CAnimatableSceneObjectDescRender_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: not yet reverse-engineered (placeholder)
         using CreateStaticShape_t = void(__fastcall*)(void*, ...);
@@ -1348,11 +1294,7 @@ namespace sdk::sigs_fn {
         // PROTOTYPE: not yet reverse-engineered (placeholder)
         using DrawObject_legacy_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: not yet reverse-engineered (placeholder)
-        using DrawSkyboxArray_t = void(__fastcall*)(void*, ...);
-        // PROTOTYPE: not yet reverse-engineered (placeholder)
         using FrameUpdate_t = void(__fastcall*)(void*, ...);
-        // PROTOTYPE: not yet reverse-engineered (placeholder)
-        using GeneratePrimitives_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: not yet reverse-engineered (placeholder)
         using InitGfxObjects_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: not yet reverse-engineered (placeholder)
@@ -1485,8 +1427,6 @@ namespace sdk::sigs_fn {
         using PlayVSound_t = void(__fastcall*)(void*, ...);
         // PROTOTYPE: __int64 __fastcall SomeUtlSymbolFunc(__int64 a1, unsigned int a2) (placeholder — verify in IDA)
         using SomeUtlSymbolFunc_t = void(__fastcall*)(void*, ...);
-        // PROTOTYPE: not yet reverse-engineered (placeholder)
-        using StartSoundEvent_t = void(__fastcall*)(void*, ...);
     }
     namespace tier0 {
         // PROTOTYPE: void *__fastcall CreateInterface(const char *pName, int *pReturnCode) (placeholder — verify in IDA)

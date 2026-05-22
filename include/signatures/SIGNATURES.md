@@ -2,7 +2,7 @@
 
 _This file is regenerated on every successful run of `cs2-sdk`._
 
-**602/649 signatures resolved across 17 module(s).**
+**580/649 signatures resolved across 17 module(s).**
 
 ## `animationsystem.dll`
 
@@ -88,8 +88,6 @@ _This file is regenerated on every successful run of `cs2-sdk`._
 | `C_PlantedC4_ClientThink` | `_DWORD *__fastcall C_PlantedC4_ClientThink(__int64 plantedC4)` | `stringref` | `0x7FFA818FCFA0` | `0xC0CFA0` | `"C4.ExplodeTriggerTrip"` |
 | `C_SmokeGrenadeProjectile` | `__int64 (__fastcall *C_SmokeGrenadeProjectile())()` | `stringref` | `0x7FFA80D85A10` | `0x95A10` | `"C_SmokeGrenadeProjectile"` |
 | `CacheParticleEffect` | `` | `raw` | `0x7FFA80EF7F80` | `0x207F80` | `4C 8B DC 53 48 81 EC ? ? ? ? F2 0F 10 05` |
-| `CalcSpread` | `` | `raw` | `0x7FFA81972390` | `0xC82390` | `48 8B C4 48 89 58 ? 48 89 68 ? 48 89 70 ? 57 41 54 41 55 41 56 41 57 48 81 EC ? ? ? ? 4C 63 EA` |
-| `CalcViewmodel` | `void __fastcall CalcViewmodel(__int64 a1, float *a2, float *a3)` | `raw` | `0x7FFA81541920` | `0x851920` | `40 55 53 56 41 56 41 57 48 8B EC` |
 | `CalcViewmodelTransform_v2` | `__int64 __fastcall CalcViewmodelTransform_v2(__int64 a1, __int64 a2)` | `raw` | `0x7FFA81493FF0` | `0x7A3FF0` | `48 89 5C 24 20 55 56 57 41 54 41 55 41 56 41 57 48 8D 6C 24 80 48 81 EC 80 01 00 00 48 8B FA` |
 | `CalcViewmodelView` | `__int64 __fastcall CalcViewmodelView(__int64 a1, __int64 a2, _DWORD *a3)` | `raw` | `0x7FFA8195F6C0` | `0xC6F6C0` | `40 53 48 83 EC 60 48 8B 41 08 49 8B D8 8B 48 30 48 C1 E9 0C F6 C1 01 0F 85 48 01 00 00 41 B8 07` |
 | `CalculateInterpolation` | `int *__fastcall CalculateInterpolation(__int64 a1, int *a2)` | `rel32` | `0x7FFA821C7F10` | `0x14D7F10` | `E8 ? ? ? ? 8B 45 ? 3B 45 60 75 04 32 D2 EB 09 BA 01 00 00 00 41 0F 4C D5 C0 EA 07 84 D2 0F 85 87` |
@@ -110,13 +108,11 @@ _This file is regenerated on every successful run of `cs2-sdk`._
 | `CreateEconItem` | `` | `raw` | `0x7FFA81CF63B0` | `0x10063B0` | `48 83 EC 28 B9 48 00 00 00 E8 ? ? ? ? 48 85` |
 | `CreateEntityByClassName` | `__int64 __fastcall CreateEntityByClassName(__int64 a1, int a2, __int64 a3, __int64 a4)` | `raw` | `0x7FFA82304186` | `0x1614186` | `4C 8D 05 ? ? ? ? 4C 8B CF BA 03 00 00 00 FF 15 ? ? ? ? EB ? 0F B7 C8 48` |
 | `CreateInterface` | `__int64 __fastcall CreateInterface(__int64 a1, _DWORD *a2)` | `raw` | `0x7FFA82534C60` | `0x1844C60` | `4C 8B 0D ? ? ? ? 4C 8B D2 4C 8B D9 4D 85 C9 74 ? 49 8B 41 08` |
-| `CreateMove` | `bool __fastcall CreateMove(void* pthis, int nSlot, float flInputSampleTime, bool bActive)` | `raw` | `0x7FFA81951EC0` | `0xC61EC0` | `48 8B C4 4C 89 40 18 48 89 48 08 55 53 41 54 41 55` |
 | `CreateNewSubtickMoveStep` | `__int64 __fastcall CreateNewSubtickMoveStep(__int64 a1)` | `rel32` | `0x7FFA811A2140` | `0x4B2140` | `E8 ? ? ? ? 48 8B D0 48 8B CE E8 ? ? ? ? 48 8B C8` |
 | `CreateParticleEffect` | `__int64 __fastcall CreateParticleEffect(int a1, int a2, int a3, __int64 a4, int a5)` | `raw` | `0x7FFA81679900` | `0x989900` | `48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC ? F3 0F 10 1D ? ? ? ? 41 8B F8 8B DA 4C 8D 05` |
 | `CreateSOSubclassEconItem` | `__int64 CreateSOSubclassEconItem()` | `raw` | `0x7FFA81CF63B0` | `0x10063B0` | `48 83 EC 28 B9 48 00 00 00 E8 ? ? ? ? 48 85` |
 | `CreateTrace` | `` | `raw` | `0x7FFA814F7390` | `0x807390` | `48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 57 41 56 41 57 48 83 EC ? ? ? ? ? 4D 8D 71` |
 | `Ctrl` | `__int64 __fastcall Ctrl(__int64 a1)` | `raw` | `0x7FFA815C9BF0` | `0x8D9BF0` | `48 89 5C 24 ? 57 48 81 EC ? ? ? ? ? ? ? 48 8B F9 FF 90` |
-| `DamageFeedbackEmitter` | `void __fastcall DamageFeedbackEmitter(__int64 a1, _QWORD *a2, __int64 a3)` | `raw` | `0x7FFA81512520` | `0x822520` | `48 89 4C 24 08 55 53 41 54 41 55 41 57 48 8D AC 24 E0 FE FF FF 48 81 EC 20 02 00 00 48 83 79 38` |
 | `DamageServices` | `__int64 __fastcall DamageServices(int a1, _QWORD *a2)` | `stringref` | `0x7FFA814D7F50` | `0x7E7F50` | `"CCSPlayerController_DamageServices"` |
 | `DestroyParticle` | `void __fastcall DestroyParticle(__int64 a1, __int64 a2, unsigned __int8 a3, char a4)` | `raw` | `0x7FFA81638C90` | `0x948C90` | `83 FA ? 0F 84 ? ? ? ? 41 54` |
 | `DispatchEffect` | `__int64 __fastcall DispatchEffect(__int64 a1, __int64 a2)` | `raw` | `0x7FFA8104A930` | `0x35A930` | `48 89 5C 24 ? 57 48 83 EC ? 48 8B F9 48 8B DA 48 8D 4C 24` |
@@ -131,7 +127,6 @@ _This file is regenerated on every successful run of `cs2-sdk`._
 | `DrawTeamIntro` | `` | `raw` | `0x7FFA813F4FB0` | `0x704FB0` | `48 83 EC ? ? ? ? ? 44 38 89` |
 | `E8` | `__int64 __fastcall E8(__int64 a1, __int64 a2)` | `rel32` | `0x7FFA8153FB50` | `0x84FB50` | `E8 ? ? ? ? 4C 8B C0 48 8D 55 ? 48 8B CB E8 ? ? ? ? 48 8D 0D` |
 | `EmitPanoramaSound` | `` | `raw` | `0x7FFA81857380` | `0xB67380` | `40 53 48 81 EC ? ? ? ? ? ? ? 48 8B 05` |
-| `EmitSoundByHandle` | `__int64 __fastcall EmitSoundByHandle(__int64 a1, int a2, int a3, __int64 a4)` | `raw` | `0x7FFA81857110` | `0xB67110` | `40 53 48 83 EC 30 4C 89 4C 24 20 48 8B D9 45 8B C8 4C 8B C2 48 8B D1 48 8D 0D ?? ?? ?? ?? E8` |
 | `EquipItemInLoadout` | `char __fastcall EquipItemInLoadout(_QWORD *a1, unsigned int a2, int a3, unsigned __int64 a4)` | `raw` | `0x7FFA814B3D60` | `0x7C3D60` | `48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 89 54 24 ? 57 41 54 41 55 41 56 41 57 48 83 EC ? 0F B7 FA` |
 | `Event` | `__int64 __fastcall Event(__int64 a1, unsigned int a2, int a3)` | `raw` | `0x7FFA8119AF00` | `0x4AAF00` | `48 89 74 24 ? 48 89 7C 24 ? 41 56 48 83 EC 20 48 63 FA 41` |
 | `FindHudElement` | `_QWORD **__fastcall FindHudElement(__int64 a1, unsigned __int8 a2)` | `raw` | `0x7FFA81AB5888` | `0xDC5888` | `48 8D 15 ? ? ? ? 45 33 C0 B9 ? ? ? ? FF 15 ? ? ? ? EB ? 48 8B 15` |
@@ -178,10 +173,7 @@ _This file is regenerated on every successful run of `cs2-sdk`._
 | `GetTransformsForHitboxList` | `char __fastcall GetTransformsForHitboxList(__int64 a1, __int64 a2, int *a3)` | `raw` | `0x7FFA8170D460` | `0xA1D460` | `48 89 5C 24 18 55 56 57 41 55 41 57 48 81 EC A0 00 00 00 49 63 28 4D 8B F8 48 8B FA 48 8B D9 85` |
 | `GetUserCmdManager` | `__int64 __fastcall GetUserCmdManager(__int64 a1)` | `raw` | `0x7FFA815B0650` | `0x8C0650` | `41 56 41 57 48 83 EC ? 48 8D 54 24` |
 | `GetViewAngles` | `__int64 *__fastcall GetViewAngles(__int64 a1, int a2)` | `raw` | `0x7FFA817C8AF0` | `0xAD8AF0` | `4C 8B C1 85 D2 74 08 48 8D 05 ? ? ? ? C3` |
-| `GetViewModelOffsets` | `void __fastcall GetViewModelOffsets(__int64 viewmodel, float *outOffsets, float *outFov)` | `raw` | `0x7FFA81541920` | `0x851920` | `40 55 53 56 41 56 41 57 48 8B EC 48 83 EC 20 4D 8B F8 4C 8B F2 48 8B F1 E8` |
 | `GetWeaponInAccuracyRecoveryTime` | `__m128 __fastcall GetWeaponInAccuracyRecoveryTime(__int64 a1)` | `rel32` | `0x7FFA81488090` | `0x798090` | `E8 ? ? ? ? F3 0F 10 B7 ? ? ? ? F3 0F 5E F8` |
-| `GetWorldFovResolver` | `float __fastcall GetWorldFovResolver(__int64 a1)` | `raw` | `0x7FFA814FF960` | `0x80F960` | `40 53 48 83 EC 50 48 8B D9 E8 ? ? ? ? 48 85 C0 74 ? 48 8B C8 48 83 C4 50 5B E9` |
-| `GlobalLightUpdateState` | `_BYTE *__fastcall GlobalLightUpdateState(__int64 a1)` | `raw` | `0x7FFA8177E350` | `0xA8E350` | `40 57 48 81 EC C0 00 00 00 48 8B F9 BA FF FF FF FF 48 8D 0D ? ? ? ? E8` |
 | `HandleBulletPenetration` | `char __fastcall HandleBulletPenetration(__int64 a1, float *a2, __int64 a3, int a4, __int64 a5)` | `raw` | `0x7FFA81513BD0` | `0x823BD0` | `48 8B C4 44 89 48 ? 48 89 50 ? 48 89 48 ? 55` |
 | `HandleEntityList` | `__int64 __fastcall HandleEntityList(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, int a6, int a7)` | `rel32` | `0x7FFA80EB3AC0` | `0x1C3AC0` | `E8 ? ? ? ? 84 C0 74 ? 48 63 03` |
 | `HandleTeamIntro` | `void __fastcall HandleTeamIntro(__int64 a1, __int64 a2, char *a3)` | `raw` | `0x7FFA813F4FB0` | `0x704FB0` | `48 83 EC ? ? ? ? ? 44 38 89` |
@@ -193,33 +185,28 @@ _This file is regenerated on every successful run of `cs2-sdk`._
 | `InitPlayerMovementTraceFilter` | `__int64 __fastcall InitPlayerMovementTraceFilter(__int64 a1, _DWORD *a2, __int64 a3, char a4)` | `raw` | `0x7FFA81532AF0` | `0x842AF0` | `48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC ? 0F B6 41 ? 33 FF C7 41 ?` |
 | `InitTraceData` | `` | `raw` | `0x7FFA814F30E0` | `0x8030E0` | `48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC ? 48 8D 79 ? 33 F6 C7 47` |
 | `InitTraceInfo` | `__int64 __fastcall InitTraceInfo(__int64 a1)` | `raw` | `0x7FFA822FB7E0` | `0x160B7E0` | `40 55 41 55 41 57 48 83 EC` |
-| `InsecureEmitter` | `` | `raw` | `0x7FFA81940400` | `0xC50400` | `48 89 5C 24 20 56 48 83 EC 20 48 8B D9 48 89 6C 24 30 48 8B E9 48 8B 0D ? ? ? ? 48 8B 01` |
 | `InventoryServices` | `__int64 __fastcall InventoryServices(int a1, _QWORD *a2)` | `stringref` | `0x7FFA814D7F50` | `0x7E7F50` | `"CCSPlayerController_InventoryServices"` |
 | `IsLatched` | `` | `raw` | `0x7FFA81BF5420` | `0xF05420` | `0F B6 81 ? ? ? ? C3 ? ? ? ? ? ? ? ? 48 83 EC ? 33 C9` |
 | `IsLocalPlayerWatchingOwnDemo` | `` | `raw` | `0x7FFA81BF5590` | `0xF05590` | `48 89 5C 24 ? 48 89 6C 24 ? 56 57 41 56 48 83 EC ? 48 8B 0D` |
 | `IsOverwatch` | `` | `raw` | `0x7FFA81BF57D0` | `0xF057D0` | `48 83 EC ? E8 ? ? ? ? 0F B6 40 ? 48 83 C4 ? C3` |
 | `ItemServices` | `void *__fastcall ItemServices(__int64 a1)` | `stringref` | `0x7FFA81542FF0` | `0x852FF0` | `"CCSPlayer_ItemServices"` |
-| `KillFeedbackEmitter` | `__int64 __fastcall KillFeedbackEmitter(__int64 a1, __int64 a2)` | `raw` | `0x7FFA8153D560` | `0x84D560` | `48 89 5C 24 08 48 89 74 24 18 48 89 7C 24 20 55 41 56 41 57 48 8B EC 48 81 EC 80 00 00 00 44 8B` |
 | `LevelInit` | `__int64 __fastcall LevelInit(__int64 a1)` | `raw` | `0x7FFA815C2930` | `0x8D2930` | `40 55 56 41 56 48 8D 6C 24 ? 48 81 EC ? ? ? ? 48` |
 | `LevelShutdown` | `` | `raw` | `0x7FFA817B04B0` | `0xAC04B0` | `48 83 EC ? 48 8B 0D ? ? ? ? 48 8D 15` |
 | `LoadDefaultKit` | `char __fastcall LoadDefaultKit(__int64 a1, KeyValues *a2, _DWORD *a3)` | `stringref` | `0x7FFA81D2BA80` | `0x103BA80` | `"Unable to find "default" paint kit in "paint_kits_rarity""` |
 | `LoadFileForMe` | `void __fastcall LoadFileForMe(__int64 a1)` | `raw` | `0x7FFA8160F6B0` | `0x91F6B0` | `40 55 57 41 56 48 83 EC 20 4C` |
 | `LoadPath` | `void __fastcall LoadPath(signed int *a1, signed int a2, unsigned int a3)` | `rel32` | `0x7FFA813AC2B0` | `0x6BC2B0` | `E8 ? ? ? ? 8B 44 24 2C` |
 | `LookupBone` | `__int64 __fastcall LookupBone(__int64 a1, __int64 a2)` | `rel32` | `0x7FFA815BAA10` | `0x8CAA10` | `E8 ? ? ? ? 48 8B 8D ? ? ? ? B3` |
-| `MatchFoundHandler` | `void __fastcall MatchFoundHandler(__int64 thisptr, __int64 *kv)` | `raw` | `0x7FFA81950900` | `0xC60900` | `48 85 D2 0F 84 ? ? ? ? 48 8B C4 55 53 56 57 48 8D A8` |
 | `ModulationUpdate` | `__int64 __fastcall ModulationUpdate(__int64 a1, char a2)` | `raw` | `0x7FFA816CD2B0` | `0x9DD2B0` | `48 89 5C 24 08 57 48 83 EC 20 8B FA 48 8B D9 E8 ? ? ? ? 84 C0 0F 84` |
 | `MovementServices` | `__int64 *MovementServices()` | `stringref` | `0x7FFA81530370` | `0x840370` | `"CCSPlayer_MovementServices"` |
 | `NoClipOnChange` | `__int64 __fastcall NoClipOnChange(__int64 a1)` | `raw` | `0x7FFA80E56FC0` | `0x166FC0` | `48 89 5C 24 10 48 89 74 24 18 48 89 7C 24 20 55 48 8B EC 48 83 EC 30 48 8D 05` |
 | `NoSpread1` | `__int64 __fastcall NoSpread1(__int64 a1, __int64 a2, int a3)` | `raw` | `0x7FFA81971A70` | `0xC81A70` | `48 89 5C 24 08 57 48 81 EC F0 00` |
 | `OnAddEntity` | `__int64 __fastcall OnAddEntity(__int64 a1, __int64 a2, int a3)` | `raw` | `0x7FFA8165AF20` | `0x96AF20` | `48 89 74 24 ? 57 48 83 EC ? 41 B9 ? ? ? ? 41 8B C0 41 23 C1 48 8B F2 41 83 F8 ? 48 8B F9 44 0F 45 C8 41 81 F9 ? ? ? ? 73 ? FF 81` |
 | `OnBodyGroupChoiceChanged` | `__int64 __fastcall OnBodyGroupChoiceChanged(__int64 a1, __int64 a2, int a3, _DWORD *a4)` | `raw` | `0x7FFA817180B0` | `0xA280B0` | `48 89 5C 24 08 57 48 83 EC 20 49 63 D8 49 8B F9 45 85 C0 78 20 3B 99 18 02 00 00 7D 18` |
-| `OnEvent` | `void __fastcall OnEvent(__int64 a1, KeyValues *a2)` | `raw` | `0x7FFA8194FD30` | `0xC5FD30` | `40 53 57 48 81 EC 78 02 00 00 48 8B CA 48 8B FA` |
 | `OnGlowTypeChanged` | `__int64 __fastcall OnGlowTypeChanged(__int64 a1)` | `raw` | `0x7FFA81800390` | `0xB10390` | `48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 48 8B 05 ? ? ? ? 48 8B D9 F3 0F 10 41 4C` |
 | `OnPostDataUpdate` | `` | `raw` | `0x7FFA8169E930` | `0x9AE930` | `48 89 5C 24 08 48 89 74 24 18 55 57 41 56 48 8B EC 48 83 EC 50 45 8B F1 48 8B FA 48 8B F1 45 85` |
 | `OnRemoveEntity` | `__int64 __fastcall OnRemoveEntity(__int64 a1, _QWORD *a2, int a3)` | `raw` | `0x7FFA8165B780` | `0x96B780` | `48 89 74 24 ? 57 48 83 EC ? 41 B9 ? ? ? ? 41 8B C0 41 23 C1 48 8B F2 41 83 F8 ? 48 8B F9 44 0F 45 C8 41 81 F9 ? ? ? ? 73 ? FF 89` |
 | `OnSkeletonModelChanged` | `__int64 __fastcall OnSkeletonModelChanged(__int64 a1, __int64 a2, __int64 *a3)` | `raw` | `0x7FFA817182C0` | `0xA282C0` | `49 8B 00 48 89 81 B8 00 00 00 C6 81 B0 00 00 00 01 C3` |
 | `PanelConstructorPointer` | `` | `raw` | `0x7FFA8232C260` | `0x163C260` | `48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC 30 48 8B F1 48 8B FA B9 ? ? ? ? E8 ? ? ? ? 48 8B D8 48 85 C0 74 ? 48` |
-| `PanoramaEvent` | `` | `raw` | `0x7FFA8199C400` | `0xCAC400` | `40 56 57 41 57 48 83 EC ? 48 8B 3D ? ? ? ? 4D 85 C0` |
 | `ParseSubtickDuration` | `` | `raw` | `0x7FFA80D9D4D0` | `0xAD4D0` | `40 55 48 8D AC 24 70 FD FF FF 48 81 EC 90 03 00 00 F2 0F 10 05 ? ? ? ? 48 8D 05` |
 | `ParseSubtickFraction` | `` | `raw` | `0x7FFA80D9D810` | `0xAD810` | `40 55 48 8D AC 24 40 FE FF FF 48 81 EC C0 02 00 00 F2 0F 10 05 ? ? ? ? 48 8D 05` |
 | `ParticleCollection` | `__int64 __fastcall ParticleCollection(__int64 a1)` | `raw` | `0x7FFA80EE5150` | `0x1F5150` | `48 89 5C 24 ? 57 48 83 EC ? 0F 28 05` |
@@ -240,7 +227,6 @@ _This file is regenerated on every successful run of `cs2-sdk`._
 | `RegenerateWeaponSkin` | `void __fastcall RegenerateWeaponSkin(__int64 a1, char a2)` | `raw` | `0x7FFA8147DCD0` | `0x78DCD0` | `40 55 53 41 57 48 8D AC 24 ? ? ? ? 48 81 EC ? ? ? ? 44 0F B6 FA 48 8B D9 BA ? ? ? ? 48 8D 0D ? ? ? ? E8 ? ? ? ?` |
 | `RegenerateWeaponSkin_v2` | `void __fastcall RegenerateWeaponSkin_v2(__int64 a1, char a2)` | `raw` | `0x7FFA8147DCD0` | `0x78DCD0` | `40 55 53 41 57 48 8D AC 24 ? ? ? ? 48 81 EC ? ? ? ? 44 0F B6 FA 48 8B D9 BA ? ? ? ? 48 8D 0D ? ? ? ? E8` |
 | `RegenerateWeaponSkins` | `__int64 RegenerateWeaponSkins()` | `raw` | `0x7FFA814A2950` | `0x7B2950` | `48 83 EC ? E8 ? ? ? ? 48 85 C0 0F 84 ? ? ? ? 48 8B 10` |
-| `RenderDecals` | `_BYTE *__fastcall RenderDecals(__int64 a1, __int64 **a2, char a3, char a4)` | `raw` | `0x7FFA81DECA30` | `0x10FCA30` | `44 88 4C 24 ? 55 53` |
 | `ReportHit` | `char __fastcall ReportHit(_QWORD *a1)` | `rel32` | `0x7FFA812F2670` | `0x602670` | `E8 ? ? ? ? 48 8B AC 24 D8 00 00 00 48 81 C4` |
 | `RunCommand` | `void __fastcall RunCommand(__int64 a1, __int64 a2)` | `raw` | `0x7FFA816CE950` | `0x9DE950` | `48 8B C4 48 81 EC ? ? ? ? 48 89 58 10` |
 | `RunCommand_processor` | `void __fastcall RunCommand_processor(__int64 a1, __int64 a2)` | `raw` | `0x7FFA816CE950` | `0x9DE950` | `48 8B C4 48 81 EC C8 00 00 00 48 89 58 10 48 89 68 18 48 8B EA 48 89 70 20 48 8B F1 48 89 78 F8` |
@@ -307,7 +293,6 @@ _This file is regenerated on every successful run of `cs2-sdk`._
 | `ViewModelHideZoomed` | `__int64 __fastcall ViewModelHideZoomed(__int64 a1, __int64 a2, __int64 **a3)` | `raw` | `0x7FFA81491F60` | `0x7A1F60` | `48 89 5C 24 20 55 56 57 41 54 41 56 48 8B EC 48 83 EC 50 48 8D 05` |
 | `WaterServices` | `__int64 *WaterServices()` | `stringref` | `0x7FFA81569880` | `0x879880` | `"CCSPlayer_WaterServices"` |
 | `WeaponServices` | `__int64 *WeaponServices()` | `stringref` | `0x7FFA81569C30` | `0x879C30` | `"CCSPlayer_WeaponServices"` |
-| `WriteSubtickFromEntry` | `` | `raw` | `0x7FFA81949A40` | `0xC59A40` | `48 89 5C 24 ? 55 57 41 56 48 8D 6C 24 ? 48 81 EC B0 00 00 00 8B 01 48 8B F9 81 4A 10 00 02` |
 | `create_move_v2` | `void __fastcall create_move_v2(__int64 *a1, int a2, char a3)` | `raw` | `0x7FFA817BEF70` | `0xACEF70` | `85 D2 0F 85 ? ? ? ? 48 8B C4 44 88 40` |
 | `draw_smoke_array` | `__int64 __fastcall draw_smoke_array(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, unsigned int *a6)` | `raw` | `0x7FFA8196EB20` | `0xC7EB20` | `40 55 41 54 41 55 48 8D AC 24 ? ? ? ? 48 81 EC ? ? ? ? 4C 8B E2` |
 | `draw_view_punch_v2` | `float *__fastcall draw_view_punch_v2(int a1, __int64 a2, __int64 a3, float *a4, float *a5, float *a6)` | `raw` | `0x7FFA814F6C50` | `0x806C50` | `48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 48 89 7C 24 ? 41 56 48 83 EC ? 49 8B E9 49 8B F8` |
@@ -315,7 +300,6 @@ _This file is regenerated on every successful run of `cs2-sdk`._
 | `get_fov` | `float *__fastcall get_fov(int a1, __int64 a2, __int64 a3, float *a4, float *a5, float *a6)` | `raw` | `0x7FFA814F6C50` | `0x806C50` | `48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 48 89 7C 24 ? 41 56 48 83 EC ? 49 8B E9 49 8B F8` |
 | `get_map_name` | `__int64 get_map_name()` | `raw` | `0x7FFA81BD3190` | `0xEE3190` | `48 83 EC ? 48 8B 0D ? ? ? ? ? ? ? FF 90 ? ? ? ? 48 8B C8 48 83 C4` |
 | `get_view_angles_v2` | `void __fastcall get_view_angles_v2(__int64 a1, int a2, __int64 a3)` | `raw` | `0x7FFA817C7450` | `0xAD7450` | `4D 85 C0 74 ? 85 D2 74` |
-| `get_view_model` | `void __fastcall get_view_model(__int64 a1, float *a2, float *a3)` | `raw` | `0x7FFA81541920` | `0x851920` | `40 55 53 56 41 56 41 57 48 8B EC` |
 | `is_demo_or_hltv` | `char is_demo_or_hltv()` | `raw` | `0x7FFA81BF4B80` | `0xF04B80` | `48 83 EC ? 48 8B 0D ? ? ? ? ? ? ? FF 90 ? ? ? ? 84 C0 75 ? 38 05` |
 | `level_init_v2` | `__int64 __fastcall level_init_v2(__int64 a1, __int64 a2)` | `raw` | `0x7FFA817EDF90` | `0xAFDF90` | `40 55 56 41 56 48 8D 6C 24 ? 48 81 EC ? ? ? ? 48 8B 0D` |
 | `level_shutdown` | `__int64 level_shutdown()` | `raw` | `0x7FFA817EE210` | `0xAFE210` | `48 83 EC ? 48 8B 0D ? ? ? ? 48 8D 15 ? ? ? ? 45 33 C9 45 33 C0 ? ? ? FF 50 ? 48 85 C0 74 ? 48 8B 0D ? ? ? ? 48 8B D0 ? ? ? 41 FF 50 ? 48 83 C4` |
@@ -480,7 +464,6 @@ _This file is regenerated on every successful run of `cs2-sdk`._
 | Name | Prototype | Resolve | VA | RVA | Pattern |
 | --- | --- | --- | --- | --- | --- |
 | `AllocateAttributeListFunctionPointer` | `` | `raw` | `0x7FFA72597D00` | `0xC7D00` | `40 55 48 83 EC ? 48 83 BA` |
-| `BuildSceneInfoGpu` | `` | `raw` | `0x7FFA725550A0` | `0x850A0` | `4C 89 4C 24 20 4C 89 44 24 18 48 89 4C 24 08 55 48 8D AC 24 00 E3 FF FF B8 00 1E 00 00` |
 | `CAnimatableSceneObjectDescRender` | `` | `raw` | `0x7FFA72525B70` | `0x55B70` | `48 8B C4 53 57 41 54` |
 | `CreateStaticShape` | `` | `raw` | `0x7FFA72581A70` | `0xB1A70` | `48 8B C4 48 89 48 08 55 41 54 41 56 48 8D 68 D8 48 81 EC 10 01 00 00 4C 8B 65 50 48 8D 4D 80` |
 | `CullView` | `` | `stringref` | `0x7FFA725B9270` | `0xE9270` | `"CSceneSystem::Thread_CullView(), C:\buildworker\csgo_rel_win64\build\src\scenesystem\scenesystem.cpp:3312"` |
@@ -491,9 +474,7 @@ _This file is regenerated on every successful run of `cs2-sdk`._
 | `DrawAggregateSceneObjectArray` | `` | `raw` | `0x7FFA7250BCB0` | `0x3BCB0` | `48 8B C4 48 89 50 ? 48 89 48 ? 55 53 56 57 41 54 41 55 41 56 41 57 48 8D A8 ? ? ? ? 48 81 EC ? ? ? ? 0F 29 70` |
 | `DrawArrayLight` | `` | `raw` | `0x7FFA7254AA40` | `0x7AA40` | `48 89 5C 24 ? 48 89 6C 24 ? 48 89 54 24` |
 | `DrawObject_legacy` | `` | `raw` | `0x7FFA72525B70` | `0x55B70` | `48 8B C4 53 57 41 54 48 81 EC D0 00 00 00 49 63 F9 49` |
-| `DrawSkyboxArray` | `` | `raw` | `0x7FFA7261FA70` | `0x14FA70` | `45 85 C9 0F 8E ? ? ? ? 4C 8B DC 55` |
 | `FrameUpdate` | `` | `raw` | `0x7FFA725B1C30` | `0xE1C30` | `48 8B C4 88 50 10 48 89 48 08 55 53 41 54 41 55 48 8D 68 A1 48 81 EC 98 00 00 00` |
-| `GeneratePrimitives` | `` | `raw` | `0x7FFA725434A0` | `0x734A0` | `48 8B C4 48 89 58 08 48 89 50 10 55 56 57 41 54 41 55 41 56 41 57 48 81 EC ? ? ? ?` |
 | `InitGfxObjects` | `` | `raw` | `0x7FFA72583DB0` | `0xB3DB0` | `40 55 53 56 57 41 54 41 55 41 56 41 57 48 8D AC 24 08 FE FF FF 48 81 EC F8 02 00 00` |
 | `RenderSceneDrawList` | `` | `raw` | `0x7FFA725BD9B0` | `0xED9B0` | `40 55 53 56 57 41 54 41 55 41 56 41 57 48 8D 6C 24 E1 48 81 EC D8 00 00 00 4C 8B 71 28 48 8B D9` |
 | `ToneMapUpdate` | `` | `raw` | `0x7FFA72656DC0` | `0x186DC0` | `40 53 48 83 EC ? 48 8B D9 0F 29 74 24` |
@@ -575,7 +556,6 @@ _This file is regenerated on every successful run of `cs2-sdk`._
 | `PlayVSND` | `` | `raw` | `0x7FFA730CA1D0` | `0x2A1D0` | `48 89 5C 24 ? 48 89 74 24 ? 48 89 7C 24 ? 55 48 8D 6C 24 ? 48 81 EC ? ? ? ? 33 F6 C7 45 ? ? ? ? ? 4C 8B C1` |
 | `PlayVSound` | `_UNKNOWN **__fastcall PlayVSound(__int64 a1, __int64 a2, int a3, int a4)` | `raw` | `0x7FFA733E9830` | `0x349830` | `48 8B C4 48 89 58 08 57 48 81 EC ? ? ? ? 33 FF 48 8B D9` |
 | `SomeUtlSymbolFunc` | `__int64 __fastcall SomeUtlSymbolFunc(__int64 a1, unsigned int a2)` | `raw` | `0x7FFA73150730` | `0xB0730` | `48 89 74 24 18 57 48 83 EC 20 48 63 F2 48 8B F9 3B 71 30` |
-| `StartSoundEvent` | `` | `raw` | `0x7FFA73257AC0` | `0x1B7AC0` | `40 53 55 56 48 83 EC 20 83 B9 ?? ?? ?? ?? 00 49 8B D8 48 8B F2 48 8B E9 74 ?? C7 02 00 00 00 00` |
 
 ## `tier0.dll`
 

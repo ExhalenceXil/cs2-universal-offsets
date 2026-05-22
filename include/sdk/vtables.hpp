@@ -248,6 +248,489 @@ namespace cs2::vtables {
 
     } // namespace animationsystem_dll
 
+    namespace client_dll {
+        // CClientToolsInfo (iface: ClientToolsInfo_001) | vtable @ client.dll+0x1AAECD8 (11 methods)
+        namespace CClientToolsInfo {
+            inline constexpr std::ptrdiff_t method_0                                         =    0; // client.dll + 0xABFFF0
+            inline constexpr std::ptrdiff_t method_1                                         =    1; // client.dll + 0xAC0050
+            inline constexpr std::ptrdiff_t method_2                                         =    2; // client.dll + 0xABFFA0
+            inline constexpr std::ptrdiff_t method_3                                         =    3; // client.dll + 0xAC00F0
+            inline constexpr std::ptrdiff_t method_4                                         =    4; // client.dll + 0xAC0120
+            inline constexpr std::ptrdiff_t method_5                                         =    5; // client.dll + 0xABFFB0
+            inline constexpr std::ptrdiff_t method_6                                         =    6; // client.dll + 0xAC0130
+            inline constexpr std::ptrdiff_t method_7                                         =    7; // client.dll + 0xABFFE0
+            inline constexpr std::ptrdiff_t method_8                                         =    8; // client.dll + 0xAC0090
+            inline constexpr std::ptrdiff_t method_9                                         =    9; // client.dll + 0xABFFC0
+            inline constexpr std::ptrdiff_t method_10                                        =   10; // client.dll + 0xABFFD0
+        } // namespace CClientToolsInfo
+
+        // CEmptyWorldService (iface: EmptyWorldService001_Client) | vtable @ client.dll+0x1A0DC18 (23 methods)
+        namespace CEmptyWorldService {
+            inline constexpr std::ptrdiff_t method_0                                         =    0; // client.dll + 0x71FDF0
+            inline constexpr std::ptrdiff_t method_1                                         =    1; // client.dll + 0x7202F0
+            inline constexpr std::ptrdiff_t method_2                                         =    2; // client.dll + 0x72D550
+            inline constexpr std::ptrdiff_t method_3                                         =    3; // client.dll + 0x726300
+            inline constexpr std::ptrdiff_t method_4                                         =    4; // client.dll + 0x72EA10
+            inline constexpr std::ptrdiff_t method_5                                         =    5; // client.dll + 0x72CBA0
+            inline constexpr std::ptrdiff_t method_6                                         =    6; // client.dll + 0x7218D0
+            inline constexpr std::ptrdiff_t method_7                                         =    7; // client.dll + 0x722580
+            inline constexpr std::ptrdiff_t method_8                                         =    8; // client.dll + 0x72D850
+            inline constexpr std::ptrdiff_t method_9                                         =    9; // client.dll + 0x72B580
+            inline constexpr std::ptrdiff_t method_10                                        =   10; // client.dll + 0x722500
+            inline constexpr std::ptrdiff_t method_11                                        =   11; // client.dll + 0x7223E0
+            inline constexpr std::ptrdiff_t method_12                                        =   12; // client.dll + 0x7221F0
+            inline constexpr std::ptrdiff_t method_13                                        =   13; // client.dll + 0x72E9F0
+            inline constexpr std::ptrdiff_t method_14                                        =   14; // client.dll + 0x72C5C0
+            inline constexpr std::ptrdiff_t method_15                                        =   15; // client.dll + 0x72C6A0
+            inline constexpr std::ptrdiff_t method_16                                        =   16; // client.dll + 0x72B3F0
+            inline constexpr std::ptrdiff_t method_17                                        =   17; // client.dll + 0x72E110
+            inline constexpr std::ptrdiff_t method_18                                        =   18; // client.dll + 0x72E5F0
+            inline constexpr std::ptrdiff_t method_19                                        =   19; // client.dll + 0x72D8A0
+            inline constexpr std::ptrdiff_t method_20                                        =   20; // client.dll + 0x7223F0
+            inline constexpr std::ptrdiff_t method_21                                        =   21; // client.dll + 0x72E600
+            inline constexpr std::ptrdiff_t method_22                                        =   22; // client.dll + 0x71ADA0
+        } // namespace CEmptyWorldService
+
+        // CGameClientExports (iface: GameClientExports001) | vtable @ client.dll+0x1AAF698 (19 methods)
+        namespace CGameClientExports {
+            inline constexpr std::ptrdiff_t method_0                                         =    0; // client.dll + 0xAC0370
+            inline constexpr std::ptrdiff_t method_1                                         =    1; // client.dll + 0xAC03D0
+            inline constexpr std::ptrdiff_t method_2                                         =    2; // client.dll + 0xAC02E0
+            inline constexpr std::ptrdiff_t method_3                                         =    3; // client.dll + 0xAC0340
+            inline constexpr std::ptrdiff_t method_4                                         =    4; // client.dll + 0xAC0330
+            inline constexpr std::ptrdiff_t method_5                                         =    5; // client.dll + 0xAC02F0
+            inline constexpr std::ptrdiff_t method_6                                         =    6; // client.dll + 0xAC0300
+            inline constexpr std::ptrdiff_t method_7                                         =    7; // client.dll + 0xAC0360
+            inline constexpr std::ptrdiff_t method_8                                         =    8; // client.dll + 0xAC0410
+            inline constexpr std::ptrdiff_t method_9                                         =    9; // client.dll + 0xAC0310
+            inline constexpr std::ptrdiff_t method_10                                        =   10; // client.dll + 0xAC0320
+            inline constexpr std::ptrdiff_t method_11                                        =   11; // client.dll + 0xAC0470
+            inline constexpr std::ptrdiff_t method_12                                        =   12; // client.dll + 0xAC0490
+            inline constexpr std::ptrdiff_t method_13                                        =   13; // client.dll + 0xAC04A0
+            inline constexpr std::ptrdiff_t LevelShutdown                                    =   14; // client.dll + 0xAC04B0
+            inline constexpr std::ptrdiff_t method_15                                        =   15; // client.dll + 0xAC04F0
+            inline constexpr std::ptrdiff_t method_16                                        =   16; // client.dll + 0xAC0530
+            inline constexpr std::ptrdiff_t method_17                                        =   17; // client.dll + 0xAC0540
+            inline constexpr std::ptrdiff_t method_18                                        =   18; // client.dll + 0xAC0550
+        } // namespace CGameClientExports
+
+        // CLegacyGameUI (iface: LegacyGameUI001) | vtable @ client.dll+0x1AFB458 (37 methods)
+        namespace CLegacyGameUI {
+            inline constexpr std::ptrdiff_t method_0                                         =    0; // client.dll + 0xCA8A60
+            inline constexpr std::ptrdiff_t method_1                                         =    1; // client.dll + 0xCA97C0
+            inline constexpr std::ptrdiff_t method_2                                         =    2; // client.dll + 0xCAC580
+            inline constexpr std::ptrdiff_t CLegacyGameUI_Initialize                         =    3; // client.dll + 0xCA9D30
+            inline constexpr std::ptrdiff_t method_4                                         =    4; // client.dll + 0xCAD5A0
+            inline constexpr std::ptrdiff_t method_5                                         =    5; // client.dll + 0xCAC570
+            inline constexpr std::ptrdiff_t method_6                                         =    6; // client.dll + 0xCA9B70
+            inline constexpr std::ptrdiff_t method_7                                         =    7; // client.dll + 0xCA9CE0
+            inline constexpr std::ptrdiff_t method_8                                         =    8; // client.dll + 0xCAC590
+            inline constexpr std::ptrdiff_t method_9                                         =    9; // client.dll + 0xCAB060
+            inline constexpr std::ptrdiff_t method_10                                        =   10; // client.dll + 0xCA9CD0
+            inline constexpr std::ptrdiff_t method_11                                        =   11; // client.dll + 0xCAC520
+            inline constexpr std::ptrdiff_t method_12                                        =   12; // client.dll + 0xCAD7A0
+            inline constexpr std::ptrdiff_t method_13                                        =   13; // client.dll + 0xCAD0A0
+            inline constexpr std::ptrdiff_t method_14                                        =   14; // client.dll + 0xCA8F30
+            inline constexpr std::ptrdiff_t method_15                                        =   15; // client.dll + 0xCAB570
+            inline constexpr std::ptrdiff_t method_16                                        =   16; // client.dll + 0xCAB750
+            inline constexpr std::ptrdiff_t method_17                                        =   17; // client.dll + 0xCABAE0
+            inline constexpr std::ptrdiff_t method_18                                        =   18; // client.dll + 0xCAB810
+            inline constexpr std::ptrdiff_t method_19                                        =   19; // client.dll + 0xCAE240
+            inline constexpr std::ptrdiff_t method_20                                        =   20; // client.dll + 0xCAD3E0
+            inline constexpr std::ptrdiff_t method_21                                        =   21; // client.dll + 0xCAB1D0
+            inline constexpr std::ptrdiff_t method_22                                        =   22; // client.dll + 0xCAD3F0
+            inline constexpr std::ptrdiff_t method_23                                        =   23; // client.dll + 0xCAB1E0
+            inline constexpr std::ptrdiff_t method_24                                        =   24; // client.dll + 0xCAB1C0
+            inline constexpr std::ptrdiff_t method_25                                        =   25; // client.dll + 0xCAD590
+            inline constexpr std::ptrdiff_t method_26                                        =   26; // client.dll + 0xCA7BE0
+            inline constexpr std::ptrdiff_t method_27                                        =   27; // client.dll + 0xCAAFF0
+            inline constexpr std::ptrdiff_t ShowMessageBox                                   =   28; // client.dll + 0xCA8BA0
+            inline constexpr std::ptrdiff_t method_29                                        =   29; // client.dll + 0xCA8E20
+            inline constexpr std::ptrdiff_t method_30                                        =   30; // client.dll + 0xCA9210
+            inline constexpr std::ptrdiff_t method_31                                        =   31; // client.dll + 0xCA9580
+            inline constexpr std::ptrdiff_t method_32                                        =   32; // client.dll + 0xCA9430
+            inline constexpr std::ptrdiff_t method_33                                        =   33; // client.dll + 0xCAB050
+            inline constexpr std::ptrdiff_t method_34                                        =   34; // client.dll + 0xCAB070
+            inline constexpr std::ptrdiff_t method_35                                        =   35; // client.dll + 0xCAD400
+            inline constexpr std::ptrdiff_t method_36                                        =   36; // client.dll + 0xCAD410
+        } // namespace CLegacyGameUI
+
+        // CSource2Client (iface: Source2Client002) | vtable @ client.dll+0x1AB1E78 (231 methods)
+        namespace CSource2Client {
+            inline constexpr std::ptrdiff_t method_0                                         =    0; // client.dll + 0xACDF40
+            inline constexpr std::ptrdiff_t method_1                                         =    1; // client.dll + 0xAD0890
+            inline constexpr std::ptrdiff_t method_2                                         =    2; // client.dll + 0xAE3F20
+            inline constexpr std::ptrdiff_t method_3                                         =    3; // client.dll + 0xAD99E0
+            inline constexpr std::ptrdiff_t Shutdown                                         =    4; // client.dll + 0xAE8C30
+            inline constexpr std::ptrdiff_t method_5                                         =    5; // client.dll + 0xAE2D20
+            inline constexpr std::ptrdiff_t method_6                                         =    6; // client.dll + 0xAD6860
+            inline constexpr std::ptrdiff_t method_7                                         =    7; // client.dll + 0xAD8750
+            inline constexpr std::ptrdiff_t method_8                                         =    8; // client.dll + 0xAE4320
+            inline constexpr std::ptrdiff_t method_9                                         =    9; // client.dll + 0xADD260
+            inline constexpr std::ptrdiff_t method_10                                        =   10; // client.dll + 0xAD8740
+            inline constexpr std::ptrdiff_t update_global_vars                               =   11; // client.dll + 0xAE77D0
+            inline constexpr std::ptrdiff_t method_12                                        =   12; // client.dll + 0xADCF40
+            inline constexpr std::ptrdiff_t method_13                                        =   13; // client.dll + 0xAE4100
+            inline constexpr std::ptrdiff_t method_14                                        =   14; // client.dll + 0xAE2A50
+            inline constexpr std::ptrdiff_t method_15                                        =   15; // client.dll + 0xAD0000
+            inline constexpr std::ptrdiff_t method_16                                        =   16; // client.dll + 0xAD5590
+            inline constexpr std::ptrdiff_t method_17                                        =   17; // client.dll + 0xAE9160
+            inline constexpr std::ptrdiff_t method_18                                        =   18; // client.dll + 0xAD7940
+            inline constexpr std::ptrdiff_t method_19                                        =   19; // client.dll + 0xAD7970
+            inline constexpr std::ptrdiff_t method_20                                        =   20; // client.dll + 0xAD7B60
+            inline constexpr std::ptrdiff_t method_21                                        =   21; // client.dll + 0xAE13D0
+            inline constexpr std::ptrdiff_t method_22                                        =   22; // client.dll + 0xAE37F0
+            inline constexpr std::ptrdiff_t method_23                                        =   23; // client.dll + 0xAEBDB0
+            inline constexpr std::ptrdiff_t method_24                                        =   24; // client.dll + 0xAD0F50
+            inline constexpr std::ptrdiff_t method_25                                        =   25; // client.dll + 0xAD0040
+            inline constexpr std::ptrdiff_t method_26                                        =   26; // client.dll + 0xAD8850
+            inline constexpr std::ptrdiff_t method_27                                        =   27; // client.dll + 0xAE77B0
+            inline constexpr std::ptrdiff_t method_28                                        =   28; // client.dll + 0xAE91C0
+            inline constexpr std::ptrdiff_t method_29                                        =   29; // client.dll + 0xAD7130
+            inline constexpr std::ptrdiff_t method_30                                        =   30; // client.dll + 0xACEF50
+            inline constexpr std::ptrdiff_t method_31                                        =   31; // client.dll + 0xAD0790
+            inline constexpr std::ptrdiff_t method_32                                        =   32; // client.dll + 0xAD7DB0
+            inline constexpr std::ptrdiff_t method_33                                        =   33; // client.dll + 0xADFFD0
+            inline constexpr std::ptrdiff_t method_34                                        =   34; // client.dll + 0xAD5E60
+            inline constexpr std::ptrdiff_t method_35                                        =   35; // client.dll + 0xAE42C0
+            inline constexpr std::ptrdiff_t FrameStageNotify                                 =   36; // client.dll + 0xAD56F0
+            inline constexpr std::ptrdiff_t method_37                                        =   37; // client.dll + 0xAD93A0
+            inline constexpr std::ptrdiff_t method_38                                        =   38; // client.dll + 0xAD91C0
+            inline constexpr std::ptrdiff_t method_39                                        =   39; // client.dll + 0xAD91B0
+            inline constexpr std::ptrdiff_t method_40                                        =   40; // client.dll + 0xAE1270
+            inline constexpr std::ptrdiff_t method_41                                        =   41; // client.dll + 0xACCBB0
+            inline constexpr std::ptrdiff_t method_42                                        =   42; // client.dll + 0xAEBA70
+            inline constexpr std::ptrdiff_t method_43                                        =   43; // client.dll + 0xAE1450
+            inline constexpr std::ptrdiff_t method_44                                        =   44; // client.dll + 0xAE9700
+            inline constexpr std::ptrdiff_t method_45                                        =   45; // client.dll + 0xACCBA0
+            inline constexpr std::ptrdiff_t method_46                                        =   46; // client.dll + 0xAE0E40
+            inline constexpr std::ptrdiff_t method_47                                        =   47; // client.dll + 0xAE13E0
+            inline constexpr std::ptrdiff_t method_48                                        =   48; // client.dll + 0xAEBBD0
+            inline constexpr std::ptrdiff_t method_49                                        =   49; // client.dll + 0xAC9E90
+            inline constexpr std::ptrdiff_t method_50                                        =   50; // client.dll + 0xAD5CD0
+            inline constexpr std::ptrdiff_t method_51                                        =   51; // client.dll + 0xAD7CA0
+            inline constexpr std::ptrdiff_t method_52                                        =   52; // client.dll + 0xAEAE60
+            inline constexpr std::ptrdiff_t method_53                                        =   53; // client.dll + 0xAE13C0
+            inline constexpr std::ptrdiff_t method_54                                        =   54; // client.dll + 0xAD97F0
+            inline constexpr std::ptrdiff_t method_55                                        =   55; // client.dll + 0xAEBBA0
+            inline constexpr std::ptrdiff_t method_56                                        =   56; // client.dll + 0xADFD60
+            inline constexpr std::ptrdiff_t method_57                                        =   57; // client.dll + 0xACCB60
+            inline constexpr std::ptrdiff_t method_58                                        =   58; // client.dll + 0xAD6850
+            inline constexpr std::ptrdiff_t method_59                                        =   59; // client.dll + 0xACCAD0
+            inline constexpr std::ptrdiff_t method_60                                        =   60; // client.dll + 0xAE0610
+            inline constexpr std::ptrdiff_t method_61                                        =   61; // client.dll + 0xAE0620
+            inline constexpr std::ptrdiff_t method_62                                        =   62; // client.dll + 0xAE03D0
+            inline constexpr std::ptrdiff_t method_63                                        =   63; // client.dll + 0xAE0580
+            inline constexpr std::ptrdiff_t method_64                                        =   64; // client.dll + 0xAE03B0
+            inline constexpr std::ptrdiff_t method_65                                        =   65; // client.dll + 0xAE7E00
+            inline constexpr std::ptrdiff_t method_66                                        =   66; // client.dll + 0xAE8130
+            inline constexpr std::ptrdiff_t method_67                                        =   67; // client.dll + 0xAE8510
+            inline constexpr std::ptrdiff_t method_68                                        =   68; // client.dll + 0xACCD90
+            inline constexpr std::ptrdiff_t method_69                                        =   69; // client.dll + 0xAE0630
+            inline constexpr std::ptrdiff_t method_70                                        =   70; // client.dll + 0xAE07D0
+            inline constexpr std::ptrdiff_t method_71                                        =   71; // client.dll + 0xAE8BF0
+            inline constexpr std::ptrdiff_t method_72                                        =   72; // client.dll + 0xADA3D0
+            inline constexpr std::ptrdiff_t method_73                                        =   73; // client.dll + 0xACCD80
+            inline constexpr std::ptrdiff_t method_74                                        =   74; // client.dll + 0xAEB220
+            inline constexpr std::ptrdiff_t method_75                                        =   75; // client.dll + 0xAE8C10
+            inline constexpr std::ptrdiff_t method_76                                        =   76; // client.dll + 0xAD64A0
+            inline constexpr std::ptrdiff_t method_77                                        =   77; // client.dll + 0xAE10C0
+            inline constexpr std::ptrdiff_t method_78                                        =   78; // client.dll + 0xAD6540
+            inline constexpr std::ptrdiff_t get_view_angles_v2                               =   79; // client.dll + 0xAD7450
+            inline constexpr std::ptrdiff_t method_80                                        =   80; // client.dll + 0xAE9170
+            inline constexpr std::ptrdiff_t method_81                                        =   81; // client.dll + 0xAD7350
+            inline constexpr std::ptrdiff_t method_82                                        =   82; // client.dll + 0xAD7AA0
+            inline constexpr std::ptrdiff_t method_83                                        =   83; // client.dll + 0xADD080
+            inline constexpr std::ptrdiff_t method_84                                        =   84; // client.dll + 0xAD6BF0
+            inline constexpr std::ptrdiff_t method_85                                        =   85; // client.dll + 0xAD6C90
+            inline constexpr std::ptrdiff_t method_86                                        =   86; // client.dll + 0xAD6B60
+            inline constexpr std::ptrdiff_t method_87                                        =   87; // client.dll + 0xAD71E0
+            inline constexpr std::ptrdiff_t method_88                                        =   88; // client.dll + 0xAD70E0
+            inline constexpr std::ptrdiff_t method_89                                        =   89; // client.dll + 0xAD6740
+            inline constexpr std::ptrdiff_t method_90                                        =   90; // client.dll + 0xAD7170
+            inline constexpr std::ptrdiff_t method_91                                        =   91; // client.dll + 0xAD6D00
+            inline constexpr std::ptrdiff_t method_92                                        =   92; // client.dll + 0xAD6E30
+            inline constexpr std::ptrdiff_t method_93                                        =   93; // client.dll + 0xAD7420
+            inline constexpr std::ptrdiff_t method_94                                        =   94; // client.dll + 0xAD7050
+            inline constexpr std::ptrdiff_t method_95                                        =   95; // client.dll + 0xAD7B20
+            inline constexpr std::ptrdiff_t method_96                                        =   96; // client.dll + 0xAD7860
+            inline constexpr std::ptrdiff_t method_97                                        =   97; // client.dll + 0xAD7DF0
+            inline constexpr std::ptrdiff_t method_98                                        =   98; // client.dll + 0xAD80B0
+            inline constexpr std::ptrdiff_t method_99                                        =   99; // client.dll + 0xAD00C0
+            inline constexpr std::ptrdiff_t method_100                                       =  100; // client.dll + 0xAE2030
+            inline constexpr std::ptrdiff_t method_101                                       =  101; // client.dll + 0xAD8250
+            inline constexpr std::ptrdiff_t method_102                                       =  102; // client.dll + 0xAD64C0
+            inline constexpr std::ptrdiff_t method_103                                       =  103; // client.dll + 0xAEB330
+            inline constexpr std::ptrdiff_t method_104                                       =  104; // client.dll + 0xAD0080
+            inline constexpr std::ptrdiff_t method_105                                       =  105; // client.dll + 0xAEB1D0
+            inline constexpr std::ptrdiff_t method_106                                       =  106; // client.dll + 0xAD0070
+            inline constexpr std::ptrdiff_t method_107                                       =  107; // client.dll + 0xAEB5F0
+            inline constexpr std::ptrdiff_t method_108                                       =  108; // client.dll + 0xAD00A0
+            inline constexpr std::ptrdiff_t method_109                                       =  109; // client.dll + 0xAEAF10
+            inline constexpr std::ptrdiff_t method_110                                       =  110; // client.dll + 0xAD0050
+            inline constexpr std::ptrdiff_t method_111                                       =  111; // client.dll + 0xAEA080
+            inline constexpr std::ptrdiff_t method_112                                       =  112; // client.dll + 0xAEA170
+            inline constexpr std::ptrdiff_t method_113                                       =  113; // client.dll + 0xAD8270
+            inline constexpr std::ptrdiff_t method_114                                       =  114; // client.dll + 0xAD82C0
+            inline constexpr std::ptrdiff_t method_115                                       =  115; // client.dll + 0xAD82D0
+            inline constexpr std::ptrdiff_t method_116                                       =  116; // client.dll + 0xADDF40
+            inline constexpr std::ptrdiff_t method_117                                       =  117; // client.dll + 0xAD0F00
+            inline constexpr std::ptrdiff_t method_118                                       =  118; // client.dll + 0xADD240
+            inline constexpr std::ptrdiff_t method_119                                       =  119; // client.dll + 0xAD8260
+            inline constexpr std::ptrdiff_t method_120                                       =  120; // client.dll + 0xAD6620
+            inline constexpr std::ptrdiff_t method_121                                       =  121; // client.dll + 0xADFFC0
+            inline constexpr std::ptrdiff_t method_122                                       =  122; // client.dll + 0xAEBBC0
+            inline constexpr std::ptrdiff_t method_123                                       =  123; // client.dll + 0xAEB990
+            inline constexpr std::ptrdiff_t method_124                                       =  124; // client.dll + 0xAEB210
+            inline constexpr std::ptrdiff_t method_125                                       =  125; // client.dll + 0xAD7740
+            inline constexpr std::ptrdiff_t method_126                                       =  126; // client.dll + 0xAE13B0
+            inline constexpr std::ptrdiff_t method_127                                       =  127; // client.dll + 0xAEB1E0
+            inline constexpr std::ptrdiff_t method_128                                       =  128; // client.dll + 0xAD6B20
+            inline constexpr std::ptrdiff_t method_129                                       =  129; // client.dll + 0xAD5E00
+            inline constexpr std::ptrdiff_t method_130                                       =  130; // client.dll + 0xADFE40
+            inline constexpr std::ptrdiff_t method_131                                       =  131; // client.dll + 0xAD7C00
+            inline constexpr std::ptrdiff_t method_132                                       =  132; // client.dll + 0xAC9EB0
+            inline constexpr std::ptrdiff_t method_133                                       =  133; // client.dll + 0xAC9F20
+            inline constexpr std::ptrdiff_t method_134                                       =  134; // client.dll + 0xAD7750
+            inline constexpr std::ptrdiff_t method_135                                       =  135; // client.dll + 0xAD8F50
+            inline constexpr std::ptrdiff_t method_136                                       =  136; // client.dll + 0xAD8840
+            inline constexpr std::ptrdiff_t method_137                                       =  137; // client.dll + 0xAD6630
+            inline constexpr std::ptrdiff_t method_138                                       =  138; // client.dll + 0xAD8420
+            inline constexpr std::ptrdiff_t method_139                                       =  139; // client.dll + 0xAD73B0
+            inline constexpr std::ptrdiff_t method_140                                       =  140; // client.dll + 0xAD8820
+            inline constexpr std::ptrdiff_t method_141                                       =  141; // client.dll + 0xAC8230
+            inline constexpr std::ptrdiff_t method_142                                       =  142; // client.dll + 0xAC8240
+            inline constexpr std::ptrdiff_t method_143                                       =  143; // client.dll + 0xADD270
+            inline constexpr std::ptrdiff_t method_144                                       =  144; // client.dll + 0xAD8580
+            inline constexpr std::ptrdiff_t method_145                                       =  145; // client.dll + 0xAD0010
+            inline constexpr std::ptrdiff_t method_146                                       =  146; // client.dll + 0xACEC60
+            inline constexpr std::ptrdiff_t method_147                                       =  147; // client.dll + 0xAE1690
+            inline constexpr std::ptrdiff_t method_148                                       =  148; // client.dll + 0xAD7760
+            inline constexpr std::ptrdiff_t method_149                                       =  149; // client.dll + 0xAD73C0
+            inline constexpr std::ptrdiff_t method_150                                       =  150; // client.dll + 0xAD5E80
+            inline constexpr std::ptrdiff_t method_151                                       =  151; // client.dll + 0xAE5660
+            inline constexpr std::ptrdiff_t method_152                                       =  152; // client.dll + 0xAEB5D0
+            inline constexpr std::ptrdiff_t method_153                                       =  153; // client.dll + 0xAC8250
+            inline constexpr std::ptrdiff_t method_154                                       =  154; // client.dll + 0xAD6010
+            inline constexpr std::ptrdiff_t method_155                                       =  155; // client.dll + 0xAD5EF0
+            inline constexpr std::ptrdiff_t method_156                                       =  156; // client.dll + 0xAE4940
+            inline constexpr std::ptrdiff_t method_157                                       =  157; // client.dll + 0xAE9710
+            inline constexpr std::ptrdiff_t method_158                                       =  158; // client.dll + 0xAEAE30
+            inline constexpr std::ptrdiff_t method_159                                       =  159; // client.dll + 0xAD8B30
+            inline constexpr std::ptrdiff_t method_160                                       =  160; // client.dll + 0xAD6680
+            inline constexpr std::ptrdiff_t method_161                                       =  161; // client.dll + 0xAD8460
+            inline constexpr std::ptrdiff_t method_162                                       =  162; // client.dll + 0xAE1080
+            inline constexpr std::ptrdiff_t method_163                                       =  163; // client.dll + 0xAE10A0
+            inline constexpr std::ptrdiff_t method_164                                       =  164; // client.dll + 0xAD7790
+            inline constexpr std::ptrdiff_t method_165                                       =  165; // client.dll + 0xAE1040
+            inline constexpr std::ptrdiff_t method_166                                       =  166; // client.dll + 0xAD8570
+            inline constexpr std::ptrdiff_t method_167                                       =  167; // client.dll + 0xAD79A0
+            inline constexpr std::ptrdiff_t method_168                                       =  168; // client.dll + 0xAE05D0
+            inline constexpr std::ptrdiff_t method_169                                       =  169; // client.dll + 0xAD0FC0
+            inline constexpr std::ptrdiff_t method_170                                       =  170; // client.dll + 0xAD0880
+            inline constexpr std::ptrdiff_t method_171                                       =  171; // client.dll + 0xAD80E0
+            inline constexpr std::ptrdiff_t method_172                                       =  172; // client.dll + 0xAD6FC0
+            inline constexpr std::ptrdiff_t method_173                                       =  173; // client.dll + 0xAD1FA0
+            inline constexpr std::ptrdiff_t method_174                                       =  174; // client.dll + 0xAD0EF0
+            inline constexpr std::ptrdiff_t method_175                                       =  175; // client.dll + 0xAC8D30
+            inline constexpr std::ptrdiff_t method_176                                       =  176; // client.dll + 0xAE53D0
+            inline constexpr std::ptrdiff_t method_177                                       =  177; // client.dll + 0xAD6660
+            inline constexpr std::ptrdiff_t method_178                                       =  178; // client.dll + 0xAD7150
+            inline constexpr std::ptrdiff_t method_179                                       =  179; // client.dll + 0xAE2FC0
+            inline constexpr std::ptrdiff_t method_180                                       =  180; // client.dll + 0xAE1E40
+            inline constexpr std::ptrdiff_t method_181                                       =  181; // client.dll + 0xAE3A60
+            inline constexpr std::ptrdiff_t method_182                                       =  182; // client.dll + 0xADA7E0
+            inline constexpr std::ptrdiff_t method_183                                       =  183; // client.dll + 0xAE3030
+            inline constexpr std::ptrdiff_t method_184                                       =  184; // client.dll + 0xAE2CE0
+            inline constexpr std::ptrdiff_t method_185                                       =  185; // client.dll + 0xAE3050
+            inline constexpr std::ptrdiff_t method_186                                       =  186; // client.dll + 0xAE2D00
+            inline constexpr std::ptrdiff_t method_187                                       =  187; // client.dll + 0xAE1380
+            inline constexpr std::ptrdiff_t method_188                                       =  188; // client.dll + 0xAD6B10
+            inline constexpr std::ptrdiff_t method_189                                       =  189; // client.dll + 0xAD6B00
+            inline constexpr std::ptrdiff_t method_190                                       =  190; // client.dll + 0xAD6B40
+            inline constexpr std::ptrdiff_t method_191                                       =  191; // client.dll + 0xAD6B30
+            inline constexpr std::ptrdiff_t method_192                                       =  192; // client.dll + 0xAD6AF0
+            inline constexpr std::ptrdiff_t method_193                                       =  193; // client.dll + 0xAD6B50
+            inline constexpr std::ptrdiff_t method_194                                       =  194; // client.dll + 0xAD6840
+            inline constexpr std::ptrdiff_t method_195                                       =  195; // client.dll + 0xAD6830
+            inline constexpr std::ptrdiff_t method_196                                       =  196; // client.dll + 0xAD6600
+            inline constexpr std::ptrdiff_t method_197                                       =  197; // client.dll + 0xAD7C70
+            inline constexpr std::ptrdiff_t method_198                                       =  198; // client.dll + 0xAD6610
+            inline constexpr std::ptrdiff_t method_199                                       =  199; // client.dll + 0xAD6800
+            inline constexpr std::ptrdiff_t method_200                                       =  200; // client.dll + 0xADD180
+            inline constexpr std::ptrdiff_t method_201                                       =  201; // client.dll + 0xAD7DA0
+            inline constexpr std::ptrdiff_t method_202                                       =  202; // client.dll + 0xAD7B50
+            inline constexpr std::ptrdiff_t method_203                                       =  203; // client.dll + 0x1D3A000
+            inline constexpr std::ptrdiff_t method_204                                       =  204; // client.dll + 0xAE9520
+            inline constexpr std::ptrdiff_t method_205                                       =  205; // client.dll + 0x1D3A028
+            inline constexpr std::ptrdiff_t method_206                                       =  206; // client.dll + 0xAE15B0
+            inline constexpr std::ptrdiff_t method_207                                       =  207; // client.dll + 0x1D3A808
+            inline constexpr std::ptrdiff_t method_208                                       =  208; // client.dll + 0xAC8070
+            inline constexpr std::ptrdiff_t method_209                                       =  209; // client.dll + 0x920400
+            inline constexpr std::ptrdiff_t method_210                                       =  210; // client.dll + 0x9203F0
+            inline constexpr std::ptrdiff_t method_211                                       =  211; // client.dll + 0x920410
+            inline constexpr std::ptrdiff_t method_212                                       =  212; // client.dll + 0x920460
+            inline constexpr std::ptrdiff_t method_213                                       =  213; // client.dll + 0x1D3A8A8
+            inline constexpr std::ptrdiff_t method_214                                       =  214; // client.dll + 0xAC7754
+            inline constexpr std::ptrdiff_t method_215                                       =  215; // client.dll + 0x11740F0
+            inline constexpr std::ptrdiff_t method_216                                       =  216; // client.dll + 0x5084D0
+            inline constexpr std::ptrdiff_t method_217                                       =  217; // client.dll + 0x508620
+            inline constexpr std::ptrdiff_t method_218                                       =  218; // client.dll + 0x5086A0
+            inline constexpr std::ptrdiff_t method_219                                       =  219; // client.dll + 0x1174120
+            inline constexpr std::ptrdiff_t method_220                                       =  220; // client.dll + 0x1173550
+            inline constexpr std::ptrdiff_t method_221                                       =  221; // client.dll + 0x508750
+            inline constexpr std::ptrdiff_t method_222                                       =  222; // client.dll + 0x508A30
+            inline constexpr std::ptrdiff_t method_223                                       =  223; // client.dll + 0x5087F0
+            inline constexpr std::ptrdiff_t method_224                                       =  224; // client.dll + 0x1537C0
+            inline constexpr std::ptrdiff_t method_225                                       =  225; // client.dll + 0x5089A0
+            inline constexpr std::ptrdiff_t method_226                                       =  226; // client.dll + 0x1174640
+            inline constexpr std::ptrdiff_t method_227                                       =  227; // client.dll + 0x1174D60
+            inline constexpr std::ptrdiff_t method_228                                       =  228; // client.dll + 0x508B20
+            inline constexpr std::ptrdiff_t method_229                                       =  229; // client.dll + 0x508E80
+            inline constexpr std::ptrdiff_t method_230                                       =  230; // client.dll + 0x508E60
+        } // namespace CSource2Client
+
+        // CCSGameConfiguration (iface: Source2ClientConfig001) | vtable @ client.dll+0x19FD9C8 (64 methods)
+        namespace CCSGameConfiguration {
+            inline constexpr std::ptrdiff_t method_0                                         =    0; // client.dll + 0x6C1F60
+            inline constexpr std::ptrdiff_t method_1                                         =    1; // client.dll + 0x6C1FE0
+            inline constexpr std::ptrdiff_t method_2                                         =    2; // client.dll + 0x970650
+            inline constexpr std::ptrdiff_t method_3                                         =    3; // client.dll + 0x6C2C60
+            inline constexpr std::ptrdiff_t method_4                                         =    4; // client.dll + 0x6C1F50
+            inline constexpr std::ptrdiff_t method_5                                         =    5; // client.dll + 0x6C1F10
+            inline constexpr std::ptrdiff_t method_6                                         =    6; // client.dll + 0x6C1F20
+            inline constexpr std::ptrdiff_t method_7                                         =    7; // client.dll + 0x6C2020
+            inline constexpr std::ptrdiff_t method_8                                         =    8; // client.dll + 0x6C1FA0
+            inline constexpr std::ptrdiff_t method_9                                         =    9; // client.dll + 0x6C1F30
+            inline constexpr std::ptrdiff_t method_10                                        =   10; // client.dll + 0x6C1F40
+            inline constexpr std::ptrdiff_t method_11                                        =   11; // client.dll + 0x95A830
+            inline constexpr std::ptrdiff_t method_12                                        =   12; // client.dll + 0x6C2F40
+            inline constexpr std::ptrdiff_t method_13                                        =   13; // client.dll + 0x6C2DF0
+            inline constexpr std::ptrdiff_t method_14                                        =   14; // client.dll + 0xA1FF70
+            inline constexpr std::ptrdiff_t method_15                                        =   15; // client.dll + 0xA1FF60
+            inline constexpr std::ptrdiff_t method_16                                        =   16; // client.dll + 0x6C3060
+            inline constexpr std::ptrdiff_t method_17                                        =   17; // client.dll + 0x9438D0
+            inline constexpr std::ptrdiff_t method_18                                        =   18; // client.dll + 0x6C1F00
+            inline constexpr std::ptrdiff_t method_19                                        =   19; // client.dll + 0x6C2090
+            inline constexpr std::ptrdiff_t method_20                                        =   20; // client.dll + 0x6C20A0
+            inline constexpr std::ptrdiff_t method_21                                        =   21; // client.dll + 0x6C2CA0
+            inline constexpr std::ptrdiff_t method_22                                        =   22; // client.dll + 0x6C2CB0
+            inline constexpr std::ptrdiff_t method_23                                        =   23; // client.dll + 0xA31DB0
+            inline constexpr std::ptrdiff_t method_24                                        =   24; // client.dll + 0x95A840
+            inline constexpr std::ptrdiff_t method_25                                        =   25; // client.dll + 0x6C2DD0
+            inline constexpr std::ptrdiff_t method_26                                        =   26; // client.dll + 0xA2C4F0
+            inline constexpr std::ptrdiff_t method_27                                        =   27; // client.dll + 0x952750
+            inline constexpr std::ptrdiff_t method_28                                        =   28; // client.dll + 0x956750
+            inline constexpr std::ptrdiff_t method_29                                        =   29; // client.dll + 0x6C30E0
+            inline constexpr std::ptrdiff_t method_30                                        =   30; // client.dll + 0xA21210
+            inline constexpr std::ptrdiff_t method_31                                        =   31; // client.dll + 0x6C20B0
+            inline constexpr std::ptrdiff_t method_32                                        =   32; // client.dll + 0x965030
+            inline constexpr std::ptrdiff_t method_33                                        =   33; // client.dll + 0x9526A0
+            inline constexpr std::ptrdiff_t method_34                                        =   34; // client.dll + 0x1D136B0
+            inline constexpr std::ptrdiff_t method_35                                        =   35; // client.dll + 0x6C3344
+            inline constexpr std::ptrdiff_t method_36                                        =   36; // client.dll + 0x6C3350
+            inline constexpr std::ptrdiff_t method_37                                        =   37; // client.dll + 0x6C335C
+            inline constexpr std::ptrdiff_t method_38                                        =   38; // client.dll + 0x6C33C8
+            inline constexpr std::ptrdiff_t method_39                                        =   39; // client.dll + 0x6C3368
+            inline constexpr std::ptrdiff_t method_40                                        =   40; // client.dll + 0x6C3374
+            inline constexpr std::ptrdiff_t method_41                                        =   41; // client.dll + 0x6C3380
+            inline constexpr std::ptrdiff_t method_42                                        =   42; // client.dll + 0x6C338C
+            inline constexpr std::ptrdiff_t method_43                                        =   43; // client.dll + 0x6C3398
+            inline constexpr std::ptrdiff_t method_44                                        =   44; // client.dll + 0x6C33A4
+            inline constexpr std::ptrdiff_t method_45                                        =   45; // client.dll + 0x6C33B0
+            inline constexpr std::ptrdiff_t method_46                                        =   46; // client.dll + 0x6C2C50
+            inline constexpr std::ptrdiff_t method_47                                        =   47; // client.dll + 0x6C3020
+            inline constexpr std::ptrdiff_t method_48                                        =   48; // client.dll + 0x6C2C80
+            inline constexpr std::ptrdiff_t method_49                                        =   49; // client.dll + 0x6C33BC
+            inline constexpr std::ptrdiff_t method_50                                        =   50; // client.dll + 0x95A820
+            inline constexpr std::ptrdiff_t method_51                                        =   51; // client.dll + 0x93FD60
+            inline constexpr std::ptrdiff_t method_52                                        =   52; // client.dll + 0x6C2030
+            inline constexpr std::ptrdiff_t method_53                                        =   53; // client.dll + 0x6C2E00
+            inline constexpr std::ptrdiff_t method_54                                        =   54; // client.dll + 0x93FD50
+            inline constexpr std::ptrdiff_t method_55                                        =   55; // client.dll + 0x956770
+            inline constexpr std::ptrdiff_t method_56                                        =   56; // client.dll + 0x93FD70
+            inline constexpr std::ptrdiff_t method_57                                        =   57; // client.dll + 0x986660
+            inline constexpr std::ptrdiff_t method_58                                        =   58; // client.dll + 0x6C2FC0
+            inline constexpr std::ptrdiff_t method_59                                        =   59; // client.dll + 0x6C2FF0
+            inline constexpr std::ptrdiff_t method_60                                        =   60; // client.dll + 0x6C3010
+            inline constexpr std::ptrdiff_t method_61                                        =   61; // client.dll + 0x6C30D0
+            inline constexpr std::ptrdiff_t method_62                                        =   62; // client.dll + 0x6C2080
+            inline constexpr std::ptrdiff_t method_63                                        =   63; // client.dll + 0x945B00
+        } // namespace CCSGameConfiguration
+
+        // CPrediction (iface: Source2ClientPrediction001) | vtable @ client.dll+0x1AC0380 (34 methods)
+        namespace CPrediction {
+            inline constexpr std::ptrdiff_t method_0                                         =    0; // client.dll + 0xB35FE0
+            inline constexpr std::ptrdiff_t method_1                                         =    1; // client.dll + 0xB37B80
+            inline constexpr std::ptrdiff_t method_2                                         =    2; // client.dll + 0xB4A420
+            inline constexpr std::ptrdiff_t method_3                                         =    3; // client.dll + 0xB3E160
+            inline constexpr std::ptrdiff_t method_4                                         =    4; // client.dll + 0xB4ED70
+            inline constexpr std::ptrdiff_t method_5                                         =    5; // client.dll + 0xB48350
+            inline constexpr std::ptrdiff_t method_6                                         =    6; // client.dll + 0xB3B810
+            inline constexpr std::ptrdiff_t method_7                                         =    7; // client.dll + 0xB3D110
+            inline constexpr std::ptrdiff_t method_8                                         =    8; // client.dll + 0xB4AB90
+            inline constexpr std::ptrdiff_t method_9                                         =    9; // client.dll + 0xB42120
+            inline constexpr std::ptrdiff_t method_10                                        =   10; // client.dll + 0xB3D040
+            inline constexpr std::ptrdiff_t CPrediction_Update                               =   11; // client.dll + 0xB51210
+            inline constexpr std::ptrdiff_t method_12                                        =   12; // client.dll + 0xB44D40
+            inline constexpr std::ptrdiff_t method_13                                        =   13; // client.dll + 0xB44F50
+            inline constexpr std::ptrdiff_t method_14                                        =   14; // client.dll + 0xB471A0
+            inline constexpr std::ptrdiff_t method_15                                        =   15; // client.dll + 0xB474B0
+            inline constexpr std::ptrdiff_t method_16                                        =   16; // client.dll + 0xB46290
+            inline constexpr std::ptrdiff_t method_17                                        =   17; // client.dll + 0xB33FF0
+            inline constexpr std::ptrdiff_t method_18                                        =   18; // client.dll + 0xAD8360
+            inline constexpr std::ptrdiff_t method_19                                        =   19; // client.dll + 0xB331D0
+            inline constexpr std::ptrdiff_t method_20                                        =   20; // client.dll + 0xB3D7C0
+            inline constexpr std::ptrdiff_t method_21                                        =   21; // client.dll + 0xB3D8C0
+            inline constexpr std::ptrdiff_t method_22                                        =   22; // client.dll + 0xB3D870
+            inline constexpr std::ptrdiff_t method_23                                        =   23; // client.dll + 0xB3BED0
+            inline constexpr std::ptrdiff_t method_24                                        =   24; // client.dll + 0xB4E190
+            inline constexpr std::ptrdiff_t method_25                                        =   25; // client.dll + 0xB4E1C0
+            inline constexpr std::ptrdiff_t method_26                                        =   26; // client.dll + 0xB420F0
+            inline constexpr std::ptrdiff_t method_27                                        =   27; // client.dll + 0xB4EAC0
+            inline constexpr std::ptrdiff_t method_28                                        =   28; // client.dll + 0x8C7E50
+            inline constexpr std::ptrdiff_t method_29                                        =   29; // client.dll + 0xB42130
+            inline constexpr std::ptrdiff_t method_30                                        =   30; // client.dll + 0xB3D7B0
+            inline constexpr std::ptrdiff_t method_31                                        =   31; // client.dll + 0xB45DE0
+            inline constexpr std::ptrdiff_t method_32                                        =   32; // client.dll + 0x1D3EC00
+            inline constexpr std::ptrdiff_t method_33                                        =   33; // client.dll + 0xB44670
+        } // namespace CPrediction
+
+        // CCsgoClientUI (iface: Source2ClientUI001) | vtable @ client.dll+0x1AEFCA0 (29 methods)
+        namespace CCsgoClientUI {
+            inline constexpr std::ptrdiff_t method_0                                         =    0; // client.dll + 0xC42800
+            inline constexpr std::ptrdiff_t method_1                                         =    1; // client.dll + 0xC43EA0
+            inline constexpr std::ptrdiff_t method_2                                         =    2; // client.dll + 0xC65700
+            inline constexpr std::ptrdiff_t method_3                                         =    3; // client.dll + 0x16B090
+            inline constexpr std::ptrdiff_t method_4                                         =    4; // client.dll + 0xC6A6A0
+            inline constexpr std::ptrdiff_t method_5                                         =    5; // client.dll + 0xC64BA0
+            inline constexpr std::ptrdiff_t method_6                                         =    6; // client.dll + 0xC4D830
+            inline constexpr std::ptrdiff_t method_7                                         =    7; // client.dll + 0xC4F860
+            inline constexpr std::ptrdiff_t method_8                                         =    8; // client.dll + 0xC66660
+            inline constexpr std::ptrdiff_t method_9                                         =    9; // client.dll + 0xC5B740
+            inline constexpr std::ptrdiff_t method_10                                        =   10; // client.dll + 0xC4F850
+            inline constexpr std::ptrdiff_t method_11                                        =   11; // client.dll + 0xC42F70
+            inline constexpr std::ptrdiff_t method_12                                        =   12; // client.dll + 0x165570
+            inline constexpr std::ptrdiff_t method_13                                        =   13; // client.dll + 0x16B030
+            inline constexpr std::ptrdiff_t method_14                                        =   14; // client.dll + 0x16FC70
+            inline constexpr std::ptrdiff_t method_15                                        =   15; // client.dll + 0x16FBF0
+            inline constexpr std::ptrdiff_t method_16                                        =   16; // client.dll + 0x1763E0
+            inline constexpr std::ptrdiff_t method_17                                        =   17; // client.dll + 0xC5B5A0
+            inline constexpr std::ptrdiff_t method_18                                        =   18; // client.dll + 0x1695E0
+            inline constexpr std::ptrdiff_t method_19                                        =   19; // client.dll + 0x1714D0
+            inline constexpr std::ptrdiff_t method_20                                        =   20; // client.dll + 0x175450
+            inline constexpr std::ptrdiff_t method_21                                        =   21; // client.dll + 0x16D9B0
+            inline constexpr std::ptrdiff_t method_22                                        =   22; // client.dll + 0x1753F0
+            inline constexpr std::ptrdiff_t method_23                                        =   23; // client.dll + 0x16A470
+            inline constexpr std::ptrdiff_t method_24                                        =   24; // client.dll + 0x166680
+            inline constexpr std::ptrdiff_t method_25                                        =   25; // client.dll + 0x1D4AB48
+            inline constexpr std::ptrdiff_t method_26                                        =   26; // client.dll + 0xC3E420
+            inline constexpr std::ptrdiff_t method_27                                        =   27; // client.dll + 0x38BE60
+            inline constexpr std::ptrdiff_t method_28                                        =   28; // client.dll + 0x3A74C0
+        } // namespace CCsgoClientUI
+
+    } // namespace client_dll
+
     namespace engine2_dll {
         // CBenchmarkService (iface: BenchmarkService001) | vtable @ engine2.dll+0x56B480 (73 methods)
         namespace CBenchmarkService {
@@ -2714,6 +3197,181 @@ namespace cs2::vtables {
 
     } // namespace filesystem_stdio_dll
 
+    namespace host_dll {
+        // CDebugDrawQueueMgr (iface: DebugDrawQueueManager001) | vtable @ host.dll+0x116B68 (14 methods)
+        namespace CDebugDrawQueueMgr {
+            inline constexpr std::ptrdiff_t method_0                                         =    0; // host.dll + 0x15380
+            inline constexpr std::ptrdiff_t method_1                                         =    1; // host.dll + 0x15340
+            inline constexpr std::ptrdiff_t method_2                                         =    2; // host.dll + 0x7CF0
+            inline constexpr std::ptrdiff_t method_3                                         =    3; // host.dll + 0x152B0
+            inline constexpr std::ptrdiff_t method_4                                         =    4; // host.dll + 0x152D0
+            inline constexpr std::ptrdiff_t method_5                                         =    5; // host.dll + 0x7C20
+            inline constexpr std::ptrdiff_t method_6                                         =    6; // host.dll + 0x152A0
+            inline constexpr std::ptrdiff_t method_7                                         =    7; // host.dll + 0x153E0
+            inline constexpr std::ptrdiff_t method_8                                         =    8; // host.dll + 0x152E0
+            inline constexpr std::ptrdiff_t method_9                                         =    9; // host.dll + 0x7D00
+            inline constexpr std::ptrdiff_t method_10                                        =   10; // host.dll + 0x153F0
+            inline constexpr std::ptrdiff_t method_11                                        =   11; // host.dll + 0x150C0
+            inline constexpr std::ptrdiff_t method_12                                        =   12; // host.dll + 0x151D0
+            inline constexpr std::ptrdiff_t method_13                                        =   13; // host.dll + 0x15230
+        } // namespace CDebugDrawQueueMgr
+
+        // CGameModelInfo (iface: GameModelInfo001) | vtable @ host.dll+0x116C38 (17 methods)
+        namespace CGameModelInfo {
+            inline constexpr std::ptrdiff_t method_0                                         =    0; // host.dll + 0x15890
+            inline constexpr std::ptrdiff_t method_1                                         =    1; // host.dll + 0x15810
+            inline constexpr std::ptrdiff_t method_2                                         =    2; // host.dll + 0x7CF0
+            inline constexpr std::ptrdiff_t method_3                                         =    3; // host.dll + 0x152B0
+            inline constexpr std::ptrdiff_t method_4                                         =    4; // host.dll + 0x152D0
+            inline constexpr std::ptrdiff_t method_5                                         =    5; // host.dll + 0x7C20
+            inline constexpr std::ptrdiff_t method_6                                         =    6; // host.dll + 0x7CF0
+            inline constexpr std::ptrdiff_t method_7                                         =    7; // host.dll + 0x15800
+            inline constexpr std::ptrdiff_t method_8                                         =    8; // host.dll + 0x15850
+            inline constexpr std::ptrdiff_t method_9                                         =    9; // host.dll + 0x7D00
+            inline constexpr std::ptrdiff_t method_10                                        =   10; // host.dll + 0x153F0
+            inline constexpr std::ptrdiff_t method_11                                        =   11; // host.dll + 0x15740
+            inline constexpr std::ptrdiff_t method_12                                        =   12; // host.dll + 0x15440
+            inline constexpr std::ptrdiff_t method_13                                        =   13; // host.dll + 0x15560
+            inline constexpr std::ptrdiff_t method_14                                        =   14; // host.dll + 0x15640
+            inline constexpr std::ptrdiff_t method_15                                        =   15; // host.dll + 0x156E0
+            inline constexpr std::ptrdiff_t method_16                                        =   16; // host.dll + 0x15730
+        } // namespace CGameModelInfo
+
+        // CGameSystem2HostHook (iface: GameSystem2HostHook) | vtable @ host.dll+0x116D80 (15 methods)
+        namespace CGameSystem2HostHook {
+            inline constexpr std::ptrdiff_t method_0                                         =    0; // host.dll + 0x15380
+            inline constexpr std::ptrdiff_t method_1                                         =    1; // host.dll + 0x15340
+            inline constexpr std::ptrdiff_t method_2                                         =    2; // host.dll + 0x7CF0
+            inline constexpr std::ptrdiff_t method_3                                         =    3; // host.dll + 0x158E0
+            inline constexpr std::ptrdiff_t method_4                                         =    4; // host.dll + 0x15AB0
+            inline constexpr std::ptrdiff_t method_5                                         =    5; // host.dll + 0x7C20
+            inline constexpr std::ptrdiff_t method_6                                         =    6; // host.dll + 0x7CF0
+            inline constexpr std::ptrdiff_t method_7                                         =    7; // host.dll + 0x153E0
+            inline constexpr std::ptrdiff_t method_8                                         =    8; // host.dll + 0x152E0
+            inline constexpr std::ptrdiff_t method_9                                         =    9; // host.dll + 0x7D00
+            inline constexpr std::ptrdiff_t method_10                                        =   10; // host.dll + 0x153F0
+            inline constexpr std::ptrdiff_t method_11                                        =   11; // host.dll + 0x15B10
+            inline constexpr std::ptrdiff_t method_12                                        =   12; // host.dll + 0x15B20
+            inline constexpr std::ptrdiff_t method_13                                        =   13; // host.dll + 0x15B90
+            inline constexpr std::ptrdiff_t method_14                                        =   14; // host.dll + 0x15D80
+        } // namespace CGameSystem2HostHook
+
+        // CHostUtils (iface: HostUtils001) | vtable @ host.dll+0x116F60 (22 methods)
+        namespace CHostUtils {
+            inline constexpr std::ptrdiff_t method_0                                         =    0; // host.dll + 0x15380
+            inline constexpr std::ptrdiff_t method_1                                         =    1; // host.dll + 0x15340
+            inline constexpr std::ptrdiff_t method_2                                         =    2; // host.dll + 0x7CF0
+            inline constexpr std::ptrdiff_t method_3                                         =    3; // host.dll + 0x152B0
+            inline constexpr std::ptrdiff_t method_4                                         =    4; // host.dll + 0x152D0
+            inline constexpr std::ptrdiff_t method_5                                         =    5; // host.dll + 0x7C20
+            inline constexpr std::ptrdiff_t method_6                                         =    6; // host.dll + 0x162C0
+            inline constexpr std::ptrdiff_t method_7                                         =    7; // host.dll + 0x153E0
+            inline constexpr std::ptrdiff_t method_8                                         =    8; // host.dll + 0x152E0
+            inline constexpr std::ptrdiff_t method_9                                         =    9; // host.dll + 0x7D00
+            inline constexpr std::ptrdiff_t method_10                                        =   10; // host.dll + 0x153F0
+            inline constexpr std::ptrdiff_t method_11                                        =   11; // host.dll + 0x162D0
+            inline constexpr std::ptrdiff_t method_12                                        =   12; // host.dll + 0x162E0
+            inline constexpr std::ptrdiff_t method_13                                        =   13; // host.dll + 0x16680
+            inline constexpr std::ptrdiff_t method_14                                        =   14; // host.dll + 0x11DE38
+            inline constexpr std::ptrdiff_t method_15                                        =   15; // host.dll + 0x160A0
+            inline constexpr std::ptrdiff_t method_16                                        =   16; // host.dll + 0x160D0
+            inline constexpr std::ptrdiff_t method_17                                        =   17; // host.dll + 0x11DE10
+            inline constexpr std::ptrdiff_t method_18                                        =   18; // host.dll + 0x16950
+            inline constexpr std::ptrdiff_t method_19                                        =   19; // host.dll + 0x16920
+            inline constexpr std::ptrdiff_t method_20                                        =   20; // host.dll + 0x15E10
+            inline constexpr std::ptrdiff_t method_21                                        =   21; // host.dll + 0x116BD8
+        } // namespace CHostUtils
+
+        // CPredictionDiffMgr (iface: PredictionDiffManager001) | vtable @ host.dll+0x117C38 (15 methods)
+        namespace CPredictionDiffMgr {
+            inline constexpr std::ptrdiff_t method_0                                         =    0; // host.dll + 0x15380
+            inline constexpr std::ptrdiff_t method_1                                         =    1; // host.dll + 0x15340
+            inline constexpr std::ptrdiff_t method_2                                         =    2; // host.dll + 0x7CF0
+            inline constexpr std::ptrdiff_t method_3                                         =    3; // host.dll + 0x152B0
+            inline constexpr std::ptrdiff_t method_4                                         =    4; // host.dll + 0x152D0
+            inline constexpr std::ptrdiff_t method_5                                         =    5; // host.dll + 0x7C20
+            inline constexpr std::ptrdiff_t method_6                                         =    6; // host.dll + 0x1BB00
+            inline constexpr std::ptrdiff_t method_7                                         =    7; // host.dll + 0x153E0
+            inline constexpr std::ptrdiff_t method_8                                         =    8; // host.dll + 0x152E0
+            inline constexpr std::ptrdiff_t method_9                                         =    9; // host.dll + 0x7D00
+            inline constexpr std::ptrdiff_t method_10                                        =   10; // host.dll + 0x153F0
+            inline constexpr std::ptrdiff_t method_11                                        =   11; // host.dll + 0x1BB10
+            inline constexpr std::ptrdiff_t method_12                                        =   12; // host.dll + 0x1BB40
+            inline constexpr std::ptrdiff_t method_13                                        =   13; // host.dll + 0x1BD40
+            inline constexpr std::ptrdiff_t method_14                                        =   14; // host.dll + 0x1BFA0
+        } // namespace CPredictionDiffMgr
+
+        // CSaveRestoreDataMgr (iface: SaveRestoreDataVersion001) | vtable @ host.dll+0x117CD8 (29 methods)
+        namespace CSaveRestoreDataMgr {
+            inline constexpr std::ptrdiff_t method_0                                         =    0; // host.dll + 0x15890
+            inline constexpr std::ptrdiff_t method_1                                         =    1; // host.dll + 0x15810
+            inline constexpr std::ptrdiff_t method_2                                         =    2; // host.dll + 0x7CF0
+            inline constexpr std::ptrdiff_t method_3                                         =    3; // host.dll + 0x152B0
+            inline constexpr std::ptrdiff_t method_4                                         =    4; // host.dll + 0x152D0
+            inline constexpr std::ptrdiff_t method_5                                         =    5; // host.dll + 0x7C20
+            inline constexpr std::ptrdiff_t method_6                                         =    6; // host.dll + 0x7CF0
+            inline constexpr std::ptrdiff_t method_7                                         =    7; // host.dll + 0x15800
+            inline constexpr std::ptrdiff_t method_8                                         =    8; // host.dll + 0x15850
+            inline constexpr std::ptrdiff_t method_9                                         =    9; // host.dll + 0x7D00
+            inline constexpr std::ptrdiff_t method_10                                        =   10; // host.dll + 0x153F0
+            inline constexpr std::ptrdiff_t method_11                                        =   11; // host.dll + 0x1E160
+            inline constexpr std::ptrdiff_t method_12                                        =   12; // host.dll + 0x1E140
+            inline constexpr std::ptrdiff_t method_13                                        =   13; // host.dll + 0x1E150
+            inline constexpr std::ptrdiff_t method_14                                        =   14; // host.dll + 0x11E7A8
+            inline constexpr std::ptrdiff_t method_15                                        =   15; // host.dll + 0xCE08C
+            inline constexpr std::ptrdiff_t method_16                                        =   16; // host.dll + 0xCE08C
+            inline constexpr std::ptrdiff_t method_17                                        =   17; // host.dll + 0xCE08C
+            inline constexpr std::ptrdiff_t method_18                                        =   18; // host.dll + 0xCE08C
+            inline constexpr std::ptrdiff_t method_19                                        =   19; // host.dll + 0xCE08C
+            inline constexpr std::ptrdiff_t method_20                                        =   20; // host.dll + 0xCE08C
+            inline constexpr std::ptrdiff_t method_21                                        =   21; // host.dll + 0xCE08C
+            inline constexpr std::ptrdiff_t method_22                                        =   22; // host.dll + 0xCE08C
+            inline constexpr std::ptrdiff_t method_23                                        =   23; // host.dll + 0xCE08C
+            inline constexpr std::ptrdiff_t method_24                                        =   24; // host.dll + 0xCE08C
+            inline constexpr std::ptrdiff_t method_25                                        =   25; // host.dll + 0xCE08C
+            inline constexpr std::ptrdiff_t method_26                                        =   26; // host.dll + 0x1E100
+            inline constexpr std::ptrdiff_t method_27                                        =   27; // host.dll + 0xCE08C
+            inline constexpr std::ptrdiff_t method_28                                        =   28; // host.dll + 0xCE08C
+        } // namespace CSaveRestoreDataMgr
+
+        // CSPSharedMemoryManager (iface: SinglePlayerSharedMemory001) | vtable @ host.dll+0x117E50 (12 methods)
+        namespace CSPSharedMemoryManager {
+            inline constexpr std::ptrdiff_t method_0                                         =    0; // host.dll + 0x15380
+            inline constexpr std::ptrdiff_t method_1                                         =    1; // host.dll + 0x15340
+            inline constexpr std::ptrdiff_t method_2                                         =    2; // host.dll + 0x7CF0
+            inline constexpr std::ptrdiff_t method_3                                         =    3; // host.dll + 0x152B0
+            inline constexpr std::ptrdiff_t method_4                                         =    4; // host.dll + 0x1E230
+            inline constexpr std::ptrdiff_t method_5                                         =    5; // host.dll + 0x7C20
+            inline constexpr std::ptrdiff_t method_6                                         =    6; // host.dll + 0x7CF0
+            inline constexpr std::ptrdiff_t method_7                                         =    7; // host.dll + 0x153E0
+            inline constexpr std::ptrdiff_t method_8                                         =    8; // host.dll + 0x152E0
+            inline constexpr std::ptrdiff_t method_9                                         =    9; // host.dll + 0x7D00
+            inline constexpr std::ptrdiff_t method_10                                        =   10; // host.dll + 0x153F0
+            inline constexpr std::ptrdiff_t method_11                                        =   11; // host.dll + 0x1E2A0
+        } // namespace CSPSharedMemoryManager
+
+        // CSource2HostBase (iface: Source2Host001) | vtable @ host.dll+0x117F60 (16 methods)
+        namespace CSource2HostBase {
+            inline constexpr std::ptrdiff_t method_0                                         =    0; // host.dll + 0x15380
+            inline constexpr std::ptrdiff_t method_1                                         =    1; // host.dll + 0x15340
+            inline constexpr std::ptrdiff_t method_2                                         =    2; // host.dll + 0x7CF0
+            inline constexpr std::ptrdiff_t method_3                                         =    3; // host.dll + 0x1E5F0
+            inline constexpr std::ptrdiff_t method_4                                         =    4; // host.dll + 0x1E6E0
+            inline constexpr std::ptrdiff_t method_5                                         =    5; // host.dll + 0x7C20
+            inline constexpr std::ptrdiff_t method_6                                         =    6; // host.dll + 0x1E5E0
+            inline constexpr std::ptrdiff_t method_7                                         =    7; // host.dll + 0x153E0
+            inline constexpr std::ptrdiff_t method_8                                         =    8; // host.dll + 0x152E0
+            inline constexpr std::ptrdiff_t method_9                                         =    9; // host.dll + 0x7D00
+            inline constexpr std::ptrdiff_t method_10                                        =   10; // host.dll + 0x153F0
+            inline constexpr std::ptrdiff_t method_11                                        =   11; // host.dll + 0x1E710
+            inline constexpr std::ptrdiff_t method_12                                        =   12; // host.dll + 0x1E820
+            inline constexpr std::ptrdiff_t method_13                                        =   13; // host.dll + 0x14E10
+            inline constexpr std::ptrdiff_t method_14                                        =   14; // host.dll + 0x14E20
+            inline constexpr std::ptrdiff_t method_15                                        =   15; // host.dll + 0x14E40
+        } // namespace CSource2HostBase
+
+    } // namespace host_dll
+
     namespace imemanager_dll {
         // CIMEManager (iface: IMEManager001) | vtable @ imemanager.dll+0x2F610 (23 methods)
         namespace CIMEManager {
@@ -3015,6 +3673,123 @@ namespace cs2::vtables {
         } // namespace CLocalize
 
     } // namespace localize_dll
+
+    namespace matchmaking_dll {
+        // GameTypes (iface: GameTypes001) | vtable @ matchmaking.dll+0x183350 (76 methods)
+        namespace GameTypes {
+            inline constexpr std::ptrdiff_t method_0                                         =    0; // matchmaking.dll + 0x3E040
+            inline constexpr std::ptrdiff_t method_1                                         =    1; // matchmaking.dll + 0x3E000
+            inline constexpr std::ptrdiff_t method_2                                         =    2; // matchmaking.dll + 0x9470
+            inline constexpr std::ptrdiff_t method_3                                         =    3; // matchmaking.dll + 0x36DD0
+            inline constexpr std::ptrdiff_t method_4                                         =    4; // matchmaking.dll + 0x91D0
+            inline constexpr std::ptrdiff_t method_5                                         =    5; // matchmaking.dll + 0x91D0
+            inline constexpr std::ptrdiff_t method_6                                         =    6; // matchmaking.dll + 0x9470
+            inline constexpr std::ptrdiff_t method_7                                         =    7; // matchmaking.dll + 0x3E0A0
+            inline constexpr std::ptrdiff_t method_8                                         =    8; // matchmaking.dll + 0x3DFA0
+            inline constexpr std::ptrdiff_t method_9                                         =    9; // matchmaking.dll + 0x9480
+            inline constexpr std::ptrdiff_t method_10                                        =   10; // matchmaking.dll + 0x3E0B0
+            inline constexpr std::ptrdiff_t method_11                                        =   11; // matchmaking.dll + 0x369A0
+            inline constexpr std::ptrdiff_t method_12                                        =   12; // matchmaking.dll + 0x36DF0
+            inline constexpr std::ptrdiff_t method_13                                        =   13; // matchmaking.dll + 0x35DA0
+            inline constexpr std::ptrdiff_t method_14                                        =   14; // matchmaking.dll + 0x3A640
+            inline constexpr std::ptrdiff_t method_15                                        =   15; // matchmaking.dll + 0x3A040
+            inline constexpr std::ptrdiff_t method_16                                        =   16; // matchmaking.dll + 0x3A450
+            inline constexpr std::ptrdiff_t method_17                                        =   17; // matchmaking.dll + 0x3A6C0
+            inline constexpr std::ptrdiff_t method_18                                        =   18; // matchmaking.dll + 0x3B4B0
+            inline constexpr std::ptrdiff_t method_19                                        =   19; // matchmaking.dll + 0x3B9A0
+            inline constexpr std::ptrdiff_t method_20                                        =   20; // matchmaking.dll + 0x3B9D0
+            inline constexpr std::ptrdiff_t method_21                                        =   21; // matchmaking.dll + 0x35DB0
+            inline constexpr std::ptrdiff_t method_22                                        =   22; // matchmaking.dll + 0x3A550
+            inline constexpr std::ptrdiff_t method_23                                        =   23; // matchmaking.dll + 0x35DD0
+            inline constexpr std::ptrdiff_t method_24                                        =   24; // matchmaking.dll + 0x3BA00
+            inline constexpr std::ptrdiff_t method_25                                        =   25; // matchmaking.dll + 0x3BAA0
+            inline constexpr std::ptrdiff_t method_26                                        =   26; // matchmaking.dll + 0x3BBA0
+            inline constexpr std::ptrdiff_t method_27                                        =   27; // matchmaking.dll + 0x3BF80
+            inline constexpr std::ptrdiff_t method_28                                        =   28; // matchmaking.dll + 0x3C1B0
+            inline constexpr std::ptrdiff_t method_29                                        =   29; // matchmaking.dll + 0x3C2A0
+            inline constexpr std::ptrdiff_t method_30                                        =   30; // matchmaking.dll + 0x3C390
+            inline constexpr std::ptrdiff_t method_31                                        =   31; // matchmaking.dll + 0x3D8E0
+            inline constexpr std::ptrdiff_t method_32                                        =   32; // matchmaking.dll + 0x3D9D0
+            inline constexpr std::ptrdiff_t method_33                                        =   33; // matchmaking.dll + 0x3D0C0
+            inline constexpr std::ptrdiff_t method_34                                        =   34; // matchmaking.dll + 0x3D120
+            inline constexpr std::ptrdiff_t method_35                                        =   35; // matchmaking.dll + 0x3D2A0
+            inline constexpr std::ptrdiff_t method_36                                        =   36; // matchmaking.dll + 0x3D450
+            inline constexpr std::ptrdiff_t method_37                                        =   37; // matchmaking.dll + 0x3DAE0
+            inline constexpr std::ptrdiff_t method_38                                        =   38; // matchmaking.dll + 0x3DE40
+            inline constexpr std::ptrdiff_t method_39                                        =   39; // matchmaking.dll + 0x3C480
+            inline constexpr std::ptrdiff_t method_40                                        =   40; // matchmaking.dll + 0x3C5D0
+            inline constexpr std::ptrdiff_t method_41                                        =   41; // matchmaking.dll + 0x3C610
+            inline constexpr std::ptrdiff_t method_42                                        =   42; // matchmaking.dll + 0x3C680
+            inline constexpr std::ptrdiff_t method_43                                        =   43; // matchmaking.dll + 0x3C790
+            inline constexpr std::ptrdiff_t method_44                                        =   44; // matchmaking.dll + 0x3C850
+            inline constexpr std::ptrdiff_t method_45                                        =   45; // matchmaking.dll + 0x3CA70
+            inline constexpr std::ptrdiff_t method_46                                        =   46; // matchmaking.dll + 0x3CAA0
+            inline constexpr std::ptrdiff_t method_47                                        =   47; // matchmaking.dll + 0x3CB70
+            inline constexpr std::ptrdiff_t method_48                                        =   48; // matchmaking.dll + 0x3CD40
+            inline constexpr std::ptrdiff_t method_49                                        =   49; // matchmaking.dll + 0x3CDF0
+            inline constexpr std::ptrdiff_t method_50                                        =   50; // matchmaking.dll + 0x3CE20
+            inline constexpr std::ptrdiff_t method_51                                        =   51; // matchmaking.dll + 0x3CE50
+            inline constexpr std::ptrdiff_t method_52                                        =   52; // matchmaking.dll + 0x9470
+            inline constexpr std::ptrdiff_t method_53                                        =   53; // matchmaking.dll + 0x3CFA0
+            inline constexpr std::ptrdiff_t method_54                                        =   54; // matchmaking.dll + 0x3CFD0
+            inline constexpr std::ptrdiff_t method_55                                        =   55; // matchmaking.dll + 0x3CE80
+            inline constexpr std::ptrdiff_t method_56                                        =   56; // matchmaking.dll + 0x3CEB0
+            inline constexpr std::ptrdiff_t method_57                                        =   57; // matchmaking.dll + 0x3CEE0
+            inline constexpr std::ptrdiff_t method_58                                        =   58; // matchmaking.dll + 0x3CF10
+            inline constexpr std::ptrdiff_t method_59                                        =   59; // matchmaking.dll + 0x3CF40
+            inline constexpr std::ptrdiff_t method_60                                        =   60; // matchmaking.dll + 0x3CF70
+            inline constexpr std::ptrdiff_t method_61                                        =   61; // matchmaking.dll + 0x3D000
+            inline constexpr std::ptrdiff_t method_62                                        =   62; // matchmaking.dll + 0x35DF0
+            inline constexpr std::ptrdiff_t method_63                                        =   63; // matchmaking.dll + 0x35E00
+            inline constexpr std::ptrdiff_t method_64                                        =   64; // matchmaking.dll + 0x35E10
+            inline constexpr std::ptrdiff_t method_65                                        =   65; // matchmaking.dll + 0x35E20
+            inline constexpr std::ptrdiff_t method_66                                        =   66; // matchmaking.dll + 0x3D060
+            inline constexpr std::ptrdiff_t method_67                                        =   67; // matchmaking.dll + 0x3D030
+            inline constexpr std::ptrdiff_t method_68                                        =   68; // matchmaking.dll + 0x3D5E0
+            inline constexpr std::ptrdiff_t method_69                                        =   69; // matchmaking.dll + 0x3DAC0
+            inline constexpr std::ptrdiff_t method_70                                        =   70; // matchmaking.dll + 0x3DAD0
+            inline constexpr std::ptrdiff_t method_71                                        =   71; // matchmaking.dll + 0x3D1C0
+            inline constexpr std::ptrdiff_t method_72                                        =   72; // matchmaking.dll + 0x389F0
+            inline constexpr std::ptrdiff_t method_73                                        =   73; // matchmaking.dll + 0x3DE70
+            inline constexpr std::ptrdiff_t method_74                                        =   74; // matchmaking.dll + 0x3DEA0
+            inline constexpr std::ptrdiff_t method_75                                        =   75; // matchmaking.dll + 0x3DED0
+        } // namespace GameTypes
+
+        // CMatchFramework (iface: MATCHFRAMEWORK_001) | vtable @ matchmaking.dll+0x160550 (30 methods)
+        namespace CMatchFramework {
+            inline constexpr std::ptrdiff_t method_0                                         =    0; // matchmaking.dll + 0xEB1E0
+            inline constexpr std::ptrdiff_t method_1                                         =    1; // matchmaking.dll + 0xEB2E0
+            inline constexpr std::ptrdiff_t method_2                                         =    2; // matchmaking.dll + 0xEB3F0
+            inline constexpr std::ptrdiff_t method_3                                         =    3; // matchmaking.dll + 0xEA210
+            inline constexpr std::ptrdiff_t method_4                                         =    4; // matchmaking.dll + 0xEAEF0
+            inline constexpr std::ptrdiff_t method_5                                         =    5; // matchmaking.dll + 0x91D0
+            inline constexpr std::ptrdiff_t method_6                                         =    6; // matchmaking.dll + 0xEA190
+            inline constexpr std::ptrdiff_t method_7                                         =    7; // matchmaking.dll + 0x3E0B0
+            inline constexpr std::ptrdiff_t method_8                                         =    8; // matchmaking.dll + 0xEAD10
+            inline constexpr std::ptrdiff_t method_9                                         =    9; // matchmaking.dll + 0x9480
+            inline constexpr std::ptrdiff_t method_10                                        =   10; // matchmaking.dll + 0x3E0B0
+            inline constexpr std::ptrdiff_t method_11                                        =   11; // matchmaking.dll + 0xEAD50
+            inline constexpr std::ptrdiff_t method_12                                        =   12; // matchmaking.dll + 0xEA1B0
+            inline constexpr std::ptrdiff_t method_13                                        =   13; // matchmaking.dll + 0xEA1A0
+            inline constexpr std::ptrdiff_t method_14                                        =   14; // matchmaking.dll + 0xEA1F0
+            inline constexpr std::ptrdiff_t method_15                                        =   15; // matchmaking.dll + 0xEA1D0
+            inline constexpr std::ptrdiff_t method_16                                        =   16; // matchmaking.dll + 0xEA1C0
+            inline constexpr std::ptrdiff_t method_17                                        =   17; // matchmaking.dll + 0xEA1E0
+            inline constexpr std::ptrdiff_t method_18                                        =   18; // matchmaking.dll + 0xE9D50
+            inline constexpr std::ptrdiff_t method_19                                        =   19; // matchmaking.dll + 0xE9E00
+            inline constexpr std::ptrdiff_t method_20                                        =   20; // matchmaking.dll + 0xEA510
+            inline constexpr std::ptrdiff_t method_21                                        =   21; // matchmaking.dll + 0xE9D80
+            inline constexpr std::ptrdiff_t method_22                                        =   22; // matchmaking.dll + 0xEA270
+            inline constexpr std::ptrdiff_t method_23                                        =   23; // matchmaking.dll + 0xEA280
+            inline constexpr std::ptrdiff_t method_24                                        =   24; // matchmaking.dll + 0xEB150
+            inline constexpr std::ptrdiff_t method_25                                        =   25; // matchmaking.dll + 0xE9F40
+            inline constexpr std::ptrdiff_t method_26                                        =   26; // matchmaking.dll + 0xEA0B0
+            inline constexpr std::ptrdiff_t method_27                                        =   27; // matchmaking.dll + 0xEA200
+            inline constexpr std::ptrdiff_t method_28                                        =   28; // matchmaking.dll + 0x188DB8
+            inline constexpr std::ptrdiff_t method_29                                        =   29; // matchmaking.dll + 0xEA6A0
+        } // namespace CMatchFramework
+
+    } // namespace matchmaking_dll
 
     namespace materialsystem2_dll {
         // CFontManager (iface: FontManager_001) | vtable @ materialsystem2.dll+0x127998 (44 methods)
@@ -3427,6 +4202,26 @@ namespace cs2::vtables {
         } // namespace CMeshSystem
 
     } // namespace meshsystem_dll
+
+    namespace navsystem_dll {
+        // CNavSystem (iface: NavSystem001) | vtable @ navsystem.dll+0x108210 (13 methods)
+        namespace CNavSystem {
+            inline constexpr std::ptrdiff_t method_0                                         =    0; // navsystem.dll + 0xBC60
+            inline constexpr std::ptrdiff_t method_1                                         =    1; // navsystem.dll + 0xBBC0
+            inline constexpr std::ptrdiff_t method_2                                         =    2; // navsystem.dll + 0xBCD0
+            inline constexpr std::ptrdiff_t method_3                                         =    3; // navsystem.dll + 0xBC00
+            inline constexpr std::ptrdiff_t method_4                                         =    4; // navsystem.dll + 0xBCA0
+            inline constexpr std::ptrdiff_t method_5                                         =    5; // navsystem.dll + 0xBCE0
+            inline constexpr std::ptrdiff_t method_6                                         =    6; // navsystem.dll + 0xBCD0
+            inline constexpr std::ptrdiff_t method_7                                         =    7; // navsystem.dll + 0xBBB0
+            inline constexpr std::ptrdiff_t method_8                                         =    8; // navsystem.dll + 0xBC20
+            inline constexpr std::ptrdiff_t method_9                                         =    9; // navsystem.dll + 0xBCC0
+            inline constexpr std::ptrdiff_t method_10                                        =   10; // navsystem.dll + 0xBCB0
+            inline constexpr std::ptrdiff_t method_11                                        =   11; // navsystem.dll + 0xBAF0
+            inline constexpr std::ptrdiff_t method_12                                        =   12; // navsystem.dll + 0xBB80
+        } // namespace CNavSystem
+
+    } // namespace navsystem_dll
 
     namespace networksystem_dll {
         // CFlattenedSerializers (iface: FlattenedSerializersVersion001) | vtable @ networksystem.dll+0x22A298 (92 methods)
@@ -4229,6 +5024,50 @@ namespace cs2::vtables {
         } // namespace CResourceSystem
 
     } // namespace resourcesystem_dll
+
+    namespace scenefilecache_dll {
+        // CResponseRulesFileCache (iface: ResponseRulesCache001) | vtable @ scenefilecache.dll+0xD25F8 (19 methods)
+        namespace CResponseRulesFileCache {
+            inline constexpr std::ptrdiff_t method_0                                         =    0; // scenefilecache.dll + 0x8520
+            inline constexpr std::ptrdiff_t method_1                                         =    1; // scenefilecache.dll + 0x8510
+            inline constexpr std::ptrdiff_t method_2                                         =    2; // scenefilecache.dll + 0x6A20
+            inline constexpr std::ptrdiff_t method_3                                         =    3; // scenefilecache.dll + 0x8280
+            inline constexpr std::ptrdiff_t method_4                                         =    4; // scenefilecache.dll + 0x8300
+            inline constexpr std::ptrdiff_t method_5                                         =    5; // scenefilecache.dll + 0x6A10
+            inline constexpr std::ptrdiff_t method_6                                         =    6; // scenefilecache.dll + 0x6A20
+            inline constexpr std::ptrdiff_t method_7                                         =    7; // scenefilecache.dll + 0x8500
+            inline constexpr std::ptrdiff_t method_8                                         =    8; // scenefilecache.dll + 0x8550
+            inline constexpr std::ptrdiff_t method_9                                         =    9; // scenefilecache.dll + 0x6A00
+            inline constexpr std::ptrdiff_t method_10                                        =   10; // scenefilecache.dll + 0x8540
+            inline constexpr std::ptrdiff_t method_11                                        =   11; // scenefilecache.dll + 0x7370
+            inline constexpr std::ptrdiff_t method_12                                        =   12; // scenefilecache.dll + 0x74F0
+            inline constexpr std::ptrdiff_t method_13                                        =   13; // scenefilecache.dll + 0x7430
+            inline constexpr std::ptrdiff_t method_14                                        =   14; // scenefilecache.dll + 0x7720
+            inline constexpr std::ptrdiff_t method_15                                        =   15; // scenefilecache.dll + 0x7800
+            inline constexpr std::ptrdiff_t method_16                                        =   16; // scenefilecache.dll + 0x77F0
+            inline constexpr std::ptrdiff_t method_17                                        =   17; // scenefilecache.dll + 0x7810
+            inline constexpr std::ptrdiff_t method_18                                        =   18; // scenefilecache.dll + 0xD2084
+        } // namespace CResponseRulesFileCache
+
+        // CSceneFileCache (iface: SceneFileCache002) | vtable @ scenefilecache.dll+0xD2B58 (14 methods)
+        namespace CSceneFileCache {
+            inline constexpr std::ptrdiff_t method_0                                         =    0; // scenefilecache.dll + 0xBB00
+            inline constexpr std::ptrdiff_t method_1                                         =    1; // scenefilecache.dll + 0xBB40
+            inline constexpr std::ptrdiff_t method_2                                         =    2; // scenefilecache.dll + 0x6A20
+            inline constexpr std::ptrdiff_t method_3                                         =    3; // scenefilecache.dll + 0xBB80
+            inline constexpr std::ptrdiff_t method_4                                         =    4; // scenefilecache.dll + 0xBC40
+            inline constexpr std::ptrdiff_t method_5                                         =    5; // scenefilecache.dll + 0x6A10
+            inline constexpr std::ptrdiff_t method_6                                         =    6; // scenefilecache.dll + 0xBAF0
+            inline constexpr std::ptrdiff_t method_7                                         =    7; // scenefilecache.dll + 0xBAE0
+            inline constexpr std::ptrdiff_t method_8                                         =    8; // scenefilecache.dll + 0xC090
+            inline constexpr std::ptrdiff_t method_9                                         =    9; // scenefilecache.dll + 0x6A00
+            inline constexpr std::ptrdiff_t method_10                                        =   10; // scenefilecache.dll + 0x8540
+            inline constexpr std::ptrdiff_t method_11                                        =   11; // scenefilecache.dll + 0xBCA0
+            inline constexpr std::ptrdiff_t method_12                                        =   12; // scenefilecache.dll + 0xBCB0
+            inline constexpr std::ptrdiff_t method_13                                        =   13; // scenefilecache.dll + 0xBEA0
+        } // namespace CSceneFileCache
+
+    } // namespace scenefilecache_dll
 
     namespace scenesystem_dll {
         // CRenderingPipelines (iface: RenderingPipelines_001) | vtable @ scenesystem.dll+0x5DACE0 (11 methods)
