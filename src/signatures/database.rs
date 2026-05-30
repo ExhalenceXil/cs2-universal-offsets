@@ -12,7 +12,6 @@
 use super::{ResolveKind, Signature};
 
 const NONE: ResolveKind = ResolveKind::None;
-const STRREF: ResolveKind = ResolveKind::StringRef;
 const REL32_1: ResolveKind = ResolveKind::Rel32 { rel_off: 1 };
 const RIPREL_3: ResolveKind = ResolveKind::RipRel { rel_off: 3 };
 const RIPREL_2: ResolveKind = ResolveKind::RipRel { rel_off: 2 };
@@ -293,109 +292,6 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         prototype: "",
     },
 
-    // ---------- string-anchored (robust across patches) ---------------
-    Signature {
-        // NOTE: DEAD on build 14160 (0 hits, dumper-verified). Pattern/string
-        // is stale on current CS2 retail. Kept so the dumper diff still surfaces
-        // 0/N hits as a regression signal if a future build resurrects it.
-        name: "Engine_GetTime",
-        module: "engine2.dll",
-        needle: "Engine_GetTime",
-        resolve: STRREF,
-        extra_off: 0,
-        prototype: "",
-    },
-    Signature {
-        // NOTE: DEAD on build 14160 (0 hits, dumper-verified). Pattern/string
-        // is stale on current CS2 retail. Kept so the dumper diff still surfaces
-        // 0/N hits as a regression signal if a future build resurrects it.
-        name: "CL_FullyConnected",
-        module: "engine2.dll",
-        needle: "CL_FullyConnected",
-        resolve: STRREF,
-        extra_off: 0,
-        prototype: "",
-    },
-    Signature {
-        // NOTE: DEAD on build 14160 (0 hits, dumper-verified). Pattern/string
-        // is stale on current CS2 retail. Kept so the dumper diff still surfaces
-        // 0/N hits as a regression signal if a future build resurrects it.
-        name: "Host_AccumulateTime",
-        module: "engine2.dll",
-        needle: "Host_AccumulateTime",
-        resolve: STRREF,
-        extra_off: 0,
-        prototype: "",
-    },
-    Signature { name: "CNetChan_ProcessMessages",      module: "engine2.dll", needle: "CNetChan::ProcessMessages",     resolve: STRREF, extra_off: 0, prototype: "" },
-
-    Signature { name: "CCSPlayer_WeaponServices",      module: "client.dll",  needle: "CCSPlayer_WeaponServices",      resolve: STRREF, extra_off: 0, prototype: "__int64 *sub_180877810()" },
-    Signature { name: "CCSPlayer_MovementServices",    module: "client.dll",  needle: "CCSPlayer_MovementServices",    resolve: STRREF, extra_off: 0, prototype: "__int64 *sub_18083DE80()" },
-    Signature { name: "CCSPlayer_BulletServices",      module: "client.dll",  needle: "CCSPlayer_BulletServices",      resolve: STRREF, extra_off: 0, prototype: "void *__fastcall sub_180813BA0(__int64 a1)" },
-    Signature {
-        // NOTE: DEAD on build 14160 (0 hits, dumper-verified). Pattern/string
-        // is stale on current CS2 retail. Kept so the dumper diff still surfaces
-        // 0/N hits as a regression signal if a future build resurrects it.
-        name: "CSGameRules",
-        module: "client.dll",
-        needle: "CSGameRules",
-        resolve: STRREF,
-        extra_off: 0,
-        prototype: "",
-    },
-    Signature { name: "CCSPlayerController",           module: "client.dll",  needle: "CCSPlayerController",           resolve: STRREF, extra_off: 0, prototype: "__int64 __fastcall sub_1807E5220(int a1, _QWORD *a2)" },
-    Signature { name: "CCSPlayerPawn",                 module: "client.dll",  needle: "CCSPlayerPawn",                 resolve: STRREF, extra_off: 0, prototype: "__int64 sub_180BB0E40()" },
-    Signature {
-        // NOTE: DEAD on build 14160 (0 hits, dumper-verified). Pattern/string
-        // is stale on current CS2 retail. Kept so the dumper diff still surfaces
-        // 0/N hits as a regression signal if a future build resurrects it.
-        name: "CHudWeaponSelection",
-        module: "client.dll",
-        needle: "CHudWeaponSelection",
-        resolve: STRREF,
-        extra_off: 0,
-        prototype: "",
-    },
-    Signature {
-        // NOTE: DEAD on build 14160 (0 hits, dumper-verified). Pattern/string
-        // is stale on current CS2 retail. Kept so the dumper diff still surfaces
-        // 0/N hits as a regression signal if a future build resurrects it.
-        name: "CHudDeathNotice",
-        module: "client.dll",
-        needle: "CHudDeathNotice",
-        resolve: STRREF,
-        extra_off: 0,
-        prototype: "",
-    },
-    Signature { name: "paintkit_seed",                 module: "client.dll",  needle: "set item texture seed",         resolve: STRREF, extra_off: 0, prototype: "__int64 __fastcall sub_180EF1330(__int64 a1)" },
-    Signature { name: "paintkit_prefab",               module: "client.dll",  needle: "set item texture prefab",       resolve: STRREF, extra_off: 0, prototype: "__int64 __fastcall sub_18105D3B0(__int64 *a1)" },
-    Signature { name: "paintkit_wear",                 module: "client.dll",  needle: "set item texture wear",         resolve: STRREF, extra_off: 0, prototype: "__int64 __fastcall sub_180EF1330(__int64 a1)" },
-    Signature { name: "statTrak_killEater",            module: "client.dll",  needle: "kill eater",                    resolve: STRREF, extra_off: 0, prototype: "__int64 __fastcall sub_180EF1330(__int64 a1)" },
-    Signature { name: "statTrak_scoreType",            module: "client.dll",  needle: "kill eater score type",         resolve: STRREF, extra_off: 0, prototype: "__int64 sub_18011B7F0()" },
-
-    Signature {
-        // NOTE: DEAD on build 14160 (0 hits, dumper-verified). Pattern/string
-        // is stale on current CS2 retail. Kept so the dumper diff still surfaces
-        // 0/N hits as a regression signal if a future build resurrects it.
-        name: "VacNet_OnEvent",
-        module: "client.dll",
-        needle: "VAC-Net Detection",
-        resolve: STRREF,
-        extra_off: 0,
-        prototype: "",
-    },
-    Signature {
-        // NOTE: DEAD on build 14160 (0 hits, dumper-verified). Pattern/string
-        // is stale on current CS2 retail. Kept so the dumper diff still surfaces
-        // 0/N hits as a regression signal if a future build resurrects it.
-        name: "Matchmaking_AcceptMatch",
-        module: "client.dll",
-        needle: "AcceptInviteToParty",
-        resolve: STRREF,
-        extra_off: 0,
-        prototype: "",
-    },
-
     // ==================================================================
     // NUVORA APR-2026 EXPANSION (client.dll) ---------------------------
     // ==================================================================
@@ -491,8 +387,6 @@ pub static CS2_SIGNATURES: &[Signature] = &[
     Signature { name: "NetworkGameClient_ptr",                module: "engine2.dll", needle: "48 89 3D ? ? ? ? FF 87", resolve: RIPREL_3, extra_off: 0, prototype: "" },
     // InputSystem_ptr â€” inputsystem.dll g_pInputSystem.
     Signature { name: "InputSystem_ptr",                      module: "inputsystem.dll", needle: "48 89 05 ? ? ? ? 33 C0", resolve: RIPREL_3, extra_off: 0, prototype: "" },
-    // GameTypes_ptr â€” matchmaking.dll IGameTypes singleton.
-    Signature { name: "GameTypes_ptr",                        module: "matchmaking.dll", needle: "48 8D 0D ? ? ? ? FF 90", resolve: RIPREL_3, extra_off: 0, prototype: "" },
     // SoundSystem_ptr â€” soundsystem.dll g_pSoundSystem (CSoundSystem instance).
     Signature { name: "SoundSystem_ptr",                      module: "soundsystem.dll", needle: "48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 48 89 15", resolve: RIPREL_3, extra_off: 0, prototype: "" },
 
@@ -549,12 +443,6 @@ pub static CS2_SIGNATURES: &[Signature] = &[
     // shift pattern in the caller). REL32_1 resolves to the accessor fn.
     Signature { name: "GetCSInvMgr_call",                     module: "client.dll", needle: "E8 ? ? ? ? 48 8B D8 8B F7", resolve: REL32_1, extra_off: 0, prototype: "" },
 
-    // CreateBaseTypeCache â€” inventory subsystem helper that builds the
-    // per-loadout-slot type cache used when querying GetItemInLoadout.
-    // 13-byte unique prologue: push rbx + sub rsp,?? + mov r9, [rcx+?] +
-    // mov r10d, edx.
-    Signature { name: "CreateBaseTypeCache",                  module: "client.dll", needle: "40 53 48 83 EC ? 4C 8B 49 ? 44 8B D2", resolve: NONE, extra_off: 0, prototype: "" },
-
     // CreateEconItem â€” allocator for CEconItem (size 0x48). Required by
     // the skin/knife injector pipeline before SetDynamicAttributeValue.
     //   48 83 EC 28        sub rsp, 28h
@@ -568,17 +456,6 @@ pub static CS2_SIGNATURES: &[Signature] = &[
     // attribute display names ("set item texture prefab" etc.) into
     // CEconItemAttributeDefinition pointers before SetDynamicAttributeValue.
     Signature { name: "GetAttributeDefByName",                module: "client.dll", needle: "48 89 5C 24 10 48 89 6C 24 18 57 41 56 41 57 48 83 EC 60 48 8D 05", resolve: NONE, extra_off: 0, prototype: "" },
-
-    // RegenerateWeaponSkins â€” big leaf in the local-player loadout pipeline
-    // that re-applies paint-kit / wear / seed to every weapon entity in the
-    // player's loadout. Standard hook target for skin-changers that want
-    // their visuals to survive map-load / round-restart. 1 hit @ build 14160.
-    //   40 55                  push rbp
-    //   53                     push rbx
-    //   41 57                  push r15
-    //   48 8D AC 24 00 FE FF FF lea rbp, [rsp-200h]
-    //   48 81 EC ? ? ? ?       sub rsp, imm32
-    Signature { name: "RegenerateWeaponSkins",                module: "client.dll", needle: "40 55 53 41 57 48 8D AC 24 00 FE FF FF 48 81 EC", resolve: NONE, extra_off: 0, prototype: "" },
 
     // ---------------------------------------------------------------------
     // Stealth / VAC-flag-suppression chain (cs2 internal cheat).
@@ -718,25 +595,6 @@ pub static CS2_SIGNATURES: &[Signature] = &[
     // outlines, post-fx). Trailing `48 8D 0D ? ? ? ? E9` is the next
     // function's lea+jmp tail-call Ã”Ã‡Ã¶ unique anchor in scenesystem.dll.
     Signature { name: "SceneSystem_ptr",                      module: "scenesystem.dll", needle: "48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 48 8D 0D ? ? ? ? E9", resolve: RIPREL_3, extra_off: 0, prototype: "" },
-
-    // RenderDeviceMgr_ptr Ã”Ã‡Ã¶ rendersystemdx11.dll g_pRenderDeviceMgr
-    // (IRenderDeviceMgr). Direct gateway to the live ID3D11Device,
-    // IDXGISwapChain, and per-frame ID3D11DeviceContext. Lets us hook
-    // Present / ResizeBuffers without VTable scanning a DXGI dummy.
-    // The 16-byte preceding tail `8B 5C 24 38 48 83 C4 20 5E C3` is
-    // movsd-style epilogue of the previous func Ã”Ã‡Ã¶ unique anchor that
-    // disambiguates from the 10 other identical lea-factory thunks
-    // chained right after this one (one per render sub-interface).
-    Signature { name: "RenderDeviceMgr_ptr",                  module: "rendersystemdx11.dll", needle: "8B 5C 24 38 48 83 C4 20 5E C3 CC CC CC CC CC CC 48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 48 8D 05 ? ? ? ? C3", resolve: RIPREL_19, extra_off: 0, prototype: "" },
-
-    // FullFileSystem_ptr Ã”Ã‡Ã¶ filesystem_stdio.dll g_pFullFileSystem
-    // (IFileSystem). Mounts VPKs, opens game files, reads pak1_dir
-    // entries. Required for custom-camo / model-replacement loaders
-    // and any feature that reads game data without sv_pure tripping.
-    // Preceded by `8B 41 28 C3` (`mov eax, [rcx+28]; ret`) which is
-    // a unique 4-byte epilogue at exactly 16 bytes before this factory
-    // among the 30 lea-factory thunks in filesystem_stdio.dll.
-    Signature { name: "FullFileSystem_ptr",                   module: "filesystem_stdio.dll", needle: "8B 41 28 C3 CC CC CC CC CC CC CC CC CC CC CC CC 48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 48 8D 05 ? ? ? ? C3", resolve: RIPREL_19, extra_off: 0, prototype: "" },
 
     // InputSystemSvc_ptr Ã”Ã‡Ã¶ inputsystem.dll g_pInputSystem
     // (IInputSystem). Different singleton from client.dll's
@@ -1420,35 +1278,6 @@ pub static CS2_SIGNATURES: &[Signature] = &[
     // string, sanitized name) before formatting. 1 hit.
     Signature { name: "Client::CCSGO_HudChat_OnSayText2",     module: "client.dll",  needle: "48 89 5C 24 08 55 56 57 41 54 41 55 41 56 41 57 48 8D AC 24 70 F3 FF FF 48 81 EC 90 0D 00 00 81 A5 DC 0C 00 00 FF FF 0F FF 33 F6 8B 5A 6C 48 8B", resolve: NONE, extra_off: 0, prototype: "void __fastcall sub_1810C3D50(int a1, __int64 a2)" },
 
-    // -------- More high-value client.dll anchors (string-ref) --------
-    // Universal client-side particle / effect dispatcher. Looks up an
-    // effect by name in a global symbol table and invokes its callback.
-    // Hookable to log every dispatched FX, suppress unwanted ones
-    // (smoke / flashbang / impact effects), or inject custom effects.
-    // The unique log line is only emitted from this function.
-    Signature { name: "Client::C_DispatchEffect",             module: "client.dll",  needle: "DispatchEffect: effect \"%s\" not found on client\n", resolve: STRREF, extra_off: 0, prototype: "__int64 __fastcall sub_180ACDB70(const char *name, __int64 data)" },
-
-    // C_GameRules constructor. Stores the singleton into the global
-    // qword_18232AF48 (`g_pGameRules`) and writes the unique
-    // `CGameRules::CGameRules constructed` log line on init. Hooking
-    // (or just sigging) gives a deterministic anchor for finding the
-    // C_GameRules pointer at module-init time, plus the dtor sibling.
-    Signature { name: "Client::C_GameRules_ctor",             module: "client.dll",  needle: "%s:  CGameRules::CGameRules constructed\n", resolve: STRREF, extra_off: 0, prototype: "__int64 __fastcall sub_180B03BD0(__int64 thisptr)" },
-
-    // CLegacyGameUI::Initialize -- the legacy GameUI bootstrap. Single
-    // function that emits the `failed to get necessary interfaces`
-    // line; useful as a reliable anchor inside the GameUI plumbing and
-    // as a hook point for swapping GameUI vtables before they are
-    // wired up.
-    Signature { name: "Client::CLegacyGameUI_Initialize",     module: "client.dll",  needle: "CLegacyGameUI::Initialize() failed to get necessary interfaces\n", resolve: STRREF, extra_off: 0, prototype: "__int64 __fastcall sub_180CA6A40(__int64 thisptr)" },
-
-    // C_BasePlayerPawn::PrePhysicsSimulate -- the per-tick pre-physics
-    // hook called before predicted movement runs. Drives the predicted
-    // weapon-services + view-model interpolation each command. Anchor
-    // string `"C_BasePlayerPawn::PrePhysicsSimulate"` is the VProf
-    // budget label and is referenced from exactly one function.
-    Signature { name: "Client::C_BasePlayerPawn_PrePhysicsSimulate", module: "client.dll", needle: "C_BasePlayerPawn::PrePhysicsSimulate", resolve: STRREF, extra_off: 0, prototype: "bool __fastcall sub_1808CF580(__int64 pawn)" },
-
     // -------- Batch 11: bomb damage prediction + forum-sourced engine prediction --------
     //
     // Client::CPrediction_Update -- client!sub_180B4DA50. The per-tick
@@ -1464,77 +1293,6 @@ pub static CS2_SIGNATURES: &[Signature] = &[
     //   48 8B C4 89 50 ?? 48 89 48 ?? 55 53 57
     //                ^^             ^^ wildcards = stack frame disp.
     Signature { name: "Client::CPrediction_Update",           module: "client.dll", needle: "48 8B C4 89 50 ? 48 89 48 ? 55 53 57", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_180B4DA50(__int64 thisptr, int reason)" },
-
-    // Client::C_PlantedC4_ClientThink -- client!sub_180C09800. The
-    // per-tick handler on the planted C4 (timer beeps, LED flicker,
-    // detonation countdown). Anchor string is the VPK soundevent
-    // "C4.ExplodeTriggerTrip" (1 xref, exclusive to ClientThink).
-    // CRITICAL for bomb-damage prediction overlays: this fires every
-    // sub-tick on the planted bomb so a hook here sees the live
-    // `m_flC4Blow` countdown + `m_vecAbsOrigin` -- pair with the
-    // m_flBombRadius netvar and the local pawn's eye position to
-    // compute live "damage you'd take if it blew now" using the
-    // canonical CS damage falloff `dmg = 500 * (1 - dist/radius*1.6)`
-    // and subtract armor. Updates every frame as the player moves.
-    Signature { name: "Client::C_PlantedC4_ClientThink",      module: "client.dll", needle: "C4.ExplodeTriggerTrip",                 resolve: STRREF, extra_off: 0, prototype: "_DWORD *__fastcall sub_180C09800(__int64 plantedC4)" },
-
-    // Client::CCSPlayer_MovementServices_ProcessMovement -- client!sub_1808476D0.
-    // The per-tick movement sanity validator that emits the four
-    // canonical `CCSPlayer_MovementServices(%s):  %d/%s Got a NaN ...`
-    // / `Got a velocity too low/high` Warning() lines. All four format
-    // strings xref this single function (size 0x704). Hook this to:
-    //   * detect server velocity-clamp events (movement-desync trigger),
-    //   * gate fakelag/edge-bug heuristics (the function runs *after*
-    //     ProcessUsercmds so origin/velocity are already-applied),
-    //   * read post-physics velocity for predicted recoil compensation.
-    // String chosen contains a literal newline so we use the four-arg
-    // prefix as the unique needle.
-    Signature { name: "Client::CCSPlayer_MovementServices_ValidateVelocity", module: "client.dll", needle: "CCSPlayer_MovementServices(%s):  %d/%s Got a NaN velocity on %s\n", resolve: STRREF, extra_off: 0, prototype: "void __fastcall sub_1808476D0(__int64 movementServices)" },
-
-    // ==================================================================
-    // Additional string-ref anchors (enhanced_signatures.h) ------------
-    // ==================================================================
-    Signature { name: "CTonemapController2",                  module: "client.dll", needle: "CTonemapController2",                  resolve: STRREF, extra_off: 0, prototype: "__int64 sub_180257C90()" },
-    Signature { name: "CFogController",                       module: "client.dll", needle: "CFogController",                       resolve: STRREF, extra_off: 0, prototype: "__int64 sub_18027EFD0()" },
-    Signature { name: "CPostProcessingVolume",                module: "client.dll", needle: "CPostProcessingVolume",                 resolve: STRREF, extra_off: 0, prototype: "__int64 sub_1802A3D60()" },
-    Signature { name: "CCSPlayer_ItemServices",               module: "client.dll", needle: "CCSPlayer_ItemServices",                resolve: STRREF, extra_off: 0, prototype: "void *__fastcall sub_180850B00(__int64 a1)" },
-    Signature {
-        // NOTE: DEAD on build 14160 (0 hits, dumper-verified). Pattern/string
-        // is stale on current CS2 retail. Kept so the dumper diff still surfaces
-        // 0/N hits as a regression signal if a future build resurrects it.
-        name: "CCSPlayer_ViewModelServices",
-        module: "client.dll",
-        needle: "CCSPlayer_ViewModelServices",
-        resolve: STRREF,
-        extra_off: 0,
-        prototype: "",
-    },
-    Signature { name: "CCSPlayer_CameraServices",             module: "client.dll", needle: "CCSPlayer_CameraServices",              resolve: STRREF, extra_off: 0, prototype: "__int64 sub_18080FCB0()" },
-    Signature { name: "C_CSWeaponBase",                       module: "client.dll", needle: "C_CSWeaponBase",                       resolve: STRREF, extra_off: 0, prototype: "_QWORD *__fastcall sub_180742170(int a1, _QWORD *a2)" },
-    Signature {
-        // NOTE: DEAD on build 14160 (0 hits, dumper-verified). Pattern/string
-        // is stale on current CS2 retail. Kept so the dumper diff still surfaces
-        // 0/N hits as a regression signal if a future build resurrects it.
-        name: "C_BaseViewModel",
-        module: "client.dll",
-        needle: "C_BaseViewModel",
-        resolve: STRREF,
-        extra_off: 0,
-        prototype: "",
-    },
-    Signature {
-        // NOTE: DEAD on build 14160 (0 hits, dumper-verified). Pattern/string
-        // is stale on current CS2 retail. Kept so the dumper diff still surfaces
-        // 0/N hits as a regression signal if a future build resurrects it.
-        name: "C_BaseFlex",
-        module: "client.dll",
-        needle: "C_BaseFlex",
-        resolve: STRREF,
-        extra_off: 0,
-        prototype: "",
-    },
-    Signature { name: "C_EconItemView",                       module: "client.dll", needle: "C_EconItemView",                       resolve: STRREF, extra_off: 0, prototype: "_QWORD *__fastcall sub_18070B570(int a1, _QWORD *a2)" },
-    Signature { name: "C_AttributeContainer",                 module: "client.dll", needle: "C_AttributeContainer",                  resolve: STRREF, extra_off: 0, prototype: "__int64 __fastcall sub_180C18BB0(int a1, _QWORD *a2)" },
 
     // ==================================================================
     // Community drops (UC forum, Apr 2026) -----------------------------
@@ -1578,50 +1336,6 @@ pub static CS2_SIGNATURES: &[Signature] = &[
     },
     Signature { name: "GetBonePositionByName",                module: "client.dll", needle: "40 53 48 83 EC ? 48 8B 89 ? ? ? ? 48 8B DA 48 8B 01 FF 50 ? 48 8B C8", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_1808C81E0(__int64 a1, __int64 a2)" },
 
-    // ==================================================================
-    // String-ref class anchors (resilient across patches: the schema
-    // class name string survives even when surrounding bytes shift).
-    // Internals use these to resolve weapon/player/HUD class vftables
-    // without hand-maintaining byte patterns.
-    // ==================================================================
-    Signature { name: "C_BaseEntity",                          module: "client.dll", needle: "C_BaseEntity",                          resolve: STRREF, extra_off: 0, prototype: "__int64 (__fastcall *sub_18004E260())()" },
-    Signature { name: "C_BaseModelEntity",                     module: "client.dll", needle: "C_BaseModelEntity",                     resolve: STRREF, extra_off: 0, prototype: "__int64 __fastcall sub_180158010(int a1, _QWORD *a2)" },
-    Signature { name: "C_BasePlayerPawn",                      module: "client.dll", needle: "C_BasePlayerPawn",                      resolve: STRREF, extra_off: 0, prototype: "__int64 (__fastcall *sub_18006DA20())()" },
-    Signature { name: "C_CSPlayerPawn",                        module: "client.dll", needle: "C_CSPlayerPawn",                        resolve: STRREF, extra_off: 0, prototype: "__int64 __fastcall sub_1806C2430(int a1, _QWORD *a2)" },
-    Signature { name: "C_CSPlayerPawnBase",                    module: "client.dll", needle: "C_CSPlayerPawnBase",                    resolve: STRREF, extra_off: 0, prototype: "__int64 *sub_180BD7140()" },
-    Signature { name: "CCSPlayerController",                   module: "client.dll", needle: "CCSPlayerController",                   resolve: STRREF, extra_off: 0, prototype: "__int64 __fastcall sub_1807E5220(int a1, _QWORD *a2)" },
-    Signature { name: "CCSPlayerController_ActionTrackingServices", module: "client.dll", needle: "CCSPlayerController_ActionTrackingServices", resolve: STRREF, extra_off: 0, prototype: "__int64 __fastcall sub_1807E5220(int a1, _QWORD *a2)" },
-    Signature { name: "CCSPlayerController_DamageServices",    module: "client.dll", needle: "CCSPlayerController_DamageServices",    resolve: STRREF, extra_off: 0, prototype: "__int64 __fastcall sub_1807E5220(int a1, _QWORD *a2)" },
-    Signature { name: "CCSPlayerController_InGameMoneyServices", module: "client.dll", needle: "CCSPlayerController_InGameMoneyServices", resolve: STRREF, extra_off: 0, prototype: "__int64 __fastcall sub_1807E5220(int a1, _QWORD *a2)" },
-    Signature { name: "CCSPlayerController_InventoryServices", module: "client.dll", needle: "CCSPlayerController_InventoryServices", resolve: STRREF, extra_off: 0, prototype: "__int64 __fastcall sub_1807E5220(int a1, _QWORD *a2)" },
-    Signature { name: "CCSPlayer_BulletServices",              module: "client.dll", needle: "CCSPlayer_BulletServices",              resolve: STRREF, extra_off: 0, prototype: "void *__fastcall sub_180813BA0(__int64 a1)" },
-    Signature { name: "CCSPlayer_HostageServices",             module: "client.dll", needle: "CCSPlayer_HostageServices",             resolve: STRREF, extra_off: 0, prototype: "void *__fastcall sub_180813BA0(__int64 a1)" },
-    Signature { name: "CCSPlayer_PingServices",                module: "client.dll", needle: "CCSPlayer_PingServices",                resolve: STRREF, extra_off: 0, prototype: "void *__fastcall sub_180850ED0(__int64 a1)" },
-    Signature { name: "CCSPlayer_UseServices",                 module: "client.dll", needle: "CCSPlayer_UseServices",                 resolve: STRREF, extra_off: 0, prototype: "__int64 sub_1808821D0()" },
-    Signature { name: "CCSPlayer_WaterServices",               module: "client.dll", needle: "CCSPlayer_WaterServices",                resolve: STRREF, extra_off: 0, prototype: "__int64 *sub_180877460()" },
-    Signature { name: "CCSPlayer_WeaponServices",              module: "client.dll", needle: "CCSPlayer_WeaponServices",               resolve: STRREF, extra_off: 0, prototype: "__int64 *sub_180877810()" },
-    Signature { name: "CCSPlayer_MovementServices",            module: "client.dll", needle: "CCSPlayer_MovementServices",             resolve: STRREF, extra_off: 0, prototype: "__int64 *sub_18083DE80()" },
-    Signature {
-        // NOTE: DEAD on build 14160 (0 hits, dumper-verified). Pattern/string
-        // is stale on current CS2 retail. Kept so the dumper diff still surfaces
-        // 0/N hits as a regression signal if a future build resurrects it.
-        name: "CCSPlayer_MovementServices_Humanoid",
-        module: "client.dll",
-        needle: "CCSPlayer_MovementServices_Humanoid",
-        resolve: STRREF,
-        extra_off: 0,
-        prototype: "",
-    },
-    Signature { name: "CCSWeaponBase",                         module: "client.dll", needle: "CCSWeaponBase",                          resolve: STRREF, extra_off: 0, prototype: "__int64 sub_18077F3D0()" },
-    Signature { name: "CCSWeaponBaseGun",                      module: "client.dll", needle: "CCSWeaponBaseGun",                       resolve: STRREF, extra_off: 0, prototype: "__int64 sub_18077F470()" },
-    Signature { name: "CCSWeaponBaseVData",                    module: "client.dll", needle: "CCSWeaponBaseVData",                     resolve: STRREF, extra_off: 0, prototype: "const char *sub_18075A2B0()" },
-    Signature { name: "CSmokeGrenadeProjectile",               module: "client.dll", needle: "CSmokeGrenadeProjectile",                resolve: STRREF, extra_off: 0, prototype: "__int64 sub_18074E460()" },
-    Signature { name: "CMolotovProjectile",                    module: "client.dll", needle: "CMolotovProjectile",                     resolve: STRREF, extra_off: 0, prototype: "__int64 sub_18074E3C0()" },
-    Signature { name: "CFlashbangProjectile",                  module: "client.dll", needle: "CFlashbangProjectile",                   resolve: STRREF, extra_off: 0, prototype: "__int64 sub_180FE03F0()" },
-    Signature { name: "CHEGrenadeProjectile",                  module: "client.dll", needle: "CHEGrenadeProjectile",                   resolve: STRREF, extra_off: 0, prototype: "__int64 sub_180FE0490()" },
-    Signature { name: "CDecoyProjectile",                      module: "client.dll", needle: "CDecoyProjectile",                       resolve: STRREF, extra_off: 0, prototype: "__int64 sub_18074E1E0()" },
-    Signature { name: "C_PlantedC4",                           module: "client.dll", needle: "C_PlantedC4",                            resolve: STRREF, extra_off: 0, prototype: "__int64 (__fastcall *sub_1800F07A0())()" },
-
     // CPlantedC4::Use â€” client!sub_1807B05B0. Per-tick `+use` handler on
     // the planted bomb: validates defuser, kicks defuse-progress timers,
     // emits the "start defusal" log line at +0x459. The single anchor
@@ -1629,7 +1343,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
     // hooking lets you read the validated defuser handle, the time-left
     // local, and intercept the "can defuse" gate in one place. Refs the
     // unique "CPlantedC4::Use() start defusal" string. 1 hit on 14160.
-    Signature { name: "CPlantedC4_Use",                        module: "client.dll", needle: "40 55 53 56 48 8D AC 24 C0 FE FF FF 48 81 EC 40 02 00 00 48 8B DA 48 8B F1 BA FF FF FF FF", resolve: NONE, extra_off: 0, prototype: "" },
+    Signature { name: "CPlantedC4_StartDefuse",                module: "client.dll", needle: "40 55 53 56 48 8D AC 24 C0 FE FF FF 48 81 EC 40 02 00 00 48 8B DA 48 8B F1 BA FF FF FF FF", resolve: NONE, extra_off: 0, prototype: "" },
 
     // C_BaseEntity::StartParticleSystem â€” client!sub_180DA3890. The
     // public API CSGO entities use to attach a particle effect (smoke,
@@ -1639,98 +1353,6 @@ pub static CS2_SIGNATURES: &[Signature] = &[
     // forced flashbang particle suppress, or to swap the effect handle
     // with a custom CParticleSystemDefinition. 1 hit on 14160.
     Signature { name: "C_BaseEntity_StartParticleSystem",      module: "client.dll", needle: "48 89 5C 24 08 55 48 8B EC 48 83 EC 40 E8 ? ? ? ? 48 8D 05 ? ? ? ? 33 DB 48 8D 15", resolve: NONE, extra_off: 0, prototype: "" },
-
-    Signature {
-        // NOTE: DEAD on build 14160 (0 hits, dumper-verified). Pattern/string
-        // is stale on current CS2 retail. Kept so the dumper diff still surfaces
-        // 0/N hits as a regression signal if a future build resurrects it.
-        name: "C_C4",
-        module: "client.dll",
-        needle: "C_C4",
-        resolve: STRREF,
-        extra_off: 0,
-        prototype: "__int64 (__fastcall *sub_18009A420())()",
-    },
-    Signature { name: "C_Hostage",                             module: "client.dll", needle: "C_Hostage",                              resolve: STRREF, extra_off: 0, prototype: "__int64 (__fastcall *sub_1800E7480())()" },
-    Signature { name: "C_Inferno",                             module: "client.dll", needle: "C_Inferno",                              resolve: STRREF, extra_off: 0, prototype: "__int64 (__fastcall *sub_1800F7440())()" },
-    Signature { name: "C_SmokeGrenadeProjectile",              module: "client.dll", needle: "C_SmokeGrenadeProjectile",               resolve: STRREF, extra_off: 0, prototype: "__int64 (__fastcall *sub_180095A10())()" },
-    Signature {
-        // NOTE: DEAD on build 14160 (0 hits, dumper-verified). Pattern/string
-        // is stale on current CS2 retail. Kept so the dumper diff still surfaces
-        // 0/N hits as a regression signal if a future build resurrects it.
-        name: "C_RecipientFilter",
-        module: "client.dll",
-        needle: "C_RecipientFilter",
-        resolve: STRREF,
-        extra_off: 0,
-        prototype: "",
-    },
-    Signature { name: "CGameSceneNode",                        module: "client.dll", needle: "CGameSceneNode",                         resolve: STRREF, extra_off: 0, prototype: "__int64 __fastcall sub_1801A38F0(int a1, __int64 a2)" },
-    Signature { name: "CSkeletonInstance",                     module: "client.dll", needle: "CSkeletonInstance",                      resolve: STRREF, extra_off: 0, prototype: "__int64 __fastcall sub_1801A3A20(int a1, __int64 a2)" },
-    Signature { name: "CBodyComponent",                        module: "client.dll", needle: "CBodyComponent",                         resolve: STRREF, extra_off: 0, prototype: "__int64 sub_1801BC160()" },
-    Signature { name: "CBodyComponentSkeletonInstance",        module: "client.dll", needle: "CBodyComponentSkeletonInstance",         resolve: STRREF, extra_off: 0, prototype: "__int64 (__fastcall ***sub_1801C3040())()" },
-    Signature { name: "CGlowProperty",                         module: "client.dll", needle: "CGlowProperty",                          resolve: STRREF, extra_off: 0, prototype: "__int64 __fastcall sub_1802E11A0(int a1, __int64 a2, __int64 a3, __int64 a4)" },
-    Signature { name: "CCollisionProperty",                    module: "client.dll", needle: "CCollisionProperty",                     resolve: STRREF, extra_off: 0, prototype: "__int64 __fastcall sub_1802E0F90(int a1, __int64 a2, __int64 a3, __int64 a4)" },
-    Signature {
-        // NOTE: DEAD on build 14160 (0 hits, dumper-verified). Pattern/string
-        // is stale on current CS2 retail. Kept so the dumper diff still surfaces
-        // 0/N hits as a regression signal if a future build resurrects it.
-        name: "CWeaponCSBase",
-        module: "client.dll",
-        needle: "CWeaponCSBase",
-        resolve: STRREF,
-        extra_off: 0,
-        prototype: "",
-    },
-    Signature { name: "CCSGameRules",                          module: "client.dll", needle: "CCSGameRules",                           resolve: STRREF, extra_off: 0, prototype: "_QWORD *sub_18007E160()" },
-    Signature { name: "CCSGameRulesProxy",                     module: "client.dll", needle: "CCSGameRulesProxy",                      resolve: STRREF, extra_off: 0, prototype: "__int64 sub_1806E9500()" },
-    Signature {
-        // NOTE: DEAD on build 14160 (0 hits, dumper-verified). Pattern/string
-        // is stale on current CS2 retail. Kept so the dumper diff still surfaces
-        // 0/N hits as a regression signal if a future build resurrects it.
-        name: "CSGameRulesObjectives",
-        module: "client.dll",
-        needle: "CSGameRulesObjectives",
-        resolve: STRREF,
-        extra_off: 0,
-        prototype: "",
-    },
-
-    // engine2.dll string-ref anchors
-    Signature {
-        // NOTE: DEAD on build 14160 (0 hits, dumper-verified). Pattern/string
-        // is stale on current CS2 retail. Kept so the dumper diff still surfaces
-        // 0/N hits as a regression signal if a future build resurrects it.
-        name: "CNetworkGameClient",
-        module: "engine2.dll",
-        needle: "CNetworkGameClient",
-        resolve: STRREF,
-        extra_off: 0,
-        prototype: "",
-    },
-    Signature {
-        // NOTE: DEAD on build 14160 (0 hits, dumper-verified). Pattern/string
-        // is stale on current CS2 retail. Kept so the dumper diff still surfaces
-        // 0/N hits as a regression signal if a future build resurrects it.
-        name: "CNetworkGameServer",
-        module: "engine2.dll",
-        needle: "CNetworkGameServer",
-        resolve: STRREF,
-        extra_off: 0,
-        prototype: "",
-    },
-    Signature {
-        // NOTE: DEAD on build 14160 (0 hits, dumper-verified). Pattern/string
-        // is stale on current CS2 retail. Kept so the dumper diff still surfaces
-        // 0/N hits as a regression signal if a future build resurrects it.
-        name: "CGameEventManager",
-        module: "engine2.dll",
-        needle: "CGameEventManager",
-        resolve: STRREF,
-        extra_off: 0,
-        prototype: "",
-    },
-    Signature { name: "CSplitScreenSlot",                      module: "engine2.dll", needle: "CSplitScreenSlot",                      resolve: STRREF, extra_off: 0, prototype: "char __fastcall sub_18024A250(__int64 a1, __int64 a2, int a3, __int64 a4)" },
 
     // ==================================================================
     // NUVORA APR-26-2026 EXPANSION  v0.6.0
@@ -1898,32 +1520,6 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         prototype: "void __fastcall sub_180C5C660(__int64 a1, KeyValues *a2)",
     },
 
-    // ==================================================================
-    // NUVORA APR-25-2026 EXPANSION v2 (build 14155)
-    // ------------------------------------------------------------------
-    // Cross-module deep-dive across 8 IDA instances (client/scenesystem
-    // /engine2/networksystem/materialsystem2/resourcesystem
-    // /animationsystem/rendersystemdx11). All UNIQUE on respective DLLs,
-    // anchored from log-string xrefs (most resilient anchor type).
-    // ==================================================================
-
-    // -- client.dll: combat / world ------------------------------------
-
-    // FX_FireBullets â€” sub_180C7BE80. Refs the "FX_FireBullets:
-    // GetItemDefinition failed" / "GetWeaponEconDataFromItem failed"
-    // / "GetCSWeaponDataFromItem failed" log strings. Single anchor
-    // function for all client-side bullet trace effects (tracers,
-    // impact decals, hit-feedback). Hook here for custom tracer or
-    // bullet-impact features without touching the actual fire path.
-    Signature {
-        name: "FX_FireBullets",
-        module: "client.dll",
-        needle: "48 8B C4 4C 89 48 20 48 89 50 10 55 53 57 41 54 41 55 48 8D A8 58 FB FF FF 48 81 EC A0 05",
-        resolve: NONE,
-        extra_off: 0,
-        prototype: "void sub_180C7E380(unsigned int a1, __int64 a2, __int64 a3, __int64 *a4, __int64 a5, int a6, int a7, ...)",
-    },
-
     // DispatchSpawn caller â€” sub_1814D32A0. Iterates the pending-spawn
     // queue and calls per-entity DispatchSpawn vfunc. Refs the
     // "DispatchSpawn" string. Useful as a "wait until entity is
@@ -2075,34 +1671,6 @@ pub static CS2_SIGNATURES: &[Signature] = &[
 
     // -- client.dll: combat/usercmd/world ------------------------------
 
-    // RunCommand processor â€” sub_1809DA390. Refs the per-tick log
-    // "runcommand:%04d,tick:%u". Single anchor for the function CS2
-    // calls *before* prediction runs each subtick â€” useful as the
-    // canonical entry to inject anti-aim / fake-lag manipulation
-    // because angles in m_pCmd are still mutable here.
-    Signature {
-        name: "RunCommand_processor",
-        module: "client.dll",
-        needle: "48 8B C4 48 81 EC C8 00 00 00 48 89 58 10 48 89 68 18 48 8B EA 48 89 70 20 48 8B F1 48 89 78 F8",
-        resolve: NONE,
-        extra_off: 0,
-        prototype: "void __fastcall sub_1809DBAF0(__int64 a1, __int64 a2)",
-    },
-
-    // TraceShape (Client) â€” sub_18098D340. Refs the
-    // "Physics/TraceShape (Client)" perfetto category. The client-side
-    // raycast/sweep entry every visibility check funnels through.
-    // ESSENTIAL for: aimbot visibility filter, autowall, no-spread
-    // bullet path simulation, prediction-aware grenade lines.
-    Signature {
-        name: "TraceShape_Client",
-        module: "client.dll",
-        needle: "48 89 5C 24 20 48 89 4C 24 08 55 57 41 54 41 55 41 56 48 8D AC 24 10 E0 FF FF B8 F0 20 00 00",
-        resolve: NONE,
-        extra_off: 0,
-        prototype: "bool __fastcall sub_18098EAA0(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4, _BYTE *a5, __int64 a6)",
-    },
-
     // GetLocalPlayer accessor â€” sub_180379150. Refs *both*
     // "GetLocalPlayerPawn" and "GetLocalPlayerController" interface
     // export strings (single dispatcher). The cleanest, version-stable
@@ -2208,55 +1776,6 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         resolve: NONE,
         extra_off: 0,
         prototype: "__int64 __fastcall sub_180010040(__int64 a1, __int64 a2, unsigned int a3)",
-    },
-
-    // -- rendersystemdx11.dll ------------------------------------------
-
-    // CRenderDeviceDx11::SetMode â€” rendersystemdx11!sub_1800399E0.
-    // Refs "CRenderDeviceDx11::SetMode: Previous mode has not been
-    // shut down!". The HUGE (0x2183 byte) function that
-    // creates/recreates the swapchain + RTVs whenever resolution /
-    // fullscreen / refresh-rate changes. Hook target to react to
-    // resolution change (re-init D3D11 ImGui backend, recreate cham
-    // textures sized to the new RT).
-    Signature {
-        name: "RenderSystemDx11_SetMode",
-        module: "rendersystemdx11.dll",
-        needle: "44 89 4C 24 20 44 89 44 24 18 89 54 24 10 55 53 56 57 41 54 41 55 41 56 41 57 48 81 EC D8 02 00",
-        resolve: NONE,
-        extra_off: 0,
-        prototype: "",
-    },
-
-    // CSwapChainBase::QueuePresentAndWait â€” rendersystemdx11!
-    // sub_180034650. Refs the "CSwapChainBase::QueuePresentAndWait()
-    // looped for %d iterations without a present event" warning.
-    // The wrapper around IDXGISwapChain::Present that CS2 actually
-    // funnels every frame through. PRIMARY hook anchor for ImGui
-    // overlay / external menu rendering when not hooking the vtable
-    // directly. Fires exactly once per frame.
-    Signature {
-        name: "RenderSystemDx11_QueuePresentAndWait",
-        module: "rendersystemdx11.dll",
-        needle: "40 55 53 57 41 54 41 55 48 8D 6C 24 C9 48 81 EC C0 00 00 00 48 8D 05 ? ? ? ? 4C 89 B4 24",
-        resolve: NONE,
-        extra_off: 0,
-        prototype: "",
-    },
-
-    // CRenderDeviceDx11::SetHardwareGammaRamp â€” rendersystemdx11!
-    // sub_18003F790. Refs "CRenderDeviceDx11::SetHardwareGammaRamp:
-    // Unable to set gamma controls!". Lets you set/read the live
-    // gamma ramp â€” useful for nightmode/wallhack-style global
-    // brightness boost without touching shaders, and for restoring
-    // gamma cleanly on detach.
-    Signature {
-        name: "RenderSystemDx11_SetHardwareGammaRamp",
-        module: "rendersystemdx11.dll",
-        needle: "48 89 5C 24 18 57 B8 B0 40 00 00 E8 ? ? ? ? 48 2B E0 0F 29 BC 24 90 40 00 00 0F 57 C9 0F 28",
-        resolve: NONE,
-        extra_off: 0,
-        prototype: "",
     },
 
     // ==================================================================
@@ -2519,40 +2038,6 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         prototype: "void __fastcall sub_1809DBAF0(__int64 a1, __int64 a2)",
     },
 
-    // ====================================================================
-    // NUVORA APR-26-2026 EXPANSION v6 (build 14155 â€” present / scene render)
-    // ====================================================================
-
-    // CSwapChainBase::QueuePresentAndWait â€” rendersystemdx11!
-    // sub_180034650. Refs "CSwapChainBase::QueuePresentAndWait()
-    // looped for %d iterations without a present event.". The
-    // engine-level wrapper around IDXGISwapChain::Present.
-    // GOLD STANDARD frame hook for ImGui menus, ESP overlay,
-    // chams setup â€” runs every present, has full device context.
-    Signature {
-        name: "CSwapChainDx11_QueuePresentAndWait",
-        module: "rendersystemdx11.dll",
-        needle: "40 55 53 57 41 54 41 55 48 8D 6C 24 C9 48 81 EC C0 00 00 00 48 8D 05 ? ? ? ? 4C 89 B4 24",
-        resolve: NONE,
-        extra_off: 0,
-        prototype: "",
-    },
-
-    // Swapchain ResizeBuffers â€” rendersystemdx11!sub_18003DD20. Refs
-    // both "m_pSwapChain->ResizeTarget(...)" and "m_pSwapChain->
-    // ResizeBuffers(...)" (two strings, single function). Hook to
-    // re-create your render targets / ImGui backbuffer view when
-    // window is resized or fullscreen toggled â€” without this, an
-    // ImGui hook breaks on every alt-tab/resize.
-    Signature {
-        name: "CSwapChainDx11_ResizeBuffers",
-        module: "rendersystemdx11.dll",
-        needle: "48 8B C4 55 53 56 57 41 54 48 8B EC 48 83 EC 70 4C 89 68 10 4D 8B E0 4C 89 70 18 4C 8B EA 4C 89",
-        resolve: NONE,
-        extra_off: 0,
-        prototype: "",
-    },
-
     // Thread_RenderSceneDrawList â€” scenesystem!sub_1800EDA30. Refs
     // "Thread_RenderSceneDrawList" job name (single hit). Per-view
     // scene draw-list submission. Useful as a per-view render hook
@@ -2676,68 +2161,6 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         resolve: NONE,
         extra_off: 0,
         prototype: "__int64 __fastcall sub_1814D5B10(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4)",
-    },
-
-    // ====================================================================
-    // NUVORA APR-26-2026 EXPANSION v8 (build 14155 â€” resources / hoststate)
-    // ====================================================================
-
-    // CResourceSystem::FindOrRegisterResourceByName_Internal â€”
-    // resourcesystem!sub_180016D80. Refs the unique
-    // "CResourceSystem::FindOrRegisterResourceByName_Internal"
-    // string. Every model / material / sound / particle path
-    // resolves through here. Hook for resource-load logging,
-    // path overrides, asset replacement (custom skins/models).
-    Signature {
-        name: "ResourceSystem_FindOrRegisterResourceByName",
-        module: "resourcesystem.dll",
-        needle: "48 89 5C 24 18 48 89 74 24 20 57 48 81 EC A0 00 00 00 F7 02 FF FF FF 3F 41 0F B6 F8 48 8B DA 48",
-        resolve: NONE,
-        extra_off: 0,
-        prototype: "",
-    },
-
-    // CResourceSystem::BlockingLoadResourceByNameIntoJustInTimeManifest â€”
-    // resourcesystem!sub_180017360. Refs that string. Synchronous
-    // resource-load entry. Hook to detect or block on-demand asset
-    // streaming, prefetch overrides, custom asset injection.
-    Signature {
-        name: "ResourceSystem_BlockingLoadResourceByName",
-        module: "resourcesystem.dll",
-        needle: "40 53 55 57 48 81 EC 80 00 00 00 48 8B 01 49 8B E8 48 8B FA 48 8B D9 FF 90 98 01 00 00 83 F8 03",
-        resolve: NONE,
-        extra_off: 0,
-        prototype: "",
-    },
-
-    // CResourceSystem::FrameUpdate â€” resourcesystem!sub_18001C010.
-    // Refs both the unique "ResourceSystemWaitingForFutureWork"
-    // tracing string and "Idle (ResourceSystemSleep)" inside the
-    // same ~0xC83 byte function. Per-frame resource-system tick.
-    // Hook to inject custom resource bookkeeping or measure load
-    // pressure.
-    Signature {
-        name: "ResourceSystem_FrameUpdate",
-        module: "resourcesystem.dll",
-        needle: "44 88 4C 24 20 44 89 44 24 18 89 54 24 10 55 56 41 54 41 55 41 56 48 8D 6C 24 A0 48 81 EC 60 01",
-        resolve: NONE,
-        extra_off: 0,
-        prototype: "",
-    },
-
-    // CHostStateMgr::QueueNewRequest â€” engine2!sub_18021AFC0. Refs
-    // the unique "CHostStateMgr::QueueNewRequest( %s, %u )" log
-    // string. The engine's host-state transition queue (map
-    // change, disconnect, demo playback, restart). Hook to
-    // intercept / log every map-state change and reset hooks
-    // safely between maps.
-    Signature {
-        name: "Engine_HostStateMgr_QueueNewRequest",
-        module: "engine2.dll",
-        needle: "48 89 6C 24 18 48 89 7C 24 20 41 56 48 83 EC 30 48 8B EA 48 8B F9 8B 0D ? ? ? ? BA 02 00 00",
-        resolve: NONE,
-        extra_off: 0,
-        prototype: "__int64 __fastcall sub_18021AFC0(__int64 a1, __int64 a2)",
     },
 
     // ====================================================================
@@ -2957,147 +2380,6 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         prototype: "void __fastcall sub_1808D9E70(__int64 a1, int a2, int a3)",
     },
 
-    // ====================================================================
-    // NUVORA MAY-01-2026 EXPANSION v10 (build 14155 â€” VMAT / shader pipeline)
-    //
-    // The "real PBR chams" recipe documented in v9 needs a *real* CMaterial2
-    // to point CSkeletonInstance::SetMaterialGroup at. These six anchors
-    // expose every entry on the CMaterialSystem2 / CMaterial2 / CVfxProgramData
-    // pipeline you need to LOAD, COMPILE, and SWAP a custom .vmat_c at
-    // runtime â€” without round-tripping through the resource system from the
-    // file system.
-    //
-    // Pipeline (all on materialsystem2.dll, build 14155):
-    //   1. CMaterialSystem2::Init                 (sub_180036E40)
-    //         constructs g_pMaterialSystem2, the type-manager, the shader
-    //         cache, and the error-material fallback. Hook to inject your
-    //         own material-type allocator before any vmat is parsed.
-    //   2. CMaterialSystem2::GetErrorMaterial     (sub_180016D10)
-    //         the fallback CMaterial2*. Useful to force-return YOUR custom
-    //         gold/silver chams material from here for a quick global swap
-    //         without touching every entity.
-    //   3. CMaterial2::LoadShadersAndSetupModes   (sub_180010040)
-    //         every CMaterial2 finishing parse routes through here to
-    //         load + bind shader passes. Hook to substitute the shader
-    //         entry (e.g. force csgo_character.vfx) or rewrite param
-    //         tables (g_flMetalness=1.0, g_flRoughness=0.05, etc.)
-    //         BEFORE the static combo is compiled.
-    //   4. CMaterial2::CompileComboAndGetVariables_DynamicShaderCompile
-    //                                             (sub_180013FA0)
-    //         dynamic shader-permutation compile path. Hook to log every
-    //         combo a custom material asks for, or to short-circuit a slow
-    //         compile by returning a pre-warmed permutation.
-    //   5. CVfxProgramData::FindOrCreateStaticComboDataInCache
-    //                                             (sub_1800AE220)
-    //         the lower-level shader-cache lookup that 3 & 4 funnel into.
-    //         Hook to share static combos across runtime-injected materials
-    //         (cheap chams across many entities = one combo).
-    //   6. CMaterialSystem2::DynamicShaderCompile_UnloadAllMaterials
-    //                                             (sub_180039AA0)
-    //         called by `mat_reloadshaders` ConCommand. Hook to also
-    //         re-upload your custom chams material on a hot-reload so
-    //         devs iterating on shaders don't lose the override.
-    //
-    // All six are STRREF-anchored on log strings with exactly ONE xref each
-    // (verified via mcp_ida-pro-mcp_xref_query). The strings are literal
-    // C source-file LOG_ERROR / Plat_FatalError messages and are extremely
-    // stable across patches â€” they have not changed since at least 14154.
-    //
-    // RTTI strings `.?AVIMaterial2@@` @ 0x180146F98 and `.?AVCMaterial2@@`
-    // @ 0x1801473C0 are also present in materialsystem2.dll â€” keep these
-    // in mind for future ResolveKind::Vftable work to expose
-    // IMaterial2::SetParam / Bind / GetShaderName slots directly.
-    // ====================================================================
-
-    // CMaterialSystem2::Init â€” materialsystem2!sub_180036E40 (~0x132B).
-    // Refs the literal "MaterialSystem2" subsystem-name string.
-    // First-touch hook for installing your own CMaterialResource
-    // type-manager or pre-seeding the shader cache with custom
-    // permutations BEFORE the engine loads any .vmat_c.
-    Signature {
-        name: "CMaterialSystem2_Init",
-        module: "materialsystem2.dll",
-        needle: "MaterialSystem2",
-        resolve: STRREF,
-        extra_off: 0,
-        prototype: "__int64 __fastcall sub_180036E40(__int64 a1)",
-    },
-
-    // CMaterialSystem2::GetErrorMaterial â€” materialsystem2!sub_180016D10
-    // (~0x9B9). Refs the unique fatal-spew string
-    // "CMaterialSystem2::GetErrorMaterial(529): GetErrorMaterial()
-    // called when m_pMaterialTypeManager == NULL!". Returns the
-    // engine-wide fallback CMaterial2*. Hook to substitute YOUR
-    // custom gold/silver csgo_character chams material as the
-    // global error fallback for a one-line "everything missing
-    // becomes chams" trick.
-    Signature {
-        name: "CMaterialSystem2_GetErrorMaterial",
-        module: "materialsystem2.dll",
-        needle: "CMaterialSystem2::GetErrorMaterial(529): GetErrorMaterial() called when m_pMaterialTypeManager == NULL!\n",
-        resolve: STRREF,
-        extra_off: 0,
-        prototype: "__int64 __fastcall sub_180016D10(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4, char a5)",
-    },
-
-    // (NOTE: CMaterial2::LoadShadersAndSetupModes is already shipped
-    // earlier as a raw byte signature anchored on its prologue and
-    // resolves correctly to the function start. Adding a duplicate
-    // STRREF entry was redundant and resolved to the lea instruction
-    // mid-function instead of the prologue, so it is omitted here.
-    // The string anchor "\nCMaterial2::LoadShadersAndSetupModes(1543):
-    // Error! Material \"%s\" is already loaded!\n" remains the unique
-    // STRREF anchor for that function on build 14155 if a future raw
-    // pattern goes stale.)
-
-    // CMaterial2::CompileComboAndGetVariables_DynamicShaderCompile â€”
-    // materialsystem2!sub_180013FA0 (~0x95E). Refs the unique source
-    // path string "CompileComboAndGetVariables_DynamicShaderCompile(),
-    // C:\\buildworker\\csgo_rel_win64\\build\\src\\materialsystem2\\
-    // material2.cpp:2786" (1 xref). Dynamic shader-permutation compile
-    // path â€” every novel combo (e.g. your gold chams running with a
-    // never-seen-before lighting/skinning combo) lands here. Hook to:
-    //   - log permutation requests for warmup baking
-    //   - short-circuit slow compiles by serving a pre-built combo
-    //   - measure compile-stall hitches on first-frame-with-chams
-    Signature {
-        name: "CMaterial2_CompileComboAndGetVariables_DynamicShaderCompile",
-        module: "materialsystem2.dll",
-        needle: "CompileComboAndGetVariables_DynamicShaderCompile(), C:\\buildworker\\csgo_rel_win64\\build\\src\\materialsystem2\\material2.cpp:2786",
-        resolve: STRREF,
-        extra_off: 0,
-        prototype: "char __fastcall sub_180013FA0(__int64 a1, __int64 a2)",
-    },
-
-    // Dynamic shader compile batch driver â€” materialsystem2!sub_18003A200
-    // (~0x1053). Emits the compile-batch status lines
-    // "Compiling %i shaders:" and "Compiled %i shaders (%i cached) in %.1fs".
-    // This function fans into CMaterial2_CompileComboAndGetVariables_
-    // DynamicShaderCompile for each queued permutation and is the best
-    // high-level timing hook for compile stalls / warmup effectiveness.
-    Signature {
-        name: "CMaterialSystem2_DynamicShaderCompile_ProcessQueue",
-        module: "materialsystem2.dll",
-        needle: "Compiling %i shaders:",
-        resolve: STRREF,
-        extra_off: 0,
-        prototype: "void __fastcall sub_18003A200(__int64 a1)",
-    },
-
-    // CMaterial2::GetVertexShaderInputSignature â€” materialsystem2!
-    // sub_18000C8C0 (~0x2AF). Emits unique GetVertexShaderInputSignature
-    // validation errors and can trigger dynamic compile queue processing
-    // through sub_18003A200 when VS input signature data is missing/stale.
-    // Useful for diagnosing shader-input mismatches in custom material paths.
-    Signature {
-        name: "CMaterial2_GetVertexShaderInputSignature",
-        module: "materialsystem2.dll",
-        needle: "CMaterial2::GetVertexShaderInputSignature(767): Error! Material \"%s\" doesn't have any valid layers to get the CVsInputSignatureVector from!\n",
-        resolve: STRREF,
-        extra_off: 0,
-        prototype: "__int64 __fastcall sub_18000C8C0(__int64 a1)",
-    },
-
     // Dynamic shader compile reload orchestrator â€” materialsystem2!
     // sub_1800355C0 (~0x79). Calls
     // CMaterialSystem2_DynamicShaderCompile_UnloadAllMaterials and then
@@ -3113,135 +2395,6 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         prototype: "void sub_1800355C0()",
     },
 
-    // CVfxProgramData::FindOrCreateStaticComboDataInCache â€”
-    // materialsystem2!sub_1800AE220 (~0x726). Refs the unique log
-    // "CVfxProgramData::FindOrCreateStaticComboDataInCache(4448):
-    // Error! Ref count !=0 for static combo data cache entry!"
-    // (1 xref). The actual shader-static-combo cache lookup that
-    // CompileComboAndGetVariables funnels into. Hook here to share
-    // a single compiled static combo across many runtime-injected
-    // chams materials (e.g. all five enemies wearing your gold
-    // material -> one cache entry, not five).
-    Signature {
-        name: "CVfxProgramData_FindOrCreateStaticComboDataInCache",
-        module: "materialsystem2.dll",
-        needle: "CVfxProgramData::FindOrCreateStaticComboDataInCache(4448): Error! Ref count !=0 for static combo data cache entry!\n",
-        resolve: STRREF,
-        extra_off: 0,
-        prototype: "__int64 __fastcall sub_1800AE0E0(__int64 a1, __int64 a2)",
-    },
-
-    // CMaterialSystem2::DynamicShaderCompile_UnloadAllMaterials â€”
-    // materialsystem2!sub_180039AA0 (~0x757). Refs the unique log
-    // "CMaterialSystem2::DynamicShaderCompile_UnloadAllMaterials
-    // (1084): ERROR!!! Shaders not freed before shader reload!"
-    // (1 xref). Driven by the `mat_reloadshaders` /
-    // `mat_forcereloadshaders` ConCommands. Hook to:
-    //   - re-upload your custom chams CMaterial2 after the engine
-    //     wipes its compiled-shader cache
-    //   - detect when a dev fires `mat_reloadshaders` so chams
-    //     overrides survive iterative shader work
-    Signature {
-        name: "CMaterialSystem2_DynamicShaderCompile_UnloadAllMaterials",
-        module: "materialsystem2.dll",
-        needle: "CMaterialSystem2::DynamicShaderCompile_UnloadAllMaterials(1084): ERROR!!! Shaders not freed before shader reload! (See spew above)\n\n",
-        resolve: STRREF,
-        extra_off: 0,
-        prototype: "__int64 __fastcall sub_180039AA0(__int64 a1)",
-    },
-
-    // ====================================================================
-    // NUVORA MAY-02-2026 EXPANSION v11 (build 14155 â€” GPU-pipeline / drawcall layer)
-    //
-    // v10 covered material PARSE / LOAD / COMPILE. v11 covers the layer
-    // BELOW that â€” the per-pass GPU command-buffer recording, per-draw
-    // render-state setup, scene-graph cull, and D3D11 constant-buffer
-    // creation. This is the layer where a graphics engineer would hook
-    // to:
-    //
-    //   - Intercept the actual shader / texture / cbuf bindings for a
-    //     specific material at submit time (chams without owning a
-    //     custom .vmat â€” just rewrite the bind table).
-    //   - Re-add culled entities back to the visible set for true x-ray
-    //     wallhack (vs. the post-process outline trick).
-    //   - Track every D3D11 constant buffer the engine creates so a
-    //     PBR-param patch (g_flMetalness/g_flRoughness/g_vReflectance)
-    //     can be written directly into the matching cbuf upload.
-    //   - Inject custom geometry into a real engine display-list batch
-    //     instead of running a parallel ImGui pass.
-    //
-    // Pipeline (build 14155):
-    //
-    //   CSceneSystem::Thread_CullView  (scenesystem!sub_1800E92F0)
-    //     -> CSceneSystem::Thread_RenderSceneDrawList (already shipped v1.11.0)
-    //         -> CMaterialLayer::CreateCommandBuffer (materialsystem2!sub_180019820)
-    //              -> CMaterialLayer::ComputeWorkItemsToSetupStaticCombosForMode
-    //                                                 (materialsystem2!sub_180015BC0)
-    //                  -> CMaterial::SetVariableAndRenderState (materialsystem2!sub_18002F9B0)
-    //                       -> CRenderDeviceDx11::BeginSubmittingDisplayLists
-    //                                                 (rendersystemdx11!sub_18003C4E0)
-    //                            -> CRenderDeviceBase::CreateConstantBuffer
-    //                                                 (rendersystemdx11!sub_18002F500)
-    //                                 -> CMaterialSystem2::BindIdentityInstanceIDBufferAndSetRenderState
-    //                                                 (materialsystem2!sub_180070000)
-    //
-    // All 7 are STRREF-anchored on log strings with EXACTLY ONE xref each
-    // (verified via mcp_ida-pro-mcp_xref_query across instances 13338,
-    // 13341, 13344). Strings are extremely stable across patches.
-    // ====================================================================
-
-    // CMaterialLayer::CreateCommandBuffer â€” materialsystem2!sub_180019820
-    // (~0x1DD9 â€” large per-pass GPU command-buffer recorder).  Refs the
-    // unique error string "CMaterialLayer::CreateCommandBuffer(4446):
-    // Find a graphics programmer! Trying to bind a \"%s\" shader that
-    // doesn't exist! for %s" (1 xref).  The function CS2 calls when a
-    // CMaterialLayer needs to materialise its bound shader/texture/
-    // constant-buffer state into a recordable D3D command sequence.
-    // THE hook for "intercept the actual shader binds and rewrite
-    // PBR slots before the GPU sees them" â€” perfect for swapping in
-    // gold/silver chams without owning a custom .vmat.
-    Signature {
-        name: "CMaterialLayer_CreateCommandBuffer",
-        module: "materialsystem2.dll",
-        needle: "\nCMaterialLayer::CreateCommandBuffer(4446): Find a graphics programmer! Trying to bind a \"%s\" shader that doesn't exist! for %s\n",
-        resolve: STRREF,
-        extra_off: 0,
-        prototype: "__int64 __fastcall sub_180019820(__int64 a1, __int64 a2, int a3, int a4, _DWORD *a5)",
-    },
-
-    // CMaterialLayer::ComputeWorkItemsToSetupStaticCombosForMode â€”
-    // materialsystem2!sub_180015BC0 (~0x632).  Refs the unique
-    // "CMaterialLayer::ComputeWorkItemsToSetupStaticCombosForMode(3154):
-    // Failed call to FindOrLoadStaticComboData()!" log (1 xref).
-    // Schedules the work-items required to materialise every static
-    // shader combo a CMaterialLayer needs for a given render mode.
-    // Sits one level above CVfxProgramData::FindOrCreateStaticComboDataInCache
-    // (already shipped v1.16.0). Hook to inspect / pre-warm shader
-    // permutation work for runtime-injected chams materials.
-    Signature {
-        name: "CMaterialLayer_ComputeWorkItemsToSetupStaticCombosForMode",
-        module: "materialsystem2.dll",
-        needle: "CMaterialLayer::ComputeWorkItemsToSetupStaticCombosForMode(3154): Failed call to FindOrLoadStaticComboData()!\n",
-        resolve: STRREF,
-        extra_off: 0,
-        prototype: "char __fastcall sub_180015BC0(unsigned __int16 *a1, unsigned int a2, int *a3)",
-    },
-
-    // Static combo merge/validation worker â€” materialsystem2!sub_1800BDAE0
-    // (~0x1B89). Called by ComputeWorkItemsToSetupStaticCombosForMode and
-    // funnels through sub_1800AE950 (cache gate wrapper) for combo fetch.
-    // The unique warning below fires when shader attributes diverge across
-    // shaders in one feature combo, making this a high-value observability
-    // hook for custom VFX/VCS compatibility debugging.
-    Signature {
-        name: "CVfxProgramData_FindOrLoadStaticComboData",
-        module: "materialsystem2.dll",
-        needle: "Shader %s attribute \"%s\" has inconsistent value or type across multiple shaders of a feature combo! [",
-        resolve: STRREF,
-        extra_off: 0,
-        prototype: "__int64 __fastcall sub_1800BDAE0(__int64 a1, __int64 a2, __int64 a3, __int64 a4, char a5)",
-    },
-
     // Static combo cache gate wrapper â€” materialsystem2!sub_1800AE950
     // (~0x1F6). Called by sub_1800BDAE0 and dispatches to
     // CVfxProgramData_FindOrCreateStaticComboDataInCache (sub_1800AE220)
@@ -3255,260 +2408,6 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         resolve: NONE,
         extra_off: 0,
         prototype: "__int64 __fastcall sub_1800AE950(__int64 a1, unsigned __int64 a2, __int64 a3, int a4, __int64 a5, int a6, char a7)",
-    },
-
-    // CMaterial::SetVariableAndRenderState â€” materialsystem2!sub_18002F9B0
-    // (~0x8A4).  Refs the unique
-    // "SetRenderStateValueFromVariable(1172): Unsupported render state
-    // type in material \"%s\"!" log (1 xref). Decompile shows it ALSO
-    // contains the unique "SetVariable(1346): Could not bind constant
-    // buffer..." and "SetVariable(1363): Error setting constant for
-    // REGISTER_FLOAT4..." spew strings, confirming this is the
-    // dispatch hub that, for every CMaterialVariable, picks the right
-    // setter:
-    //   - REGISTER_FLOAT4 -> writes into per-material cbuf upload
-    //   - REGISTER_TEX_*   -> shader-resource-view binding
-    //   - render-state     -> blend / depth / stencil / colour-write
-    // THIS is where you literally write g_flMetalness / g_flRoughness /
-    // g_vReflectanceColor into the D3D constant-buffer slot for a
-    // gold-chams material. Single most useful hook for live PBR
-    // param injection.
-    Signature {
-        name: "CMaterial_SetVariableAndRenderState",
-        module: "materialsystem2.dll",
-        needle: "SetRenderStateValueFromVariable(1172): Unsupported render state type in material \"%s\"!\n",
-        resolve: STRREF,
-        extra_off: 0,
-        prototype: "",
-    },
-
-    // CMaterialSystem2::BindIdentityInstanceIDBufferAndSetRenderState â€”
-    // materialsystem2!sub_180070000 (~0x677).  Refs the unique
-    // "BindIdentityInstanceIDBufferAndSetRenderState: GetMode == NULL?
-    // Can't Render" log (1 xref).  Decompile confirms it builds an
-    // identity per-instance vertex layout (`VertexUVPosColorNormalAnd
-    // Tangent_t`) and dispatches through the render-context vtable
-    // (qword_18014EE78, slot +320) to set up render state for a
-    // single-instance draw.  Hook to inject custom geometry into a
-    // real engine batch instead of running a parallel ImGui pass â€”
-    // gives free depth-buffer integration for chams x-ray.
-    Signature {
-        name: "CMaterialSystem2_BindIdentityInstanceIDBufferAndSetRenderState",
-        module: "materialsystem2.dll",
-        needle: "BindIdentityInstanceIDBufferAndSetRenderState: GetMode == NULL? Can't Render\n",
-        resolve: STRREF,
-        extra_off: 0,
-        prototype: "char __fastcall sub_180070000(__int64 *a1, __int64 a2, __int64 a3, __int64 a4)",
-    },
-
-    // CSceneSystem::Thread_CullView â€” scenesystem!sub_1800E92F0
-    // (~0x7BF).  Refs the unique source-path string
-    // "CSceneSystem::Thread_CullView(), C:\\buildworker\\csgo_rel_win64\\
-    // build\\src\\scenesystem\\scenesystem.cpp:3312" (1 xref).  Per-
-    // worker-thread frustum + occlusion cull for a single scene view
-    // (one of the parallel jobs that feed Thread_RenderSceneDrawList,
-    // already shipped v1.11.0).  Hook target for TRUE x-ray wallhack:
-    // re-add the player scene-objects that the cull just rejected so
-    // they get drawn behind the world (with depth-test override in the
-    // RenderSceneDrawList layer hook). This is what an actual
-    // graphics-programmer wallhack looks like â€” not a 2D ImGui line
-    // overlay.
-    Signature {
-        name: "CSceneSystem_Thread_CullView",
-        module: "scenesystem.dll",
-        needle: "CSceneSystem::Thread_CullView(), C:\\buildworker\\csgo_rel_win64\\build\\src\\scenesystem\\scenesystem.cpp:3312",
-        resolve: STRREF,
-        extra_off: 0,
-        prototype: "",
-    },
-
-    // CRenderDeviceBase::CreateConstantBuffer â€” rendersystemdx11!sub_18002F500
-    // (~0x1D2).  Refs the unique source-line string
-    // "CRenderDeviceBase::CreateConstantBuffer(1571):" (1 xref). Every
-    // ID3D11Buffer (D3D11_BIND_CONSTANT_BUFFER) the renderer ever
-    // creates routes through here. Hook to:
-    //   - Build a runtime map [cbuf-handle -> { shader-name, slot,
-    //     param-name list }] so you can locate the gold-chams cbuf
-    //     by name (g_flMetalness / g_flRoughness / etc.).
-    //   - Detect when a custom material is granted its cbuf so you
-    //     can keep its slot pinned across hot-reloads.
-    Signature {
-        name: "CRenderDeviceBase_CreateConstantBuffer",
-        module: "rendersystemdx11.dll",
-        needle: "CRenderDeviceBase::CreateConstantBuffer(1571): ",
-        resolve: STRREF,
-        extra_off: 0,
-        prototype: "",
-    },
-
-    // CRenderDeviceDx11::BeginSubmittingDisplayLists â€” rendersystemdx11!
-    // sub_18003C4E0 (~0x147).  Refs the unique source-line string
-    // "CRenderDeviceDx11::BeginSubmittingDisplayLists(1162):" (1 xref).
-    // Per-frame display-list submission boundary (the engine batches
-    // all materialised D3D commands into display lists, then submits
-    // them here).  Useful to:
-    //   - Time GPU submit latency on the chams pass.
-    //   - Inject extra display lists for custom passes without paying
-    //     the full per-draw vtable cost.
-    Signature {
-        name: "CRenderDeviceDx11_BeginSubmittingDisplayLists",
-        module: "rendersystemdx11.dll",
-        needle: "CRenderDeviceDx11::BeginSubmittingDisplayLists(1162): ",
-        resolve: STRREF,
-        extra_off: 0,
-        prototype: "",
-    },
-
-    // ====================================================================
-    // NUVORA APR-25-2026 EXPANSION v12 (build 14155 â€” WEAPON PAINT KIT /
-    // CCompositeMaterialKit pipeline â€” "Galaxy-camo" custom-skin reversing)
-    //
-    // GOAL: trace the full code path that turns a `paint kit id + seed +
-    // wear` triple on a `C_EconItemView` into a runtime-composited PBR
-    // material that gets bound to the weapon viewmodel â€” so we can
-    // INJECT a custom `.vcompmat` (or override the input shader-vars
-    // directly) and ship a fully custom Galaxy-style camo on any weapon.
-    //
-    // CS2's weapon-skin system is a layered shader-compositing engine
-    // (functionally identical to Fortnite skin-compositing, Valve just
-    // calls it `CCompositeMaterialKit`). The runtime recipe:
-    //
-    //   .vcompmat (kit definition)        -- e.g. weapons/paints/legacy/
-    //                                        missing_paintkit.vcompmat
-    //     |
-    //     +-- list of `CompositeMaterialAssemblyProcedure_t`
-    //     |       (each = "take input vmat A, blend into output vmat B
-    //     |        using mask M and shader-vars V")
-    //     +-- final output material  (the one bound to the model)
-    //
-    //   CompositeMaterialInputContainer_t  (per-instance)
-    //     +-- g_flWearAmount  (scratch / scuff intensity)
-    //     +-- g_nRandomSeed   (per-pattern offset)
-    //     +-- g_vColor*       (4 colour slots â€” what we override for
-    //                          a Galaxy purple-blue gradient)
-    //     +-- g_tNormalMap, g_tPattern, g_tMaskWear, g_flMetalness,
-    //         g_flRoughness, g_vReflectanceColor (PBR slots)
-    //
-    // The legacy-weapons pipeline (these sigs target the LEGACY path,
-    // because that is the one CS2 still uses for every weapon shipped
-    // before the workshop-2.0 era â€” i.e. ALL of them currently):
-    //
-    //   1. game tick: viewmodel becomes visible
-    //   2. sub_18011C6D0  registers `cl_paintkit_override` ConVar
-    //      (already-shipped earlier â€” paintkit override hot-swap entry)
-    //   3. C_EconWearable_OnNewCustomMaterials (sub_1810B67D0)
-    //        --> "[Wearables] Creating new wearable (%d)" log
-    //        --> calls sub_180A4CE30 with sub_180164704 callback
-    //            = the per-wearable composite-material build kickoff
-    //   4. C_EconEntity_BuildLegacyWeaponSkinMaterial (sub_18078C050)
-    //        --> reads paintkit name from off_182013BB0[(seed + N) % 34]
-    //            (the 34-entry legacy paintkit name table)
-    //        --> calls sub_180789A00 to push every shader-variable into
-    //            a CompositeMaterialInputContainer_t with key strings
-    //            "g_flWearAmount" then "g_nRandomSeed"
-    //        --> sets the .vcompmat resource path to
-    //            "weapons/paints/legacy/missing_paintkit.vcompmat" as
-    //            the FALLBACK if no kit was matched
-    //        --> tags the request "low-res weapon" or "workshop
-    //            preview weapon" depending on render scope
-    //        --> dispatches via vtable+8 of the composite-material
-    //            manager
-    //   5. CompositeMaterialPanoramaPanel_Init (sub_180B8FB00) /
-    //      CCompositeMaterialManager_AddNewPanoramaPanelRenderRequest
-    //      (called from sub_1813B8DD0) â€” feed the kit through the
-    //      panorama-render path so the inventory thumbnail rebuilds
-    //      whenever the user previews a skin
-    //   6. CMaterialLayer::CreateCommandBuffer (already shipped v1.17.0)
-    //      records the actual GPU bind sequence
-    //   7. CMaterial::SetVariableAndRenderState (already shipped v1.17.0)
-    //      writes our g_vColor / g_flMetalness into the cbuf upload
-    //
-    // CUSTOM-CAMO HOOK STRATEGY (for future feature impl):
-    //   A. Hook (4) C_EconEntity_BuildLegacyWeaponSkinMaterial:
-    //      - replace the .vcompmat path with our own bundled kit
-    //      - add extra `sub_180789A00(...)` calls injecting per-channel
-    //        Galaxy colours (e.g. g_vColor1=(0.31,0.18,0.85), g_vColor2=
-    //        (0.85,0.30,0.95), g_flMetalness=1.0, g_flRoughness=0.15,
-    //        g_tPattern -> our custom .vtex)
-    //   B. Or hook (7) CMaterial::SetVariableAndRenderState directly
-    //      and rewrite the cbuf upload at draw-time (no resource files
-    //      needed â€” pure in-memory swap, but per-draw cost).
-    //
-    // All 7 sigs below are STRREF-anchored on log / resource strings
-    // each with EXACTLY ONE xref to its target function (verified via
-    // mcp_ida-pro-mcp_xref_query on instance 13337 / client.dll).
-    // ====================================================================
-
-    // C_EconWearable::OnNewCustomMaterials â€” client.dll!sub_1810B67D0
-    // (~0xF5).  Refs the unique error string "Invalid EconItemView --
-    // Can't create custom materials for wearable, debug this." (1 xref).
-    // The per-wearable composite-material build kickoff. Schedules the
-    // per-frame composite-material recipe build (calls sub_180A4CE30
-    // with sub_180164704 callback). Hook here to gate which weapons
-    // receive a custom kit.
-    Signature {
-        name: "C_EconWearable_OnNewCustomMaterials",
-        module: "client.dll",
-        needle: "Invalid EconItemView -- Can't create custom materials for wearable, debug this.\n",
-        resolve: STRREF,
-        extra_off: 0,
-        prototype: "__int64 __fastcall sub_1810B9090(__int64 a1, char a2)",
-    },
-
-    // CPaintKitDefinitions::FindOrCreateByName â€” client.dll!sub_181057DD0
-    // (~0x328).  Refs the unique error string "Kit \"[%s]\" specified,
-    // but doesn't exist!! You're probably missing an entry in
-    // items_paintkits.txt or items_stickerkits.txt or need to run with
-    // -use_local_item_data" (1 xref). Translates a paint-kit name (or
-    // m_nFallbackPaintKit id) into a `CPaintKit*` definition. Hook to
-    // inject our custom kit name -> custom CPaintKit (which can in
-    // turn point at a custom .vcompmat).
-    Signature {
-        name: "CPaintKitDefinitions_FindOrCreateByName",
-        module: "client.dll",
-        needle: "Kit \"[%s]\" specified, but doesn't exist!! You're probably missing an entry in items_paintkits.txt or items_stickerkits.txt or need to run with -use_local_item_data\n",
-        resolve: STRREF,
-        extra_off: 0,
-        prototype: "char __fastcall sub_18105A690(__int64 a1, __int64 a2, char *a3, __int64 a4)",
-    },
-
-    // CPaintKitDefinitions::LoadDefaultKit â€” client.dll!sub_181029EA0
-    // (~0x37D).  Refs the unique error string "Unable to find \"default\"
-    // paint kit in \"paint_kits_rarity\"" (1 xref).  One-shot loader
-    // run during econ-schema init that establishes the rarity-bucketed
-    // default paintkit table. Hook to inject custom-rarity-bucket entries.
-    Signature {
-        name: "CPaintKitDefinitions_LoadDefaultKit",
-        module: "client.dll",
-        needle: "Unable to find \"default\" paint kit in \"paint_kits_rarity\"",
-        resolve: STRREF,
-        extra_off: 0,
-        prototype: "char __fastcall sub_18102C760(__int64 a1, KeyValues *a2, _DWORD *a3)",
-    },
-
-    // C_EconEntity::BuildLegacyWeaponSkinMaterial â€” client.dll!sub_18078C050
-    // (~0x810).  â˜… THE GOLD-MINE FUNCTION FOR CUSTOM CAMO â˜…
-    // Refs the unique scope-tag string "workshop preview weapon"
-    // (1 xref). Decompile reveals the full per-weapon kit-build
-    // recipe: reads paintkit name from off_182013BB0[(seed+N) % 34]
-    // (the 34-entry legacy-paintkit name table â€” NOTE: pattern offset
-    // also appears in `*((_DWORD*)off_1820496A0 + 17)`); pushes
-    // CompositeMaterialInputContainer_t entries via sub_180789A00
-    // (`AddCompositeMaterialInput`) with keys "g_flWearAmount" and
-    // "g_nRandomSeed"; sets the .vcompmat resource path (default
-    // fallback `weapons/paints/legacy/missing_paintkit.vcompmat`);
-    // tags scope "low-res weapon" (512) or "workshop preview weapon"
-    // (2048); dispatches via composite-material-manager vtable +8.
-    // Hook to swap the .vcompmat path for our custom Galaxy kit AND
-    // inject extra g_vColor*/g_flMetalness/g_tPattern entries into the
-    // input container before dispatch.
-    Signature {
-        name: "C_EconEntity_BuildLegacyWeaponSkinMaterial",
-        module: "client.dll",
-        needle: "workshop preview weapon",
-        resolve: STRREF,
-        extra_off: 0,
-        prototype: "void __fastcall sub_18078C2A0(__int64 a1, char a2)",
     },
 
     // C_EconEntity::BuildModernWeaponSkinMaterial â€” client.dll!sub_180D828E0
@@ -3533,38 +2432,6 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         resolve: NONE,
         extra_off: 0,
         prototype: "void __fastcall sub_180D84F90(__int64 a1, _QWORD *a2, __int64 a3, int a4, char a5, char a6, __int64 a7)",
-    },
-
-    // CompositeMaterialPanoramaPanel_t::Init â€” client.dll!sub_180B8FB00
-    // (~0x4DC).  Refs the unique RTTI/log string
-    // "CompositeMaterialPanoramaPanel_t::Init" (1 xref). Initialiser
-    // that wires a Panorama UI panel to a composite-material render
-    // request â€” used for inventory previews, store thumbnails, weapon-
-    // inspect screens. Hook to drive a Panorama-rendered preview of
-    // our custom kit before the user equips it.
-    Signature {
-        name: "CompositeMaterialPanoramaPanel_Init",
-        module: "client.dll",
-        needle: "CompositeMaterialPanoramaPanel_t::Init",
-        resolve: STRREF,
-        extra_off: 0,
-        prototype: "__int64 __fastcall sub_180B91260(__int64 a1, __int64 a2, __int64 a3)",
-    },
-
-    // CCompositeMaterialManager::AddNewPanoramaPanelRenderRequest_Caller â€”
-    // client.dll!sub_1813B8DD0 (~0x388). Refs the unique log string
-    // "CCompositeMaterialManager::AddNewPanoramaPanelRenderRequest"
-    // (1 xref).  The caller-side wrapper around the manager's
-    // render-request enqueue. Hook to log every kit-build request
-    // (great for runtime kit discovery / dumping the live paintkit
-    // table during a match).
-    Signature {
-        name: "CCompositeMaterialManager_AddPanoramaPanelRenderRequest_Caller",
-        module: "client.dll",
-        needle: "CCompositeMaterialManager::AddNewPanoramaPanelRenderRequest",
-        resolve: STRREF,
-        extra_off: 0,
-        prototype: "__int64 __fastcall sub_1813BB640(__int64 a1, const char *a2, __int64 a3, __int64 a4)",
     },
 
     // ====================================================================
@@ -3660,72 +2527,6 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         resolve: NONE,
         extra_off: -0x52,
         prototype: "__int64 __fastcall sub_180789C50(int *a1, __int64 a2)",
-    },
-
-    // C_EconEntity::BuildLegacyGloveSkinMaterial â€” client.dll!sub_180BBFB00
-    // (~0x9E7).  Refs the unique string "MapPlayerPreview gloves"
-    // (1 xref).  The glove-specific sibling of BuildLegacyWeaponSkinMaterial
-    // (already shipped v12).  Reads the prefix "gloves/paints/" from the
-    // econ item, builds a CompositeMaterialKit request scoped
-    // "low-res gloves" (512x512), then pushes via AddCompositeMaterialInput:
-    //   - g_flWearAmount
-    //   - g_nRandomSeed     (= econ seed)
-    //   - g_nRandomSeedAlt  (= econ seed + 1, drives left/right asymmetry)
-    // The "econ_instance" KV is then handed to sub_18071A140 which feeds
-    // the C_WorldModelGloves entity.  Hook this to ship a custom glove
-    // kit (CCompositeMaterialKit override) onto the player's hands with
-    // independent left/right pattern offsets.
-    Signature {
-        name: "C_EconEntity_BuildLegacyGloveSkinMaterial",
-        module: "client.dll",
-        needle: "MapPlayerPreview gloves",
-        resolve: STRREF,
-        extra_off: 0,
-        prototype: "void __fastcall sub_180BC1460(int *a1)",
-    },
-
-    // C_EconEntity::BuildNametagOverlayMaterial â€” client.dll!sub_18078AE20
-    // (~0x969).  Refs the unique scope tag "low-res nametag" (1 xref).
-    // Builds a 512x32 composite material from the .vcompmat
-    // "weapons/models/shared/nametag/nametag_default.vcompmat" with the
-    // user-supplied nametag string pushed as the "label" input â€” the
-    // engraved-text overlay you see on stickered weapons.  Hook to ship
-    // a custom nametag font / pattern, or to inject a multi-line
-    // animated overlay (the underlying material supports any param the
-    // shader exposes; nametag_default.vcompmat just happens to expose a
-    // single string slot today).
-    Signature {
-        name: "C_EconEntity_BuildNametagOverlayMaterial",
-        module: "client.dll",
-        needle: "low-res nametag",
-        resolve: STRREF,
-        extra_off: 0,
-        prototype: "char __fastcall sub_18078B070(__int64 a1, __int64 a2)",
-    },
-
-    // InfoForResourceTypeCCompositeMaterialKit::TypeManagerCallback â€”
-    // client.dll!sub_1813D6840 (~0x370). Refs the unique RTTI string
-    // "InfoForResourceTypeCCompositeMaterialKit" (1 xref).  Vftable-style
-    // dispatch (cases 0/2/3/4/5/6 = Init/Construct/Destruct/Reset/
-    // Cleanup/RTTI) registered with the resource system as the
-    // CCompositeMaterialKit type manager.  The case-0 branch declares
-    // every CUtlVector field of the kit struct via the schema reflector,
-    // revealing exact runtime layout:
-    //
-    //   +08  CUtlVector<CResourceNameTyped<CWeakHandle<CompositeMaterialKit>>>
-    //                                                        elem 224 B
-    //   +xx  CUtlVector<CompositeMaterialMatchFilter_t>      elem  32 B
-    //   +xx  CUtlVector<CompositeMaterialInputContainer_t>   elem 312 B
-    //   +xx  CUtlVector<CompMatPropertyMutator_t>            elem 912 B
-    //
-    // Hook for runtime kit-tree introspection that survives patches.
-    Signature {
-        name: "InfoForResourceTypeCCompositeMaterialKit_TypeManager",
-        module: "client.dll",
-        needle: "InfoForResourceTypeCCompositeMaterialKit",
-        resolve: STRREF,
-        extra_off: 0,
-        prototype: "__int64 __fastcall sub_1813D90B0(int a1, __int64 a2)",
     },
 
     // InfoForResourceTypeCCompositeMaterial::TypeManagerCallback â€”
@@ -3842,25 +2643,6 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         module: "scenesystem.dll",
         needle: "45 85 C9 0F 8E ? ? ? ? 4C 8B DC 55 41 56 49 8D AB 58 FC FF FF 48 81 EC 98 04 00 00",
         resolve: NONE,
-        extra_off: 0,
-        prototype: "",
-    },
-
-    // CRenderDeviceDx11::CompileShaderSourceMain â€” rendersystemdx11!
-    // sub_18003FAF0 (~0x171). Refs the unique compile-failure string
-    // "Shader compilation failed! Reported no errors." (1 xref).
-    // This wrapper calls D3DCompile(source, size, ..., "main", profile,
-    // 0x1200, ...) and returns a shader blob object.
-    //
-    // Critical implication: in-process custom HLSL compilation is real
-    // and not limited to Valve's precompiled blobs. Combined with draw/
-    // material interception, this is the practical anchor for custom
-    // pixel-shader injection on any materialized surface.
-    Signature {
-        name: "CRenderDeviceDx11_CompileShaderSourceMain",
-        module: "rendersystemdx11.dll",
-        needle: "Shader compilation failed! Reported no errors.\n",
-        resolve: STRREF,
         extra_off: 0,
         prototype: "",
     },
@@ -4181,16 +2963,6 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         extra_off: 0,
         prototype: "",
     },
-    // CCSPlayerController::SetPlayerReady â€” match-ready toggle. Cheap
-    // hook target for queue-state automation.
-    Signature {
-        name: "SetPlayerReady",
-        module: "client.dll",
-        needle: "40 53 48 83 EC ? 48 8B DA 48 8D 15 ? ? ? ? 48 8B CB FF 15",
-        resolve: NONE,
-        extra_off: 0,
-        prototype: "char __fastcall sub_180F1DD90(__int64 a1, __int64 a2)",
-    },
     // Popup-event dispatcher (achievements, MM popups, etc.). Useful
     // for menu-driven UI suppression. (Currently dormant on this build
     // â€” IDA db lags live image; re-validate before relying on it.)
@@ -4231,18 +3003,6 @@ pub static CS2_SIGNATURES: &[Signature] = &[
     //     resolve: NONE,
     //     extra_off: 0,
     // },
-    // HUD::DrawCrosshair â€” already covered above (line ~260). Skipped
-    // here to avoid duplicate scanning.
-    // PostProcessing per-frame update â€” useful entry point for
-    // disabling fades, color-correction lookups, etc.
-    Signature {
-        name: "UpdatePostProcessing",
-        module: "client.dll",
-        needle: "48 85 D2 0F 84 ? ? ? ? 48 89 5C 24 ? 57 48 83 EC ? ? ? 00 48 8B DA 48 8B F9 0F 84 ? ? ? ? 48 8D 15",
-        resolve: NONE,
-        extra_off: 0,
-        prototype: "void __fastcall sub_180F21F20(__int64 a1, _BYTE *a2)",
-    },
     // Skybox per-frame update (counterpart to scenesystem's draw).
     Signature {
         name: "UpdateSkybox",
@@ -4487,30 +3247,6 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         prototype: "int __fastcall sub_1800039F0(__int64 a1, HWND a2)",
     },
 
-    // CMatchSessionOfflineCustom_InitializeGameSettings - matchmaking!sub_?
-    // Builds the game-settings KV for offline custom match (lobby/practice).
-    // Hook to spoof map / mode / convars at session creation.
-    Signature {
-        name: "CMatchSessionOfflineCustom_InitializeGameSettings",
-        module: "matchmaking.dll",
-        needle: "40 53 48 81 EC 40 01 00 00 48 89 BC 24 58 01 00 00 48 8D 15 ? ? ? ? 48 8B F9 41 B0 01 48 8B 49 10 FF 15 ? ? ? ? 48 8B D8 48 85 C0 74 59",
-        resolve: NONE,
-        extra_off: 0,
-        prototype: "char __fastcall sub_1800EE6A0(__int64 a1)",
-    },
-
-    // CMatchSessionOnlineHost_InitializeGameSettings - matchmaking!sub_?
-    // Online-host equivalent: writes settings KV when locally hosting an
-    // online match. Anchor for community-server / lobby manipulation.
-    Signature {
-        name: "CMatchSessionOnlineHost_InitializeGameSettings",
-        module: "matchmaking.dll",
-        needle: "48 8B C4 53 48 81 EC 80 01 00 00 48 89 70 10 48 8D 15 ? ? ? ? 48 89 78 18 4C 89 60 F0",
-        resolve: NONE,
-        extra_off: 0,
-        prototype: "char __fastcall sub_1800F0460(__int64 a1)",
-    },
-
     // CAnimationSystem_FrameUpdate - animationsystem!sub_? - per-tick driver
     // for the new Source2 animgraph: ticks all active animation contexts,
     // schedules sample jobs. Hook to inject pose-blends / time-warp.
@@ -4748,13 +3484,6 @@ pub static CS2_SIGNATURES: &[Signature] = &[
     Signature { name: "CPanel_Constructor", module: "client.dll", needle: "48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC 30 48 8B F1 48 8B FA B9 ? ? ? ? E8 ? ? ? ? 48 8B D8 48 85 C0 74", resolve: NONE, extra_off: 0, prototype: "" },
     Signature { name: "CCSWeaponBase_GetInaccuracy", module: "client.dll", needle: "48 89 5C 24 ? 55 56 57 48 81 EC ? ? ? ? 44", resolve: NONE, extra_off: 0, prototype: "" },
     Signature { name: "CPanoramaUIEngine_RunScript", module: "panorama.dll", needle: "48 89 5C 24 ? 4C 89 4C 24 ? 48 89 54 24 ? 55 56 57 41 54 41 55 41 56 41 57 48 8D", resolve: NONE, extra_off: 0, prototype: "" },
-
-    // ---------- cspatterns.dev/cpp — added 2026-05-22 (build 14164) -----
-    // Patterns harvested from https://cspatterns.dev/cpp that were not
-    // previously present in this database. Names mirror the upstream
-    // #define identifiers (lowercase-stripped). All entries are scoped
-    // to the DLL they originate from per the cspatterns module header.
-    Signature { name: "Present_GameOverlay",                   module: "gameoverlayrenderer64.dll", needle: "48 89 5C 24 ? 48 89 6C 24 ? 56 57 41 54 41 56 41 57 48 83 EC ? 41 8B E8", resolve: NONE, extra_off: 0, prototype: "" },
     Signature { name: "SetViewAngles",                         module: "client.dll", needle: "85 D2 75 ? 48 63 81", resolve: NONE, extra_off: 0, prototype: "" },
     Signature { name: "LevelShutdown",                         module: "client.dll", needle: "48 83 EC ? 48 8B 0D ? ? ? ? 48 8D 15", resolve: NONE, extra_off: 0, prototype: "" },
     Signature { name: "DrawTeamIntro",                         module: "client.dll", needle: "48 83 EC ? ? ? ? ? 44 38 89", resolve: NONE, extra_off: 0, prototype: "" },

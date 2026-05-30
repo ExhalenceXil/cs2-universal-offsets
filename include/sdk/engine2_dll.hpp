@@ -3,7 +3,7 @@
 // module:        engine2.dll
 // classes:       52
 // enums:         2
-// generated_at:  2026-05-23T16:44:12.352719800+00:00
+// generated_at:  2026-05-30T08:12:42.479095600+00:00
 //
 // Use:
 //   auto* pawn = reinterpret_cast<C_CSPlayerPawn*>(addr);
@@ -80,109 +80,6 @@ namespace sdk::engine2 {
         ENTITY_IO_TARGET_ENTITYNAME_OR_CLASSNAME = 0x7,
     };
 
-    // EventServerProcessNetworking_t
-    //   fields: 0
-    class EventServerProcessNetworking_t {
-    public:
-    };
-
-    // EventClientProcessGameInput_t
-    //   fields: 3
-    class EventClientProcessGameInput_t {
-    public:
-        SCHEMA_FIELD(EngineLoopState_t               , m_LoopState                                     , 0x0) // EngineLoopState_t
-        SCHEMA_FIELD(float                           , m_flRealTime                                    , 0x28) // float32
-        SCHEMA_FIELD(float                           , m_flFrameTime                                   , 0x2C) // float32
-    };
-
-    // EventClientPostSimulate_t
-    //   fields: 0
-    class EventClientPostSimulate_t {
-    public:
-    };
-
-    // EventAppShutdown_t
-    //   fields: 1
-    class EventAppShutdown_t {
-    public:
-        SCHEMA_FIELD(std::int32_t                    , m_nDummy0                                       , 0x0) // int32
-    };
-
-    // EventClientPreOutputParallelWithServer_t
-    //   fields: 0
-    class EventClientPreOutputParallelWithServer_t {
-    public:
-    };
-
-    // GameTime_t
-    //   fields: 1
-    class GameTime_t {
-    public:
-        SCHEMA_FIELD(float                           , m_Value                                         , 0x0) // float32
-    };
-
-    // CEntityComponentHelper
-    //   fields: 4
-    class CEntityComponentHelper {
-    public:
-        SCHEMA_FIELD(std::uint32_t                   , m_flags                                         , 0x8) // uint32
-        SCHEMA_FIELD(EntComponentInfo_t*             , m_pInfo                                         , 0x10) // EntComponentInfo_t*
-        SCHEMA_FIELD(std::int32_t                    , m_nPriority                                     , 0x18) // int32
-        SCHEMA_FIELD(CEntityComponentHelper*         , m_pNext                                         , 0x20) // CEntityComponentHelper*
-    };
-
-    // EventClientPostAdvanceTick_t
-    //   fields: 0
-    class EventClientPostAdvanceTick_t {
-    public:
-    };
-
-    // EventServerAdvanceTick_t
-    //   fields: 0
-    class EventServerAdvanceTick_t {
-    public:
-    };
-
-    // EventPostDataUpdate_t
-    //   fields: 1
-    class EventPostDataUpdate_t {
-    public:
-        SCHEMA_FIELD(std::int32_t                    , m_nCount                                        , 0x0) // int32
-    };
-
-    // CNetworkVarChainer
-    //   fields: 1
-    class CNetworkVarChainer {
-    public:
-        SCHEMA_FIELD(::ChangeAccessorFieldPathIndex_t, m_PathIndex                                     , 0x20) // ChangeAccessorFieldPathIndex_t
-    };
-
-    // GameTick_t
-    //   fields: 1
-    class GameTick_t {
-    public:
-        SCHEMA_FIELD(std::int32_t                    , m_Value                                         , 0x0) // int32
-    };
-
-    // EventProfileStorageAvailable_t
-    //   fields: 1
-    class EventProfileStorageAvailable_t {
-    public:
-        SCHEMA_FIELD(CSplitScreenSlot                , m_nSplitScreenSlot                              , 0x0) // CSplitScreenSlot
-    };
-
-    // EventSplitScreenStateChanged_t
-    //   fields: 0
-    class EventSplitScreenStateChanged_t {
-    public:
-    };
-
-    // CEntityIOOutput
-    //   fields: 0
-    class CEntityIOOutput {
-    public:
-    };
-
     // EventPostAdvanceTick_t
     //   fields: 4
     class EventPostAdvanceTick_t {
@@ -193,10 +90,206 @@ namespace sdk::engine2 {
         SCHEMA_FIELD(std::int32_t                    , m_nTotalTicks                                   , 0x3C) // int32
     };
 
+    // EventAdvanceTick_t
+    //   fields: 4
+    class EventAdvanceTick_t {
+    public:
+        SCHEMA_FIELD(std::int32_t                    , m_nCurrentTick                                  , 0x30) // int32
+        SCHEMA_FIELD(std::int32_t                    , m_nCurrentTickThisFrame                         , 0x34) // int32
+        SCHEMA_FIELD(std::int32_t                    , m_nTotalTicksThisFrame                          , 0x38) // int32
+        SCHEMA_FIELD(std::int32_t                    , m_nTotalTicks                                   , 0x3C) // int32
+    };
+
+    // EventClientPollInput_t
+    //   fields: 2
+    class EventClientPollInput_t {
+    public:
+        SCHEMA_FIELD(EngineLoopState_t               , m_LoopState                                     , 0x0) // EngineLoopState_t
+        SCHEMA_FIELD(float                           , m_flRealTime                                    , 0x28) // float32
+    };
+
+    // EventClientAdvanceNonRenderedFrame_t
+    //   fields: 0
+    class EventClientAdvanceNonRenderedFrame_t {
+    public:
+    };
+
+    // EventSimpleLoopFrameUpdate_t
+    //   fields: 3
+    class EventSimpleLoopFrameUpdate_t {
+    public:
+        SCHEMA_FIELD(EngineLoopState_t               , m_LoopState                                     , 0x0) // EngineLoopState_t
+        SCHEMA_FIELD(float                           , m_flRealTime                                    , 0x28) // float32
+        SCHEMA_FIELD(float                           , m_flFrameTime                                   , 0x2C) // float32
+    };
+
+    // EventClientProcessNetworking_t
+    //   fields: 1
+    class EventClientProcessNetworking_t {
+    public:
+        SCHEMA_FIELD(std::int32_t                    , m_nTickCount                                    , 0x0) // int32
+    };
+
+    // EngineLoopState_t
+    //   fields: 4
+    class EngineLoopState_t {
+    public:
+        SCHEMA_FIELD(std::int32_t                    , m_nPlatWindowWidth                              , 0x18) // int32
+        SCHEMA_FIELD(std::int32_t                    , m_nPlatWindowHeight                             , 0x1C) // int32
+        SCHEMA_FIELD(std::int32_t                    , m_nRenderWidth                                  , 0x20) // int32
+        SCHEMA_FIELD(std::int32_t                    , m_nRenderHeight                                 , 0x24) // int32
+    };
+
+    // EntInput_t
+    //   fields: 0
+    class EntInput_t {
+    public:
+    };
+
+    // EventServerPostAdvanceTick_t
+    //   fields: 1
+    class EventServerPostAdvanceTick_t {
+    public:
+        SCHEMA_FIELD(bool                            , m_bLastTickBeforeClientUpdate                   , 0x40) // bool
+    };
+
+    // EventServerEndAsyncPostTickWork_t
+    //   fields: 0
+    class EventServerEndAsyncPostTickWork_t {
+    public:
+    };
+
+    // EventServerPostSimulate_t
+    //   fields: 1
+    class EventServerPostSimulate_t {
+    public:
+        SCHEMA_FIELD(bool                            , m_bLastTickBeforeClientUpdate                   , 0x30) // bool
+    };
+
+    // EventPostDataUpdate_t
+    //   fields: 1
+    class EventPostDataUpdate_t {
+    public:
+        SCHEMA_FIELD(std::int32_t                    , m_nCount                                        , 0x0) // int32
+    };
+
+    // EventClientPreSimulate_t
+    //   fields: 0
+    class EventClientPreSimulate_t {
+    public:
+    };
+
+    // EventModInitialized_t
+    //   fields: 0
+    class EventModInitialized_t {
+    public:
+    };
+
+    // EventServerProcessNetworking_t
+    //   fields: 0
+    class EventServerProcessNetworking_t {
+    public:
+    };
+
+    // CEmptyEntityInstance
+    //   fields: 0
+    class CEmptyEntityInstance {
+    public:
+    };
+
+    // EventServerEndSimulate_t
+    //   fields: 1
+    class EventServerEndSimulate_t {
+    public:
+        SCHEMA_FIELD(bool                            , m_bLastTick                                     , 0x0) // bool
+    };
+
     // EventClientAdvanceTick_t
     //   fields: 0
     class EventClientAdvanceTick_t {
     public:
+    };
+
+    // EventProfileStorageAvailable_t
+    //   fields: 1
+    class EventProfileStorageAvailable_t {
+    public:
+        SCHEMA_FIELD(CSplitScreenSlot                , m_nSplitScreenSlot                              , 0x0) // CSplitScreenSlot
+    };
+
+    // EventPreDataUpdate_t
+    //   fields: 1
+    class EventPreDataUpdate_t {
+    public:
+        SCHEMA_FIELD(std::int32_t                    , m_nCount                                        , 0x0) // int32
+    };
+
+    // CEntityAttributeTable
+    //   fields: 2
+    class CEntityAttributeTable {
+    public:
+        using _Type0 = CUtlOrderedMap<CUtlStringToken,Attribute_t>;
+        using _Type1 = CUtlOrderedMap<CUtlStringToken,CUtlString>;
+        SCHEMA_FIELD(_Type0                          , m_Attributes                                    , 0x0) // CUtlOrderedMap<CUtlStringToken,Attribute_t>
+        SCHEMA_FIELD(_Type1                          , m_Names                                         , 0x28) // CUtlOrderedMap<CUtlStringToken,CUtlString>
+    };
+
+    // EntityIOQueuePrioritizedEvent_t
+    //   fields: 9
+    class EntityIOQueuePrioritizedEvent_t {
+    public:
+        SCHEMA_FIELD(::GameTime_t                    , m_flFireTime                                    , 0x4) // GameTime_t
+        SCHEMA_FIELD(EntityIOTargetType_t            , m_targetType                                    , 0x8) // EntityIOTargetType_t
+        SCHEMA_FIELD(::CUtlSymbolLarge               , m_pTarget                                       , 0x10) // CUtlSymbolLarge
+        SCHEMA_FIELD(::CUtlSymbolLarge               , m_pTargetInput                                  , 0x18) // CUtlSymbolLarge
+        SCHEMA_FIELD(CEntityHandle                   , m_hActivator                                    , 0x20) // CEntityHandle
+        SCHEMA_FIELD(CEntityHandle                   , m_hCaller                                       , 0x24) // CEntityHandle
+        SCHEMA_FIELD(std::int32_t                    , m_nOutputID                                     , 0x28) // int32
+        SCHEMA_FIELD(CEntityHandle                   , m_hEntTarget                                    , 0x2C) // CEntityHandle
+        SCHEMA_FIELD(CVariantBase<CVariantDefaultAllocator>, m_variantValue                                  , 0x30) // CVariantBase<CVariantDefaultAllocator>
+    };
+
+    // GameTime_t
+    //   fields: 1
+    class GameTime_t {
+    public:
+        SCHEMA_FIELD(float                           , m_Value                                         , 0x0) // float32
+    };
+
+    // EventClientPreOutputParallelWithServer_t
+    //   fields: 0
+    class EventClientPreOutputParallelWithServer_t {
+    public:
+    };
+
+    // EntComponentInfo_t
+    //   fields: 7
+    class EntComponentInfo_t {
+    public:
+        SCHEMA_FIELD(char*                           , m_pName                                         , 0x0) // char*
+        SCHEMA_FIELD(char*                           , m_pCPPClassname                                 , 0x8) // char*
+        SCHEMA_FIELD(char*                           , m_pNetworkDataReferencedDescription             , 0x10) // char*
+        SCHEMA_FIELD(char*                           , m_pNetworkDataReferencedPtrPropDescription      , 0x18) // char*
+        SCHEMA_FIELD(std::int32_t                    , m_nRuntimeIndex                                 , 0x20) // int32
+        SCHEMA_FIELD(std::uint32_t                   , m_nFlags                                        , 0x24) // uint32
+        SCHEMA_FIELD(CEntityComponentHelper*         , m_pBaseClassComponentHelper                     , 0x60) // CEntityComponentHelper*
+    };
+
+    // EventClientProcessInput_t
+    //   fields: 4
+    class EventClientProcessInput_t {
+    public:
+        SCHEMA_FIELD(EngineLoopState_t               , m_LoopState                                     , 0x0) // EngineLoopState_t
+        SCHEMA_FIELD(float                           , m_flRealTime                                    , 0x28) // float32
+        SCHEMA_FIELD(float                           , m_flTickInterval                                , 0x2C) // float32
+        SCHEMA_FIELD(double                          , m_flTickStartTime                               , 0x30) // float64
+    };
+
+    // GameTick_t
+    //   fields: 1
+    class GameTick_t {
+    public:
+        SCHEMA_FIELD(std::int32_t                    , m_Value                                         , 0x0) // int32
     };
 
     // EventClientPostOutput_t
@@ -210,19 +303,100 @@ namespace sdk::engine2 {
         SCHEMA_FIELD(bool                            , m_bRenderOnly                                   , 0x38) // bool
     };
 
-    // CEntityAttributeTable
-    //   fields: 2
-    class CEntityAttributeTable {
+    // EventAppShutdown_t
+    //   fields: 1
+    class EventAppShutdown_t {
     public:
-        using _Type0 = CUtlOrderedMap<CUtlStringToken,Attribute_t>;
-        using _Type1 = CUtlOrderedMap<CUtlStringToken,CUtlString>;
-        SCHEMA_FIELD(_Type0                          , m_Attributes                                    , 0x0) // CUtlOrderedMap<CUtlStringToken,Attribute_t>
-        SCHEMA_FIELD(_Type1                          , m_Names                                         , 0x28) // CUtlOrderedMap<CUtlStringToken,CUtlString>
+        SCHEMA_FIELD(std::int32_t                    , m_nDummy0                                       , 0x0) // int32
     };
 
-    // EventSimpleLoopFrameUpdate_t
+    // EventServerBeginSimulate_t
+    //   fields: 0
+    class EventServerBeginSimulate_t {
+    public:
+    };
+
+    // EventClientPostSimulate_t
+    //   fields: 0
+    class EventClientPostSimulate_t {
+    public:
+    };
+
+    // EventClientSceneSystemThreadStateChange_t
+    //   fields: 1
+    class EventClientSceneSystemThreadStateChange_t {
+    public:
+        SCHEMA_FIELD(bool                            , m_bThreadsActive                                , 0x0) // bool
+    };
+
+    // CNetworkVarChainer
+    //   fields: 1
+    class CNetworkVarChainer {
+    public:
+        SCHEMA_FIELD(::ChangeAccessorFieldPathIndex_t, m_PathIndex                                     , 0x20) // ChangeAccessorFieldPathIndex_t
+    };
+
+    // EventFrameBoundary_t
+    //   fields: 1
+    class EventFrameBoundary_t {
+    public:
+        SCHEMA_FIELD(float                           , m_flFrameTime                                   , 0x0) // float32
+    };
+
+    // EventClientPauseSimulate_t
+    //   fields: 0
+    class EventClientPauseSimulate_t {
+    public:
+    };
+
+    // CEntityIOOutput
+    //   fields: 0
+    class CEntityIOOutput {
+    public:
+    };
+
+    // EventClientFrameSimulate_t
+    //   fields: 4
+    class EventClientFrameSimulate_t {
+    public:
+        SCHEMA_FIELD(EngineLoopState_t               , m_LoopState                                     , 0x0) // EngineLoopState_t
+        SCHEMA_FIELD(float                           , m_flRealTime                                    , 0x28) // float32
+        SCHEMA_FIELD(float                           , m_flFrameTime                                   , 0x2C) // float32
+        SCHEMA_FIELD(bool                            , m_bScheduleSendTickPacket                       , 0x30) // bool
+    };
+
+    // EventServerAdvanceTick_t
+    //   fields: 0
+    class EventServerAdvanceTick_t {
+    public:
+    };
+
+    // EventClientOutput_t
+    //   fields: 5
+    class EventClientOutput_t {
+    public:
+        SCHEMA_FIELD(EngineLoopState_t               , m_LoopState                                     , 0x0) // EngineLoopState_t
+        SCHEMA_FIELD(float                           , m_flRenderTime                                  , 0x28) // float32
+        SCHEMA_FIELD(float                           , m_flRealTime                                    , 0x2C) // float32
+        SCHEMA_FIELD(float                           , m_flRenderFrameTimeUnbounded                    , 0x30) // float32
+        SCHEMA_FIELD(bool                            , m_bRenderOnly                                   , 0x34) // bool
+    };
+
+    // EventClientPreOutput_t
+    //   fields: 6
+    class EventClientPreOutput_t {
+    public:
+        SCHEMA_FIELD(EngineLoopState_t               , m_LoopState                                     , 0x0) // EngineLoopState_t
+        SCHEMA_FIELD(double                          , m_flRenderTime                                  , 0x28) // float64
+        SCHEMA_FIELD(double                          , m_flRenderFrameTime                             , 0x30) // float64
+        SCHEMA_FIELD(double                          , m_flRenderFrameTimeUnbounded                    , 0x38) // float64
+        SCHEMA_FIELD(float                           , m_flRealTime                                    , 0x40) // float32
+        SCHEMA_FIELD(bool                            , m_bRenderOnly                                   , 0x44) // bool
+    };
+
+    // EventClientProcessGameInput_t
     //   fields: 3
-    class EventSimpleLoopFrameUpdate_t {
+    class EventClientProcessGameInput_t {
     public:
         SCHEMA_FIELD(EngineLoopState_t               , m_LoopState                                     , 0x0) // EngineLoopState_t
         SCHEMA_FIELD(float                           , m_flRealTime                                    , 0x28) // float32
@@ -243,51 +417,6 @@ namespace sdk::engine2 {
         SCHEMA_FIELD(double                          , m_flTickRemainder                               , 0x58) // float64
     };
 
-    // EventServerEndSimulate_t
-    //   fields: 1
-    class EventServerEndSimulate_t {
-    public:
-        SCHEMA_FIELD(bool                            , m_bLastTick                                     , 0x0) // bool
-    };
-
-    // EventClientProcessInput_t
-    //   fields: 4
-    class EventClientProcessInput_t {
-    public:
-        SCHEMA_FIELD(EngineLoopState_t               , m_LoopState                                     , 0x0) // EngineLoopState_t
-        SCHEMA_FIELD(float                           , m_flRealTime                                    , 0x28) // float32
-        SCHEMA_FIELD(float                           , m_flTickInterval                                , 0x2C) // float32
-        SCHEMA_FIELD(double                          , m_flTickStartTime                               , 0x30) // float64
-    };
-
-    // EventClientOutput_t
-    //   fields: 5
-    class EventClientOutput_t {
-    public:
-        SCHEMA_FIELD(EngineLoopState_t               , m_LoopState                                     , 0x0) // EngineLoopState_t
-        SCHEMA_FIELD(float                           , m_flRenderTime                                  , 0x28) // float32
-        SCHEMA_FIELD(float                           , m_flRealTime                                    , 0x2C) // float32
-        SCHEMA_FIELD(float                           , m_flRenderFrameTimeUnbounded                    , 0x30) // float32
-        SCHEMA_FIELD(bool                            , m_bRenderOnly                                   , 0x34) // bool
-    };
-
-    // EngineLoopState_t
-    //   fields: 4
-    class EngineLoopState_t {
-    public:
-        SCHEMA_FIELD(std::int32_t                    , m_nPlatWindowWidth                              , 0x18) // int32
-        SCHEMA_FIELD(std::int32_t                    , m_nPlatWindowHeight                             , 0x1C) // int32
-        SCHEMA_FIELD(std::int32_t                    , m_nRenderWidth                                  , 0x20) // int32
-        SCHEMA_FIELD(std::int32_t                    , m_nRenderHeight                                 , 0x24) // int32
-    };
-
-    // EventServerBeginAsyncPostTickWork_t
-    //   fields: 1
-    class EventServerBeginAsyncPostTickWork_t {
-    public:
-        SCHEMA_FIELD(bool                            , m_bIsOncePerFrameAsyncWorkPhase                 , 0x0) // bool
-    };
-
     // EventSimulate_t
     //   fields: 3
     class EventSimulate_t {
@@ -297,28 +426,9 @@ namespace sdk::engine2 {
         SCHEMA_FIELD(bool                            , m_bLastTick                                     , 0x29) // bool
     };
 
-    // EventPreDataUpdate_t
-    //   fields: 1
-    class EventPreDataUpdate_t {
-    public:
-        SCHEMA_FIELD(std::int32_t                    , m_nCount                                        , 0x0) // int32
-    };
-
-    // EventServerEndAsyncPostTickWork_t
+    // EventClientSimulate_t
     //   fields: 0
-    class EventServerEndAsyncPostTickWork_t {
-    public:
-    };
-
-    // CEntityKeyValues
-    //   fields: 0
-    class CEntityKeyValues {
-    public:
-    };
-
-    // EventServerBeginSimulate_t
-    //   fields: 0
-    class EventServerBeginSimulate_t {
+    class EventClientSimulate_t {
     public:
     };
 
@@ -329,64 +439,26 @@ namespace sdk::engine2 {
         SCHEMA_FIELD(std::int32_t                    , m_nTickCount                                    , 0x0) // int32
     };
 
-    // EventClientPreOutput_t
-    //   fields: 6
-    class EventClientPreOutput_t {
-    public:
-        SCHEMA_FIELD(EngineLoopState_t               , m_LoopState                                     , 0x0) // EngineLoopState_t
-        SCHEMA_FIELD(double                          , m_flRenderTime                                  , 0x28) // float64
-        SCHEMA_FIELD(double                          , m_flRenderFrameTime                             , 0x30) // float64
-        SCHEMA_FIELD(double                          , m_flRenderFrameTimeUnbounded                    , 0x38) // float64
-        SCHEMA_FIELD(float                           , m_flRealTime                                    , 0x40) // float32
-        SCHEMA_FIELD(bool                            , m_bRenderOnly                                   , 0x44) // bool
-    };
-
-    // EventClientPreSimulate_t
+    // EventServerPollNetworking_t
     //   fields: 0
-    class EventClientPreSimulate_t {
+    class EventServerPollNetworking_t {
     public:
     };
 
-    // CEmptyEntityInstance
-    //   fields: 0
-    class CEmptyEntityInstance {
-    public:
-    };
-
-    // EventClientFrameSimulate_t
+    // CEntityComponentHelper
     //   fields: 4
-    class EventClientFrameSimulate_t {
+    class CEntityComponentHelper {
     public:
-        SCHEMA_FIELD(EngineLoopState_t               , m_LoopState                                     , 0x0) // EngineLoopState_t
-        SCHEMA_FIELD(float                           , m_flRealTime                                    , 0x28) // float32
-        SCHEMA_FIELD(float                           , m_flFrameTime                                   , 0x2C) // float32
-        SCHEMA_FIELD(bool                            , m_bScheduleSendTickPacket                       , 0x30) // bool
+        SCHEMA_FIELD(std::uint32_t                   , m_flags                                         , 0x8) // uint32
+        SCHEMA_FIELD(EntComponentInfo_t*             , m_pInfo                                         , 0x10) // EntComponentInfo_t*
+        SCHEMA_FIELD(std::int32_t                    , m_nPriority                                     , 0x18) // int32
+        SCHEMA_FIELD(CEntityComponentHelper*         , m_pNext                                         , 0x20) // CEntityComponentHelper*
     };
 
-    // EventClientProcessNetworking_t
-    //   fields: 1
-    class EventClientProcessNetworking_t {
-    public:
-        SCHEMA_FIELD(std::int32_t                    , m_nTickCount                                    , 0x0) // int32
-    };
-
-    // EntInput_t
+    // EventClientPostAdvanceTick_t
     //   fields: 0
-    class EntInput_t {
+    class EventClientPostAdvanceTick_t {
     public:
-    };
-
-    // EntComponentInfo_t
-    //   fields: 7
-    class EntComponentInfo_t {
-    public:
-        SCHEMA_FIELD(char*                           , m_pName                                         , 0x0) // char*
-        SCHEMA_FIELD(char*                           , m_pCPPClassname                                 , 0x8) // char*
-        SCHEMA_FIELD(char*                           , m_pNetworkDataReferencedDescription             , 0x10) // char*
-        SCHEMA_FIELD(char*                           , m_pNetworkDataReferencedPtrPropDescription      , 0x18) // char*
-        SCHEMA_FIELD(std::int32_t                    , m_nRuntimeIndex                                 , 0x20) // int32
-        SCHEMA_FIELD(std::uint32_t                   , m_nFlags                                        , 0x24) // uint32
-        SCHEMA_FIELD(CEntityComponentHelper*         , m_pBaseClassComponentHelper                     , 0x60) // CEntityComponentHelper*
     };
 
     // CVariantDefaultAllocator
@@ -395,94 +467,22 @@ namespace sdk::engine2 {
     public:
     };
 
-    // EventServerPostSimulate_t
+    // EventSplitScreenStateChanged_t
+    //   fields: 0
+    class EventSplitScreenStateChanged_t {
+    public:
+    };
+
+    // EventServerBeginAsyncPostTickWork_t
     //   fields: 1
-    class EventServerPostSimulate_t {
+    class EventServerBeginAsyncPostTickWork_t {
     public:
-        SCHEMA_FIELD(bool                            , m_bLastTickBeforeClientUpdate                   , 0x30) // bool
+        SCHEMA_FIELD(bool                            , m_bIsOncePerFrameAsyncWorkPhase                 , 0x0) // bool
     };
 
-    // EventClientSimulate_t
+    // CEntityKeyValues
     //   fields: 0
-    class EventClientSimulate_t {
-    public:
-    };
-
-    // EventClientPollInput_t
-    //   fields: 2
-    class EventClientPollInput_t {
-    public:
-        SCHEMA_FIELD(EngineLoopState_t               , m_LoopState                                     , 0x0) // EngineLoopState_t
-        SCHEMA_FIELD(float                           , m_flRealTime                                    , 0x28) // float32
-    };
-
-    // EventFrameBoundary_t
-    //   fields: 1
-    class EventFrameBoundary_t {
-    public:
-        SCHEMA_FIELD(float                           , m_flFrameTime                                   , 0x0) // float32
-    };
-
-    // EventAdvanceTick_t
-    //   fields: 4
-    class EventAdvanceTick_t {
-    public:
-        SCHEMA_FIELD(std::int32_t                    , m_nCurrentTick                                  , 0x30) // int32
-        SCHEMA_FIELD(std::int32_t                    , m_nCurrentTickThisFrame                         , 0x34) // int32
-        SCHEMA_FIELD(std::int32_t                    , m_nTotalTicksThisFrame                          , 0x38) // int32
-        SCHEMA_FIELD(std::int32_t                    , m_nTotalTicks                                   , 0x3C) // int32
-    };
-
-    // EventClientAdvanceNonRenderedFrame_t
-    //   fields: 0
-    class EventClientAdvanceNonRenderedFrame_t {
-    public:
-    };
-
-    // EntityIOQueuePrioritizedEvent_t
-    //   fields: 9
-    class EntityIOQueuePrioritizedEvent_t {
-    public:
-        SCHEMA_FIELD(::GameTime_t                    , m_flFireTime                                    , 0x4) // GameTime_t
-        SCHEMA_FIELD(EntityIOTargetType_t            , m_targetType                                    , 0x8) // EntityIOTargetType_t
-        SCHEMA_FIELD(::CUtlSymbolLarge               , m_pTarget                                       , 0x10) // CUtlSymbolLarge
-        SCHEMA_FIELD(::CUtlSymbolLarge               , m_pTargetInput                                  , 0x18) // CUtlSymbolLarge
-        SCHEMA_FIELD(CEntityHandle                   , m_hActivator                                    , 0x20) // CEntityHandle
-        SCHEMA_FIELD(CEntityHandle                   , m_hCaller                                       , 0x24) // CEntityHandle
-        SCHEMA_FIELD(std::int32_t                    , m_nOutputID                                     , 0x28) // int32
-        SCHEMA_FIELD(CEntityHandle                   , m_hEntTarget                                    , 0x2C) // CEntityHandle
-        SCHEMA_FIELD(CVariantBase<CVariantDefaultAllocator>, m_variantValue                                  , 0x30) // CVariantBase<CVariantDefaultAllocator>
-    };
-
-    // EventModInitialized_t
-    //   fields: 0
-    class EventModInitialized_t {
-    public:
-    };
-
-    // EventServerPollNetworking_t
-    //   fields: 0
-    class EventServerPollNetworking_t {
-    public:
-    };
-
-    // EventClientSceneSystemThreadStateChange_t
-    //   fields: 1
-    class EventClientSceneSystemThreadStateChange_t {
-    public:
-        SCHEMA_FIELD(bool                            , m_bThreadsActive                                , 0x0) // bool
-    };
-
-    // EventServerPostAdvanceTick_t
-    //   fields: 1
-    class EventServerPostAdvanceTick_t {
-    public:
-        SCHEMA_FIELD(bool                            , m_bLastTickBeforeClientUpdate                   , 0x40) // bool
-    };
-
-    // EventClientPauseSimulate_t
-    //   fields: 0
-    class EventClientPauseSimulate_t {
+    class CEntityKeyValues {
     public:
     };
 

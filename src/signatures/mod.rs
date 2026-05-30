@@ -714,16 +714,24 @@ fn display_name(raw: &str) -> String {
     let parts: Vec<&str> = raw.split('_').filter(|p| !p.is_empty()).collect();
     if parts.len() > 1 {
         let head = parts[0];
-        let tail = parts[parts.len() - 1];
-        let bad_tail = matches!(tail, "fn" | "ptr" | "call" | "func" | "function")
-            || tail.chars().next().map(|c| c.is_ascii_lowercase()).unwrap_or(true);
-        let looks_like_class = head
-            .chars()
-            .next()
-            .map(|c| c.is_ascii_uppercase())
-            .unwrap_or(false);
-        if looks_like_class && !bad_tail {
-            return tail.to_string();
+        // Only strip the leading token when it is genuinely a C++ class prefix
+        // (`CCSPlayer`, `CBaseEntity`, `IGameSystem`) — i.e. `C`/`I` followed by
+        // an uppercase letter. An ordinary verb head like `SetAbsOrigin` or
+        // `PhysicsRunThink` must NOT be stripped, otherwise a descriptive name
+        // collapses to a meaningless fragment (`SetAbsOrigin_Pawn` -> `Pawn`).
+        let mut hc = head.chars();
+        let looks_like_class = matches!(hc.next(), Some('C') | Some('I'))
+            && hc.next().map(|c| c.is_ascii_uppercase()).unwrap_or(false);
+        if looks_like_class {
+            // Keep every segment after the class prefix so multi-word method
+            // names survive (`CCSPlayer_RunCommand_Context` -> `RunCommand_Context`).
+            let rest = parts[1..].join("_");
+            // Only strip when the remainder reads as a real method name (starts
+            // uppercase). Otherwise keep the full name so we don't reduce it to a
+            // meaningless fragment (`CSGOInput_ptr` -> `ptr`).
+            if rest.chars().next().map(|c| c.is_ascii_uppercase()).unwrap_or(false) {
+                return rest;
+            }
         }
     }
     raw.to_string()

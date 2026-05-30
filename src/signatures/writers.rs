@@ -62,10 +62,17 @@ fn display_name(raw: &str) -> String {
     let parts: Vec<&str> = raw.split('_').filter(|p| !p.is_empty()).collect();
     if parts.len() > 1 {
         let head = parts[0];
-        let tail = parts[parts.len() - 1];
-        let bad_tail = matches!(tail, "fn" | "ptr" | "call" | "func" | "function");
-        if (head.starts_with('C') || head.starts_with("CCS") || head.starts_with("CS") || head.starts_with("CBase") || head.starts_with("C_")) && !bad_tail {
-            return tail.to_string();
+        // Only strip a genuine C++ class prefix (`C`/`I` + uppercase); keep all
+        // segments after it so multi-word method names survive. Mirrors the
+        // logic in mod.rs::display_name.
+        let mut hc = head.chars();
+        let looks_like_class = matches!(hc.next(), Some('C') | Some('I'))
+            && hc.next().map(|c| c.is_ascii_uppercase()).unwrap_or(false);
+        if looks_like_class {
+            let rest = parts[1..].join("_");
+            if rest.chars().next().map(|c| c.is_ascii_uppercase()).unwrap_or(false) {
+                return rest;
+            }
         }
     }
     raw.to_string()
