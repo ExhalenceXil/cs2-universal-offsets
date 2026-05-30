@@ -37,11 +37,12 @@ pub fn render_hpp(interfaces: &InterfaceMap, build_number: Option<u32>) -> Strin
     s.push_str("#pragma once\n\n");
     s.push_str("#include <cstdint>\n\n");
     if let Some(bn) = build_number {
-        writeln!(s, "namespace cs2::ifaces {{ inline constexpr std::uint32_t CS2_BUILD = {bn}; }}\n").ok();
+        writeln!(s, "namespace iface {{ inline constexpr std::uint32_t CS2_BUILD = {bn}; }}\n").ok();
     }
-    s.push_str("namespace cs2::ifaces {\n\n");
+    s.push_str("namespace iface {\n\n");
     for (module, ifaces) in interfaces {
-        writeln!(s, "    namespace {} {{", slugify(module)).ok();
+        let mod_ns = slugify(module.trim_end_matches(".dll"));
+        writeln!(s, "    namespace {} {{", mod_ns).ok();
         let sorted: BTreeMap<&str, &u64> = ifaces
             .iter()
             .map(|(k, v)| (k.as_str(), v as &u64))
@@ -55,9 +56,9 @@ pub fn render_hpp(interfaces: &InterfaceMap, build_number: Option<u32>) -> Strin
             )
             .ok();
         }
-        writeln!(s, "    }} // namespace {}\n", slugify(module)).ok();
+        writeln!(s, "    }} // namespace {}\n", mod_ns).ok();
     }
-    s.push_str("} // namespace sdk::ifaces\n");
+    s.push_str("} // namespace iface\n");
     s
 }
 

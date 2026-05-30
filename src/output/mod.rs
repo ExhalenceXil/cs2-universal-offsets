@@ -7,7 +7,6 @@ use anyhow::Result;
 
 use chrono::{DateTime, Utc};
 
-use memflow::prelude::v1::*;
 
 use formatter::Formatter;
 
@@ -23,6 +22,7 @@ pub mod entity_system;
 pub mod ident;
 pub mod interfaces_sdk;
 pub mod netvars;
+pub mod protobufs;
 pub mod sdk_classes;
 pub mod verified;
 pub mod vtables;
@@ -54,39 +54,23 @@ trait CodeWriter {
 
 impl<'a> CodeWriter for Item<'a> {
     fn write_cs(&self, fmt: &mut Formatter<'_>) -> fmt::Result {
-        match self {
-            Item::Buttons(buttons) => buttons.write_cs(fmt),
-        }
+        match self { Item::Buttons(b) => b.write_cs(fmt) }
     }
-
     fn write_hpp(&self, fmt: &mut Formatter<'_>) -> fmt::Result {
-        match self {
-            Item::Buttons(buttons) => buttons.write_hpp(fmt),
-        }
+        match self { Item::Buttons(b) => b.write_hpp(fmt) }
     }
-
     fn write_json(&self, fmt: &mut Formatter<'_>) -> fmt::Result {
-        match self {
-            Item::Buttons(buttons) => buttons.write_json(fmt),
-        }
+        match self { Item::Buttons(b) => b.write_json(fmt) }
     }
-
     fn write_rs(&self, fmt: &mut Formatter<'_>) -> fmt::Result {
-        match self {
-            Item::Buttons(buttons) => buttons.write_rs(fmt),
-        }
+        match self { Item::Buttons(b) => b.write_rs(fmt) }
     }
-
     fn write_zig(&self, fmt: &mut Formatter<'_>) -> fmt::Result {
-        match self {
-            Item::Buttons(buttons) => buttons.write_zig(fmt),
-        }
+        match self { Item::Buttons(b) => b.write_zig(fmt) }
     }
 }
 
 pub struct Output<'a> {
-    file_types: &'a [String],
-    indent_size: usize,
     out_dir: &'a Path,
     result: &'a AnalysisResult,
     timestamp: DateTime<Utc>,
@@ -94,16 +78,12 @@ pub struct Output<'a> {
 
 impl<'a> Output<'a> {
     pub fn new(
-        file_types: &'a [String],
-        indent_size: usize,
         out_dir: &'a Path,
         result: &'a AnalysisResult,
     ) -> Result<Self> {
         fs::create_dir_all(&out_dir)?;
 
         Ok(Self {
-            file_types,
-            indent_size,
             out_dir,
             result,
             timestamp: Utc::now(),
@@ -117,8 +97,7 @@ impl<'a> Output<'a> {
     /// * `<module>.hpp`              — typed schema classes
     /// * `netvars.{json,hpp}`        — split networked fields
     /// * `interfaces_sdk.hpp`        — typed accessor stubs
-    /// * `cs2sdk.hpp`                — single-include amalgamation
-    /// * `cs2sdk.rs`                 — Rust amalgamation module
+    /// * `cs2.hpp`                   — single-include amalgamation
     /// * `verified_features.{json,md,hpp}` — verified-working catalogue
     ///
     /// `build_number` is pinned into every emitted file as `CS2_BUILD`
@@ -141,11 +120,30 @@ impl<'a> Output<'a> {
         let mut namespace_blocks: BTreeMap<String, BTreeSet<String>> = BTreeMap::new();
         let mut enum_underlying: BTreeMap<(String, String), String> = BTreeMap::new();
 
+        // The set of module namespaces, so we can recognise cross-module
+        // qualified references of the form `::<module>::<Type>` (they no longer
+        // carry the old `::sdk::` prefix).
+        let parse_mod_ns = |body: &str| -> Option<String> {
+            let p = body.find("\nnamespace ")?;
+            let s = p + "\nnamespace ".len();
+            let b = body.as_bytes();
+            let mut e = s;
+            while e < body.len() {
+                let c = b[e] as char;
+                if c.is_whitespace() || c == '{' { break; }
+                e += 1;
+            }
+            Some(body[s..e].to_string())
+        };
+        let module_ns_set: BTreeSet<String> =
+            module_data.iter().filter_map(|(_, body)| parse_mod_ns(body)).collect();
+
         for (_file_name, body) in &module_data {
-            // Parse the current module namespace from the header preamble
+            // Parse the current module namespace from the header preamble — the
+            // first line-anchored `namespace <module> {` (no root prefix now).
             let mut current_ns = String::new();
-            if let Some(ns_pos) = body.find("namespace sdk::") {
-                let ns_start = ns_pos + "namespace sdk::".len();
+            if let Some(ns_pos) = body.find("\nnamespace ") {
+                let ns_start = ns_pos + "\nnamespace ".len();
                 let mut ns_end = ns_start;
                 while ns_end < body.len() {
                     let c = body.as_bytes()[ns_end] as char;
@@ -186,16 +184,28 @@ impl<'a> Output<'a> {
                 scan_idx = pos + 1;
             }
 
-            // Collect explicit cross-module qualified uses like ::sdk::resourcesystem::Type
+            // Collect cross-module qualified uses like ::resourcesystem::Type
+            // (root-less now) — anchor on `::<module>::<Type>` where <module> is
+            // a known schema namespace.
+            let b2 = body.as_bytes();
             let mut search_idx = 0usize;
-            while let Some(found) = body[search_idx..].find("::sdk::") {
-                let pos = search_idx + found + "::sdk::".len();
-                if let Some(ns_end_rel) = body[pos..].find("::") {
-                    let ns = &body[pos..pos + ns_end_rel];
-                    let type_start = pos + ns_end_rel + 2;
+            while let Some(found) = body[search_idx..].find("::") {
+                let ns_start = search_idx + found + 2;
+                let mut ns_end = ns_start;
+                while ns_end < body.len() {
+                    let c = b2[ns_end] as char;
+                    if c.is_ascii_alphanumeric() || c == '_' { ns_end += 1; } else { break; }
+                }
+                let ns = &body[ns_start..ns_end];
+                if ns_end > ns_start
+                    && ns_end + 2 <= body.len()
+                    && &body[ns_end..ns_end + 2] == "::"
+                    && module_ns_set.contains(ns)
+                {
+                    let type_start = ns_end + 2;
                     let mut type_end = type_start;
                     while type_end < body.len() {
-                        let c = body.as_bytes()[type_end] as char;
+                        let c = b2[type_end] as char;
                         if c.is_ascii_alphanumeric() || c == '_' { type_end += 1; } else { break; }
                     }
                     if type_end > type_start {
@@ -206,7 +216,9 @@ impl<'a> Output<'a> {
                             .insert(ty.to_string());
                     }
                     search_idx = type_end;
-                } else { break; }
+                } else {
+                    search_idx = ns_start;
+                }
             }
         }
 
@@ -218,7 +230,7 @@ impl<'a> Output<'a> {
         macros.push_str("// live in the per-module headers.\n\n");
 
         for (ns, types_set) in &namespace_blocks {
-            macros.push_str(&format!("namespace sdk {{ namespace {} {{\n", ns));
+            macros.push_str(&format!("namespace {} {{\n", ns));
             for ty in types_set {
                 if let Some(under) = enum_underlying.get(&(ns.clone(), ty.clone())) {
                     macros.push_str(&format!("    enum class {} : {};\n", ty, under));
@@ -226,7 +238,7 @@ impl<'a> Output<'a> {
                     macros.push_str(&format!("    class {};\n", ty));
                 }
             }
-            macros.push_str("} }\n\n");
+            macros.push_str("}\n\n");
         }
 
         fs::write(macros_path, macros)?;
@@ -295,7 +307,7 @@ impl<'a> Output<'a> {
         }
 
         fs::write(
-            self.out_dir.join("cs2sdk.hpp"),
+            self.out_dir.join("cs2.hpp"),
             amalgamation::render_hpp(&ordered_stems, build_number),
         )?;
 
@@ -321,53 +333,6 @@ impl<'a> Output<'a> {
         Ok(())
     }
 
-    pub fn dump_buttons(&self) -> Result<()> {
-        if self.result.buttons.is_empty() {
-            return Ok(());
-        }
-        self.dump_item("buttons", &Item::Buttons(&self.result.buttons))
-    }
-
-    pub fn dump_all<P: MemoryView + Process>(&self, _process: &mut P) -> Result<()> {
-        // The legacy `a2x/cs2-dumper`-style raw flat-offset emitters
-        // (`offsets.{hpp,cs,...}`, `interfaces.{hpp,cs,...}`,
-        // `<schema>.{hpp,cs,...}`, the skinchanger pattern dump) have
-        // been retired — every value they exposed is now reachable in a
-        // typed form through the SDK headers (`sdk_classes`, netvars
-        // split-out, interface accessor stubs, `cs2sdk.hpp`
-        // amalgamation), and the per-file pattern dump is superseded by
-        // the dedicated `signatures/` directory.
-        //
-        // Buttons are now emitted as an enum in client_dll.hpp.
-
-        Ok(())
-    }
-
-    fn dump_item(&self, file_name: &str, item: &Item) -> Result<()> {
-        for file_type in self.file_types {
-            let mut out = String::new();
-            let mut fmt = Formatter::new(&mut out, self.indent_size);
-
-            if file_type != "json" {
-                self.write_banner(&mut fmt)?;
-            }
-
-            item.write(&mut fmt, file_type)?;
-
-            let file_path = self.out_dir.join(format!("{}.{}", file_name, file_type));
-
-            fs::write(&file_path, out)?;
-        }
-
-        Ok(())
-    }
-
-    fn write_banner(&self, fmt: &mut Formatter<'_>) -> Result<()> {
-        writeln!(fmt, "// Generated by cs2-sdk v{} — https://cs2-sdk.com", env!("CARGO_PKG_VERSION"))?;
-        writeln!(fmt, "// {}\n", self.timestamp)?;
-
-        Ok(())
-    }
 }
 
 /// Free-standing emitter for the `buttons` table.
@@ -399,11 +364,6 @@ pub fn write_buttons(
         fs::write(out_dir.join(format!("buttons.{}", file_type)), out)?;
     }
     Ok(())
-}
-
-#[inline]
-fn slugify(input: &str) -> String {
-    input.replace(|c: char| !c.is_alphanumeric(), "_")
 }
 
 #[inline]

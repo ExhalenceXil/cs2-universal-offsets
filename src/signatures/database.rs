@@ -15,7 +15,6 @@ const NONE: ResolveKind = ResolveKind::None;
 const REL32_1: ResolveKind = ResolveKind::Rel32 { rel_off: 1 };
 const RIPREL_3: ResolveKind = ResolveKind::RipRel { rel_off: 3 };
 const RIPREL_2: ResolveKind = ResolveKind::RipRel { rel_off: 2 };
-const RIPREL_19: ResolveKind = ResolveKind::RipRel { rel_off: 19 };
 
 pub static CS2_SIGNATURES: &[Signature] = &[
     // ---------- client.dll : input / movement --------------------------
@@ -3499,4 +3498,25 @@ pub static CS2_SIGNATURES: &[Signature] = &[
     Signature { name: "IsLatched",                             module: "client.dll", needle: "0F B6 81 ? ? ? ? C3 ? ? ? ? ? ? ? ? 48 83 EC ? 33 C9", resolve: NONE, extra_off: 0, prototype: "" },
     Signature { name: "CAnimatableSceneObjectDescRender",      module: "scenesystem.dll", needle: "48 8B C4 53 57 41 54", resolve: NONE, extra_off: 0, prototype: "" },
     Signature { name: "UpdateLightObject",                     module: "scenesystem.dll", needle: "48 89 54 24 ? 55 57 41 56 48 83 EC", resolve: NONE, extra_off: 0, prototype: "" },
+
+    // ---------- asteria: feature/hook sigs not yet in the upstream DB --------
+    // (PVS manager, HUD-panel global, GeneratePrimitives and the panorama
+    //  RunScript fn are already covered above as Engine::PVSManager_ptr,
+    //  HudPanelPointer, GeneratePrimitives and CPanoramaUIEngine_RunScript.)
+
+    // Per-slot sub-tick input processor (sub_180AC96A0) — prediction caches the
+    // CCSGOInput slot pointer from this hook. (Dropped from upstream DB; restored.)
+    Signature { name: "ProcessSubTickInput",                   module: "client.dll", needle: "89 54 24 10 48 89 4C 24 08 53 56 57 48 83 EC 70", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall ProcessSubTickInput(__int64 a1, int a2)" },
+    // CUserCmd serialize — bhop passthrough hook.
+    Signature { name: "SerializeUserCmd",                      module: "client.dll", needle: "40 55 56 41 57 48 83 EC 60 8B 4A 20 45 33 FF 44 8B 42 30", resolve: NONE, extra_off: 0, prototype: "" },
+    // Modern sub-tick jump check (sub_180848360) — bhop diagnostic hook.
+    Signature { name: "ModernSubtickJumpCheck",               module: "client.dll", needle: "48 89 5C 24 10 48 89 6C 24 18 57 48 83 EC 40 48 8B EA 48 8B D9 48 8B 49 08 BA 02 00 00 00 E8 ? ? ? ? 48 8B 7B 08 48 83 7F 38 00", resolve: NONE, extra_off: 0, prototype: "" },
+    // GameTraceManager: line-trace fn + its global singleton pointer (trace/autowall).
+    Signature { name: "GameTraceLine",                        module: "client.dll", needle: "4C 8B DC 49 89 5B 08 49 89 6B 10 49 89 73 18 57 41 56 41 57 48 81 EC B0 00 00 00 0F 57 C0 4C 8B F9 66 0F 7F 44 24 70", resolve: NONE, extra_off: 0, prototype: "" },
+    Signature { name: "GameTraceManager_ptr",                 module: "client.dll", needle: "48 8B 0D ? ? ? ? 48 8B D0 C7 44 24 ? 04 00 00 00 48 C7 44 24 ? 01 30 1C 00", resolve: RIPREL_3, extra_off: 0, prototype: "" },
+    // protobuf usercmd builders — bhop sub-tick move injection.
+    Signature { name: "RepeatedPtrField_AddAllocatedForParse", module: "client.dll", needle: "48 89 5C 24 ? 57 48 83 EC ? 48 8B D9 48 8B FA 48 8B 49 ? 48 85 C9 74 ? 8B 01", resolve: NONE, extra_off: 0, prototype: "" },
+    Signature { name: "CreateSubtickMoveStep",                module: "client.dll", needle: "E8 ? ? ? ? 48 8B D0 49 8D 4E ? E8 ? ? ? ? 4C 8B C8 4C 8D 43 ? 49 8B D1 48 8B CE E8 ? ? ? ? 48 8B D8 48 85 C0 0F 84 ? ? ? ? 48 3B 06 0F 83 ? ? ? ? 0F B7 00 66 C7 45 ? ? ? 66 3B 45 ? 74 ? E9 ? ? ? ? 40 80 FF ? 0F 85 ? ? ? ? 41 83 4E", resolve: REL32_1, extra_off: 0, prototype: "" },
+    // rendersystemdx11 — CTextureManagerDx11::GetResourceView (in-menu model-preview SRV capture).
+    Signature { name: "GetResourceView",                      module: "rendersystemdx11.dll", needle: "48 89 5C 24 ? 48 89 74 24 ? 48 89 7C 24 ? 48 89 4C 24 ? 55 41 54 41 55 41 56 41 57 48 8D 6C 24 ? 48 81 EC ? ? ? ? 33 FF 4D 0F BE F8 89 7D ? 45 0F B6 E1 4C 8B 2D", resolve: NONE, extra_off: 0, prototype: "" },
 ];

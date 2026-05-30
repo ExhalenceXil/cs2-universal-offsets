@@ -1,16 +1,6 @@
 use memflow::prelude::*;
 
 #[inline]
-pub fn follow_call(mem: &mut impl MemoryView, base: Address) -> Result<Address> {
-    rel32_target(mem, base, 0x1)
-}
-
-#[inline]
-pub fn follow_jmp(mem: &mut impl MemoryView, base: Address) -> Result<Address> {
-    rel32_target(mem, base, 0x1)
-}
-
-#[inline]
 pub fn resolve_rip(mem: &mut impl MemoryView, base: Address) -> Result<Address> {
     rel32_target(mem, base, 0x3)
 }

@@ -6,7 +6,7 @@
 // (preserving their relative layout), add `sdk/` to your
 // include path, and:
 //
-//     #include "cs2sdk.hpp"
+//     #include <sdk/cs2.hpp>
 //
 // gets you typed schema classes, netvars, interface accessors,
 // and pattern strings for every resolved signature.
@@ -38,7 +38,14 @@ inline constexpr unsigned int CS2_BUILD = 14165;
 #include "vphysics2_dll.hpp"
 #include "worldrenderer_dll.hpp"
 
-// Typed accessors + signature patterns
-// (netvars.hpp is optional — include it yourself if your project needs it)
+// Entity system helpers (CGameEntitySystem::GetEntityByIndex, ...)
+#include "entity_system.hpp"
+// Offsets, interfaces, vtables, buttons, protobufs, signatures
+// (netvars.hpp / verified_features.hpp are optional — include
+//  them yourself if your project needs them)
+#include "offsets.hpp"
 #include "interfaces_sdk.hpp"
+#include "vtables.hpp"
+#include "buttons.hpp"
+#include "protobufs.hpp"
 #include "../signatures/signatures.hpp"

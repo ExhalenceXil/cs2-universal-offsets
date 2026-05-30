@@ -3,7 +3,7 @@
 // module:        panorama.dll
 // classes:       0
 // enums:         2
-// generated_at:  2026-05-30T08:12:42.479095600+00:00
+// generated_at:  2026-05-30T22:39:23.445540800+00:00
 //
 // Use:
 //   auto* pawn = reinterpret_cast<C_CSPlayerPawn*>(addr);
@@ -12,7 +12,7 @@
 #pragma once
 #include "cs2sdk_macros.hpp"
 
-namespace sdk::panorama {
+namespace panorama {
 
 
     enum class ELayoutNodeType : std::uint32_t {
@@ -51,4 +51,4 @@ namespace sdk::panorama {
         COMPILER_CONDITIONAL = 0x10,
     };
 
-} // namespace sdk::panorama
+} // namespace panorama

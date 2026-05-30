@@ -3,7 +3,7 @@
 // module:        host.dll
 // classes:       2
 // enums:         0
-// generated_at:  2026-05-30T08:12:42.479095600+00:00
+// generated_at:  2026-05-30T22:39:23.445540800+00:00
 //
 // Use:
 //   auto* pawn = reinterpret_cast<C_CSPlayerPawn*>(addr);
@@ -12,7 +12,7 @@
 #pragma once
 #include "cs2sdk_macros.hpp"
 
-namespace sdk::host {
+namespace host {
 
     class EmptyTestScript;
     class CAnimScriptBase;
@@ -31,4 +31,4 @@ namespace sdk::host {
         SCHEMA_FIELD(bool                            , m_bIsValid                                      , 0x8) // bool
     };
 
-} // namespace sdk::host
+} // namespace host

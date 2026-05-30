@@ -260,9 +260,9 @@ public:
 };
 
 // Forward-declare common server-owned types in the proper namespace so
-// client headers can reference them as ::sdk::server::Type without
+// client headers can reference them as ::server::Type without
 // requiring the server header to be included first.
-namespace sdk { namespace server {
+namespace server {
     class CBaseAnimGraph;
     class CBaseFilter;
     class CEntityComponent;
@@ -272,7 +272,7 @@ namespace sdk { namespace server {
     class CSkeletonAnimationController;
     class CBaseAnimGraphDestructibleParts_GraphController;
     class CBaseAnimGraphVariationUserData;
-}}
+}
 
 enum class TakeDamageFlags_t : std::uint64_t {};
 enum class EntityPlatformTypes_t : std::uint8_t {};
@@ -1365,7 +1365,7 @@ namespace sdk {
 // order. They are intentionally declaration-only; the real definitions
 // live in the per-module headers.
 
-namespace sdk { namespace animationsystem {
+namespace animationsystem {
     enum class AnimationType_t : std::uint32_t;
     class AttachmentHandle_t;
     class CNmGraphInstance;
@@ -1395,9 +1395,9 @@ namespace sdk { namespace animationsystem {
     class SignatureOutflow_Continue;
     class SignatureOutflow_Resume;
     enum class VertexAlbedoFormat_t : std::uint8_t;
-} }
+}
 
-namespace sdk { namespace client {
+namespace client {
     class CAttributeList;
     class CAttributeManager_cached_attribute_float_t;
     class CBasePlayerController;
@@ -1443,41 +1443,41 @@ namespace sdk { namespace client {
     class fogparams_t;
     class shard_model_desc_t;
     class sky3dparams_t;
-} }
+}
 
-namespace sdk { namespace engine2 {
+namespace engine2 {
     class CEntityAttributeTable;
     class CEntityIOOutput;
     class CEntityKeyValues;
     class CNetworkVarChainer;
     class CVariantDefaultAllocator;
-} }
+}
 
-namespace sdk { namespace particles {
+namespace particles {
     class ParticleIndex_t;
     class ParticleModelType_t;
-} }
+}
 
-namespace sdk { namespace rendersystemdx11 {
+namespace rendersystemdx11 {
     class RenderInputLayoutField_t;
     class RenderPrimitiveType_t;
-} }
+}
 
-namespace sdk { namespace resourcesystem {
+namespace resourcesystem {
     class FourQuaternions;
-} }
+}
 
-namespace sdk { namespace scenesystem {
+namespace scenesystem {
     enum class DecalRtEncoding_t : std::uint8_t;
     enum class ESceneViewDebugOverlaysListenerDataType_t : std::uint32_t;
-} }
+}
 
-namespace sdk { namespace schemasystem {
+namespace schemasystem {
     class ResourceId_t;
     class fieldtype_t;
-} }
+}
 
-namespace sdk { namespace server {
+namespace server {
     class AmmoIndex_t;
     enum class AnimLoopMode_t : std::int32_t;
     enum class AnimationAlgorithm_t : std::int8_t;
@@ -1564,13 +1564,13 @@ namespace sdk { namespace server {
     enum class gear_slot_t : std::int32_t;
     enum class loadout_slot_t : std::int32_t;
     class thinkfunc_t;
-} }
+}
 
-namespace sdk { namespace soundsystem {
+namespace soundsystem {
     enum class soundlevel_t : std::uint32_t;
-} }
+}
 
-namespace sdk { namespace vphysics2 {
+namespace vphysics2 {
     class CGenericShapeProxy;
     enum class DynamicContinuousContactBehavior_t : std::uint8_t;
     class IPhysAggregateInstance;
@@ -1582,5 +1582,5 @@ namespace sdk { namespace vphysics2 {
     class PhysFeModelDesc_t;
     enum class PhysInterfaceId_t : std::uint32_t;
     class constraint_hingeparams_t;
-} }
+}
 

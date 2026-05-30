@@ -36,11 +36,12 @@ pub fn render_hpp(
     writeln!(s, "#pragma once").ok();
     writeln!(s).ok();
     writeln!(s, "#include <cstdint>").ok();
+    writeln!(s, "#include <windows.h> // GetModuleHandleA").ok();
     writeln!(s, "#include \"client_dll.hpp\"").ok();
     writeln!(s).ok();
 
     if let Some(bn) = build_number {
-        writeln!(s, "namespace cs2::entity_system {{ inline constexpr std::uint32_t CS2_BUILD = {bn}; }}\n").ok();
+        writeln!(s, "namespace entity {{ inline constexpr std::uint32_t CS2_BUILD = {bn}; }}\n").ok();
     }
 
     let client_offsets = offsets.get("client.dll").map(|m| m.clone()).unwrap_or_default();
@@ -68,10 +69,10 @@ pub fn render_hpp(
     writeln!(s).ok();
 
     writeln!(s, "    /// Get the local player controller using the auto-detected pointer.").ok();
-    writeln!(s, "    static sdk::client::CCSPlayerController* GetLocalPlayer() noexcept {{").ok();
+    writeln!(s, "    static client::CCSPlayerController* GetLocalPlayer() noexcept {{").ok();
     writeln!(s, "        auto client = reinterpret_cast<uintptr_t>(GetModuleHandleA(\"client.dll\"));").ok();
     writeln!(s, "        if (!client) return nullptr;").ok();
-    writeln!(s, "        return *reinterpret_cast<sdk::client::CCSPlayerController**>(client + 0x{:X});", local_player_rva).ok();
+    writeln!(s, "        return *reinterpret_cast<client::CCSPlayerController**>(client + 0x{:X});", local_player_rva).ok();
     writeln!(s, "    }}").ok();
     writeln!(s).ok();
 

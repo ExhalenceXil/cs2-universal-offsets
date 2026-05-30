@@ -2,9 +2,10 @@
 #pragma once
 
 #include <cstdint>
+#include <windows.h> // GetModuleHandleA
 #include "client_dll.hpp"
 
-namespace cs2::entity_system { inline constexpr std::uint32_t CS2_BUILD = 14165; }
+namespace entity { inline constexpr std::uint32_t CS2_BUILD = 14165; }
 
 struct CGameEntitySystem {
     /// Get the highest entity index currently in use.
@@ -17,10 +18,10 @@ struct CGameEntitySystem {
     }
 
     /// Get the local player controller using the auto-detected pointer.
-    static sdk::client::CCSPlayerController* GetLocalPlayer() noexcept {
+    static client::CCSPlayerController* GetLocalPlayer() noexcept {
         auto client = reinterpret_cast<uintptr_t>(GetModuleHandleA("client.dll"));
         if (!client) return nullptr;
-        return *reinterpret_cast<sdk::client::CCSPlayerController**>(client + 0x231E700);
+        return *reinterpret_cast<client::CCSPlayerController**>(client + 0x231E700);
     }
 
     /// Walk the chunked entity list and return the CEntityIdentity at index.

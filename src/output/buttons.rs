@@ -23,16 +23,11 @@ impl CodeWriter for ButtonMap {
         writeln!(fmt, "#include <cstddef>")?;
         writeln!(fmt, "#include <cstdint>\n")?;
 
-        fmt.block("namespace cs2_dumper", false, |fmt| {
-            writeln!(fmt, "// Module: client.dll")?;
-
-            fmt.block("namespace buttons", false, |fmt| {
-                for (name, value) in self {
-                    writeln!(fmt, "constexpr std::ptrdiff_t {} = {:#X};", name, value)?;
-                }
-
-                Ok(())
-            })
+        fmt.block("namespace button", false, |fmt| {
+            for (name, value) in self {
+                writeln!(fmt, "constexpr std::ptrdiff_t {} = {:#X};", name, value)?;
+            }
+            Ok(())
         })
     }
 

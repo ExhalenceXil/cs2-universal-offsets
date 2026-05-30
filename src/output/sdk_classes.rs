@@ -174,31 +174,6 @@ pub fn render_module_headers(
     out
 }
 
-fn render_module_namespace_body(
-    module: &str,
-    classes: &[Class],
-    enums: &[Enum],
-    buttons: &BTreeMap<String, u64>,
-    type_namespace_map: &BTreeMap<String, String>,
-) -> String {
-    let ns = slugify(module.trim_end_matches(".dll"));
-    let mut s = String::with_capacity(64 * 1024);
-
-    writeln!(s, "namespace sdk::{} {{", ns).ok();
-    writeln!(s).ok();
-
-    // Add buttons enum for client.dll
-    if module == "client.dll" && !buttons.is_empty() {
-        writeln!(s, "    enum class InputButton : std::uint64_t {{").ok();
-        for (name, value) in buttons {
-            writeln!(s, "        {} = 0x{:X},", name, value).ok();
-        }
-        writeln!(s, "    }};\n").ok();
-    }
-
-    writeln!(s, "}} // namespace sdk::{}", ns).ok();
-    s
-}
 
 /// Build a deterministic index map for module include ordering.
 /// We compute inter-module dependencies and then topologically sort modules
@@ -777,9 +752,9 @@ public:
 };
 
 // Forward-declare common server-owned types in the proper namespace so
-// client headers can reference them as ::sdk::server::Type without
+// client headers can reference them as ::server::Type without
 // requiring the server header to be included first.
-namespace sdk { namespace server {
+namespace server {
     class CBaseAnimGraph;
     class CBaseFilter;
     class CEntityComponent;
@@ -789,7 +764,7 @@ namespace sdk { namespace server {
     class CSkeletonAnimationController;
     class CBaseAnimGraphDestructibleParts_GraphController;
     class CBaseAnimGraphVariationUserData;
-}}
+}
 
 enum class TakeDamageFlags_t : std::uint64_t {};
 enum class EntityPlatformTypes_t : std::uint8_t {};
@@ -1943,11 +1918,11 @@ fn render_one_module(
         s.push('\n');
     }
 
-    writeln!(s, "namespace sdk::{} {{", ns).ok();
+    writeln!(s, "namespace {} {{", ns).ok();
     writeln!(s).ok();
 
     // CS2_BUILD constant removed from per-module files — the running
-    // build number lives in `manifest.json` and `cs2sdk.hpp` only.
+    // build number lives in `manifest.json` and `cs2.hpp` only.
     let _ = build_number;
 
     // Add buttons enum for client.dll
@@ -2040,7 +2015,7 @@ fn render_one_module(
                 let sanitized_parent = sanitize_class_name(raw_parent);
                 if let Some(owner_ns) = type_namespace_map.get(&sanitized_parent) {
                     if owner_ns != &ns {
-                        format!(" : public ::sdk::{}::{}", owner_ns, sanitized_parent)
+                        format!(" : public ::{}::{}", owner_ns, sanitized_parent)
                     } else {
                         format!(" : public {}", sanitized_parent)
                     }
@@ -2158,7 +2133,7 @@ fn render_one_module(
         writeln!(s, "    }};\n").ok();
     }
 
-    writeln!(s, "}} // namespace sdk::{}", ns).ok();
+    writeln!(s, "}} // namespace {}", ns).ok();
     s
 }
 
@@ -2309,7 +2284,7 @@ fn qualify_cross_module_type_refs(
             if !scoped {
                 if let Some(owner_ns) = type_namespace_map.get(&token) {
                     if owner_ns != current_ns {
-                        out.push_str("::sdk::");
+                        out.push_str("::");
                         out.push_str(owner_ns);
                         out.push_str("::");
                         out.push_str(&token);
@@ -2348,19 +2323,4 @@ fn sanitize_enum_member(raw: &str) -> String {
 /// For example, `CPulseCell_Timeline::TimelineEvent_t` becomes `CPulseCell_Timeline_TimelineEvent_t`.
 fn sanitize_class_name(raw: &str) -> String {
     raw.replace("::", "_")
-}
-
-
-
-/// Optional helper: collect every (class, parent) pair so a TUI / docs
-/// page can render the class hierarchy. Currently unused by the emitter
-/// itself; exposed for future tooling.
-pub fn class_hierarchy(schemas: &SchemaMap) -> BTreeMap<String, Option<String>> {
-    let mut out = BTreeMap::new();
-    for (_, (classes, _)) in schemas {
-        for c in classes {
-            out.insert(c.name.clone(), c.parent_name.clone());
-        }
-    }
-    out
 }

@@ -96,17 +96,23 @@ pub fn render_hpp(vts: &VTableMap, oracle: &NameOracle, build_number: Option<u32
     s.push_str("\n#pragma once\n");
     s.push_str("#include <cstddef>\n#include <cstdint>\n\n");
     if let Some(bn) = build_number {
-        writeln!(s, "namespace cs2::vtables {{ inline constexpr std::uint32_t CS2_BUILD = {bn}; }}\n").ok();
+        writeln!(s, "namespace vtable {{ inline constexpr std::uint32_t CS2_BUILD = {bn}; }}\n").ok();
     }
-    s.push_str("namespace cs2::vtables {\n\n");
+    s.push_str("namespace vtable {\n\n");
     for (module, ifaces) in vts {
-        writeln!(s, "    namespace {} {{", slugify(module)).ok();
+        writeln!(s, "    namespace {} {{", slugify(module.trim_end_matches(".dll"))).ok();
+        // Two interfaces can share an RTTI class (e.g. GameEventSystem client +
+        // server -> CGameEventSystem); emit each class namespace once.
+        let mut seen_class = std::collections::BTreeSet::new();
         for (iface, info) in ifaces {
             let ns = info
                 .rtti_class
                 .as_deref()
                 .map(sanitize_ident)
                 .unwrap_or_else(|| type_ident(iface));
+            if !seen_class.insert(ns.clone()) {
+                continue;
+            }
             let banner_class = info.rtti_class.as_deref().unwrap_or("<no RTTI>");
             writeln!(
                 s,
@@ -131,9 +137,9 @@ pub fn render_hpp(vts: &VTableMap, oracle: &NameOracle, build_number: Option<u32
             }
             writeln!(s, "        }} // namespace {}\n", ns).ok();
         }
-        writeln!(s, "    }} // namespace {}\n", slugify(module)).ok();
+        writeln!(s, "    }} // namespace {}\n", slugify(module.trim_end_matches(".dll"))).ok();
     }
-    s.push_str("} // namespace sdk::vtables\n");
+    s.push_str("} // namespace vtable\n");
     s
 }
 

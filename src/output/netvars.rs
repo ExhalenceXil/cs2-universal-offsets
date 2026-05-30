@@ -100,9 +100,9 @@ pub fn render_hpp(netvars: &[NetVar], build_number: Option<u32>) -> String {
     s.push_str("#pragma once\n\n");
     s.push_str("#include <cstddef>\n#include <cstdint>\n\n");
     if let Some(bn) = build_number {
-        writeln!(s, "namespace cs2::netvars {{ inline constexpr std::uint32_t CS2_BUILD = {bn}; }}\n").ok();
+        writeln!(s, "namespace netvar {{ inline constexpr std::uint32_t CS2_BUILD = {bn}; }}\n").ok();
     }
-    s.push_str("namespace cs2::netvars {\n\n");
+    s.push_str("namespace netvar {\n\n");
     for (class, fields) in grouped(netvars) {
         writeln!(s, "    namespace {} {{", type_ident(class)).ok();
         for n in fields {
@@ -115,7 +115,7 @@ pub fn render_hpp(netvars: &[NetVar], build_number: Option<u32>) -> String {
         }
         writeln!(s, "    }} // namespace {}\n", type_ident(class)).ok();
     }
-    s.push_str("} // namespace cs2::netvars\n");
+    s.push_str("} // namespace netvar\n");
     s
 }
 

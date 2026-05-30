@@ -3,16 +3,16 @@
 
 #include <cstdint>
 
-namespace cs2::ifaces { inline constexpr std::uint32_t CS2_BUILD = 14165; }
+namespace iface { inline constexpr std::uint32_t CS2_BUILD = 14165; }
 
-namespace cs2::ifaces {
+namespace iface {
 
-    namespace animationsystem_dll {
+    namespace animationsystem {
         inline void* AnimationSystemUtils_001(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0x812190); }
         inline void* AnimationSystem_001(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0x80A0B0); }
-    } // namespace animationsystem_dll
+    } // namespace animationsystem
 
-    namespace client_dll {
+    namespace client {
         inline void* ClientToolsInfo_001(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0x20632C0); }
         inline void* EmptyWorldService001_Client(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0x2026AF0); }
         inline void* GameClientExports001(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0x205FF60); }
@@ -21,9 +21,9 @@ namespace cs2::ifaces {
         inline void* Source2ClientConfig001(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0x22ABF60); }
         inline void* Source2ClientPrediction001(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0x233F5A0); }
         inline void* Source2ClientUI001(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0x20799E0); }
-    } // namespace client_dll
+    } // namespace client
 
-    namespace engine2_dll {
+    namespace engine2 {
         inline void* BenchmarkService001(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0x6129A0); }
         inline void* BugService001(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0x8CA9E0); }
         inline void* ClientServerEngineLoopService_001(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0x90C0E0); }
@@ -57,14 +57,14 @@ namespace cs2::ifaces {
         inline void* ToolService_001(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0x613150); }
         inline void* VENGINE_GAMEUIFUNCS_VERSION005(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0x610330); }
         inline void* VProfService_001(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0x613190); }
-    } // namespace engine2_dll
+    } // namespace engine2
 
-    namespace filesystem_stdio_dll {
+    namespace filesystem_stdio {
         inline void* VAsyncFileSystem2_001(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0x2159E0); }
         inline void* VFileSystem017(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0x2157A0); }
-    } // namespace filesystem_stdio_dll
+    } // namespace filesystem_stdio
 
-    namespace host_dll {
+    namespace host {
         inline void* DebugDrawQueueManager001(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0x139060); }
         inline void* GameModelInfo001(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0x1390A0); }
         inline void* GameSystem2HostHook(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0x1390E0); }
@@ -73,95 +73,95 @@ namespace cs2::ifaces {
         inline void* SaveRestoreDataVersion001(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0x139320); }
         inline void* SinglePlayerSharedMemory001(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0x139350); }
         inline void* Source2Host001(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0x1393C0); }
-    } // namespace host_dll
+    } // namespace host
 
-    namespace imemanager_dll {
+    namespace imemanager {
         inline void* IMEManager001(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0x36B20); }
-    } // namespace imemanager_dll
+    } // namespace imemanager
 
-    namespace inputsystem_dll {
+    namespace inputsystem {
         inline void* InputStackSystemVersion001(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0x40E30); }
         inline void* InputSystemVersion001(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0x42B50); }
-    } // namespace inputsystem_dll
+    } // namespace inputsystem
 
-    namespace localize_dll {
+    namespace localize {
         inline void* Localize_001(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0x62180); }
-    } // namespace localize_dll
+    } // namespace localize
 
-    namespace matchmaking_dll {
+    namespace matchmaking {
         inline void* GameTypes001(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0x1B0F80); }
         inline void* MATCHFRAMEWORK_001(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0x1B9060); }
-    } // namespace matchmaking_dll
+    } // namespace matchmaking
 
-    namespace materialsystem2_dll {
+    namespace materialsystem2 {
         inline void* FontManager_001(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0x15DE60); }
         inline void* MaterialUtils_001(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0x145D40); }
         inline void* PostProcessingSystem_001(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0x145C50); }
         inline void* TextLayout_001(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0x145CD0); }
         inline void* VMaterialSystem2_001(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0x15D750); }
-    } // namespace materialsystem2_dll
+    } // namespace materialsystem2
 
-    namespace meshsystem_dll {
+    namespace meshsystem {
         inline void* MeshSystem001(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0x150C20); }
-    } // namespace meshsystem_dll
+    } // namespace meshsystem
 
-    namespace navsystem_dll {
+    namespace navsystem {
         inline void* NavSystem001(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0x122930); }
-    } // namespace navsystem_dll
+    } // namespace navsystem
 
-    namespace networksystem_dll {
+    namespace networksystem {
         inline void* FlattenedSerializersVersion001(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0x26E750); }
         inline void* NetworkMessagesVersion001(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0x296A60); }
         inline void* NetworkSystemVersion001(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0x287EA0); }
         inline void* SerializedEntitiesVersion001(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0x287F90); }
-    } // namespace networksystem_dll
+    } // namespace networksystem
 
-    namespace panorama_dll {
+    namespace panorama {
         inline void* PanoramaUIEngine001(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0x505D20); }
-    } // namespace panorama_dll
+    } // namespace panorama
 
-    namespace panorama_text_pango_dll {
+    namespace panorama_text_pango {
         inline void* PanoramaTextServices001(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0x2B8A40); }
-    } // namespace panorama_text_pango_dll
+    } // namespace panorama_text_pango
 
-    namespace panoramauiclient_dll {
+    namespace panoramauiclient {
         inline void* PanoramaUIClient001(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0x296420); }
-    } // namespace panoramauiclient_dll
+    } // namespace panoramauiclient
 
-    namespace particles_dll {
+    namespace particles {
         inline void* ParticleSystemMgr003(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0x54A370); }
-    } // namespace particles_dll
+    } // namespace particles
 
-    namespace pulse_system_dll {
+    namespace pulse_system {
         inline void* IPulseSystem_001(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0x1F36A0); }
-    } // namespace pulse_system_dll
+    } // namespace pulse_system
 
-    namespace rendersystemdx11_dll {
+    namespace rendersystemdx11 {
         inline void* RenderDeviceMgr001(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0x42B530); }
         inline void* RenderUtils_001(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0x42BE28); }
         inline void* VRenderDeviceMgrBackdoor001(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0x42B5D0); }
-    } // namespace rendersystemdx11_dll
+    } // namespace rendersystemdx11
 
-    namespace resourcesystem_dll {
+    namespace resourcesystem {
         inline void* ResourceSystem013(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0x831E0); }
-    } // namespace resourcesystem_dll
+    } // namespace resourcesystem
 
-    namespace scenefilecache_dll {
+    namespace scenefilecache {
         inline void* ResponseRulesCache001(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0xF58F0); }
         inline void* SceneFileCache002(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0xF5A78); }
-    } // namespace scenefilecache_dll
+    } // namespace scenefilecache
 
-    namespace scenesystem_dll {
+    namespace scenesystem {
         inline void* RenderingPipelines_001(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0x663BA0); }
         inline void* SceneSystem_002(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0x8DB490); }
         inline void* SceneUtils_001(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0x664AB0); }
-    } // namespace scenesystem_dll
+    } // namespace scenesystem
 
-    namespace schemasystem_dll {
+    namespace schemasystem {
         inline void* SchemaSystem_001(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0x76800); }
-    } // namespace schemasystem_dll
+    } // namespace schemasystem
 
-    namespace server_dll {
+    namespace server {
         inline void* EmptyWorldService001_Server(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0x1BF7D40); }
         inline void* EntitySubclassUtilsV001(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0x1BA3380); }
         inline void* NavGameTest001(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0x1CA4230); }
@@ -172,44 +172,44 @@ namespace cs2::ifaces {
         inline void* Source2Server001(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0x1C50790); }
         inline void* Source2ServerConfig001(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0x1F06B68); }
         inline void* customnavsystem001(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0x1B84668); }
-    } // namespace server_dll
+    } // namespace server
 
-    namespace soundsystem_dll {
+    namespace soundsystem {
         inline void* SoundOpSystem001(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0x5129B0); }
         inline void* SoundOpSystemEdit001(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0x512870); }
         inline void* SoundSystem001(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0x512360); }
         inline void* VMixEditTool001(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0x594879F); }
-    } // namespace soundsystem_dll
+    } // namespace soundsystem
 
-    namespace steamaudio_dll {
+    namespace steamaudio {
         inline void* SteamAudio001(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0x25E620); }
-    } // namespace steamaudio_dll
+    } // namespace steamaudio
 
-    namespace tier0_dll {
+    namespace tier0 {
         inline void* TestScriptMgr001(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0x39E6F0); }
         inline void* VEngineCvar007(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0x3A93B0); }
         inline void* VProcessUtils002(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0x39E690); }
         inline void* VStringTokenSystem001(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0x3D00B0); }
-    } // namespace tier0_dll
+    } // namespace tier0
 
-    namespace v8system_dll {
+    namespace v8system {
         inline void* Source2V8System001(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0x31730); }
-    } // namespace v8system_dll
+    } // namespace v8system
 
-    namespace vconcomm_dll {
+    namespace vconcomm {
         inline void* VConComm001(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0x395C0); }
-    } // namespace vconcomm_dll
+    } // namespace vconcomm
 
-    namespace vphysics2_dll {
+    namespace vphysics2 {
         inline void* VPhysics2_Interface_001(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0x40DDA0); }
-    } // namespace vphysics2_dll
+    } // namespace vphysics2
 
-    namespace vscript_dll {
+    namespace vscript {
         inline void* VScriptManager010(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0x13B410); }
-    } // namespace vscript_dll
+    } // namespace vscript
 
-    namespace worldrenderer_dll {
+    namespace worldrenderer {
         inline void* WorldRendererMgr001(std::uintptr_t module_base) noexcept { return reinterpret_cast<void*>(module_base + 0x225C60); }
-    } // namespace worldrenderer_dll
+    } // namespace worldrenderer
 
-} // namespace sdk::ifaces
+} // namespace iface

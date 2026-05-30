@@ -369,6 +369,41 @@ pub static FEATURES: &[VerifiedFeature] = &[
         convars: &[],
         hooks: &[],
     },
+
+    // ------------------------------------------------------------------
+    VerifiedFeature {
+        name: "Engine Prediction Simulation",
+        status: "partial",
+        summary: "Per-tick re-execution of Valve's movement pipeline on the \
+                  local pawn to obtain post-prediction flags (FL_ONGROUND, \
+                  FL_DUCKING, etc.) for features that have to branch on the \
+                  next-tick server view — bhop, autostrafe, predicted eye \
+                  pos for ragebot. The engine itself ALREADY runs prediction \
+                  via engine2!RunPrediction (sig `RunPrediction`); the \
+                  cheap path is to hook that and snapshot m_fFlags before / \
+                  after the original call. The simulation-from-scratch path \
+                  (RunCommand + ProcessMovement + CalculateJumpHeight + \
+                  FinishMove + ProcessImpacts) reproduces it for arbitrary \
+                  CUserCmd inputs and is required for ragebot extrapolation. \
+                  Schema offsets confirmed from C_BaseEntity::ScriptDesc in \
+                  IDA: m_fFlags @ 0x3F8, m_vecAbsVelocity @ 0x3FC, \
+                  m_vecVelocity @ 0x430, m_MoveType @ 0x525.",
+        fields: &[
+            VerifiedField { class: "C_BaseEntity",                field: "m_fFlags",            offset: 0x3F8,  ty: "uint32",       note: "FL_ONGROUND=1, FL_DUCKING=2, FL_WATERJUMP=8 — post-prediction view of next-tick state" },
+            VerifiedField { class: "C_BaseEntity",                field: "m_vecAbsVelocity",    offset: 0x3FC,  ty: "Vector3",      note: "absolute world velocity, post-prediction" },
+            VerifiedField { class: "C_BaseEntity",                field: "m_vecVelocity",       offset: 0x430,  ty: "Vector3",      note: "local velocity, net-replicated" },
+            VerifiedField { class: "C_BaseEntity",                field: "m_MoveType",          offset: 0x525,  ty: "MoveType_t",   note: "2=WALK 4=FLYGRAVITY — only these allow normal prediction" },
+            VerifiedField { class: "C_BasePlayerPawn",            field: "m_pMovementServices", offset: 0x1220, ty: "CPlayer_MovementServices*", note: "→ ProcessMovement / SetupMove / FinishMove receiver" },
+            VerifiedField { class: "CCSPlayerController",         field: "m_hPawn",             offset: 0x6BC,  ty: "CHandle",      note: "controller→pawn handle for local-player resolution" },
+            VerifiedField { class: "CCSPlayerController",         field: "m_nTickBase",         offset: 0x6B8,  ty: "uint32",      note: "absolute server tick — clock the simulation against this" },
+            VerifiedField { class: "CCSPlayerController",         field: "m_bPawnIsAlive",      offset: 0x789,  ty: "bool",         note: "guard: do not run prediction on dead pawn" },
+        ],
+        convars: &[],
+        hooks: &[
+            VerifiedHook { function: "CNetworkGameClient::RunPrediction", module: "engine2.dll", signature: "RunPrediction",      action: "Bracket original: capture pawn->m_fFlags + velocity before, then after. Diff exposes what engine predicted this tick." },
+            VerifiedHook { function: "CCSGOInput::CreateMovePrePrediction", module: "client.dll", signature: "create_move_v2",   action: "Per-tick driver — refresh local pawn/controller ptrs, optionally drive manual RunSimulation here for ragebot extrapolation." },
+        ],
+    },
 ];
 
 // ----------------------------------------------------------------------
@@ -496,7 +531,7 @@ pub fn render_hpp(build_number: Option<u32>) -> String {
     out.push_str("// =====================================================================\n\n");
     out.push_str("#pragma once\n\n");
     out.push_str("#include <cstdint>\n\n");
-    out.push_str("namespace cs2::verified\n{\n");
+    out.push_str("namespace verified\n{\n");
 
     for f in FEATURES.iter() {
         let ns = sanitize_ident(f.name);
@@ -525,7 +560,7 @@ pub fn render_hpp(build_number: Option<u32>) -> String {
         out.push_str("    }\n\n");
     }
 
-    out.push_str("} // namespace cs2::verified\n");
+    out.push_str("} // namespace verified\n");
     out
 }
 

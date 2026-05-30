@@ -13,7 +13,7 @@
 
 #include <cstdint>
 
-namespace cs2::verified
+namespace verified
 {
     // ----- Entity tracking (OnAddEntity / OnRemoveEntity) [working] -----
     namespace Entity_tracking__OnAddEntity___OnRemoveEntity_
@@ -128,4 +128,18 @@ namespace cs2::verified
         constexpr const char* status = "placeholder";
     }
 
-} // namespace cs2::verified
+    // ----- Engine Prediction Simulation [partial] -----
+    namespace Engine_Prediction_Simulation
+    {
+        constexpr const char* status = "partial";
+        constexpr std::ptrdiff_t C_BaseEntity__m_fFlags = 0x3F8; // uint32 — FL_ONGROUND=1, FL_DUCKING=2, FL_WATERJUMP=8 — post-prediction view of next-tick state
+        constexpr std::ptrdiff_t C_BaseEntity__m_vecAbsVelocity = 0x3FC; // Vector3 — absolute world velocity, post-prediction
+        constexpr std::ptrdiff_t C_BaseEntity__m_vecVelocity = 0x430; // Vector3 — local velocity, net-replicated
+        constexpr std::ptrdiff_t C_BaseEntity__m_MoveType = 0x525; // MoveType_t — 2=WALK 4=FLYGRAVITY — only these allow normal prediction
+        constexpr std::ptrdiff_t C_BasePlayerPawn__m_pMovementServices = 0x1220; // CPlayer_MovementServices* — → ProcessMovement / SetupMove / FinishMove receiver
+        constexpr std::ptrdiff_t CCSPlayerController__m_hPawn = 0x6BC; // CHandle — controller→pawn handle for local-player resolution
+        constexpr std::ptrdiff_t CCSPlayerController__m_nTickBase = 0x6B8; // uint32 — absolute server tick — clock the simulation against this
+        constexpr std::ptrdiff_t CCSPlayerController__m_bPawnIsAlive = 0x789; // bool — guard: do not run prediction on dead pawn
+    }
+
+} // namespace verified

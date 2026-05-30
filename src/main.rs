@@ -18,8 +18,7 @@
 //             SIGNATURES.md       (human-readable table)
 //             diff.json           (delta vs. previous session, when found)
 //         sdk/
-//             cs2sdk.hpp                       single-include amalgamation
-//             cs2sdk.rs                        Rust amalgamation module
+//             cs2.hpp                          single-include amalgamation
 //             cs2sdk_macros.hpp                SCHEMA_FIELD macro family
 //             <module>.hpp                     typed schema classes per module
 //             netvars.(json|hpp|cs)            split networked-field offsets
@@ -165,13 +164,7 @@ fn main() -> Result<()> {
                     cc, ec, result.schemas.len()
                 ));
 
-                let out = Output::new(
-                    &args.file_types,
-                    args.indent_size,
-                    &sdk_dir,
-                    &result,
-                )?;
-                out.dump_all(&mut process)?;
+                let out = Output::new(&sdk_dir, &result)?;
 
                 build_number = result
                     .offsets
@@ -364,6 +357,24 @@ fn main() -> Result<()> {
                 labelled
             ));
         }
+    }
+
+    // --- stage 4: protobuf message layouts (offsets + has-bits from the
+    // libprotobuf reflection tables — usercmd / netmessages etc.).
+    // Run LAST: this pass `read_raw`s several large modules in full, which
+    // degrades memflow's later reads — doing it after the signature pass keeps
+    // signatures reading a clean process.
+    let protobufs = analysis::protobufs(&mut process).unwrap_or_default();
+    if !protobufs.is_empty() {
+        let hpp = output::protobufs::render_hpp(&protobufs, build_number);
+        let json = output::protobufs::render_json(&protobufs);
+        let _ = fs::write(sdk_dir.join("protobufs.hpp"), hpp);
+        let _ = fs::write(sdk_dir.join("protobufs.json"), json);
+        let total: usize = protobufs.values().map(|m| m.len()).sum();
+        ui::ok(&format!(
+            "protobufs emitted (protobufs.{{json,hpp}}) — {} messages",
+            total
+        ));
     }
 
     // --- manifest ----------------------------------------------------------
