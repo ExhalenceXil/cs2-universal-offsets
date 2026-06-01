@@ -20,6 +20,7 @@ mod formatter;
 pub mod amalgamation;
 pub mod entity_system;
 pub mod ident;
+pub mod interface_classes;
 pub mod interfaces_sdk;
 pub mod netvars;
 pub mod protobufs;
@@ -245,6 +246,12 @@ impl<'a> Output<'a> {
             macros.push_str("}\n\n");
         }
 
+        // Auto: forward-declare every type the runtime (non-editor) schemas
+        // reference but that isn't defined in any included header. SCHEMA_FIELD
+        // accessors only reinterpret_cast, so an incomplete type is enough —
+        // this keeps the amalgamation self-compiling with zero hand maintenance.
+        emit_auto_forward_decls(&mut macros, &module_data, &module_ns_set);
+
         fs::write(macros_path, macros)?;
 
         // 2. per-module SDK class headers → schemas/. Skip empty modules
@@ -272,9 +279,12 @@ impl<'a> Output<'a> {
             interfaces_sdk::render_hpp(&self.result.interfaces, build_number),
         )?;
 
-        // 4b. entity system helpers
+        // 4b. entity system helpers — an implementation header (real code that
+        //     uses the SDK), kept under impl/ to separate it from pure SDK data.
+        let impl_dir = self.out_dir.join("impl");
+        fs::create_dir_all(&impl_dir)?;
         fs::write(
-            self.out_dir.join("entity_system.hpp"),
+            impl_dir.join("entity_system.hpp"),
             entity_system::render_hpp(&self.result.offsets, build_number, &self.result.schemas),
         )?;
 
@@ -313,6 +323,179 @@ impl<'a> Output<'a> {
         Ok(())
     }
 
+}
+
+/// Modules excluded from the runtime amalgamation (editor/tool only). Kept in
+/// sync with `amalgamation::EDITOR_MODULES` — we don't scan them for the
+/// forward-decl pass since their schemas aren't compiled by runtime consumers.
+const EDITOR_MODULE_STEMS: &[&str] = &[
+    "assetbrowser_dll",
+    "assetpreview_dll",
+    "assetrename_dll",
+    "met_dll",
+    "modtools_dll",
+    "resourcecompiler_dll",
+];
+
+fn is_builtin_type(t: &str) -> bool {
+    matches!(
+        t,
+        "bool" | "char" | "double" | "float" | "void" | "int" | "short" | "long"
+            | "unsigned" | "signed" | "wchar_t" | "float32" | "fltx4" | "char8_t"
+            | "char16_t" | "char32_t" | "size_t" | "std" | "const" | "volatile"
+    )
+}
+
+/// Collect identifiers introduced by a definition keyword (`class Foo`,
+/// `using Foo =`, `typedef ... Foo;`, …) into `set`.
+fn collect_defined(text: &str, set: &mut BTreeSet<String>) {
+    for kw in ["class ", "struct ", "enum class ", "enum ", "using ", "typedef "] {
+        let mut from = 0;
+        while let Some(p) = text[from..].find(kw) {
+            let mut i = from + p + kw.len();
+            let b = text.as_bytes();
+            while i < text.len() && (b[i] as char).is_ascii_whitespace() {
+                i += 1;
+            }
+            let start = i;
+            while i < text.len() {
+                let c = b[i] as char;
+                if c.is_ascii_alphanumeric() || c == '_' { i += 1; } else { break; }
+            }
+            if i > start {
+                set.insert(text[start..i].to_string());
+            }
+            from = from + p + kw.len();
+        }
+    }
+}
+
+/// Auto-detect and forward-declare every type referenced by the runtime
+/// schemas' `SCHEMA_FIELD(...)` type arguments that isn't defined anywhere
+/// they include. Handles plain, templated (`Foo<...>`) and cross-module
+/// qualified (`ns::Foo`) names. Qualified names whose namespace is a real
+/// emitted schema module are left to the existing cross-module pass.
+fn emit_auto_forward_decls(
+    macros: &mut String,
+    module_data: &[(String, String)],
+    module_ns_set: &BTreeSet<String>,
+) {
+    let is_editor = |fname: &str| EDITOR_MODULE_STEMS.iter().any(|e| fname.starts_with(e));
+
+    // 1. Everything defined in the compiled set (runtime bodies + macros header).
+    let mut defined = BTreeSet::<String>::new();
+    collect_defined(macros, &mut defined);
+    for (fname, body) in module_data {
+        if is_editor(fname) { continue; }
+        collect_defined(body, &mut defined);
+    }
+
+    // 2. Walk every SCHEMA_FIELD type argument and bucket undefined references.
+    let mut plain = BTreeSet::<String>::new();
+    let mut templated = BTreeSet::<String>::new();
+    let mut qual: BTreeMap<String, BTreeMap<String, bool>> = BTreeMap::new();
+
+    for (fname, body) in module_data {
+        if is_editor(fname) { continue; }
+        let bytes = body.as_bytes();
+        let mut from = 0;
+        const TAG: &str = "SCHEMA_FIELD(";
+        while let Some(p) = body[from..].find(TAG) {
+            let mut i = from + p + TAG.len();
+            // Capture the type argument up to the top-level comma.
+            let tstart = i;
+            let mut depth = 0i32;
+            while i < body.len() {
+                match bytes[i] as char {
+                    '<' => depth += 1,
+                    '>' => depth -= 1,
+                    ',' if depth <= 0 => break,
+                    _ => {}
+                }
+                i += 1;
+            }
+            let targ = &body[tstart..i];
+            extract_type_idents(targ, &defined, module_ns_set, &mut plain, &mut templated, &mut qual);
+            from = from + p + TAG.len();
+        }
+    }
+    for t in templated.iter() {
+        plain.remove(t);
+    }
+
+    if plain.is_empty() && templated.is_empty() && qual.is_empty() {
+        return;
+    }
+
+    macros.push_str("// Auto-generated: forward declarations for types the runtime schemas\n");
+    macros.push_str("// reference but that aren't defined in any included header.\n");
+    for t in &templated {
+        macros.push_str(&format!("template <class...> class {};\n", t));
+    }
+    for t in &plain {
+        macros.push_str(&format!("class {};\n", t));
+    }
+    for (ns, names) in &qual {
+        macros.push_str(&format!("namespace {} {{ ", ns));
+        for (name, is_t) in names {
+            if *is_t {
+                macros.push_str(&format!("template <class...> class {}; ", name));
+            } else {
+                macros.push_str(&format!("class {}; ", name));
+            }
+        }
+        macros.push_str("}\n");
+    }
+    macros.push('\n');
+}
+
+/// Pull every type identifier out of a `SCHEMA_FIELD` type argument (including
+/// nested template arguments) and bucket the undefined ones.
+fn extract_type_idents(
+    arg: &str,
+    defined: &BTreeSet<String>,
+    module_ns_set: &BTreeSet<String>,
+    plain: &mut BTreeSet<String>,
+    templated: &mut BTreeSet<String>,
+    qual: &mut BTreeMap<String, BTreeMap<String, bool>>,
+) {
+    let bytes = arg.as_bytes();
+    let mut i = 0;
+    while i < arg.len() {
+        let c = bytes[i] as char;
+        if c.is_ascii_alphabetic() || c == '_' || c == ':' {
+            let start = i;
+            while i < arg.len() {
+                let d = bytes[i] as char;
+                if d.is_ascii_alphanumeric() || d == '_' || d == ':' { i += 1; } else { break; }
+            }
+            let tok = arg[start..i].trim_matches(':');
+            if tok.is_empty() {
+                continue;
+            }
+            // Template usage = next non-space char is '<'.
+            let mut j = i;
+            while j < arg.len() && (bytes[j] as char).is_ascii_whitespace() {
+                j += 1;
+            }
+            let is_t = j < arg.len() && bytes[j] as char == '<';
+
+            if let Some((ns, name)) = tok.rsplit_once("::") {
+                let ns = ns.split("::").next().unwrap_or(ns);
+                // Qualified into a real schema module → handled elsewhere; into
+                // an unknown namespace (e.g. rendersystemdx11) → declare it here.
+                if !is_builtin_type(ns) && !module_ns_set.contains(ns) && !defined.contains(name) {
+                    let e = qual.entry(ns.to_string()).or_default();
+                    let v = e.entry(name.to_string()).or_insert(false);
+                    *v = *v || is_t;
+                }
+            } else if !is_builtin_type(tok) && !defined.contains(tok) {
+                if is_t { templated.insert(tok.to_string()); } else { plain.insert(tok.to_string()); }
+            }
+        } else {
+            i += 1;
+        }
+    }
 }
 
 /// Free-standing emitter for the `buttons` table.

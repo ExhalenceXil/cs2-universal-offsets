@@ -321,10 +321,50 @@ fn main() -> Result<()> {
                 .as_ref()
                 .map(|r| output::vtables::name_oracle_from_signatures(&r.hits))
                 .unwrap_or_default();
+            // vtables.hpp is no longer emitted: the slot indices now live inside
+            // the callable wrappers (interface_classes.hpp). vtables.json is kept
+            // as the data source for offline wrapper regeneration.
             let json = output::vtables::render_json(&result.vtables, &oracle);
-            let hpp  = output::vtables::render_hpp(&result.vtables, &oracle, build_number);
             let _ = fs::write(out_dir.join("vtables.json"), json);
-            let _ = fs::write(out_dir.join("vtables.hpp"),  hpp);
+
+            // Callable interface wrappers (ifc::<module>::<Class>). Built from
+            // the same vtable map + signature oracle so slot names line up with
+            // vtables.hpp.
+            let oracle_ref = &oracle;
+            let classes: Vec<output::interface_classes::IfaceClass> = result
+                .vtables
+                .iter()
+                .flat_map(|(module, ifaces)| {
+                    ifaces.iter().map(move |(iface, info)| {
+                        let methods = info
+                            .methods
+                            .iter()
+                            .enumerate()
+                            .map(|(idx, m)| {
+                                let name = oracle_ref
+                                    .get(&(m.module.clone(), m.rva))
+                                    .cloned()
+                                    .unwrap_or_else(|| format!("method_{idx}"));
+                                output::interface_classes::Method {
+                                    index: idx,
+                                    symbol: output::ident::sanitize_ident(&name),
+                                }
+                            })
+                            .collect();
+                        output::interface_classes::IfaceClass {
+                            module: module.clone(),
+                            iface_name: iface.clone(),
+                            rtti_class: info.rtti_class.clone(),
+                            methods,
+                            manual: false,
+                        }
+                    })
+                })
+                .collect();
+            let _ = fs::write(
+                out_dir.join("interface_classes.hpp"),
+                output::interface_classes::render_hpp(&classes, build_number),
+            );
             let labelled = result
                 .vtables
                 .values()

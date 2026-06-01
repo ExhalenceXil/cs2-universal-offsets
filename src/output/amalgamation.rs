@@ -38,7 +38,25 @@ pub fn render_hpp(sdk_modules: &[String], build_number: Option<u32>) -> String {
     s.push_str("#include \"macros.hpp\"\n\n");
     s.push_str("// Per-module schema classes\n");
 
-    let mut ordered_modules: Vec<String> = sdk_modules.to_vec();
+    // Editor/tool-only modules a runtime consumer (cheat) never needs. Their
+    // schemas pull in large editor-only type graphs (and Windows-macro enum
+    // name collisions like RELATIVE/ABSOLUTE) that don't belong in the runtime
+    // amalgamation, so they're omitted here. The per-module headers are still
+    // written to schemas/ for anyone who wants them directly.
+    const EDITOR_MODULES: &[&str] = &[
+        "assetbrowser_dll",
+        "assetpreview_dll",
+        "assetrename_dll",
+        "met_dll",
+        "modtools_dll",
+        "resourcecompiler_dll",
+    ];
+
+    let mut ordered_modules: Vec<String> = sdk_modules
+        .iter()
+        .filter(|m| !EDITOR_MODULES.contains(&m.as_str()))
+        .cloned()
+        .collect();
     // client must precede server (server uses client-owned bases).
     if ordered_modules.contains(&"server_dll".to_string())
         && ordered_modules.contains(&"client_dll".to_string())
@@ -55,12 +73,14 @@ pub fn render_hpp(sdk_modules: &[String], build_number: Option<u32>) -> String {
         s.push_str(&format!("#include \"schemas/{}.hpp\"\n", m));
     }
     s.push('\n');
-    s.push_str("#include \"entity_system.hpp\"\n");
     s.push_str("#include \"offsets.hpp\"\n");
     s.push_str("#include \"interfaces.hpp\"\n");
-    s.push_str("#include \"vtables.hpp\"\n");
+    s.push_str("#include \"interface_classes.hpp\"\n");
     s.push_str("#include \"buttons.hpp\"\n");
     s.push_str("#include \"protobufs.hpp\"\n");
     s.push_str("#include \"signatures.hpp\"\n");
+    s.push('\n');
+    s.push_str("// Implementation helpers (use the SDK above) — separated under impl/.\n");
+    s.push_str("#include \"impl/entity_system.hpp\"\n");
     s
 }

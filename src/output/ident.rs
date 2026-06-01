@@ -45,3 +45,24 @@ pub fn type_ident(input: &str) -> String {
     }
     s
 }
+
+/// Turn an arbitrary symbol (e.g. a signature name like `Foo::Bar`) into a
+/// usable C++/C# identifier by replacing every non-`[A-Za-z0-9_]` run with
+/// `_`. Unlike [`type_ident`] this keeps the *whole* name (so `Foo::Bar`
+/// becomes `Foo__Bar` rather than being truncated at `::`). Shared by the
+/// vtable and interface-class emitters so a slot's index symbol and the
+/// wrapper that references it always spell the same identifier.
+pub fn sanitize_ident(raw: &str) -> String {
+    let mut s = String::with_capacity(raw.len());
+    for c in raw.chars() {
+        if c.is_ascii_alphanumeric() || c == '_' {
+            s.push(c);
+        } else {
+            s.push('_');
+        }
+    }
+    if s.chars().next().map(|c| c.is_ascii_digit()).unwrap_or(false) {
+        s.insert(0, '_');
+    }
+    s
+}

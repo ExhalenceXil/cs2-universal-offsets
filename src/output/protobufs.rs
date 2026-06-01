@@ -6,7 +6,13 @@
 //! construction, plus `static_assert`s on `sizeof`/`offsetof`. Cast a live
 //! message pointer to it and read/write fields directly; has-bit i is tested as
 //! `*(uint32_t*)((char*)msg + kHasBits) & (1u << i)`.
+//!
+//! Non-scalar fields are typed (not raw byte slots): singular messages are
+//! `Type*`, strings/bytes are `pb::string_t*`, and repeated fields are
+//! `pb::RepeatedField<T>` / `pb::RepeatedPtrField<T>` — while the explicit
+//! padding + `static_assert`s keep every offset byte-exact.
 
+use std::collections::{BTreeMap, BTreeSet};
 use std::fmt::Write;
 
 use crate::analysis::{ProtoField, ProtoMessage, ProtobufMap};
@@ -49,8 +55,43 @@ fn sanitize(raw: &str) -> String {
     s
 }
 
-/// Scalar C++ type + byte size for a singular (non-repeated) field, else None
-/// (string/bytes/message/repeated → emitted as a raw byte slot).
+/// `flattened message name -> module namespace`, so a field's proto type_name
+/// can be resolved to the emitted `pb::<module>::<Name>` struct.
+struct Registry {
+    by_mod: BTreeMap<String, BTreeSet<String>>,
+    global: BTreeMap<String, String>,
+}
+
+impl Registry {
+    fn build(map: &ProtobufMap) -> Self {
+        let mut by_mod: BTreeMap<String, BTreeSet<String>> = BTreeMap::new();
+        let mut global: BTreeMap<String, String> = BTreeMap::new();
+        for (module, msgs) in map {
+            let ns = module_ns(module);
+            for m in msgs {
+                if m.size == 0 {
+                    continue; // not emitted → don't resolve pointers to it
+                }
+                let flat = sanitize(&m.name);
+                by_mod.entry(ns.clone()).or_default().insert(flat.clone());
+                global.entry(flat).or_insert_with(|| ns.clone());
+            }
+        }
+        Registry { by_mod, global }
+    }
+
+    /// Resolve a proto type_name (`.pkg.Outer.Inner`) to `pb::<mod>::<Name>`,
+    /// preferring the referencing message's own module. `None` if unknown.
+    fn resolve(&self, type_name: &str, cur_ns: &str) -> Option<String> {
+        let flat = sanitize(&type_name.trim_start_matches('.').replace('.', "_"));
+        if self.by_mod.get(cur_ns).is_some_and(|s| s.contains(&flat)) {
+            return Some(format!("pb::{cur_ns}::{flat}"));
+        }
+        self.global.get(&flat).map(|m| format!("pb::{m}::{flat}"))
+    }
+}
+
+/// Scalar C++ type + byte size for a singular (non-repeated) field, else None.
 fn scalar(f: &ProtoField) -> Option<(&'static str, u32)> {
     if f.label == 3 {
         return None; // repeated
@@ -68,28 +109,31 @@ fn scalar(f: &ProtoField) -> Option<(&'static str, u32)> {
     })
 }
 
+/// Element C++ type for a repeated field's `RepeatedField`/`RepeatedPtrField`.
+/// Returns (type, uses_ptr_field) — message/string use RepeatedPtrField.
+fn repeated_elem(f: &ProtoField, reg: &Registry, cur_ns: &str) -> (String, bool) {
+    match f.ty {
+        1 => ("double".into(), false),
+        2 => ("float".into(), false),
+        3 | 16 | 18 => ("int64_t".into(), false),
+        4 | 6 => ("uint64_t".into(), false),
+        5 | 15 | 17 => ("int32_t".into(), false),
+        7 | 13 => ("uint32_t".into(), false),
+        8 => ("bool".into(), false),
+        14 => ("int32_t".into(), false), // enum
+        9 | 12 => ("pb::string_t".into(), true), // string/bytes
+        10 | 11 => (reg.resolve(&f.type_name, cur_ns).unwrap_or_else(|| "void".into()), true),
+        _ => ("void".into(), true),
+    }
+}
+
 /// Human-readable proto type for the trailing comment.
 fn proto_ty(f: &ProtoField) -> String {
     let base = match f.ty {
-        1 => "double",
-        2 => "float",
-        3 => "int64",
-        4 => "uint64",
-        5 => "int32",
-        6 => "fixed64",
-        7 => "fixed32",
-        8 => "bool",
-        9 => "string",
-        10 => "group",
-        11 => "message",
-        12 => "bytes",
-        13 => "uint32",
-        14 => "enum",
-        15 => "sfixed32",
-        16 => "sfixed64",
-        17 => "sint32",
-        18 => "sint64",
-        _ => "?",
+        1 => "double", 2 => "float", 3 => "int64", 4 => "uint64", 5 => "int32",
+        6 => "fixed64", 7 => "fixed32", 8 => "bool", 9 => "string", 10 => "group",
+        11 => "message", 12 => "bytes", 13 => "uint32", 14 => "enum", 15 => "sfixed32",
+        16 => "sfixed64", 17 => "sint32", 18 => "sint64", _ => "?",
     };
     let rep = if f.label == 3 { "repeated " } else { "" };
     let tn = if f.type_name.is_empty() {
@@ -100,7 +144,33 @@ fn proto_ty(f: &ProtoField) -> String {
     format!("{rep}{base}{tn}")
 }
 
-fn struct_block(m: &ProtoMessage) -> String {
+/// The C++ member declaration (type only, no name) and its byte size for a
+/// field, given the slot available before the next field. `None` → emit a raw
+/// byte slot (slot too small for the natural type).
+fn member_type(f: &ProtoField, reg: &Registry, cur_ns: &str, slot: u32) -> Option<(String, u32)> {
+    if f.label == 3 {
+        // repeated: RepeatedField<T> (scalar) / RepeatedPtrField<T> (msg/string), 0x18.
+        if slot >= 0x18 {
+            let (elem, ptr) = repeated_elem(f, reg, cur_ns);
+            let cont = if ptr { "RepeatedPtrField" } else { "RepeatedField" };
+            return Some((format!("pb::{cont}<{elem}>"), 0x18));
+        }
+        return None;
+    }
+    if let Some((ty, sz)) = scalar(f) {
+        return (sz <= slot).then(|| (ty.to_string(), sz));
+    }
+    match f.ty {
+        9 | 12 => (slot >= 8).then(|| ("pb::string_t*".to_string(), 8)), // string/bytes
+        10 | 11 => (slot >= 8).then(|| {
+            let t = reg.resolve(&f.type_name, cur_ns).unwrap_or_else(|| "void".into());
+            (format!("{t}*"), 8)
+        }),
+        _ => None,
+    }
+}
+
+fn struct_block(m: &ProtoMessage, cur_ns: &str, reg: &Registry) -> String {
     let name = sanitize(&m.name);
     let size = m.size;
     let mut s = String::new();
@@ -110,8 +180,8 @@ fn struct_block(m: &ProtoMessage) -> String {
         .map(|o| format!("_has_bits_ @ {o:#x}"))
         .unwrap_or_else(|| "no _has_bits_".to_string());
 
-    // Fields placed in memory order; drop ones at/after the object end and
-    // collapse oneof members that share an offset (keep the first).
+    // Fields in memory order; drop ones at/after object end, collapse oneof
+    // members that share an offset (keep the first).
     let mut fields: Vec<&ProtoField> = m.fields.iter().filter(|f| f.offset < size).collect();
     fields.sort_by_key(|f| f.offset);
     fields.dedup_by_key(|f| f.offset);
@@ -130,7 +200,7 @@ fn struct_block(m: &ProtoMessage) -> String {
         for (i, f) in fields.iter().enumerate() {
             let off = f.offset;
             if off < cursor {
-                continue; // overlap guard (shouldn't happen post-dedup)
+                continue;
             }
             if off > cursor {
                 writeln!(s, "    uint8_t _pad_{:x}[{:#x}];", cursor, off - cursor).ok();
@@ -146,27 +216,23 @@ fn struct_block(m: &ProtoMessage) -> String {
                 .has_bit
                 .map(|b| format!("has-bit {b}"))
                 .unwrap_or_else(|| "no has-bit".to_string());
-            match scalar(f) {
-                Some((ty, sz)) if sz <= slot => {
+            match member_type(f, reg, cur_ns, slot) {
+                Some((ty, sz)) => {
                     writeln!(s, "    {ty} {fname}; // #{} {}, {}", f.number, proto_ty(f), hbit).ok();
                     if slot > sz {
                         writeln!(s, "    uint8_t _pad_{:x}[{:#x}];", off + sz, slot - sz).ok();
                     }
                 }
-                _ => {
+                None => {
                     writeln!(
                         s,
                         "    uint8_t {fname}[{slot:#x}]; // #{} {}, {}",
-                        f.number,
-                        proto_ty(f),
-                        hbit
+                        f.number, proto_ty(f), hbit
                     )
                     .ok();
                 }
             }
-            asserts.push(format!(
-                "static_assert(offsetof({name}, {fname}) == {off:#x});"
-            ));
+            asserts.push(format!("static_assert(offsetof({name}, {fname}) == {off:#x});"));
             cursor = off + slot;
         }
         if cursor < size {
@@ -188,7 +254,21 @@ fn struct_block(m: &ProtoMessage) -> String {
     s
 }
 
+/// libprotobuf container shims (x64 layout) used by typed repeated fields.
+fn base_decls() -> &'static str {
+    "namespace pb {\n\
+    \x20   // std::string the message owns (ArenaStringPtr points at one). Opaque.\n\
+    \x20   struct string_t;\n\
+    \x20   // libprotobuf RepeatedField<T> / RepeatedPtrField<T> (x64 = 0x18).\n\
+    \x20   template <class T> struct RepeatedField    { void* arena; int current_size; int total_size; T* elements; };\n\
+    \x20   template <class T> struct RepeatedPtrField { void* arena; int current_size; int total_size; void* rep; };\n\
+    \x20   static_assert(sizeof(RepeatedField<int>) == 0x18 && sizeof(RepeatedPtrField<int>) == 0x18);\n\
+    } // namespace pb\n\n"
+}
+
 pub fn render_hpp(map: &ProtobufMap, build_number: Option<u32>) -> String {
+    let reg = Registry::build(map);
+
     let mut s = String::new();
     s.push_str("// Generated by cs2-sdk - https://cs2-sdk.com\n");
     s.push_str("// Real protobuf message structs (offsets recovered from libprotobuf\n");
@@ -199,20 +279,47 @@ pub fn render_hpp(map: &ProtobufMap, build_number: Option<u32>) -> String {
     if let Some(bn) = build_number {
         writeln!(s, "namespace pb {{ inline constexpr std::uint32_t CS2_BUILD = {bn}; }}\n").ok();
     }
+    s.push_str(base_decls());
+
+    // Forward-declare every message struct so cross-module / forward field
+    // pointers resolve regardless of emission order.
     for (module, messages) in map {
         if messages.is_empty() {
             continue;
         }
-        writeln!(s, "namespace pb::{} {{", module_ns(module)).ok();
-        let mut seen = std::collections::BTreeSet::new();
+        let ns = module_ns(module);
+        let mut seen = BTreeSet::new();
+        let mut fwd = String::new();
         for m in messages {
-            // Same-named messages compiled from >1 .proto into one module: first wins.
+            if m.size == 0 {
+                continue;
+            }
+            let n = sanitize(&m.name);
+            if seen.insert(n.clone()) {
+                writeln!(fwd, "    struct {n};").ok();
+            }
+        }
+        if !fwd.is_empty() {
+            writeln!(s, "namespace pb::{ns} {{").ok();
+            s.push_str(&fwd);
+            writeln!(s, "}} // namespace pb::{ns}\n").ok();
+        }
+    }
+
+    for (module, messages) in map {
+        if messages.is_empty() {
+            continue;
+        }
+        let ns = module_ns(module);
+        writeln!(s, "namespace pb::{} {{", ns).ok();
+        let mut seen = BTreeSet::new();
+        for m in messages {
             if m.size == 0 || !seen.insert(sanitize(&m.name)) {
                 continue;
             }
-            s.push_str(&struct_block(m));
+            s.push_str(&struct_block(m, &ns, &reg));
         }
-        writeln!(s, "}} // namespace pb::{}\n", module_ns(module)).ok();
+        writeln!(s, "}} // namespace pb::{}\n", ns).ok();
     }
     s
 }
