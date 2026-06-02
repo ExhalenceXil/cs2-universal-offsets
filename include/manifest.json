@@ -1,0 +1,32 @@
+{
+  "build_number": 14165,
+  "generated_at": "2026-06-02T15:06:44.435338500+01:00",
+  "modules": [
+    "client.dll",
+    "engine2.dll",
+    "server.dll",
+    "schemasystem.dll",
+    "animationsystem.dll",
+    "materialsystem2.dll",
+    "particles.dll",
+    "scenesystem.dll",
+    "soundsystem.dll",
+    "tier0.dll",
+    "vphysics2.dll",
+    "networksystem.dll",
+    "host.dll",
+    "panorama.dll",
+    "rendersystemdx11.dll",
+    "resourcesystem.dll",
+    "pulse_system.dll",
+    "inputsystem.dll",
+    "filesystem_stdio.dll"
+  ],
+  "offsets_ok": true,
+  "process": "cs2.exe",
+  "signature_counts": {
+    "found": 503,
+    "total": 530
+  },
+  "signatures_ok": true
+}

@@ -55,12 +55,31 @@ pub static CS2_SIGNATURES: &[Signature] = &[
         prototype: "__int64 __fastcall sub_180A2DB50(__int64 a1, __int64 a2)",
     },
     Signature {
-        // NOTE: DEAD on build 14160 (0 hits, dumper-verified). Pattern/string
-        // is stale on current CS2 retail. Kept so the dumper diff still surfaces
-        // 0/N hits as a regression signal if a future build resurrects it.
+        // Revived 2026-06-02: replaced the stale (build-14160-dead) needle with
+        // the cspatterns.dev pattern (verified 31/05/2026).
         name: "CCSGOViewAdvice::OverrideView",
         module: "client.dll",
-        needle: "48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 57 41 56 41 57 48 83 EC ? 48 8B FA E8",
+        needle: "40 57 48 83 EC ? 48 8B FA E8 ? ? ? ? BA",
+        resolve: NONE,
+        extra_off: 0,
+        prototype: "",
+    },
+    Signature {
+        // From cspatterns.dev (verified 31/05/2026). Returns the player's model
+        // name; resolves via riprel/calls inside the function body.
+        name: "GetPlayerModel",
+        module: "client.dll",
+        needle: "48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC ? 48 8B CA FF 15 ? ? ? ? 48 8B 1D ? ? ? ? 48 8B F0 8B 5B ? 85 DB 74 ? 33 FF 0F 1F 44 00 ? 8B CF E8 ? ? ? ? 48 85 C0 74 ? 8B 88 ? ? ? ? C1 E9 ? F6 C1 ? 74 ? 48 63 C7 EB ? 48 8B C8 E8 ? ? ? ? 48 3B C6 74 ? FF C7 3B FB 75 ? BF ? ? ? ? 8B CF E8 ? ? ? ? 48 8B D8 48 85 C0 74 ? 48 8B C8 E8 ? ? ? ? 48 85 C0 48 0F 45 D8 48 8B CB E8 ? ? ? ? 0F B7 D8 E8 ? ? ? ? 8B D3 45 33 C0 48 8B C8 E8 ? ? ? ? 48 8B D8",
+        resolve: NONE,
+        extra_off: 0,
+        prototype: "",
+    },
+    Signature {
+        // From cspatterns.dev (verified 31/05/2026). Returns the current map's
+        // BSP name (vtable-dispatched getter).
+        name: "GetMapBspName",
+        module: "client.dll",
+        needle: "48 8B 0D ? ? ? ? ? ? ? 48 FF A0 ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? 48 89 5C 24 ? 57",
         resolve: NONE,
         extra_off: 0,
         prototype: "",

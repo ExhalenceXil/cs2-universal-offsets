@@ -1,0 +1,9 @@
+{
+  "CreateMove": {
+    "steps": [
+      "Go to your CS2 installation folder (steamapps\\common\\Counter-Strike Global Offensive) and go to game\\csgo\\bin\\win64 then open client.dll in IDA.",
+      "Click on View->Open subviews->Strings then search for \"cl: CreateMove clamped invalid attack history index %d in frame h\" and go to first xref then press TAB.",
+      "This is our CreateMove function."
+    ]
+  }
+}
