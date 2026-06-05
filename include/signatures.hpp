@@ -79,6 +79,7 @@ namespace sig {
         inline constexpr std::string_view DrawScopeOverlay = "48 8B C4 53 57 48 83 EC 68 48 8B FA 44 0F 29 40";
         inline constexpr std::string_view DrawSmokeVertex = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 57 41 56 41 57 48 83 EC 40 48 8B 9C 24 88 00 00 00 4D 8B F8 48 8B FA 48 8B";
         inline constexpr std::string_view DrawTeamIntro = "48 83 EC 28 45 0F B6 08 44 38 89 04 0F 00 00 74";
+        inline constexpr std::string_view DrawViewPunch2 = "48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 48 89 7C 24 ? 41 56 48 83 EC ? 49 8B E9 49 8B F8";
         inline constexpr std::string_view EmitPanoramaSound = "40 53 48 81 EC B0 00 00 00 0F 10 02 48 8B 05 45";
         inline constexpr std::string_view EmitSoundByHandle = "40 53 48 83 EC 30 4C 89 4C 24 20 48 8B D9 45 8B";
         inline constexpr std::string_view EntityList_ptr = "48 89 0D ? ? ? ? E9 ? ? ? ? CC";
@@ -128,11 +129,9 @@ namespace sig {
         inline constexpr std::string_view GetLocalControllerById = "48 83 EC 28 83 F9 FF 75 17 48 8B 0D ? ? ? ? 48 8D 54 24 30 48 8B 01 FF 90 08 03 00 00 8B 08 48 63 C1 4C 8D 05 06 BD";
         inline constexpr std::string_view GetLocalPawn = "48 83 EC 28 83 F9 FF 75 17 48 8B 0D ? ? ? ? 48 8D 54 24 30 48 8B 01 FF 90 08 03 00 00 8B 08 48 63 C1 4C 8D 05 06 BD";
         inline constexpr std::string_view GetLocalPlayer_dispatcher = "48 83 EC 38 48 8B 05 ? ? ? ? 48 85 C0 0F 85 ? ? ? ? 48 89 5C 24 40 B9 50 00 00 00 48 89 74 24 50 4C 89 74 24 28 4C 89 7C 24 20 E8 AE 9A";
-        inline constexpr std::string_view GetMapBspName = "48 8B 0D ? ? ? ? 48 8B 01 48 FF A0 00 02 00";
         inline constexpr std::string_view GetMatrixForView = "40 53 48 83 EC 60 0F 29 74 24 50 0F 57 DB F3 0F";
         inline constexpr std::string_view GetPlayerByIndex_export = "48 83 EC 28 4C 8D 05 ? ? ? ? 48 8D 15 CE DA";
         inline constexpr std::string_view GetPlayerInterp = "40 53 48 83 EC 20 48 8B D9 48 8B 0D ? ? ? ? 48 83 C1 08";
-        inline constexpr std::string_view GetPlayerModel = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 48 8B CA FF 15 08 CA A2 00";
         inline constexpr std::string_view GetPlayerTeamName = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 20 57 48 83 EC 30 48 8B CA 48";
         inline constexpr std::string_view GetRemovedAimPunch_E8 = "40 53 48 83 EC 20 48 8B 89 90 14 00 00 48 8B DA";
         inline constexpr std::string_view GetRemovedAimpunch = "F2 0F 10 44 24 60 F2 0F 11 84 24 88 00 00 00 FF 15 14 3C 80";
@@ -189,7 +188,6 @@ namespace sig {
         inline constexpr std::string_view OnPostDataUpdate = "48 89 5C 24 08 48 89 74 24 18 55 57 41 56 48 8B EC 48 83 EC 50 45 8B F1";
         inline constexpr std::string_view OnRemoveEntity = "48 89 74 24 10 57 48 83 EC 20 41 B9 FF 7F 00 00 41 8B C0 41 23 C1 48 8B F2 41 83 F8 FF 48 8B F9 44 0F 45 C8 41 81 F9 00 40 00 00 73 08 FF 89 90";
         inline constexpr std::string_view OnSkeletonModelChanged = "49 8B 00 48 89 81 B8 00 00 00 C6 81 B0 00 00 00";
-        inline constexpr std::string_view OverrideView = "40 57 48 83 EC 60 48 8B FA E8 ? ? ? ? BA FF";
         inline constexpr std::string_view PanelConstructorPointer = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 30 48 8B F1 48 8B FA B9 20 00";
         inline constexpr std::string_view PanoramaEvent = "40 56 57 41 57 48 83 EC 40 48 8B 3D ? ? ? ?";
         inline constexpr std::string_view ParseSubtickDuration = "40 55 48 8D AC 24 70 FD FF FF 48 81 EC 90 03 00";
@@ -206,6 +204,7 @@ namespace sig {
         inline constexpr std::string_view PointerToGetInaccuracyFunction = "48 89 5C 24 10 55 56 57 48 81 EC B0 00 00 00 44";
         inline constexpr std::string_view PointerToGetSpreadFunction = "48 83 EC 38 48 63 91 B8 17 00 00 48 8B 81 88 03";
         inline constexpr std::string_view PostDataUpdate = "48 8B C4 4C 89 40 18 89 50 10 55 57 48 8D A8 68";
+        inline constexpr std::string_view PostProcessQuery = "48 89 5C 24 08 66 41 0F 6E C8 48 8D 1D 9F AF F9";
         inline constexpr std::string_view Prediction_ptr = "48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC 40 53 56 41 54";
         inline constexpr std::string_view ProcessForceSubtickMoves = "40 55 53 48 8D AC 24 68 FF FF FF 48 81 EC 98 01 00 00 8B 15 ? ? ? ? 48 8B D9 65 48 8B 04 25 58 00 00 00 B9 98 00 00 00 48 8B 04 D0 8B 04 01";
         inline constexpr std::string_view ProcessImpacts = "48 8B C4 53 56 41 55 48 81 EC E0 00 00 00 44 0F";
@@ -302,10 +301,8 @@ namespace sig {
         inline constexpr std::string_view WriteSubtickFromEntry = "48 89 5C 24 18 55 57 41 56 48 8D 6C 24 C9 48 81";
         inline constexpr std::string_view create_move_v2 = "85 D2 0F 85 ? ? ? ? 48 8B C4 44 88 40 18 89";
         inline constexpr std::string_view draw_smoke_array = "40 55 41 54 41 55 48 8D AC 24 20 F9 FF FF 48 81";
-        inline constexpr std::string_view draw_view_punch_v2 = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 48 89 7C 24 20 41 56 48 83 EC 40 49 8B E9 49 8B F8";
         inline constexpr std::string_view entity_list_ptr = "48 8B 1D ? ? ? ? 48 8D 46";
         inline constexpr std::string_view frame_stage_notify = "4C 8B 0D ? ? ? ? 48 8D 15 ? ? ? ? 48 8B 8F 38 04 00";
-        inline constexpr std::string_view get_fov = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 48 89 7C 24 20 41 56 48 83 EC 40 49 8B E9 49 8B F8";
         inline constexpr std::string_view get_map_name = "48 83 EC 28 48 8B 0D ? ? ? ? 48 8B 01 FF 90 00 02 00 00";
         inline constexpr std::string_view get_view_angles_v2 = "4D 85 C0 74 72 85 D2 74 18 48 8D 05 ? ? ? ?";
         inline constexpr std::string_view get_view_model = "40 55 53 56 41 56 41 57 48 8B EC 48 83 EC 20 4D";
@@ -436,7 +433,7 @@ namespace sig {
         inline constexpr std::string_view DrawObject_legacy = "48 8B C4 53 57 41 54 48 81 EC D0 00 00 00 49 63";
         inline constexpr std::string_view DrawSkyboxArray = "45 85 C9 0F 8E ? ? ? ? 4C 8B DC 55 41 56 49";
         inline constexpr std::string_view FrameUpdate = "48 8B C4 88 50 10 48 89 48 08 55 53 41 54 41 55";
-        inline constexpr std::string_view GeneratePrimitives = "48 8B C4 48 89 58 08 48 89 50 10 55 56 57 41 54 41 55 41 56 41 57 48 81";
+        inline constexpr std::string_view GeneratePrimitives = "48 8B C4 48 89 58 08 48 89 50 10 55 56 57 41 54 41 55 41 56 41 57 48 81 EC ? ? ? ?";
         inline constexpr std::string_view InitGfxObjects = "40 55 53 56 57 41 54 41 55 41 56 41 57 48 8D AC 24 08 FE FF";
         inline constexpr std::string_view RenderViewLayer_Dispatch = "48 8B C4 48 89 48 08 55 53 56 57 41 54 41 55 41 56 41 57 48 8D A8 B8 FE";
         inline constexpr std::string_view SceneSystemPointer = "72 ? ? 8B ? ? ? ? ? 48 8D 0D ? ? ? ? 48";
