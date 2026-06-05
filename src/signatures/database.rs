@@ -207,7 +207,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
     Signature {
         name: "DrawViewPunch2",
         module: "client.dll",
-        needle: "48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 48 89 7C 24 ? 41 56 48 83 EC ? 49 8B E9 49 8B F8",
+        needle: "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 48 89 7C 24 20 41 56 48 83 EC 40 49 8B E9 49 8B F8",
         resolve: NONE,
         extra_off: 0,
         prototype: "float *__fastcall DrawViewPunch2(int a1, __int64 a2, __int64 a3, float *a4, float *a5, float *a6)",
@@ -241,7 +241,7 @@ pub static CS2_SIGNATURES: &[Signature] = &[
     Signature {
         name: "GeneratePrimitives",
         module: "scenesystem.dll",
-        needle: "48 8B C4 48 89 58 08 48 89 50 10 55 56 57 41 54 41 55 41 56 41 57 48 81 EC ? ? ? ?",
+        needle: "48 8B C4 48 89 58 08 48 89 50 10 55 56 57 41 54 41 55 41 56 41 57 48 81",
         resolve: NONE,
         extra_off: 0,
         prototype: "",
