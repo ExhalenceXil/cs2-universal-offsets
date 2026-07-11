@@ -36,6 +36,7 @@ namespace offsets {
         constexpr std::ptrdiff_t Prediction = 0x23A4140;
         constexpr std::ptrdiff_t Sensitivity = 0x23A1228;
         constexpr std::ptrdiff_t SetItemItemIdFunction = 0xDD7AE0;
+        constexpr std::ptrdiff_t SetSceneObjectAttributeFloat4 = 0x1702B0;
         constexpr std::ptrdiff_t Source2Client002 = 0x239E6D0;
         constexpr std::ptrdiff_t Source2ClientConfig001 = 0x230BA00;
         constexpr std::ptrdiff_t Source2ClientPrediction001 = 0x23A4140;
@@ -61,6 +62,7 @@ namespace offsets {
         constexpr std::ptrdiff_t pLocalPlayerController = 0x237EBA0;
         constexpr std::ptrdiff_t pMainMenuPanel = 0x2407B60;
         constexpr std::ptrdiff_t pParticleManager = 0x2083EF8;
+        constexpr std::ptrdiff_t pPlantedC4s = 0x236E674;
         constexpr std::ptrdiff_t pPrediction = 0x23A4140;
         constexpr std::ptrdiff_t pSensitivity = 0x23A1220;
         constexpr std::ptrdiff_t pUiEngine = 0x2566290;
@@ -184,6 +186,7 @@ namespace offsets {
         constexpr std::ptrdiff_t PanoramaUIClient001 = 0x295210;
     }
     namespace particles {
+        constexpr std::ptrdiff_t GetParticleManager = 0x5A81F8;
         constexpr std::ptrdiff_t ParticleSystemMgr003 = 0x5FEAD0;
     }
     namespace pulse_system {
@@ -231,6 +234,7 @@ namespace offsets {
         constexpr std::ptrdiff_t SoundSystem_engineViewData = 0x7C;
         constexpr std::ptrdiff_t VMixEditTool001 = 0x594945F;
         constexpr std::ptrdiff_t pSoundChannels = 0x66FC28;
+        constexpr std::ptrdiff_t pSoundSystem = 0x54B5D0;
     }
     namespace steamaudio {
         constexpr std::ptrdiff_t SteamAudio001 = 0x260610;

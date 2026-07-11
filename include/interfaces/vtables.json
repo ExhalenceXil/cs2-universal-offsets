@@ -2121,7 +2121,7 @@
           {
             "index": 4,
             "module": "client.dll",
-            "name": null,
+            "name": "Shutdown",
             "rva": 11686784
           },
           {
@@ -24881,7 +24881,7 @@
           {
             "index": 20,
             "module": "materialsystem2.dll",
-            "name": null,
+            "name": "FrameUpdate",
             "rva": 239472
           },
           {

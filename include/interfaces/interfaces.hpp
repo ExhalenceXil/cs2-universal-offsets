@@ -528,7 +528,7 @@ namespace ifc {
             virtual void method_1() = 0;
             virtual void method_2() = 0;
             virtual void method_3() = 0;
-            virtual void method_4() = 0;
+            virtual void Shutdown() = 0; // slot 4 (name recovered, args unverified)
             virtual void method_5() = 0;
             virtual void method_6() = 0;
             virtual void method_7() = 0;
@@ -4040,7 +4040,7 @@ namespace ifc {
             virtual void method_17() = 0;
             virtual void method_18() = 0;
             virtual void method_19() = 0;
-            virtual void method_20() = 0;
+            virtual void FrameUpdate() = 0; // slot 20 (name recovered, args unverified)
             virtual void method_21() = 0;
             virtual void method_22() = 0;
             virtual void method_23() = 0;

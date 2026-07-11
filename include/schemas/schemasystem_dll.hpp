@@ -3,7 +3,7 @@
 // module:        schemasystem.dll
 // classes:       7
 // enums:         1
-// generated_at:  2026-07-11T21:44:53.264622800+00:00
+// generated_at:  2026-07-11T23:45:13.504084400+00:00
 //
 // Use:
 //   auto* pawn = reinterpret_cast<C_CSPlayerPawn*>(addr);
@@ -28,10 +28,11 @@ namespace schemasystem {
         TRS_NONE = 0x2,
     };
 
-    // InfoForResourceTypeCResourceManifestInternal
-    //   fields: 0
-    class InfoForResourceTypeCResourceManifestInternal {
+    // CExampleSchemaVData_PolymorphicDerivedB
+    //   fields: 1
+    class CExampleSchemaVData_PolymorphicDerivedB {
     public:
+        SCHEMA_FIELD(std::int32_t                    , m_nDerivedB                                     , 0x10) // int32
     };
 
     // CSchemaSystemInternalRegistration
@@ -70,11 +71,10 @@ namespace schemasystem {
         SCHEMA_FIELD(std::int32_t                    , m_nDerivedA                                     , 0x10) // int32
     };
 
-    // CExampleSchemaVData_PolymorphicDerivedB
-    //   fields: 1
-    class CExampleSchemaVData_PolymorphicDerivedB {
+    // InfoForResourceTypeCResourceManifestInternal
+    //   fields: 0
+    class InfoForResourceTypeCResourceManifestInternal {
     public:
-        SCHEMA_FIELD(std::int32_t                    , m_nDerivedB                                     , 0x10) // int32
     };
 
     // CExampleSchemaVData_PolymorphicBase
