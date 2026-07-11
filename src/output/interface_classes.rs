@@ -24,6 +24,8 @@ use super::ident::{sanitize_ident, slugify, type_ident};
 
 pub struct Method {
     pub index: usize,
+    /// Pattern-recovered name for this slot, when known.
+    pub name: Option<String>,
 }
 
 pub struct IfaceClass {
@@ -79,6 +81,10 @@ pub fn render_hpp(
     s.push_str("//       (std::uintptr_t)GetModuleHandleA(\"inputsystem.dll\") + offsets::inputsystem::InputSystemVersion001\n");
     s.push_str("//   );\n");
     s.push_str("//   is->SetRelativeMouseMode(false);\n");
+    s.push_str("//\n");
+    s.push_str("// NOTE: only the primary vtable (*(void**)instance) is walked. Classes\n");
+    s.push_str("// reached solely via a secondary vtable (multiple inheritance) are not\n");
+    s.push_str("// covered and may be missing slots.\n");
     s.push_str("\n#pragma once\n");
     s.push_str("#include <cstdint>\n\n");
 
@@ -113,6 +119,9 @@ pub fn render_hpp(
                         .map(|(i, t)| format!("{} a{}", t, i))
                         .collect::<Vec<_>>().join(", ");
                     writeln!(s, "            virtual {} {}({}) = 0; // slot {}", cur.ret, cur.name, params, m.index).ok();
+                } else if let Some(name) = m.name.as_deref() {
+                    // Slot identified via Pattern-RVA cross-reference; args unknown.
+                    writeln!(s, "            virtual void {}() = 0; // slot {} (name recovered, args unverified)", sanitize_ident(name), m.index).ok();
                 } else {
                     writeln!(s, "            virtual void method_{}() = 0;", m.index).ok();
                 }

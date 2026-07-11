@@ -1,6 +1,5 @@
 {
-  "cs2_build": 14165,
-  "generated_at": "2026-06-22T11:54:56+01:00",
+  "cs2_build": 14169,
   "feature_count": 7,
   "features": [
     {
@@ -43,7 +42,7 @@
         }
       ],
       "name": "Entity tracking (OnAddEntity / OnRemoveEntity)",
-      "summary": "Hook the engine's entity-system listener instead of walking dwEntityList every frame. CEntitySystem keeps a CUtlVector<IEntityListener*> at +0x30; install a small shim with two virtuals (OnAddEntity, OnRemoveEntity) and the engine will call it whenever a CEntityIdentity is bound or torn down. Cache (handle \u2192 entity*) in your own flat array and you skip ~16k pointer-chases per second versus the loop. \n\nFalls back automatically: on the first frame after attach, do one full walk to seed the cache, then run from listener events thereafter."
+      "summary": "Hook the engine's entity-system listener instead of walking dwEntityList every frame. CEntitySystem keeps a CUtlVector<IEntityListener*> at +0x30; install a small shim with two virtuals (OnAddEntity, OnRemoveEntity) and the engine will call it whenever a CEntityIdentity is bound or torn down. Cache (handle → entity*) in your own flat array and you skip ~16k pointer-chases per second versus the loop. \n\nFalls back automatically: on the first frame after attach, do one full walk to seed the cache, then run from listener events thereafter."
     },
     {
       "convars": [],
@@ -51,7 +50,7 @@
         {
           "class": "C_BaseEntity",
           "field": "m_pGameSceneNode",
-          "note": "\u2192 bone matrix + abs origin",
+          "note": "→ bone matrix + abs origin",
           "offset": "0x330",
           "type": "CSkeletonInstance*"
         },
@@ -100,7 +99,7 @@
         {
           "class": "CCSPlayerController",
           "field": "m_hPawn",
-          "note": "controller \u2192 pawn handle",
+          "note": "controller → pawn handle",
           "offset": "0x6BC",
           "type": "CHandle"
         },
@@ -114,7 +113,7 @@
         {
           "class": "C_CSPlayerPawnBase",
           "field": "m_pWeaponServices",
-          "note": "\u2192 active weapon handle",
+          "note": "→ active weapon handle",
           "offset": "0x11E0",
           "type": "ptr"
         },
@@ -184,7 +183,7 @@
       ],
       "hooks": [],
       "name": "ESP",
-      "summary": "Render data for each cached pawn: state (m_iHealth, m_lifeState, m_iTeamNum), world position via m_pGameSceneNode \u2192 CGameSceneNode::m_vecAbsOrigin, named via m_hController \u2192 CCSPlayerController::m_iszPlayerName, weapon via m_hActiveWeapon. Project to screen with dwViewMatrix (4\u00d74 row-major). \n\nSkeleton: m_pGameSceneNode is actually CSkeletonInstance; the live bone array hangs off CModelState at +0x150. Bone 6 = head, 5 = chest on the standard CSPlayer skeleton. Money / armor / scoreboard / rank live on the controller-side service blocks listed below."
+      "summary": "Render data for each cached pawn: state (m_iHealth, m_lifeState, m_iTeamNum), world position via m_pGameSceneNode → CGameSceneNode::m_vecAbsOrigin, named via m_hController → CCSPlayerController::m_iszPlayerName, weapon via m_hActiveWeapon. Project to screen with dwViewMatrix (4×4 row-major). \n\nSkeleton: m_pGameSceneNode is actually CSkeletonInstance; the live bone array hangs off CModelState at +0x150. Bone 6 = head, 5 = chest on the standard CSPlayer skeleton. Money / armor / scoreboard / rank live on the controller-side service blocks listed below."
     },
     {
       "convars": [],
@@ -192,7 +191,7 @@
         {
           "class": "CBasePlayerController",
           "field": "m_iDesiredFOV",
-          "note": "a2x-named m_iDesiredFOV_OnController \u2014 canonical write",
+          "note": "a2x-named m_iDesiredFOV_OnController — canonical write",
           "offset": "0x784",
           "type": "uint32"
         },
@@ -227,7 +226,7 @@
         }
       ],
       "name": "FOV Changer",
-      "summary": "Two-prong approach. (1) Hook GetWorldFov in client.dll (Pattern SetWorldFov, E8-CALL @ +1) and return the desired value when the local pawn is not scoped \u2014 keeps the value sticky against engine resets. (2) Every tick write the desired FOV into m_iFOV and m_iFOVStart on the camera services AND into m_iDesiredFOV on the local controller. The controller-level field is the canonical source the renderer reads; without it the camera-services side gets clobbered back to default."
+      "summary": "Two-prong approach. (1) Hook GetWorldFov in client.dll (Pattern SetWorldFov, E8-CALL @ +1) and return the desired value when the local pawn is not scoped — keeps the value sticky against engine resets. (2) Every tick write the desired FOV into m_iFOV and m_iFOVStart on the camera services AND into m_iDesiredFOV on the local controller. The controller-level field is the canonical source the renderer reads; without it the camera-services side gets clobbered back to default."
     },
     {
       "convars": [],
@@ -235,21 +234,21 @@
         {
           "class": "C_CSGameRules",
           "field": "m_bFreezePeriod",
-          "note": "freeze \u2014 no attacks possible",
+          "note": "freeze — no attacks possible",
           "offset": "0x40",
           "type": "bool"
         },
         {
           "class": "C_CSGameRules",
           "field": "m_bWarmupPeriod",
-          "note": "warmup \u2014 no attacks possible",
+          "note": "warmup — no attacks possible",
           "offset": "0x41",
           "type": "bool"
         },
         {
           "class": "C_CSGameRules",
           "field": "m_bIsValveDS",
-          "note": "TRUE on Valve official MM \u2014 soft 0.55\u00d7",
+          "note": "TRUE on Valve official MM — soft 0.55×",
           "offset": "0xA4",
           "type": "bool"
         },
@@ -291,7 +290,7 @@
         {
           "class": "C_CSWeaponBaseGun",
           "field": "m_zoomLevel",
-          "note": "0 = unscoped \u2014 refuse silent fire on snipers when zoom == 0",
+          "note": "0 = unscoped — refuse silent fire on snipers when zoom == 0",
           "offset": "0x1CB0",
           "type": "int32"
         },
@@ -312,7 +311,7 @@
         {
           "class": "C_BasePlayerWeapon",
           "field": "m_iClip1",
-          "note": "0 \u21d2 no bullet possible",
+          "note": "0 ⇒ no bullet possible",
           "offset": "0x16D8",
           "type": "int32"
         },
@@ -333,21 +332,21 @@
         {
           "class": "EntitySpottedState_t",
           "field": "m_bSpottedByMask",
-          "note": "real enemy in PVS \u21d2 throttle 0.65\u00d7",
+          "note": "real enemy in PVS ⇒ throttle 0.65×",
           "offset": "0xC",
           "type": "uint32[2]"
         },
         {
           "class": "C_CSPlayerPawn",
           "field": "m_iIDEntIndex",
-          "note": "matches target \u21d2 bypass throttle",
+          "note": "matches target ⇒ bypass throttle",
           "offset": "0x33DC",
           "type": "int32"
         },
         {
           "class": "C_BaseEntity",
           "field": "m_vecVelocity",
-          "note": "soft throttle 1.0 \u2192 0.5 from 80 \u2192 180 u/s",
+          "note": "soft throttle 1.0 → 0.5 from 80 → 180 u/s",
           "offset": "0x430",
           "type": "Vector3"
         },
@@ -381,14 +380,14 @@
           "signature": "CreateMove"
         },
         {
-          "action": "Per-subtick angle override \u2014 attack subticks only; fe[7..9] only.",
+          "action": "Per-subtick angle override — attack subticks only; fe[7..9] only.",
           "function": "CSGOInputHistoryEntry::WriteSubtick",
           "module": "client.dll",
           "signature": "48 89 5C 24 ? 55 57 41 56 48 8D 6C 24 ? 48 81 EC B0 00 00 00 8B 01 48 8B F9 81 4A 10 00 02"
         }
       ],
       "name": "Aimbot",
-      "summary": "Per-tick phase machine driven from CCSGOInput::CreateMove (IDLE \u2192 REACTING \u2192 ATTACKING \u2192 CORRECTING \u2192 LOCKED). Target selection scores enemies on FOV delta, distance, visibility (engine trace) and weighting flags. Final angle delivery happens via a hooked CSGOInputHistoryEntry::WriteSubtick (Pattern `48 89 5C 24 ? 55 57 41 56 48 8D 6C 24 ? 48 81 EC B0 00 00 00 8B 01 48 8B F9 81 4A 10 00 02`, unique match @ 0x180C53DB0 in build 14152) so the override only touches per-subtick shoot angles (fe[7..9]) on attack subticks (a3 != 0). The real view-angle stream replayed for spectators / GOTV / Overwatch (fe[4..6]) is NEVER touched. \n\nHard-suppress gates (any true \u21d2 skip the angle write entirely): freeze / warmup, m_bWaitForNoAttack, no-scope sniper, m_bNeedsBoltAction, m_bInReload, m_iClip1 == 0, m_nNextPrimaryAttackTick > tickBase + 1, m_bIsDefusing, m_bIsGrabbingHostage, MoveType not WALK / FLYGRAVITY. Soft throttle scales the 28\u00b0/subtick flick cap: m_bIsValveDS \u00d7 0.55, observerCount \u00d7 0.55, m_bSpotted + observers \u00d7 0.65, horizontal speed > 80 u/s linearly ramps to 0.5 (caps at 180 u/s), \u00b10.10\u00b0 LCG jitter. Crosshair-aligned bypass: when local m_iIDEntIndex resolves to the silent-aim target, the throttle is bypassed."
+      "summary": "Per-tick phase machine driven from CCSGOInput::CreateMove (IDLE → REACTING → ATTACKING → CORRECTING → LOCKED). Target selection scores enemies on FOV delta, distance, visibility (engine trace) and weighting flags. Final angle delivery happens via a hooked CSGOInputHistoryEntry::WriteSubtick (Pattern `48 89 5C 24 ? 55 57 41 56 48 8D 6C 24 ? 48 81 EC B0 00 00 00 8B 01 48 8B F9 81 4A 10 00 02`, unique match @ 0x180C53DB0 in build 14152) so the override only touches per-subtick shoot angles (fe[7..9]) on attack subticks (a3 != 0). The real view-angle stream replayed for spectators / GOTV / Overwatch (fe[4..6]) is NEVER touched. \n\nHard-suppress gates (any true ⇒ skip the angle write entirely): freeze / warmup, m_bWaitForNoAttack, no-scope sniper, m_bNeedsBoltAction, m_bInReload, m_iClip1 == 0, m_nNextPrimaryAttackTick > tickBase + 1, m_bIsDefusing, m_bIsGrabbingHostage, MoveType not WALK / FLYGRAVITY. Soft throttle scales the 28°/subtick flick cap: m_bIsValveDS × 0.55, observerCount × 0.55, m_bSpotted + observers × 0.65, horizontal speed > 80 u/s linearly ramps to 0.5 (caps at 180 u/s), ±0.10° LCG jitter. Crosshair-aligned bypass: when local m_iIDEntIndex resolves to the silent-aim target, the throttle is bypassed."
     },
     {
       "convars": [],
@@ -423,14 +422,14 @@
           "signature": "CalcSpread"
         },
         {
-          "action": "Optional perfect-shot path \u2014 DISABLED by default.",
+          "action": "Optional perfect-shot path — DISABLED by default.",
           "function": "NoSpread1",
           "module": "client.dll",
           "signature": "NoSpread1"
         }
       ],
       "name": "Triggerbot (Seeded)",
-      "summary": "Per-tick seeded prediction. Reads the live spread seed (m_iShotsFired + aim-punch) and re-runs Valve's spread RNG via SpreadSeedGen + CalcSpread to compute exactly where the next bullet would fly, then traces from local eye to that point. Strict-window mode tests only ticks {0, +1} and ALL must hit before firing; wide-window mode accepts ANY hit in {0, +1, -1, +2}. Local eye position is projected by localVel \u00d7 leadTime so test geometry matches engine fire-time eye pos. \n\nUses the REAL m_fAccuracyPenalty + m_flTurningInaccuracy in the predictor \u2014 the earlier 'perfect-shot' override that zeroed client spread caused server desync (kill sound but no damage); that path is OFF by default. \n\nCooperates with aimbot: trigger defers whenever Aimbot::state.phase \u2208 {REACTING, ATTACKING, CORRECTING}. SendInput LBUTTON edges from trigger are masked out of aimbot's rawAim filter via an 80 ms synth-click window so the synthetic click can't wake aimbot uninvited."
+      "summary": "Per-tick seeded prediction. Reads the live spread seed (m_iShotsFired + aim-punch) and re-runs Valve's spread RNG via SpreadSeedGen + CalcSpread to compute exactly where the next bullet would fly, then traces from local eye to that point. Strict-window mode tests only ticks {0, +1} and ALL must hit before firing; wide-window mode accepts ANY hit in {0, +1, -1, +2}. Local eye position is projected by localVel × leadTime so test geometry matches engine fire-time eye pos. \n\nUses the REAL m_fAccuracyPenalty + m_flTurningInaccuracy in the predictor — the earlier 'perfect-shot' override that zeroed client spread caused server desync (kill sound but no damage); that path is OFF by default. \n\nCooperates with aimbot: trigger defers whenever Aimbot::state.phase ∈ {REACTING, ATTACKING, CORRECTING}. SendInput LBUTTON edges from trigger are masked out of aimbot's rawAim filter via an 80 ms synth-click window so the synthetic click can't wake aimbot uninvited."
     },
     {
       "convars": [],
@@ -445,7 +444,7 @@
         {
           "class": "C_EconItemView",
           "field": "m_iItemIDLow",
-          "note": "set 0xFFFFFFFF to force EconItemView lookup miss \u2192 fallback path",
+          "note": "set 0xFFFFFFFF to force EconItemView lookup miss → fallback path",
           "offset": "0x1C4",
           "type": "uint32"
         },
@@ -513,7 +512,7 @@
         }
       ],
       "name": "Skin Changer",
-      "summary": "Writes m_nFallbackPaintKit / m_nFallbackSeed / m_flFallbackWear / m_iEntityQuality on each weapon then forces the modern paint-apply path: ApplyEconCustomization(weapon, 1) \u2192 sub_181079790 \u2192 sub_18105AAF0 (which actually consumes the fallback fields and queues 'clientside_reload_custom_econ' to rebuild the composite material). RegenerateWeaponSkin alone is INSUFFICIENT \u2014 it only handles the legacy static paint table. GetCustomPaintKitIndex is polled to detect rejection and gate re-apply work instead of hammering ApplyEconCustomization every tick. Setting m_iItemIDLow / High to 0xFFFFFFFF forces the EconItemView lookup to fail \u2192 fallback path taken."
+      "summary": "Writes m_nFallbackPaintKit / m_nFallbackSeed / m_flFallbackWear / m_iEntityQuality on each weapon then forces the modern paint-apply path: ApplyEconCustomization(weapon, 1) → sub_181079790 → sub_18105AAF0 (which actually consumes the fallback fields and queues 'clientside_reload_custom_econ' to rebuild the composite material). RegenerateWeaponSkin alone is INSUFFICIENT — it only handles the legacy static paint table. GetCustomPaintKitIndex is polled to detect rejection and gate re-apply work instead of hammering ApplyEconCustomization every tick. Setting m_iItemIDLow / High to 0xFFFFFFFF forces the EconItemView lookup to fail → fallback path taken."
     },
     {
       "convars": [],

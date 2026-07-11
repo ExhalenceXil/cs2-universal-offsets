@@ -238,9 +238,37 @@ fn main() -> Result<()> {
         }
     }
 
-    // --- stage 3: combined interfaces.hpp (accessors + class wrappers)
-    if let Some(result) = analysis_result.as_ref() {
+    // --- stage 3: combined interfaces.hpp/vtables.json (accessors + class wrappers)
+    if let Some(result) = analysis_result.as_mut() {
+        if let Some(sig) = sig_report.as_ref() {
+            analysis::recover_names(&mut result.vtables, &sig.hits);
+        }
+
         if !result.vtables.is_empty() {
+            match output::vtables::render_json(&result.vtables) {
+                Ok(j) => {
+                    let _ = fs::write(ifc_dir.join("vtables.json"), j);
+                    let total_methods: usize = result
+                        .vtables
+                        .values()
+                        .flat_map(|m| m.values())
+                        .map(|i| i.methods.len())
+                        .sum();
+                    let total_named: usize = result
+                        .vtables
+                        .values()
+                        .flat_map(|m| m.values())
+                        .flat_map(|i| i.methods.iter())
+                        .filter(|m| m.name.is_some())
+                        .count();
+                    ui::ok(&format!(
+                        "wrote interfaces/vtables.json ({} methods, {} names recovered)",
+                        total_methods, total_named
+                    ));
+                }
+                Err(e) => ui::warn(&format!("vtables.json emit failed: {}", e)),
+            }
+
             // Registered interfaces — discovered via CreateInterface walk in analysis.
             let mut classes: Vec<output::interface_classes::IfaceClass> = result
                 .vtables
@@ -248,7 +276,7 @@ fn main() -> Result<()> {
                 .flat_map(|(module, ifaces)| {
                     ifaces.iter().map(move |(iface, info)| {
                         let methods = info.methods.iter().enumerate()
-                            .map(|(idx, _)| output::interface_classes::Method { index: idx })
+                            .map(|(idx, m)| output::interface_classes::Method { index: idx, name: m.name.clone() })
                             .collect();
                         output::interface_classes::IfaceClass {
                             module: module.clone(),

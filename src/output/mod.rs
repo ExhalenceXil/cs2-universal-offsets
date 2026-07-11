@@ -17,6 +17,7 @@ pub mod netvars;
 pub mod protobufs;
 pub mod sdk_classes;
 pub mod verified;
+pub mod vtables;
 
 /// Emit the C++ SDK outputs:
 ///   <out>/macros.hpp                  SCHEMA_FIELD macros

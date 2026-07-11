@@ -30,12 +30,13 @@ use std::collections::BTreeMap;
 use anyhow::Result;
 use log::debug;
 use memflow::prelude::v1::*;
+use serde::Serialize;
 
 use super::InterfaceMap;
 use super::rtti;
 
 /// Dump of one interface's virtual function table.
-#[derive(Debug, Clone, Default)]
+#[derive(Debug, Clone, Default, Serialize)]
 pub struct VTableInfo {
     /// RVA of the vftable itself within the *owning* module (may differ
     /// from the interface instance's module if the vftable was emitted
@@ -53,8 +54,19 @@ pub struct VTableInfo {
     pub methods: Vec<VTableMethod>,
 }
 
-#[derive(Debug, Clone)]
-pub struct VTableMethod;
+#[derive(Debug, Clone, Serialize)]
+pub struct VTableMethod {
+    /// Module hosting the method body (may differ from the vtable's own
+    /// module — thunks and cross-module overrides are common).
+    pub module: String,
+    /// Offset of the method body within `module`.
+    pub rva: u64,
+    /// Pattern-database name for this slot, when its resolved RVA matches
+    /// a known Pattern hit exactly. Filled in by [`recover_names`] as a
+    /// post-pass — this analyzer stays pure and doesn't know about
+    /// Pattern.
+    pub name: Option<String>,
+}
 
 /// `module → interface_name → vtable_info`
 pub type VTableMap = BTreeMap<String, BTreeMap<String, VTableInfo>>;
@@ -130,6 +142,33 @@ pub fn vtables<P: Process + MemoryView>(
     Ok(out)
 }
 
+/// Cross-reference every method slot's `(module, rva)` against resolved
+/// Pattern hits, filling in `VTableMethod::name` on exact matches. A
+/// separate pass (rather than doing this in [`vtables`]) keeps the walker
+/// free of any dependency on the Pattern database.
+pub fn recover_names(map: &mut VTableMap, hits: &[crate::patterns::PatternHit]) {
+    use std::collections::HashMap;
+
+    let mut by_loc: HashMap<(&str, u64), &str> = HashMap::new();
+    for h in hits {
+        if h.found
+            && let Some(rva) = h.rva
+        {
+            by_loc.insert((h.module.as_str(), rva), h.name.as_str());
+        }
+    }
+
+    for ifaces in map.values_mut() {
+        for info in ifaces.values_mut() {
+            for m in &mut info.methods {
+                if let Some(name) = by_loc.get(&(m.module.as_str(), m.rva)) {
+                    m.name = Some((*name).to_string());
+                }
+            }
+        }
+    }
+}
+
 fn dump_one<P: MemoryView>(
     process: &mut P,
     instance_va: u64,
@@ -161,7 +200,7 @@ fn dump_one<P: MemoryView>(
     for chunk in raw.chunks_exact(8) {
         let p = u64::from_le_bytes(chunk.try_into().unwrap());
         match classify(p, modules) {
-            Some(_) => methods.push(VTableMethod),
+            Some((module, rva)) => methods.push(VTableMethod { module, rva, name: None }),
             None => break,
         }
     }

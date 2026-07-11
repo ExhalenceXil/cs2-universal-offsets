@@ -61,7 +61,7 @@ pub fn discover<P: Process + MemoryView>(
             module: hit.module.clone(),
             iface_name: hit.name.clone(),
             rtti_class: Some(class_name),
-            methods: (0..methods).map(|i| Method { index: i }).collect(),
+            methods: (0..methods).map(|i| Method { index: i, name: None }).collect(),
             manual: true,
         });
     }
