@@ -17,10 +17,11 @@ namespace pattern {
         inline constexpr std::string_view ActionMatchmaking = "48 89 5C 24 18 55 57 41 56 48 81 EC 60 01 00 00";
         inline constexpr std::string_view ActionReconnectToOngoingMatch = "48 83 EC 38 F6 05 75 CA 4C 01 01 74 5F 48 8B 0D";
         inline constexpr std::string_view AddNametagEntity = "40 55 53 41 56 48 8D AC 24 90 FC FF FF 48 81 EC";
-        inline constexpr std::string_view AddStattrakEntity = "48 8B C4 48 89 58 08 48 89 70 10 57 48 83 EC 50 33 F6 8B FA";
+        inline constexpr std::string_view AddStattrakEntity = "48 89 5C 24 10 55 56 57 41 54 41 55 41 56 41 57 48 8D 6C 24 C0 48 81 EC 40 01 00 00 48 8B DA 4C";
         inline constexpr std::string_view AnimGraphRebuild = "40 55 57 48 83 EC 28 4C 89 74 24 58 48 8B F9 80";
         inline constexpr std::string_view ApplyEconCustomization = "48 89 5C 24 08 57 48 83 EC 20 8B FA 48 8B D9 E8 ? ? ? ? 48 8B CB E8 ? ? ? ? 48 85 C0 74";
         inline constexpr std::string_view AutowallInit = "40 53 48 83 EC 20 48 8B D9 48 81 C1 E0 0D 00 00";
+        inline constexpr std::string_view AutowallTraceData = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 57 41 56 41 57 48 83 EC 60 48 8B 39 48";
         inline constexpr std::string_view AutowallTracePos = "40 55 56 41 54 41 55 41 57 48 8B EC 48 81 EC 80";
         inline constexpr std::string_view BuildBoneMergeWork = "40 55 56 57 41 54 41 55 41 56 41 57 48 83 EC 50 48 8D 6C 24 50 80 A1 06";
         inline constexpr std::string_view BuildTemplateMaterialFromFile = "48 89 54 24 10 55 53 41 55 41 57 48 8D AC 24 18";
@@ -390,6 +391,7 @@ namespace pattern {
         inline constexpr std::string_view ApplyMaterialVarsForBatch = "4C 89 4C 24 20 4C 89 44 24 18 48 89 54 24 10 53";
         inline constexpr std::string_view BuildPassCommandData = "89 54 24 10 55 53 56 57 41 54 41 55 41 56 41 57 48 8D AC 24 58 FE FF FF";
         inline constexpr std::string_view CreateMaterial = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 48 89 7C 24 20 41 56 48 81 EC 10 01 00 00 48 8B 05 ? ? ? ? 4C 8B F2 BA";
+        inline constexpr std::string_view DynamicShaderCompile_ReloadAndSync = "48 8B C4 41 56 48 81 EC B0 00 00 00 F6 81 30 02";
         inline constexpr std::string_view FindOrCreateStaticComboData_CacheGate = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 48 89 7C 24 20 41 57 48 83";
         inline constexpr std::string_view FindParameter = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 48 8B 59 20 48";
         inline constexpr std::string_view FrameUpdate = "4C 8B DC 53 41 55 48 83 EC 78 49 89 6B 10 48 8D";

@@ -35,7 +35,7 @@ pub static CS2_PATTERNS: &[Pattern] = &[
     // client.dll
     // ============================================================================
     Pattern { name: "AddNametagEntity",                     module: "client.dll", needle: "40 55 53 41 56 48 8D AC 24 ? ? ? ? 48 81 EC ? ? ? ? 48 8B DA 4C 8B F1 48 85 C9 75", resolve: NONE, extra_off: 0, prototype: "char __fastcall sub_1807C4700(__int64 a1, __int64 a2)" },
-    Pattern { name: "AddStattrakEntity",                    module: "client.dll", needle: "48 8B C4 48 89 58 08 48 89 70 10 57 48 83 EC 50 33 F6 8B FA 48 8B D1", resolve: NONE, extra_off: 0, prototype: "void __fastcall sub_180A4C790(__int64 a1, unsigned int a2)" },
+    Pattern { name: "AddStattrakEntity",                    module: "client.dll", needle: "48 89 5C 24 ? 55 56 57 41 54 41 55 41 56 41 57 48 8D 6C 24 ? 48 81 EC 40 01 00 00 48 8B DA", resolve: NONE, extra_off: 0, prototype: "char __fastcall sub_1807C51A0(__int64 a1, __int64 a2)" },
     Pattern {
         name: "AnimGraphRebuild",
         module: "client.dll",
@@ -53,7 +53,7 @@ pub static CS2_PATTERNS: &[Pattern] = &[
         prototype: "__int64 __fastcall sub_1807A8A90(__int64 a1, char a2)",
     },
     Pattern { name: "AutowallInit",                         module: "client.dll", needle: "40 53 48 83 EC ? 48 8B D9 48 81 C1 ? ? ? ? E8 ? ? ? ?", resolve: NONE, extra_off: 0, prototype: "__int64 __fastcall sub_1808E1EE0(__int64 a1)" },
-    Pattern { name: "AutowallTraceData",                    module: "client.dll", needle: "48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 57 48 83 EC ? 48 8B 09", resolve: NONE, extra_off: 0, prototype: "char __fastcall sub_18098E9C0(_QWORD *a1, int *a2, int a3, int a4, _BYTE *a5, int a6)" },
+    Pattern { name: "AutowallTraceData",                    module: "client.dll", needle: "48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 57 41 56 41 57 48 83 EC ? 48 8B 39 48 8B F2 49 8B D0 0F 29 74 24", resolve: NONE, extra_off: 0, prototype: "char __fastcall sub_1809CD0E0(__int64 *a1, int *a2, __int64 a3, __int64 a4, _BYTE *a5, int a6)" },
     Pattern { name: "AutowallTracePos",                     module: "client.dll", needle: "40 55 56 41 54 41 55 41 57 48 8B EC", resolve: NONE, extra_off: 0, prototype: "char __fastcall sub_180807780(__int64 a1, __int64 a2)" },
     Pattern {
         name: "BulkRegenIterator",
@@ -1238,10 +1238,10 @@ pub static CS2_PATTERNS: &[Pattern] = &[
     Pattern {
         name: "CMaterialSystem2_DynamicShaderCompile_ReloadAndSync",
         module: "materialsystem2.dll",
-        needle: "48 83 EC 20 48 8B 35 ? ? ? ? 48 8B CE E8 ? ? ? ? 48 8B CE E8 ? ? ? ? 80 BE A0 03 00 00 00 74 ?",
+        needle: "48 8B C4 41 56 48 81 EC ? ? ? ? F6 81 ? ? ? ? 01 4C 8B F1 0F 84 ? ? ? ? 8B 0D",
         resolve: NONE,
-        extra_off: -1,
-        prototype: "void sub_1800355C0()",
+        extra_off: 0,
+        prototype: "__int64 __fastcall sub_180038800(__int64 a1)",
     },
     Pattern {
         name: "CMaterialSystem2_FrameUpdate",
