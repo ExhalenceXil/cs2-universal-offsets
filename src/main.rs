@@ -229,6 +229,37 @@ fn main() -> Result<()> {
                 }
 
 
+                // ConVars / ConCommands — read-only walk of the tier0 CCvar
+                // registry, anchored on the `pCvarRegistry` global. Emits a
+                // structured catalogue for the site + a reference header.
+                if let Some(hit) = report.hits.iter().find(|h| h.name == "pCvarRegistry" && h.found)
+                    && let Some(va) = hit.va
+                {
+                    match analysis::convars::walk(&mut process, va) {
+                        Ok(dump) => {
+                            let cv_dir = out_dir.join("convars");
+                            if let Err(e) = fs::create_dir_all(&cv_dir) {
+                                ui::warn(&format!("convars dir create failed: {}", e));
+                            } else {
+                                let _ = fs::write(
+                                    cv_dir.join("convars.json"),
+                                    output::convars::render_json(&dump, build_number),
+                                );
+                                let _ = fs::write(
+                                    cv_dir.join("convars.hpp"),
+                                    output::convars::render_hpp(&dump, build_number),
+                                );
+                                ui::ok(&format!(
+                                    "convars emitted ({} convars, {} commands)",
+                                    dump.convars.len(),
+                                    dump.commands.len()
+                                ));
+                            }
+                        }
+                        Err(e) => ui::warn(&format!("convars walk failed: {}", e)),
+                    }
+                }
+
                 sig_report = Some(report);
             }
             Err(e) => {

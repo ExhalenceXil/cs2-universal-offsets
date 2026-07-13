@@ -245,6 +245,7 @@ namespace offsets {
         constexpr std::ptrdiff_t VProcessUtils002 = 0x3997A0;
         constexpr std::ptrdiff_t VStringTokenSystem001 = 0x3CB1F0;
         constexpr std::ptrdiff_t pCVar = 0x3A44F0;
+        constexpr std::ptrdiff_t pCvarRegistry = 0x3A1398;
     }
     namespace v8system {
         constexpr std::ptrdiff_t Source2V8System001 = 0x31770;

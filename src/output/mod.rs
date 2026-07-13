@@ -10,6 +10,7 @@ use crate::analysis::*;
 mod buttons;
 
 pub mod amalgamation;
+pub mod convars;
 pub mod entity_system;
 pub mod ident;
 pub mod interface_classes;

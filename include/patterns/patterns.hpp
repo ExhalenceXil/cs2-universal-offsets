@@ -524,5 +524,6 @@ namespace pattern {
         inline constexpr std::string_view Plat_MSTime = "40 53 48 83 EC 20 48 8B 1D ? ? ? ? 48 85 DB 75 0C E8 D9";
         inline constexpr std::string_view UtlBuffer = "48 89 5C 24 08 57 48 83 EC 20 8B 41 04 8D 7A 08";
         inline constexpr std::string_view pCVar = "48 8D 05 ? ? ? ? C3 CC CC CC CC CC CC CC CC E9";
+        inline constexpr std::string_view pCvarRegistry = "48 8B 0D ? ? ? ? 48 85 C9 74 ? 48 8B 01 FF 90 48 01 00 00";
     }
 }

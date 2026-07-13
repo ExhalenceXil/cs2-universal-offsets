@@ -14,6 +14,7 @@ use log::{error, info};
 use memflow::prelude::v1::*;
 
 mod buttons;
+pub mod convars;
 mod interfaces;
 pub mod manual_iface;
 mod offsets;
