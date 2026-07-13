@@ -3,7 +3,7 @@
 // module:        networksystem.dll
 // classes:       1
 // enums:         0
-// generated_at:  2026-07-12T11:46:35.040377200+00:00
+// generated_at:  2026-07-13T13:23:14.513572900+00:00
 //
 // Use:
 //   auto* pawn = reinterpret_cast<C_CSPlayerPawn*>(addr);
@@ -18,6 +18,7 @@ namespace networksystem {
 
     // ChangeAccessorFieldPathIndex_t
     //   fields: 1
+    //   size: 0x4
     class ChangeAccessorFieldPathIndex_t {
     public:
         SCHEMA_FIELD(std::int32_t                    , m_Value                                         , 0x0) // int32

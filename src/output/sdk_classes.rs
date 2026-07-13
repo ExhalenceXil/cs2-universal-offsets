@@ -612,11 +612,17 @@ fn render_one_module(
         for m in &e.members {
             // Cast to signed for proper display of negative values
             let value = m.value as i64;
-            if value < 0 {
-                writeln!(s, "        {} = {},", sanitize_enum_member(&m.name), value).ok();
+            let val_str = if value < 0 {
+                format!("{}", value)
             } else {
-                writeln!(s, "        {} = {:#X},", sanitize_enum_member(&m.name), m.value as u64).ok();
-            }
+                format!("{:#X}", m.value as u64)
+            };
+            let anno = if m.metadata.is_empty() {
+                String::new()
+            } else {
+                format!(" // {}", m.metadata.join(", "))
+            };
+            writeln!(s, "        {} = {},{}", sanitize_enum_member(&m.name), val_str, anno).ok();
         }
         writeln!(s, "    }};\n").ok();
     }
@@ -683,10 +689,15 @@ fn render_one_module(
                 .find(|(i, _)| *i == idx)
                 .map(|(_, alias)| alias.clone())
                 .unwrap_or(cpp_ty.clone());
+            let anno = if f.metadata.is_empty() {
+                String::new()
+            } else {
+                format!(" [{}]", f.metadata.join(", "))
+            };
             writeln!(
                 s,
-                "        SCHEMA_FIELD({:<32}, {:<48}, {:#X}) // {}",
-                safe_ty, f.name, f.offset, f.type_name,
+                "        SCHEMA_FIELD({:<32}, {:<48}, {:#X}) // {}{}",
+                safe_ty, f.name, f.offset, f.type_name, anno,
             )
             .ok();
         }
@@ -781,12 +792,91 @@ fn write_banner(
     writeln!(s).ok();
 }
 
+/// Machine-readable structured schema dump — `module -> { classes, enums }`,
+/// each class with size/alignment/metadata and each field with its offset,
+/// type and annotation names. Powers the site's class browser and `/api`.
+pub fn render_schemas_json(schemas: &SchemaMap) -> String {
+    use serde_json::{Map, Value, json};
+
+    let meta_str = |m: &crate::analysis::ClassMetadata| -> String {
+        match m {
+            crate::analysis::ClassMetadata::NetworkVarNames { name, type_name } => {
+                format!("MNetworkVarNames {} {}", type_name, name)
+            }
+            crate::analysis::ClassMetadata::NetworkChangeCallback { name } => {
+                format!("MNetworkChangeCallback {}", name)
+            }
+            crate::analysis::ClassMetadata::Unknown { name } => name.clone(),
+        }
+    };
+
+    let mut root = Map::new();
+    for (module, (classes, enums)) in schemas {
+        let classes_json: Vec<Value> = classes
+            .iter()
+            .map(|c| {
+                json!({
+                    "name": c.name,
+                    "parent": c.parent_name,
+                    "size": c.size,
+                    "metadata": c.metadata.iter().map(&meta_str).collect::<Vec<_>>(),
+                    "fields": c.fields.iter().map(|f| json!({
+                        "name": f.name,
+                        "type": f.type_name,
+                        "offset": f.offset,
+                        "metadata": f.metadata,
+                    })).collect::<Vec<_>>(),
+                })
+            })
+            .collect();
+
+        let enums_json: Vec<Value> = enums
+            .iter()
+            .map(|e| {
+                json!({
+                    "name": e.name,
+                    "alignment": e.alignment,
+                    "members": e.members.iter().map(|m| json!({
+                        "name": m.name,
+                        "value": m.value,
+                        "metadata": m.metadata,
+                    })).collect::<Vec<_>>(),
+                })
+            })
+            .collect();
+
+        root.insert(
+            module.clone(),
+            json!({ "classes": classes_json, "enums": enums_json }),
+        );
+    }
+
+    serde_json::to_string_pretty(&Value::Object(root)).unwrap_or_default()
+}
+
 fn write_class_doc(s: &mut String, c: &Class) {
     writeln!(s, "    // {}", c.name).ok();
     if let Some(parent) = &c.parent_name {
         writeln!(s, "    //   parent: {}", parent).ok();
     }
     writeln!(s, "    //   fields: {}", c.fields.len()).ok();
+    if c.size > 0 {
+        writeln!(s, "    //   size: {:#X}", c.size).ok();
+    }
+    // Class-level schema annotations (MNetworkVarNames, MClassHasEntityLimitedDataDesc, ...)
+    for m in &c.metadata {
+        match m {
+            crate::analysis::ClassMetadata::NetworkVarNames { name, type_name } => {
+                writeln!(s, "    //   @MNetworkVarNames {} {}", type_name, name).ok();
+            }
+            crate::analysis::ClassMetadata::NetworkChangeCallback { name } => {
+                writeln!(s, "    //   @MNetworkChangeCallback {}", name).ok();
+            }
+            crate::analysis::ClassMetadata::Unknown { name } => {
+                writeln!(s, "    //   @{}", name).ok();
+            }
+        }
+    }
 }
 
 /// Map a Source 2 schema type string to its canonical C++ equivalent.

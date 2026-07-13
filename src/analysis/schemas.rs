@@ -28,6 +28,13 @@ pub struct Class {
     pub name: String,
     pub module_name: String,
     pub parent_name: Option<String>,
+    /// Total class size in bytes (from the schema binding). Enables exact
+    /// `static_assert(sizeof(T) == size)` and `_pad` generation.
+    #[serde(default)]
+    pub size: u32,
+    /// Declared alignment in bytes.
+    #[serde(default)]
+    pub alignment: u8,
     pub metadata: Vec<ClassMetadata>,
     pub fields: Vec<ClassField>,
 }
@@ -37,6 +44,10 @@ pub struct ClassField {
     pub name: String,
     pub type_name: String,
     pub offset: i32,
+    /// Schema annotation names on this field (e.g. `MNetworkEnable`,
+    /// `MPropertyFriendlyName`). Empty when the field carries no metadata.
+    #[serde(default)]
+    pub metadata: Vec<String>,
 }
 
 #[derive(Clone, Debug, Deserialize, Serialize)]
@@ -51,6 +62,10 @@ pub struct Enum {
 pub struct EnumMember {
     pub name: String,
     pub value: i64,
+    /// Schema annotation names on this enumerator (e.g.
+    /// `MPropertySuppressEnumerator`, `MEnumeratorIsNotAFlag`).
+    #[serde(default)]
+    pub metadata: Vec<String>,
 }
 
 #[derive(Clone, Debug, Deserialize, Serialize)]
@@ -113,9 +128,39 @@ fn read_class_binding(
         name,
         module_name,
         parent_name,
+        size: binding.size.max(0) as u32,
+        alignment: binding.alignment,
         metadata,
         fields,
     })
+}
+
+/// Read the annotation names (e.g. `MNetworkEnable`) from a
+/// `SchemaMetadataEntryData` array. Best-effort: unreadable entries are
+/// skipped rather than aborting the whole class/field.
+fn read_metadata_names(
+    mem: &mut impl MemoryView,
+    ptr: Pointer64<SchemaMetadataEntryData>,
+    count: i32,
+) -> Vec<String> {
+    if ptr.is_null() || count <= 0 {
+        return Vec::new();
+    }
+
+    let base = ptr.address().to_umem();
+    let stride = core::mem::size_of::<SchemaMetadataEntryData>() as umem;
+
+    (0..count)
+        .filter_map(|i| {
+            let addr = Address::from(base + i as umem * stride);
+            let entry = mem.read::<SchemaMetadataEntryData>(addr).data_part().ok()?;
+            let name = mem
+                .read_utf8_lossy(entry.name.address(), 128)
+                .data_part()
+                .ok()?;
+            (!name.is_empty()).then_some(name)
+        })
+        .collect()
 }
 
 fn read_class_binding_fields(
@@ -141,10 +186,13 @@ fn read_class_binding_fields(
             .data_part()?
             .replace(" ", "");
 
+        let metadata = read_metadata_names(mem, field.metadata, field.metadata_count);
+
         acc.push(ClassField {
             name,
             type_name,
             offset: field.offset,
+            metadata,
         });
 
         Ok(acc)
@@ -244,9 +292,12 @@ fn read_enum_binding_members(
             .read_utf8_lossy(r#enum.name.address(), 128)
             .data_part()?;
 
+        let metadata = read_metadata_names(mem, r#enum.metadata, r#enum.metadata_count);
+
         acc.push(EnumMember {
             name,
             value: unsafe { r#enum.value.ulong } as i64,
+            metadata,
         });
 
         Ok(acc)

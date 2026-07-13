@@ -193,6 +193,13 @@ pub fn dump_sdk_extras(
             }
         }
 
+        // 2b. structured schema JSON (classes/enums with size/offsets/metadata)
+        //     for the site's class browser and machine consumers.
+        fs::write(
+            schemas_dir.join("schemas.json"),
+            sdk_classes::render_schemas_json(&result.schemas),
+        )?;
+
         // 3. netvars (split from schema). Only emit if non-empty.
         let nvs = netvars::extract(&result.schemas);
         if !nvs.is_empty() {
