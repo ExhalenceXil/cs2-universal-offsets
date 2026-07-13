@@ -11,6 +11,7 @@ mod buttons;
 
 pub mod amalgamation;
 pub mod convars;
+pub mod entities;
 pub mod entity_system;
 pub mod gameevents;
 pub mod ident;

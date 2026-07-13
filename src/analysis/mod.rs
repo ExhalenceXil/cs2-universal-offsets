@@ -15,6 +15,7 @@ use memflow::prelude::v1::*;
 
 mod buttons;
 pub mod convars;
+pub mod entities;
 pub mod gameevents;
 mod interfaces;
 pub mod manual_iface;

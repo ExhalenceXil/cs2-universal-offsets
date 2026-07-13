@@ -303,6 +303,27 @@ fn main() -> Result<()> {
                     }
                 }
 
+                // Live entity snapshot — decode every entity in the world at
+                // dump time (reuses the `pEntitySystem` anchor).
+                if let Some(hit) = report.hits.iter().find(|h| h.name == "pEntitySystem" && h.found)
+                    && let Some(va) = hit.va
+                {
+                    match analysis::entities::walk(&mut process, va) {
+                        Ok(ents) if !ents.is_empty() => {
+                            let en_dir = out_dir.join("entities");
+                            if fs::create_dir_all(&en_dir).is_ok() {
+                                let _ = fs::write(
+                                    en_dir.join("entities.json"),
+                                    output::entities::render_json(&ents, build_number),
+                                );
+                                ui::ok(&format!("entity snapshot emitted ({} entities)", ents.len()));
+                            }
+                        }
+                        Ok(_) => ui::warn("entities: none found (run the dump in-game)"),
+                        Err(e) => ui::warn(&format!("entity snapshot failed: {}", e)),
+                    }
+                }
+
                 sig_report = Some(report);
             }
             Err(e) => {
