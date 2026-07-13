@@ -22,6 +22,7 @@ mod protobufs;
 pub mod rtti;
 mod schemas;
 mod vtables;
+pub mod weapons;
 
 pub use buttons::*;
 pub use interfaces::*;

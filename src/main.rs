@@ -260,6 +260,28 @@ fn main() -> Result<()> {
                     }
                 }
 
+                // Weapon VData — walk the entity list for weapon entities and
+                // read each one's CCSWeaponBaseVData values. Anchored on the
+                // `pEntitySystem` global. Coverage = weapons present in-session.
+                if let Some(hit) = report.hits.iter().find(|h| h.name == "pEntitySystem" && h.found)
+                    && let Some(va) = hit.va
+                {
+                    match analysis::weapons::walk(&mut process, va) {
+                        Ok(weapons) if !weapons.is_empty() => {
+                            let wp_dir = out_dir.join("weapons");
+                            if fs::create_dir_all(&wp_dir).is_ok() {
+                                let _ = fs::write(
+                                    wp_dir.join("weapons.json"),
+                                    output::weapons::render_json(&weapons, build_number),
+                                );
+                                ui::ok(&format!("weapons emitted ({} weapons)", weapons.len()));
+                            }
+                        }
+                        Ok(_) => ui::warn("weapons: no weapon entities found (run the dump in a match for coverage)"),
+                        Err(e) => ui::warn(&format!("weapons walk failed: {}", e)),
+                    }
+                }
+
                 sig_report = Some(report);
             }
             Err(e) => {

@@ -3,7 +3,7 @@
 // module:        materialsystem2.dll
 // classes:       15
 // enums:         5
-// generated_at:  2026-07-13T14:51:10.513917+00:00
+// generated_at:  2026-07-13T15:41:37.800909400+00:00
 //
 // Use:
 //   auto* pawn = reinterpret_cast<C_CSPlayerPawn*>(addr);
@@ -62,6 +62,24 @@ namespace materialsystem2 {
         HORIZ_JUSTIFICATION_NONE = 0x3,
     };
 
+    // MaterialParamFloat_t
+    //   fields: 1
+    //   size: 0x10
+    //   @MGetKV3ClassDefaults
+    class MaterialParamFloat_t {
+    public:
+        SCHEMA_FIELD(float                           , m_flValue                                       , 0x8) // float32
+    };
+
+    // MaterialParamString_t
+    //   fields: 1
+    //   size: 0x10
+    //   @MGetKV3ClassDefaults
+    class MaterialParamString_t {
+    public:
+        SCHEMA_FIELD(::CUtlString                    , m_value                                         , 0x8) // CUtlString
+    };
+
     // PostProcessingVignetteParameters_t
     //   fields: 6
     //   size: 0x24
@@ -76,73 +94,13 @@ namespace materialsystem2 {
         SCHEMA_FIELD(::Vector                        , m_vColorTint                                    , 0x18) // Vector
     };
 
-    // PostProcessingBloomParameters_t
-    //   fields: 16
-    //   size: 0x88
-    //   @MGetKV3ClassDefaults
-    class PostProcessingBloomParameters_t {
-    public:
-        SCHEMA_FIELD(BloomBlendMode_t                , m_blendMode                                     , 0x0) // BloomBlendMode_t
-        SCHEMA_FIELD(float                           , m_flBloomStrength                               , 0x4) // float32
-        SCHEMA_FIELD(float                           , m_flScreenBloomStrength                         , 0x8) // float32
-        SCHEMA_FIELD(float                           , m_flBlurBloomStrength                           , 0xC) // float32
-        SCHEMA_FIELD(float                           , m_flBloomThreshold                              , 0x10) // float32
-        SCHEMA_FIELD(float                           , m_flBloomThresholdWidth                         , 0x14) // float32
-        SCHEMA_FIELD(float                           , m_flSkyboxBloomStrength                         , 0x18) // float32
-        SCHEMA_FIELD(float                           , m_flBloomStartValue                             , 0x1C) // float32
-        SCHEMA_FIELD(float                           , m_flComputeBloomStrength                        , 0x20) // float32
-        SCHEMA_FIELD(float                           , m_flComputeBloomThreshold                       , 0x24) // float32
-        SCHEMA_FIELD(float                           , m_flComputeBloomRadius                          , 0x28) // float32
-        SCHEMA_FIELD(float                           , m_flComputeBloomEffectsScale                    , 0x2C) // float32
-        SCHEMA_FIELD(float                           , m_flComputeBloomLensDirtStrength                , 0x30) // float32
-        SCHEMA_FIELD(float                           , m_flComputeBloomLensDirtBlackLevel              , 0x34) // float32
-        SCHEMA_FIELD(float                           , m_flBlurWeight                                  , 0x38) // float32[5]
-        SCHEMA_FIELD(::Vector                        , m_vBlurTint                                     , 0x4C) // Vector[5]
-    };
-
-    // MaterialParamBuffer_t
-    //   fields: 1
-    //   size: 0x18
-    //   @MGetKV3ClassDefaults
-    class MaterialParamBuffer_t {
-    public:
-        SCHEMA_FIELD(::CUtlBinaryBlock               , m_value                                         , 0x8) // CUtlBinaryBlock
-    };
-
-    // MaterialParam_t
-    //   fields: 1
-    //   size: 0x8
-    //   @MGetKV3ClassDefaults
-    class MaterialParam_t {
-    public:
-        SCHEMA_FIELD(::CUtlString                    , m_name                                          , 0x0) // CUtlString
-    };
-
-    // MaterialParamVector_t
-    //   fields: 1
-    //   size: 0x18
-    //   @MGetKV3ClassDefaults
-    class MaterialParamVector_t {
-    public:
-        SCHEMA_FIELD(::Vector4D                      , m_value                                         , 0x8) // Vector4D
-    };
-
-    // MaterialParamString_t
+    // MaterialParamInt_t
     //   fields: 1
     //   size: 0x10
     //   @MGetKV3ClassDefaults
-    class MaterialParamString_t {
+    class MaterialParamInt_t {
     public:
-        SCHEMA_FIELD(::CUtlString                    , m_value                                         , 0x8) // CUtlString
-    };
-
-    // MaterialParamFloat_t
-    //   fields: 1
-    //   size: 0x10
-    //   @MGetKV3ClassDefaults
-    class MaterialParamFloat_t {
-    public:
-        SCHEMA_FIELD(float                           , m_flValue                                       , 0x8) // float32
+        SCHEMA_FIELD(std::int32_t                    , m_nValue                                        , 0x8) // int32
     };
 
     // PostProcessingFogScatteringParameters_t
@@ -159,37 +117,6 @@ namespace materialsystem2 {
         SCHEMA_FIELD(float                           , m_fWaterScale                                   , 0x14) // float32
         SCHEMA_FIELD(float                           , m_fWaterDensity                                 , 0x18) // float32
         SCHEMA_FIELD(float                           , m_fWaterDepthBlurRadius                         , 0x1C) // float32
-    };
-
-    // MaterialParamTexture_t
-    //   fields: 1
-    //   size: 0x10
-    //   @MGetKV3ClassDefaults
-    class MaterialParamTexture_t {
-    public:
-        SCHEMA_FIELD(CStrongHandle<InfoForResourceTypeCTextureBase>, m_pValue                                        , 0x8) // CStrongHandle<InfoForResourceTypeCTextureBase>
-    };
-
-    // MaterialParamInt_t
-    //   fields: 1
-    //   size: 0x10
-    //   @MGetKV3ClassDefaults
-    class MaterialParamInt_t {
-    public:
-        SCHEMA_FIELD(std::int32_t                    , m_nValue                                        , 0x8) // int32
-    };
-
-    // PostProcessingLocalContrastParameters_t
-    //   fields: 5
-    //   size: 0x14
-    //   @MGetKV3ClassDefaults
-    class PostProcessingLocalContrastParameters_t {
-    public:
-        SCHEMA_FIELD(float                           , m_flLocalContrastStrength                       , 0x0) // float32
-        SCHEMA_FIELD(float                           , m_flLocalContrastEdgeStrength                   , 0x4) // float32
-        SCHEMA_FIELD(float                           , m_flLocalContrastVignetteStart                  , 0x8) // float32
-        SCHEMA_FIELD(float                           , m_flLocalContrastVignetteEnd                    , 0xC) // float32
-        SCHEMA_FIELD(float                           , m_flLocalContrastVignetteBlur                   , 0x10) // float32
     };
 
     // MaterialResourceData_t
@@ -214,27 +141,22 @@ namespace materialsystem2 {
         SCHEMA_FIELD(CUtlVector<CUtlString>          , m_renderAttributesUsed                          , 0x118) // CUtlVector<CUtlString>
     };
 
-    // PostProcessingTonemapParameters_t
-    //   fields: 15
-    //   size: 0x3C
+    // MaterialParamVector_t
+    //   fields: 1
+    //   size: 0x18
     //   @MGetKV3ClassDefaults
-    class PostProcessingTonemapParameters_t {
+    class MaterialParamVector_t {
     public:
-        SCHEMA_FIELD(float                           , m_flExposureBias                                , 0x0) // float32
-        SCHEMA_FIELD(float                           , m_flShoulderStrength                            , 0x4) // float32
-        SCHEMA_FIELD(float                           , m_flLinearStrength                              , 0x8) // float32
-        SCHEMA_FIELD(float                           , m_flLinearAngle                                 , 0xC) // float32
-        SCHEMA_FIELD(float                           , m_flToeStrength                                 , 0x10) // float32
-        SCHEMA_FIELD(float                           , m_flToeNum                                      , 0x14) // float32
-        SCHEMA_FIELD(float                           , m_flToeDenom                                    , 0x18) // float32
-        SCHEMA_FIELD(float                           , m_flWhitePoint                                  , 0x1C) // float32
-        SCHEMA_FIELD(float                           , m_flLuminanceSource                             , 0x20) // float32
-        SCHEMA_FIELD(float                           , m_flExposureBiasShadows                         , 0x24) // float32
-        SCHEMA_FIELD(float                           , m_flExposureBiasHighlights                      , 0x28) // float32
-        SCHEMA_FIELD(float                           , m_flMinShadowLum                                , 0x2C) // float32
-        SCHEMA_FIELD(float                           , m_flMaxShadowLum                                , 0x30) // float32
-        SCHEMA_FIELD(float                           , m_flMinHighlightLum                             , 0x34) // float32
-        SCHEMA_FIELD(float                           , m_flMaxHighlightLum                             , 0x38) // float32
+        SCHEMA_FIELD(::Vector4D                      , m_value                                         , 0x8) // Vector4D
+    };
+
+    // MaterialParam_t
+    //   fields: 1
+    //   size: 0x8
+    //   @MGetKV3ClassDefaults
+    class MaterialParam_t {
+    public:
+        SCHEMA_FIELD(::CUtlString                    , m_name                                          , 0x0) // CUtlString
     };
 
     // PostProcessingLocalExposureParameters_t
@@ -270,6 +192,84 @@ namespace materialsystem2 {
         SCHEMA_FIELD(PostProcessingFogScatteringParameters_t, m_fogScatteringParams                           , 0x124) // PostProcessingFogScatteringParameters_t
         SCHEMA_FIELD(bool                            , m_bHasLocalExposureParams                       , 0x144) // bool
         SCHEMA_FIELD(PostProcessingLocalExposureParameters_t, m_localExposureParams                           , 0x148) // PostProcessingLocalExposureParameters_t
+    };
+
+    // MaterialParamTexture_t
+    //   fields: 1
+    //   size: 0x10
+    //   @MGetKV3ClassDefaults
+    class MaterialParamTexture_t {
+    public:
+        SCHEMA_FIELD(CStrongHandle<InfoForResourceTypeCTextureBase>, m_pValue                                        , 0x8) // CStrongHandle<InfoForResourceTypeCTextureBase>
+    };
+
+    // PostProcessingBloomParameters_t
+    //   fields: 16
+    //   size: 0x88
+    //   @MGetKV3ClassDefaults
+    class PostProcessingBloomParameters_t {
+    public:
+        SCHEMA_FIELD(BloomBlendMode_t                , m_blendMode                                     , 0x0) // BloomBlendMode_t
+        SCHEMA_FIELD(float                           , m_flBloomStrength                               , 0x4) // float32
+        SCHEMA_FIELD(float                           , m_flScreenBloomStrength                         , 0x8) // float32
+        SCHEMA_FIELD(float                           , m_flBlurBloomStrength                           , 0xC) // float32
+        SCHEMA_FIELD(float                           , m_flBloomThreshold                              , 0x10) // float32
+        SCHEMA_FIELD(float                           , m_flBloomThresholdWidth                         , 0x14) // float32
+        SCHEMA_FIELD(float                           , m_flSkyboxBloomStrength                         , 0x18) // float32
+        SCHEMA_FIELD(float                           , m_flBloomStartValue                             , 0x1C) // float32
+        SCHEMA_FIELD(float                           , m_flComputeBloomStrength                        , 0x20) // float32
+        SCHEMA_FIELD(float                           , m_flComputeBloomThreshold                       , 0x24) // float32
+        SCHEMA_FIELD(float                           , m_flComputeBloomRadius                          , 0x28) // float32
+        SCHEMA_FIELD(float                           , m_flComputeBloomEffectsScale                    , 0x2C) // float32
+        SCHEMA_FIELD(float                           , m_flComputeBloomLensDirtStrength                , 0x30) // float32
+        SCHEMA_FIELD(float                           , m_flComputeBloomLensDirtBlackLevel              , 0x34) // float32
+        SCHEMA_FIELD(float                           , m_flBlurWeight                                  , 0x38) // float32[5]
+        SCHEMA_FIELD(::Vector                        , m_vBlurTint                                     , 0x4C) // Vector[5]
+    };
+
+    // MaterialParamBuffer_t
+    //   fields: 1
+    //   size: 0x18
+    //   @MGetKV3ClassDefaults
+    class MaterialParamBuffer_t {
+    public:
+        SCHEMA_FIELD(::CUtlBinaryBlock               , m_value                                         , 0x8) // CUtlBinaryBlock
+    };
+
+    // PostProcessingTonemapParameters_t
+    //   fields: 15
+    //   size: 0x3C
+    //   @MGetKV3ClassDefaults
+    class PostProcessingTonemapParameters_t {
+    public:
+        SCHEMA_FIELD(float                           , m_flExposureBias                                , 0x0) // float32
+        SCHEMA_FIELD(float                           , m_flShoulderStrength                            , 0x4) // float32
+        SCHEMA_FIELD(float                           , m_flLinearStrength                              , 0x8) // float32
+        SCHEMA_FIELD(float                           , m_flLinearAngle                                 , 0xC) // float32
+        SCHEMA_FIELD(float                           , m_flToeStrength                                 , 0x10) // float32
+        SCHEMA_FIELD(float                           , m_flToeNum                                      , 0x14) // float32
+        SCHEMA_FIELD(float                           , m_flToeDenom                                    , 0x18) // float32
+        SCHEMA_FIELD(float                           , m_flWhitePoint                                  , 0x1C) // float32
+        SCHEMA_FIELD(float                           , m_flLuminanceSource                             , 0x20) // float32
+        SCHEMA_FIELD(float                           , m_flExposureBiasShadows                         , 0x24) // float32
+        SCHEMA_FIELD(float                           , m_flExposureBiasHighlights                      , 0x28) // float32
+        SCHEMA_FIELD(float                           , m_flMinShadowLum                                , 0x2C) // float32
+        SCHEMA_FIELD(float                           , m_flMaxShadowLum                                , 0x30) // float32
+        SCHEMA_FIELD(float                           , m_flMinHighlightLum                             , 0x34) // float32
+        SCHEMA_FIELD(float                           , m_flMaxHighlightLum                             , 0x38) // float32
+    };
+
+    // PostProcessingLocalContrastParameters_t
+    //   fields: 5
+    //   size: 0x14
+    //   @MGetKV3ClassDefaults
+    class PostProcessingLocalContrastParameters_t {
+    public:
+        SCHEMA_FIELD(float                           , m_flLocalContrastStrength                       , 0x0) // float32
+        SCHEMA_FIELD(float                           , m_flLocalContrastEdgeStrength                   , 0x4) // float32
+        SCHEMA_FIELD(float                           , m_flLocalContrastVignetteStart                  , 0x8) // float32
+        SCHEMA_FIELD(float                           , m_flLocalContrastVignetteEnd                    , 0xC) // float32
+        SCHEMA_FIELD(float                           , m_flLocalContrastVignetteBlur                   , 0x10) // float32
     };
 
     // KV3 ID type - used for material system KV3 loading
