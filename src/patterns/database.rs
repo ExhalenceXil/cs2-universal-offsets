@@ -705,6 +705,10 @@ pub static CS2_PATTERNS: &[Pattern] = &[
     Pattern { name: "pCvar", module: "client.dll", needle: "48 83 EC ? ? 8B ? ? ? ? ? 48 8D 54 ? ? 4C", resolve: ResolveKind::RipRel { rel_off: 7 }, extra_off: 0, prototype: "" },
     Pattern { name: "pEntityList",                       module: "client.dll", needle: "48 89 0D ? ? ? ? E9 ? ? ? ? CC", resolve: RIPREL_3, extra_off: 0, prototype: "" },
     Pattern { name: "pEntitySystem", module: "client.dll", needle: "48 89 ? ? ? ? ? 4C 63 ? ? ? ? ? 44 3B ? ? ? ? ? 0F", resolve: ResolveKind::RipRel { rel_off: 3 }, extra_off: 0, prototype: "" },
+    // g_pGameEventManager (CGameEventManager*). Anchors the Game Events dumper.
+    // This CreateEvent-call idiom recurs at every fire site; all matches load
+    // the SAME global, so first-match riprel resolution is correct.
+    Pattern { name: "pGameEventManager", module: "client.dll", needle: "48 8B 0D ? ? ? ? 48 8D 15 ? ? ? ? 45 33 C9 45 33 C0 48 8B 01 FF 50 30", resolve: ResolveKind::RipRel { rel_off: 3 }, extra_off: 0, prototype: "" },
     Pattern { name: "pGameEntitySystem",                  module: "client.dll", needle: "48 8B 1D ? ? ? ? 48 89 1D ? ? ? ?", resolve: RIPREL_3, extra_off: 0, prototype: "" },
     Pattern { name: "pGameRules",                        module: "client.dll", needle: "48 8B 1D ? ? ? ? 48 8D 54 24 ? 0F 28 D0 48 8D 4C 24 ?", resolve: RIPREL_3, extra_off: 0, prototype: "" },
     Pattern { name: "pGameTraceManager",                 module: "client.dll", needle: "48 8B 0D ? ? ? ? 48 8B D0 C7 44 24 ? 04 00 00 00 48 C7 44 24 ? 01 30 1C 00", resolve: RIPREL_3, extra_off: 0, prototype: "" },

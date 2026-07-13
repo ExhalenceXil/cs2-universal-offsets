@@ -282,6 +282,27 @@ fn main() -> Result<()> {
                     }
                 }
 
+                // Game Events — walk the CGameEventManager registry for every
+                // registered event's name/id/typed field schema.
+                if let Some(hit) = report.hits.iter().find(|h| h.name == "pGameEventManager" && h.found)
+                    && let Some(va) = hit.va
+                {
+                    match analysis::gameevents::walk(&mut process, va) {
+                        Ok(events) if !events.is_empty() => {
+                            let ge_dir = out_dir.join("gameevents");
+                            if fs::create_dir_all(&ge_dir).is_ok() {
+                                let _ = fs::write(
+                                    ge_dir.join("gameevents.json"),
+                                    output::gameevents::render_json(&events, build_number),
+                                );
+                                ui::ok(&format!("game events emitted ({} events)", events.len()));
+                            }
+                        }
+                        Ok(_) => ui::warn("game events: registry empty"),
+                        Err(e) => ui::warn(&format!("game events walk failed: {}", e)),
+                    }
+                }
+
                 sig_report = Some(report);
             }
             Err(e) => {

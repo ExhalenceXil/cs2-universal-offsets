@@ -53,6 +53,7 @@ namespace offsets {
         constexpr std::ptrdiff_t pEntityList = 0x254EE60;
         constexpr std::ptrdiff_t pEntitySystem = 0x238C530;
         constexpr std::ptrdiff_t pGameEntitySystem = 0x254EE60;
+        constexpr std::ptrdiff_t pGameEventManager = 0x238C590;
         constexpr std::ptrdiff_t pGameRules = 0x23A39D8;
         constexpr std::ptrdiff_t pGameTraceManager = 0x2083B00;
         constexpr std::ptrdiff_t pGetBBox = 0x23A39D8;

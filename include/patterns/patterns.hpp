@@ -312,6 +312,7 @@ namespace pattern {
         inline constexpr std::string_view pEntityList = "48 89 0D ? ? ? ? E9 ? ? ? ? CC";
         inline constexpr std::string_view pEntitySystem = "48 89 ? ? ? ? ? 4C 63 ? ? ? ? ? 44 3B ? ? ? ? ? 0F";
         inline constexpr std::string_view pGameEntitySystem = "48 8B 1D ? ? ? ? 48 89 1D ? ? ? ?";
+        inline constexpr std::string_view pGameEventManager = "48 8B 0D ? ? ? ? 48 8D 15 ? ? ? ? 45 33 C9 45 33 C0 48 8B 01 FF 50 30";
         inline constexpr std::string_view pGameRules = "48 8B 1D ? ? ? ? 48 8D 54 24 ? 0F 28 D0 48 8D 4C 24 ?";
         inline constexpr std::string_view pGameTraceManager = "48 8B 0D ? ? ? ? 48 8B D0 C7 44 24 ? 04 00 00 00 48 C7 44 24 ? 01 30 1C 00";
         inline constexpr std::string_view pGetBBox = "48 8B 0D ? ? ? ? 48 85 C9 74 ? ? ? ? 48 FF A0 ? ? ? ? 48 8D 05";
