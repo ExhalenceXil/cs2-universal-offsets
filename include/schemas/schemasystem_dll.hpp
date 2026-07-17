@@ -3,7 +3,7 @@
 // module:        schemasystem.dll
 // classes:       7
 // enums:         1
-// generated_at:  2026-07-13T21:59:45.018658700+00:00
+// generated_at:  2026-07-17T14:18:04.645785800+00:00
 //
 // Use:
 //   auto* pawn = reinterpret_cast<C_CSPlayerPawn*>(addr);
@@ -37,24 +37,6 @@ namespace schemasystem {
         SCHEMA_FIELD(std::int32_t                    , m_nDerivedB                                     , 0x10) // int32
     };
 
-    // ResourceId_t
-    //   fields: 1
-    //   size: 0x8
-    class ResourceId_t {
-    public:
-        SCHEMA_FIELD(std::uint64_t                   , m_Value                                         , 0x0) // uint64
-    };
-
-    // CExampleSchemaVData_Monomorphic
-    //   fields: 2
-    //   size: 0x8
-    //   @MGetKV3ClassDefaults
-    class CExampleSchemaVData_Monomorphic {
-    public:
-        SCHEMA_FIELD(std::int32_t                    , m_nExample1                                     , 0x0) // int32
-        SCHEMA_FIELD(std::int32_t                    , m_nExample2                                     , 0x4) // int32
-    };
-
     // CExampleSchemaVData_PolymorphicDerivedA
     //   fields: 1
     //   size: 0x18
@@ -64,12 +46,21 @@ namespace schemasystem {
         SCHEMA_FIELD(std::int32_t                    , m_nDerivedA                                     , 0x10) // int32
     };
 
-    // InfoForResourceTypeCResourceManifestInternal
-    //   fields: 0
-    //   size: 0x1
-    //   @MResourceTypeForInfoType
-    class InfoForResourceTypeCResourceManifestInternal {
+    // CExampleSchemaVData_PolymorphicBase
+    //   fields: 1
+    //   size: 0x10
+    //   @MGetKV3ClassDefaults
+    class CExampleSchemaVData_PolymorphicBase {
     public:
+        SCHEMA_FIELD(std::int32_t                    , m_nBase                                         , 0x8) // int32
+    };
+
+    // ResourceId_t
+    //   fields: 1
+    //   size: 0x8
+    class ResourceId_t {
+    public:
+        SCHEMA_FIELD(std::uint64_t                   , m_Value                                         , 0x0) // uint64
     };
 
     // CSchemaSystemInternalRegistration
@@ -102,13 +93,22 @@ namespace schemasystem {
         SCHEMA_FIELD(KeyValues3                      , m_KV3                                           , 0x168) // KeyValues3
     };
 
-    // CExampleSchemaVData_PolymorphicBase
-    //   fields: 1
-    //   size: 0x10
-    //   @MGetKV3ClassDefaults
-    class CExampleSchemaVData_PolymorphicBase {
+    // InfoForResourceTypeCResourceManifestInternal
+    //   fields: 0
+    //   size: 0x1
+    //   @MResourceTypeForInfoType
+    class InfoForResourceTypeCResourceManifestInternal {
     public:
-        SCHEMA_FIELD(std::int32_t                    , m_nBase                                         , 0x8) // int32
+    };
+
+    // CExampleSchemaVData_Monomorphic
+    //   fields: 2
+    //   size: 0x8
+    //   @MGetKV3ClassDefaults
+    class CExampleSchemaVData_Monomorphic {
+    public:
+        SCHEMA_FIELD(std::int32_t                    , m_nExample1                                     , 0x0) // int32
+        SCHEMA_FIELD(std::int32_t                    , m_nExample2                                     , 0x4) // int32
     };
 
 } // namespace schemasystem
